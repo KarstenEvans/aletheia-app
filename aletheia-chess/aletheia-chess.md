@@ -4,17 +4,41 @@
 > **Application file:** `aletheia-chess.htm`  
 > **Specification file:** `aletheia-chess.md`
 
-## V0.9 — FEN-first A-PROMPT + audible Thalia
+## V0.9 — VIBE consensus A-PROMPT
 
 Version remains V0.9.
 
-### A-PROMPT SEARCH
-The copied handoff begins with the live FEN, side to move, recent SAN moves, selected VIBE and mode. The external AI is told to treat the FEN as the authoritative current position.
+### A-PROMPT SEARCH return format
 
-### Thalia
-Thalia remains optional and WINK-only. When enabled, WINK speaks its short chess suggestion first, then Thalia speaks one short quip. HINT remains instructional.
+The external AI receives the live FEN and evaluates the position through the nine current VIBEs:
 
-### Repository role
-This is an Aletheia Chess application with optional Thalia humour integration. In the Thalia repository it is stored under `examples/` so it does not alter the canonical Thalia Protocol.
+- Flying Mouse
+- Tiger
+- Dragon
+- Magnus
+- Kasparov
+- Gukesh
+- AlphaZero
+- Stockfish
+- Deep Blue
+
+The AI is told to group identical move recommendations, so a result can look like:
+
+`d4 — Magnus, Gukesh, Stockfish, Deep Blue`
+
+rather than repeating `d4` four times.
+
+The response ends with:
+
+```text
+COPY-BACK
+BEST CONSENSUS: d4
+ALTERNATIVES: Nf3, e4
+MOVE: d4
+```
+
+The final `MOVE:` line contains exactly one legal SAN move and no commentary. Aletheia Chess already accepts a `Move:` prefix, so the user can copy that line into the move box and press ENTER.
+
+The prompt explicitly treats named players/engines as VIBE lenses rather than claiming that the real person or engine chose the move.
 
 All other V0.9 behaviour remains unchanged.
