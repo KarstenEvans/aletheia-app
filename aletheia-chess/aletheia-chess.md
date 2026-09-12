@@ -45,7 +45,7 @@ All other V0.9 behaviour remains unchanged.
 
 ## Chess resources
 
-The app ends with a collapsed **CHESS RESOURCES & GIFTS** panel below the AI handoff settings. On mobile this follows the main board, VIBE panel and A-PROMPT controls.
+The app ends with a discreet **Additional information: Chess resources & gifts** link below the AI handoff settings. On mobile this follows the main board, VIBE panel and A-PROMPT controls. HELP repeats the link under **Additional information** without making it a primary game action.
 
 It opens this separate resource page in a new window so the current game is preserved:
 
