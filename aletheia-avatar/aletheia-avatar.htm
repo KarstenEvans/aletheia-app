@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aletheia Avatar</title>
+<meta name="description" content="Aletheia Avatar: a zero-spend-first avatar and AI-video workflow planner using Aletheia, Odysseus and Thalia.">
+<style>
+:root{color-scheme:light dark;--bg:#0d1117;--card:#161b22;--text:#e6edf3;--muted:#9da7b3;--line:#30363d;--accent:#58a6ff;--good:#3fb950;--warn:#d29922}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+main{max-width:900px;margin:auto;padding:18px}.hero{padding:20px 0 10px}.hero h1{margin:.2rem 0;font-size:clamp(2rem,7vw,3.8rem)}.hero p{color:var(--muted);max-width:62ch}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.25rem .6rem;margin:.15rem .25rem .15rem 0;font-size:.85rem}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0}
+label{display:block;font-weight:700;margin:.8rem 0 .3rem}input,textarea{width:100%;font:inherit;border:1px solid var(--line);background:transparent;color:inherit;border-radius:10px;padding:.75rem}
+textarea{min-height:90px;resize:vertical}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.choice{border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;background:transparent;color:inherit;text-align:left}.choice:hover,.choice.active{border-color:var(--accent);outline:1px solid var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}button{border:1px solid var(--line);border-radius:10px;padding:.7rem 1rem;background:transparent;color:inherit;font-weight:700;cursor:pointer}button.primary{background:var(--accent);color:#06111e;border-color:var(--accent)}
+pre{white-space:pre-wrap;word-break:break-word;background:#05080c;border:1px solid var(--line);border-radius:12px;padding:12px;max-height:520px;overflow:auto}.small{font-size:.9rem;color:var(--muted)}a{color:var(--accent)}
+.status{padding:.6rem .8rem;border-left:4px solid var(--warn);background:rgba(210,153,34,.08);margin:.7rem 0}
+footer{color:var(--muted);font-size:.85rem;padding:22px 0}
+@media (prefers-color-scheme:light){:root{--bg:#f6f8fa;--card:#fff;--text:#1f2328;--muted:#59636e;--line:#d0d7de;--accent:#0969da}pre{background:#f6f8fa}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<span class="badge">ALETHEIA</span><span class="badge">ODYSSEUS</span><span class="badge">THALIA</span>
+<h1>Aletheia Avatar</h1>
+<p>Describe the result. The app classifies the job, builds the smallest useful test, records what is known, and keeps the automatic spending ceiling at <strong>£0.00</strong>.</p>
+</section>
+<section class="panel">
+<h2>1. What do you want to make?</h2>
+<div class="choices" id="choices"></div>
+<label for="custom">Extra description</label>
+<textarea id="custom" placeholder="Example: Make me tell a short bedtime story in a moonlit garden, then show my tuxedo cat walking on the Moon."></textarea>
+</section>
+<section class="panel">
+<h2>2. What do you already have?</h2>
+<div class="choices" id="inputs"></div>
+<label for="anchors">Important identity anchors</label>
+<textarea id="anchors" placeholder="Example: tortoiseshell glasses, white/grey hair, eye region, facial structure."></textarea>
+<label for="script">Script / speech (optional)</label>
+<textarea id="script" placeholder="Paste speech here if this is a talking-avatar job."></textarea>
+</section>
+<section class="panel">
+<h2>3. Scene / style</h2>
+<label for="scene">Scene</label>
+<input id="scene" placeholder="Example: quiet lunar landscape with blue Earth on horizon">
+<label for="style">Style</label>
+<input id="style" placeholder="Example: gentle cinematic bedtime story">
+<label for="action">Action / motion</label>
+<input id="action" placeholder="Example: subtle head movement and natural blinking">
+</section>
+<section class="panel">
+<h2>4. Build test</h2>
+<div class="status">The first output is deliberately a <strong>test plan</strong>, not a claim that anything has already been generated.</div>
+<div class="actions">
+<button class="primary" onclick="build()">BUILD ROUTE + TEST PROMPT</button>
+<button onclick="ideas()">THALIA IDEAS</button>
+<button onclick="location.reload()">NEW</button>
+</div>
+</section>
+<section class="panel" id="resultPanel" hidden>
+<h2>Result</h2>
+<div class="actions">
+<button onclick="copyText('route')">COPY ROUTE</button>
+<button onclick="copyText('prompt')">COPY PROMPT</button>
+<button onclick="copyText('receipt')">COPY RECEIPT</button>
+</div>
+<h3>Odysseus route</h3><pre id="route"></pre>
+<h3>Test prompt</h3><pre id="prompt"></pre>
+<h3>Aletheia receipt</h3><pre id="receipt"></pre>
+<p class="small">For current tool candidates and privacy/free-tier checks, open <a href="aletheia-avatar-rsc.htm">aletheia-avatar-rsc.htm</a>.</p>
+</section>
+<footer>Aletheia verifies · Odysseus routes · Thalia creates · Avatar orchestrates.</footer>
+</main>
+<script>
+const jobs=[["talk","🗣️ Make my photo talk"],["replace","🎭 Put me/character into a video"],["motion","🕺 Copy movement from a video"],["scene","🎬 Put me into a new scene"],["alt","🪐 Create an alternative me"],["other","✨ Something else"]];
+const have=[["photo","📷 Photo / selfie"],["charphoto","🐈 Character / animal photo"],["video","🎞️ Existing video"],["drive","🕺 Driving / motion video"],["audio","🎙️ Recorded voice"],["text","📝 Script / text"]];
+let selectedJob="talk";const selectedInputs=new Set();
+function makeButtons(){const c=document.getElementById("choices");jobs.forEach(([id,label])=>{const b=document.createElement("button");b.type="button";b.className="choice"+(id===selectedJob?" active":"");b.dataset.id=id;b.textContent=label;b.onclick=()=>{selectedJob=id;[...c.children].forEach(x=>x.classList.toggle("active",x.dataset.id===id));};c.appendChild(b)});const i=document.getElementById("inputs");have.forEach(([id,label])=>{const b=document.createElement("button");b.type="button";b.className="choice";b.textContent=label;b.onclick=()=>{selectedInputs.has(id)?selectedInputs.delete(id):selectedInputs.add(id);b.classList.toggle("active")};i.appendChild(b)})}
+function val(id){return document.getElementById(id).value.trim()}
+function routeFor(id){return {talk:["Talking avatar","Photo + speech/audio → shortest available talking-avatar route","Fallback: local/open-source lip-sync or another verified free candidate"],replace:["Character replacement","Source video + identity reference → character/video remix route","Fallback: face replacement if full-body replacement is unnecessary"],motion:["Motion transfer","Driving video + identity reference → motion-transfer route","Fallback: image-to-video if exact motion retention is not required"],scene:["Image-to-video / scene generation","Reference image → short I2V test → scene generation","Fallback: still scene + talking-avatar/motion layer"],alt:["Identity-preserving transformation","Reference image → identity-preserving visual test → optional animation","Fallback: still-image transformation before video"],other:["Custom / hybrid","Use minimum number of transformation stages necessary","Fallback: split into independently testable assets"]}[id]}
+function build(){const [type,primary,fallback]=routeFor(selectedJob),anchors=val("anchors")||"Infer conservatively from the supplied reference.",custom=val("custom")||"No extra description supplied.",scene=val("scene")||"Keep environment simple for first test.",style=val("style")||"Natural and identity-first.",action=val("action")||"Minimal natural motion appropriate to the task.",script=val("script"),provided=[...selectedInputs].map(x=>have.find(h=>h[0]===x)[1]);document.getElementById("route").textContent="CLASSIFICATION: "+type+"\n\nZERO-SPEND CEILING: £0.00\n\nPRIMARY ROUTE:\n"+primary+"\n\nFALLBACK:\n"+fallback+"\n\nTEST-FIRST RULE:\nGenerate the shortest useful sample before full generation.\n\nINPUTS MARKED AS AVAILABLE:\n"+(provided.length?provided.join(", "):"None selected yet")+"\n\nREQUEST:\n"+custom;document.getElementById("prompt").textContent="Cinematography:\nShort identity test with stable framing.\n\nSubject:\nPreserve these identity anchors in priority order:\n"+anchors+"\n\nAction:\n"+action+(script?"\nSpeech/content:\n"+script:"")+"\n\nContext:\n"+scene+"\n\nAmbiance:\n"+style+"\n\nALETHEIA CONSTRAINT:\nIdentity fidelity outranks cinematic styling.";document.getElementById("receipt").textContent='aletheia_receipt:\n  status: PLANNED\n  transformation:\n    type: "'+type+'"\n  identity:\n    fidelity: UNTESTED\n  assets:\n    planned: [short_identity_test]\n    generated: []\n    verified: []\n  cost:\n    maximum_authorised: "£0.00"\n  privacy:\n    third_party_retention: UNKNOWN\n  next_action: "Check current route, then generate the shortest useful test."';document.getElementById("resultPanel").hidden=false}
+function ideas(){const x=["Moonlit storyteller","1940s newsreel presenter","Quiet sci-fi explorer","Natural documentary host","Victorian inventor","Miniature person inside a model railway","Cat co-presenter","Swindon time-traveller"];document.getElementById("custom").value=x[Math.floor(Math.random()*x.length)]+". "+val("custom")}
+async function copyText(id){try{await navigator.clipboard.writeText(document.getElementById(id).textContent)}catch(e){alert("Copy blocked; select text manually.")}}
+makeButtons();
+</script>
+</body>
+</html>
