@@ -42,3 +42,13 @@ The final `MOVE:` line contains exactly one legal SAN move and no commentary. Al
 The prompt explicitly treats named players/engines as VIBE lenses rather than claiming that the real person or engine chose the move.
 
 All other V0.9 behaviour remains unchanged.
+
+## Chess resources
+
+The app ends with a collapsed **CHESS RESOURCES & GIFTS** panel below the AI handoff settings. On mobile this follows the main board, VIBE panel and A-PROMPT controls.
+
+It opens this separate resource page in a new window so the current game is preserved:
+
+`https://swindon.org.uk/resources/aletheia-chess-rsc.htm`
+
+The resource page is editorial-first: free learning material and books come before commercial gifts. Ordinary learning links may be live immediately; commercial links are affiliate-ready and must retain a clear disclosure when tracking is added. The catalogue includes practical and luxury sets, Alice in Wonderland / Through the Looking-Glass chess, useful accessories, original chess humour, and cat-safe chess-themed ideas.
