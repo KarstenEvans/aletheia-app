@@ -2,7 +2,7 @@
 
 > **Purpose:** One working list for getting the Aletheia applications running, tested, linked and published.
 >
-> **Last updated:** 12 September 2026
+> **Last updated:** 13 September 2026
 >
 > This is an operational task list, not part of the canonical Aletheia Protocol.
 
@@ -63,6 +63,34 @@
   - Alice as the White Pawn on d2.
   - Guided story stages to d8 and promotion.
   - Clear warning that Carroll's literary schedule does not alternate turns normally.
+
+## Aletheia Love Translator
+
+- [x] Add `aletheia-love-translator/aletheia-love-translator.md`.
+- [x] Add runnable `aletheia-love-translator/aletheia-love-translator.htm`.
+- [x] Add a GitHub mirror of `aletheia-love-translator-rsc.htm`.
+- [x] Add the public resource rendition to `KarstenEvans/SwindonOrgUK/site/resources/aletheia-love-translator-rsc.htm`.
+- [x] Use an original Aletheia preference check rather than copying the official proprietary quiz.
+- [x] Use ranked profiles rather than forcing everybody into one fixed primary language.
+- [x] Add love translation between WORDS, ACTS, GIFTS, TIME and TOUCH.
+- [x] Add ten translation examples.
+- [x] Add the Repair layer:
+  - `INTENT → CURRENT STATE → PREFERRED CHANNEL → DIALECT → RESPONSE → REPAIR → VERIFY → RECALL`.
+- [x] Add the Repair Dictionary and `STATE ≠ CHARACTER` rule.
+- [x] Add optional Repair Receipt / recall concept.
+- [x] Add free-first gestures: handwritten notes, lunch-box notes, food faces, tea, disliked chores, own-garden flowers, photos, playlists, walks and undivided time.
+- [ ] Test the couple questionnaire, translation and Repair controls on mobile and desktop.
+- [ ] Verify the GitHub Pages URL after deployment.
+- [ ] Publish/sync the SwindonOrgUK `site/resources/` rendition to production `https://swindon.org.uk/resources/` during the Cloudflare/production migration.
+- [ ] Check commercial and seasonal links before Christmas or Black Friday use.
+
+## Thalia ASCII mark
+
+- [ ] Test **`T-)`** as the proposed lightweight Thalia signature in Markdown, static HTML, terminals, READMEs and AI-to-AI handoffs.
+- [ ] Keep `T-)` optional; omit it where humour is inappropriate or would interfere with serious context.
+- [ ] Test possible non-canonical variants such as `T-?`, `T-!`, `T-/` and `T-P`.
+- [ ] If it survives testing, propose `T-)` for the canonical Thalia Protocol instead of silently changing the protocol.
+- [ ] Preserve the truth boundary: the mark may signal humour or playful reinterpretation but must never alter factual state.
 
 ## Resource-page workflow
 
