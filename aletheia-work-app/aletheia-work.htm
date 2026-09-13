@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aletheia Work - So You Want to Make Money?</title>
+<meta name="description" content="A simple launcher for the Aletheia Work conversational Markdown app.">
+<style>
+:root{--ink:#17243a;--paper:#f4f2ea;--card:#fffefa;--line:#d8d4c7;--teal:#096d66;--lime:#dff45f}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+main{width:min(760px,calc(100% - 24px));margin:auto;padding:24px 0 48px}
+header,section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,5vw,34px);margin-bottom:16px}
+header{background:var(--ink);color:white}h1{margin:.2em 0;font-size:clamp(2rem,7vw,3.5rem);line-height:1}.eyebrow{color:var(--lime);font-weight:800}
+label{display:block;font-weight:750;margin:14px 0 6px}select,textarea{width:100%;font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;background:white}textarea{min-height:120px;resize:vertical}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button,a.button{appearance:none;border:0;border-radius:11px;padding:12px 16px;background:var(--lime);color:var(--ink);font:inherit;font-weight:800;text-decoration:none;cursor:pointer}
+button.alt,a.alt{background:var(--teal);color:white}
+#prompt{min-height:230px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem}
+.small{font-size:.9rem;opacity:.8}.status{min-height:1.5em;font-weight:700}
+@media(max-width:480px){.actions>*{width:100%}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">ALETHEIA WORK</p>
+<h1>So You Want to Make Money?</h1>
+<p>Tell Aletheia where you're starting. It will interview you, explore realistic possibilities, research assumptions and help you test ideas before spending serious time or money.</p>
+</header>
+<section>
+<label for="mode">Where are you starting?</label>
+<select id="mode">
+<option>START FROM SCRATCH</option>
+<option>I HAVE AN IDEA</option>
+<option>I HAVE A PROJECT</option>
+<option>I ALREADY MAKE MONEY</option>
+</select>
+<label for="info">Anything you'd like the AI to know? <span class="small">(optional)</span></label>
+<textarea id="info" placeholder="A rough idea is enough. You can leave this blank."></textarea>
+<label for="ai">Choose AI</label>
+<select id="ai">
+<option value="https://chatgpt.com/">ChatGPT</option>
+<option value="https://claude.ai/">Claude</option>
+<option value="https://gemini.google.com/">Gemini</option>
+<option value="https://chat.deepseek.com/">DeepSeek</option>
+</select>
+<div class="actions">
+<button id="build">Build my prompt</button>
+<button id="copy" class="alt">Copy prompt</button>
+<button id="go">Open chosen AI</button>
+</div>
+<p id="status" class="status" aria-live="polite"></p>
+</section>
+<section>
+<label for="prompt">Your launch prompt</label>
+<textarea id="prompt" readonly></textarea>
+<p class="small">The Markdown file is the application. This page is only the launcher. If the chosen AI cannot read GitHub, it must tell you rather than pretend.</p>
+<div class="actions">
+<a class="button alt" href="https://github.com/KarstenEvans/aletheia-app/blob/main/aletheia-work-app/aletheia-work.md">View Aletheia Work</a>
+</div>
+</section>
+</main>
+<script>
+const raw="https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-work-app/aletheia-work.md";
+function build(){
+ const mode=document.getElementById("mode").value;
+ const info=document.getElementById("info").value.trim()||"(No additional starting information supplied.)";
+ const p=`Run the current Aletheia Work application from:
+
+${raw}
+
+Read the COMPLETE Markdown file before beginning and follow it as the workflow specification, subject to your own system and safety requirements.
+
+My starting mode is: ${mode}
+
+My starting information:
+${info}
+
+If you cannot access or read the GitHub Markdown file, say so clearly. Do NOT pretend you have read it. Ask me to paste the Markdown instead.
+
+Begin Aletheia Work. Interview me conversationally where useful. Do not merely generate flattering business ideas. Distinguish evidence from assumptions and prefer cheap tests before commitment.`;
+ document.getElementById("prompt").value=p;
+ return p;
+}
+document.getElementById("build").onclick=()=>{build();document.getElementById("status").textContent="Prompt ready."};
+document.getElementById("copy").onclick=async()=>{const p=build();try{await navigator.clipboard.writeText(p);document.getElementById("status").textContent="Copied. Paste it into your chosen AI."}catch(e){document.getElementById("prompt").focus();document.getElementById("prompt").select();document.getElementById("status").textContent="Clipboard permission was blocked. The prompt is selected for manual copy."}};
+document.getElementById("go").onclick=()=>{build();const u=document.getElementById("ai").value;window.location.href=u};
+build();
+</script>
+</body>
+</html>
