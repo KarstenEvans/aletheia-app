@@ -42,6 +42,15 @@
     </details>
   </details>
 </div>
+<div class="card" style="margin-top:14px">
+  <div class="small"><strong>Game file</strong></div>
+  <div class="controls">
+    <button id="saveGameBtn">SAVE GAME</button>
+    <button id="loadGameBtn">LOAD GAME</button>
+    <input id="loadGameInput" type="file" accept=".md,text/markdown,text/plain" style="display:none">
+  </div>
+  <div class="small">Save the current position and game history as a portable <code>.md</code> file, then load it later to resume.</div>
+</div>
 <div class="small" style="margin:12px 2px 2px;text-align:right">Additional information: <a href="https://swindon.org.uk/resources/aletheia-chess-rsc.htm" target="_blank" rel="noopener">Chess resources &amp; gifts ↗</a></div>
 </div>
 <div class="overlay" id="startOverlay"><div class="modal"><h2>What sort of chess?</h2>
@@ -58,7 +67,7 @@
 <p><strong>Special moves:</strong> the app knows castling, promotion and <em>en passant</em> — the special pawn capture that can occur immediately after an adjacent pawn advances two squares.</p>
 <p><strong>Photo:</strong> use 📷 LOAD BOARD PHOTO to choose/take a board picture. This local page previews it. Ask an AI with vision to convert the position to FEN, then paste that FEN into LOAD FEN.</p>
 <p><strong>AI bridge:</strong> this static file keeps API keys out. A-PROMPT SEARCH sends the current FEN and game context to ChatGPT/Odysseus.</p>
-<p><strong>Undo / Flip / New Game:</strong> UNDO reverts one entered move, FLIP rotates the board, and NEW GAME resets the position and asks for a mode.</p>
+<p><strong>Undo / Flip / New Game:</strong> UNDO reverts one entered move, FLIP rotates the board, and NEW GAME resets the position and asks for a mode.</p><p><strong>Save / Load Game:</strong> near the bottom of the page, SAVE GAME downloads a portable Markdown game file containing the current position and history. LOAD GAME resumes from one of those files.</p>
 <p><strong>Suggested moves:</strong> HINT and WINK put candidate moves into the move box. Use ▲ / ▼ or keyboard Up/Down arrows to cycle them, then press ENTER to play the move shown.</p><p><strong>WINK:</strong> during play it stays discreet. It gives its suggestion directly without repeated preamble. Easter-egg details are not announced during ordinary play.</p><p><strong>Thalia:</strong> optional. When enabled, WINK may add a short original sci-fi/sitcom/chess-style quip. HINT remains instructional.</p><p><strong>VIBE:</strong> choose a light chess personality lens such as Flying Mouse, Magnus, Kasparov, AlphaZero or Stockfish. It changes how the coach frames ideas; it does not claim to reproduce that player or engine exactly. Your last choice is remembered.</p><p><strong>Voice:</strong> spoken advice is deliberately short. Detailed options remain in the transcript and move selector.</p><p><strong>A-PROMPT SEARCH:</strong> copies the live Aletheia chess-coach prompt and opens your chosen AI in a separate window. Paste the copied prompt there. The chess page stays open underneath.</p><p><strong>AI handoff settings:</strong> lower down the page you can choose ChatGPT, Gemini, Claude, DeepSeek or Grok. The choice is remembered. The handoff-text box below is kept filled with the current position as a visible/manual fallback.</p><p><strong>FEN handoff:</strong> A-PROMPT SEARCH sends the exact current position as a FEN-first prompt, together with side to move, recent moves and VIBE.</p><p><strong>Thalia:</strong> when THALIA is ON, WINK speaks a short quip after the main chess advice. HINT remains purely instructional.</p><p><strong>A-PROMPT return:</strong> the external AI is asked to compare all nine VIBEs, group identical move suggestions together, and finish with a plain <code>MOVE: ...</code> line. Copy that final line back into the move box and press ENTER.</p><p><strong>Additional information:</strong> <a href="https://swindon.org.uk/resources/aletheia-chess-rsc.htm" target="_blank" rel="noopener">Chess resources &amp; gifts</a> opens the SwindonOrgUK guide to learning, books, sets, Alice in Wonderland chess and gift ideas in a separate window, leaving your game open.</p><button id="closeHelp" class="primary">CLOSE</button></div></div>
 <script>
 (()=>{"use strict";const G={K:"♔",Q:"♕",R:"♖",B:"♗",N:"♘",P:"♙",k:"♚",q:"♛",r:"♜",b:"♝",n:"♞",p:"♟"},F="abcdefgh",start="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";let s=parseFEN(start),hist=[],sel=null,targets=[],flip=false,last=null,mode=null,assist=null,strat="Flying Mouse",log=[],teachLevel="learning",winkLog=[],voiceEnabled=true,voices=[],thaliaOn=false,suggestions=[],suggestionIndex=0,aiChoice="chatgpt";const $=id=>document.getElementById(id),svg=$("board");function col(p){return!p?null:p===p.toUpperCase()?"w":"b"}function enemy(c){return c==="w"?"b":"w"}function ok(r,c){return r>=0&&r<8&&c>=0&&c<8}function sq(r,c){return F[c]+(8-r)}function rc(x){return[8-+x[1],F.indexOf(x[0])]}function cp(x){return JSON.parse(JSON.stringify(x))}
@@ -233,6 +242,7 @@ function finishGame(){
  let d=darkSideDisclosure();
  $("teacher").textContent=d;
  alert(d);
+ if(confirm("Save this game as a Markdown file?")) saveGameFile();
 }
 
 function coach(a){let t=`Last move: ${a}\nSelected VIBE: ${strat}\n`;if(check(s,s.turn))t+=`${s.turn==="w"?"White":"Black"} is in check.\n`;if(mode==="human"&&assist!=="yes")t+="Live recommendations are off for this game. Moves can still be recorded for later analysis.";else t+=`Use A-PROMPT SEARCH for a full Aletheia recommendation.\n\nVIBE: ${strat}.`;$("coach").textContent=t;$("thalia").textContent="Thalia: "+({Tiger:"Pressure applied. The board has begun receiving strongly worded correspondence.",Dragon:"The dragon has moved. Fire insurance remains advisable.","Flying Mouse":"Quiet, mobile, and irritatingly difficult to swat."}[strat])}
@@ -298,6 +308,65 @@ function openAIPromptSearch(){
    prompt("Automatic copy was blocked. Copy this Aletheia chess prompt, then paste it into the AI window:",text);
  }
 }
+function gameStateForFile(){
+ return{
+  format:"ALETHEIA_CHESS_GAME",
+  version:"0.9",
+  savedAt:new Date().toISOString(),
+  state:{s,hist,last,mode,assist,strat,log,flip,teachLevel,winkLog,voiceEnabled,thaliaOn,aiChoice}
+ };
+}
+function gameMarkdown(){
+ let g=gameStateForFile(),moves=log.length?log.join(" "):"(none)";
+ return `# Aletheia Chess Game
+
+Saved: ${g.savedAt}
+Version: ${g.version}
+VIBE: ${strat}
+Mode: ${mode||"not set"}
+FEN: ${toFEN(s)}
+
+## Move history
+
+${moves}
+
+## Resume data
+
+Load this file with **LOAD GAME** in Aletheia Chess.
+
+\`\`\`json
+${JSON.stringify(g,null,2)}
+\`\`\`
+`;
+}
+function saveGameFile(){
+ let text=gameMarkdown();
+ let blob=new Blob([text],{type:"text/markdown;charset=utf-8"});
+ let a=document.createElement("a"),stamp=new Date().toISOString().replace(/[:T]/g,"-").slice(0,16);
+ a.href=URL.createObjectURL(blob);
+ a.download="aletheia-chess-game-"+stamp+".md";
+ document.body.appendChild(a);a.click();document.body.removeChild(a);
+ setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function loadGameText(text){
+ let m=text.match(/\`\`\`json\s*([\s\S]*?)\`\`\`/i);
+ if(!m)throw new Error("No Aletheia Chess resume data found.");
+ let g=JSON.parse(m[1]);
+ if(!g||g.format!=="ALETHEIA_CHESS_GAME"||!g.state||!g.state.s)throw new Error("Not a valid Aletheia Chess game file.");
+ let x=g.state;
+ s=x.s;hist=x.hist||[];last=x.last||null;mode=x.mode||null;assist=x.assist||null;strat=x.strat||"Flying Mouse";
+ log=x.log||[];flip=!!x.flip;teachLevel=x.teachLevel||"learning";winkLog=x.winkLog||[];
+ voiceEnabled=x.voiceEnabled!==false;thaliaOn=x.thaliaOn===true;aiChoice=x.aiChoice||"chatgpt";
+ sel=null;targets=[];suggestions=[];suggestionIndex=0;
+ if($("vibeSelect"))$("vibeSelect").value=strat;
+ if($("aiSelect"))$("aiSelect").value=aiChoice;
+ $("strategyName").textContent=strat;$("vibeNote").textContent=vibeDescription(strat);
+ $("voiceToggle").textContent=voiceEnabled?"🔊 VOICE ON":"🔇 VOICE OFF";
+ $("thaliaToggle").textContent=thaliaOn?"THALIA ON":"THALIA OFF";
+ $("modeBadge").textContent=mode==="ai"?"Play Aletheia":mode==="self"?"Aletheia self-play / demo":mode==="trainer"?"Two-player trainer":"Mode not chosen";
+ save();render();refreshHandoff();
+ $("teacher").textContent="Saved game loaded. Check the board position before continuing.";
+}
 function promptText(){return`ALETHEIA CHESS — A-PROMPT SEARCH
 
 FEN: ${toFEN(s)}
@@ -360,6 +429,9 @@ $("moveInput").addEventListener("keydown",e=>{
  if(e.key==="ArrowDown"){e.preventDefault();cycleSuggestion(1)}
 });
 $("thaliaToggle").onclick=()=>{thaliaOn=!thaliaOn;$("thaliaToggle").textContent=thaliaOn?"THALIA ON":"THALIA OFF";if(!thaliaOn)$("thalia").textContent="";save();};$("voiceToggle").onclick=()=>{voiceEnabled=!voiceEnabled;$("voiceToggle").textContent=voiceEnabled?"🔊 VOICE ON":"🔇 VOICE OFF";if(!voiceEnabled&&"speechSynthesis" in window)speechSynthesis.cancel();save()};$("voiceSelect").onchange=()=>save();$("aiSelect").onchange=()=>{aiChoice=$("aiSelect").value;if($("handoffText"))$("handoffText").value=promptText();save();};
+$("saveGameBtn").onclick=saveGameFile;
+$("loadGameBtn").onclick=()=>$("loadGameInput").click();
+$("loadGameInput").onchange=e=>{let f=e.target.files&&e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{loadGameText(String(r.result||""))}catch(err){alert(err.message||"Could not load this game file.")}e.target.value=""};r.readAsText(f);};
 $("photoBtn").onclick=()=>$("photoInput").click();
 $("photoInput").onchange=e=>{let f=e.target.files&&e.target.files[0];if(!f)return;let img=$("photoPreview");img.src=URL.createObjectURL(f);img.style.display="block";$("teacher").textContent="Photo loaded locally. Use an AI with vision to read the board and return FEN, then paste the FEN below.";};
 $("fenBtn").onclick=()=>{let f=$("fenInput").value.trim();try{let n=parseFEN(f);if(!n.board||n.board.length!==8)throw 0;s=n;hist=[];last=null;log=[];winkLog=[];suggestions=[];suggestionIndex=0;sel=null;targets=[];save();render();refreshHandoff();$("teacher").textContent="FEN loaded. Check the reconstructed board against the photograph before continuing.";}catch(e){alert("That does not look like a usable FEN position.");}};
