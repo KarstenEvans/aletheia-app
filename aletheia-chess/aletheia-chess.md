@@ -67,3 +67,38 @@ The resource page is editorial-first: free learning material and books come befo
 - The intended public resource URL remains:
   `https://swindon.org.uk/resources/aletheia-chess-rsc.htm`
   even while Swindon.org.uk hosting/DNS is being repaired.
+
+
+## Save / Load Game
+
+Aletheia Chess supports a portable Markdown save file so a game can be paused and resumed.
+
+### SAVE GAME
+
+The quiet utility controls live near the bottom of the page rather than in the main board controls.
+
+`SAVE GAME` downloads a file named approximately:
+
+`aletheia-chess-game-YYYY-MM-DD-HH-MM.md`
+
+The file contains:
+
+- saved date/time;
+- app version;
+- current VIBE;
+- current mode;
+- current FEN;
+- human-readable move history;
+- a fenced JSON resume block containing the current browser game state.
+
+The Markdown remains readable by humans and AIs while also being reloadable by the HTML app.
+
+### LOAD GAME
+
+`LOAD GAME` accepts an Aletheia Chess `.md` save file, restores the recorded state, redraws the board and lets the user continue.
+
+### END GAME
+
+`END GAME` still displays the assistance/disclosure result and then offers to save the completed game as Markdown.
+
+This uses file export rather than a server-side game database. Browser localStorage remains the lightweight automatic working state between visits.
