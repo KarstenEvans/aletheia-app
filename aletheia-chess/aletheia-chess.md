@@ -102,3 +102,34 @@ The Markdown remains readable by humans and AIs while also being reloadable by t
 `END GAME` still displays the assistance/disclosure result and then offers to save the completed game as Markdown.
 
 This uses file export rather than a server-side game database. Browser localStorage remains the lightweight automatic working state between visits.
+
+
+## V0.9 Play / Demo / Review refinements
+
+- **Play Aletheia** now plays the opposite side automatically.
+  - The human plays the colour shown at the bottom of the board.
+  - White at the bottom: human is White; Aletheia replies as Black.
+  - Black at the bottom: human is Black; Aletheia plays White first.
+  - Default reply delay: **5 seconds**.
+  - In Play Aletheia, both colours use the selected look-ahead depth.
+- **Demo Coach**
+  - Default delay: **10 seconds**.
+  - Delay choices: 5, 10, 20, 30, 45, 60 seconds.
+  - White uses a one-move look-ahead.
+  - Black uses the selected look-ahead depth.
+  - Look-ahead range: **1–5**, default **3**.
+  - Each demo move gets a short coaching reason before it is played.
+- **A-PROMPT**
+  - sends full recorded game history as supporting context;
+  - keeps FEN authoritative;
+  - adds optional GAME REVIEW / LEARNING instructions for key moments, mistakes, better plans and retry positions;
+  - must not invent engine scores, accuracy percentages or unsupported classifications;
+  - copies the full A-PROMPT before opening the chosen AI where the browser allows it;
+  - includes a visible **COPY FULL A-PROMPT** fallback.
+- **Game files**
+  - SAVE GAME and LOAD GAME support mid-game pause/resume using a portable Markdown file.
+- **Deeper engine analysis**
+  - lower-page links point to Lichess Analysis and Chess.com Analysis.
+- **AI window sizing**
+  - desktop popup size can be adjusted and saved;
+  - mobile browsers may ignore popup dimensions and open a normal tab.
