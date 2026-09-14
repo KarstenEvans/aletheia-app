@@ -36,11 +36,39 @@
         <option value="grok">Grok</option>
       </select>
     </div>
-    <details style="margin-top:8px">
+    <details id="handoffDetails" style="margin-top:8px">
       <summary>Show Aletheia handoff text</summary>
       <textarea id="handoffText" readonly style="width:100%;min-height:170px;margin-top:8px;font:inherit"></textarea>
+      <div class="controls"><button id="copyPromptBtn">COPY FULL A-PROMPT</button></div>
     </details>
   </details>
+</div>
+<div class="card" style="margin-top:14px">
+  <div class="small"><strong>Demo Coach</strong></div>
+  <div class="controls">
+    <label class="small">Move every
+      <select id="demoDelay" aria-label="Demo delay">
+        <option value="5">5 seconds</option>
+        <option value="10" selected>10 seconds</option>
+        <option value="20">20 seconds</option>
+        <option value="30">30 seconds</option>
+        <option value="45">45 seconds</option>
+        <option value="60">60 seconds</option>
+      </select>
+    </label>
+    <label class="small">Black think-ahead
+      <select id="blackThinkDepth" aria-label="Black think ahead">
+        <option value="1">1 move</option>
+        <option value="2">2 moves</option>
+        <option value="3" selected>3 moves</option>
+        <option value="4">4 moves</option>
+        <option value="5">5 moves</option>
+      </select>
+    </label>
+    <button id="demoStartBtn">START DEMO</button>
+    <button id="demoStopBtn">STOP</button>
+  </div>
+  <div class="small">Aletheia plays both sides using the WINK-style move choice, briefly explains why, waits, then makes the move. In Demo Coach, White uses a one-move look-ahead and Black uses the selected think-ahead depth (1–5). In Play Aletheia, the selected depth is used for both colours. Use this as a teaching demonstration rather than engine-strength play.</div>
 </div>
 <div class="card" style="margin-top:14px">
   <div class="small"><strong>Game file</strong></div>
@@ -51,15 +79,35 @@
   </div>
   <div class="small">Save the current position and game history as a portable <code>.md</code> file, then load it later to resume.</div>
 </div>
+<div class="card" style="margin-top:14px">
+  <div class="small"><strong>AI window size</strong></div>
+  <div class="controls">
+    <label class="small">Width <input id="popupWidth" type="number" min="320" max="1600" step="10" value="900" style="width:86px"></label>
+    <label class="small">Height <input id="popupHeight" type="number" min="400" max="1400" step="10" value="740" style="width:86px"></label>
+    <button id="savePopupSizeBtn">SAVE SIZE</button>
+    <button id="resetPopupSizeBtn">AUTO</button>
+  </div>
+  <div class="small">Browsers on phones may ignore requested popup dimensions and open a normal tab. These settings are used where the browser allows a resizable popup.</div>
+</div>
+<div class="card" style="margin-top:14px">
+  <div class="small"><strong>Want deeper engine analysis?</strong></div>
+  <p class="small" style="margin:7px 0 0">
+    Save or copy your game and analyse it with a dedicated chess service.
+    <a href="https://lichess.org/analysis" target="_blank" rel="noopener">Lichess analysis ↗</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.chess.com/analysis" target="_blank" rel="noopener">Chess.com analysis ↗</a>
+  </p>
+</div>
 <div class="small" style="margin:12px 2px 2px;text-align:right">Additional information: <a href="https://swindon.org.uk/resources/aletheia-chess-rsc.htm" target="_blank" rel="noopener">Chess resources &amp; gifts ↗</a></div>
 </div>
 <div class="overlay" id="startOverlay"><div class="modal"><h2>What sort of chess?</h2>
-<button class="choice" data-mode="ai"><strong>1. Play Aletheia</strong><br><span class="small">You play one side. Use the AI bridge when you want Aletheia's reply.</span></button>
+<button class="choice" data-mode="ai"><strong>1. Play Aletheia</strong><br><span class="small">You play the side shown at the bottom of the board. Aletheia automatically plays the other side after the selected delay.</span></button>
 <button class="choice" data-mode="self"><strong>2. Aletheia demonstration / self-play</strong><br><span class="small">Follow an AI-v-AI demonstration or study line.</span></button>
 <button class="choice" data-mode="trainer"><strong>3. Two-player Chess Trainer</strong><br><span class="small">Two humans play. The app teaches rules, legal moves and chess ideas without choosing every move.</span></button></div></div>
 <div class="overlay" id="assistOverlay"><div class="modal"><h2>Human game</h2><p>Is outside / AI assistance allowed in this game?</p><button class="choice" data-assist="yes"><strong>YES</strong> · enable live coaching</button><button class="choice" data-assist="no"><strong>NO</strong> · record moves only</button><button class="choice" data-assist="unsure"><strong>NOT SURE</strong> · record moves only</button></div></div>
 <div class="overlay" id="helpOverlay"><div class="modal"><h2>HELP</h2>
 <p><strong>Move:</strong> tap a piece, then tap one of its highlighted legal squares. You can also type <code>e4</code>, <code>Nf3</code> or <code>e2-e4</code>.</p>
+<p><strong>Play Aletheia:</strong> you play the colour at the bottom of the board. With White at the bottom, you move first and Aletheia replies as Black. FLIP makes you Black, so Aletheia plays White first. Aletheia replies automatically after the selected delay.</p>
 <p><strong>Trainer:</strong> for two people at a real board. Enter each move here. Select a piece to see where it may legally move. BEGINNER explains pieces and special rules; LEARNING focuses on ideas; QUIET COACH speaks mainly when something important happens.</p>
 <p><strong>HINT:</strong> speaks candidate options and reasons without choosing for you. If a piece is selected, HINT concentrates on that piece. If nothing is selected, it discusses useful candidate pieces/moves for the side whose turn it is.</p>
 <p><strong>WINK ◼:</strong> gives one strongest candidate. For White it evaluates only the immediate move. For Black it searches further through likely replies: Black has gone to the Dark Side. It never deliberately gives White false advice. Every WINK use is logged and declared at END GAME.</p><p><strong>Voice:</strong> Trainer advice is spoken as well as shown below the board. The app prefers an Australian voice named Charlotte when the device provides one; otherwise choose another voice from the list.</p>
@@ -67,17 +115,17 @@
 <p><strong>Special moves:</strong> the app knows castling, promotion and <em>en passant</em> — the special pawn capture that can occur immediately after an adjacent pawn advances two squares.</p>
 <p><strong>Photo:</strong> use 📷 LOAD BOARD PHOTO to choose/take a board picture. This local page previews it. Ask an AI with vision to convert the position to FEN, then paste that FEN into LOAD FEN.</p>
 <p><strong>AI bridge:</strong> this static file keeps API keys out. A-PROMPT SEARCH sends the current FEN and game context to ChatGPT/Odysseus.</p>
-<p><strong>Undo / Flip / New Game:</strong> UNDO reverts one entered move, FLIP rotates the board, and NEW GAME resets the position and asks for a mode.</p><p><strong>Save / Load Game:</strong> near the bottom of the page, SAVE GAME downloads a portable Markdown game file containing the current position and history. LOAD GAME resumes from one of those files.</p>
-<p><strong>Suggested moves:</strong> HINT and WINK put candidate moves into the move box. Use ▲ / ▼ or keyboard Up/Down arrows to cycle them, then press ENTER to play the move shown.</p><p><strong>WINK:</strong> during play it stays discreet. It gives its suggestion directly without repeated preamble. Easter-egg details are not announced during ordinary play.</p><p><strong>Thalia:</strong> optional. When enabled, WINK may add a short original sci-fi/sitcom/chess-style quip. HINT remains instructional.</p><p><strong>VIBE:</strong> choose a light chess personality lens such as Flying Mouse, Magnus, Kasparov, AlphaZero or Stockfish. It changes how the coach frames ideas; it does not claim to reproduce that player or engine exactly. Your last choice is remembered.</p><p><strong>Voice:</strong> spoken advice is deliberately short. Detailed options remain in the transcript and move selector.</p><p><strong>A-PROMPT SEARCH:</strong> copies the live Aletheia chess-coach prompt and opens your chosen AI in a separate window. Paste the copied prompt there. The chess page stays open underneath.</p><p><strong>AI handoff settings:</strong> lower down the page you can choose ChatGPT, Gemini, Claude, DeepSeek or Grok. The choice is remembered. The handoff-text box below is kept filled with the current position as a visible/manual fallback.</p><p><strong>FEN handoff:</strong> A-PROMPT SEARCH sends the exact current position as a FEN-first prompt, together with side to move, recent moves and VIBE.</p><p><strong>Thalia:</strong> when THALIA is ON, WINK speaks a short quip after the main chess advice. HINT remains purely instructional.</p><p><strong>A-PROMPT return:</strong> the external AI is asked to compare all nine VIBEs, group identical move suggestions together, and finish with a plain <code>MOVE: ...</code> line. Copy that final line back into the move box and press ENTER.</p><p><strong>Additional information:</strong> <a href="https://swindon.org.uk/resources/aletheia-chess-rsc.htm" target="_blank" rel="noopener">Chess resources &amp; gifts</a> opens the SwindonOrgUK guide to learning, books, sets, Alice in Wonderland chess and gift ideas in a separate window, leaving your game open.</p><button id="closeHelp" class="primary">CLOSE</button></div></div>
+<p><strong>Undo / Flip / New Game:</strong> UNDO reverts one entered move, FLIP rotates the board, and NEW GAME resets the position and asks for a mode.</p><p><strong>Save / Load Game:</strong> near the bottom of the page, SAVE GAME downloads a portable Markdown game file containing the current position and history. LOAD GAME resumes from one of those files.</p><p><strong>Demo Coach:</strong> lower down the page, choose 5–60 seconds and start a self-play teaching demonstration. Aletheia suggests a move for each side, gives a short chess reason, waits, then plays it automatically. In Demo Coach, White looks one move ahead and Black uses the selected 1–5 move think-ahead depth. In Play Aletheia, both colours use the selected depth.</p><p><strong>AI window size:</strong> desktop browsers can use your preferred popup width and height. Mobile browsers may ignore popup dimensions and open a normal tab; this is controlled by the browser rather than the chess app.</p>
+<p><strong>Suggested moves:</strong> HINT and WINK put candidate moves into the move box. Use ▲ / ▼ or keyboard Up/Down arrows to cycle them, then press ENTER to play the move shown.</p><p><strong>WINK:</strong> during play it stays discreet. It gives its suggestion directly without repeated preamble. Easter-egg details are not announced during ordinary play.</p><p><strong>Thalia:</strong> optional. When enabled, WINK may add a short original sci-fi/sitcom/chess-style quip. HINT remains instructional.</p><p><strong>VIBE:</strong> choose a light chess personality lens such as Flying Mouse, Magnus, Kasparov, AlphaZero or Stockfish. It changes how the coach frames ideas; it does not claim to reproduce that player or engine exactly. Your last choice is remembered.</p><p><strong>Voice:</strong> spoken advice is deliberately short. Detailed options remain in the transcript and move selector.</p><p><strong>A-PROMPT SEARCH:</strong> tries to copy the complete live chess-coach prompt first, then opens your chosen AI. If the browser blocks clipboard access, open the handoff text and use <strong>COPY FULL A-PROMPT</strong> or copy it manually. A failed copy can leave older clipboard text, such as a FEN, unchanged.</p><p><strong>AI handoff settings:</strong> lower down the page you can choose ChatGPT, Gemini, Claude, DeepSeek or Grok. The choice is remembered. The handoff-text box below is kept filled with the current position as a visible/manual fallback.</p><p><strong>FEN handoff:</strong> A-PROMPT SEARCH sends the exact current position as a FEN-first prompt, together with side to move, recent moves and VIBE.</p><p><strong>Thalia:</strong> when THALIA is ON, WINK speaks a short quip after the main chess advice. HINT remains purely instructional.</p><p><strong>A-PROMPT return:</strong> the external AI is asked to compare all nine VIBEs, group identical move suggestions together, and finish with a plain <code>MOVE: ...</code> line. Copy that final line back into the move box and press ENTER.</p><p><strong>Game review / learning:</strong> when move history is available, the A-PROMPT also asks the AI to identify useful key moments, explain important mistakes, suggest better plans, and help the player learn without inventing engine scores or accuracy figures.</p><p><strong>Additional information:</strong> <a href="https://swindon.org.uk/resources/aletheia-chess-rsc.htm" target="_blank" rel="noopener">Chess resources &amp; gifts</a> opens the SwindonOrgUK guide to learning, books, sets, Alice in Wonderland chess and gift ideas in a separate window, leaving your game open.</p><button id="closeHelp" class="primary">CLOSE</button></div></div>
 <script>
-(()=>{"use strict";const G={K:"♔",Q:"♕",R:"♖",B:"♗",N:"♘",P:"♙",k:"♚",q:"♛",r:"♜",b:"♝",n:"♞",p:"♟"},F="abcdefgh",start="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";let s=parseFEN(start),hist=[],sel=null,targets=[],flip=false,last=null,mode=null,assist=null,strat="Flying Mouse",log=[],teachLevel="learning",winkLog=[],voiceEnabled=true,voices=[],thaliaOn=false,suggestions=[],suggestionIndex=0,aiChoice="chatgpt";const $=id=>document.getElementById(id),svg=$("board");function col(p){return!p?null:p===p.toUpperCase()?"w":"b"}function enemy(c){return c==="w"?"b":"w"}function ok(r,c){return r>=0&&r<8&&c>=0&&c<8}function sq(r,c){return F[c]+(8-r)}function rc(x){return[8-+x[1],F.indexOf(x[0])]}function cp(x){return JSON.parse(JSON.stringify(x))}
+(()=>{"use strict";const G={K:"♔",Q:"♕",R:"♖",B:"♗",N:"♘",P:"♙",k:"♚",q:"♛",r:"♜",b:"♝",n:"♞",p:"♟"},F="abcdefgh",start="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";let s=parseFEN(start),hist=[],sel=null,targets=[],flip=false,last=null,mode=null,assist=null,strat="Flying Mouse",log=[],teachLevel="learning",winkLog=[],voiceEnabled=true,voices=[],thaliaOn=false,suggestions=[],suggestionIndex=0,aiChoice="chatgpt",demoRunning=false,demoTimer=null,aletheiaTimer=null;const $=id=>document.getElementById(id),svg=$("board");function col(p){return!p?null:p===p.toUpperCase()?"w":"b"}function enemy(c){return c==="w"?"b":"w"}function ok(r,c){return r>=0&&r<8&&c>=0&&c<8}function sq(r,c){return F[c]+(8-r)}function rc(x){return[8-+x[1],F.indexOf(x[0])]}function cp(x){return JSON.parse(JSON.stringify(x))}
 function parseFEN(f){let[a,t,ca,ep,h,m]=f.split(/\s+/),b=[];for(const row of a.split("/")){let q=[];for(const ch of row){if(/\d/.test(ch))for(let i=0;i<+ch;i++)q.push(null);else q.push(ch)}b.push(q)}return{board:b,turn:t,castling:ca||"-",ep:ep||"-",half:+h||0,full:+m||1}}function toFEN(x){let rows=x.board.map(row=>{let o="",e=0;for(const p of row){if(!p)e++;else{if(e){o+=e;e=0}o+=p}}if(e)o+=e;return o});return rows.join("/")+" "+x.turn+" "+(x.castling||"-")+" "+(x.ep||"-")+" "+x.half+" "+x.full}
 function king(x,c){let k=c==="w"?"K":"k";for(let r=0;r<8;r++)for(let q=0;q<8;q++)if(x.board[r][q]===k)return[r,q];return null}function attacked(x,r,c,a){let p=a==="w"?"P":"p",pr=a==="w"?r+1:r-1;for(const dc of[-1,1])if(ok(pr,c+dc)&&x.board[pr][c+dc]===p)return true;let n=a==="w"?"N":"n";for(const[d,e]of[[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]])if(ok(r+d,c+e)&&x.board[r+d][c+e]===n)return true;let k=a==="w"?"K":"k";for(let d=-1;d<=1;d++)for(let e=-1;e<=1;e++)if((d||e)&&ok(r+d,c+e)&&x.board[r+d][c+e]===k)return true;let R=a==="w"?"R":"r",B=a==="w"?"B":"b",Q=a==="w"?"Q":"q";for(const[d,e,T]of[[1,0,[R,Q]],[-1,0,[R,Q]],[0,1,[R,Q]],[0,-1,[R,Q]],[1,1,[B,Q]],[1,-1,[B,Q]],[-1,1,[B,Q]],[-1,-1,[B,Q]]]){let rr=r+d,cc=c+e;while(ok(rr,cc)){let z=x.board[rr][cc];if(z){if(T.includes(z))return true;break}rr+=d;cc+=e}}return false}function check(x,c){let k=king(x,c);return k?attacked(x,k[0],k[1],enemy(c)):true}
 function pseudo(x,r,c){let p=x.board[r][c];if(!p)return[];let C=col(p),o=[],add=(rr,cc,ex={})=>{if(!ok(rr,cc))return;let t=x.board[rr][cc];if(!t||col(t)!==C)o.push({from:[r,c],to:[rr,cc],piece:p,capture:t||null,...ex})},slide=D=>{for(const[d,e]of D){let rr=r+d,cc=c+e;while(ok(rr,cc)){let t=x.board[rr][cc];if(!t)o.push({from:[r,c],to:[rr,cc],piece:p,capture:null});else{if(col(t)!==C)o.push({from:[r,c],to:[rr,cc],piece:p,capture:t});break}rr+=d;cc+=e}}};switch(p.toLowerCase()){case"p":{let d=C==="w"?-1:1,st=C==="w"?6:1,pr=C==="w"?0:7;if(ok(r+d,c)&&!x.board[r+d][c]){o.push({from:[r,c],to:[r+d,c],piece:p,promotion:r+d===pr});if(r===st&&!x.board[r+2*d][c])o.push({from:[r,c],to:[r+2*d,c],piece:p,doublePawn:true})}for(const e of[-1,1]){let rr=r+d,cc=c+e;if(!ok(rr,cc))continue;let t=x.board[rr][cc];if(t&&col(t)!==C)o.push({from:[r,c],to:[rr,cc],piece:p,capture:t,promotion:rr===pr});if(x.ep!=="-"&&sq(rr,cc)===x.ep)o.push({from:[r,c],to:[rr,cc],piece:p,capture:C==="w"?"p":"P",enPassant:true})}break}case"n":for(const[d,e]of[[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]])add(r+d,c+e);break;case"b":slide([[1,1],[1,-1],[-1,1],[-1,-1]]);break;case"r":slide([[1,0],[-1,0],[0,1],[0,-1]]);break;case"q":slide([[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]);break;case"k":for(let d=-1;d<=1;d++)for(let e=-1;e<=1;e++)if(d||e)add(r+d,c+e);let z=x.castling||"";if(C==="w"&&r===7&&c===4&&!check(x,"w")){if(z.includes("K")&&!x.board[7][5]&&!x.board[7][6]&&x.board[7][7]==="R"&&!attacked(x,7,5,"b")&&!attacked(x,7,6,"b"))o.push({from:[7,4],to:[7,6],piece:p,castle:"K"});if(z.includes("Q")&&!x.board[7][1]&&!x.board[7][2]&&!x.board[7][3]&&x.board[7][0]==="R"&&!attacked(x,7,3,"b")&&!attacked(x,7,2,"b"))o.push({from:[7,4],to:[7,2],piece:p,castle:"Q"})}if(C==="b"&&r===0&&c===4&&!check(x,"b")){if(z.includes("k")&&!x.board[0][5]&&!x.board[0][6]&&x.board[0][7]==="r"&&!attacked(x,0,5,"w")&&!attacked(x,0,6,"w"))o.push({from:[0,4],to:[0,6],piece:p,castle:"k"});if(z.includes("q")&&!x.board[0][1]&&!x.board[0][2]&&!x.board[0][3]&&x.board[0][0]==="r"&&!attacked(x,0,3,"w")&&!attacked(x,0,2,"w"))o.push({from:[0,4],to:[0,2],piece:p,castle:"q"})}break}return o}
 function apply(x,m,promo="Q"){let n=cp(x),[fr,fc]=m.from,[tr,tc]=m.to,p=n.board[fr][fc],C=col(p);n.board[fr][fc]=null;if(m.enPassant)n.board[fr][tc]=null;let placed=p;if(m.promotion)placed=C==="w"?promo.toUpperCase():promo.toLowerCase();n.board[tr][tc]=placed;if(m.castle){if(tc===6){n.board[tr][5]=n.board[tr][7];n.board[tr][7]=null}else{n.board[tr][3]=n.board[tr][0];n.board[tr][0]=null}}let z=n.castling==="-"?"":n.castling;if(p==="K")z=z.replace(/[KQ]/g,"");if(p==="k")z=z.replace(/[kq]/g,"");if(fr===7&&fc===0)z=z.replace("Q","");if(fr===7&&fc===7)z=z.replace("K","");if(fr===0&&fc===0)z=z.replace("q","");if(fr===0&&fc===7)z=z.replace("k","");if(tr===7&&tc===0)z=z.replace("Q","");if(tr===7&&tc===7)z=z.replace("K","");if(tr===0&&tc===0)z=z.replace("q","");if(tr===0&&tc===7)z=z.replace("k","");n.castling=z||"-";n.ep="-";if(m.doublePawn)n.ep=sq((fr+tr)/2,fc);n.half=(p.toLowerCase()==="p"||m.capture)?0:x.half+1;if(x.turn==="b")n.full=x.full+1;n.turn=enemy(x.turn);return n}
 function legalFrom(x,r,c){let p=x.board[r][c];if(!p||col(p)!==x.turn)return[];return pseudo(x,r,c).filter(m=>!check(apply(x,m,"Q"),x.turn))}function allLegal(x){let o=[];for(let r=0;r<8;r++)for(let c=0;c<8;c++)o.push(...legalFrom(x,r,c));return o}function san(x,m,promo="Q"){if(m.castle)return m.to[1]===6?"O-O":"O-O-O";let p=m.piece,L=p.toLowerCase(),a="";if(L!=="p")a+=p.toUpperCase();if(L==="p"&&(m.capture||m.enPassant))a+=F[m.from[1]];if(m.capture||m.enPassant)a+="x";a+=sq(...m.to);if(m.promotion)a+="="+promo.toUpperCase();let n=apply(x,m,promo);if(check(n,n.turn))a+=allLegal(n).length?"+":"#";return a}
 function typed(t){t=(t||"").trim().replace(/^move\s*:\s*/i,"").replace(/[–—]/g,"-").replace(/0-0/g,"O-O");let L=allLegal(s),c=t.replace(/[-\s]/g,"");if(/^[a-h][1-8][a-h][1-8][qrbnQRBN]?$/.test(c)){let f=rc(c.slice(0,2)),to=rc(c.slice(2,4)),m=L.find(x=>x.from[0]===f[0]&&x.from[1]===f[1]&&x.to[0]===to[0]&&x.to[1]===to[1]);return m?{m,p:c[4]||"Q"}:null}let q=t.replace(/[!?]+$/,"").replace(/\s+/g,"");for(const m of L)for(const p of(m.promotion?["Q","R","B","N"]:["Q"])){let a=san(s,m,p);if(a.toLowerCase()===q.toLowerCase()||a.replace(/[+#]$/,"").toLowerCase()===q.replace(/[+#]$/,"").toLowerCase())return{m,p}}if(/^[a-h][1-8]$/i.test(q)){q=q.toLowerCase();let to=rc(q),ms=L.filter(m=>m.piece.toLowerCase()==="p"&&m.to[0]===to[0]&&m.to[1]===to[1]&&!m.capture);if(ms.length===1)return{m:ms[0],p:"Q"}}return null}
-function commit(m,p="Q"){hist.push({s:cp(s),log:[...log],last:last?cp(last):null});let a=san(s,m,p);s=apply(s,m,p);log.push(a);last={from:m.from,to:m.to,san:a};sel=null;targets=[];suggestions=[];suggestionIndex=0;coach(a);save();render()}
+function commit(m,p="Q"){hist.push({s:cp(s),log:[...log],last:last?cp(last):null});let a=san(s,m,p);s=apply(s,m,p);log.push(a);last={from:m.from,to:m.to,san:a};sel=null;targets=[];suggestions=[];suggestionIndex=0;coach(a);save();render();scheduleAletheiaReply()}
 
 function setSuggestions(list,preferredIndex=0){
  suggestions=(list||[]).filter(Boolean);
@@ -200,8 +248,14 @@ function wink(){
  if(!moves.length){speak("There are no legal moves from this selection.","No legal moves from this selection.");return}
  let side=s.turn==="w"?"White":"Black";
  let ranked;
- if(s.turn==="b"){
-   ranked=[...moves].map(m=>({m,score:searchBlack(apply(s,m,"Q"),2)}))
+ if(mode==="ai"){
+   let depth=blackThinkDepthValue();
+   ranked=[...moves].map(m=>({m,score:searchBlack(apply(s,m,"Q"),Math.max(0,depth-1))}))
+     .sort((a,b)=>s.turn==="b"?b.score-a.score:a.score-b.score)
+     .map(x=>x.m);
+ }else if(s.turn==="b"){
+   let depth=blackThinkDepthValue();
+   ranked=[...moves].map(m=>({m,score:searchBlack(apply(s,m,"Q"),Math.max(0,depth-1))}))
      .sort((a,b)=>b.score-a.score)
      .map(x=>x.m);
  }else{
@@ -230,6 +284,75 @@ function wink(){
      speechSynthesis.speak(u);
    },900);
  }
+}
+function blackThinkDepthValue(){
+ let v=Number($("blackThinkDepth")?.value||3);
+ return Math.max(1,Math.min(5,Math.round(v)));
+}
+function humanSide(){return flip?"b":"w";}
+function aletheiaSide(){return humanSide()==="w"?"b":"w";}
+function clearAletheiaTimer(){if(aletheiaTimer){clearTimeout(aletheiaTimer);aletheiaTimer=null;}}
+function demoMoveReason(x,m){
+ let to=sq(...m.to);
+ if(m.promotion)return "it promotes a pawn and creates immediate new power.";
+ if(m.castle)return "it improves king safety and connects the rook.";
+ if(m.capture)return "it wins or exchanges material while improving the position.";
+ let n=apply(x,m,"Q");
+ if(check(n,n.turn))return "it gives check and forces the opponent to respond.";
+ if(["d4","d5","e4","e5"].includes(to))return "it strengthens or challenges the centre.";
+ if((m.piece.toLowerCase()==="n"||m.piece.toLowerCase()==="b")&&((m.from[0]===7&&col(m.piece)==="w")||(m.from[0]===0&&col(m.piece)==="b")))return "it develops a piece and brings it into the game.";
+ return "it improves activity and keeps useful options available.";
+}
+function demoBestMove(){
+ let moves=allLegal(s);
+ if(!moves.length)return null;
+ if(s.turn==="b"){
+   let depth=blackThinkDepthValue();
+   return [...moves].map(m=>({m,score:searchBlack(apply(s,m,"Q"),Math.max(0,depth-1))})).sort((a,b)=>b.score-a.score)[0].m;
+ }
+ return [...moves].sort((a,b)=>moveScore(s,b)-moveScore(s,a))[0];
+}
+function aletheiaBestMove(){
+ let moves=allLegal(s);
+ if(!moves.length)return null;
+ let depth=blackThinkDepthValue();
+ return [...moves].map(m=>({m,score:searchBlack(apply(s,m,"Q"),Math.max(0,depth-1))})).sort((a,b)=>s.turn==="b"?b.score-a.score:a.score-b.score)[0].m;
+}
+function scheduleAletheiaReply(){
+ clearAletheiaTimer();
+ if(mode!=="ai"||s.turn!==aletheiaSide())return;
+ let delay=Math.max(3,Number($("demoDelay")?.value||5))*1000;
+ aletheiaTimer=setTimeout(()=>{
+   if(mode!=="ai"||s.turn!==aletheiaSide())return;
+   let m=aletheiaBestMove();
+   if(!m){speak("Aletheia has no legal move.");return;}
+   let move=san(s,m,"Q");
+   speak("My move is "+move+".","My move is "+move+".");
+   setTimeout(()=>{if(mode==="ai"&&s.turn===aletheiaSide())commit(m,"Q");},500);
+ },delay);
+}
+function stopDemo(){
+ clearAletheiaTimer();
+ demoRunning=false;
+ if(demoTimer){clearTimeout(demoTimer);demoTimer=null;}
+ if($("demoStartBtn"))$("demoStartBtn").textContent="START DEMO";
+}
+function demoStep(){
+ if(!demoRunning)return;
+ let m=demoBestMove();
+ if(!m){speak("Demo finished. There are no legal moves.");stopDemo();return;}
+ let side=s.turn==="w"?"White":"Black",move=san(s,m,"Q"),reason=demoMoveReason(s,m);
+ speak(side+". My suggestion is "+move+" because "+reason,side+". My suggestion is "+move+" because "+reason);
+ let delay=Math.max(3,Number($("demoDelay")?.value||10))*1000;
+ demoTimer=setTimeout(()=>{if(!demoRunning)return;commit(m,"Q");demoTimer=setTimeout(demoStep,600);},delay);
+}
+function startDemo(){
+ stopDemo();
+ if($("demoDelay"))$("demoDelay").value="10";
+ demoRunning=true;mode="self";
+ if($("modeBadge"))$("modeBadge").textContent="Aletheia self-play / demo coach";
+ if($("demoStartBtn"))$("demoStartBtn").textContent="DEMO RUNNING";
+ save();demoStep();
 }
 function darkSideDisclosure(){
  if(!winkLog.length)return "Aletheia Disclosure: No Dark Side assistance was used in this game.";
@@ -271,20 +394,35 @@ function legacyCopyText(text){
  return ok;
 }
 function copyHandoffFromClick(text){
- // Use synchronous legacy copy first because this app may be opened over file:// or HTTP.
- let ok=legacyCopyText(text);
- if(!ok && navigator.clipboard && window.isSecureContext){
-   navigator.clipboard.writeText(text).catch(()=>{});
-   ok=true;
+ return legacyCopyText(text);
+}
+function copyPromptOnly(){
+ let text=promptText();
+ refreshHandoff();
+ let ok=copyHandoffFromClick(text);
+ if(ok){
+   $("teacher").textContent="Full A-PROMPT copied. Paste it into your AI.";
+   return true;
  }
- return ok;
+ $("teacher").textContent="Automatic clipboard copy was blocked. Open 'Show Aletheia handoff text', select the full prompt and copy it manually.";
+ if($("handoffDetails"))$("handoffDetails").open=true;
+ return false;
 }
 function refreshHandoff(){if($("handoffText"))$("handoffText").value=promptText();}
+function preferredAIWindowSize(){
+ let saved=null;
+ try{saved=JSON.parse(localStorage.getItem("aletheiaChessPopupSize")||"null")}catch(e){}
+ let w=saved&&Number(saved.width),h=saved&&Number(saved.height);
+ if(!Number.isFinite(w)||w<320)w=900;
+ if(!Number.isFinite(h)||h<400)h=740;
+ return{width:w,height:h};
+}
 function openAIWindow(url){
- const smallScreen=window.matchMedia("(max-width: 768px)").matches||screen.availWidth<=768;
- if(smallScreen)return window.open(url,"_blank");
- const width=Math.min(900,Math.max(320,screen.availWidth-40));
- const height=Math.min(760,Math.max(480,screen.availHeight-80));
+ const isSmall=window.matchMedia("(max-width: 768px)").matches||screen.availWidth<=768;
+ if(isSmall)return window.open(url,"_blank");
+ const pref=preferredAIWindowSize();
+ const width=Math.min(pref.width,Math.max(320,screen.availWidth-40));
+ const height=Math.min(pref.height,Math.max(400,screen.availHeight-80));
  return window.open(url,"aletheiaChessAI","width="+width+",height="+height+",resizable=yes,scrollbars=yes");
 }
 function openAIPromptSearch(){
@@ -293,19 +431,17 @@ function openAIPromptSearch(){
  aiChoice=choice;
  refreshHandoff();
  save();
-
- // Open from the original click so popup blockers see real user activation.
+ let copied=copyHandoffFromClick(text);
  let w=null;
  try{w=openAIWindow(aiUrl(choice))}catch(e){w=null}
- let copied=copyHandoffFromClick(text);
-
  if(!w){
    alert("The AI window was blocked. Allow pop-ups for this page, then press A-PROMPT SEARCH again.");
  }
  if(copied){
-   if(w) setTimeout(()=>alert("Aletheia chess prompt copied. Paste it into the AI window."),50);
+   if(w)setTimeout(()=>alert("Full Aletheia A-PROMPT copied. Paste it into the AI window."),50);
  }else{
-   prompt("Automatic copy was blocked. Copy this Aletheia chess prompt, then paste it into the AI window:",text);
+   if($("handoffDetails"))$("handoffDetails").open=true;
+   alert("The AI opened, but the browser blocked automatic clipboard copy. Use COPY FULL A-PROMPT below the handoff text, or select the displayed prompt manually. Your previous clipboard contents may still be there.");
  }
 }
 function gameStateForFile(){
@@ -313,7 +449,7 @@ function gameStateForFile(){
   format:"ALETHEIA_CHESS_GAME",
   version:"0.9",
   savedAt:new Date().toISOString(),
-  state:{s,hist,last,mode,assist,strat,log,flip,teachLevel,winkLog,voiceEnabled,thaliaOn,aiChoice}
+  state:{s,hist,last,mode,assist,strat,log,flip,teachLevel,winkLog,voiceEnabled,thaliaOn,aiChoice,blackThinkDepth:blackThinkDepthValue()}
  };
 }
 function gameMarkdown(){
@@ -349,6 +485,7 @@ function saveGameFile(){
  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 function loadGameText(text){
+ stopDemo();clearAletheiaTimer();
  let m=text.match(/\`\`\`json\s*([\s\S]*?)\`\`\`/i);
  if(!m)throw new Error("No Aletheia Chess resume data found.");
  let g=JSON.parse(m[1]);
@@ -356,7 +493,7 @@ function loadGameText(text){
  let x=g.state;
  s=x.s;hist=x.hist||[];last=x.last||null;mode=x.mode||null;assist=x.assist||null;strat=x.strat||"Flying Mouse";
  log=x.log||[];flip=!!x.flip;teachLevel=x.teachLevel||"learning";winkLog=x.winkLog||[];
- voiceEnabled=x.voiceEnabled!==false;thaliaOn=x.thaliaOn===true;aiChoice=x.aiChoice||"chatgpt";
+ voiceEnabled=x.voiceEnabled!==false;thaliaOn=x.thaliaOn===true;aiChoice=x.aiChoice||"chatgpt";if($("blackThinkDepth"))$("blackThinkDepth").value=String(x.blackThinkDepth||3);
  sel=null;targets=[];suggestions=[];suggestionIndex=0;
  if($("vibeSelect"))$("vibeSelect").value=strat;
  if($("aiSelect"))$("aiSelect").value=aiChoice;
@@ -371,13 +508,16 @@ function promptText(){return`ALETHEIA CHESS — A-PROMPT SEARCH
 
 FEN: ${toFEN(s)}
 SIDE TO MOVE: ${s.turn==="w"?"White":"Black"}
-RECENT MOVES: ${log.slice(-12).join(" ")||"(none)"}
+GAME HISTORY: ${log.join(" ")||"(none yet)"}
 CURRENT VIBE: ${strat}
 MODE: ${mode||"not set"}
 
 Use the FEN above as the authoritative current position.
+The game history is supporting context. If it conflicts with the FEN, trust the FEN.
 
-Analyse the position from these nine VIBEs:
+Your job is to coach, not merely find the strongest move.
+
+Analyse the CURRENT POSITION from these nine VIBEs:
 - Flying Mouse — flexible manoeuvring, patience, keeping options open
 - Tiger — active positional pressure
 - Dragon — direct attack and tactical initiative
@@ -388,12 +528,24 @@ Analyse the position from these nine VIBEs:
 - Stockfish — objective calculation and best-move discipline
 - Deep Blue — concrete, calculation-heavy forcing play
 
-For each VIBE, choose the move that best fits both the position and that VIBE.
+For each VIBE, choose the move that best fits both the current position and that VIBE.
 Do not pretend the named humans or engines literally chose the move. Treat each as a style lens.
-
 Then GROUP identical move recommendations together.
 
-Keep the explanation concise. Prefer this output shape:
+GAME REVIEW / LEARNING
+When enough game history is available, add a short learning review after the current-position recommendation.
+Only where relevant:
+- identify a few key moments or turning points;
+- identify important mistakes and explain why they mattered;
+- suggest a better move, plan or practical idea;
+- where useful, give the FEN or position context before an important mistake so the player can retry it;
+- classify a move only when there is enough evidence to justify the classification;
+- if reliable evaluation information is genuinely available, describe how the advantage changed;
+- do NOT invent engine scores, centipawn values, accuracy percentages, "brilliant" labels, or an advantage graph;
+- prefer a few useful teaching points over commenting on every move;
+- adapt explanations to the player's apparent level.
+
+Keep the main current-position answer concise. Prefer this shape:
 
 POSITION
 One short paragraph on the important features.
@@ -406,7 +558,12 @@ VIBE CONSENSUS
 3. <SAN move> — <VIBEs recommending it>
    Short reason.
 
-If several VIBEs recommend the same move, list that move only once with all recommending VIBEs.
+LEARN FROM THE GAME
+Include only when the history contains something genuinely useful to teach.
+- Key moment:
+- What happened:
+- Better idea:
+- Retry from here: <FEN or concise position reference, only if useful>
 
 COPY-BACK
 BEST CONSENSUS: <SAN move>
@@ -419,9 +576,23 @@ Important:
 - The user may copy the final MOVE line directly back into Aletheia Chess and press ENTER.
 - If no single move has a clear consensus, choose the move best supported by objective chess quality and say that briefly above the COPY-BACK block.
 - In Trainer mode, keep the explanation educational rather than simply solving the entire game.
+- If the game history is too short for meaningful review, omit LEARN FROM THE GAME rather than padding it.
 
-Keep the whole response practical and reasonably short.`}function save(){localStorage.setItem("aletheiaChess07",JSON.stringify({s,hist,last,mode,assist,strat,log,flip,teachLevel,winkLog,voiceEnabled,thaliaOn,voiceName:$("voiceSelect")?.value||"",aiChoice}))}function restore(){try{let x=JSON.parse(localStorage.getItem("aletheiaChess07"));if(x){s=x.s;hist=x.hist||[];last=x.last;mode=x.mode;assist=x.assist;strat=x.strat||"Flying Mouse";log=x.log||[];flip=!!x.flip;teachLevel=x.teachLevel||"learning";winkLog=x.winkLog||[];voiceEnabled=x.voiceEnabled!==false;thaliaOn=x.thaliaOn===true;aiChoice=x.aiChoice||"chatgpt";window._aletheiaSavedVoice=x.voiceName||"";return true}}catch(e){}return false}function setMode(m){mode=m;$("modeBadge").textContent=m==="ai"?"Play Aletheia":m==="self"?"Aletheia self-play / demo":"Two-player trainer";$("startOverlay").classList.remove("show");if(m==="trainer"){assist="yes";$("teacher").textContent="Trainer ready. Select a piece or press HINT."; }save()}function newGame(){s=parseFEN(start);hist=[];last=null;log=[];winkLog=[];suggestions=[];suggestionIndex=0;sel=null;targets=[];$("coach").textContent="New game ready.";$("thalia").textContent="";save();render();refreshHandoff()}
-$("moveBtn").onclick=()=>{let i=$("moveInput"),t=i.value.trim();if(!t){let msg=sel?"A piece is selected. Tap one of the highlighted squares to move it, or press HINT to hear its options.":"Tap a piece on the board and then a highlighted destination. Or type a move such as e4 and press ENTER.";speak(msg);return}let x=typed(t);if(!x){speak("I cannot match that typed move to a legal move in the current position. Try e4, Nf3, e2-e4, or type Move: e4. If you are using the board, tap the piece and then its highlighted destination; ENTER is not needed.");return}commit(x.m,x.p);i.value=""};$("moveInput").addEventListener("keydown",e=>{if(e.key==="Enter")$("moveBtn").click()});$("undoBtn").onclick=()=>{if(!hist.length)return;let h=hist.pop();s=h.s;log=h.log;last=h.last;sel=null;targets=[];save();render();refreshHandoff()};$("flipBtn").onclick=()=>{flip=!flip;save();render();refreshHandoff()};$("newBtn").onclick=()=>{newGame();$("startOverlay").classList.add("show")};$("endBtn").onclick=finishGame;$("hintBtn").onclick=hint;$("winkBtn").onclick=wink;
+Keep the whole response practical and reasonably short.`}function save(){localStorage.setItem("aletheiaChess07",JSON.stringify({s,hist,last,mode,assist,strat,log,flip,teachLevel,winkLog,voiceEnabled,thaliaOn,voiceName:$("voiceSelect")?.value||"",aiChoice,blackThinkDepth:blackThinkDepthValue()}))}function restore(){try{let x=JSON.parse(localStorage.getItem("aletheiaChess07"));if(x){s=x.s;hist=x.hist||[];last=x.last;mode=x.mode;assist=x.assist;strat=x.strat||"Flying Mouse";log=x.log||[];flip=!!x.flip;teachLevel=x.teachLevel||"learning";winkLog=x.winkLog||[];voiceEnabled=x.voiceEnabled!==false;thaliaOn=x.thaliaOn===true;aiChoice=x.aiChoice||"chatgpt";if($("blackThinkDepth"))$("blackThinkDepth").value=String(x.blackThinkDepth||3);window._aletheiaSavedVoice=x.voiceName||"";return true}}catch(e){}return false}function setMode(m){
+ mode=m;
+ $("modeBadge").textContent=m==="ai"?"Play Aletheia":m==="self"?"Aletheia self-play / demo":"Two-player trainer";
+ $("startOverlay").classList.remove("show");
+ if(m==="trainer"){assist="yes";$("teacher").textContent="Trainer ready. Select a piece or press HINT.";}
+ if(m==="ai"){
+   assist="yes";
+   if($("demoDelay"))$("demoDelay").value="5";
+   let side=humanSide()==="w"?"White":"Black";
+   $("teacher").textContent="You are "+side+". Aletheia plays the other side automatically after 5 seconds by default.";
+ }
+ save();
+ if(m==="ai")scheduleAletheiaReply();
+}function newGame(){stopDemo();clearAletheiaTimer();s=parseFEN(start);hist=[];last=null;log=[];winkLog=[];suggestions=[];suggestionIndex=0;sel=null;targets=[];$("coach").textContent="New game ready.";$("thalia").textContent="";save();render();refreshHandoff()}
+$("moveBtn").onclick=()=>{let i=$("moveInput"),t=i.value.trim();if(!t){let msg=sel?"A piece is selected. Tap one of the highlighted squares to move it, or press HINT to hear its options.":"Tap a piece on the board and then a highlighted destination. Or type a move such as e4 and press ENTER.";speak(msg);return}let x=typed(t);if(!x){speak("I cannot match that typed move to a legal move in the current position. Try e4, Nf3, e2-e4, or type Move: e4. If you are using the board, tap the piece and then its highlighted destination; ENTER is not needed.");return}commit(x.m,x.p);i.value=""};$("moveInput").addEventListener("keydown",e=>{if(e.key==="Enter")$("moveBtn").click()});$("undoBtn").onclick=()=>{if(!hist.length)return;let h=hist.pop();s=h.s;log=h.log;last=h.last;sel=null;targets=[];save();render();refreshHandoff()};$("flipBtn").onclick=()=>{flip=!flip;clearAletheiaTimer();save();render();refreshHandoff();if(mode==="ai"){let side=humanSide()==="w"?"White":"Black";$("teacher").textContent="You are now "+side+". Aletheia plays the other side.";scheduleAletheiaReply();}};$("newBtn").onclick=()=>{newGame();$("startOverlay").classList.add("show")};$("endBtn").onclick=finishGame;$("hintBtn").onclick=hint;$("winkBtn").onclick=wink;
 $("prevSuggestionBtn").onclick=()=>cycleSuggestion(-1);
 $("nextSuggestionBtn").onclick=()=>cycleSuggestion(1);
 $("moveInput").addEventListener("keydown",e=>{
@@ -429,6 +600,20 @@ $("moveInput").addEventListener("keydown",e=>{
  if(e.key==="ArrowDown"){e.preventDefault();cycleSuggestion(1)}
 });
 $("thaliaToggle").onclick=()=>{thaliaOn=!thaliaOn;$("thaliaToggle").textContent=thaliaOn?"THALIA ON":"THALIA OFF";if(!thaliaOn)$("thalia").textContent="";save();};$("voiceToggle").onclick=()=>{voiceEnabled=!voiceEnabled;$("voiceToggle").textContent=voiceEnabled?"🔊 VOICE ON":"🔇 VOICE OFF";if(!voiceEnabled&&"speechSynthesis" in window)speechSynthesis.cancel();save()};$("voiceSelect").onchange=()=>save();$("aiSelect").onchange=()=>{aiChoice=$("aiSelect").value;if($("handoffText"))$("handoffText").value=promptText();save();};
+$("demoStartBtn").onclick=startDemo;
+$("demoStopBtn").onclick=stopDemo;
+$("blackThinkDepth").onchange=()=>save();
+$("savePopupSizeBtn").onclick=()=>{
+ let width=Math.max(320,Number($("popupWidth").value||900));
+ let height=Math.max(400,Number($("popupHeight").value||740));
+ localStorage.setItem("aletheiaChessPopupSize",JSON.stringify({width,height}));
+ $("teacher").textContent="AI popup preference saved as "+width+" × "+height+". Mobile browsers may still open a normal full tab.";
+};
+$("resetPopupSizeBtn").onclick=()=>{
+ localStorage.removeItem("aletheiaChessPopupSize");
+ $("popupWidth").value=900;$("popupHeight").value=740;
+ $("teacher").textContent="AI popup size reset to automatic/default.";
+};
 $("saveGameBtn").onclick=saveGameFile;
 $("loadGameBtn").onclick=()=>$("loadGameInput").click();
 $("loadGameInput").onchange=e=>{let f=e.target.files&&e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{loadGameText(String(r.result||""))}catch(err){alert(err.message||"Could not load this game file.")}e.target.value=""};r.readAsText(f);};
@@ -436,5 +621,9 @@ $("photoBtn").onclick=()=>$("photoInput").click();
 $("photoInput").onchange=e=>{let f=e.target.files&&e.target.files[0];if(!f)return;let img=$("photoPreview");img.src=URL.createObjectURL(f);img.style.display="block";$("teacher").textContent="Photo loaded locally. Use an AI with vision to read the board and return FEN, then paste the FEN below.";};
 $("fenBtn").onclick=()=>{let f=$("fenInput").value.trim();try{let n=parseFEN(f);if(!n.board||n.board.length!==8)throw 0;s=n;hist=[];last=null;log=[];winkLog=[];suggestions=[];suggestionIndex=0;sel=null;targets=[];save();render();refreshHandoff();$("teacher").textContent="FEN loaded. Check the reconstructed board against the photograph before continuing.";}catch(e){alert("That does not look like a usable FEN position.");}};
 document.querySelectorAll(".teachLevel").forEach(b=>b.onclick=()=>{teachLevel=b.dataset.level;$("teacher").textContent="Trainer level: "+teachLevel+". Select a piece or press HINT.";save();});
-$("asciiBtn").onclick=()=>{$("asciiPanel").open=true;$("asciiPanel").scrollIntoView({behavior:"smooth"})};$("copyCoachBtn").onclick=openAIPromptSearch;$("helpBtn").onclick=()=>$("helpOverlay").classList.add("show");$("closeHelp").onclick=()=>$("helpOverlay").classList.remove("show");document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.mode));document.querySelectorAll("[data-assist]").forEach(b=>b.onclick=()=>{assist=b.dataset.assist;$("assistOverlay").classList.remove("show");$("coach").textContent=assist==="yes"?"Live coaching enabled for this permitted game.":"Move recording enabled. Live move recommendations are off.";save()});$("vibeSelect").onchange=()=>setVibe($("vibeSelect").value);let had=restore();if(mode)$("modeBadge").textContent=mode==="ai"?"Play Aletheia":mode==="self"?"Aletheia self-play / demo":"Two-player trainer";$("vibeSelect").value=strat;$("strategyName").textContent=strat;$("vibeNote").textContent=vibeDescription(strat);loadVoices();if("speechSynthesis" in window)speechSynthesis.onvoiceschanged=loadVoices;$("voiceToggle").textContent=voiceEnabled?"🔊 VOICE ON":"🔇 VOICE OFF";$("thaliaToggle").textContent=thaliaOn?"THALIA ON":"THALIA OFF";if($("aiSelect"))$("aiSelect").value=aiChoice;render();refreshHandoff();if(!had||!mode)$("startOverlay").classList.add("show");else $("helpOverlay").classList.add("show")})();
+$("asciiBtn").onclick=()=>{$("asciiPanel").open=true;$("asciiPanel").scrollIntoView({behavior:"smooth"})};$("copyCoachBtn").onclick=openAIPromptSearch;$("copyPromptBtn").onclick=copyPromptOnly;$("helpBtn").onclick=()=>$("helpOverlay").classList.add("show");$("closeHelp").onclick=()=>$("helpOverlay").classList.remove("show");document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.mode));document.querySelectorAll("[data-assist]").forEach(b=>b.onclick=()=>{assist=b.dataset.assist;$("assistOverlay").classList.remove("show");$("coach").textContent=assist==="yes"?"Live coaching enabled for this permitted game.":"Move recording enabled. Live move recommendations are off.";save()});$("vibeSelect").onchange=()=>setVibe($("vibeSelect").value);let had=restore();if(mode)$("modeBadge").textContent=mode==="ai"?"Play Aletheia":mode==="self"?"Aletheia self-play / demo":"Two-player trainer";$("vibeSelect").value=strat;$("strategyName").textContent=strat;$("vibeNote").textContent=vibeDescription(strat);loadVoices();if("speechSynthesis" in window)speechSynthesis.onvoiceschanged=loadVoices;$("voiceToggle").textContent=voiceEnabled?"🔊 VOICE ON":"🔇 VOICE OFF";$("thaliaToggle").textContent=thaliaOn?"THALIA ON":"THALIA OFF";if($("aiSelect"))$("aiSelect").value=aiChoice;
+let _popup=preferredAIWindowSize();
+if($("popupWidth"))$("popupWidth").value=_popup.width;
+if($("popupHeight"))$("popupHeight").value=_popup.height;
+render();refreshHandoff();if(!had||!mode)$("startOverlay").classList.add("show");else $("helpOverlay").classList.add("show")})();
 </script></body></html>
