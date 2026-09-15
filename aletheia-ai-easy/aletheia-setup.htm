@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aletheia AI Easy Setup</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#17202a;background:#f7f4ed}
+*{box-sizing:border-box} body{margin:0} main{max-width:900px;margin:auto;padding:20px}
+header{background:#fff;border:2px solid #17202a;border-radius:24px;padding:22px;box-shadow:0 8px 0 #17202a;margin:8px 0 24px}
+h1{margin:0 0 6px;font-size:clamp(1.8rem,5vw,3rem)} .tag{margin:0;color:#445}
+section{background:#fff;border:1px solid #b8b8b8;border-radius:18px;padding:18px;margin:16px 0}
+label{display:block;font-weight:700;margin-top:13px} input[type=text],textarea,select{width:100%;padding:11px;border:1px solid #777;border-radius:10px;font:inherit;background:#fff}
+textarea{min-height:86px}.hint{font-size:.92rem;color:#556;margin:.4rem 0}.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:7px;margin-top:10px}.checks label{font-weight:500;margin:0;padding:8px;border:1px solid #ddd;border-radius:9px}.buttons{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}button{padding:12px 16px;border:2px solid #17202a;border-radius:999px;background:#35dc59;font:inherit;font-weight:800;cursor:pointer}button.secondary{background:#fff}button:focus,input:focus,textarea:focus,select:focus{outline:3px solid #7aaeff;outline-offset:2px}pre{white-space:pre-wrap;word-break:break-word;background:#111;color:#eee;padding:14px;border-radius:12px;max-height:520px;overflow:auto}details{margin-top:8px}.privacy{border-left:6px solid #35dc59}.small{font-size:.85rem;color:#667}a{color:#0645ad}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Aletheia AI Easy</h1>
+<p class="tag">Build your portable <code>aletheia-memory.md</code>. Every field is optional.</p>
+</header>
+<section class="privacy">
+<h2>Before you start</h2>
+<p>This page is designed to run locally in your browser. It does not need a server and this version sends no form data anywhere.</p>
+<p><strong>You choose what goes in the file.</strong> Use a town/city/region rather than an exact address unless you have a specific reason. Never put passwords, one-time codes, API keys or recovery keys here.</p>
+</section>
+<section>
+<h2>1. About you - optional</h2>
+<label for="callMe">What should AI call you?</label><input id="callMe" type="text" autocomplete="nickname">
+<label for="displayName">Display name</label><input id="displayName" type="text" autocomplete="name">
+<label for="handle">Nickname / handle</label><input id="handle" type="text">
+<label for="homeArea">Home area - town/city/region only</label><input id="homeArea" type="text" placeholder="e.g. Swindon, Wiltshire">
+<label for="country">Country / region</label><input id="country" type="text" placeholder="e.g. United Kingdom">
+<label for="timezone">Time zone - optional</label><input id="timezone" type="text" placeholder="e.g. Europe/London">
+<p class="hint">Leave any field blank. A blank field must stay unknown, not be guessed by the AI.</p>
+</section>
+<section>
+<h2>2. What do you want AI to help with?</h2>
+<label for="helpWith">Tasks or areas you use AI for</label><textarea id="helpWith" placeholder="One per line, e.g. local information&#10;website work&#10;job search"></textarea>
+<label for="searches">Things you regularly search for</label><textarea id="searches" placeholder="One per line"></textarea>
+<label for="responseStyle">How should answers normally feel?</label><input id="responseStyle" type="text" placeholder="e.g. concise, practical, ask when uncertain">
+<label for="humour">Humour preference</label><input id="humour" type="text" placeholder="e.g. dry, light, none for serious topics">
+</section>
+<section>
+<h2>3. Choose Aletheia apps</h2>
+<p class="hint">Nothing is selected by default. Tick only things you want to be regularly available.</p>
+<div class="checks" id="apps">
+<label><input type="checkbox" value="Aletheia Search / Trust Check"> Search / Trust Check</label>
+<label><input type="checkbox" value="Aletheia Local / A2Z"> Local / A2Z</label>
+<label><input type="checkbox" value="Aletheia Employment"> Employment</label>
+<label><input type="checkbox" value="Aletheia Site Audit"> Site Audit</label>
+<label><input type="checkbox" value="Aletheia 007 / privacy"> 007 / privacy</label>
+<label><input type="checkbox" value="Aletheia Shop Price"> Shop Price</label>
+<label><input type="checkbox" value="Aletheia Love Translator"> Love Translator</label>
+<label><input type="checkbox" value="Aletheia Chess"> Chess</label>
+<label><input type="checkbox" value="Aletheia Avatar"> Avatar</label>
+<label><input type="checkbox" value="Aletheia AI Starter"> AI Starter</label>
+</div>
+<label for="otherApps">Other apps / tools</label><textarea id="otherApps" placeholder="One per line"></textarea>
+</section>
+<section>
+<h2>4. Boundaries</h2>
+<label><input id="approveApps" type="checkbox" checked> Ask before enabling a new optional Aletheia app</label>
+<label><input id="approveMemory" type="checkbox" checked> Ask before adding material durable information to my portable memory</label>
+<label for="boundaries">Other boundaries or approval rules</label><textarea id="boundaries" placeholder="Optional"></textarea>
+</section>
+<div class="buttons">
+<button id="generate" type="button">Generate memory</button>
+<button id="save" type="button" class="secondary" disabled>Save aletheia-memory.md</button>
+<button id="copy" type="button" class="secondary" disabled>Copy Markdown</button>
+<button id="clear" type="button" class="secondary">Clear form</button>
+</div>
+<section>
+<h2>Preview</h2>
+<pre id="preview">Your memory file will appear here.</pre>
+<p id="status" class="small" role="status" aria-live="polite"></p>
+</section>
+<section>
+<details><summary><strong>Where should I save it?</strong></summary>
+<p>Recommended permanent home: an <code>Aletheia</code> folder under Documents, or an Aletheia folder in your phone/tablet Files app. Downloads is fine as a temporary landing place but is not ideal as the long-term source of truth.</p>
+</details>
+<details><summary><strong>Can this page save straight into Documents?</strong></summary>
+<p>Browsers deliberately restrict silent file access. Where supported, the Save button opens a file picker so <em>you</em> choose the location. Otherwise it downloads the file and you can move it yourself.</p>
+</details>
+</section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let generated='';
+const lines=id=>$(id).value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+const q=s=>'"'+String(s||'').replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,' ')+'"';
+const yList=a=>a.length?'\n'+a.map(v=>'    - '+q(v)).join('\n'):' []';
+function escMd(s){return String(s||'').replace(/\r?\n/g,' ').trim()}
+function checkedApps(){return [...document.querySelectorAll('#apps input:checked')].map(x=>x.value).concat(lines('otherApps'))}
+function build(){
+ const today=new Date().toISOString().slice(0,10);
+ const help=lines('helpWith'), searches=lines('searches'), apps=checkedApps();
+ const boundary=lines('boundaries');
+ generated=`---\nschema_version: aletheia-memory/0.1\ndocument_id: aletheia-memory\nversion: 0.1.0-draft\nupdated_at: ${today}\nowner:\n  display_name: ${q($('displayName').value)}\n  call_me: ${q($('callMe').value)}\n  handle: ${q($('handle').value)}\nlocale:\n  home_area: ${q($('homeArea').value)}\n  country_or_region: ${q($('country').value)}\n  timezone: ${q($('timezone').value)}\n  precision: coarse\npreferences:\n  ai_help:${yList(help)}\n  regular_searches:${yList(searches)}\n  response_style: ${q($('responseStyle').value)}\n  humour: ${q($('humour').value)}\napps:\n  selected:${yList(apps)}\napproval:\n  new_apps_require_approval: ${$('approveApps').checked}\n  persistent_memory_changes_require_approval: ${$('approveMemory').checked}\nprivacy:\n  exact_address_stored: false\n  secrets_allowed: false\n---\n\n# Aletheia Memory\n\nThis is my user-controlled portable context. Blank fields are intentionally unknown.\n\n## Boundaries / approvals\n${boundary.length?boundary.map(x=>'- '+escMd(x)).join('\n'):'- No additional boundaries recorded.'}\n\n## Safety note\n- Do not store passwords, authentication codes, API keys or recovery keys in this file.\n- Keep location coarse unless I explicitly choose a more precise location for a specific task.\n- Do not silently enable new optional Aletheia apps.\n`;
+ $('preview').textContent=generated; $('save').disabled=false; $('copy').disabled=false; $('status').textContent='Memory generated locally. Review it before saving.';
+}
+async function save(){
+ if(!generated) build();
+ try{
+   if('showSaveFilePicker' in window){
+     const handle=await window.showSaveFilePicker({suggestedName:'aletheia-memory.md',types:[{description:'Markdown',accept:{'text/markdown':['.md'],'text/plain':['.md']}}]});
+     const w=await handle.createWritable(); await w.write(generated); await w.close();
+     $('status').textContent='Saved to the location you chose.'; return;
+   }
+ }catch(e){ if(e && e.name==='AbortError'){ $('status').textContent='Save cancelled. Nothing was written.'; return; } }
+ const blob=new Blob([generated],{type:'text/markdown;charset=utf-8'}); const a=document.createElement('a');
+ a.href=URL.createObjectURL(blob); a.download='aletheia-memory.md'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+ $('status').textContent='Downloaded. Move the file into your chosen Aletheia folder if needed.';
+}
+async function copy(){if(!generated) build(); try{await navigator.clipboard.writeText(generated);$('status').textContent='Markdown copied.'}catch(e){$('status').textContent='Clipboard was blocked. Select the preview text and copy it manually.'}}
+function clearAll(){document.querySelectorAll('input[type=text],textarea').forEach(x=>x.value='');document.querySelectorAll('#apps input').forEach(x=>x.checked=false);$('approveApps').checked=true;$('approveMemory').checked=true;generated='';$('preview').textContent='Your memory file will appear here.';$('save').disabled=true;$('copy').disabled=true;$('status').textContent='Form cleared. Nothing was saved.'}
+$('generate').addEventListener('click',build);$('save').addEventListener('click',save);$('copy').addEventListener('click',copy);$('clear').addEventListener('click',clearAll);
+</script>
+</body>
+</html>
