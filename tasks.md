@@ -1,8 +1,8 @@
-# Aletheia Apps — Tasks
+# Aletheia Apps - Tasks
 
 > **Purpose:** One working list for getting the Aletheia applications running, tested, linked and published.
 >
-> **Last updated:** 13 September 2026
+> **Last updated:** 15 September 2026
 >
 > This is an operational task list, not part of the canonical Aletheia Protocol.
 
@@ -16,10 +16,10 @@
 - Use lowercase filenames, hyphens and `.htm`.
 - Keep version numbers inside files, not in public filenames.
 
-## Now — publish the apps correctly
+## Now - publish the apps correctly
 
 - [ ] Enable GitHub Pages for `aletheia-app`.
-  - Settings → Pages.
+  - Settings -> Pages.
   - Source: **Deploy from a branch**.
   - Branch: `main`.
   - Folder: `/ (root)`.
@@ -40,6 +40,103 @@
   - `open-source`
   - `human-ai-collaboration`
 
+## Aletheia AI Easy - portable local AI system
+
+**Direction:** onboarding, not a five-day course. Five short optional setup videos may support it, but text setup must remain complete on its own.
+
+- [x] Create `aletheia-ai-easy/README.md`.
+- [x] Create the provider-neutral `aletheia-ai-easy/aletheia-bootstrap.md`.
+- [x] Create `aletheia-ai-easy/aletheia-memory-template.md`.
+- [x] Create consent-first local `aletheia-ai-easy/aletheia-setup.htm`.
+  - All fields optional.
+  - No server or database required.
+  - No app selected by default.
+  - Coarse location by default.
+  - Generate/download portable `aletheia-memory.md` locally.
+- [x] Create `provider-installation.md` covering current routes for ChatGPT, Gemini, Claude, Copilot and DeepSeek.
+- [x] Create `user-guide.md`.
+- [x] Define five short setup videos in `five-video-setup-series.md`.
+- [x] Create `course-ideas.md` and explicitly separate genuine learning courses from simple setup instructions.
+- [ ] Test the setup form on Windows Chrome/Edge, Android Chrome, macOS Safari and iPhone/iPad Safari.
+- [ ] Test `showSaveFilePicker` where available and normal-download fallback everywhere else.
+- [ ] Check keyboard use, screen-reader labels, zoom and small-screen layout.
+- [ ] Publish a final user-guide PDF beside the HTML/Markdown package after provider wording is rechecked.
+- [ ] Create a small machine-readable app manifest/registry for `APPS` discovery rather than hard-coding every future app into the bootstrap.
+- [ ] Wire the `APPS` command to distinguish **SELECTED / AVAILABLE / NOT LOADED** without inventing releases.
+- [ ] Keep the bootstrap provider-neutral; provider adapters may change without changing the core.
+- [ ] Keep all commercial/affiliate links outside the portable bootstrap and canonical protocol.
+- [ ] Recommend `Documents/Aletheia/` or an equivalent user-chosen Files/cloud folder as the durable home; Downloads is only a temporary landing place.
+- [ ] Create an original Aletheia guide/avatar: friendly eccentric digital professor/bobblehead, scientifically flavoured but **not** a direct Albert Einstein copy.
+- [ ] Use Aletheia Avatar + text-to-speech as the first production route for the five short setup videos.
+- [ ] Add captions and transcripts to every video.
+- [ ] Make videos replaceable because provider UI screenshots/buttons will age quickly.
+
+### AI Easy provider acceptance tests
+
+- [ ] **ChatGPT:** Project instructions + `aletheia-memory.md`; verify current Free limits and behaviour before release.
+- [ ] **Gemini:** ordinary Instructions for Gemini route; separately test a Gem with memory as Knowledge.
+- [ ] **Claude:** Project instructions + project knowledge; verify fresh-chat continuity only from explicit project knowledge.
+- [ ] **Copilot:** Markdown upload baseline; test Notebook instructions only where the user's Microsoft plan exposes Notebooks.
+- [ ] **DeepSeek:** fresh-chat bootstrap/memory baseline; API/local wrapper must resend required context because API state is not assumed persistent.
+- [ ] Cross-test `CORRECT`, `REMEMBER`, `CHECKPOINT`, `RECOVER`, `HANDOVER`, `SAVE MEMORY` and `APPS` on at least three providers.
+- [ ] Record provider differences as adapter findings, not silent changes to the canonical protocol.
+
+## Proposed main `Aletheia` repository/site
+
+Do not create this merely to add another repository. Create it when the front-door website/bootstrap layer is ready to publish.
+
+- [ ] Decide/create proposed `KarstenEvans/aletheia` repository.
+- [ ] Use the public name **Aletheia**, not "Aletheia Hub".
+- [ ] Define repository ownership clearly:
+  - `aletheia-protocol` = canonical rules/specification;
+  - `aletheia-app` = portable/runnable individual applications;
+  - proposed `aletheia` = main human-facing Aletheia website/bootstrap/discovery layer;
+  - `SwindonOrgUK` = first real-world local reference implementation and human resource site.
+- [ ] Let Aletheia Local receive a user-chosen locality instead of baking Swindon into reusable logic.
+- [ ] Make Swindon.org.uk a demonstrator/template without making the Aletheia system depend on Swindon.org.uk being online.
+- [ ] Keep Odysseus/other orchestration frameworks optional adapters, never mandatory dependencies.
+
+## Aletheia learning / courses
+
+- [ ] Keep **Aletheia AI Starter** as the beginner learning course rather than duplicating it with AI Easy setup.
+- [ ] Develop only courses that justify practice/exercises/a useful finished output.
+- [ ] Candidate learning modules:
+  - Search, Sources and Trust Check;
+  - Portable Memory and Handover;
+  - Local AI / Build Your Own A2Z;
+  - AI for Job Search and Employment;
+  - Build a Simple Website with AI;
+  - Storytelling and Content with AI;
+  - AI for a Local Business;
+  - Privacy / Digital Footprint / Aletheia 007;
+  - Free Automation without a Server Bill;
+  - Create Your Own Portable Aletheia App;
+  - Home Energy: solar, batteries, tariffs and source checking.
+- [ ] Prefer short task-based videos plus written transcripts/checklists.
+- [ ] Link to strong public third-party tutorials rather than recreating them merely to keep users on our pages.
+
+## Creator College / external learning research
+
+- [x] Create `SwindonOrgUK/docs/research/creator-college.md` with current public programme/resource research and Aletheia/Swindon lessons.
+- [ ] Verify the provisional 11-course names through an official/authenticated Creator College source before treating the list as definitive.
+- [ ] Attend/review the free September 2026 Creator College event as a learner; record high-level ideas and personal notes, not protected slides/transcripts wholesale.
+- [ ] Build a curated list of genuinely useful public Creator College/Jun Yuh YouTube videos where they support an Aletheia topic.
+- [ ] Use a standard external-resource card: title, creator, why useful, source URL, checked date, optional affiliate disclosure.
+- [ ] Test official/privacy-enhanced YouTube embedding where appropriate.
+- [ ] Never link to pirated course mirrors or bypass membership/paywalls.
+- [ ] Keep Creator College affiliate work paused unless a current official programme/application is verifiably available.
+- [ ] Use the saved event's date/time inconsistencies as an optional Aletheia Trust Check teaching fixture.
+
+## Aletheia Home Energy - proposed
+
+- [ ] Create `aletheia-home-energy/aletheia-home-energy.md` when promoted from idea to app.
+- [ ] Cover solar PV, batteries, insulation, heat pumps, EV charging, smart tariffs, current grants/eligibility, quote comparison and payback assumptions where relevant.
+- [ ] Require current sources for tariffs, grants, prices and programme rules.
+- [ ] Keep analysis vendor-neutral; never rank an energy supplier because of commission.
+- [ ] Keep affiliate/referral links on disclosed human-facing resource pages, not inside canonical app logic.
+- [ ] Consider a Swindon.org.uk **Home & Energy** resource page and a discreet footer navigation link to it.
+- [ ] Before publishing Octopus Current Account material, verify the business is actively enrolled and obtain/use the written-approved marketing copy required by current programme terms.
+
 ## Aletheia Chess
 
 - [x] Publish Aletheia Chess v0.9 HTML and Markdown files in `aletheia-app/aletheia-chess/`.
@@ -48,8 +145,8 @@
 - [ ] Upload `aletheia-chess.htm` to the Swindon.org.uk root while that copy is still required.
 - [ ] Upload `aletheia-chess-rsc.htm` to `swindon.org.uk/resources/`.
 - [ ] Test the two-way links:
-  - App → `https://swindon.org.uk/resources/aletheia-chess-rsc.htm`
-  - Resource page → `https://swindon.org.uk/aletheia-chess.htm`
+  - App -> `https://swindon.org.uk/resources/aletheia-chess-rsc.htm`
+  - Resource page -> `https://swindon.org.uk/aletheia-chess.htm`
 - [ ] After GitHub Pages is working, decide whether the resource page should open the GitHub Pages app or the Swindon-hosted app.
 - [ ] Test on Windows Chrome, Edge and Android:
   - SVG board and touch/click moves.
@@ -75,8 +172,8 @@
 - [x] Add love translation between WORDS, ACTS, GIFTS, TIME and TOUCH.
 - [x] Add ten translation examples.
 - [x] Add the Repair layer:
-  - `INTENT → CURRENT STATE → PREFERRED CHANNEL → DIALECT → RESPONSE → REPAIR → VERIFY → RECALL`.
-- [x] Add the Repair Dictionary and `STATE ≠ CHARACTER` rule.
+  - `INTENT -> CURRENT STATE -> PREFERRED CHANNEL -> DIALECT -> RESPONSE -> REPAIR -> VERIFY -> RECALL`.
+- [x] Add the Repair Dictionary and `STATE != CHARACTER` rule.
 - [x] Add optional Repair Receipt / recall concept.
 - [x] Add free-first gestures: handwritten notes, lunch-box notes, food faces, tea, disliked chores, own-garden flowers, photos, playlists, walks and undivided time.
 - [ ] Test the couple questionnaire, translation and Repair controls on mobile and desktop.
@@ -102,6 +199,8 @@
 - [ ] Prefer useful editorial links first; do not rank recommendations by commission.
 - [ ] Replace affiliate-ready placeholders only after the relevant programme approves the account.
 - [ ] Check external links, stock-sensitive claims and prices before each seasonal promotion.
+- [ ] For public third-party learning resources, link to the authorised source rather than copying/rehosting protected material.
+- [ ] Credit creator/source and explain why a link is useful; attribution is not a substitute for permission to copy.
 - [ ] Prepare Chess resources for Black November and Christmas without presenting temporary marketplace listings as permanent recommendations.
 
 ## App URL rules
@@ -150,13 +249,12 @@
 - [ ] Decide whether SwindonOrgUK should also use GitHub Pages as a staging copy.
 - [ ] Keep `swindon.org.uk` as the public resource domain even if GitHub Pages provides the app runtime.
 - [ ] Avoid creating duplicate canonical copies across repositories.
-- [ ] Document which repository owns each file type in all three READMEs.
-
+- [ ] Document which repository owns each file type in all READMEs, including the proposed main `aletheia` repository if/when created.
 
 ## Aletheia Site Audit
 
-- [ ] Create `aletheia-site-audit/aletheia-site-audit.md` as a portable, AI-neutral site-audit application.
-- [ ] Incorporate the self-documenting cross-AI web-access diagnostic pattern from `SwindonOrgUK-test.md`.
+- [x] Create `aletheia-site-audit/aletheia-site-audit.md` as a portable, AI-neutral site-audit application.
+- [ ] Incorporate/verify the self-documenting cross-AI web-access diagnostic pattern from `SwindonOrgUK-test.md`.
 - [ ] Site Audit tests should create a separate portable `<site>-results.md` evidence/receipt file rather than overwriting the audit procedure.
 - [ ] Results should distinguish **OBSERVED**, **SOURCE**, **INFERENCE** and **UNVERIFIED** findings.
 - [ ] Include DNS, IPv4/IPv6, TLS/SAN/chain, HTTP status and redirects, robots.txt, sitemap.xml, llms.txt, crawler/bot behaviour, shared-IP/hosting reputation, blacklist checks, search discoverability and browser-vs-AI retrieval differences.
@@ -165,21 +263,6 @@
 - [ ] Add an Aletheia receipt: tests performed, unavailable tests, strongest verified finding, unresolved question, ranked hypotheses, next action and confidence.
 - [ ] Keep it KISS/free/static: Markdown first; no required paid APIs, MCP servers, tokens or hosted backend.
 - [ ] Consider optional adapters later for free browser/CLI diagnostics, but keep the canonical audit usable by an ordinary capable AI.
-
-## Aletheia AI Easy — portable local AI system
-
-- [ ] Expand **Aletheia AI Easy** into the simple bootstrap/front door for the wider Aletheia application ecosystem.
-- [ ] Keep a small portable bootstrap Markdown file that can introduce a capable AI to the available Aletheia apps without requiring a server, database, paid API or permanent website session.
-- [ ] Support provider-specific/free-AI entry variants where useful (for example ChatGPT, Claude, Gemini, Copilot, DeepSeek and other capable AIs), while keeping the core instructions provider-neutral.
-- [ ] Let the user set a location once for local use (for example Swindon, Northampton, Oxford, London or Hammersmith) so portable local-search/A2Z functions can operate without being tied to Swindon.
-- [ ] Make the bootstrap discover and explain relevant GitHub-hosted applications rather than embedding every application into one giant file.
-- [ ] Candidate system modules: Aletheia Site Audit, Trust Check, Name Check, Aletheia 007 Agent, privacy/incognito tooling, A2Z/local search and other compatible Aletheia apps.
-- [ ] Link to SwindonOrgUK resources as the human-facing resource/discovery layer, but keep core apps independently usable when the website is unavailable.
-- [ ] Confirm and document the canonical name/path for the existing privacy/incognito Aletheia app before linking it.
-- [x] Confirm separate repository **KarstenEvans/aletheia-007-agent** exists.
-- [ ] Audit Aletheia AI Easy / bootstrap files next and design the smallest manifest/index needed to connect the ecosystem.
-- [ ] Keep KISS/free/distributed: prefer Markdown, static HTML, GitHub/GitHub Pages and client-side processing; no required paid subscriptions or hosted backend.
-- [ ] Treat AI-provider privacy/security claims separately and evidence them before recommending or discouraging a provider.
 
 ## Later improvements
 
