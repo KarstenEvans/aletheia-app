@@ -152,6 +152,20 @@
 - [ ] Avoid creating duplicate canonical copies across repositories.
 - [ ] Document which repository owns each file type in all three READMEs.
 
+
+## Aletheia Site Audit
+
+- [ ] Create `aletheia-site-audit/aletheia-site-audit.md` as a portable, AI-neutral site-audit application.
+- [ ] Incorporate the self-documenting cross-AI web-access diagnostic pattern from `SwindonOrgUK-test.md`.
+- [ ] Site Audit tests should create a separate portable `<site>-results.md` evidence/receipt file rather than overwriting the audit procedure.
+- [ ] Results should distinguish **OBSERVED**, **SOURCE**, **INFERENCE** and **UNVERIFIED** findings.
+- [ ] Include DNS, IPv4/IPv6, TLS/SAN/chain, HTTP status and redirects, robots.txt, sitemap.xml, llms.txt, crawler/bot behaviour, shared-IP/hosting reputation, blacklist checks, search discoverability and browser-vs-AI retrieval differences.
+- [ ] Explicitly distinguish origin-server HTTP failures from an AI provider's own URL-safety/retrieval refusal.
+- [ ] Support independent runs by ChatGPT, Claude, Gemini, DeepSeek and other capable AIs, then compare their result files without erasing disagreements.
+- [ ] Add an Aletheia receipt: tests performed, unavailable tests, strongest verified finding, unresolved question, ranked hypotheses, next action and confidence.
+- [ ] Keep it KISS/free/static: Markdown first; no required paid APIs, MCP servers, tokens or hosted backend.
+- [ ] Consider optional adapters later for free browser/CLI diagnostics, but keep the canonical audit usable by an ordinary capable AI.
+
 ## Later improvements
 
 - [ ] Create a shared footer/component pattern for app attribution, source and resource links.
