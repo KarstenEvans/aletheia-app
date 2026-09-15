@@ -166,6 +166,21 @@
 - [ ] Keep it KISS/free/static: Markdown first; no required paid APIs, MCP servers, tokens or hosted backend.
 - [ ] Consider optional adapters later for free browser/CLI diagnostics, but keep the canonical audit usable by an ordinary capable AI.
 
+## Aletheia AI Easy — portable local AI system
+
+- [ ] Expand **Aletheia AI Easy** into the simple bootstrap/front door for the wider Aletheia application ecosystem.
+- [ ] Keep a small portable bootstrap Markdown file that can introduce a capable AI to the available Aletheia apps without requiring a server, database, paid API or permanent website session.
+- [ ] Support provider-specific/free-AI entry variants where useful (for example ChatGPT, Claude, Gemini, Copilot, DeepSeek and other capable AIs), while keeping the core instructions provider-neutral.
+- [ ] Let the user set a location once for local use (for example Swindon, Northampton, Oxford, London or Hammersmith) so portable local-search/A2Z functions can operate without being tied to Swindon.
+- [ ] Make the bootstrap discover and explain relevant GitHub-hosted applications rather than embedding every application into one giant file.
+- [ ] Candidate system modules: Aletheia Site Audit, Trust Check, Name Check, Aletheia 007 Agent, privacy/incognito tooling, A2Z/local search and other compatible Aletheia apps.
+- [ ] Link to SwindonOrgUK resources as the human-facing resource/discovery layer, but keep core apps independently usable when the website is unavailable.
+- [ ] Confirm and document the canonical name/path for the existing privacy/incognito Aletheia app before linking it.
+- [x] Confirm separate repository **KarstenEvans/aletheia-007-agent** exists.
+- [ ] Audit Aletheia AI Easy / bootstrap files next and design the smallest manifest/index needed to connect the ecosystem.
+- [ ] Keep KISS/free/distributed: prefer Markdown, static HTML, GitHub/GitHub Pages and client-side processing; no required paid subscriptions or hosted backend.
+- [ ] Treat AI-provider privacy/security claims separately and evidence them before recommending or discouraging a provider.
+
 ## Later improvements
 
 - [ ] Create a shared footer/component pattern for app attribution, source and resource links.
