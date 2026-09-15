@@ -18,6 +18,26 @@ Test where possible HTTPS/HTTP, www/non-www, `/robots.txt`, `/sitemap.xml`, and 
 
 Return **PASS**, **PARTIAL**, **FAIL**, or **INCONCLUSIVE**. Preserve evidence before suggesting changes.
 
+## Two-pass diagnosis rule
+
+Every reachability problem uses two passes.
+
+### Pass 1 — TEST
+Collect evidence and identify the exact failure layer. Ask: **Are we reaching the target HTML, or is a retrieval/search/security layer refusing, substituting or confusing the site first?**
+
+### Pass 2 — DIAGNOSE & SOLVE
+Do not stop at "my AI blocked it." Investigate:
+- which named component/source classifies the URL as unsafe, insecure, unreliable or otherwise blocked, if discoverable;
+- named domain and shared-IP blacklist/reputation services separately;
+- stale signals from historical TLS/redirect problems, with evidence;
+- why browsers and automated retrieval differ;
+- similarly named-domain confusion, distinguishing search/entity substitution from DNS/HTTP redirection;
+- whether DNS migration, CDN/proxying or origin migration would actually address the observed failure;
+- the smallest reversible A/B test;
+- a post-change rerun using the same test and receipt.
+
+If the provider's internal reason is opaque, say **SOURCE NOT IDENTIFIED**. A provider-side refusal is an observation, not automatically the root cause.
+
 ## Stage 2 — Discovery Files
 Fetch and inspect `robots.txt`, `sitemap.xml`, and `llms.txt`. Check unintended crawler blocking, canonical real sitemap URLs, resolving entries and useful HTML/Markdown relationships.
 
