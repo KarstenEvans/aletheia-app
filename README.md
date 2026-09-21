@@ -40,8 +40,14 @@ A direct-first, evidence-aware news reader that discovers current reporting, gro
 
 ```text
 aletheia-app/
-└── aletheia-language-learn/
-    └── aletheia-language-learn.md
+├── aletheia-language-learn/
+│   └── aletheia-language-learn.md
+└── aletheia-news/
+    ├── aletheia-news.md
+    ├── aletheia-news.htm
+    ├── aletheia-news-rsc.htm
+    ├── aletheia-news-worker.js
+    └── aletheia-news-sources.json
 ```
 
 More Aletheia apps can be added as separate folders following the same portable, reconstructable and human-editable pattern.
