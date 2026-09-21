@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aletheia News</title>
+<meta name="description" content="Aletheia News: a direct-first multi-source news reader with source comparison and research prompts.">
+<style>
+:root{color-scheme:dark;--bg:#0b0e12;--panel:#131820;--panel2:#19212b;--line:#2b3643;--text:#eef3f8;--muted:#9eabb8;--accent:#83d4ff;--good:#86d6aa;--warn:#f0ca73}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent)} button,input{font:inherit}
+header{position:sticky;top:0;z-index:5;background:rgba(11,14,18,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.wrap{max-width:1080px;margin:auto;padding:14px 16px}.brand{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand h1{font-size:1.2rem;margin:0}
+.badge{border:1px solid var(--line);border-radius:999px;padding:4px 8px;color:var(--muted);font-size:.75rem}
+nav{display:flex;gap:7px;overflow:auto;padding-top:12px;scrollbar-width:none}
+nav button,.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:10px;padding:8px 11px;cursor:pointer;white-space:nowrap}
+nav button.active{color:var(--accent);border-color:var(--accent)}
+.intro{background:#101821;border:1px solid #263d50;border-radius:12px;padding:12px;margin:15px 0;color:#d3e0ea}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.controls input{flex:1;min-width:220px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+.status{font-size:.88rem;color:var(--muted);margin:8px 0 14px}
+.story{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px;margin:12px 0}.story.cluster{border-left:3px solid var(--accent)}
+.story h2{font-size:1.06rem;line-height:1.3;margin:0 0 8px}.story h2 a{color:var(--text);text-decoration:none}.story h2 a:hover{text-decoration:underline}
+.meta{display:flex;gap:7px;flex-wrap:wrap;color:var(--muted);font-size:.8rem}.chip{border:1px solid var(--line);border-radius:999px;padding:2px 7px}.good{color:var(--good)}
+.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.actions a,.actions button{background:var(--panel2);border:1px solid var(--line);border-radius:9px;color:var(--text);padding:7px 9px;text-decoration:none;cursor:pointer}
+.other{margin:9px 0 0;padding-left:20px;color:#ced7df}.other a{color:var(--accent)}
+details{margin:16px 0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}details p{color:var(--muted)}
+footer{padding:26px 0 50px;color:var(--muted);font-size:.8rem}
+@media(max-width:620px){.wrap{padding-left:12px;padding-right:12px}.story{border-radius:12px}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+  <div class="brand">
+    <h1>📰 Aletheia News</h1>
+    <span class="badge">DIRECT-FIRST v0.2</span>
+  </div>
+  <nav id="nav"></nav>
+</div>
+</header>
+
+<main class="wrap">
+  <div class="intro"><strong>Triangulate, don't merely aggregate.</strong> This reader discovers current reporting and links to original publishers. Similar headlines are grouped so repeated copies do not masquerade as independent confirmation.</div>
+
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search a topic, person, place or event">
+    <button class="btn" id="go">Search</button>
+    <button class="btn" id="refresh">Refresh</button>
+    <a class="btn" href="aletheia-news-rsc.htm">Resources</a>
+  </div>
+  <div class="status" id="status">Ready.</div>
+  <section id="feed"></section>
+
+  <details>
+    <summary>Personal BBC RSS (optional)</summary>
+    <p>The normal reader uses GDELT directly from this browser, so it consumes no Cloudflare Worker request. If you run your own Aletheia News Worker in <strong>personal</strong> mode, enter its URL below to add BBC RSS.</p>
+    <div class="controls">
+      <input id="worker" type="url" placeholder="https://your-worker.workers.dev">
+      <button class="btn" id="saveWorker">Save Worker</button>
+    </div>
+  </details>
+
+  <details>
+    <summary>What this app does not do</summary>
+    <p>No paywall bypass. No copied full articles. No political winner or source ideology score. Source count is not treated as independent confirmation if several outlets appear to derive from the same reporting lineage.</p>
+  </details>
+
+  <footer>Aletheia News • local preferences and 15-minute browser cache • <a href="aletheia-news.md">portable Markdown app</a></footer>
+</main>
+
+<script>
+(function(){
+'use strict';
+
+var TOPICS={
+  now:'("breaking news" OR government OR economy OR technology OR health OR science)',
+  uk:'(Britain OR British OR "United Kingdom")',
+  world:'(international OR world OR global)',
+  ai:'("artificial intelligence" OR "AI model" OR "AI agent")',
+  science:'(science OR research OR discovery)',
+  technology:'(technology OR software OR cyber OR computing)',
+  health:'(health OR medicine OR medical)',
+  business:'(business OR economy OR markets)'
+};
+var LABELS={now:'NOW',uk:'UK',world:'WORLD',ai:'AI',science:'SCIENCE',technology:'TECH',health:'HEALTH',business:'BUSINESS'};
+var CACHE_MS=15*60*1000;
+var current=localStorage.getItem('aletheiaNewsTopic')||'now';
+var items=[];
+var groups=[];
+
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function setStatus(s){document.getElementById('status').textContent=s;}
+function domain(url){try{return new URL(url).hostname.replace(/^www\./,'');}catch(e){return '';}}
+function prettyDate(x){if(!x)return ''; var s=String(x); if(/^\d{14}$/.test(s)){s=s.slice(0,4)+'-'+s.slice(4,6)+'-'+s.slice(6,8)+'T'+s.slice(8,10)+':'+s.slice(10,12)+':'+s.slice(12,14)+'Z';} var d=new Date(s); return isNaN(d)?x:d.toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'});}
+function renderNav(){var n=document.getElementById('nav');n.innerHTML=Object.keys(TOPICS).map(function(t){return '<button data-topic="'+t+'" class="'+(t===current?'active':'')+'">'+LABELS[t]+'</button>';}).join(''); Array.prototype.forEach.call(n.querySelectorAll('button'),function(b){b.onclick=function(){current=b.dataset.topic;localStorage.setItem('aletheiaNewsTopic',current);document.getElementById('search').value='';renderNav();load(false);};});}
+
+function significantWords(s){
+  var stop={the:1,and:1,for:1,with:1,from:1,that:1,this:1,into:1,after:1,over:1,about:1,news:1,new:1,says:1,say:1,are:1,was:1,were:1};
+  var out={}; String(s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).forEach(function(w){if(w.length>3&&!stop[w])out[w]=1;}); return out;
+}
+function similarity(a,b){var A=significantWords(a),B=significantWords(b),ak=Object.keys(A),bk=Object.keys(B); if(!ak.length||!bk.length)return 0; var hits=0;ak.forEach(function(w){if(B[w])hits++;});return hits/Math.min(ak.length,bk.length);}
+function cluster(list){var gs=[];list.forEach(function(it){var g=null;for(var i=0;i<gs.length;i++){if(similarity(gs[i][0].title,it.title)>=0.5){g=gs[i];break;}} if(g)g.push(it);else gs.push([it]);});return gs;}
+
+function researchPrompt(g){
+  var leads=g.map(function(x){return '- '+x.source+': '+x.title+'\n  '+x.url;}).join('\n');
+  return 'ALETHEIA NEWS RESEARCH REQUEST\\n\\nResearch this developing story independently using current web sources.\\n\\nSOURCE LEADS:\\n'+leads+'\\n\\nDo not assume any source is correct merely because it appears here. Find primary sources where possible. Return: ESTABLISHED; REPORTED; UNCERTAIN / CONTESTED; WHAT CHANGED; SOURCE LINEAGE; SOURCE RECEIPTS. Distinguish independent original reporting from wire, press-release or syndicated copies where identifiable. Do not bypass paywalls or copy long passages.';
+}
+async function copyText(s){try{await navigator.clipboard.writeText(s);setStatus('Research prompt copied.');}catch(e){window.prompt('Copy this prompt:',s);}}
+
+function render(){
+  groups=cluster(items);
+  var feed=document.getElementById('feed');
+  if(!groups.length){feed.innerHTML='<div class="intro">No matching stories found.</div>';return;}
+  feed.innerHTML=groups.map(function(g,idx){
+    var lead=g[0], many=g.length>1;
+    var other=many?'<ul class="other">'+g.slice(1,7).map(function(x){return '<li><a target="_blank" rel="noopener" href="'+esc(x.url)+'">'+esc(x.source)+': '+esc(x.title)+'</a></li>';}).join('')+'</ul>':'';
+    return '<article class="story '+(many?'cluster':'')+'">'+
+      '<h2><a target="_blank" rel="noopener" href="'+esc(lead.url)+'">'+esc(lead.title)+'</a></h2>'+
+      '<div class="meta"><span class="chip">'+esc(lead.source)+'</span>'+(many?'<span class="chip good">'+g.length+' reports grouped</span>':'')+(lead.published?'<span>'+esc(prettyDate(lead.published))+'</span>':'')+'</div>'+
+      other+
+      '<div class="actions"><a target="_blank" rel="noopener" href="'+esc(lead.url)+'">Read source ↗</a><button data-research="'+idx+'">Research</button></div>'+
+      '</article>';
+  }).join('');
+  Array.prototype.forEach.call(feed.querySelectorAll('[data-research]'),function(b){b.onclick=function(){copyText(researchPrompt(groups[Number(b.dataset.research)]));};});
+}
+
+async function gdelt(query,force){
+  var key='aletheiaNewsCache:'+query;
+  if(!force){try{var c=JSON.parse(localStorage.getItem(key)||'null');if(c&&Date.now()-c.time<CACHE_MS)return c.items;}catch(e){}}
+  var u=new URL('https://api.gdeltproject.org/api/v2/doc/doc');
+  u.searchParams.set('query',query);
+  u.searchParams.set('mode','ArtList');
+  u.searchParams.set('format','json');
+  u.searchParams.set('maxrecords','60');
+  u.searchParams.set('sort','DateDesc');
+  u.searchParams.set('timespan','48h');
+  var r=await fetch(u.toString());
+  if(!r.ok)throw new Error('GDELT HTTP '+r.status);
+  var d=await r.json();
+  var out=(d.articles||[]).map(function(a){
+    return {title:a.title||'',url:a.url||'',source:a.domain||domain(a.url)||'Publisher',published:a.seendate||'',country:a.sourcecountry||'',language:a.language||'',kind:'discovery'};
+  }).filter(function(x){return x.title&&x.url;});
+  try{localStorage.setItem(key,JSON.stringify({time:Date.now(),items:out}));}catch(e){}
+  return out;
+}
+
+async function bbcFromWorker(topic){
+  var worker=(localStorage.getItem('aletheiaNewsWorker')||'').replace(/\/$/,'');
+  if(!worker)return [];
+  var allowed={now:'top',uk:'uk',world:'world',science:'science',technology:'technology',business:'business'};
+  if(!allowed[topic])return [];
+  var r=await fetch(worker+'/api/rss?source=bbc&topic='+encodeURIComponent(allowed[topic]));
+  if(!r.ok)return [];
+  var d=await r.json();
+  return d.items||[];
+}
+
+async function load(force){
+  var custom=document.getElementById('search').value.trim();
+  var q=custom||TOPICS[current];
+  setStatus('Loading current reports…');
+  try{
+    var primary=await gdelt(q,!!force);
+    var extra=custom?[]:await bbcFromWorker(current).catch(function(){return [];});
+    var seen={};
+    items=primary.concat(extra).filter(function(x){var k=(x.url||x.title).toLowerCase();if(seen[k])return false;seen[k]=1;return true;});
+    setStatus(items.length+' reports discovered • browser-cached for 15 minutes'+(extra.length?' • BBC personal RSS added':''));
+    render();
+  }catch(e){
+    items=[];
+    setStatus('Live discovery failed: '+e.message+'. Try again later or use the resource links.');
+    render();
+  }
+}
+
+document.getElementById('go').onclick=function(){load(false);};
+document.getElementById('refresh').onclick=function(){load(true);};
+document.getElementById('search').addEventListener('keydown',function(e){if(e.key==='Enter')load(false);});
+document.getElementById('worker').value=localStorage.getItem('aletheiaNewsWorker')||'';
+document.getElementById('saveWorker').onclick=function(){localStorage.setItem('aletheiaNewsWorker',document.getElementById('worker').value.trim());setStatus('Personal Worker saved locally on this device.');};
+renderNav();load(false);
+})();
+</script>
+</body>
+</html>
