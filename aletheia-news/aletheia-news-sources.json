@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.1",
+  "updated": "2026-09-21",
+  "architecture": {
+    "default": "direct-first",
+    "browser_cache_minutes": 15,
+    "worker_required_for_normal_reading": false,
+    "note": "Use direct browser APIs where CORS permits. Reserve Cloudflare Worker calls for personal RSS or later enrichment."
+  },
+  "sources": [
+    {
+      "id": "gdelt",
+      "name": "GDELT",
+      "role": "discovery",
+      "public": true,
+      "personal": true,
+      "ingest": "direct-browser",
+      "notes": "Broad discovery and link-out."
+    },
+    {
+      "id": "bbc",
+      "name": "BBC News",
+      "role": "publisher-rss",
+      "public": "link-only",
+      "personal": true,
+      "ingest": "optional-personal-worker",
+      "notes": "Preserve attribution. Do not assume distributed software grants general syndication rights."
+    },
+    {
+      "id": "toi",
+      "name": "Times of India",
+      "role": "publisher",
+      "public": "link-only",
+      "personal": "link-only",
+      "ingest": "discovery-link",
+      "notes": "RSS terms restrict aggregation/republication without permission."
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters",
+      "role": "wire-and-original-reporting",
+      "public": "link-only",
+      "personal": "link-only",
+      "ingest": "discovery-link"
+    },
+    {
+      "id": "ap",
+      "name": "Associated Press",
+      "role": "wire-and-original-reporting",
+      "public": "link-only",
+      "personal": "link-only",
+      "ingest": "discovery-link"
+    },
+    {
+      "id": "times",
+      "name": "The Times / Sunday Times",
+      "role": "publisher",
+      "public": "link-only",
+      "personal": "link-only",
+      "ingest": "discovery-link"
+    },
+    {
+      "id": "guardian",
+      "name": "The Guardian",
+      "role": "publisher",
+      "public": "link-only",
+      "personal": "link-only",
+      "ingest": "discovery-link"
+    },
+    {
+      "id": "govuk",
+      "name": "GOV.UK",
+      "role": "primary-source",
+      "public": true,
+      "personal": true,
+      "ingest": "public-api-or-link"
+    },
+    {
+      "id": "parliament",
+      "name": "UK Parliament",
+      "role": "primary-source",
+      "public": true,
+      "personal": true,
+      "ingest": "rss-link-api-where-permitted"
+    },
+    {
+      "id": "groundnews",
+      "name": "Ground News",
+      "role": "competitor-design-reference",
+      "public": "link-only",
+      "personal": "link-only",
+      "ingest": "none",
+      "notes": "Do not scrape or reuse proprietary ratings/clusters."
+    }
+  ],
+  "affiliate_checks": [
+    {
+      "service": "Ground News",
+      "status": "official affiliate programme found",
+      "url": "https://ground.news/affiliates"
+    },
+    {
+      "service": "Bookshop.org UK",
+      "status": "official affiliate programme; standard affiliates advertise 10% commission",
+      "url": "https://uk.bookshop.org/affiliates/profile/introduction"
+    },
+    {
+      "service": "YouTube",
+      "status": "UK Shopping Affiliate exists for eligible creators; not a general website referral programme"
+    },
+    {
+      "service": "BBC / iPlayer",
+      "status": "no public website referral programme verified in this research"
+    },
+    {
+      "service": "Times of India",
+      "status": "no public TOI news affiliate programme verified in this research"
+    }
+  ]
+}
