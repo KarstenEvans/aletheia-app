@@ -22,6 +22,20 @@ To use it, download or attach the raw Markdown file to a capable conversational 
 
 The app remains useful without voice, persistent memory, Astra, Odysseus, Codex, an avatar or web access. Optional components must not be presented as required or officially integrated.
 
+
+### Aletheia News
+
+A direct-first, evidence-aware news reader that discovers current reporting, groups coverage, traces reporting lineage, surfaces primary sources and supports independent research passes without copying full publisher articles.
+
+- **Version:** 0.2
+- **Status:** Working prototype / design
+- **Primary protocol:** Aletheia
+- **Infrastructure:** Direct browser discovery by default; optional personal BBC RSS Worker
+- [Read the app](aletheia-news/aletheia-news.md)
+- [Open the browser interface](aletheia-news/aletheia-news.htm)
+- [Open the resources page](aletheia-news/aletheia-news-rsc.htm)
+- [View source register](aletheia-news/aletheia-news-sources.json)
+
 ## Repository structure
 
 ```text
