@@ -218,6 +218,8 @@ As of 21 September 2026, Workers Free allows 100,000 requests per day, 10 ms CPU
 
 At 10 Worker-backed refreshes per user per day, 1,000 daily users would use about 10,000 requests, well below the current 100,000/day free allowance. A badly designed one-minute polling loop would consume quota far faster, so polling is prohibited by default.
 
+If the project outgrows the free allowance, the current Workers Paid plan starts at **$5 USD/month** and includes **10 million Worker requests/month**, with usage-based overage. Treat that as a scale-up step funded by real traffic/revenue, not a requirement for v0.x.
+
 ## Research prompt
 
 For a story cluster use:
