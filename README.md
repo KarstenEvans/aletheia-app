@@ -32,8 +32,8 @@ A direct-first, evidence-aware news reader that discovers current reporting, gro
 - **Primary protocol:** Aletheia
 - **Infrastructure:** Direct browser discovery by default; optional personal BBC RSS Worker
 - [Read the app](aletheia-news/aletheia-news.md)
-- [Open the browser interface](aletheia-news/aletheia-news.htm)
-- [Open the resources page](aletheia-news/aletheia-news-rsc.htm)
+- [Open the browser interface](https://karstenevans.github.io/aletheia-app/aletheia-news/aletheia-news.htm)
+- [Open the resources page](https://karstenevans.github.io/aletheia-app/aletheia-news/aletheia-news-rsc.htm)
 - [View source register](aletheia-news/aletheia-news-sources.json)
 
 ## Repository structure
