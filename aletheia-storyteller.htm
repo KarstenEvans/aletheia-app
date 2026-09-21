@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aletheia Storyteller</title>
+<style>
+:root{--blue:#1677ff;--glass:rgba(5,8,14,.58);--glass2:rgba(5,8,14,.84);--ink:#fff;--muted:#cbd5e1}
+*{box-sizing:border-box} html,body{height:100%;margin:0;background:#080b10;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow:hidden}
+#stage{position:fixed;inset:0;background:radial-gradient(circle at 50% 35%,#263442 0,#111923 42%,#07090d 100%);overflow:hidden}
+#storyImage{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;max-width:none;max-height:none;user-select:none;-webkit-user-drag:none;opacity:0;transition:opacity .45s ease,transform 2.5s cubic-bezier(.25,.75,.25,1)}
+#shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.04) 0,rgba(0,0,0,.04) 56%,rgba(0,0,0,.45) 100%);pointer-events:none}
+#titleCard{position:absolute;left:50%;top:14%;transform:translateX(-50%);max-width:min(90vw,950px);text-align:center;text-shadow:0 2px 18px #000;pointer-events:none}
+#titleCard h1{font-size:clamp(2rem,5vw,5rem);margin:0 0 .4rem;line-height:1.02} #titleCard p{font-size:clamp(1rem,2vw,1.4rem);margin:0;color:#eee}
+#caption{position:absolute;left:50%;bottom:max(7vh,64px);transform:translateX(-50%);width:min(90vw,1100px);padding:.72rem 1.05rem;border-radius:14px;background:rgba(0,0,0,.60);backdrop-filter:blur(4px);font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.15rem,2.5vw,2.15rem);line-height:1.32;text-align:center;text-shadow:0 1px 4px #000;min-height:3.1em;display:flex;align-items:center;justify-content:center}
+#caption.off{display:none}
+#miniControls{position:fixed;left:10px;top:10px;z-index:20;padding:5px 8px;border-radius:10px;background:rgba(255,255,255,.16);backdrop-filter:blur(5px);font:600 16px/1.1 ui-monospace,SFMono-Regular,Consolas,monospace;opacity:.68;transition:opacity .2s}
+#miniControls:hover{opacity:1} #miniControls a,#menuButton{color:var(--blue);text-decoration:none;cursor:pointer;background:transparent;border:0;font:inherit;padding:4px 7px} #miniControls a:hover,#menuButton:hover{text-decoration:underline}
+#menuButton{position:fixed;right:10px;top:10px;z-index:25;background:rgba(255,255,255,.16);backdrop-filter:blur(5px);border-radius:10px;font:700 14px system-ui;color:var(--blue)}
+#menu{position:fixed;right:10px;top:52px;z-index:24;width:min(360px,calc(100vw - 20px));max-height:calc(100vh - 70px);overflow:auto;padding:14px;border-radius:14px;background:var(--glass2);backdrop-filter:blur(12px);box-shadow:0 16px 50px rgba(0,0,0,.45);display:none}
+#menu.open{display:block} #menu h2{font-size:1.05rem;margin:0 0 10px} #menu label{display:block;color:var(--muted);font-size:.82rem;margin-top:10px;margin-bottom:3px}
+#menu select,#menu input[type=range]{width:100%} #menu select{padding:8px;border-radius:8px;background:#121a24;color:#fff;border:1px solid #526070}
+.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.small{font-size:.78rem;color:var(--muted);line-height:1.35}.menuLink{color:var(--blue);cursor:pointer;text-decoration:none}.menuLink:hover{text-decoration:underline}
+#folderInput{display:none} #status{position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:19;color:#e5e7eb;font-size:.8rem;background:rgba(0,0,0,.38);padding:5px 9px;border-radius:999px;pointer-events:none;opacity:.75}
+#startOverlay{position:fixed;inset:0;z-index:18;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);pointer-events:none} #startOverlay .box{background:rgba(0,0,0,.55);backdrop-filter:blur(6px);padding:20px 26px;border-radius:18px;text-align:center;max-width:600px} #startOverlay h2{margin:0 0 8px} #startOverlay p{margin:.35rem 0;color:#e2e8f0}.hide{display:none!important}
+@media(max-width:650px){#caption{bottom:54px;width:94vw;font-size:clamp(1rem,5vw,1.45rem)}#menu{font-size:.95rem}}
+</style>
+</head>
+<body>
+<div id="stage">
+  <img id="storyImage" alt="Story scene">
+  <div id="shade"></div>
+  <div id="titleCard"><h1>Aletheia Storyteller</h1><p>Select a story, then press play.</p></div>
+  <div id="caption">Aletheia Storyteller</div>
+</div>
+<div id="status">Loading stories…</div>
+<div id="miniControls" aria-label="Story controls"><a id="backBtn" title="Previous">&lt;&lt;</a>&nbsp;&nbsp;<a id="playBtn" title="Play / pause">&gt;</a>&nbsp;&nbsp;<a id="nextBtn" title="Next">&gt;&gt;</a>&nbsp;&nbsp;<a id="stopBtn" title="Stop">[]</a></div>
+<button id="menuButton" aria-expanded="false">☰ MENU</button>
+<div id="menu">
+  <h2>Aletheia Storyteller</h2>
+  <label for="storySelect">Story</label>
+  <select id="storySelect"></select>
+  <div class="row" style="margin-top:8px"><a class="menuLink" id="openFolderLink">OPEN FOLDER</a><a class="menuLink" id="reloadLink">RELOAD STORY</a></div><p class="small"><a class="menuLink" href="aletheia-storyteller-rsc.htm">STORY RESOURCES</a></p>
+  <input id="folderInput" type="file" webkitdirectory multiple accept=".md,.mp3,.vtt,.webp,.png,.jpg,.jpeg">
+
+  <label for="narrationMode">Narration</label>
+  <select id="narrationMode"><option value="tts">Browser voice</option><option value="audio">MP3 + VTT (if present)</option></select>
+
+  <label for="voiceSelect">Voice</label>
+  <select id="voiceSelect"></select>
+  <div class="row"><div><label for="rate">Rate <span id="rateVal">1.0</span></label><input id="rate" type="range" min="0.7" max="1.35" value="1" step="0.05"></div><div><label for="pitch">Pitch <span id="pitchVal">1.0</span></label><input id="pitch" type="range" min="0.7" max="1.3" value="1" step="0.05"></div></div>
+
+  <label for="captionCount">Caption window</label>
+  <select id="captionCount"><option value="1">1 sentence</option><option value="2" selected>2 sentences</option><option value="3">3 sentences</option><option value="0">Off</option></select>
+  <p class="small">Default voice preference is UK English, rate 1.0, pitch 1.0. MP3 mode expects a same-name `.mp3` and sentence-aligned `.vtt`.</p>
+  <p class="small">Camera commands: `[image;file;name=x,y,zoom]`, `[zoom;name]`, `[pan;name]`, `[wide]`, `[hold;seconds]`.</p>
+</div>
+<audio id="audio" preload="metadata"></audio>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const img=$('storyImage'), caption=$('caption'), status=$('status'), titleCard=$('titleCard'), audio=$('audio');
+let stories=[], selected=null, nodes=[], speechCues=[], cueCommands=[], currentCue=-1, playing=false, paused=false, currentImageFile='', hotspots={}, currentZoom=1, currentFocus=null, currentImageDims=null, folderFiles=null, vttCues=[], activeVttIndex=-1;
+const state={rate:1,pitch:1,captionCount:2,voice:null};
+const MANIFEST_PATH='stories/stories.json';
+
+function setStatus(t){status.textContent=t;}
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function cleanMd(s){return s.replace(/^#{1,6}\s+/,'').replace(/^\*|\*$/g,'').replace(/\*\*/g,'').replace(/`/g,'').trim();}
+function sentenceSplit(text){
+  text=text.trim(); if(!text)return [];
+  if(window.Intl&&Intl.Segmenter){try{return [...new Intl.Segmenter('en',{granularity:'sentence'}).segment(text)].map(x=>x.segment.trim()).filter(Boolean)}catch(e){}}
+  return text.split(/(?<=[.!?…])\s+(?=[“"A-Z0-9])/).map(s=>s.trim()).filter(Boolean);
+}
+function parseCmd(line){
+  const body=line.trim().slice(1,-1); const parts=body.split(';').map(x=>x.trim()).filter(Boolean); const cmd=(parts.shift()||'').toLowerCase();
+  const o={cmd,args:[],opts:{}};
+  for(const p of parts){ if(p.includes('=')){const [k,...r]=p.split('=');o.opts[k.trim().toLowerCase()]=r.join('=').trim()} else o.args.push(p); }
+  return o;
+}
+function parseStory(md){
+  const ls=md.replace(/\r/g,'').split('\n'); const raw=[]; let para=[];
+  const flush=()=>{if(para.length){raw.push({type:'text',text:para.join(' ').trim()});para=[]}};
+  for(const line of ls){const t=line.trim(); if(!t){flush();continue} if(/^\[[^\]]+\]$/.test(t)){flush();raw.push({type:'cmd',data:parseCmd(t)});continue} if(/^#{1,6}\s+/.test(t)){flush();raw.push({type:'text',text:cleanMd(t),heading:true});continue} para.push(cleanMd(t));}
+  flush();
+  const cues=[], pending=[];
+  for(const n of raw){
+    if(n.type==='cmd'){pending.push(n.data);continue}
+    const ss=sentenceSplit(n.text); if(!ss.length)continue;
+    ss.forEach((s,idx)=>{cues.push({text:s,heading:!!n.heading,commands:idx===0?pending.splice(0):[]})});
+  }
+  return cues;
+}
+function parseVtt(txt){
+  const blocks=txt.replace(/\r/g,'').split(/\n\n+/); const out=[];
+  const time=s=>{const p=s.trim().split(':').map(Number);return p.length===3?p[0]*3600+p[1]*60+p[2]:p[0]*60+p[1]};
+  for(const b of blocks){const l=b.split('\n').filter(Boolean); const ti=l.findIndex(x=>x.includes('-->')); if(ti<0)continue; const [a,b2]=l[ti].split('-->').map(x=>x.trim().split(/\s+/)[0]);out.push({start:time(a.replace(',','.')),end:time(b2.replace(',','.')),text:l.slice(ti+1).join(' ').replace(/<[^>]+>/g,'').trim()});}
+  return out;
+}
+function showCaption(i){
+  const n=+state.captionCount; if(!n){caption.classList.add('off');return} caption.classList.remove('off');
+  const arr=[]; for(let j=i;j<speechCues.length&&arr.length<n;j++)arr.push(speechCues[j].text); caption.textContent=arr.join(' ');
+}
+function dur(cmd,def=2.5){const d=parseFloat(cmd.opts.dur||cmd.opts.duration);return Number.isFinite(d)?d:def}
+function setTransition(sec){img.style.transition=`opacity .45s ease, transform ${sec}s cubic-bezier(.25,.75,.25,1)`}
+function parseHotspot(v){const a=v.split(',').map(Number);return {x:a[0]||50,y:a[1]||50,z:a[2]||2}}
+function resizeImageAndApply(){if(!img.naturalWidth)return; currentImageDims={iw:img.naturalWidth,ih:img.naturalHeight}; applyFocus(currentFocus,currentZoom,0)}
+function transformFor(name,z){
+  const vw=innerWidth,vh=innerHeight,iw=img.naturalWidth||1,ih=img.naturalHeight||1; const base=Math.max(vw/iw,vh/ih); const rw=iw*base,rh=ih*base; img.style.width=rw+'px';img.style.height=rh+'px';
+  if(!name||!hotspots[name])return {tx:(vw-rw)/2,ty:(vh-rh)/2,z:1};
+  const h=hotspots[name]; z=z||h.z||2; return {tx:vw/2-(h.x/100*rw*z),ty:vh/2-(h.y/100*rh*z),z};
+}
+function applyFocus(name,z,seconds=2.5){if(!img.naturalWidth)return; setTransition(seconds); const t=transformFor(name,z); currentFocus=name||null;currentZoom=t.z;img.style.transform=`translate(${t.tx}px,${t.ty}px) scale(${t.z})`;}
+async function loadImage(cmd){
+  const file=cmd.args[0]; if(!file||file.toLowerCase()==='none'){img.style.opacity=0;currentImageFile='';hotspots={};return}
+  hotspots={}; Object.entries(cmd.opts).forEach(([k,v])=>{if(k!=='dur'&&/^[-\d.]+,[-\d.]+(?:,[-\d.]+)?$/.test(v))hotspots[k]=parseHotspot(v)});
+  currentImageFile=file; const src=await resolveFileUrl(file); if(!src){setStatus('Image not found: '+file);return}
+  await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=src}).catch(()=>{}); img.style.opacity=1; applyFocus(null,1,0); setStatus('');
+}
+async function execute(cmd){
+  if(cmd.cmd==='image'){await loadImage(cmd);return}
+  if(cmd.cmd==='zoom'){const n=(cmd.args[0]||'').toLowerCase();applyFocus(n,hotspots[n]?.z||2,dur(cmd));return}
+  if(cmd.cmd==='pan'){const n=(cmd.args[0]||'').toLowerCase();applyFocus(n,currentZoom||hotspots[n]?.z||2,dur(cmd));return}
+  if(cmd.cmd==='wide'||cmd.cmd==='zoomout'){applyFocus(null,1,dur(cmd));return}
+  if(cmd.cmd==='hold'){const s=parseFloat(cmd.args[0]||cmd.opts.dur||'1');await new Promise(r=>setTimeout(r,Math.max(0,s)*1000));return}
+}
+async function executeCommands(list){for(const c of list||[])await execute(c)}
+function chooseVoice(){
+  const vs=speechSynthesis.getVoices(); const sel=$('voiceSelect'); if(sel.options.length!==vs.length){sel.innerHTML='';vs.forEach((v,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${v.name} (${v.lang})`;sel.appendChild(o)});let ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb'&&/male|george|ryan|daniel|arthur/i.test(v.name));if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb');if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase().startsWith('en'));if(ix>=0)sel.value=String(ix)} state.voice=vs[+sel.value]||vs[0]||null;
+}
+function speakCurrent(){
+  if(currentCue<0||currentCue>=speechCues.length){stopAll(false);return}
+  showCaption(currentCue); const c=speechCues[currentCue];
+  executeCommands(c.commands).then(()=>{
+    if(!playing)return; const u=new SpeechSynthesisUtterance(c.text); if(state.voice)u.voice=state.voice;u.lang=state.voice?.lang||'en-GB';u.rate=state.rate;u.pitch=state.pitch;u.onend=()=>{if(playing&&!paused){currentCue++;speakCurrent()}};u.onerror=()=>{if(playing&&!paused){currentCue++;speakCurrent()}};speechSynthesis.speak(u);
+  });
+}
+function playTts(){if(!speechCues.length)return;if(currentCue<0)currentCue=0;playing=true;paused=false;$('playBtn').textContent='||';speechSynthesis.cancel();speakCurrent()}
+function togglePlay(){
+  if($('narrationMode').value==='audio'&&audio.src){ if(audio.paused){audio.play();playing=true;$('playBtn').textContent='||'}else{audio.pause();playing=false;$('playBtn').textContent='>'} return }
+  if(playing){speechSynthesis.cancel();playing=false;paused=true;$('playBtn').textContent='>'} else playTts();
+}
+function step(delta){
+  if($('narrationMode').value==='audio'&&vttCues.length){let i=Math.max(0,(activeVttIndex<0?0:activeVttIndex)+delta);audio.currentTime=vttCues[i].start+.01;updateFromAudio();return}
+  speechSynthesis.cancel();playing=false;paused=true;currentCue=Math.min(speechCues.length-1,Math.max(0,(currentCue<0?0:currentCue)+delta));showCaption(currentCue);executeCommands(speechCues[currentCue]?.commands||[]);$('playBtn').textContent='>';
+}
+function stopAll(reset=true){speechSynthesis.cancel();audio.pause();playing=false;paused=false;$('playBtn').textContent='>';if(reset){audio.currentTime=0;currentCue=0;activeVttIndex=-1;if(speechCues.length){showCaption(0);executeCommands(speechCues[0].commands||[])}}}
+async function loadStory(entry){
+  stopAll(false);selected=entry;currentCue=-1;activeVttIndex=-1;titleCard.classList.add('hide');setStatus('Loading '+(entry.title||entry.file)+'…'); const md=await readText(entry.file);if(md==null){setStatus('Could not load '+entry.file);return}speechCues=parseStory(md);currentCue=0; if(speechCues.length){showCaption(0);await executeCommands(speechCues[0].commands||[])}
+  await prepareAudio(entry); setStatus(`${entry.title||entry.file} • ${speechCues.length} spoken cues`);
+}
+async function prepareAudio(entry){audio.removeAttribute('src');vttCues=[];$('narrationMode').value='tts';const base=entry.file.replace(/\.md$/i,'');const af=entry.audio||base+'.mp3',vf=entry.vtt||base+'.vtt';const au=await resolveFileUrl(af,true),vt=await readText(vf,true);if(au&&vt!=null){audio.src=au;vttCues=parseVtt(vt);$('narrationMode').value='audio';if(Math.abs(vttCues.length-speechCues.length)>2)setStatus(`Audio found, but VTT has ${vttCues.length} cues vs ${speechCues.length} story sentences.`)} }
+function updateFromAudio(){if(!vttCues.length)return;const t=audio.currentTime;let i=vttCues.findIndex(c=>t>=c.start&&t<c.end);if(i<0){for(let j=vttCues.length-1;j>=0;j--)if(t>=vttCues[j].start){i=j;break}}if(i>=0&&i!==activeVttIndex){activeVttIndex=i;currentCue=Math.min(i,speechCues.length-1);showCaption(currentCue);executeCommands(speechCues[currentCue]?.commands||[])}}
+audio.addEventListener('timeupdate',updateFromAudio);audio.addEventListener('ended',()=>{playing=false;$('playBtn').textContent='>'});
+
+function selectedBase(){
+  if(folderFiles||!selected||!selected.file||!selected.file.includes('/'))return '';
+  return selected.file.slice(0,selected.file.lastIndexOf('/')+1);
+}
+function storyAsset(name){
+  if(folderFiles||!name||/^(?:https?:|data:|blob:|\/)/i.test(name)||name.includes('/'))return name;
+  return selectedBase()+name;
+}
+async function readText(name,optional=false){
+  if(folderFiles){const f=folderFiles.get(name.toLowerCase());if(!f)return optional?null:null;return await f.text()}
+  name=storyAsset(name); try{const r=await fetch(encodeURI(name),{cache:'no-store'});if(!r.ok)throw 0;return await r.text()}catch(e){return optional?null:null}
+}
+async function resolveFileUrl(name,optional=false){
+  if(folderFiles){const f=folderFiles.get(name.toLowerCase());return f?URL.createObjectURL(f):null}
+  name=storyAsset(name); try{const r=await fetch(encodeURI(name),{method:'HEAD',cache:'no-store'});if(r.ok)return encodeURI(name)}catch(e){}return optional?null:encodeURI(name)
+}
+function fillStories(){const s=$('storySelect');s.innerHTML='';stories.forEach((x,i)=>{const o=document.createElement('option');o.value=i;o.textContent=x.title||x.file.replace(/\.md$/i,'');s.appendChild(o)});if(stories.length){s.value='0';loadStory(stories[0])}else setStatus('No story files found.')}
+async function loadManifest(){
+  if(location.protocol==='file:'){setStatus('Local mode: use ☰ MENU → OPEN FOLDER');return}
+  try{const r=await fetch(MANIFEST_PATH,{cache:'no-store'});const j=await r.json();stories=j.stories||[];fillStories()}catch(e){setStatus('stories/stories.json not found. Use OPEN FOLDER.')}
+}
+async function folderPicked(files){
+  folderFiles=new Map(); [...files].forEach(f=>folderFiles.set(f.name.toLowerCase(),f)); stories=[...files].filter(f=>/\.md$/i.test(f.name)&&f.name.toLowerCase()!=='aletheia-storyteller.md'&&!f.name.startsWith('_')).map(f=>({file:f.name,title:f.name.replace(/\.md$/i,'')}));fillStories();
+}
+function populateVoices(){chooseVoice()} speechSynthesis.onvoiceschanged=populateVoices;populateVoices();
+$('voiceSelect').addEventListener('change',chooseVoice);$('rate').oninput=e=>{state.rate=+e.target.value;$('rateVal').textContent=state.rate.toFixed(2)};$('pitch').oninput=e=>{state.pitch=+e.target.value;$('pitchVal').textContent=state.pitch.toFixed(2)};$('captionCount').onchange=e=>{state.captionCount=+e.target.value;if(currentCue>=0)showCaption(currentCue)};
+$('storySelect').onchange=e=>loadStory(stories[+e.target.value]);$('playBtn').onclick=togglePlay;$('backBtn').onclick=()=>step(-1);$('nextBtn').onclick=()=>step(1);$('stopBtn').onclick=()=>stopAll(true);
+$('menuButton').onclick=()=>{const m=$('menu');m.classList.toggle('open');$('menuButton').setAttribute('aria-expanded',m.classList.contains('open'))};$('openFolderLink').onclick=()=>$('folderInput').click();$('folderInput').onchange=e=>folderPicked(e.target.files);$('reloadLink').onclick=()=>selected&&loadStory(selected);
+$('narrationMode').onchange=e=>{stopAll(false);if(e.target.value==='audio'&&!audio.src){e.target.value='tts';setStatus('No same-name MP3 + VTT found; using browser voice.')}};
+addEventListener('resize',()=>applyFocus(currentFocus,currentZoom,0));document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();togglePlay()}else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1)});
+loadManifest();
+})();
+</script>
+</body>
+</html>
