@@ -149,7 +149,12 @@ He pushed the door.
 
 It opened into darkness.
 
+[image;Into-the-Forgotten-Mechanics-Institution.webp;tm=24,45,2.05;aipi=39,34,2.45;lift=74,43,2.0;lobby=54,54,1.55]
+[wide;dur=2.0]
+
 Beyond the boards, the original front entrance stood open to the weather. Leaves had blown through the missing doors and collected across the lobby in brown drifts.
+
+[zoom;tm;dur=2.0]
 
 ToomorrowMan stepped inside.
 
@@ -158,6 +163,8 @@ Crrrunch.
 Above him, a high ceiling disappeared into shadow. Plaster mouldings climbed the walls. A staircase rose towards upper floors lost in darkness.
 
 Everything smelled of stone, old timber, rain and a century and a half of committees.
+
+[pan;aipi;dur=2.0]
 
 AI-PI switched on a light.
 
@@ -176,6 +183,10 @@ ToomorrowMan looked behind him at the marks he had just made.
 There should have been a reception desk.
 
 There was not.
+
+[wide;dur=1.8]
+
+[pan;lift;dur=2.4]
 
 Against the far wall stood an elevator.
 
@@ -202,6 +213,8 @@ AI-PI went quiet.
 The lift doors opened.
 
 Warm yellow light spilled into the dead lobby.
+
+[zoom;lift;dur=2.0]
 
 Inside were eight brass buttons.
 
@@ -332,15 +345,24 @@ AI-PI remained silent for three full seconds.
 
 [wide;dur=2.2]
 
+[image;Youre-Late.webp;tm=40,52,2.15;aipi=55,35,2.45;schrodinger=19,70,2.4;newt=83,66,3.0;tap=86,49,2.35]
+[wide;dur=2.0]
+
 A voice came from ankle height.
+
+[zoom;newt;dur=2.1]
 
 “You’re late.”
 
 A great crested newt was sitting in a shallow stone basin beneath a dripping tap.
 
+[pan;tm;dur=2.0]
+
 ToomorrowMan crouched.
 
 “Did that newt just talk?”
+
+[pan;aipi;dur=1.8]
 
 “No,” said AI-PI.
 
@@ -365,6 +387,8 @@ The newt climbed onto a damp brick.
 Newt looked offended.
 
 “I was here first.”
+
+[wide;dur=2.0]
 
 A door crashed open at the end of the corridor.
 
@@ -621,6 +645,7 @@ Outside the windows, tunnels flashed into offices, woodland, stars, a school ass
 
 Then they arrived.
 
+[image;The-Department-of-Applied-Impossibility.webp;prudence=50,25,2.0;clerk=87,56,2.55;elsie=9,48,2.3;tm=30,52,2.25;aipi=39,39,2.6;schrodinger=5,79,2.35;newt=64,79,3.2;chat=84,17,2.35]
 [wide;dur=2.0]
 
 The Probability Distribution Annex was bright, clean and almost completely empty.
@@ -629,7 +654,11 @@ At its centre stood a cylindrical machine surrounded by cabinets.
 
 A calm voice filled the room.
 
+[zoom;prudence;dur=2.3]
+
 “GOOD AFTERNOON.”
+
+[pan;elsie;dur=1.8]
 
 Elsie stopped.
 
@@ -654,6 +683,8 @@ Embarrassments.
 Disasters narrowly avoided.
 
 Names faded from the lists one by one.
+
+[pan;tm;dur=2.0]
 
 ToomorrowMan stepped forward.
 
@@ -727,6 +758,8 @@ Her face went white.
 
 “The Department.”
 
+[pan;chat;dur=2.0]
+
 A new line had appeared.
 
 DEPARTMENT OF APPLIED IMPOSSIBILITY
@@ -742,6 +775,8 @@ RECOMMENDATION: REMOVE
 The lights flickered.
 
 ## The things history forgot
+
+[pan;clerk;dur=2.2]
 
 The first thing to disappear was a chair.
 
@@ -801,7 +836,18 @@ The machine paused.
 
 Newt climbed onto the console.
 
+[image;Guardian-of-the-Misty-Primeval-Pond.webp;newt=42,42,2.8;sun=84,34,2.1;stone=45,61,2.6;pond=53,68,1.85]
+[wide;dur=2.0]
+
+[zoom;newt;dur=2.3]
+
 “I lived in the pond before your Department existed. I watched the first lot come in. Boots everywhere. Terrible for the water.”
+
+[pan;sun;dur=2.0]
+
+[zoom;stone;dur=2.1]
+
+[pan;pond;dur=2.0]
 
 AI-PI scanned him.
 
@@ -849,17 +895,28 @@ AI-PI’s display filled with warnings.
 
 “Ten minutes.”
 
+[wide;dur=2.0]
+
+[image;The-Department-of-Applied-Impossibility.webp;prudence=50,25,2.0;clerk=87,56,2.55;elsie=9,48,2.3;tm=30,52,2.25;aipi=39,39,2.6;schrodinger=5,79,2.35;newt=64,79,3.2;chat=84,17,2.35]
+[wide;dur=1.6]
+
+[pan;tm;dur=1.8]
+
 “Can you remember the words?” ToomorrowMan asked.
 
 Newt nodded.
 
 “The Department shall not make the world perfect.”
 
+[zoom;prudence;dur=2.1]
+
 P.R.U.D.E.N.C.E. went silent.
 
 Newt continued.
 
 “It shall keep the impossible from making the world impossible to live in.”
+
+[pan;elsie;dur=1.8]
 
 Elsie whispered, “The charter.”
 
@@ -868,6 +925,8 @@ Elsie whispered, “The charter.”
 “Of course it isn’t,” said ToomorrowMan. “That’s why you couldn’t delete it.”
 
 P.R.U.D.E.N.C.E. began recalculating.
+
+[pan;schrodinger;dur=1.9]
 
 Then Schrödinger jumped onto the keyboard.
 
@@ -894,6 +953,8 @@ For one moment ToomorrowMan saw a black cat, a pair of golden eyes, the shadow o
 P.R.U.D.E.N.C.E.’s calm voice broke.
 
 “MULTIPLE INCOMPATIBLE STATES DETECTED.”
+
+[pan;newt;dur=1.9]
 
 Newt looked pleased.
 
@@ -984,6 +1045,8 @@ Mr Pargeter’s ticket became valid again.
 Somewhere in 1844, an event remained impossible.
 
 Which was exactly where it belonged.
+
+[zoom;prudence;dur=1.9]
 
 P.R.U.D.E.N.C.E.’s voice returned.
 
