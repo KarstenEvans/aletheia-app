@@ -998,3 +998,190 @@ AI-PI replied.
 “WOULD YOU LIKE A FORECAST?”
 
 “No.”
+
+“PROBABILITY OF RAIN TOMORROW...”
+
+“No.”
+
+“LIKELIHOOD OF…”
+
+“No.”
+
+There was a pause.
+
+“UNDERSTOOD.”
+
+ToomorrowMan looked at AI-PI.
+
+“You enjoyed that.”
+
+“I have no emotions.”
+
+“You enjoyed that.”
+
+“Unverified.”
+
+Elsie returned the brass anchor disc.
+
+“You should take this.”
+
+“Why?”
+
+“Because according to our system, you already did.”
+
+“That doesn’t make sense.”
+
+“You are adapting quickly.”
+
+Newt climbed into ToomorrowMan’s coat pocket.
+
+ToomorrowMan looked down.
+
+“Are you coming?”
+
+“For a bit.”
+
+“Why?”
+
+“I hear you have a pond.”
+
+“I don’t.”
+
+Newt sighed.
+
+“Then we have our first job.”
+
+The return train deposited them at the Department.
+
+Schrödinger was waiting beside the lift.
+
+ToomorrowMan scratched behind the cat’s ears.
+
+For a moment he could have sworn something enormous rumbled far away.
+
+The collar tag now read:
+
+SCHRÖDINGER
+
+STILL NOT THAT ONE
+
+[image;stories/Newt-Presses-Other.webp;tm=39,24,2.0;aipi=61,27,2.2;schrodinger=63,70,2.15;newt=20,60,3.0;button=13,57,3.3]
+[wide;dur=2.0]
+
+The lift doors opened.
+
+[zoom;tm;dur=1.8]
+
+ToomorrowMan pressed G.
+
+[pan;aipi;dur=2.0]
+
+AI-PI said nothing until the doors were almost shut.
+
+Then:
+
+“Sir?”
+
+“Yes?”
+
+“Do not press Other.”
+
+[pan;button;dur=1.6]
+
+ToomorrowMan looked at the bottom button.
+
+“I wasn’t going to.”
+
+“Good.”
+
+[zoom;newt;dur=1.5]
+
+A tiny green finger emerged from his coat pocket and pressed it.
+
+[pan;button;dur=0.8]
+
+Click.
+
+[pan;newt;dur=1.2]
+
+Newt withdrew his hand.
+
+“Sorry.”
+
+[pan;aipi;dur=1.5]
+
+AI-PI sighed.
+
+[wide;dur=2.0]
+
+The lift went up.
+
+Then down.
+
+Then somewhere that was neither.
+
+## The receipt
+
+They emerged into the derelict lobby.
+
+Leaves.
+
+Dust.
+
+Broken windows.
+
+No Department.
+
+No impossible corridor.
+
+Only an old building in Swindon.
+
+Outside, evening traffic moved normally.
+
+ToomorrowMan checked the parcel label.
+
+The postmark had changed.
+
+DELIVERED: SUNDAY
+
+“That was yesterday,” he said.
+
+“Yes.”
+
+“But it arrived today.”
+
+“Yes.”
+
+“So which is correct?”
+
+AI-PI considered it.
+
+“Do you still have the receipt?”
+
+ToomorrowMan checked his pockets.
+
+The only thing there was the brass disc.
+
+And a damp newt.
+
+“No.”
+
+AI-PI made a satisfied electronic sound.
+
+“Then I recommend we never speak of it again.”
+
+From inside ToomorrowMan’s coat:
+
+“Pond first.”
+
+They walked away from the Mechanics’ Institution.
+
+Behind the hoarding, where nobody was looking, a single brass lift button lit by itself.
+
+COMPLAINTS
+
+Somewhere underneath Swindon, a bell rang.
+
+Nobody answered it.
+
+Which, as beginnings go, was probably sensible.
