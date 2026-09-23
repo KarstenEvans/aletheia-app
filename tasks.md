@@ -291,6 +291,20 @@ Do not create this merely to add another repository. Create it when the front-do
 - [ ] Review accessibility, mobile layout, keyboard operation and popup behaviour for every HTML app.
 - [ ] Review whether a service worker/offline package would genuinely help before adding complexity.
 
+## Storyteller: character dialogue voices and bilingual reading
+
+- [x] Fetch and inspect the exact existing app, first story and story list before editing. Preserve an exact copy under `backup/aletheia-storyteller-before-character-voices-20260923.htm` (commit `1dddf776b4bb3555a936088d8168431b9226fb9c`).
+- [x] Create a standalone local voice-test `.htm` before pushing the main app; leave original audio/video and story artwork untouched.
+- [x] Add six compact `[voice-profile;...]` entries to the beginning of `stories/ToomorrowMan-and-the-Missing-Yesterday.md`, and `[voice:CHARACTER]` assignments at explicitly identified dialogue changes.
+- [x] Implement two parallel voice roles: user-selected narrator for prose; current actor for paired double-quoted speech. Add `[voice:]` for unassigned quotations; no automatic speaker guessing or biography fetch for profiles.
+- [x] Change initial captions to one spoken sentence; keep 2, 3 and Off in the menu.
+- [x] Verify the active app code has no generated “New title” prefix and still waits 400 ms after each Markdown heading.
+- [x] Test the new JavaScript parser with the actual first story: 634 spoken cues, 6 parsed voice profiles, and narrator/TM/AI-PI/Newt/Elsie/Prudence segments.
+- [x] Add bilingual/foreign-language-caption ideas to `ideas.md` as **future** work, not a live feature.
+- [ ] Test live GitHub Pages deployment and voice matching on Android/PC. Non-English TTS voices and female/male metadata vary by device.
+- [ ] Verify MP3/VTT manual mode with a story containing tags; the fixed recording must not be described as actor-switched.
+- [ ] Prepare an actual full offline Storyteller bundle (`.htm`, `stories.json`, all current story Markdown and confirmed art); the initial local voice-test file is a separate experiment, not the full app.
+
 ## Release checklist
 
 For each app:
