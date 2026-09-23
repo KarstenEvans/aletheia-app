@@ -1,6 +1,6 @@
 # Aletheia AI Easy - Provider Installation Guide
 
-> Checked against public provider documentation on 15 September 2026. Interfaces change. Recheck the linked provider help page before publishing screenshots or exact button labels.
+> Originally checked against provider documentation on 15 September 2026; ChatGPT rechecked on 23 September 2026. Other adapters require their own recheck before publishing new screenshots. Interfaces change. Recheck the linked provider help page before publishing screenshots or exact button labels.
 
 ## The simple rule
 
@@ -11,25 +11,44 @@ Keep two portable files:
 
 The bootstrap is stable. The memory file belongs to the user and changes only with their approval.
 
-## ChatGPT
+## ChatGPT (Free-first; rechecked 23 September 2026)
 
-**Recommended baseline:** create a ChatGPT Project called `Aletheia` (or another name the user chooses), put the compact bootstrap rules into Project instructions, and add `aletheia-memory.md` as a project file. ChatGPT Projects are currently available on free and paid plans. OpenAI currently lists a five-file-per-project allowance for Free accounts.
+**Do not ask a Free user to create a new GPT.** Free users can use existing GPTs but cannot create/publish new ones on personal ChatGPT accounts. Instead, use Custom Instructions for universal preferences and a Project for long-lived Aletheia context.
 
-Do not design the main route around creating a new custom GPT. OpenAI currently says new GPT creation/publishing is not available on personal Free, Go, Plus or Pro accounts and is planning a transition from GPTs toward Plugins.
+**Step 1: inspect privacy before supplying personal context.**
 
-Official references:
+Open Settings > Data controls and review Improve the model for everyone. Turning it off prevents eligible new conversations being used for model improvement but does not erase chat history. Open Settings > Personalization > Memory separately and review the summary if available. A personalised Temporary Chat may still use existing memories without creating new ones, so choose its initial personalisation setting deliberately.
 
+**Step 2: add a short global preference, if wanted.**
+
+On web/desktop use Settings > Personalization; on mobile use Settings > Customize ChatGPT. Enable customization. Free/Go accounts currently allow **1,500 characters** in Custom Instructions. The local `aletheia-setup.htm` now provides a concise editable profile with a live character counter and copy button. Do not paste the entire `aletheia-bootstrap.md` into this smaller global field. Avoid storing secrets or private case details in global instructions because relevant details may be passed to a connected plugin when used.
+
+**Step 3: create a Project called Aletheia.**
+
+Projects are available on Free and can be created without an additional subscription. Free currently allows **five files per Project**, with separate upload-rate limits. Add the compact/full approved bootstrap rules in **Project settings > Project instructions** (not the smaller global field). Project instructions override global Custom Instructions while inside that Project.
+
+**Step 4: add optional portable memory and choose memory scope.**
+
+Create a reviewed `aletheia-memory.md` locally and upload it only if wanted. In Project settings, choose Default or Project-only memory where available. Project-only limits references to that Project's context; shared Projects always use Project-only memory and expose shared chats, files and instructions to collaborators. Free owners can currently invite up to five collaborators. Review all files and permissions before sharing. The portable file remains the user's approved source of truth; don't tell the user a generated draft was already saved.
+
+**Step 5: work normally and checkpoint before switching provider.**
+
+Ask an ordinary question or use `CHECKPOINT`, `HANDOVER` and `SAVE MEMORY` as needed. On Free, normal chat is generally unlimited subject to abuse safeguards; tool quotas for uploads, images, analysis and Voice are separate. The service currently includes 500 MB of Library storage and access to existing GPTs. Project files, chat attachments and Library files are not automatically interchangeable.
+
+For spoken input, use Live Voice for conversation. Live can web-search and use memory, but its transcript is not verbatim and it cannot currently retrieve files directly from ChatGPT Library. For exact research, tables or reusable writing, editable Dictation into the ordinary text composer is often more convenient. Under Settings > Voice, Live/Advanced/Standard availability varies by account and device.
+
+**Read the beginner-facing companion:** https://karstenevans.github.io/aletheia-knowledge/resources/aletheia-chatgpt-free-guide.htm
+
+Official references (rechecked for this adapter):
+
+- https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq
+- https://help.openai.com/en/articles/20001274
+- https://help.openai.com/en/articles/12168547
+- https://help.openai.com/en/articles/8096356
+- https://help.openai.com/en/articles/8590148
 - https://help.openai.com/en/articles/10169521
-- https://help.openai.com/en/articles/8555545
-- https://help.openai.com/en/articles/8554407
-
-**Five-minute path:**
-
-1. In ChatGPT, create a Project.
-2. Open Project instructions and paste the compact Aletheia bootstrap instructions.
-3. Add `aletheia-memory.md` to the Project if the user wants portable memory.
-4. Start a normal chat in the Project and type `START` or ask a normal question.
-5. Use `SAVE MEMORY`, `CHECKPOINT` or `HANDOVER` when an inspectable portable update is needed.
+- https://help.openai.com/en/articles/9237897
+- https://help.openai.com/en/articles/7730893
 
 ## Google Gemini
 
