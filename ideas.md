@@ -92,3 +92,21 @@ Possible resource-page monetisation:
 - Everand subscription affiliate programme **only if Aletheia is accepted and the link is appropriate**.
 
 Do not imply there is a Scribd-document or Slideshare-document affiliate commission unless a current programme explicitly provides one.
+
+## Storyteller bilingual and language-learning stories
+
+**Status:** IDEA for a future, optional feature. Not implemented in the current Storyteller.
+**Seed:** Quiet, illustrated storytelling as a way for children and adults to listen, read and learn a second language without fast-cut video.
+
+The existing static Storyteller provides one spoken cue at a time, optional character voices, an adjustable narrator voice and gentle pan/zoom on still illustrations. The next experiment could provide **a separate story language and a separate caption language**, including two-language captions on demand. For example, choose Japanese narration with English captions, or Thai narration with Norwegian translation. Retain the default single-sentence caption for low-intensity reading; the second language must be an opt-in rather than appearing all the time.
+
+Possible gradual steps:
+
+1. **Prepared parallel text first:** two reviewed language versions of each sentence with matching cue IDs. One narrator/audio language and one optional translation caption language. No runtime AI, translation subscription or internet needed for prepared stories.
+2. **Optional pronunciation mode:** allow a reader to repeat the current phrase, slow speech and display original plus translation. Speaker profiles should continue to work for actor dialogue, but a foreign-language TTS voice may pronounce English words poorly, so test and explicitly disclose availability.
+3. **Optional on-the-fly translation later:** use a user-selected local/browser translator or an optional AI bridge only when available. Mark unreviewed translation clearly and avoid silently sending a child's story or personal reading history to external services.
+4. **Simple accessibility controls:** one or two caption tracks, adjustable text size/speech rate, useful story-language labels and saved local preferences where appropriate.
+
+Keep Markdown stories readable independently of any translation system. Never make Cloudflare Workers, AI APIs or paid voices required for ordinary playback.
+
+**Proposed future prompt:** How can Storyteller use one story's cue IDs, images and camera instructions with two aligned narration/caption languages, while retaining a fast, distraction-free, one-sentence default?
