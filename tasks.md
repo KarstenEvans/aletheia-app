@@ -127,6 +127,24 @@ Do not create this merely to add another repository. Create it when the front-do
 - [ ] Keep Creator College affiliate work paused unless a current official programme/application is verifiably available.
 - [ ] Use the saved event's date/time inconsistencies as an optional Aletheia Trust Check teaching fixture.
 
+
+
+## Aletheia Deck Forge / Visual Knowledge
+
+- [x] Record the concept in `ideas.md`.
+- [ ] Create `aletheia-deck-forge/aletheia-deck-forge.md` when promoted from idea to prototype.
+- [ ] Keep the first version static/browser-first: source/topic input -> research prompt -> verified-card plan -> original HTML/SVG deck plan.
+- [ ] Treat Slideshare/Scribd/books as discovery sources unless the actual licence permits reuse.
+- [ ] Never copy protected slide prose, artwork or distinctive layouts merely because a presentation can be viewed/downloaded.
+- [ ] Test one copyrighted deck in discovery-only mode and one user-owned/openly licensed deck in remix mode.
+- [ ] Define export paths into `aletheia-knowledge` so verified cards become reusable outside the deck.
+- [ ] Prototype original timeline, comparison, process, map and fact-card visual components.
+- [ ] Add accessible text equivalents and mobile layout.
+- [ ] Consider quiz and speaker-note generation from the verified cards.
+- [ ] Evaluate Slideshare as a distribution channel for Aletheia-created original decks; review its uploader agreement before publishing valuable material.
+- [ ] Keep affiliate links on disclosed resource pages rather than inside the canonical deck/knowledge logic.
+- [ ] Optionally evaluate the Everand PartnerStack affiliate programme; do not assume Scribd document pages or Slideshare pages themselves are commissionable.
+
 ## Aletheia Home Energy - proposed
 
 - [ ] Create `aletheia-home-energy/aletheia-home-energy.md` when promoted from idea to app.
