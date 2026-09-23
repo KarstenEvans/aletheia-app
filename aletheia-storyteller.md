@@ -66,6 +66,50 @@ The camera uses smooth ease-in/ease-out animation to avoid frantic zooming.
 - Markdown `#`/`##` headings are spoken **exactly as written**. Storyteller does not say “New title”. After each heading finishes, browser narration waits **0.4 seconds** before the next cue. It does not speak the word “pause”, and inserting repeated spaces is not needed. Pause/stop/skip/story switching clears a pending delay.
 - For an additional deliberate pause anywhere in a story, use `[hold;0.4]` on its own line. That is a separate camera/story command, not a replacement for the automatic heading pause. Recorded MP3/VTT narration is unchanged and must be re-recorded separately if it contains unwanted words.
 
+### Two-voice narration with explicit character tags (implemented)
+
+The narrator is always the voice selected in the Storyteller app menu. The story can independently designate a **current character voice** for dialogue, but it never changes the narrator voice. The current character remains selected until the next `[voice:...]` tag; there is no need to reset between narration and dialogue.
+
+Declare character profiles at the **top of each story Markdown file**, before the first image/heading. Storyteller parses these compact commands without loading the long biography files:
+
+```text
+[voice-profile;TM;lang=en-GB;gender=male;prefer=Google UK English Male;avoid=George;rate=0.97;pitch=0.88]
+[voice-profile;AI-PI;lang=th-TH;fallback=George;rate=1.0;pitch=1.05]
+[voice-profile;SCHRODINGER;lang=ar-EG;gender=female;fallback=Female]
+[voice-profile;PRUDENCE;lang=ja-JP;gender=female;fallback=Female]
+[voice-profile;ELSIE;lang=en-GB;gender=female;fallback=Female]
+[voice-profile;NEWT;lang=en-GB;rate=1.08;pitch=1.19]
+```
+
+These profiles select locally installed browser voices only; no voice model is downloaded. Locale `th-TH` is Thai, `ar-EG` Egyptian Arabic, and `ja-JP` Japanese. An installed language-specific voice may not pronounce an English dialogue line naturally. Browser voices usually provide no reliable gender metadata; `gender=female` or `gender=male` is **best effort** using advertised names, not a guaranteed gender. If no language match is available, Storyteller uses the optional `fallback` name (for example George), then falls back to the user-selected narrator. The owner can adjust profiles to the voices actually available on their device.
+
+To direct dialogue, insert a square-bracket command on its **own line**:
+
+```text
+The old railway lift opened.
+
+[voice:TM]
+“What's this?” asked ToomorrowMan.
+
+[voice:AI-PI]
+“Sir, I wouldn't touch that.”
+
+The narrator speaks this paragraph in the normal narrator voice.
+
+[voice:] 
+“Unassigned dialogue returns to the narrator as well.”
+```
+
+Only text inside **paired straight double quotes** (`"text"`) or **paired curly double quotes** (`“text”`) is spoken using the selected character voice. The text outside quotation marks, including `said AI-PI`, is read by the narrator. Ordinary apostrophes, single quotation marks, quotations without a selected speaker and Markdown headings are narrated normally. The parser does not guess who is speaking; authors insert tags where they know the speaker. If a single Markdown line has quotes by two different characters, split them into separate lines and insert the correct `[voice:...]` between them.
+
+Aliases `[voice:ToomorrowMan]` and `[voice:TomorrowMan]` select `TM`, and `[voice:AIPI]` selects `AI-PI`. Clear the active character with `[voice:]` when a speaker is unknown or an intentionally unassigned quote follows. The first ToomorrowMan adventure has explicit tags for its identifiable speaking roles, while the original prose and camera directives remain in place.
+
+**Captions:** the default is now **one spoken sentence/cue at a time**. Readers can choose two, three or Off from the menu; one long sentence may still wrap on a narrow phone. This is an intentional, calmer default, not a forced single unbroken screen line.
+
+**Audio limitation:** speaker tags apply to browser TTS. If an MP3/VTT exists, Stories with voice tags now start in browser-narration mode by default so the actor changes are audible. A listener can still choose the available prerecorded MP3 manually, but it is a fixed recording and cannot respond to per-character voice tags.
+
+**Heading regression:** `speechText()` no longer inserts “New title”. The narrator reads only the Markdown heading and the app waits 400 ms after it before advancing, silently. If an earlier version still says “New title”, reload the published HTML after Pages deploys or inspect whether a separate MP3 contains that phrase.
+
 ### Optional MP3 + VTT
 
 If a story has files with the same base name:
