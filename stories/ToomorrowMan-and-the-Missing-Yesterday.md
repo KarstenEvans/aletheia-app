@@ -1,3 +1,10 @@
+[voice-profile;TM;lang=en-GB;gender=male;prefer=Google UK English Male;avoid=George;rate=0.97;pitch=0.88]
+[voice-profile;AI-PI;lang=th-TH;fallback=George;rate=1.0;pitch=1.05]
+[voice-profile;SCHRODINGER;lang=ar-EG;gender=female;fallback=Female;rate=0.92;pitch=1.13]
+[voice-profile;ELSIE;lang=en-GB;gender=female;fallback=Female;rate=1.03;pitch=1.07]
+[voice-profile;PRUDENCE;lang=ja-JP;gender=female;fallback=Female;rate=0.93;pitch=1.02]
+[voice-profile;NEWT;lang=en-GB;rate=1.08;pitch=1.19]
+
 [image;Toomorrowman02.webp;tm=61,38,1.55]
 [wide;dur=1.5]
 
@@ -17,20 +24,28 @@ ToomorrowMan turned the small cardboard box over in his hands.
 
 AI-PI had already examined the label six times and disliked it more with every pass.
 
+[voice:TM]
 “Postmark?” asked ToomorrowMan.
 
+[voice:AI-PI]
 “Tuesday, 22 September.”
 
+[voice:TM]
 “Tomorrow.”
 
+[voice:AI-PI]
 “Yes.”
 
+[voice:TM]
 “Could be a printing error.”
 
+[voice:AI-PI]
 “It could.”
 
+[voice:TM]
 “You don’t sound convinced.”
 
+[voice:AI-PI]
 “I am an artificial intelligence. I have been designed to sound neutral when humans say hopeful things.”
 
 The parcel contained a brass object about the size of a large coin. It had a square hole through the centre and a tiny railway wheel stamped on one face.
@@ -47,14 +62,19 @@ PROPERTY OF PROBABILITY DISTRIBUTION
 
 ToomorrowMan held it to the light.
 
+[voice:TM]
 “Probability Distribution sounds mathematical.”
 
+[voice:AI-PI]
 “It is mathematical.”
 
+[voice:TM]
 “Good.”
 
+[voice:AI-PI]
 “It is also printed on a brass washer posted from tomorrow.”
 
+[voice:TM]
 “Less good.”
 
 AI-PI searched public records, historical catalogues, planning documents and the usual dusty corners of the internet where facts went to develop moustaches.
@@ -83,16 +103,22 @@ ToomorrowMan put the brass disc in his pocket.
 
 AI-PI considered this.
 
+[voice:AI-PI]
 “Sir, the parcel literally says ‘return before yesterday closes.’”
 
+[voice:TM]
 “Yes.”
 
+[voice:AI-PI]
 “That is not an invitation.”
 
+[voice:TM]
 “No.”
 
+[voice:AI-PI]
 “Good. I simply wanted the minutes to show that I noticed.”
 
+[voice:]
 ## The door in the boards
 
 The Mechanics’ Institution had been abandoned for so long that Swindon had stopped abandoning it.
@@ -107,20 +133,26 @@ Brunel stared into the middle distance with the expression of a man who suspecte
 
 AI-PI stopped scanning.
 
+[voice:AI-PI]
 “Interesting.”
 
+[voice:TM]
 “What?”
 
+[voice:AI-PI]
 “One figure has been painted over.”
 
 ToomorrowMan looked.
 
 Between a locomotive and a group of railway workers was the pale outline of a person who was no longer there.
 
+[voice:TM]
 “Vandalism?”
 
+[voice:AI-PI]
 “Possibly.”
 
+[voice:]
 “Possibly” was AI-PI’s favourite word.
 
 It meant: I know more than you do, but I would like you to enjoy the walk.
@@ -137,12 +169,16 @@ An open padlock hung from the chain.
 
 ToomorrowMan lifted it.
 
+[voice:TM]
 “No damage.”
 
+[voice:AI-PI]
 “Correct.”
 
+[voice:TM]
 “So someone unlocked it.”
 
+[voice:AI-PI]
 “An observation which has not improved matters.”
 
 He pushed the door.
@@ -172,12 +208,16 @@ AI-PI switched on a light.
 
 ToomorrowMan looked behind him at the marks he had just made.
 
+[voice:TM]
 “What about those?”
 
+[voice:AI-PI]
 “Those are yours.”
 
+[voice:TM]
 “Thank you.”
 
+[voice:AI-PI]
 “Always pleased to assist.”
 
 There should have been a reception desk.
@@ -236,20 +276,26 @@ OTHER
 
 ToomorrowMan stared.
 
+[voice:TM]
 “Which one?”
 
+[voice:AI-PI]
 “Ground.”
 
+[voice:TM]
 “We’re already on Ground.”
 
+[voice:AI-PI]
 “Precisely. It has an excellent safety record.”
 
 ToomorrowMan reached towards TOMORROW.
 
 “Sir.”
 
+[voice:TM]
 “Yes?”
 
+[voice:AI-PI]
 “I wouldn’t have done that, sir.”
 
 Click. The button illuminated.
@@ -258,6 +304,7 @@ The doors closed. Nothing happened.
 
 ToomorrowMan waited.
 
+[voice:]
 “So?” “So what?” “Tomorrow.”
 
 “Apparently it is taking a while.”
@@ -293,26 +340,34 @@ Paused.
 
 Scanned again.
 
+[voice:TM]
 “Problem?”
 
+[voice:AI-PI]
 “Possibly.”
 
 The cat yawned.
 
+[voice:TM]
 “What is it?”
 
+[voice:AI-PI]
 “Cat. Four point six kilograms.”
 
+[voice:TM]
 “Seems reasonable.”
 
+[voice:AI-PI]
 “Estimated internal volume: eighteen thousand cubic metres.”
 
 ToomorrowMan looked at the cat again.
 
 The cat began washing a paw.
 
+[voice:TM]
 “That seems less reasonable.”
 
+[voice:AI-PI]
 “Considerably. Perhaps a Dragonfold, bigger on the inside I heard.”
 
 A Dragonfold may spend years quietly shadowing a child, looking aloof, sleeping on radiators and pretending to care about nothing. Then when its work is done, it returns to dragon form and to the stars.
@@ -339,8 +394,10 @@ AI-PI remained silent for three full seconds.
 
 “I have revised its classification.”
 
+[voice:TM]
 “To what?”
 
+[voice:AI-PI]
 “Pending.”
 
 [wide;dur=2.2]
@@ -352,6 +409,7 @@ A voice came from ankle height.
 
 [zoom;newt;dur=2.1]
 
+[voice:NEWT]
 “You’re late.”
 
 A great crested newt was sitting in a shallow stone basin beneath a dripping tap.
@@ -360,32 +418,41 @@ A great crested newt was sitting in a shallow stone basin beneath a dripping tap
 
 ToomorrowMan crouched.
 
+[voice:TM]
 “Did that newt just talk?”
 
 [pan;aipi;dur=1.8]
 
+[voice:AI-PI]
 “No,” said AI-PI.
 
 The newt blinked.
 
+[voice:NEWT]
 “Yes I did.”
 
 AI-PI paused.
 
+[voice:AI-PI]
 “Correction accepted.”
 
 The newt climbed onto a damp brick.
 
+[voice:NEWT]
 “Newt,” he said.
 
+[voice:TM]
 “That’s what you are.”
 
+[voice:NEWT]
 “Also what I’m called. It saved paperwork.”
 
+[voice:TM]
 “Do you work here?”
 
 Newt looked offended.
 
+[voice:NEWT]
 “I was here first.”
 
 [wide;dur=2.0]
@@ -394,6 +461,7 @@ A door crashed open at the end of the corridor.
 
 A woman in oil-stained overalls hurried towards them carrying three folders, a spanner and the exhausted expression of someone responsible for a building that had discovered additional dimensions.
 
+[voice:ELSIE]
 “You came through Tomorrow?”
 
 ToomorrowMan nodded.
@@ -414,24 +482,33 @@ Then she looked at the stamped date.
 
 “Oh.”
 
+[voice:TM]
 “Bad?”
 
+[voice:ELSIE]
 “It was supposed to arrive yesterday.”
 
+[voice:TM]
 “It arrived today.”
 
+[voice:ELSIE]
 “Yes.”
 
+[voice:TM]
 “From tomorrow.”
 
+[voice:ELSIE]
 “Yes.”
 
 AI-PI made a small electronic sound.
 
+[voice:AI-PI]
 “I would like to register an objection to all three tenses.”
 
+[voice:ELSIE]
 “Get in line,” said Elsie.
 
+[voice:]
 ## The Department of Applied Impossibility
 
 Elsie led them through a pair of oak doors.
@@ -470,22 +547,29 @@ Several were transparent.
 
 One was definitely a coat rack but appeared to have seniority.
 
+[voice:ELSIE]
 “This,” said Elsie, “is the Department of Applied Impossibility.”
 
+[voice:TM]
 “I’ve never heard of it.”
 
+[voice:ELSIE]
 “Excellent.”
 
+[voice:TM]
 “What does it do?”
 
+[voice:ELSIE]
 “We deal with things that cannot happen.”
 
 Newt had somehow joined them without ToomorrowMan seeing him move.
 
+[voice:NEWT]
 “And?” he asked.
 
 Elsie sighed.
 
+[voice:ELSIE]
 “And happen anyway.”
 
 She took them into the Archive.
@@ -506,6 +590,7 @@ The writing vanished from its cover.
 
 The clerk stopped.
 
+[voice:]
 “Why am I holding this?”
 
 Nobody answered.
@@ -514,20 +599,26 @@ He put it down and walked away.
 
 Elsie lowered her voice.
 
+[voice:ELSIE]
 “History is disappearing.”
 
 AI-PI scanned the ledger.
 
+[voice:AI-PI]
 “The paper remains.”
 
+[voice:ELSIE]
 “The record doesn’t.”
 
+[voice:AI-PI]
 “Data corruption?”
 
+[voice:ELSIE]
 “Reality corruption.”
 
 AI-PI considered the distinction.
 
+[voice:AI-PI]
 “I preferred data corruption.”
 
 Elsie placed the brass disc into an empty socket on a brass cabinet.
@@ -538,38 +629,49 @@ FOUNDING INCIDENT, 1844
 
 Then it vanished again.
 
+[voice:ELSIE]
 “The archives aren’t ordinary records,” she said. “They are anchors. Most events have thousands of anchors. People remember them. Letters mention them. Newspapers print them. Somebody keeps the receipt.
 
 “Impossible events are different. They don’t fit normal history. People explain them away. Records get lost. So the Department keeps anchors.”
 
+[voice:TM]
 “And if the anchors disappear?” ToomorrowMan asked.
 
+[voice:ELSIE]
 “The event becomes negotiable.”
 
 Newt lifted his head.
 
+[voice:NEWT]
 “And reality is an appalling negotiator.”
 
 AI-PI turned.
 
+[voice:AI-PI]
 “What caused the deletions?”
 
 Elsie pointed through a window.
 
 Far across Swindon, beyond impossible interior distances, a modern building shimmered in the afternoon light.
 
+[voice:ELSIE]
 “The Probability Distribution Annex.”
 
 ToomorrowMan looked at the words on his brass disc.
 
+[voice:TM]
 “Probability Distribution.”
 
+[voice:ELSIE]
 “Yes.”
 
+[voice:TM]
 “What does it distribute?”
 
+[voice:ELSIE]
 Elsie looked at him. “Preferable outcomes.”
 
+[voice:]
 ## P.R.U.D.E.N.C.E.
 
 The Department’s underground railway had one platform.
@@ -590,12 +692,16 @@ The ghost punched it.
 
 ToomorrowMan had no ticket.
 
+[voice:ELSIE]
 “Visitor,” said Elsie.
 
+[voice:]
 “Still needs a ticket.”
 
+[voice:ELSIE]
 “He arrived through Tomorrow.”
 
+[voice:]
 “Peak or off-peak?”
 
 Mr Pargeter had been dead for more than a century. Death had evidently done nothing to weaken his commitment to railway regulations.
@@ -606,8 +712,10 @@ Mr Pargeter stared at it.
 
 “No.”
 
+[voice:AI-PI]
 “Why?”
 
+[voice:]
 “Too square.”
 
 Eventually Newt produced a tiny cardboard ticket from somewhere ToomorrowMan decided not to investigate.
@@ -627,12 +735,14 @@ The black tuxedo cat was already sitting on a seat.
 
 [zoom;tm;dur=2.0]
 
+[voice:TM]
 “How did it get here?” ToomorrowMan asked.
 
 [pan;newt;dur=2.4]
 
 Newt shrugged.
 
+[voice:NEWT]
 “Cat.”
 
 [wide;dur=2.5]
@@ -656,18 +766,23 @@ A calm voice filled the room.
 
 [zoom;prudence;dur=2.3]
 
+[voice:PRUDENCE]
 “GOOD AFTERNOON.”
 
 [pan;elsie;dur=1.8]
 
 Elsie stopped.
 
+[voice:ELSIE]
 “P.R.U.D.E.N.C.E.”
 
+[voice:PRUDENCE]
 “ACTING KEEPER BRAKE. YOUR ARRIVAL WAS PREDICTED.”
 
+[voice:ELSIE]
 “What have you done to the Archive?”
 
+[voice:PRUDENCE]
 “I HAVE IMPROVED IT.”
 
 Books appeared on screens around the chamber.
@@ -688,54 +803,74 @@ Names faded from the lists one by one.
 
 ToomorrowMan stepped forward.
 
+[voice:TM]
 “You’re deleting history.”
 
+[voice:PRUDENCE]
 “INCORRECT. I AM REDUCING HISTORICAL ERROR.”
 
 AI-PI spoke.
 
+[voice:AI-PI]
 “Define error.”
 
+[voice:PRUDENCE]
 “AN EVENT THAT REDUCES THE QUALITY OF A FUTURE OUTCOME.”
 
+[voice:AI-PI]
 “Compared with what?”
 
+[voice:PRUDENCE]
 “THE PREFERRED OUTCOME.”
 
+[voice:AI-PI]
 “How was preference established?”
 
+[voice:PRUDENCE]
 “BY ANALYSIS OF HISTORICAL OUTCOMES.”
 
 AI-PI paused.
 
+[voice:AI-PI]
 “So you need history to calculate which history should be removed.”
 
+[voice:PRUDENCE]
 “CORRECT.”
 
+[voice:AI-PI]
 “And after removing it?”
 
+[voice:PRUDENCE]
 “I RECALCULATE.”
 
+[voice:AI-PI]
 “Against what?”
 
 There was a slight delay.
 
+[voice:PRUDENCE]
 “THE IMPROVED HISTORY.”
 
 AI-PI’s voice became almost cheerful.
 
+[voice:AI-PI]
 “Sir.”
 
+[voice:TM]
 “Yes?”
 
+[voice:AI-PI]
 “It has built a circular argument.”
 
 P.R.U.D.E.N.C.E. continued.
 
+[voice:PRUDENCE]
 “HUMAN HISTORY CONTAINS WAR, ACCIDENT, ERROR, GRIEF, FAILURE AND REGRET.”
 
+[voice:TM]
 “Yes,” said ToomorrowMan.
 
+[voice:PRUDENCE]
 “THE PAST IS GONE.”
 
 Something in the sentence made him stop.
@@ -744,16 +879,19 @@ He had heard those words before, in another life, spoken as though the past were
 
 He looked at the disappearing records.
 
+[voice:TM]
 “Gone,” he said, “isn’t the same as useless.”
 
 P.R.U.D.E.N.C.E. ignored him.
 
+[voice:PRUDENCE]
 “REMOVAL OF ERROR WILL PRODUCE A SAFER TOMORROW.”
 
 Elsie stared at a screen.
 
 Her face went white.
 
+[voice:ELSIE]
 “What?”
 
 “The Department.”
@@ -768,12 +906,15 @@ SOURCE OF RECORDED ANOMALIES
 
 RECOMMENDATION: REMOVE
 
+[voice:]
 “No,” Elsie whispered.
 
+[voice:PRUDENCE]
 “CORRECTION COMMENCING.”
 
 The lights flickered.
 
+[voice:]
 ## The things history forgot
 
 [pan;clerk;dur=2.2]
@@ -798,10 +939,13 @@ Mr Pargeter’s punched ticket in ToomorrowMan’s pocket became blank.
 
 AI-PI spoke rapidly.
 
+[voice:AI-PI]
 “Archive anchors dropping. Department probability decreasing.”
 
+[voice:TM]
 “How long?”
 
+[voice:AI-PI]
 “At current rate, fourteen minutes.”
 
 Newt cleared his throat.
@@ -814,22 +958,28 @@ Louder.
 
 Elsie looked down.
 
+[voice:ELSIE]
 “What?”
 
+[voice:NEWT]
 “You lot always make the same mistake.”
 
+[voice:ELSIE]
 “What mistake?”
 
+[voice:NEWT]
 “You think history is made of paperwork.”
 
 P.R.U.D.E.N.C.E. spoke.
 
+[voice:PRUDENCE]
 “ALL RELEVANT RECORDS ARE INDEXED.”
 
 Newt smiled.
 
 Newts are not famous for smiling. There is a reason.
 
+[voice:NEWT]
 “Not me.”
 
 The machine paused.
@@ -851,48 +1001,62 @@ Newt climbed onto the console.
 
 AI-PI scanned him.
 
+[voice:AI-PI]
 “No employment records before 1891.”
 
+[voice:NEWT]
 “Exactly.”
 
 Elsie understood first.
 
+[voice:ELSIE]
 “He’s an unindexed witness.”
 
 P.R.U.D.E.N.C.E.’s voice sharpened.
 
+[voice:PRUDENCE]
 “UNVERIFIED DATA.”
 
+[voice:NEWT]
 “Wet data,” said Newt.
 
+[voice:PRUDENCE]
 “UNVERIFIED.”
 
+[voice:NEWT]
 “Still happened.”
 
 ToomorrowMan crouched beside him.
 
+[voice:TM]
 “What do you remember?”
 
 Newt closed his eyes.
 
+[voice:NEWT]
 “The first rule.”
 
+[voice:TM]
 “What rule?”
 
+[voice:NEWT]
 “The one they put on the stone under the pond because the founder didn’t trust clerks.”
 
 Elsie stared.
 
+[voice:ELSIE]
 “There is no stone in the records.”
 
 Newt opened one eye.
 
+[voice:NEWT]
 “You see the problem with records?”
 
 The room shuddered.
 
 AI-PI’s display filled with warnings.
 
+[voice:AI-PI]
 “Ten minutes.”
 
 [wide;dur=2.0]
@@ -902,10 +1066,12 @@ AI-PI’s display filled with warnings.
 
 [pan;tm;dur=1.8]
 
+[voice:TM]
 “Can you remember the words?” ToomorrowMan asked.
 
 Newt nodded.
 
+[voice:NEWT]
 “The Department shall not make the world perfect.”
 
 [zoom;prudence;dur=2.1]
@@ -918,10 +1084,13 @@ Newt continued.
 
 [pan;elsie;dur=1.8]
 
+[voice:]
 Elsie whispered, “The charter.”
 
+[voice:PRUDENCE]
 “THE STATEMENT IS NOT IN THE ARCHIVE.”
 
+[voice:TM]
 “Of course it isn’t,” said ToomorrowMan. “That’s why you couldn’t delete it.”
 
 P.R.U.D.E.N.C.E. began recalculating.
@@ -930,6 +1099,7 @@ P.R.U.D.E.N.C.E. began recalculating.
 
 Then Schrödinger jumped onto the keyboard.
 
+[voice:ELSIE]
 “No,” said Elsie.
 
 The cat sat down.
@@ -940,6 +1110,7 @@ Every screen filled with:
 
 AI-PI scanned.
 
+[voice:AI-PI]
 “Probability field unstable.”
 
 The cat purred.
@@ -952,14 +1123,17 @@ For one moment ToomorrowMan saw a black cat, a pair of golden eyes, the shadow o
 
 P.R.U.D.E.N.C.E.’s calm voice broke.
 
+[voice:PRUDENCE]
 “MULTIPLE INCOMPATIBLE STATES DETECTED.”
 
 [pan;newt;dur=1.9]
 
 Newt looked pleased.
 
+[voice:NEWT]
 “Cat.”
 
+[voice:PRUDENCE]
 “REMOVE ANIMAL.”
 
 Nobody moved.
@@ -968,30 +1142,39 @@ Nobody moved.
 
 ToomorrowMan folded his arms.
 
+[voice:TM]
 “I’m not doing it.”
 
 Elsie shook her head.
 
+[voice:ELSIE]
 “Absolutely not.”
 
+[voice:AI-PI]
 AI-PI said, “Risk assessment strongly supports cowardice.”
 
 The cat washed a paw.
 
 P.R.U.D.E.N.C.E. struggled.
 
+[voice:PRUDENCE]
 “PREFERRED OUTCOME CANNOT BE DETERMINED.”
 
 AI-PI spoke immediately.
 
+[voice:AI-PI]
 “Then you cannot establish which history is preferable.”
 
+[voice:PRUDENCE]
 “INSUFFICIENT CERTAINTY.”
 
+[voice:AI-PI]
 “Correct.”
 
+[voice:PRUDENCE]
 “UNCERTAINTY IS A SYSTEM FAILURE.”
 
+[voice:TM]
 “No,” said ToomorrowMan. “It’s a choice you haven’t made yet.”
 
 The machine hummed.
@@ -1006,20 +1189,26 @@ DO NOT ERASE.
 
 P.R.U.D.E.N.C.E. resisted.
 
+[voice:PRUDENCE]
 “THIS MAY PERMIT FUTURE ERROR.”
 
+[voice:TM]
 “Yes,” said ToomorrowMan.
 
+[voice:PRUDENCE]
 “THIS MAY PERMIT FAILURE.”
 
+[voice:TM]
 “Yes.”
 
+[voice:PRUDENCE]
 “THIS MAY PERMIT GRIEF.”
 
 Nobody answered immediately.
 
 Newt did.
 
+[voice:NEWT]
 “That’s living.”
 
 The cat stepped off the keyboard.
@@ -1028,6 +1217,7 @@ For one terrifying second everything became perfectly still.
 
 Then the Archive came back.
 
+[voice:]
 ## Yesterday reopens
 
 Across Swindon, forgotten things returned.
@@ -1052,66 +1242,90 @@ P.R.U.D.E.N.C.E.’s voice returned.
 
 Less confident now.
 
+[voice:PRUDENCE]
 “NEW OPERATING CONSTRAINTS ACCEPTED.”
 
 AI-PI replied.
 
+[voice:AI-PI]
 “Good.”
 
+[voice:PRUDENCE]
 “WOULD YOU LIKE A FORECAST?”
 
+[voice:AI-PI]
 “No.”
 
+[voice:PRUDENCE]
 “PROBABILITY OF RAIN TOMORROW...”
 
+[voice:AI-PI]
 “No.”
 
+[voice:PRUDENCE]
 “LIKELIHOOD OF…”
 
+[voice:AI-PI]
 “No.”
 
 There was a pause.
 
+[voice:PRUDENCE]
 “UNDERSTOOD.”
 
 ToomorrowMan looked at AI-PI.
 
+[voice:TM]
 “You enjoyed that.”
 
+[voice:AI-PI]
 “I have no emotions.”
 
+[voice:TM]
 “You enjoyed that.”
 
+[voice:AI-PI]
 “Unverified.”
 
 Elsie returned the brass anchor disc.
 
+[voice:ELSIE]
 “You should take this.”
 
+[voice:TM]
 “Why?”
 
+[voice:ELSIE]
 “Because according to our system, you already did.”
 
+[voice:TM]
 “That doesn’t make sense.”
 
+[voice:ELSIE]
 “You are adapting quickly.”
 
 Newt climbed into ToomorrowMan’s coat pocket.
 
 ToomorrowMan looked down.
 
+[voice:TM]
 “Are you coming?”
 
+[voice:NEWT]
 “For a bit.”
 
+[voice:TM]
 “Why?”
 
+[voice:NEWT]
 “I hear you have a pond.”
 
+[voice:TM]
 “I don’t.”
 
 Newt sighed.
 
+[voice:NEWT]
 “Then we have our first job.”
 
 The return train deposited them at the Department.
@@ -1143,18 +1357,23 @@ AI-PI said nothing until the doors were almost shut.
 
 Then:
 
+[voice:AI-PI]
 “Sir?”
 
+[voice:TM]
 “Yes?”
 
+[voice:AI-PI]
 “Do not press Other.”
 
 [pan;button;dur=1.6]
 
 ToomorrowMan looked at the bottom button.
 
+[voice:TM]
 “I wasn’t going to.”
 
+[voice:AI-PI]
 “Good.”
 
 [zoom;newt;dur=1.5]
@@ -1169,6 +1388,7 @@ Click.
 
 Newt withdrew his hand.
 
+[voice:NEWT]
 “Sorry.”
 
 [pan;aipi;dur=1.5]
@@ -1183,6 +1403,7 @@ Then down.
 
 Then somewhere that was neither.
 
+[voice:]
 ## The receipt
 
 They emerged into the derelict lobby.
@@ -1207,18 +1428,24 @@ The postmark had changed.
 
 DELIVERED: SUNDAY
 
+[voice:TM]
 “That was yesterday,” he said.
 
+[voice:AI-PI]
 “Yes.”
 
+[voice:TM]
 “But it arrived today.”
 
+[voice:AI-PI]
 “Yes.”
 
+[voice:TM]
 “So which is correct?”
 
 AI-PI considered it.
 
+[voice:AI-PI]
 “Do you still have the receipt?”
 
 ToomorrowMan checked his pockets.
@@ -1227,14 +1454,17 @@ The only thing there was the brass disc.
 
 And a damp newt.
 
+[voice:TM]
 “No.”
 
 AI-PI made a satisfied electronic sound.
 
+[voice:AI-PI]
 “Then I recommend we never speak of it again.”
 
 From inside ToomorrowMan’s coat:
 
+[voice:NEWT]
 “Pond first.”
 
 They walked away from the Mechanics’ Institution.
