@@ -36,6 +36,18 @@ A direct-first, evidence-aware news reader that discovers current reporting, gro
 - [Open the resources page](https://karstenevans.github.io/aletheia-app/aletheia-news/aletheia-news-rsc.htm)
 - [View source register](aletheia-news/aletheia-news-sources.json)
 
+### Aletheia Storyteller
+
+An illustrated, narratable browser reader for portable Markdown adventures and character biographies. It uses named image hotspots for smooth pan and zoom, a searchable story/BIO index and optional `[bio-Filename.md]` inclusion.
+
+- **[Open the Storyteller app](https://karstenevans.github.io/aletheia-app/aletheia-storyteller.htm)** (public GitHub Pages website, not a raw source file).
+- [Current story index](stories/stories.json), including *ToomorrowMan and the Missing Yesterday* and five separate character biographies.
+- [Story format, camera commands, image inventory and biography includes](aletheia-storyteller.md).
+- [Canonical page build/QA specification](aletheia-storyteller-page.md).
+- [Resources, narrated biographies and TooMorrowMan channel](https://karstenevans.github.io/aletheia-app/aletheia-storyteller-rsc.htm).
+
+Published stories are explicitly listed in `stories/stories.json`; a static web page does not automatically enumerate all GitHub files. Some original first-story image references currently have no corresponding image in GitHub; recover those assets before claiming the visual story is fully illustrated.
+
 ## Repository structure
 
 ```text
