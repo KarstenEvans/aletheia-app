@@ -875,6 +875,40 @@ Useful destinations:
 
 ---
 
+
+# 20A. MULTI-AI HANDOFF
+
+The browser helper may offer:
+
+- Google Gemini;
+- Microsoft Copilot;
+- ChatGPT;
+- DeepSeek;
+- Claude.
+
+Use the established Aletheia browser-safe handoff:
+
+1. Build a structured research prompt from the user's questionnaire and local rescue plan.
+2. Copy the prompt while the Aletheia page still owns focus.
+3. Immediately open the selected AI in a separate approximately 900 × 760 popup/window.
+4. Tell the user to paste with Ctrl+V / Command+V / phone Paste.
+5. Ask the AI for a readable answer plus a final `ALETHEIA_WINDOWS_RETURN` block.
+6. The AI may copy that final block to the system clipboard **only if its interface genuinely permits it**.
+7. If the AI cannot write to the system clipboard, it must say so explicitly and tell the user to use that AI's own Copy control.
+8. Back in Aletheia Windows Debloat, provide:
+   - **Read clipboard + load** where browser permission allows it;
+   - manual Ctrl+V paste fallback;
+   - a visible result box;
+   - Copy loaded result.
+
+Do not claim that an ordinary browser page can type into or submit another provider's website automatically. Cross-origin browser security normally prevents that.
+
+The prompt must never ask the user to send passwords, licence keys, authentication secrets or BitLocker recovery keys.
+
+The first public version should use this portable copy/open/paste-back route. OPT2 local-browser AI and OPT3 Cloudflare Worker may be added separately when they materially improve the job and their privacy/security behaviour has been tested.
+
+---
+
 # 21. END-OF-RESCUE THALIA LAYER
 
 Only after diagnosis/actions/resources are complete, offer one brief light closing.
