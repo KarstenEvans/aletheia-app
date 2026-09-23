@@ -1,9 +1,35 @@
 {
-  "version": 1,
+  "version": 2,
   "stories": [
     {
       "file": "stories/ToomorrowMan-and-the-Missing-Yesterday.md",
-      "title": "ToomorrowMan and the Missing Yesterday"
+      "title": "ToomorrowMan and the Missing Yesterday",
+      "type": "story"
+    },
+    {
+      "file": "stories/bio-ToomorrowMan.md",
+      "title": "BIO: ToomorrowMan",
+      "type": "bio"
+    },
+    {
+      "file": "stories/bio-AI-PI.md",
+      "title": "BIO: AI-PI",
+      "type": "bio"
+    },
+    {
+      "file": "stories/bio-Schrodinger.md",
+      "title": "BIO: Schrödinger the Dragonfold",
+      "type": "bio"
+    },
+    {
+      "file": "stories/bio-Elsie.md",
+      "title": "BIO: Dr Elsie Brake",
+      "type": "bio"
+    },
+    {
+      "file": "stories/bio-Prudence.md",
+      "title": "BIO: P.R.U.D.E.N.C.E.",
+      "type": "bio"
     }
   ]
 }
