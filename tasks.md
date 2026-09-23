@@ -332,3 +332,16 @@ For each app:
 - [ ] External links open as intended.
 - [ ] No API keys or private information are embedded.
 - [ ] Downloadable local copy retained.
+
+
+## Aletheia Three.js particle animation
+
+**Current priority:** finish the small particle prototype before starting God's-eye view or studio-signoff variants.
+
+- [x] Establish the prototype concept: static star field plus interactive Three.js particles; drag to rotate; pointer pushes nearby particles; manual stages **Spiral -> AI -> ALETHEIA**; Auto, Replay and Fullscreen controls.
+- [ ] **CURRENT:** create a local scale-diagnostic test before publishing. Add a logarithmic **UNIVERSE SCALE** control so the whole geometry can be shrunk/enlarged from about 0.01x to 100x; separate **PARTICLE SIZE** control; show live camera/scale readout.
+- [ ] Add **FIT UNIVERSE** to calculate a camera distance that frames the whole particle cloud. This should distinguish "galaxy too tiny" from "camera parked inside a gigantic galaxy".
+- [ ] Make the default Spiral visibly occupy a useful proportion of the viewport; retain mixed particle sizes and background stars.
+- [ ] Verify Spiral, AI and ALETHEIA all remain centred/framed after changing scale; test drag rotation and pointer repulsion at multiple scales.
+- [ ] Test on the owner's PC first. Keep the test as a local HTML copy until the scale/camera behaviour is approved; only then create/reconcile the permanent `aletheia-app` folder/spec and publish to GitHub Pages.
+- [ ] Later only: consider the God's-eye Swindon -> Earth -> particle-universe idea and the three studio-signoff variants recorded in `ideas.md`. They are not blockers for this prototype.
