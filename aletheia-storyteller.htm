@@ -160,8 +160,14 @@ function applyFocus(name,z,seconds=2.5){if(!img.naturalWidth)return; setTransiti
 async function loadImage(cmd){
   const file=cmd.args[0]; if(!file||file.toLowerCase()==='none'){img.style.opacity=0;currentImageFile='';hotspots={};return}
   hotspots={}; Object.entries(cmd.opts).forEach(([k,v])=>{if(k!=='dur'&&/^[-\d.]+,[-\d.]+(?:,[-\d.]+)?$/.test(v))hotspots[k]=parseHotspot(v)});
-  currentImageFile=file; const src=await resolveFileUrl(file); if(!src){setStatus('Image not found: '+file);return}
-  const ok=await new Promise(res=>{img.onload=()=>res(true);img.onerror=()=>res(false);img.src=src});if(!ok){setStatus('Artwork missing: '+file+' (check the stories folder)');return}img.style.opacity=1;applyFocus(null,1,0);setStatus('');
+  const src=await resolveFileUrl(file);if(!src){setStatus('Image not found: '+file);return}
+  // Preload into a separate Image so a missing asset does not replace the last good scene.
+  const preloaded=new Image();
+  const ok=await new Promise(res=>{preloaded.onload=()=>res(true);preloaded.onerror=()=>res(false);preloaded.src=src});
+  if(!ok){setStatus('Artwork missing: '+file+' (check the stories folder)');return}
+  currentImageFile=file;
+  await new Promise(res=>{img.onload=res;img.onerror=res;img.src=src});
+  img.style.opacity=1;applyFocus(null,1,0);setStatus('');
 }
 async function execute(cmd){
   if(cmd.cmd==='image'){await loadImage(cmd);return}
