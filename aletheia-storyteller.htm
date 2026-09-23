@@ -85,6 +85,11 @@ const $=id=>document.getElementById(id);
 const img=$('storyImage'), caption=$('caption'), status=$('status'), titleCard=$('titleCard'), audio=$('audio');
 let stories=[], selected=null, firstCuePrepared=false, embeddedBiography=false, nodes=[], speechCues=[], cueCommands=[], currentCue=-1, playing=false, paused=false, currentImageFile='', hotspots={}, currentZoom=1, currentFocus=null, currentImageDims=null, folderFiles=null, vttCues=[], activeVttIndex=-1;
 const state={rate:1,pitch:1,captionCount:2,voice:null};
+const HEADING_PAUSE_MS=400;
+let headingPauseTimer=null,speechGeneration=0;
+function clearHeadingPause(){
+  if(headingPauseTimer!==null){clearTimeout(headingPauseTimer);headingPauseTimer=null;}
+}
 const MANIFEST_PATH='stories/stories.json';
 
 function setStatus(t){status.textContent=t;}
@@ -183,28 +188,48 @@ function chooseVoice(){
 function speechText(text,heading=false){
   let s=text.replace(/P\.R\.U\.D\.E\.N\.C\.E\./g,'Prudence');
   s=s.replace(/\b[A-Z]{3,}\b/g,w=>w.charAt(0)+w.slice(1).toLowerCase());
-  if(heading)s='New title. '+s;
+  if(heading)s=s.trim();
   return s;
 }
 function speakCurrent(){
   if(currentCue<0||currentCue>=speechCues.length){stopAll(false);return}
+  const generation=speechGeneration;
   showCaption(currentCue); const c=speechCues[currentCue];
   (currentCue===0&&firstCuePrepared?(firstCuePrepared=false,Promise.resolve()):executeCommands(c.commands)).then(()=>{
-    if(!playing)return; const u=new SpeechSynthesisUtterance(speechText(c.text,c.heading)); if(state.voice)u.voice=state.voice;u.lang=state.voice?.lang||'en-GB';u.rate=state.rate;u.pitch=state.pitch;u.onend=()=>{if(playing&&!paused){currentCue++;speakCurrent()}};u.onerror=()=>{if(playing&&!paused){currentCue++;speakCurrent()}};speechSynthesis.speak(u);
+    if(!playing||paused||generation!==speechGeneration)return;
+    const u=new SpeechSynthesisUtterance(speechText(c.text,c.heading));
+    if(state.voice)u.voice=state.voice;
+    u.lang=state.voice?.lang||'en-GB';u.rate=state.rate;u.pitch=state.pitch;
+    u.onend=()=>{
+      if(!playing||paused||generation!==speechGeneration)return;
+      currentCue++;
+      if(c.heading){
+        // Brief silence after a heading, without speaking "New title" or "pause".
+        headingPauseTimer=setTimeout(()=>{
+          headingPauseTimer=null;
+          if(playing&&!paused&&generation===speechGeneration)speakCurrent();
+        },HEADING_PAUSE_MS);
+      }else speakCurrent();
+    };
+    u.onerror=()=>{
+      if(playing&&!paused&&generation===speechGeneration){currentCue++;speakCurrent();}
+    };
+    speechSynthesis.speak(u);
   });
 }
-function playTts(){if(!speechCues.length)return;if(currentCue<0||currentCue>=speechCues.length)currentCue=0;playing=true;paused=false;$('playBtn').textContent='||';speechSynthesis.cancel();speakCurrent()}
+function playTts(){if(!speechCues.length)return;if(currentCue<0||currentCue>=speechCues.length)currentCue=0;clearHeadingPause();speechGeneration++;playing=true;paused=false;$('playBtn').textContent='||';speechSynthesis.cancel();speakCurrent()}
 function togglePlay(){
   if($('narrationMode').value==='audio'&&audio.src){ if(audio.paused){audio.play();playing=true;$('playBtn').textContent='||'}else{audio.pause();playing=false;$('playBtn').textContent='>'} return }
-  if(playing){speechSynthesis.cancel();playing=false;paused=true;$('playBtn').textContent='>'} else playTts();
+  if(playing){clearHeadingPause();speechGeneration++;speechSynthesis.cancel();playing=false;paused=true;$('playBtn').textContent='>'} else playTts();
 }
 function step(delta){
   if(!speechCues.length)return;
+  clearHeadingPause();speechGeneration++;
   firstCuePrepared=false;
   if($('narrationMode').value==='audio'&&vttCues.length){let i=Math.max(0,(activeVttIndex<0?0:activeVttIndex)+delta);audio.currentTime=vttCues[i].start+.01;updateFromAudio();return}
   speechSynthesis.cancel();playing=false;paused=true;currentCue=Math.min(speechCues.length-1,Math.max(0,(currentCue<0?0:currentCue)+delta));showCaption(currentCue);executeCommands(speechCues[currentCue]?.commands||[]);$('playBtn').textContent='>';
 }
-function stopAll(reset=true){speechSynthesis.cancel();audio.pause();playing=false;paused=false;firstCuePrepared=false;$('playBtn').textContent='>';if(reset){audio.currentTime=0;currentCue=0;activeVttIndex=-1;if(speechCues.length){showCaption(0);executeCommands(speechCues[0].commands||[]);firstCuePrepared=true;}}}
+function stopAll(reset=true){clearHeadingPause();speechGeneration++;speechSynthesis.cancel();audio.pause();playing=false;paused=false;firstCuePrepared=false;$('playBtn').textContent='>';if(reset){audio.currentTime=0;currentCue=0;activeVttIndex=-1;if(speechCues.length){showCaption(0);executeCommands(speechCues[0].commands||[]);firstCuePrepared=true;}}}
 async function loadStory(entry){
   stopAll(false);selected=entry;currentCue=-1;activeVttIndex=-1;firstCuePrepared=false;
   $('storyLibrary').classList.add('hide');titleCard.classList.add('hide');
