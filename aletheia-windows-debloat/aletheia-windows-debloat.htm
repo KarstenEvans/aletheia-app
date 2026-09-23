@@ -78,10 +78,12 @@ footer{margin-top:50px;color:var(--muted)}
 </div>
 
 <h3>AI assistants you use</h3>
-<div class="checks">
-<label><input type="checkbox" id="google"> Google</label>
+<div class="checks grid">
+<label><input type="checkbox" id="google"> Google Gemini</label>
+<label><input type="checkbox" id="copilot"> Microsoft Copilot</label>
 <label><input type="checkbox" id="chatgpt"> ChatGPT</label>
 <label><input type="checkbox" id="deepseek"> DeepSeek</label>
+<label><input type="checkbox" id="claude"> Claude</label>
 <label><input type="checkbox" id="noai"> I do not use AI</label>
 </div>
 
@@ -252,9 +254,11 @@ function buildPlan(){
 
  const noai=checked('noai');
  const selected=[];
- if(!noai && checked('google')) selected.push('<strong>Aletheia Google Easy Assistant</strong>');
+ if(!noai && checked('google')) selected.push('<strong>Aletheia Gemini Easy Assistant</strong>');
+ if(!noai && checked('copilot')) selected.push('<strong>Aletheia Copilot Easy Assistant</strong>');
  if(!noai && checked('chatgpt')) selected.push('<strong>Aletheia ChatGPT Easy Assistant</strong>');
  if(!noai && checked('deepseek')) selected.push('<strong>Aletheia DeepSeek Easy Assistant</strong>');
+ if(!noai && checked('claude')) selected.push('<strong>Aletheia Claude Easy Assistant</strong>');
  const ai=document.getElementById('aiSection');
  if(selected.length){
    document.getElementById('aiBody').innerHTML='<p>You selected: '+selected.join(', ')+'. Offer only the matching assistant once its resource is actually published.</p>';
