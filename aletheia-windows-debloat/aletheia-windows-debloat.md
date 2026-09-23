@@ -1,5 +1,5 @@
-# Aletheia Windows Debloat Tool\n## Windows Rescue V1.0 core
-## The Grimoire of Windows Taming
+# Aletheia Windows Debloat Tool
+## Windows Rescue V1.0 core — The Grimoire of Windows Taming
 
 **Version:** V1.0  
 **Deployment status:** V1.0 security-first test candidate  
