@@ -339,7 +339,7 @@ For each app:
 **Current priority:** finish the small particle prototype before starting God's-eye view or studio-signoff variants.
 
 - [x] Establish the prototype concept: static star field plus interactive Three.js particles; drag to rotate; pointer pushes nearby particles; manual stages **Spiral -> AI -> ALETHEIA**; Auto, Replay and Fullscreen controls.
-- [ ] **CURRENT:** create a local scale-diagnostic test before publishing. Add a logarithmic **UNIVERSE SCALE** control so the whole geometry can be shrunk/enlarged from about 0.01x to 100x; separate **PARTICLE SIZE** control; show live camera/scale readout.
+- [x] **LOCAL TEST CREATED:** `aletheia-threejs-scale-test.htm` for owner review before publishing. It has a logarithmic **UNIVERSE SCALE** control from 0.01x to 100x, separate **PARTICLE SIZE** and **CAMERA** controls, live geometry/camera readout, 0.1x/1x/10x presets, and keeps Spiral -> AI -> ALETHEIA, drag rotation, pointer repulsion, Auto, Replay and Fullscreen. JavaScript syntax check passed. Do not push/publish the prototype until the owner has tested the visible scale.
 - [ ] Add **FIT UNIVERSE** to calculate a camera distance that frames the whole particle cloud. This should distinguish "galaxy too tiny" from "camera parked inside a gigantic galaxy".
 - [ ] Make the default Spiral visibly occupy a useful proportion of the viewport; retain mixed particle sizes and background stars.
 - [ ] Verify Spiral, AI and ALETHEIA all remain centred/framed after changing scale; test drag rotation and pointer repulsion at multiple scales.
