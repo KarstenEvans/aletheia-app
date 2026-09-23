@@ -50,9 +50,20 @@ Skip anything you do not want to store. Never put passwords, security codes, API
 
 ## Step 3 - Choose the AI you already use
 
-### ChatGPT
+### ChatGPT Free
 
-Create a Project, paste the compact Aletheia rules into Project instructions, and add `aletheia-memory.md` as a project file. Start a chat inside the Project.
+The local `aletheia-setup.htm` now includes a **ChatGPT Free quick setup**, with an editable, copyable short profile and a live 1,500-character counter.
+
+1. Review Settings > Data controls (training preferences) and Settings > Personalization > Memory separately. Do not confuse either with deleting your old chats.
+2. On web/desktop find Settings > Personalization; on mobile find Customize ChatGPT. Enable customization and paste the short profile, adjusting it to your preferences. Free/Go currently allow **1,500 characters** of Custom Instructions.
+3. Create a Project, add the full relevant Aletheia bootstrap in Project instructions, and optionally upload the reviewed `aletheia-memory.md` (Free currently supports up to **five files per Project**). Project instructions override global Custom Instructions while inside that Project. Where available, choose its Default or Project-only memory deliberately.
+4. Before sharing a Project, inspect included files, chats and instructions. Shared Projects expose that context to collaborators and use Project-only memory.
+
+**Voice tip:** Live Voice is helpful for spoken brainstorming and can search the web, but for detailed research, tables or reusable writing, dictate into the normal text composer and check the transcription before sending. The full beginner guide explains Live, Standard, Advanced, Dictation and audio privacy.
+
+**Full free-user guide:** https://karstenevans.github.io/aletheia-knowledge/resources/aletheia-chatgpt-free-guide.htm
+
+If the short profile field is absent or your plan has different limits, start a normal chat and paste only the relevant instructions. Never pretend Project files are automatically loaded into unrelated ordinary chats.
 
 ### Gemini
 
