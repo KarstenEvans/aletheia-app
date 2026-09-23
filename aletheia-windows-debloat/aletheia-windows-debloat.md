@@ -905,7 +905,25 @@ Do not claim that an ordinary browser page can type into or submit another provi
 
 The prompt must never ask the user to send passwords, licence keys, authentication secrets or BitLocker recovery keys.
 
-The first public version should use this portable copy/open/paste-back route. OPT2 local-browser AI and OPT3 Cloudflare Worker may be added separately when they materially improve the job and their privacy/security behaviour has been tested.
+## KISS boundary
+
+For **Aletheia Windows Debloat**, the public AI handoff is deliberately limited to the portable **copy -> open -> paste -> copy back** pattern above.
+
+Do **not** wire this app to:
+- Chrome local AI / Aletheia OPT2;
+- Cloudflare Worker AI / Aletheia OPT3;
+- any hidden automatic provider call.
+
+Those are separate Aletheia experiments and are out of scope here.
+
+Reason:
+- the clipboard handoff works across browsers and AI providers;
+- it is easy for the user to understand and interrupt;
+- the user can see exactly what leaves the page;
+- there is no extra worker/API attack surface;
+- Cloudflare AI hardening and prompt-injection controls should be completed separately before any future reuse.
+
+If a future version proposes another AI transport, treat that as a new design decision rather than an automatic upgrade.
 
 ---
 
