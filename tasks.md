@@ -80,6 +80,8 @@
 - [ ] **VERIFY LIVE:** open the newly updated setup page on desktop and Android; test the short-profile copy button, over-limit warning, Clear form preserving the default profile, privacy instructions, normal memory download and first-run Project steps. Static JavaScript syntax and default text-size tests passed; no browser/live test completed.
 - [ ] **CROSS-PROVIDER FOLLOW-UP:** adapt the same optional short-profile and privacy checklist for Gemini, Claude, Copilot and DeepSeek after checking their current free-tier interfaces. Do not copy OpenAI-specific settings into a generic provider-neutral bootstrap.
 
+- [x] Add clearly linked feedback exception in the local ChatGPT Free quick setup: even with model training switched off, giving thumbs-up or thumbs-down feedback may allow the full associated conversation to be used for training (official OpenAI Data controls FAQ; verified 23 September 2026). Source and standalone public guide updated in Aletheia Knowledge. Static script syntax passed; live UI test remains open.
+
 ### AI Easy provider acceptance tests
 
 - [ ] **ChatGPT:** Project instructions + `aletheia-memory.md`; verify current Free limits and behaviour before release.
