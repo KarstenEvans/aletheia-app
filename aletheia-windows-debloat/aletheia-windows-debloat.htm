@@ -11,7 +11,7 @@ main{max-width:1050px;margin:auto;padding:28px 18px 70px}.hero{padding:28px;bord
 h1{margin:.1em 0;font-size:clamp(2rem,6vw,3.6rem)}h2{margin-top:2.2rem}h3{margin-top:1.5rem}.sub{color:var(--accent);font-weight:700}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.field{margin:9px 0}
-label{display:block;font-weight:650;margin-bottom:4px}select,input[type=text],input[type=number]{width:100%;padding:10px;border-radius:9px;border:1px solid var(--line);background:#0d1318;color:var(--ink)}
+label{display:block;font-weight:650;margin-bottom:4px}select,input[type=text],input[type=number],textarea{width:100%;padding:10px;border-radius:9px;border:1px solid var(--line);background:#0d1318;color:var(--ink)}textarea{min-height:140px;resize:vertical}.status{margin-top:10px;color:var(--muted)}
 .checks label{font-weight:500;margin:7px 0}.btn{display:inline-block;border:0;border-radius:10px;padding:11px 15px;margin:5px 5px 5px 0;background:var(--accent);color:#071018;font-weight:800;text-decoration:none;cursor:pointer}
 .ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}.good{border-left:4px solid var(--good)}.warn{border-left:4px solid var(--warn)}
 .small{font-size:.9rem;color:var(--muted)}code{background:#0b1015;padding:.15rem .35rem;border-radius:5px}a{color:var(--accent)}.hidden{display:none}
@@ -92,6 +92,44 @@ footer{margin-top:50px;color:var(--muted)}
 <h2>Your proposed rescue path</h2>
 <div id="planBody"></div>
 </section>
+
+
+<section class="panel good" id="aiHandoff">
+<h2>Ask an AI about this PC</h2>
+<p>Windows Rescue can turn the answers above into a structured research prompt, copy it while this page still has focus, then open your chosen AI in a separate 900 × 760 window. Paste with <b>Ctrl+V</b> (or the phone's Paste command).</p>
+
+<div class="grid">
+  <div class="field">
+    <label for="aiProvider">Choose AI</label>
+    <select id="aiProvider">
+      <option value="https://gemini.google.com/app">Google Gemini</option>
+      <option value="https://copilot.microsoft.com/">Microsoft Copilot</option>
+      <option value="https://chatgpt.com/">ChatGPT</option>
+      <option value="https://chat.deepseek.com/">DeepSeek</option>
+      <option value="https://claude.ai/new">Claude</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Handoff</label>
+    <button class="btn" type="button" id="aiOpenBtn">📋 Copy prompt + open AI</button>
+  </div>
+</div>
+
+<label for="aiPrompt">Prompt being sent</label>
+<textarea id="aiPrompt" readonly placeholder="Build a rescue plan first, or press Copy prompt + open AI to generate it from the current form."></textarea>
+
+<p class="small"><b>Return trip:</b> the AI is asked to put its final Aletheia return block on the clipboard if its interface permits that. Most public AI websites cannot directly write to your system clipboard, so it must instead tell you to click its own Copy control. Come back here and use Read clipboard + load, or paste manually.</p>
+
+<label for="aiResult">AI result</label>
+<textarea id="aiResult" placeholder="Paste the AI reply or its ALETHEIA_WINDOWS_RETURN block here"></textarea>
+<p>
+  <button class="btn ghost" type="button" id="aiClipboardBtn">📋 Read clipboard + load</button>
+  <button class="btn ghost" type="button" id="aiLoadBtn">Load pasted result</button>
+  <button class="btn ghost" type="button" id="aiCopyResultBtn">Copy loaded result</button>
+</p>
+<div id="aiHandoffStatus" class="status">Ready. Google Gemini is the first-use default; your last choice is remembered.</div>
+</section>
+
 
 <h2>2. The Windows Rescue service rules</h2>
 <div class="grid">
@@ -224,6 +262,193 @@ function buildPlan(){
  } else { ai.classList.add('hidden'); }
  document.getElementById('plan').scrollIntoView({behavior:'smooth'});
 }
+</script>
+
+
+<script>
+(function(){
+  const provider=document.getElementById('aiProvider');
+  const promptBox=document.getElementById('aiPrompt');
+  const resultBox=document.getElementById('aiResult');
+  const status=document.getElementById('aiHandoffStatus');
+  const PROVIDER_KEY='aletheiaWindowsDebloatAiProvider';
+
+  function valuesOfUses(){
+    return [...document.querySelectorAll('input.use:checked')].map(x=>x.value);
+  }
+  function checkedProblems(){
+    const ids=['diskbusy','slow','memory','update','nag','telemetry','drivers','edge'];
+    return ids.filter(id=>document.getElementById(id)?.checked);
+  }
+  function textOfSelect(id){
+    const el=document.getElementById(id);
+    return el?.options[el.selectedIndex]?.text || '';
+  }
+  function currentPlanText(){
+    const el=document.getElementById('planBody');
+    return el ? el.innerText.trim() : '';
+  }
+  function buildAiPrompt(){
+    const problems=checkedProblems();
+    const uses=valuesOfUses();
+    const plan=currentPlanText();
+
+    return `ALETHEIA WINDOWS DEBLOAT / WINDOWS RESCUE RESEARCH REQUEST
+
+ROLE:
+Act as a careful Windows research assistant. Help the user keep an older Windows PC useful, stable and recoverable. Prefer observation, rollback and exact-model evidence before system changes.
+
+CURRENT USER INPUT:
+- RAM: ${textOfSelect('ram')}
+- Windows drive: ${textOfSelect('storage')}
+- Windows 11 plan: ${textOfSelect('w11')}
+- Windows 10 ESU: ${textOfSelect('esu')}
+- Spending preference: ${textOfSelect('money')}
+- Indexed-search use: ${textOfSelect('search')}
+- Problems selected: ${problems.length?problems.join(', '):'none selected'}
+- Uses selected: ${uses.length?uses.join(', '):'none selected'}
+
+CURRENT ALETHEIA LOCAL PLAN:
+${plan || 'No local plan has been generated yet.'}
+
+JOB:
+1. Review the information above and identify the highest-value next checks.
+2. If exact make/model information is missing and it matters for RAM, SSD, drivers or BIOS/UEFI, ASK FOR IT rather than guessing.
+3. If your environment has live web/search tools, prefer official Microsoft and exact OEM/manufacturer documentation. If you cannot browse, say so.
+4. Distinguish what is VERIFIED, LIKELY, UNKNOWN, and USER CHOICE.
+5. For drivers, prefer the exact PC OEM package where appropriate. Newer is not automatically better.
+6. Before registry/service/update changes, recommend an undo route: current settings, working-driver export, relevant registry-key backup and recovery option.
+7. Do not disable Defender/firewall, do not disable BITS globally, do not delete service keys, do not rename Windows DLLs, and do not propose registry/service ACL-denial tricks as a routine public fix.
+8. Do not silently run, download or install anything.
+9. If suggesting commands or PowerShell, make them inspect/read-only first. Put system-changing commands in a clearly labelled OPTIONAL section and explain exactly what they change and how to undo them.
+10. If Windows 10 ESU/update control is relevant, separate:
+    - security servicing,
+    - driver updates,
+    - update timing/control,
+    - full manual update gating.
+    Do not claim a setting is a guaranteed gate unless you can verify it.
+11. If the PC has an HDD or <=4 GB RAM, check whether SSD/RAM upgrades may give more benefit than software tweaks.
+12. Keep the answer practical and concise.
+
+RETURN FORMAT:
+First give the user a readable answer.
+
+Then end with exactly this compact block:
+ALETHEIA_WINDOWS_RETURN_BEGIN
+SUMMARY: <one-line summary>
+PRIORITY_1: <next action>
+PRIORITY_2: <next action>
+PRIORITY_3: <next action>
+HARDWARE: <SSD/RAM/model finding or UNKNOWN>
+UPDATES: <ESU/update-control finding or N/A>
+DRIVERS: <driver finding or N/A>
+RECOVERY: <backup/rollback action>
+NEED_FROM_USER: <missing model/spec/info or NONE>
+CONFIDENCE: <HIGH/MEDIUM/LOW plus short reason>
+ALETHEIA_WINDOWS_RETURN_END
+
+CLIPBOARD RETURN:
+If your current interface genuinely allows you to write the final ALETHEIA_WINDOWS_RETURN block to the user's system clipboard, copy only that block to the clipboard.
+If you cannot write to the system clipboard, do not pretend you did. The LAST line of your reply must then be exactly:
+RETURN READY — I cannot place it on your clipboard. Click this AI's Copy control, then return to Aletheia Windows Debloat and use READ CLIPBOARD + LOAD or Ctrl+V.`;
+  }
+
+  async function copyText(text){
+    try{
+      if(navigator.clipboard?.writeText){
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    }catch(_){}
+    const ta=document.createElement('textarea');
+    ta.value=text;
+    ta.style.position='fixed';
+    ta.style.opacity='0';
+    document.body.appendChild(ta);
+    ta.select();
+    let ok=false;
+    try{ok=document.execCommand('copy')}catch(_){}
+    ta.remove();
+    return ok;
+  }
+
+  function openAi(url){
+    const maxW=900,maxH=760;
+    const aw=window.screen?.availWidth||maxW;
+    const ah=window.screen?.availHeight||maxH;
+    const w=Math.min(maxW,aw),h=Math.min(maxH,ah);
+    const left=Math.max(0,Math.round((aw-w)/2));
+    const top=Math.max(0,Math.round((ah-h)/2));
+    return window.open(url,'_blank',`popup=yes,width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes`);
+  }
+
+  function loadResult(raw,source){
+    raw=String(raw||'').trim();
+    if(!raw){status.textContent='No AI result found.';return}
+    resultBox.value=raw;
+    const m=raw.match(/ALETHEIA_WINDOWS_RETURN_BEGIN[\s\S]*?ALETHEIA_WINDOWS_RETURN_END/);
+    status.textContent=m
+      ? 'Aletheia return block detected from '+source+'. You can review it here or copy it onward.'
+      : 'Result loaded from '+source+'. No structured return block was detected, but the full reply is preserved.';
+  }
+
+  document.getElementById('aiOpenBtn').onclick=async()=>{
+    const prompt=buildAiPrompt();
+    promptBox.value=prompt;
+    localStorage.setItem(PROVIDER_KEY,provider.value);
+
+    // QI/A2Z ordering: copy first while this page owns focus, then open the AI.
+    const copied=await copyText(prompt);
+    const opened=openAi(provider.value);
+    status.textContent=(copied
+      ? 'Prompt copied. '
+      : 'Automatic copy was blocked; select/copy the prompt box manually. ')
+      +(opened
+        ? 'AI opened separately. Paste with Ctrl+V / phone Paste, run it, then copy the final response back here.'
+        : 'Popup was blocked. Allow popups or open the selected AI manually.');
+  };
+
+  document.getElementById('aiClipboardBtn').onclick=async()=>{
+    if(!navigator.clipboard?.readText){
+      status.textContent='This browser cannot read the clipboard directly here. Click in the AI result box and press Ctrl+V instead.';
+      return;
+    }
+    try{
+      const raw=await navigator.clipboard.readText();
+      if(!raw.trim()){status.textContent='Clipboard contains no text.';return}
+      loadResult(raw,'clipboard');
+    }catch(_){
+      status.textContent='Clipboard read was blocked by browser security. Paste into the result box with Ctrl+V, then press Load pasted result.';
+    }
+  };
+
+  document.getElementById('aiLoadBtn').onclick=()=>loadResult(resultBox.value,'paste box');
+
+  document.getElementById('aiCopyResultBtn').onclick=async()=>{
+    const raw=resultBox.value.trim();
+    if(!raw){status.textContent='Nothing has been loaded yet.';return}
+    const ok=await copyText(raw);
+    status.textContent=ok?'Loaded result copied.':'Clipboard copy was blocked; select the result text and copy it manually.';
+  };
+
+  resultBox.addEventListener('paste',()=>{
+    setTimeout(()=>{
+      if(/ALETHEIA_WINDOWS_RETURN_BEGIN[\s\S]*ALETHEIA_WINDOWS_RETURN_END/.test(resultBox.value)){
+        status.textContent='Aletheia return block detected. Press Load pasted result.';
+      }
+    },0);
+  });
+
+  const saved=localStorage.getItem(PROVIDER_KEY);
+  if(saved && [...provider.options].some(o=>o.value===saved)) provider.value=saved;
+  provider.onchange=()=>localStorage.setItem(PROVIDER_KEY,provider.value);
+
+  // Keep the prompt preview current whenever the user changes the questionnaire.
+  document.querySelectorAll('#ram,#storage,#w11,#esu,#money,#search,input[type=checkbox]').forEach(el=>{
+    el.addEventListener('change',()=>{promptBox.value=buildAiPrompt()});
+  });
+  promptBox.value=buildAiPrompt();
+})();
 </script>
 
 <script>
