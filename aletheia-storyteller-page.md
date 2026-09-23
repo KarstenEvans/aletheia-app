@@ -81,6 +81,18 @@ Prefer UK English browser voice and UK male when actually available; user's voic
 
 A browser `file://` page may block Markdown fetch; display OPEN FOLDER fallback rather than assuming all local modes work identically.
 
+## Character-voice narration, captions and local backup
+
+The narrator voice is selected by the Storyteller app. The story is responsible for identifying character speech, without inference. The first story defines six compact `[voice-profile;CHARACTER;lang=LOCALE;...]` directives at the beginning: TM, AI-PI, SCHRODINGER, ELSIE, PRUDENCE and NEWT. No full biography download is necessary just to assign a voice. Further details and the canonical syntax are in `aletheia-storyteller.md`.
+
+`[voice:AI-PI]` (or `[voice:TM]`, etc.) selects the actor for **subsequent paired double-quoted dialogue** until another selection. All text outside the quoted spans stays in the narrator's configured voice. `[voice:]` clears the selected actor for deliberately unassigned quotes. Both `“...”` and `"..." ` (paired) are supported, but apostrophes do not activate character voices. The editor must insert tags in the actual story; do not guess speakers from context in the runtime.
+
+Voice matching searches the locally available browser voices by language, optionally preferring/excluding names and using best-effort gender labels. Fallback name where set, otherwise user-selected narrator. Actor-specific `rate`/`pitch` are supported but expressive moods are only possible to the extent browser speech synthesis supports them. MP3/VTT recordings do not respond to these tags; choose browser TTS by default for a tagged story.
+
+Default caption-window size is **1 sentence**; the reader retains controls for two, three or Off. Long sentences may wrap visually on mobile. Narration must continue to read headings verbatim and observe the silent **400 ms** pause, with no generated “New title” words.
+
+Before editing the app, save an **exact** copy of its current GitHub file under `backup/` and prepare a downloadable local voice-test preview. For this change, the original app was saved unmodified as `backup/aletheia-storyteller-before-character-voices-20260923.htm` (original blob SHA `9b9f18d544db8ca7234dab49053e57aa882a7250`, backup commit `1dddf776b4bb3555a936088d8168431b9226fb9c`). A standalone local voice experiment was created before overwriting the app. For a full offline version, bundle the current full `.htm`, story index, Markdown and confirmed images locally; a standalone voice demo is not the full Storyteller.
+
 ## Images and known missing assets
 
 Available on GitHub (verified): `Toomorrowman02.webp`, `Toomorrow-Mystery-in-the-Abandoned-Mechanics-Hall.webp`, `Aboard-the-Department-of-Temporal-Affairs.webp`, `Newt-Presses-Other.webp`. New bios reuse these as portraits or scene-setting visuals; dedicated Elsie and Prudence portraits have not been verified.
@@ -109,3 +121,5 @@ If loading fails, show an actionable message; missing biography includes must no
 2026-09-23: Created five standalone bios, registered them in `stories/stories.json`, added searchable story index and safe `[bio-...md]` includes, documented confirmed/missing image assets. Static inspection complete; live website/browser check remains.
 
 2026-09-23: Removed generated “New title” from browser narration; introduced a 400ms heading-end pause with cancellation on playback interruption. JavaScript syntax checked; live voice test pending.
+
+2026-09-23: Added story-level character profiles, explicit quotation-based actor voice selection, best-effort locale fallback and default single-sentence captions. Preserved the current 400 ms heading pause without synthetic words. Static parser tested with the actual first story; live PC/Android voice availability and image playback still need user testing.
