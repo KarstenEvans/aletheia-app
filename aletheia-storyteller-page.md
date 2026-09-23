@@ -77,7 +77,7 @@ On its own line, the above **deliberately** inserts the complete Markdown biogra
 
 ## Narration contract
 
-Prefer UK English browser voice and UK male when actually available; user's voice selection overrides preference. Default rate 1.0 and pitch 1.0. Caption window defaults to 2 sentences. Optional MP3 + sentence-aligned WebVTT files with the same basename are supported for an unexpanded story. Pausing/stepping and restart must not duplicate camera commands or lose the selected story.
+Prefer UK English browser voice and UK male when actually available; user's voice selection overrides preference. Default rate 1.0 and pitch 1.0. Caption window defaults to 2 sentences. Markdown headings are narrated exactly as written: never prefix them with “New title” or the word “pause”. Browser TTS waits **400 milliseconds after finishing each heading**, then moves to the next spoken cue. The delay must be cancelled when playback is paused, stopped, skipped or a different story loads; the next cue must not be lost or a heading re-read. Ordinary sentences have no added delay. This TTS behaviour does not alter prerecorded MP3/VTT audio, which needs separate editing if a recording already says “New title”. Optional MP3 + sentence-aligned WebVTT files with the same basename are supported for an unexpanded story. Pausing/stepping and restart must not duplicate camera commands or lose the selected story.
 
 A browser `file://` page may block Markdown fetch; display OPEN FOLDER fallback rather than assuming all local modes work identically.
 
@@ -107,3 +107,5 @@ If loading fails, show an actionable message; missing biography includes must no
 ## Change log
 
 2026-09-23: Created five standalone bios, registered them in `stories/stories.json`, added searchable story index and safe `[bio-...md]` includes, documented confirmed/missing image assets. Static inspection complete; live website/browser check remains.
+
+2026-09-23: Removed generated “New title” from browser narration; introduced a 400ms heading-end pause with cancellation on playback interruption. JavaScript syntax checked; live voice test pending.
