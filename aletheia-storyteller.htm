@@ -73,8 +73,8 @@
   <div class="row"><div><label for="rate">Rate <span id="rateVal">1.0</span></label><input id="rate" type="range" min="0.7" max="1.35" value="1" step="0.05"></div><div><label for="pitch">Pitch <span id="pitchVal">1.0</span></label><input id="pitch" type="range" min="0.7" max="1.3" value="1" step="0.05"></div></div>
 
   <label for="captionCount">Caption window</label>
-  <select id="captionCount"><option value="1">1 sentence</option><option value="2" selected>2 sentences</option><option value="3">3 sentences</option><option value="0">Off</option></select>
-  <p class="small">Default voice preference is UK English, rate 1.0, pitch 1.0. MP3 mode expects a same-name `.mp3` and sentence-aligned `.vtt`.</p>
+  <select id="captionCount"><option value="1" selected>1 sentence</option><option value="2">2 sentences</option><option value="3">3 sentences</option><option value="0">Off</option></select>
+  <p class="small">Narrator defaults to UK English; [voice:Character] changes quoted dialogue only. Captions default to one sentence. MP3 mode expects a same-name `.mp3` and sentence-aligned `.vtt`.</p>
   <p class="small">Camera commands: `[image;file;name=x,y,zoom]`, `[zoom;name]`, `[pan;name]`, `[wide]`, `[hold;seconds]`. If seconds are omitted, HOLD defaults to 1 second. [bio-Filename.md] inserts a separate biography as narrated story text when deliberately placed on its own line.</p>
 </div>
 <audio id="audio" preload="metadata"></audio>
@@ -84,7 +84,8 @@
 const $=id=>document.getElementById(id);
 const img=$('storyImage'), caption=$('caption'), status=$('status'), titleCard=$('titleCard'), audio=$('audio');
 let stories=[], selected=null, firstCuePrepared=false, embeddedBiography=false, nodes=[], speechCues=[], cueCommands=[], currentCue=-1, playing=false, paused=false, currentImageFile='', hotspots={}, currentZoom=1, currentFocus=null, currentImageDims=null, folderFiles=null, vttCues=[], activeVttIndex=-1;
-const state={rate:1,pitch:1,captionCount:2,voice:null};
+const state={rate:1,pitch:1,captionCount:1,voice:null};
+let voiceProfiles={};
 const HEADING_PAUSE_MS=400;
 let headingPauseTimer=null,speechGeneration=0;
 function clearHeadingPause(){
@@ -129,17 +130,61 @@ async function expandBioIncludes(md,stack=new Set(),depth=0){
   if(result.length>160000)throw Error("Story with biographies exceeds size limit");
   return result;
 }
-function parseStory(md){
-  const ls=md.replace(/\r/g,'').split('\n'); const raw=[]; let para=[];
-  const flush=()=>{if(para.length){raw.push({type:'text',text:para.join(' ').trim()});para=[]}};
-  for(const line of ls){const t=line.trim(); if(!t){flush();continue} if(/^\[[^\]]+\]$/.test(t)){flush();raw.push({type:'cmd',data:parseCmd(t)});continue} if(/^#{1,6}\s+/.test(t)){flush();raw.push({type:'text',text:cleanMd(t),heading:true});continue} para.push(cleanMd(t));}
-  flush();
-  const cues=[], pending=[];
-  for(const n of raw){
-    if(n.type==='cmd'){pending.push(n.data);continue}
-    const ss=sentenceSplit(n.text); if(!ss.length)continue;
-    ss.forEach((s,idx)=>{cues.push({text:s,heading:!!n.heading,commands:idx===0?pending.splice(0):[]})});
+function canonicalSpeaker(name){
+  const key=String(name||'').trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+  return ({TOOMORROWMAN:'TM',TOMORROWMAN:'TM',TM:'TM',AIPI:'AI-PI',SCHRODINGER:'SCHRODINGER',ELSIE:'ELSIE',PRUDENCE:'PRUDENCE',NEWT:'NEWT'})[key]||key;
+}
+function dialogueParts(text,actor){
+  if(!actor)return [{text:text,speaker:null}];
+  const pieces=[],re=/“([^”]+)”|"([^"]+)"/g;
+  let cursor=0,match;
+  while((match=re.exec(text))){
+    if(match.index>cursor)pieces.push({text:text.slice(cursor,match.index),speaker:null});
+    pieces.push({text:match[1]||match[2],speaker:actor});
+    cursor=re.lastIndex;
   }
+  if(cursor<text.length)pieces.push({text:text.slice(cursor),speaker:null});
+  return pieces;
+}
+function parseStory(md){
+  const lines=md.replace(/\r/g,'').split('\n'),raw=[];
+  let para=[];
+  const flush=()=>{if(para.length){raw.push({type:'text',text:para.join(' ').trim()});para=[]}};
+  for(const line of lines){
+    const t=line.trim();
+    if(!t){flush();continue}
+    if(/^\[[^\]]+\]$/.test(t)){flush();raw.push({type:'cmd',data:parseCmd(t)});continue}
+    if(/^#{1,6}\s+/.test(t)){flush();raw.push({type:'text',text:cleanMd(t),heading:true});continue}
+    para.push(cleanMd(t));
+  }
+  flush();
+  const cues=[],pending=[],profiles={};
+  let actor=null;
+  for(const item of raw){
+    if(item.type==='cmd'){
+      const c=item.data;
+      if(c.cmd==='voice-profile'){
+        const key=canonicalSpeaker(c.args[0]),o=c.opts;
+        if(!key)continue;
+        const clamp=(s,d,low,hi)=>{if(s===undefined)return d;const v=Number(s);return Number.isFinite(v)?Math.max(low,Math.min(hi,v)):d};
+        profiles[key]={lang:String(o.lang||'').trim(),prefer:String(o.prefer||'').trim(),avoid:String(o.avoid||'').trim(),fallback:String(o.fallback||'').trim(),gender:String(o.gender||'').toLowerCase().trim(),rate:clamp(o.rate,1,.7,1.35),pitch:clamp(o.pitch,1,.7,1.3)};
+        continue;
+      }
+      if(c.cmd.startsWith('voice:')){actor=canonicalSpeaker(c.cmd.slice(6))||null;continue;}
+      pending.push(c);continue;
+    }
+    const parts=item.heading?[{text:item.text,speaker:null}]:dialogueParts(item.text,actor);
+    let first=true;
+    for(const part of parts){
+      if(!part.text.trim())continue;
+      for(const phrase of sentenceSplit(part.text)){
+        if(!phrase.trim())continue;
+        cues.push({text:phrase.trim(),heading:!!item.heading,speaker:part.speaker,commands:first?pending.splice(0):[]});
+        first=false;
+      }
+    }
+  }
+  cues.profiles=profiles;
   return cues;
 }
 function parseVtt(txt){
@@ -183,7 +228,43 @@ async function execute(cmd){
 }
 async function executeCommands(list){for(const c of list||[])await execute(c)}
 function chooseVoice(){
-  const vs=speechSynthesis.getVoices(); const sel=$('voiceSelect'); if(sel.options.length!==vs.length){sel.innerHTML='';vs.forEach((v,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${v.name} (${v.lang})`;sel.appendChild(o)});let ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb'&&/google uk english male/i.test(v.name));if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb'&&/male/i.test(v.name)&&!/george/i.test(v.name));if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb'&&!/george/i.test(v.name));if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb');if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase().startsWith('en'));if(ix>=0)sel.value=String(ix)} state.voice=vs[+sel.value]||vs[0]||null;
+  const vs=speechSynthesis.getVoices(),sel=$('voiceSelect');
+  if(sel.options.length!==vs.length){
+    sel.innerHTML='';
+    vs.forEach((v,i)=>{const o=document.createElement('option');o.value=i;o.textContent=v.name+' ('+v.lang+')';sel.appendChild(o)});
+    let ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb'&&/google uk english male/i.test(v.name)&&!/george/i.test(v.name));
+    if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb'&&/male/i.test(v.name)&&!/george/i.test(v.name));
+    if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb'&&!/george/i.test(v.name));
+    if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase()==='en-gb');
+    if(ix<0)ix=vs.findIndex(v=>v.lang.toLowerCase().startsWith('en'));
+    if(ix>=0)sel.value=String(ix);
+  }
+  state.voice=vs[+sel.value]||vs[0]||null;
+}
+function characterVoice(speaker){
+  const p=voiceProfiles[speaker];
+  if(!p)return {voice:state.voice,rate:state.rate,pitch:state.pitch};
+  const vs=speechSynthesis.getVoices(),norm=s=>String(s||'').toLowerCase().replace(/_/g,'-');
+  let options=vs.filter(v=>p.lang&&norm(v.lang)===norm(p.lang));
+  if(p.avoid)options=options.filter(v=>!v.name.toLowerCase().includes(p.avoid.toLowerCase()));
+  if(p.prefer){
+    const preferred=options.find(v=>v.name.toLowerCase().includes(p.prefer.toLowerCase()));
+    if(preferred)return {voice:preferred,rate:p.rate,pitch:p.pitch};
+  }
+  // Gender metadata is not available in the standard browser voices API.
+  if(p.gender==='female'){
+    const named=options.find(v=>/female|woman|fem\b/i.test(v.name));
+    if(named)return {voice:named,rate:p.rate,pitch:p.pitch};
+  }else if(p.gender==='male'){
+    const named=options.find(v=>/male|man\b/i.test(v.name)&&!/female|woman/i.test(v.name));
+    if(named)return {voice:named,rate:p.rate,pitch:p.pitch};
+  }
+  if(options.length)return {voice:options[0],rate:p.rate,pitch:p.pitch};
+  if(p.fallback){
+    const other=vs.find(v=>v.name.toLowerCase().includes(p.fallback.toLowerCase()));
+    if(other)return {voice:other,rate:p.rate,pitch:p.pitch};
+  }
+  return {voice:state.voice,rate:state.rate,pitch:state.pitch};
 }
 function speechText(text,heading=false){
   let s=text.replace(/P\.R\.U\.D\.E\.N\.C\.E\./g,'Prudence');
@@ -194,27 +275,37 @@ function speechText(text,heading=false){
 function speakCurrent(){
   if(currentCue<0||currentCue>=speechCues.length){stopAll(false);return}
   const generation=speechGeneration;
-  showCaption(currentCue); const c=speechCues[currentCue];
+  showCaption(currentCue);
+  const c=speechCues[currentCue];
   (currentCue===0&&firstCuePrepared?(firstCuePrepared=false,Promise.resolve()):executeCommands(c.commands)).then(()=>{
     if(!playing||paused||generation!==speechGeneration)return;
-    const u=new SpeechSynthesisUtterance(speechText(c.text,c.heading));
-    if(state.voice)u.voice=state.voice;
-    u.lang=state.voice?.lang||'en-GB';u.rate=state.rate;u.pitch=state.pitch;
-    u.onend=()=>{
+    const setting=c.speaker?characterVoice(c.speaker):{voice:state.voice,rate:state.rate,pitch:state.pitch};
+    const advance=()=>{
       if(!playing||paused||generation!==speechGeneration)return;
       currentCue++;
       if(c.heading){
-        // Brief silence after a heading, without speaking "New title" or "pause".
+        // A silent, short gap after speaking the actual heading.
         headingPauseTimer=setTimeout(()=>{
           headingPauseTimer=null;
           if(playing&&!paused&&generation===speechGeneration)speakCurrent();
         },HEADING_PAUSE_MS);
       }else speakCurrent();
     };
-    u.onerror=()=>{
-      if(playing&&!paused&&generation===speechGeneration){currentCue++;speakCurrent();}
-    };
-    speechSynthesis.speak(u);
+    function say(settings,retried=false){
+      if(!playing||paused||generation!==speechGeneration)return;
+      const u=new SpeechSynthesisUtterance(speechText(c.text,c.heading));
+      if(settings.voice)u.voice=settings.voice;
+      u.lang=settings.voice?.lang||'en-GB';
+      u.rate=settings.rate;u.pitch=settings.pitch;
+      u.onend=advance;
+      u.onerror=()=>{
+        if(!retried&&c.speaker&&settings.voice!==state.voice&&state.voice)
+          say({voice:state.voice,rate:state.rate,pitch:state.pitch},true);
+        else advance();
+      };
+      speechSynthesis.speak(u);
+    }
+    say(setting);
   });
 }
 function playTts(){if(!speechCues.length)return;if(currentCue<0||currentCue>=speechCues.length)currentCue=0;clearHeadingPause();speechGeneration++;playing=true;paused=false;$('playBtn').textContent='||';speechSynthesis.cancel();speakCurrent()}
@@ -236,16 +327,18 @@ async function loadStory(entry){
   $('storySelect').value=String(stories.indexOf(entry));
   setStatus('Loading '+(entry.title||entry.file)+'…');
   try{
+    voiceProfiles={};
     const md=await readText(entry.file);
     if(md==null)throw Error('Could not load '+entry.file);
     embeddedBiography=/^\[bio-(?:[a-z0-9_-]+)\.md\]\s*$/mi.test(md);
     const expanded=await expandBioIncludes(md);
     speechCues=parseStory(expanded);
+    voiceProfiles=speechCues.profiles||{};
     if(!speechCues.length)throw Error('No spoken content in '+entry.file);
     currentCue=0;showCaption(0);
     await executeCommands(speechCues[0].commands||[]);
     firstCuePrepared=true;
-    await prepareAudio(entry,embeddedBiography);
+    await prepareAudio(entry,embeddedBiography,/^\[voice:[^\]]*\]\s*$/mi.test(md));
     setStatus((entry.title||entry.file)+' • '+speechCues.length+' spoken cues');
     if($('narrationMode').value==='tts')setTimeout(()=>{if(!playing&&selected===entry)playTts()},1500);
   }catch(err){
@@ -254,7 +347,7 @@ async function loadStory(entry){
     titleCard.classList.remove('hide');
   }
 }
-async function prepareAudio(entry,hasInlineBio=false){audio.removeAttribute('src');vttCues=[];$('narrationMode').value='tts';if(hasInlineBio)return;const base=entry.file.replace(/\.md$/i,'');const af=entry.audio||base+'.mp3',vf=entry.vtt||base+'.vtt';const au=await resolveFileUrl(af,true),vt=await readText(vf,true);if(au&&vt!=null){audio.src=au;vttCues=parseVtt(vt);$('narrationMode').value='audio';if(Math.abs(vttCues.length-speechCues.length)>2)setStatus(`Audio found, but VTT has ${vttCues.length} cues vs ${speechCues.length} story sentences.`)} }
+async function prepareAudio(entry,hasInlineBio=false,hasCharacterVoices=false){audio.removeAttribute('src');vttCues=[];$('narrationMode').value='tts';if(hasInlineBio)return;const base=entry.file.replace(/\.md$/i,'');const af=entry.audio||base+'.mp3',vf=entry.vtt||base+'.vtt';const au=await resolveFileUrl(af,true),vt=await readText(vf,true);if(au&&vt!=null){audio.src=au;vttCues=parseVtt(vt);if(!hasCharacterVoices)$('narrationMode').value='audio';if(Math.abs(vttCues.length-speechCues.length)>2)setStatus(`Audio found, but VTT has ${vttCues.length} cues vs ${speechCues.length} story sentences.`)} }
 function updateFromAudio(){if(!vttCues.length)return;const t=audio.currentTime;let i=vttCues.findIndex(c=>t>=c.start&&t<c.end);if(i<0){for(let j=vttCues.length-1;j>=0;j--)if(t>=vttCues[j].start){i=j;break}}if(i>=0&&i!==activeVttIndex){activeVttIndex=i;currentCue=Math.min(i,speechCues.length-1);showCaption(currentCue);executeCommands(speechCues[currentCue]?.commands||[])}}
 audio.addEventListener('timeupdate',updateFromAudio);audio.addEventListener('ended',()=>{playing=false;$('playBtn').textContent='>'});
 
