@@ -110,3 +110,52 @@ Possible gradual steps:
 Keep Markdown stories readable independently of any translation system. Never make Cloudflare Workers, AI APIs or paid voices required for ordinary playback.
 
 **Proposed future prompt:** How can Storyteller use one story's cue IDs, images and camera instructions with two aligned narration/caption languages, while retaining a fast, distraction-free, one-sentence default?
+
+
+## Aletheia cinematic scale / studio-signoff ideas
+
+**Status:** FUTURE IDEAS ONLY. Do not interrupt the current Three.js particle prototype to build these.
+
+### God's-eye zoom
+
+A separate future visual could begin at **Swindon.org.uk**, pull back through a local/planetary satellite view, continue away from Earth, and finally reveal Earth as a single point inside the much larger Aletheia particle universe. This is a possible story/opening/closing sequence, not a requirement for the current particle animation.
+
+Keep the transition original and technically independent of any single mapping/satellite provider. The conceptual beat is:
+
+```text
+Swindon.org.uk -> local world -> Earth -> satellites/orbit -> deep space
+-> Earth becomes one particle -> Aletheia particle universe
+```
+
+### Original / standard studio sting
+
+Preserve the existing original studio-signoff idea as the **standard** variant: an original old-cinema-style framing, inspired by the general tradition of studio idents but not copying a particular lion logo. **AI-PI appears first; ToomorrowMan follows in solidarity**, with the relationship and affection readable from pose/gesture rather than dialogue.
+
+### Variant 2: AI-PI meow + ToomorrowMan lion roar
+
+A future app/story ending can make the joke explicit through sound:
+
+1. AI-PI appears first and performs his grand "roar", but the sound is a **small cat-like meow**.
+2. ToomorrowMan enters behind/beside him, optionally placing a hand on AI-PI's shoulder.
+3. ToomorrowMan then gives a full theatrical **lion-style roar**, head moving down and around to his right, mouth open, head shaking with the force of it.
+4. He looks down at AI-PI.
+5. They leave together to the right.
+
+The scene should communicate partnership and affection, not mock AI-PI.
+
+### Variant 3: Schrödinger / Dragonfold final roar
+
+Extended ending after Variant 2:
+
+1. AI-PI and ToomorrowMan have exited right.
+2. Hold the apparently finished frame in silence for a beat.
+3. **Schrödinger** rises into view in tuxedo-cat form, looks around and blinks.
+4. She unfolds/transforms into her true **Dragonfold** form.
+5. The Dragonfold gives the final, enormous dragon roar.
+6. End.
+
+The delayed third beat should feel surprising and delightful for children while remaining compatible with established Dragonfold canon: cat externally, dragon folded within, larger on the inside.
+
+### Design boundary
+
+These are **original Aletheia cinematic stings**, not reproductions of MGM or another studio ident. Do not copy a protected logo, exact ring composition, lion footage, typography, music or animation. Use the broad cinematic grammar only: framed reveal, character performance, hold and fade.
