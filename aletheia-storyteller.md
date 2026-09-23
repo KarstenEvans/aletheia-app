@@ -63,6 +63,8 @@ The camera uses smooth ease-in/ease-out animation to avoid frantic zooming.
 - Storyteller prefers a UK male browser voice when one is available, then falls back to another `en-GB` voice.
 - The user can change voice, rate and pitch in the menu.
 - Story text is spoken sentence-by-sentence, so captions and camera commands stay synchronised without a separate timing file.
+- Markdown `#`/`##` headings are spoken **exactly as written**. Storyteller does not say “New title”. After each heading finishes, browser narration waits **0.4 seconds** before the next cue. It does not speak the word “pause”, and inserting repeated spaces is not needed. Pause/stop/skip/story switching clears a pending delay.
+- For an additional deliberate pause anywhere in a story, use `[hold;0.4]` on its own line. That is a separate camera/story command, not a replacement for the automatic heading pause. Recorded MP3/VTT narration is unchanged and must be re-recorded separately if it contains unwanted words.
 
 ### Optional MP3 + VTT
 
