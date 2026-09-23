@@ -71,6 +71,15 @@
 - [ ] Add captions and transcripts to every video.
 - [ ] Make videos replaceable because provider UI screenshots/buttons will age quickly.
 
+### ChatGPT Free documentation audit — 23 September 2026
+
+- [x] Audit the eight current OpenAI Help Center articles: Free FAQ, Voice, Dictation, Custom Instructions, Memory, Projects, Search and Data controls.
+- [x] Add an optional three-step ChatGPT Free section to the local `aletheia-setup.htm`, including a 638-character editable profile, a live 1,500-character counter, copy button and advice on privacy, Project context and Voice versus Dictation.
+- [x] Update ChatGPT-specific `provider-installation.md` and `user-guide.md`. Keep the provider-neutral bootstrap and user-controlled memory template unchanged.
+- [x] Update companion Aletheia Knowledge library to 18 AI cards and an expanded static Free guide; all source-level content/parser checks passed (131 Windows cards total).
+- [ ] **VERIFY LIVE:** open the newly updated setup page on desktop and Android; test the short-profile copy button, over-limit warning, Clear form preserving the default profile, privacy instructions, normal memory download and first-run Project steps. Static JavaScript syntax and default text-size tests passed; no browser/live test completed.
+- [ ] **CROSS-PROVIDER FOLLOW-UP:** adapt the same optional short-profile and privacy checklist for Gemini, Claude, Copilot and DeepSeek after checking their current free-tier interfaces. Do not copy OpenAI-specific settings into a generic provider-neutral bootstrap.
+
 ### AI Easy provider acceptance tests
 
 - [ ] **ChatGPT:** Project instructions + `aletheia-memory.md`; verify current Free limits and behaviour before release.
