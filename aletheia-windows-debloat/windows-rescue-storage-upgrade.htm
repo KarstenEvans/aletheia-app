@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Windows Rescue Storage Upgrade Guide</title>
+<style>
+body{max-width:900px;margin:auto;padding:28px 18px 70px;font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif}h1{font-size:2.4rem}section{border:1px solid #8885;border-radius:12px;padding:16px;margin:14px 0}.warn{border-left:5px solid #e7a82f}.good{border-left:5px solid #4caf66}code{background:#8882;padding:.1rem .3rem;border-radius:4px}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #8885;padding:8px;text-align:left}a{color:#1684c7}
+</style></head><body>
+<h1>Windows Rescue: SSD / M.2 / mSATA / Optical-Bay Guide</h1>
+<p><strong>Rule zero:</strong> identify the exact PC model and OEM service manual before buying a drive or caddy.</p>
+
+<section class="warn"><h2>Small slot ≠ NVMe</h2>
+<p>Possible storage includes 2.5-inch SATA, mSATA, M.2 SATA and M.2 PCIe/NVMe. M.2 describes the card shape; it does not tell you whether the interface is SATA or NVMe.</p>
+<p>A WWAN/WLAN slot can look inviting and still be unsuitable for storage. SD-card boot is deliberately outside the normal Windows Rescue path unless the manufacturer documents it.</p>
+</section>
+
+<section><h2>Example: Dell Latitude E7240</h2>
+<p>Dell documents the E7240's SSD as <strong>mSATA</strong>. That is precisely why Windows Rescue refuses to infer “M.2” from a small card or a laptop's year.</p>
+<p><a href="https://www.dell.com/support/manuals/en-uk/latitude-e7240-ultrabook/late7240om">Dell E7240 manual</a></p>
+</section>
+
+<section class="good"><h2>Best-case old-laptop layout</h2>
+<p>If the OEM documents an unused boot-capable SSD slot:</p>
+<ul><li>SSD → Windows, applications and pagefile (C:)</li><li>existing healthy HDD → personal data (D:)</li><li>DVD drive stays in place</li></ul>
+<p>Clone or clean-install Windows onto the SSD, test several boots, and do not erase the old disk immediately.</p>
+</section>
+
+<section><h2>Classic 2.5-inch HDD + DVD route</h2>
+<p>If there is no extra SSD slot:</p>
+<ol><li>Replace the primary 2.5-inch HDD with a compatible SATA SSD.</li><li>Confirm whether the optical bay is SATA or PATA.</li><li>Measure/check the service manual for <strong>9.5 mm or 12.7 mm</strong> caddy size.</li><li>If suitable, install the old HDD in the optical caddy as D: data.</li></ol>
+<p>Cheap caddies exist, but buying the wrong £5 caddy is still buying a £5 metal bookmark.</p>
+</section>
+
+<section><h2>Capacity</h2>
+<table><tr><th>Size</th><th>Windows Rescue view</th></tr>
+<tr><td>128 GB</td><td>Only for constrained/light installs.</td></tr>
+<tr><td>240–256 GB</td><td>Practical minimum for OS + normal applications.</td></tr>
+<tr><td>480–512 GB</td><td>Default sweet spot for most rescues.</td></tr>
+<tr><td>1 TB+</td><td>Choose when current use/data justifies it.</td></tr></table>
+</section>
+
+<section class="warn"><h2>Before cloning or changing boot</h2>
+<ul><li>Back up important data elsewhere.</li><li>Verify access to any BitLocker/device-encryption recovery key. Do not paste it into AI.</li><li>Confirm UEFI/Legacy and GPT/MBR state.</li><li>Use the OEM manual for drive removal and boot instructions.</li><li>Keep the old drive untouched until the SSD has booted and worked reliably.</li></ul>
+</section>
+
+<section><h2>Clone or clean install?</h2>
+<p><strong>Clone:</strong> quickest way to preserve programs/settings.</p>
+<p><strong>Clean install:</strong> often better when the old Windows installation contains years of unwanted startup software and update debris.</p>
+<p><a href="https://rufus.ie/">Rufus</a> is a useful open-source installation-media tool. Inspect its options before using them.</p>
+</section>
+
+<section><h2>Do not move the whole Users tree</h2>
+<p>Keep Windows/apps/pagefile on the SSD. Move Documents, Pictures, Videos, Downloads and other personal data to D: using normal folder-location/storage settings if desired.</p>
+<p>The old HDD is not a backup. Old drives fail. Keep a second copy of anything irreplaceable.</p>
+</section>
+
+<section><h2>Upgrade versus replacement</h2>
+<p>Price the exact compatible SSD/RAM/caddy, then compare that total against a current new or certified-refurbished laptop.</p>
+<p>Research-date example: on 30 August 2026 Currys listed an HP Ryzen 3 / 8 GB / 256 GB SSD laptop for £299. Recheck before buying.</p>
+<p><a href="https://www.currys.co.uk/products/hp-15fc0536sa-15.6-laptop-amd-ryzen-3-256-gb-jet-black-10282701.html">Currys dated example</a> ·
+<a href="https://www.lenovo.com/gb/outletgb/en/laptops/">Lenovo Certified Refurbished</a></p>
+<p>For the old machine, compare eBay sold/completed values for the complete PC and useful parts. Do not assume parting-out automatically pays more.</p>
+</section>
+
+<section><h2>Reference shelf</h2>
+<ul>
+<li><a href="https://www.kingston.com/unitedkingdom/en/blog/pc-performance/ssd-form-factors">Kingston SSD form factors</a></li>
+<li><a href="https://uk.crucial.com/support/ssd-support/how-to-install-m2-nvme-pcie-ssd">Crucial M.2/NVMe guide</a></li>
+<li><a href="https://www.ifixit.com/Wiki/Optical_Bay_to_Hard_Drive_Enclosures">iFixit optical-bay guide</a></li>
+<li><a href="https://swindon.org.uk/resources/">Swindon.org.uk resources</a></li>
+</ul></section>
+
+<p><a href="aletheia-windows-debloat.htm">← Back to Windows Rescue</a></p>
+
+<script>
+(function(){
+  function openAletheiaWindow(url){
+    const width=900, height=760;
+    const left=Math.max(0,Math.round((screen.availWidth-width)/2));
+    const top=Math.max(0,Math.round((screen.availHeight-height)/2));
+    return window.open(url,'_blank','width='+width+',height='+height+',left='+left+',top='+top+',resizable=yes,scrollbars=yes,toolbar=yes,location=yes');
+  }
+  document.querySelectorAll('a[href]:not([download])').forEach(function(a){
+    a.target='_blank';
+    a.rel='noopener';
+    a.addEventListener('click',function(e){
+      const raw=a.getAttribute('href')||'';
+      if(raw.startsWith('#')||raw.startsWith('mailto:')||raw.startsWith('tel:')||raw.startsWith('javascript:')) return;
+      const w=openAletheiaWindow(a.href);
+      if(w){e.preventDefault();try{w.focus();}catch(_){}}
+    });
+  });
+})();
+</script>
+
+<!-- Awin Publisher MasterTag. Bookshop.org affiliate links use data-awinignore. -->
+<script src="https://www.dwin2.com/pub.3182162.min.js"></script>
+</body></html>
