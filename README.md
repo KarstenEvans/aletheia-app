@@ -48,6 +48,20 @@ A direct-first, evidence-aware news reader that discovers current reporting, gro
 - [Open the resources page](https://karstenevans.github.io/aletheia-app/aletheia-news/aletheia-news-rsc.htm)
 - [View source register](aletheia-news/aletheia-news-sources.json)
 
+
+### Aletheia Improve
+
+A repository-aware maintenance launcher. Enter an Aletheia app/project or new idea; Improve refreshes current GitHub routes, searches for existing overlapping work, loads the relevant project rules and builds a provider-neutral improvement pack.
+
+- **Version:** 0.1
+- **Status:** Source build complete / live browser verification pending
+- [Open Aletheia Improve](https://karstenevans.github.io/aletheia-app/aletheia-improve/aletheia-improve.htm)
+- [Read the Improve workflow](aletheia-improve/aletheia-improve.md)
+- [Repository memory/registry](aletheia-improve/aletheia-improve-memory.md)
+- [Resources](https://karstenevans.github.io/aletheia-app/aletheia-improve/aletheia-improve-rsc.htm)
+
+It prefers extending/reusing existing apps, Skills and knowledge collections over creating near-duplicates, and includes a canonical-name/spelling gate for speech-to-text ambiguities.
+
 ### Aletheia Storyteller
 
 An illustrated, narratable browser reader for portable Markdown adventures and character biographies. It uses named image hotspots for smooth pan and zoom, a searchable story/BIO index and optional `[bio-Filename.md]` inclusion.
