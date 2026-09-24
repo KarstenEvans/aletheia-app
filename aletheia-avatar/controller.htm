@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aletheia Avatar — Local Controller</title>
+<style>
+:root{color-scheme:dark light;--bg:#0d1117;--card:#161b22;--text:#e6edf3;--line:#30363d;--accent:#58a6ff;--muted:#9da7b3;--good:#3fb950;--warn:#d29922}
+*{box-sizing:border-box}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.5}
+main{max-width:940px;margin:auto;padding:18px}section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+h1{font-size:clamp(2rem,6vw,3.4rem);margin:.3rem 0}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.asset{border:1px solid var(--line);border-radius:10px;padding:12px}.asset strong{display:block}.asset small{display:block;color:var(--muted);margin:.2rem 0 .6rem}
+textarea,input,select{width:100%;padding:.72rem;border-radius:9px;border:1px solid var(--line);background:transparent;color:inherit;margin:.3rem 0 1rem;font:inherit}
+input[type=range]{padding:0;accent-color:var(--accent)}label{font-weight:700;display:block;margin-top:.7rem}
+button{padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:transparent;color:inherit;font-weight:800;cursor:pointer}button.primary{background:var(--accent);color:#06111e;border-color:var(--accent)}button:disabled{opacity:.45;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:8px}.tag{display:inline-block;padding:.2rem .5rem;border:1px solid var(--line);border-radius:99px;margin:.15rem;font-size:.85rem}
+.status{border-left:4px solid var(--warn);padding:.65rem .8rem;margin:.7rem 0;background:rgba(210,153,34,.08)}.status.good{border-left-color:var(--good)}
+.sliderlabels{display:flex;justify-content:space-between;color:var(--muted);font-size:.84rem}.factor{font-weight:800;margin:.35rem 0}
+pre{white-space:pre-wrap;word-break:break-word;border:1px solid var(--line);border-radius:10px;padding:12px;max-height:560px;overflow:auto;background:#05080c}
+a{color:var(--accent)}
+@media(prefers-color-scheme:light){:root{--bg:#f6f8fa;--card:#fff;--text:#1f2328;--muted:#59636e;--line:#d0d7de;--accent:#0969da}pre{background:#f6f8fa}}
+</style>
+</head>
+<body>
+<main>
+<h1>Aletheia Avatar <span class="muted">Local</span></h1>
+<p>This controller stages private media on <strong>this computer only</strong> and can run the local LivePortrait → MuseTalk test when those tools are configured. Selecting files does nothing until you click <strong>STAGE + PLAN</strong>.</p>
+
+<section>
+<h2>1. Local capability check</h2>
+<div id="providerStatus" class="status">Checking local runner…</div>
+<p class="muted">Automatic spend ceiling: £0.00. This v05 runner does not upload family media to cloud providers.</p>
+</section>
+
+<section>
+<h2>2. Dad Presenter / talking presenter inputs</h2>
+<div class="grid">
+<div class="asset"><strong>IDENTITY</strong><small>Primary face/appearance source.</small><input id="identity" type="file" accept="image/*,video/*"></div>
+<div class="asset"><strong>PERFORMANCE</strong><small>Emotional movement/expression reference.</small><input id="performance" type="file" accept="video/*"></div>
+<div class="asset"><strong>VOICE</strong><small>Exportable audio used for final lip-sync.</small><input id="voice" type="file" accept="audio/*,video/*"></div>
+<div class="asset"><strong>PROVENANCE</strong><small>Optional evidence only. Never sent into generation.</small><input id="provenance" type="file" accept="image/*,video/*,audio/*"></div>
+</div>
+
+<label for="anchors">Identity anchors</label>
+<textarea id="anchors" placeholder="face shape, eyes, nose, smile, ears, hairline, age, clothing…"></textarea>
+
+<label for="script">Script</label>
+<textarea id="script" placeholder="Short test script."></textarea>
+</section>
+
+<section>
+<h2>3. Performance control</h2>
+<label for="gesture">Gesticulation / pose transfer</label>
+<input id="gesture" type="range" min="0" max="1" step="0.5" value="0">
+<div class="sliderlabels"><span>0 · Face only</span><span>0.5 · Restrained</span><span>1 · Original performance</span></div>
+<div class="factor" id="gestureText">0 · FACE ONLY</div>
+<div class="status good">Facial emotion stays eligible at all three values. At 0 the local adapter uses expression-only transfer; 0.5 reduces overall portrait motion; 1 preserves full reference portrait motion as far as LivePortrait's crop supports.</div>
+
+<label for="voiceState">Voice state</label>
+<select id="voiceState">
+<option value="SYNTHETIC_NARRATOR">Synthetic narrator</option>
+<option value="AUTHORISED_FAMILY_PERFORMANCE">Authorised family performance</option>
+<option value="AUTHENTIC_RECORDING">Authentic recording</option>
+<option value="BROWSER_NARRATOR_PREVIEW">Browser narrator preview</option>
+<option value="UNKNOWN">Unknown</option>
+</select>
+
+<label for="historicalVoice">Historical voice authenticity</label>
+<select id="historicalVoice">
+<option value="NOT_CLAIMED">NOT CLAIMED</option>
+<option value="UNKNOWN">UNKNOWN</option>
+<option value="CLAIMED">CLAIMED</option>
+</select>
+</section>
+
+<section>
+<h2>4. Stage, then execute</h2>
+<div class="actions">
+<button onclick="loadDad()">LOAD DAD TEST 001</button>
+<button class="primary" id="stageBtn" onclick="stage()">STAGE + PLAN</button>
+<button id="executeBtn" onclick="executeJob()" disabled>CREATE LOCAL TEST</button>
+<a href="aletheia-avatar.htm">Planner</a>
+</div>
+<p class="muted">The first click copies selected files into the ignored local <code>jobs/</code> folder. The second runs local models. Nothing here publishes, pays, uploads or marks the result VERIFIED.</p>
+</section>
+
+<section id="resultPanel" hidden>
+<h2>Receipt / result</h2>
+<div id="resultLink"></div>
+<pre id="out"></pre>
+</section>
+
+<script>
+let jobId=null;
+const $=id=>document.getElementById(id);
+
+function factorInfo(){
+ const f=Number($("gesture").value);
+ if(f===0)return {value:0,label:"FACE ONLY"};
+ if(f===0.5)return {value:0.5,label:"RESTRAINED"};
+ return {value:1,label:"ORIGINAL PERFORMANCE"};
+}
+function updateFactor(){const f=factorInfo();$("gestureText").textContent=f.value+" · "+f.label}
+$("gesture").addEventListener("input",updateFactor);
+
+async function discover(){
+ try{
+  const r=await fetch("/api/providers",{cache:"no-store"});
+  const j=await r.json();
+  const l=j.local;
+  const bits=[
+   ["LivePortrait",l.liveportrait.ready],
+   ["MuseTalk",l.musetalk.ready],
+   ["FFmpeg",l.ffmpeg.configured]
+  ];
+  $("providerStatus").className="status"+(l.ready?" good":"");
+  $("providerStatus").innerHTML=bits.map(([n,ok])=>`<span class="tag">${n}: ${ok?"ready":"not configured"}</span>`).join("")+
+   `<br><strong>Local presenter:</strong> ${l.ready?"READY":"SETUP REQUIRED"}`;
+ }catch(e){
+  $("providerStatus").textContent="Local runner not reachable. Start: python odysseus_avatar.py";
+ }
+}
+
+function show(obj){
+ $("resultPanel").hidden=false;
+ $("out").textContent=JSON.stringify(obj,null,2);
+ $("resultPanel").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function loadDad(){
+ $("anchors").value="Preserve face shape, eye region, nose, smile, ears, hairline/hair, apparent age, suit/clothing and original portrait character.";
+ $("script").value="Photographs keep moments still. Sometimes, with a little care, we can let one of those moments move again.";
+ $("gesture").value="0";updateFactor();
+ $("voiceState").value="SYNTHETIC_NARRATOR";
+ $("historicalVoice").value="NOT_CLAIMED";
+}
+
+async function stage(){
+ const identity=$("identity").files[0],performance=$("performance").files[0],voice=$("voice").files[0],provenance=$("provenance").files[0];
+ if(!identity||!performance||!voice){
+  show({status:"PLANNED",error:"IDENTITY, PERFORMANCE and exportable VOICE files are required before local execution. PROVENANCE is optional."});
+  return;
+ }
+ const fd=new FormData();
+ fd.append("kind","talk");
+ fd.append("engine","local_presenter");
+ fd.append("gesticulation_factor",String(factorInfo().value));
+ fd.append("anchors",$("anchors").value);
+ fd.append("script",$("script").value);
+ fd.append("voice_state",$("voiceState").value);
+ fd.append("historical_voice_authenticity",$("historicalVoice").value);
+ fd.append("identity",identity,identity.name);
+ fd.append("performance",performance,performance.name);
+ fd.append("voice",voice,voice.name);
+ if(provenance)fd.append("provenance",provenance,provenance.name);
+
+ $("stageBtn").disabled=true;
+ try{
+  const r=await fetch("/api/stage",{method:"POST",body:fd});
+  const j=await r.json();
+  if(!r.ok)throw new Error(j.error||"stage failed");
+  jobId=j.job_id;
+  $("executeBtn").disabled=!j.local.ready;
+  $("resultLink").innerHTML="";
+  show(j);
+ }catch(e){show({status:"FAILED",error:String(e)})}
+ finally{$("stageBtn").disabled=false}
+}
+
+async function executeJob(){
+ if(!jobId)return;
+ $("executeBtn").disabled=true;
+ $("resultLink").innerHTML="";
+ show({status:"SUBMITTED",job_id:jobId,message:"Local portrait animation and lip-sync running. This can take some time."});
+ try{
+  const r=await fetch("/api/execute",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({job_id:jobId})});
+  const j=await r.json();
+  if(j.result&&j.result.output_url){
+   const a=document.createElement("a");
+   a.href=j.result.output_url;a.textContent="OPEN GENERATED LOCAL MP4";a.target="_blank";a.rel="noopener";
+   $("resultLink").replaceChildren(a);
+  }
+  show(j);
+ }catch(e){show({status:"FAILED",error:String(e),job_id:jobId})}
+ finally{$("executeBtn").disabled=false}
+}
+updateFactor();discover();
+</script>
+</main>
+</body>
+</html>
