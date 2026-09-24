@@ -188,7 +188,19 @@ Use:
 - Three.js from jsDelivr.
 - Google Fonts Cinzel for the Aletheia classical/Greek-style Latin lettering.
 
-The app should fail gracefully with a visible message if Three.js cannot load.
+The app should fail gracefully if Three.js cannot load **or** the browser cannot create the required WebGL renderer/context.
+
+Do not assume failure means "Apple has no Three.js". Three.js is a JavaScript library and Safari/WebKit can run it when the required browser graphics capabilities and dependencies are available. Detect the actual condition.
+
+Fallback behaviour:
+
+1. Keep a lightweight HTML/CSS visual layer available independently of Three.js.
+2. If the library load or renderer creation fails, hide/disable the unusable WebGL surface.
+3. Keep the title, crawl, explanatory text and navigation visible.
+4. Show a concise message such as "3D animation is unavailable in this browser/session; the lightweight version is shown."
+5. Offer RETRY/RELOAD when useful.
+6. Never leave the user with only an unexplained black/empty canvas or a cropped crawl box.
+7. Respect `prefers-reduced-motion`; a deliberately reduced/static version is a valid successful fallback.
 
 ---
 
@@ -211,3 +223,8 @@ The app should fail gracefully with a visible message if Three.js cannot load.
 - [ ] Pointer repels particles.
 - [ ] Fullscreen works.
 - [ ] App runs from a local `.htm` file when internet access is available for the CDN/font.
+- [ ] Library-load failure shows the useful lightweight fallback.
+- [ ] WebGL renderer/context failure shows the useful lightweight fallback.
+- [ ] Safari/WebKit is tested by capability, not disabled by OS detection.
+- [ ] Reduced-motion users receive a usable static/reduced experience.
+- [ ] Test current Chrome/Edge on Windows, Chrome on Android, and Safari on macOS/iPhone/iPad where available; record untested combinations rather than claiming universal compatibility.
