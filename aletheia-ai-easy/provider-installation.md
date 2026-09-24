@@ -256,6 +256,8 @@ Current project documentation describes:
 
 Aletheia should sit **above** Odysseus as the portable evidence/state/authority layer. Odysseus can be the capability/orchestration layer.
 
+Current Odysseus source confirms a `SKILL.md` registry/import route and migration tooling for Skills, memory and archive material. Automatic repo-local `AGENTS.md` / `CLAUDE.md` context loading appears upstream as a proposal, so do not tell a user that Odysseus requires or automatically reads Aletheia's root `AGENTS.md` unless their installed version actually supports it. The new Aletheia root `AGENTS.md` remains useful for Codex/Kimi and as a human-readable repository router.
+
 Do not assume that an API call through Odysseus inherits consumer-account memory such as Gemini Personal Intelligence or ChatGPT memory. Supply required Aletheia state explicitly and connect private systems deliberately.
 
 Because Odysseus can expose powerful local tools, keep authentication enabled, private data out of Git and raw model/service ports off the public internet.
@@ -263,6 +265,7 @@ Because Odysseus can expose powerful local tools, keep authentication enabled, p
 Project reference:
 
 - https://github.com/odysseus-dev/odysseus
+- https://github.com/odysseus-dev/odysseus/blob/dev/docs/agent-migration.md
 
 ## Other capable AIs
 
