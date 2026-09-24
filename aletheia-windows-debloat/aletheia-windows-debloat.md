@@ -66,6 +66,7 @@ Ask which apply:
 - Windows 11 compatibility/upgrade nagging;
 - telemetry/privacy;
 - Edge/Copilot/Teams/background apps;
+- unused preinstalled/bundled apps taking space or running in the background;
 - low disk space;
 - browser slowness;
 - something else.
@@ -683,9 +684,21 @@ If the owner does not use Edge as their main browser, offer:
 
 Do not uninstall shared runtimes blindly.
 
-If the owner never uses Xbox Game Bar recording, offer Game DVR off.
+If the owner never uses Xbox Game Bar recording, offer Game DVR/Game Bar off through supported Gaming settings rather than package surgery.
 
-Remove bundled apps only after displaying the exact package names and obtaining approval. Do not bulk-remove Store frameworks.
+For unused Microsoft apps, distinguish **disk space**, **startup/background load** and **general responsiveness**. An article saying a PC felt smoother after removing apps is useful discovery material, not proof of a universal speed gain. Prefer normal uninstall/disable controls and compare Task Manager / startup state before and after reboot.
+
+### Current supported examples — checked 24 September 2026
+
+- **OneDrive:** Windows 10/11 support unlinking and, on supported installs, uninstalling OneDrive. If the real issue is disk space, Files On-Demand / Free up space may be the smaller fix. Check sync/local-only state before moving or deleting files.
+- **Copilot:** Microsoft documents normal uninstall on Windows 10 and Windows 11. Browser Copilot remains available afterwards. Do not promise a measurable RAM/CPU gain without observing it.
+- **New Outlook:** can be uninstalled. Distinguish **new Outlook for Windows** from classic Outlook and a Microsoft 365/Office suite.
+- **Phone Link:** Microsoft's current FAQ says it **cannot be uninstalled** because it is integrated into Windows. Offer disconnect/remove device and disable the feature where Windows exposes that control; do not escalate to unsupported AppX removal just to make it disappear.
+- **Xbox:** treat the Xbox app, Game Bar/capture settings and Gaming Services separately. Normal uninstall/disable is fine where Windows offers it and the owner does not use the feature. Do not blindly remove Gaming Services because Microsoft Store/Game Pass games may depend on it.
+
+Remove bundled apps only after displaying the exact app/package names and obtaining approval. Do not bulk-remove Store frameworks, WebView2, security components or unknown dependencies.
+
+Primary evidence is maintained in Aletheia Secret Windows cards **SW-OPT-016 through SW-OPT-021**.
 
 ---
 
