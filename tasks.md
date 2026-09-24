@@ -379,7 +379,7 @@ The Three.js recreation specification now requires a useful fallback for library
 
 The correct diagnosis rule is **capability/dependency based**. Three.js is not categorically unavailable on Apple devices.
 
-### AI-EASY-002 | TODO | Refresh provider adapters
+### AI-EASY-002 | DONE / RECHECK BEFORE SCREENSHOTS | Refresh provider adapters
 
 Update AI Easy provider installation/user guidance from current primary documentation for:
 
@@ -391,6 +391,8 @@ Update AI Easy provider installation/user guidance from current primary document
 - Odysseus as an optional self-hosted orchestration layer.
 
 Keep the core bootstrap vendor-neutral. Provider memory, Projects, Skills and agent features are adapters.
+
+24 September 2026: refreshed `aletheia-ai-easy/provider-installation.md` and `user-guide.md` for Claude, DeepSeek, Kimi, Manus, Grok and optional Odysseus orchestration using current primary documentation. No provider-specific feature was added to the universal bootstrap.
 
 ### WATCH-001 | IDEA READY FOR SPEC | Aletheia Watch
 
