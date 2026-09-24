@@ -472,3 +472,17 @@ LIVE/DEVICE still open: the external page checker could not access the GitHub Pa
 Do not create a second “Huma” application. The existing owner is \`KarstenEvans/thalia-protocol\` with \`thalia-humour-app.md\`, \`thalia-humour.htm\` and the Humour Base/Humour Method model.
 
 A future Odysseus-backed intake may monitor a narrowly scoped mail rule and stage proposed Humour Method records. Raw email must be untrusted data, validated against a strict schema before any AI/GitHub write authority is available. Confirm the exact Gmail plus-address and whether \`[Thalia]\` means subject prefix, Gmail label or another tag before implementation.
+
+
+## Aletheia Avatar v05 working copy — 2026-09-24
+- [x] Preserve exact v04 Markdown as `aletheia-avatar/aletheia-avatar.md.back` on the working branch.
+- [x] Add explicit IDENTITY / PERFORMANCE / VOICE / SCRIPT / PROVENANCE roles.
+- [x] Add gesticulation / pose-transfer factor 0 / 0.5 / 1 while retaining facial emotion.
+- [x] Add Dad Presenter Test 001 specification.
+- [x] Restore local Odysseus controller direction and add LivePortrait -> MuseTalk execution adapter.
+- [x] Add `aletheia-avatar-page.md` and expand README.
+- [ ] Configure/test LivePortrait locally on the target Windows PC.
+- [ ] Configure/test MuseTalk 1.5 + FFmpeg locally.
+- [ ] Produce/export a repeatable UK male narrator audio asset; browser Storyteller voice is currently preview-only.
+- [ ] Generate Dad Presenter Test 001 at factor 0; inspect identity before trying 0.5 and 1.
+- [ ] Do not merge this branch to `main` until the working copy and Dad test are approved.
