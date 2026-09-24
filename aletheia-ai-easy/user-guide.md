@@ -79,9 +79,33 @@ Upload the Markdown files into the conversation. If your account has Copilot Not
 
 ### DeepSeek
 
-Use the bootstrap and memory at the start of a fresh chat unless your current interface genuinely provides persistent instructions/files. The API is stateless, so API/local integrations must send the needed context again.
+Use the bootstrap and relevant memory/state at the start of a fresh chat unless your current consumer interface genuinely provides persistent instructions/files. DeepSeek's API is stateless, so an API/Odysseus/local wrapper must send the required context again. Tool calls are executed by the surrounding host, not by the model simply because it requested one.
 
-For exact details and official provider links, open `provider-installation.md`.
+### Kimi
+
+Kimi's ordinary product now separates Chat, Search, Memory Space and Agent. Keep approved preferences in Memory Space only when useful, keep portable state inspectable in Aletheia files, and move to Agent mode only when the task needs autonomous work.
+
+For local work, Kimi Work can use local files, browser WebBridge, Skills and schedules with explicit permission levels. Kimi Code can read repository `AGENTS.md`, use `SKILL.md` Skills and connect MCP tools.
+
+### Manus
+
+Create a Manus Project for continuing work, put the compact Aletheia instruction in the Project and add only relevant knowledge/connectors. Use Chat when discussion/search is enough; use Agent for execution-shaped jobs.
+
+Manus Agent consumes credits based on actual execution resources, so checkpoint long jobs. Manus Skills and Scheduled Tasks are useful future adapters for repeatable Aletheia workflows.
+
+### Grok
+
+Use ordinary Grok plus a compact Aletheia Skill/state for conversation. Grok Build is the coding/app surface; Skills provide persistent reusable workflows; Automations can run schedules or email-triggered jobs.
+
+Keep project memory as convenient provider state, not the sole Aletheia ledger.
+
+### Odysseus
+
+Odysseus is an optional self-hosted orchestration workspace rather than a required AI provider. It can combine hosted/local models with MCP, files, shell, Skills, memory, research, email and scheduled agent tasks.
+
+Aletheia remains the evidence/state/authority layer. Odysseus may decide which model/tool does the work, but it must receive the required project state and permissions explicitly.
+
+For exact details and official/current links, open `provider-installation.md`.
 
 ## Step 4 - Start normally
 
