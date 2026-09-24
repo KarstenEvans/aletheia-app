@@ -2,7 +2,7 @@
 [voice-profile;AI-PI;lang=th-TH;fallback=George;rate=1.0;pitch=1.05]
 [voice-profile;SCHRODINGER;lang=ar-EG;gender=female;fallback=Female;rate=0.92;pitch=1.13]
 
-[image;aletheia-threejs-animation-screen.webp;title=12,8,2.1;sun=50,46,2.2;crawl=50,61,1.7;buttons=50,91,1.7]
+[image;aletheia-threejs-animation-screen.jpg;title=12,8,2.1;sun=50,46,2.2;crawl=50,61,1.7;buttons=50,91,1.7]
 [wide;dur=2.0]
 
 # ToomorrowMan and the Universe That Learned to Spell
@@ -62,7 +62,7 @@ One destination helped draw **Aletheia**.
 [voice:AI-PI]
 “Considerably easier to debug.”
 
-[image;aletheia-threejs-animation-spiral.webp;centre=50,50,2.0;arm=77,29,2.0;outer=88,15,2.0]
+[image;aletheia-threejs-animation-screen.jpg;centre=50,50,2.0;arm=77,29,2.0;outer=88,15,2.0]
 [wide;dur=2.0]
 
 ## Building the spiral
@@ -280,7 +280,7 @@ Developers press buttons that say Debug.
 
 This is practically a law.
 
-[image;aletheia-threejs-animation-debug.webp;panel=49,48,1.5;sliders=50,38,1.8;diag=50,80,1.8]
+[image;aletheia-threejs-animation-screen.jpg;panel=49,48,1.5;sliders=50,38,1.8;diag=50,80,1.8]
 [wide;dur=2.0]
 
 ## Opening the toolbox
@@ -327,7 +327,7 @@ It was simply very small, very large, or parked somewhere inconvenient.
 
 ## The controls at the bottom
 
-[image;aletheia-threejs-animation-screen.webp;buttons=50,92,2.2;summary=87,91,2.0]
+[image;aletheia-threejs-animation-screen.jpg;buttons=50,92,2.2;summary=87,91,2.0]
 [zoom;buttons;dur=2.0]
 
 The middle controls could force any stage:
