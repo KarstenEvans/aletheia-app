@@ -2,7 +2,7 @@
 
 > **Purpose:** One working list for getting the Aletheia applications running, tested, linked and published.
 >
-> **Last updated:** 15 September 2026
+> **Last updated:** 24 September 2026
 >
 > This is an operational task list, not part of the canonical Aletheia Protocol.
 
@@ -472,3 +472,25 @@ LIVE/DEVICE still open: the external page checker could not access the GitHub Pa
 Do not create a second “Huma” application. The existing owner is \`KarstenEvans/thalia-protocol\` with \`thalia-humour-app.md\`, \`thalia-humour.htm\` and the Humour Base/Humour Method model.
 
 A future Odysseus-backed intake may monitor a narrowly scoped mail rule and stage proposed Humour Method records. Raw email must be untrusted data, validated against a strict schema before any AI/GitHub write authority is available. Confirm the exact Gmail plus-address and whether \`[Thalia]\` means subject prefix, Gmail label or another tag before implementation.
+
+
+## Aletheia Windows Debloat — 24 September 2026
+
+### WINDOWS-DEBLOAT-001 | SOURCE UPDATE / VERIFY LIVE | Preinstalled Microsoft app review
+
+Reviewed the supplied 2026 preinstalled-app article as discovery material and independently checked the relevant Windows 10/11 behaviour against current Microsoft documentation.
+
+Changed:
+- `aletheia-windows-debloat/aletheia-windows-debloat.md`: expanded the bundled-app rules for OneDrive, Copilot, new Outlook, Phone Link, Xbox/Game Bar/Gaming Services and measurement before/after removal.
+- `aletheia-windows-debloat/aletheia-windows-debloat.htm`: added **Unused preinstalled/bundled apps** to the questionnaire and AI handoff; the rescue plan now returns the supported, component-specific guidance.
+- `aletheia-windows-debloat/SOURCES.md`: added the discovery article and current Microsoft primary-source register.
+
+Related commits:
+- canonical app Markdown: `b3892f3fa123d77d8bec934bbb4fb4ba94243afe`
+- browser HTML: `5d97a84d57a00dadb83ac384fca2744703807efd`
+- source register: `6d52fdfc716b4221e42bb853cfbc7e80026e5369`
+- related Aletheia Knowledge cards: `c6e669ea045b7f82542052887064de1061e67066`
+
+Static verification: all three inline browser scripts parse; no duplicate HTML IDs; the new bundled-app checkbox is included in the AI problem list; Phone Link and Gaming Services guardrails are present.
+
+Still to verify live/device: open the GitHub Pages app on Windows Chrome/Edge and Android Chrome, select **Unused preinstalled/bundled apps**, build the rescue plan, and confirm the result/AI handoff renders correctly.
