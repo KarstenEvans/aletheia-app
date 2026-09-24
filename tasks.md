@@ -345,3 +345,94 @@ For each app:
 - [ ] Verify Spiral, AI and ALETHEIA all remain centred/framed after changing scale; test drag rotation and pointer repulsion at multiple scales.
 - [ ] Test on the owner's PC first. Keep the test as a local HTML copy until the scale/camera behaviour is approved; only then create/reconcile the permanent `aletheia-app` folder/spec and publish to GitHub Pages.
 - [ ] Later only: consider the God's-eye Swindon -> Earth -> particle-universe idea and the three studio-signoff variants recorded in `ideas.md`. They are not blockers for this prototype.
+
+## Shared app architecture and AI-provider follow-up — 24 September 2026
+
+### APP-ARCH-001 | DONE / VERIFY IN FUTURE BUILDS | Add shared GUI/dev contracts and agent router
+
+Created:
+
+- `AGENTS.md` — short agent entry router;
+- `aletheia-GUI.md` — mobile/browser/window/accessibility/fallback/action rules;
+- `aletheia-dev.md` — page-spec, source-of-truth, resumability, security and testing guide;
+- reusable `SECONDARY-WINDOW-GATE` and `OPTIONAL-GRAPHICS-GATE` in `aletheia-code.md`.
+
+The router deliberately points to canonical files rather than copying them into a giant system prompt.
+
+Future substantial app changes must read these files and reconcile a target `*-page.md`.
+
+### APP-ARCH-002 | TODO | Cross-browser smoke-test harness/checklist
+
+Apply the shared matrix proportionately:
+
+- Windows Chrome/Edge;
+- Android Chrome;
+- macOS Safari;
+- iPhone/iPad Safari;
+- Firefox where practical.
+
+Record STATIC, LOCAL BROWSER, DEVICE and LIVE separately. Do not infer Apple failure from device identity; feature-detect the required browser capability.
+
+### APP-ARCH-003 | TODO | Three.js lightweight fallback
+
+The Three.js recreation specification now requires a useful fallback for library-load or WebGL renderer/context failure. Implement it in the actual animation, then test reduced motion, Windows/Android and Safari/WebKit where available.
+
+The correct diagnosis rule is **capability/dependency based**. Three.js is not categorically unavailable on Apple devices.
+
+### AI-EASY-002 | TODO | Refresh provider adapters
+
+Update AI Easy provider installation/user guidance from current primary documentation for:
+
+- Claude;
+- DeepSeek;
+- Kimi;
+- Manus;
+- Grok;
+- Odysseus as an optional self-hosted orchestration layer.
+
+Keep the core bootstrap vendor-neutral. Provider memory, Projects, Skills and agent features are adapters.
+
+### WATCH-001 | IDEA READY FOR SPEC | Aletheia Watch
+
+Promote the competitor-monitor concept into a page/app specification only when implementation begins.
+
+Required first version:
+
+1. ask business type;
+2. ask business postcode/town and radius;
+3. discover current candidate competitors;
+4. user selects competitors;
+5. discover official sites and likely price/product/menu/service pages;
+6. user selects watch targets;
+7. capture a dated baseline;
+8. support CHECK NOW;
+9. export/save watch configuration/history;
+10. define an optional weekly/monthly automation adapter.
+
+Do not claim a change without a comparable baseline. A page-layout/parser failure is not a price change.
+
+### SKILLS-001 | REVIEWED / NO EDIT YET | 11 Aletheia-enabled workflow skills
+
+Reviewed `KarstenEvans/11-aletheia-enabled-workflow-skills`. Do **not** rewrite the pack yet.
+
+Current direction:
+- most remain Skills;
+- Competitor Monitor is the clearest app candidate via Aletheia Watch;
+- GEO/AEO remains a Skill beside the richer Site Audit app;
+- connector-shaped workflows (Inbox, Meeting Prep, Sales Follow-up) remain Skills plus explicit provider permissions;
+- test package portability before changing formats for Kimi, Manus, Codex or Odysseus.
+
+### AGENT-001 | DESIGN RULE | Long AI work must survive quota/interruption
+
+Do not require one uninterrupted Work/agent run to finish a project.
+
+For substantial jobs:
+- stage work;
+- save durable output/checkpoints early;
+- make stages restartable/idempotent;
+- report completed/remaining work;
+- resume from repository state;
+- avoid repeating verified research merely because an agent quota reset.
+
+This is now part of `aletheia-GUI.md` / `aletheia-dev.md` and should inform future Work/Codex/Claude/Kimi/Manus/Grok/Odysseus workflows.
+
