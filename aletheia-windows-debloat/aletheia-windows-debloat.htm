@@ -24,7 +24,7 @@ footer{margin-top:50px;color:var(--muted)}
 <section class="hero">
 <div class="sub">ALETHEIA WINDOWS DEBLOAT TOOL · WINDOWS RESCUE V1.0 CORE</div>
 <h1>Aletheia Windows Debloat Tool</h1>
-<p>For Windows 10 PCs that are getting slow, noisy, naggy or far too interested in changing themselves.</p><p class="small">This is the original Windows Rescue V1.0 browser app, republished under the Aletheia Windows Debloat Tool name. The system-changing PowerShell companion is deliberately being held for an Aletheia Improve pass.</p>
+<p>For Windows 10 PCs that are getting slow, noisy, naggy or far too interested in changing themselves. The supported bundled-app checks also apply to Windows 11 where the same apps and controls are present.</p><p class="small">This is the original Windows Rescue V1.0 browser app, republished under the Aletheia Windows Debloat Tool name. The system-changing PowerShell companion is deliberately being held for an Aletheia Improve pass.</p>
 <p><strong>Audit first. Ask what you want. Change one thing at a time. Keep rollback.</strong></p>
 <p class="small">Windows 11 is now the majority, but Windows 10 still represented roughly 30% of worldwide Windows desktop use in the July 2026 StatCounter snapshot. A lot of perfectly usable hardware remains in the dungeon.</p>
 </section>
@@ -65,6 +65,7 @@ footer{margin-top:50px;color:var(--muted)}
 <label><input type="checkbox" id="telemetry"> Telemetry / phoning home</label>
 <label><input type="checkbox" id="drivers"> Windows replaces drivers</label>
 <label><input type="checkbox" id="edge"> Edge/background apps</label>
+<label><input type="checkbox" id="bundled"> Unused preinstalled/bundled apps</label>
 </div>
 
 <h3>What do you use it for?</h3>
@@ -243,6 +244,7 @@ function buildPlan(){
  }
  if(checked('drivers')) out.push('<p><strong>Drivers:</strong> use Driver Sanctuary for OEM-first current research. Do not let Windows or an AI auto-install a newer driver merely because its version is larger.</p>');
  if(checked('edge')) out.push('<p><strong>Background apps:</strong> if you do not use Edge, offer Startup Boost/background mode off. Review other startup/updater entries individually.</p>');
+ if(checked('bundled')) out.push('<p><strong>Bundled apps:</strong> separate disk space from background load. Prefer normal uninstall/disable and compare Task Manager/startup state before and after reboot. OneDrive can be unlinked or uninstalled, and Files On-Demand may be enough if disk space is the problem. Copilot can be uninstalled while browser Copilot remains available. New Outlook can be uninstalled, but it is not the same as classic Outlook or the whole Microsoft 365 suite. Microsoft currently says Phone Link cannot be uninstalled, so disconnect/disable it instead. Treat the Xbox app, Game Bar and Gaming Services as separate decisions; do not blindly remove Gaming Services.</p>');
  if(checked('diskbusy') && storage!=='hdd') out.push('<p><strong>100% disk on SSD/unknown:</strong> inspect Resource Monitor before blaming SysMain. A SysMain trial is conditional, and memory compression must be checked after changing it.</p>');
  if(money!=='no'){
    out.push('<p><strong>Money check:</strong> price the compatible SSD/RAM upgrade, then compare it with a current 8 GB / 256 GB+ new laptop and OEM-certified refurbished option. Do not spend £150 rescuing hardware if £250–£300 buys a meaningfully better warranted machine for your needs.</p>');
@@ -281,7 +283,7 @@ function buildPlan(){
     return [...document.querySelectorAll('input.use:checked')].map(x=>x.value);
   }
   function checkedProblems(){
-    const ids=['diskbusy','slow','memory','update','nag','telemetry','drivers','edge'];
+    const ids=['diskbusy','slow','memory','update','nag','telemetry','drivers','edge','bundled'];
     return ids.filter(id=>document.getElementById(id)?.checked);
   }
   function textOfSelect(id){
