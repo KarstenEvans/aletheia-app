@@ -210,6 +210,16 @@ async function fetchTree(entry){
   var j=await r.json();
   return {entry:entry,paths:(j.tree||[]).filter(function(x){return x.type==="blob";}).map(function(x){return x.path;})};
 }
+function canonicalAliases(target){
+  var low=String(target||"").toLowerCase().trim(), names=[target];
+  (memory.canonicalNames||[]).forEach(function(row){
+    (row.watchFor||[]).forEach(function(w){
+      var wl=String(w).toLowerCase();
+      if(low===wl || low.indexOf(wl)>=0) names.push(row.canonical);
+    });
+  });
+  return Array.from(new Set(names.filter(Boolean)));
+}
 function nameWarning(target){
   var low=String(target||"").toLowerCase().trim();
   var found=[];
@@ -251,10 +261,11 @@ function specialMatches(target){
   return out;
 }
 function findMatches(target,trees){
-  var all=specialMatches(target);
+  var names=canonicalAliases(target), all=[];
+  names.forEach(function(name){all=all.concat(specialMatches(name));});
   trees.forEach(function(t){
     t.paths.forEach(function(path){
-      var score=scorePath(target,path);
+      var score=Math.max.apply(null,names.map(function(name){return scorePath(name,path);}));
       if(score>=20) all.push({repo:t.entry.repo,path:path,score:score,role:t.entry.role});
     });
   });
