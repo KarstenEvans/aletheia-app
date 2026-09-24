@@ -34,3 +34,6 @@
 - [x] Live `aletheia-improve-memory.md` JSON registry parsed: 8 repositories, 4 canonical-name guards, 3 special targets.
 - [x] Current GitHub trees were queried for all 8 registered repositories during the source test.
 - [ ] GitHub Pages app/resource URLs could not be fetched by the external page-inspection tool, so do not mark LIVE passed yet.
+
+- [x] Canonical alias test: `Huma` and `Thalia Humor` resolve/search against existing **Thalia Humour** files rather than dead-ending on the mistyped name.
+- [x] AI/provider-sensitive targets automatically add current `aletheia-ai-knowledge.md` / discovery-source context to the improvement pack.
