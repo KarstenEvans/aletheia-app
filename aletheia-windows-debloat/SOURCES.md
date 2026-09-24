@@ -268,7 +268,53 @@ The first video was not reliably transcribed during the research pass, so detail
 
 ---
 
-## 14. Thalia note
+## 14. Preinstalled Microsoft apps — review checked 24 September 2026
+
+Discovery article supplied by the owner:
+- https://www.makeuseof.com/remove-these-preinstalled-microsoft-apps-windows/
+
+The article is useful for identifying candidates to review: OneDrive, Xbox, Copilot, new Outlook and Phone Link. Its claim that the PC felt smoother after removal is an individual observation, not a controlled benchmark, so the app must not promise the same speed-up.
+
+Primary checks:
+
+General supported uninstall, Windows 10/11:
+- https://support.microsoft.com/en-us/windows/uninstall-or-remove-apps-and-programs-in-windows-4b55f974-2cc6-2d2b-d092-5905080eaf98
+
+OneDrive:
+- https://support.microsoft.com/en-US/onedrive/turn-off-disable-or-uninstall-onedrive
+- https://support.microsoft.com/en-us/onedrive/delete-files-or-folders-in-onedrive
+
+Copilot:
+- https://support.microsoft.com/en-us/microsoft-copilot/getting-started-with-microsoft-copilot
+
+New Outlook:
+- https://support.microsoft.com/en-us/outlook/getstarted/start-using-new-outlook-for-windows
+- https://support.microsoft.com/en-us/outlook/getstarted/outlook-for-windows-not-responding-hangs-freezes-or-stops-working
+- https://support.microsoft.com/en-us/office/lifecycle/officeinstall/uninstall-microsoft-365-or-office-from-a-pc
+
+Phone Link:
+- https://support.microsoft.com/en-us/windows/apps/phonelink/frequently-asked-questions-about-the-phone-link
+- https://support.microsoft.com/en-us/windows/apps/phonelink/remove-your-mobile-device-from-phone-link-link-to-windows-and-windows-settings
+- https://support.microsoft.com/en-us/windows/apps/phonelink/phone-link-requirements-and-setup
+
+Xbox / Game Bar / Gaming Services:
+- https://support.microsoft.com/en-us/accessibility/windows/use-a-screen-reader-to-record-your-screen-with-xbox-game-bar
+- https://support.microsoft.com/en-au/servicing/os/windows-10/2021/06/kb5004327-error-0x80073d26-or-0x8007139f-occurs-when-you-install-or-start-gaming-services-on-a-windo
+
+Windows Rescue judgement:
+- review unused bundled apps rather than mass-removing them;
+- separate disk-space recovery from startup/background-load reduction;
+- prefer Settings/normal uninstall and supported feature toggles;
+- OneDrive may be better solved by unlink or Files On-Demand;
+- Copilot desktop can be removed without losing browser access;
+- identify new Outlook versus classic Outlook/Microsoft 365 before removal;
+- current Microsoft documentation says Phone Link cannot be uninstalled, so disconnect/disable instead;
+- keep Xbox app, Game Bar and Gaming Services as separate decisions;
+- measure before/after rather than treating "debloat" as a magic speed button.
+
+---
+
+## 15. Thalia note
 
 The serious diagnosis comes first. Humour belongs near the end.
 
