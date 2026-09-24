@@ -1,1756 +1,960 @@
 %PDF-1.4
-%ASCII
+% Aletheia ASCII PDF
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
-endobj
-2 0 obj
-<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R] /Count 17 >>
-endobj
-3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
-4 0 obj
+2 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
+3 0 obj
+<< /Length 3430 >>
+stream
+BT
+/F2 18 Tf
+48 800 Td
+(Aletheia Three.js Animation - How-to for Hobby Developers) Tj
+-48 -800 Td
+/F1 9 Tf
+48 775 Td
+(This guide explains how the interactive Aletheia star animation was developed and how its main) Tj
+-48 -775 Td
+/F1 9 Tf
+48 763 Td
+(parts work together.) Tj
+-48 -763 Td
+/F1 9 Tf
+48 744 Td
+(The final browser app lives at:) Tj
+-48 -744 Td
+/F1 9 Tf
+48 732 Td
+(aletheia-app/aletheia-threejs-animation/aletheia-threejs-animation.htm) Tj
+-48 -732 Td
+/F1 9 Tf
+48 713 Td
+(The companion recreation prompt is: aletheia-threejs-animation-code.md) Tj
+-48 -713 Td
+/F1 9 Tf
+48 694 Td
+(The reusable knowledge file is: aletheia-threejs-animation-knowledge.md) Tj
+-48 -694 Td
+/F1 9 Tf
+48 675 Td
+(The Storyteller version is: stories/aletheia-threejs-animation-story.md) Tj
+-48 -675 Td
+/F1 9 Tf
+48 656 Td
+(The app combines Three.js, WebGL point rendering, Canvas 2D, CSS 3D transforms, and ordinary) Tj
+-48 -656 Td
+/F1 9 Tf
+48 644 Td
+(HTML controls.) Tj
+-48 -644 Td
+/F2 14 Tf
+48 618 Td
+(1. Architecture overview) Tj
+-48 -618 Td
+/F1 9 Tf
+48 597 Td
+(The most important architectural decision is that the app does not create a different particle) Tj
+-48 -597 Td
+/F1 9 Tf
+48 585 Td
+(system for Spiral, AI and Aletheia. It creates one foreground point cloud and three) Tj
+-48 -585 Td
+/F1 9 Tf
+48 573 Td
+(destination maps. The same points move from one destination map to another.) Tj
+-48 -573 Td
+/F1 9 Tf
+48 554 Td
+(Three.js is responsible for the real-time universe. Canvas 2D is used twice: first to paint) Tj
+-48 -554 Td
+/F1 9 Tf
+48 542 Td
+(the radial-gradient sun texture, and second to rasterise text so visible pixels can become) Tj
+-48 -542 Td
+/F1 9 Tf
+48 530 Td
+(particle targets. HTML and CSS handle the title panel, the Star-Wars-style crawl, and all) Tj
+-48 -530 Td
+/F1 9 Tf
+48 518 Td
+(debug controls.) Tj
+-48 -518 Td
+/F1 9 Tf
+48 499 Td
+(This division keeps each technology doing the job it is good at. WebGL moves thousands of) Tj
+-48 -499 Td
+/F1 9 Tf
+48 487 Td
+(points efficiently. Canvas provides easy pixel access. CSS keeps text sharp and editable.) Tj
+-48 -487 Td
+/F2 14 Tf
+48 461 Td
+(2. The renderer, scene and camera) Tj
+-48 -461 Td
+/F1 9 Tf
+48 440 Td
+(The page creates a THREE.WebGLRenderer with antialiasing and alpha enabled. The renderer draws) Tj
+-48 -440 Td
+/F1 9 Tf
+48 428 Td
+(into the full browser window.) Tj
+-48 -428 Td
+/F1 9 Tf
+48 409 Td
+(The renderer pixel ratio is capped at 2. That prevents very high-DPI screens from multiplying) Tj
+-48 -409 Td
+/F1 9 Tf
+48 397 Td
+(the GPU workload without a useful visual gain.) Tj
+-48 -397 Td
+/F1 9 Tf
+48 378 Td
+(A THREE.Scene stores the background stars and the animated universe group. A) Tj
+-48 -378 Td
+/F1 9 Tf
+48 366 Td
+(THREE.PerspectiveCamera supplies depth and perspective.) Tj
+-48 -366 Td
+/F1 9 Tf
+48 347 Td
+(The animated foreground is placed inside a THREE.Group called universe. Rotating that group) Tj
+-48 -347 Td
+/F1 9 Tf
+48 335 Td
+(rotates the complete star system and the central sun together.) Tj
+-48 -335 Td
+/F1 9 Tf
+48 316 Td
+(On window resize the renderer size and camera aspect ratio are recalculated.) Tj
+-48 -316 Td
+/F2 14 Tf
+48 290 Td
+(3. Building the particle point cloud) Tj
+-48 -290 Td
+/F1 9 Tf
+48 269 Td
+(The main foreground cloud uses about 5,600 points. Typed Float32Array buffers store position,) Tj
+-48 -269 Td
+BT /F1 7 Tf 48 24 Td (Aletheia Three.js Animation - hobby developer how-to) Tj ET
+BT /F1 7 Tf 520 24 Td (Page 1 of 7) Tj ET
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 17 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 3 0 R >>
+endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+<< /Length 3562 >>
+stream
+BT
+/F1 9 Tf
+48 800 Td
+(size and colour.) Tj
+-48 -800 Td
+/F1 9 Tf
+48 781 Td
+(Position uses three floats per particle: x, y and z. Colour uses three floats per particle:) Tj
+-48 -781 Td
+/F1 9 Tf
+48 769 Td
+(red, green and blue. A custom aSize attribute stores point size.) Tj
+-48 -769 Td
+/F1 9 Tf
+48 750 Td
+(These arrays are attached to THREE.BufferGeometry. THREE.Points draws one point for every) Tj
+-48 -750 Td
+/F1 9 Tf
+48 738 Td
+(geometry vertex.) Tj
+-48 -738 Td
+/F1 9 Tf
+48 719 Td
+(A custom THREE.ShaderMaterial turns each square point primitive into a round luminous star.) Tj
+-48 -719 Td
+/F1 9 Tf
+48 707 Td
+(The fragment shader measures distance from the centre of gl_PointCoord and fades the edge.) Tj
+-48 -707 Td
+/F1 9 Tf
+48 688 Td
+(THREE.AdditiveBlending is important. Where particles overlap, their light accumulates. Dense) Tj
+-48 -688 Td
+/F1 9 Tf
+48 676 Td
+(clusters therefore appear brighter and more star-like.) Tj
+-48 -676 Td
+/F2 14 Tf
+48 650 Td
+(4. How the spiral is generated) Tj
+-48 -650 Td
+/F1 9 Tf
+48 629 Td
+(The spiral is a visual construction rather than a physically accurate galaxy simulation.) Tj
+-48 -629 Td
+/F1 9 Tf
+48 610 Td
+(The current design uses three principal arms. A proportion of points are shifted into a nearby) Tj
+-48 -610 Td
+/F1 9 Tf
+48 598 Td
+(sibling branch so a main arm can appear to split shortly after leaving the centre.) Tj
+-48 -598 Td
+/F1 9 Tf
+48 579 Td
+(A distance parameter t runs from approximately 0 near the centre to 1 at the outer edge.) Tj
+-48 -579 Td
+/F1 9 Tf
+48 567 Td
+(Radius increases with t.) Tj
+-48 -567 Td
+/F1 9 Tf
+48 548 Td
+(The key idea is that angular curvature decreases as distance increases. The code uses a term) Tj
+-48 -548 Td
+/F1 9 Tf
+48 536 Td
+(similar to: curve = thetaMax * Math.pow\(1 - t, 1.28\).) Tj
+-48 -536 Td
+/F1 9 Tf
+48 517 Td
+(Near the centre, 1 - t is large, so the arm receives strong curvature. Near the outside, 1 - t) Tj
+-48 -517 Td
+/F1 9 Tf
+48 505 Td
+(approaches zero, so the direction changes less and the arm becomes straighter.) Tj
+-48 -505 Td
+/F1 9 Tf
+48 486 Td
+(Small Gaussian random offsets widen each arm and prevent it from looking mechanically perfect.) Tj
+-48 -486 Td
+/F1 9 Tf
+48 474 Td
+(A small z spread gives the spiral genuine 3D depth when tilted.) Tj
+-48 -474 Td
+/F2 14 Tf
+48 448 Td
+(5. How the sun is made) Tj
+-48 -448 Td
+/F1 9 Tf
+48 427 Td
+(The central sun is deliberately inexpensive. It is not a sphere mesh or a volumetric lighting) Tj
+-48 -427 Td
+/F1 9 Tf
+48 415 Td
+(simulation.) Tj
+-48 -415 Td
+/F1 9 Tf
+48 396 Td
+(A hidden 256 by 256 Canvas 2D surface paints a radial gradient. The centre is white, then warm) Tj
+-48 -396 Td
+/F1 9 Tf
+48 384 Td
+(cream, then pale blue glow, then transparency.) Tj
+-48 -384 Td
+/F1 9 Tf
+48 365 Td
+(That canvas becomes a THREE.CanvasTexture. The texture is placed on THREE.SpriteMaterial and) Tj
+-48 -365 Td
+/F1 9 Tf
+48 353 Td
+(then on a THREE.Sprite.) Tj
+-48 -353 Td
+/F1 9 Tf
+48 334 Td
+(A sprite always faces the camera, so the sun remains a convincing glowing disc while the) Tj
+-48 -334 Td
+/F1 9 Tf
+48 322 Td
+(universe group rotates.) Tj
+-48 -322 Td
+/F1 9 Tf
+48 303 Td
+(The preferred current default sun scale is 4.0. The debug panel can resize it or hide it) Tj
+-48 -303 Td
+/F1 9 Tf
+48 291 Td
+(completely.) Tj
+-48 -291 Td
+/F1 9 Tf
+48 272 Td
+(A tiny opacity and size pulse is added during animation to stop the sun feeling completely) Tj
+-48 -272 Td
+/F1 9 Tf
+48 260 Td
+(static.) Tj
+-48 -260 Td
+BT /F1 7 Tf 48 24 Td (Aletheia Three.js Animation - hobby developer how-to) Tj ET
+BT /F1 7 Tf 520 24 Td (Page 2 of 7) Tj ET
+ET
+endstream
 endobj
 6 0 obj
-<< /Length 1371 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(Aletheia Three.js Animation) Tj
-/F1 11 Tf
-0 -20 Td
-(An extensive hobby-developer how-to) Tj
-ET
-BT
-/F1 9.4 Tf
-54 742 Td
-(This guide explains how the Aletheia Three.js Animation was developed and how its parts) Tj
-0 -13 Td
-(fit together. The app combines Three.js, WebGL point rendering, Canvas 2D text sampling,) Tj
-0 -13 Td
-(a sprite-based sun, pointer interaction, CSS perspective, and ordinary HTML controls.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 698 Td
-ET
-BT
-/F1 9.4 Tf
-54 688 Td
-(Reference app: aletheia-threejs-animation.htm) Tj
-ET
-BT
-/F1 9.4 Tf
-54 670 Td
-(Companion recreation specification: aletheia-threejs-animation-code.md) Tj
-ET
-BT
-/F1 9.4 Tf
-54 652 Td
-ET
-BT
-/F1 9.4 Tf
-54 642 Td
-(Current preferred debug defaults:) Tj
-ET
-BT
-/F1 9.4 Tf
-54 624 Td
-(Universe 1.00) Tj
-ET
-BT
-/F1 9.4 Tf
-54 606 Td
-(Particles 0.30) Tj
-ET
-BT
-/F1 9.4 Tf
-54 588 Td
-(Camera 0.50) Tj
-ET
-BT
-/F1 9.4 Tf
-54 570 Td
-(Sun 4.0) Tj
-ET
-BT
-/F1 9.4 Tf
-54 552 Td
-ET
-BT
-/F1 9.4 Tf
-54 542 Td
-(The central idea is simple: use one cloud of particles and continuously steer those same) Tj
-0 -13 Td
-(particles toward different target coordinates. The stars are not replaced when the) Tj
-0 -13 Td
-(display changes from Spiral to AI to Aletheia. Their destinations change.) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 1) Tj
-ET
-endstream
+<< /Type /Page /Parent 17 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 5 0 R >>
 endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+<< /Length 3342 >>
+stream
+BT
+/F2 14 Tf
+48 786 Td
+(6. Turning AI into star text) Tj
+-48 -786 Td
+/F1 9 Tf
+48 765 Td
+(AI is not built from font geometry. The word is first drawn in white onto an off-screen 2D) Tj
+-48 -765 Td
+/F1 9 Tf
+48 753 Td
+(canvas using a heavy sans-serif font.) Tj
+-48 -753 Td
+/F1 9 Tf
+48 734 Td
+(CanvasRenderingContext2D.getImageData\(\) returns the RGBA pixels. The code scans those pixels) Tj
+-48 -734 Td
+/F1 9 Tf
+48 722 Td
+(at a small step interval and records coordinates whose alpha channel is visible.) Tj
+-48 -722 Td
+/F1 9 Tf
+48 703 Td
+(Those visible pixel positions form a pool of candidate destinations. Each of the 5,600) Tj
+-48 -703 Td
+/F1 9 Tf
+48 691 Td
+(particles is assigned one of those destinations.) Tj
+-48 -691 Td
+/F1 9 Tf
+48 672 Td
+(Canvas pixel coordinates are centred, scaled into the Three.js coordinate system, and given a) Tj
+-48 -672 Td
+/F1 9 Tf
+48 660 Td
+(tiny random z value.) Tj
+-48 -660 Td
+/F1 9 Tf
+48 641 Td
+(Because a proper font is rasterised, the I has a top and base rather than appearing as an) Tj
+-48 -641 Td
+/F1 9 Tf
+48 629 Td
+(arbitrary rectangular bar.) Tj
+-48 -629 Td
+/F2 14 Tf
+48 603 Td
+(7. Turning Aletheia into star text) Tj
+-48 -603 Td
+/F1 9 Tf
+48 582 Td
+(Aletheia uses the same text-to-particle pipeline as AI.) Tj
+-48 -582 Td
+/F1 9 Tf
+48 563 Td
+(The difference is typography and scale. The word remains Aletheia in Latin letters, but it) Tj
+-48 -563 Td
+/F1 9 Tf
+48 551 Td
+(uses Cinzel first, with classical serif fallbacks. This gives a Greek or classical visual) Tj
+-48 -551 Td
+/F1 9 Tf
+48 539 Td
+(character without changing the spelling into Greek characters.) Tj
+-48 -539 Td
+/F1 9 Tf
+48 520 Td
+(Aletheia is much wider than AI, so its target coordinate width is larger. The preferred) Tj
+-48 -520 Td
+/F1 9 Tf
+48 508 Td
+(point-size setting of 0.30 helps the longer word remain legible.) Tj
+-48 -508 Td
+/F1 9 Tf
+48 489 Td
+(The text target still has a small z thickness, so the word is not a perfectly flat sheet when) Tj
+-48 -489 Td
+/F1 9 Tf
+48 477 Td
+(the scene is tilted.) Tj
+-48 -477 Td
+/F2 14 Tf
+48 451 Td
+(8. Morphing one cloud between shapes) Tj
+-48 -451 Td
+/F1 9 Tf
+48 430 Td
+(The targets object holds three arrays: Spiral, AI and Aletheia. Every target contains the same) Tj
+-48 -430 Td
+/F1 9 Tf
+48 418 Td
+(number of x, y and z values.) Tj
+-48 -418 Td
+/F1 9 Tf
+48 399 Td
+(Changing stage simply changes activeTarget. The visible geometry is not replaced.) Tj
+-48 -399 Td
+/F1 9 Tf
+48 380 Td
+(During requestAnimationFrame, each current position moves a small fraction of the remaining) Tj
+-48 -380 Td
+/F1 9 Tf
+48 368 Td
+(distance to its target.) Tj
+-48 -368 Td
+/F1 9 Tf
+48 349 Td
+(Conceptually: current = current + \(target - current\) * attraction.) Tj
+-48 -349 Td
+/F1 9 Tf
+48 330 Td
+(The attraction value is based on frame delta time so motion is more consistent on fast and) Tj
+-48 -330 Td
+/F1 9 Tf
+48 318 Td
+(slow machines.) Tj
+-48 -318 Td
+/F1 9 Tf
+48 299 Td
+(The transition is intentionally slow enough to let the viewer watch the stars travel and merge) Tj
+-48 -299 Td
+/F1 9 Tf
+48 287 Td
+(rather than seeing an instant swap.) Tj
+-48 -287 Td
+/F1 9 Tf
+48 268 Td
+(Auto mode holds Spiral, AI and Aletheia for different intervals and then cycles back to) Tj
+-48 -268 Td
+BT /F1 7 Tf 48 24 Td (Aletheia Three.js Animation - hobby developer how-to) Tj ET
+BT /F1 7 Tf 520 24 Td (Page 3 of 7) Tj ET
+ET
+endstream
 endobj
 8 0 obj
-<< /Length 1468 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(1. Architecture: use each browser technology for what it does well) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The page is deliberately hybrid rather than forcing every visual element into WebGL.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 744 Td
-ET
-BT
-/F1 9.4 Tf
-54 734 Td
-(Three.js and WebGL render the animated universe. BufferGeometry stores thousands of) Tj
-0 -13 Td
-(point coordinates. ShaderMaterial controls the appearance of each glowing point. A) Tj
-0 -13 Td
-(PerspectiveCamera gives the cloud real 3D depth.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 690 Td
-ET
-BT
-/F1 9.4 Tf
-54 680 Td
-(Canvas 2D is used as a helper. It paints the artificial sun texture and rasterises AI) Tj
-0 -13 Td
-(and Aletheia so visible text pixels can be converted into particle destinations.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 649 Td
-ET
-BT
-/F1 9.4 Tf
-54 639 Td
-(HTML and CSS render the title, Debug button, sliders, stage buttons, live debug summary,) Tj
-0 -13 Td
-(and the perspective crawl. Keeping readable interface text outside WebGL makes it easier) Tj
-0 -13 Td
-(to style, edit and debug.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 595 Td
-ET
-BT
-/F1 9.4 Tf
-54 585 Td
-(Useful references:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 567 Td
-(https://threejs.org/docs/) Tj
-ET
-BT
-/F3 8.4 Tf
-54 549 Td
-(https://threejs.org/docs/pages/WebGLRenderer.html) Tj
-ET
-BT
-/F3 8.4 Tf
-54 531 Td
-(https://threejs.org/docs/pages/BufferGeometry.html) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 2) Tj
-ET
-endstream
+<< /Type /Page /Parent 17 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 7 0 R >>
 endobj
 9 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+<< /Length 3161 >>
+stream
+BT
+/F1 9 Tf
+48 800 Td
+(Spiral.) Tj
+-48 -800 Td
+/F2 14 Tf
+48 774 Td
+(9. Drag rotation) Tj
+-48 -774 Td
+/F1 9 Tf
+48 753 Td
+(Pointer dragging changes target x and y rotation values for the universe group.) Tj
+-48 -753 Td
+/F1 9 Tf
+48 734 Td
+(The real rotation eases toward those target values instead of jumping directly. That gives the) Tj
+-48 -734 Td
+/F1 9 Tf
+48 722 Td
+(interaction a softer, inertial feel.) Tj
+-48 -722 Td
+/F1 9 Tf
+48 703 Td
+(The three stages have slightly different preferred tilts. Spiral and AI can lean backward to) Tj
+-48 -703 Td
+/F1 9 Tf
+48 691 Td
+(show depth. Aletheia returns closer to a face-on view because the longer word is easier to) Tj
+-48 -691 Td
+/F1 9 Tf
+48 679 Td
+(read that way.) Tj
+-48 -679 Td
+/F2 14 Tf
+48 653 Td
+(10. Pointer repulsion) Tj
+-48 -653 Td
+/F1 9 Tf
+48 632 Td
+(Normal pointer movement pushes nearby particles away.) Tj
+-48 -632 Td
+/F1 9 Tf
+48 613 Td
+(The difficult part is mapping a two-dimensional screen pointer into the three-dimensional) Tj
+-48 -613 Td
+/F1 9 Tf
+48 601 Td
+(particle coordinate system.) Tj
+-48 -601 Td
+/F1 9 Tf
+48 582 Td
+(THREE.Raycaster creates a ray from the camera through the pointer position. The ray intersects) Tj
+-48 -582 Td
+/F1 9 Tf
+48 570 Td
+(an invisible plane passing through the universe centre and facing the camera.) Tj
+-48 -570 Td
+/F1 9 Tf
+48 551 Td
+(The intersection point is converted into the universe group's local coordinate system.) Tj
+-48 -551 Td
+/F1 9 Tf
+48 532 Td
+(Particles inside a small radius are nudged away from that point. This is a lightweight) Tj
+-48 -532 Td
+/F1 9 Tf
+48 520 Td
+(approximation rather than a full particle-physics simulation, but it creates the useful) Tj
+-48 -520 Td
+/F1 9 Tf
+48 508 Td
+('finger through star dust' effect.) Tj
+-48 -508 Td
+/F2 14 Tf
+48 482 Td
+(11. Camera fitting and scale debugging) Tj
+-48 -482 Td
+/F1 9 Tf
+48 461 Td
+(A major development lesson was that missing-looking geometry was often a scale problem rather) Tj
+-48 -461 Td
+/F1 9 Tf
+48 449 Td
+(than a rendering failure.) Tj
+-48 -449 Td
+/F1 9 Tf
+48 430 Td
+(FIT UNIVERSE asks the BufferGeometry to compute its bounding sphere. The local radius is) Tj
+-48 -430 Td
+/F1 9 Tf
+48 418 Td
+(multiplied by the current universe scale.) Tj
+-48 -418 Td
+/F1 9 Tf
+48 399 Td
+(The camera field of view is converted to radians. From the world radius and half field of) Tj
+-48 -399 Td
+/F1 9 Tf
+48 387 Td
+(view, the code estimates a camera z distance that fits the cloud with a small margin.) Tj
+-48 -387 Td
+/F1 9 Tf
+48 368 Td
+(Current preferred defaults are Universe 1.00, Particles 0.30, Camera 0.50 and Sun 4.0.) Tj
+-48 -368 Td
+/F1 9 Tf
+48 349 Td
+(The quick universe buttons are 0.5x, 0.7x and 1x. An earlier 10x experiment was removed) Tj
+-48 -349 Td
+/F1 9 Tf
+48 337 Td
+(because it encouraged confusing scales.) Tj
+-48 -337 Td
+/F2 14 Tf
+48 311 Td
+(12. The Star-Wars-style crawl) Tj
+-48 -311 Td
+/F1 9 Tf
+48 290 Td
+(The gold crawl is ordinary HTML and CSS layered above the WebGL canvas. It is not Three.js) Tj
+-48 -290 Td
+/F1 9 Tf
+48 278 Td
+(geometry.) Tj
+-48 -278 Td
+BT /F1 7 Tf 48 24 Td (Aletheia Three.js Animation - hobby developer how-to) Tj ET
+BT /F1 7 Tf 520 24 Td (Page 4 of 7) Tj ET
+ET
+endstream
 endobj
 10 0 obj
-<< /Length 1818 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(2. Scene, renderer and camera) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The app starts with a WebGLRenderer attached to a full-window canvas. Antialiasing is) Tj
-0 -13 Td
-(enabled and the renderer uses an alpha channel so the CSS background can remain visible.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(The device pixel ratio is capped at 2. This is an important performance compromise.) Tj
-0 -13 Td
-(Rendering at an unrestricted high-DPI pixel ratio can multiply the GPU workload without) Tj
-0 -13 Td
-(adding much visible benefit to a field of tiny stars.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 677 Td
-ET
-BT
-/F1 9.4 Tf
-54 667 Td
-(A PerspectiveCamera is used with a 48 degree field of view. The near and far planes are) Tj
-0 -13 Td
-(wide enough to allow the point cloud and background stars to move in depth.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 636 Td
-ET
-BT
-/F1 9.4 Tf
-54 626 Td
-(The animated point cloud and sun are placed inside a THREE.Group called the universe.) Tj
-0 -13 Td
-(Dragging rotates the group instead of recomputing every target coordinate.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 595 Td
-ET
-BT
-/F1 9.4 Tf
-54 585 Td
-(Core pattern:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 567 Td
-(const renderer = new THREE.WebGLRenderer\({ canvas, antialias:true, alpha:true }\);) Tj
-ET
-BT
-/F3 8.4 Tf
-54 549 Td
-(const scene = new THREE.Scene\(\);) Tj
-ET
-BT
-/F3 8.4 Tf
-54 531 Td
-(const camera = new THREE.PerspectiveCamera\(48, 1, 0.05, 5000\);) Tj
-ET
-BT
-/F3 8.4 Tf
-54 513 Td
-(const universe = new THREE.Group\(\);) Tj
-ET
-BT
-/F1 9.4 Tf
-54 495 Td
-(scene.add\(universe\);) Tj
-ET
-BT
-/F1 9.4 Tf
-54 477 Td
-ET
-BT
-/F1 9.4 Tf
-54 467 Td
-(Reference:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 449 Td
-(https://threejs.org/docs/pages/PerspectiveCamera.html) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 3) Tj
-ET
-endstream
+<< /Type /Page /Parent 17 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 9 0 R >>
 endobj
 11 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
+<< /Length 3269 >>
+stream
+BT
+/F1 9 Tf
+48 800 Td
+(The wrapper is fixed over the scene and remains transparent, so it never creates an opaque) Tj
+-48 -800 Td
+/F1 9 Tf
+48 788 Td
+(black rectangle over the stars.) Tj
+-48 -788 Td
+/F1 9 Tf
+48 769 Td
+(CSS perspective is applied to the wrapper. The crawl text is rotated backward with rotateX and) Tj
+-48 -769 Td
+/F1 9 Tf
+48 757 Td
+(translated upward by a keyframe animation.) Tj
+-48 -757 Td
+/F1 9 Tf
+48 738 Td
+(The combination makes the words appear to travel away toward the central sun.) Tj
+-48 -738 Td
+/F1 9 Tf
+48 719 Td
+(The crawl height is clipped so the text does not continue indefinitely past the centre.) Tj
+-48 -719 Td
+/F1 9 Tf
+48 700 Td
+(The first Aletheia heading is intentionally large and bold. Let AI do the walking is the next) Tj
+-48 -700 Td
+/F1 9 Tf
+48 688 Td
+(major line.) Tj
+-48 -688 Td
+/F1 9 Tf
+48 669 Td
+(The crawl then references the Aletheia and Thalia protocols, practical tools, stories,) Tj
+-48 -669 Td
+/F1 9 Tf
+48 657 Td
+(interfaces, local knowledge, prototypes, and the three GitHub project paths.) Tj
+-48 -657 Td
+/F2 14 Tf
+48 631 Td
+(13. Top-left title and Debug button) Tj
+-48 -631 Td
+/F1 9 Tf
+48 610 Td
+(The public interface is deliberately small. A fixed HTML panel at the top left shows Aletheia) Tj
+-48 -610 Td
+/F1 9 Tf
+48 598 Td
+(Three.js Animation, one instruction line, and a Debug button.) Tj
+-48 -598 Td
+/F1 9 Tf
+48 579 Td
+(Keeping this panel outside WebGL means it remains crisp at any canvas resolution and the) Tj
+-48 -579 Td
+/F1 9 Tf
+48 567 Td
+(button stays a normal accessible HTML control.) Tj
+-48 -567 Td
+/F1 9 Tf
+48 548 Td
+(Debug is hidden by default. The button toggles a debug-on class on document.body.) Tj
+-48 -548 Td
+/F1 9 Tf
+48 529 Td
+(CSS selectors use that class to reveal or hide the scale panel, stage badge, bottom stage) Tj
+-48 -529 Td
+/F1 9 Tf
+48 517 Td
+(controls and bottom-right summary.) Tj
+-48 -517 Td
+/F2 14 Tf
+48 491 Td
+(14. Bottom-left debug panel) Tj
+-48 -491 Td
+/F1 9 Tf
+48 470 Td
+(When Debug is enabled, the bottom-left panel exposes the variables that proved most useful) Tj
+-48 -470 Td
+/F1 9 Tf
+48 458 Td
+(during development.) Tj
+-48 -458 Td
+/F1 9 Tf
+48 439 Td
+(Universe scales the complete Three.js universe group.) Tj
+-48 -439 Td
+/F1 9 Tf
+48 420 Td
+(Particles changes the point-size shader uniform.) Tj
+-48 -420 Td
+/F1 9 Tf
+48 401 Td
+(Camera changes the fitted viewing-distance multiplier.) Tj
+-48 -401 Td
+/F1 9 Tf
+48 382 Td
+(Sun Size changes the sprite scale, and a checkbox can turn the sun off.) Tj
+-48 -382 Td
+/F1 9 Tf
+48 363 Td
+(FIT UNIVERSE reframes the current geometry. RESET VIEW restores the preferred values.) Tj
+-48 -363 Td
+/F1 9 Tf
+48 344 Td
+(A diagnostic block underneath reports stage, universe scale, particle scale, camera z, sun) Tj
+-48 -344 Td
+/F1 9 Tf
+48 332 Td
+(size, local radius, world radius and total point count.) Tj
+-48 -332 Td
+/F2 14 Tf
+48 306 Td
+(15. Bottom-middle controls) Tj
+-48 -306 Td
+/F1 9 Tf
+48 285 Td
+(The middle debug buttons can force Spiral, AI or Aletheia directly.) Tj
+-48 -285 Td
+/F1 9 Tf
+48 266 Td
+(Auto turns the timed cycle on or off. Replay restarts from Spiral. Crawl shows or hides the) Tj
+-48 -266 Td
+BT /F1 7 Tf 48 24 Td (Aletheia Three.js Animation - hobby developer how-to) Tj ET
+BT /F1 7 Tf 520 24 Td (Page 5 of 7) Tj ET
+ET
+endstream
 endobj
 12 0 obj
-<< /Length 1728 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(3. The particle point cloud) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The main effect uses about 5,600 points. Three typed arrays hold the per-particle data:) Tj
-0 -13 Td
-(position contains x, y and z; aSize contains a point-size value; color contains RGB) Tj
-0 -13 Td
-(values.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 718 Td
-ET
-BT
-/F1 9.4 Tf
-54 708 Td
-(These arrays are attached to THREE.BufferGeometry. BufferGeometry is a natural fit) Tj
-0 -13 Td
-(because the animation is fundamentally a large set of numbers that must be updated and) Tj
-0 -13 Td
-(sent to the GPU efficiently.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 664 Td
-ET
-BT
-/F1 9.4 Tf
-54 654 Td
-(A custom ShaderMaterial turns each point into a luminous round particle. In the vertex) Tj
-0 -13 Td
-(shader, point size is adjusted for perspective. In the fragment shader, distance from) Tj
-0 -13 Td
-(gl_PointCoord to the point centre is used to create a bright core and softer glow.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 610 Td
-ET
-BT
-/F1 9.4 Tf
-54 600 Td
-(AdditiveBlending is important. When bright particles overlap, their light adds together.) Tj
-0 -13 Td
-(Dense regions therefore look naturally brighter than sparse regions.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 569 Td
-ET
-BT
-/F1 9.4 Tf
-54 559 Td
-(The colour mix is intentionally limited: white, cyan and pale blue. This keeps the star) Tj
-0 -13 Td
-(field coherent while still giving individual stars variation.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 528 Td
-ET
-BT
-/F1 9.4 Tf
-54 518 Td
-(Reference:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 500 Td
-(https://threejs.org/docs/pages/Points.html) Tj
-ET
-BT
-/F3 8.4 Tf
-54 482 Td
-(https://threejs.org/docs/pages/ShaderMaterial.html) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 4) Tj
-ET
-endstream
+<< /Type /Page /Parent 17 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 11 0 R >>
 endobj
 13 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 12 0 R >>
+<< /Length 3294 >>
+stream
+BT
+/F1 9 Tf
+48 800 Td
+(gold perspective text. Fullscreen uses the browser Fullscreen API.) Tj
+-48 -800 Td
+/F1 9 Tf
+48 781 Td
+(These direct controls make development faster because a developer can freeze the animation on) Tj
+-48 -781 Td
+/F1 9 Tf
+48 769 Td
+(one target while tuning its appearance.) Tj
+-48 -769 Td
+/F2 14 Tf
+48 743 Td
+(16. Bottom-right live debug summary) Tj
+-48 -743 Td
+/F1 9 Tf
+48 722 Td
+(The bottom-right line is a compact summary such as: Debug - Universe 1.00 / Particles 0.30 /) Tj
+-48 -722 Td
+/F1 9 Tf
+48 710 Td
+(Camera 0.50 / Sun 4.0.) Tj
+-48 -710 Td
+/F1 9 Tf
+48 691 Td
+(An earlier version hard-coded those words. Moving a slider changed the animation but not the) Tj
+-48 -691 Td
+/F1 9 Tf
+48 679 Td
+(summary.) Tj
+-48 -679 Td
+/F1 9 Tf
+48 660 Td
+(The corrected version generates the string from live variables and calls updateDebugHint) Tj
+-48 -660 Td
+/F1 9 Tf
+48 648 Td
+(whenever a relevant control changes.) Tj
+-48 -648 Td
+/F1 9 Tf
+48 629 Td
+(This is a general UI lesson: if a label represents state, derive the label from the state) Tj
+-48 -629 Td
+/F1 9 Tf
+48 617 Td
+(instead of maintaining a second manual copy.) Tj
+-48 -617 Td
+/F2 14 Tf
+48 591 Td
+(17. Performance and portability) Tj
+-48 -591 Td
+/F1 9 Tf
+48 570 Td
+(The app is modest by WebGL standards. Roughly 5,600 foreground particles are updated on the) Tj
+-48 -570 Td
+/F1 9 Tf
+48 558 Td
+(CPU and drawn as one Points object. Background stars live in a second, mostly static point) Tj
+-48 -558 Td
+/F1 9 Tf
+48 546 Td
+(cloud.) Tj
+-48 -546 Td
+/F1 9 Tf
+48 527 Td
+(Performance choices include capping pixel ratio at 2, reusing one point cloud for all stages,) Tj
+-48 -527 Td
+/F1 9 Tf
+48 515 Td
+(using typed arrays, using a sprite rather than complex sun geometry, and keeping readable text) Tj
+-48 -515 Td
+/F1 9 Tf
+48 503 Td
+(in HTML/CSS.) Tj
+-48 -503 Td
+/F1 9 Tf
+48 484 Td
+(A future offline edition could store Three.js and the Cinzel font locally. A future) Tj
+-48 -484 Td
+/F1 9 Tf
+48 472 Td
+(accessibility pass could add prefers-reduced-motion support and a no-crawl option as the) Tj
+-48 -472 Td
+/F1 9 Tf
+48 460 Td
+(default for users who request reduced motion.) Tj
+-48 -460 Td
+/F2 14 Tf
+48 434 Td
+(18. Development lessons) Tj
+-48 -434 Td
+/F1 9 Tf
+48 413 Td
+(Check scale before assuming geometry has vanished.) Tj
+-48 -413 Td
+/F1 9 Tf
+48 394 Td
+(Let the desired visual result guide the mathematics. The useful spiral was the one whose arms) Tj
+-48 -394 Td
+/F1 9 Tf
+48 382 Td
+(looked right, not the one with the neatest formula.) Tj
+-48 -382 Td
+/F1 9 Tf
+48 363 Td
+(Use each browser technology for its strengths: WebGL for many moving points, Canvas for pixels) Tj
+-48 -363 Td
+/F1 9 Tf
+48 351 Td
+(and textures, CSS for typography and perspective, HTML for controls.) Tj
+-48 -351 Td
+/F1 9 Tf
+48 332 Td
+(Keep debug controls while developing, then hide them for normal users.) Tj
+-48 -332 Td
+/F1 9 Tf
+48 313 Td
+(Make status displays live rather than hard-coded.) Tj
+-48 -313 Td
+/F1 9 Tf
+48 294 Td
+(Small tricks combine well: sampled text pixels become a star font, a radial gradient becomes a) Tj
+-48 -294 Td
+/F1 9 Tf
+48 282 Td
+(sun, and CSS transforms become a cinematic crawl.) Tj
+-48 -282 Td
+BT /F1 7 Tf 48 24 Td (Aletheia Three.js Animation - hobby developer how-to) Tj ET
+BT /F1 7 Tf 520 24 Td (Page 6 of 7) Tj ET
+ET
+endstream
 endobj
 14 0 obj
-<< /Length 2021 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(4. Building the three-arm spiral) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The spiral went through several iterations. A mathematically neat spiral was not enough) Tj
-0 -13 Td
-(because the desired visual behaviour was specific: strong curl close to the centre, then) Tj
-0 -13 Td
-(progressively straighter arms farther out.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 718 Td
-ET
-BT
-/F1 9.4 Tf
-54 708 Td
-(The final generator has three principal arms. A proportion of particles are offset into) Tj
-0 -13 Td
-(nearby sibling branches. This creates the impression that a stream can split without) Tj
-0 -13 Td
-(requiring six completely separate arms.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 664 Td
-ET
-BT
-/F1 9.4 Tf
-54 654 Td
-(A parameter t runs from 0 near the centre to 1 near the outside. Radius grows with t.) Tj
-0 -13 Td
-(The important part is the angular curve:) Tj
-ET
-BT
-/F1 9.4 Tf
-54 623 Td
-ET
-BT
-/F3 8.4 Tf
-54 613 Td
-(curve = thetaMax * Math.pow\(1 - t, 1.28\)) Tj
-ET
-BT
-/F1 9.4 Tf
-54 595 Td
-ET
-BT
-/F1 9.4 Tf
-54 585 Td
-(Near the centre, 1 - t is large, so the arm receives most of its angular turn. Near the) Tj
-0 -13 Td
-(outside, 1 - t approaches zero, so the turn fades and the arm becomes straighter.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 554 Td
-ET
-BT
-/F1 9.4 Tf
-54 544 Td
-(Small Gaussian random offsets are added to angle, radius and depth. That widens each) Tj
-0 -13 Td
-(star stream and stops the spiral looking as though it was drawn with a perfect compass.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 513 Td
-ET
-BT
-/F1 9.4 Tf
-54 503 Td
-(This is a visual spiral rather than a physical galaxy simulation. The equations are) Tj
-0 -13 Td
-(tuned for the desired screen composition.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 472 Td
-ET
-BT
-/F1 9.4 Tf
-54 462 Td
-(Related mathematical idea: an Archimedean spiral normally has radius increasing linearly) Tj
-0 -13 Td
-(with angle. Here the visual design modifies angular behaviour so the outer flow) Tj
-0 -13 Td
-(straightens.) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 5) Tj
-ET
-endstream
+<< /Type /Page /Parent 17 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 13 0 R >>
 endobj
 15 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 14 0 R >>
+<< /Length 1725 >>
+stream
+BT
+/F2 14 Tf
+48 800 Td
+(19. Reference URLs) Tj
+-48 -800 Td
+/F1 9 Tf
+48 779 Td
+(Three.js documentation: https://threejs.org/docs/) Tj
+-48 -779 Td
+/F1 9 Tf
+48 760 Td
+(WebGLRenderer: https://threejs.org/docs/pages/WebGLRenderer.html) Tj
+-48 -760 Td
+/F1 9 Tf
+48 741 Td
+(Points: https://threejs.org/docs/pages/Points.html) Tj
+-48 -741 Td
+/F1 9 Tf
+48 722 Td
+(BufferGeometry: https://threejs.org/docs/pages/BufferGeometry.html) Tj
+-48 -722 Td
+/F1 9 Tf
+48 703 Td
+(ShaderMaterial: https://threejs.org/docs/pages/ShaderMaterial.html) Tj
+-48 -703 Td
+/F1 9 Tf
+48 684 Td
+(PerspectiveCamera: https://threejs.org/docs/pages/PerspectiveCamera.html) Tj
+-48 -684 Td
+/F1 9 Tf
+48 665 Td
+(Raycaster: https://threejs.org/docs/pages/Raycaster.html) Tj
+-48 -665 Td
+/F1 9 Tf
+48 646 Td
+(SpriteMaterial: https://threejs.org/docs/pages/SpriteMaterial.html) Tj
+-48 -646 Td
+/F1 9 Tf
+48 627 Td
+(Canvas fillText:) Tj
+-48 -627 Td
+/F1 9 Tf
+48 615 Td
+(https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText) Tj
+-48 -615 Td
+/F1 9 Tf
+48 596 Td
+(Canvas getImageData:) Tj
+-48 -596 Td
+/F1 9 Tf
+48 584 Td
+(https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData) Tj
+-48 -584 Td
+/F1 9 Tf
+48 565 Td
+(requestAnimationFrame:) Tj
+-48 -565 Td
+/F1 9 Tf
+48 553 Td
+(https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) Tj
+-48 -553 Td
+/F1 9 Tf
+48 534 Td
+(CSS perspective: https://developer.mozilla.org/en-US/docs/Web/CSS/perspective) Tj
+-48 -534 Td
+/F1 9 Tf
+48 515 Td
+(Fullscreen API: https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API) Tj
+-48 -515 Td
+BT /F1 7 Tf 48 24 Td (Aletheia Three.js Animation - hobby developer how-to) Tj ET
+BT /F1 7 Tf 520 24 Td (Page 7 of 7) Tj ET
+ET
+endstream
 endobj
 16 0 obj
-<< /Length 1702 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(5. Turning AI into a cloud of stars) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The AI shape is generated with an off-screen Canvas 2D element. The letters AI are drawn) Tj
-0 -13 Td
-(in white using a heavy sans-serif font.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(CanvasRenderingContext2D.getImageData\(\) exposes the RGBA pixels. The program steps) Tj
-0 -13 Td
-(across the canvas and records only pixels whose alpha value is high enough to belong to) Tj
-0 -13 Td
-(the visible letters.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 677 Td
-ET
-BT
-/F1 9.4 Tf
-54 667 Td
-(Those visible pixel coordinates become a pool of possible particle destinations. For) Tj
-0 -13 Td
-(each particle, one text pixel is selected and mapped from canvas pixels into the app's) Tj
-0 -13 Td
-(x/y coordinate system. A small random z value gives the letters depth.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 623 Td
-ET
-BT
-/F1 9.4 Tf
-54 613 Td
-(This approach has two useful properties. First, it avoids the complexity of font outline) Tj
-0 -13 Td
-(geometry. Second, almost any browser-renderable font can become a particle font.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 582 Td
-ET
-BT
-/F1 9.4 Tf
-54 572 Td
-(The heavy typeface also gives the I a real top and base rather than making it look like) Tj
-0 -13 Td
-(a plain vertical bar.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 541 Td
-ET
-BT
-/F1 9.4 Tf
-54 531 Td
-(References:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 513 Td
-(https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText) Tj
-ET
-BT
-/F3 8.4 Tf
-54 495 Td
-(https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 6) Tj
-ET
-endstream
+<< /Type /Page /Parent 17 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 15 0 R >>
 endobj
 17 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 16 0 R >>
+<< /Type /Pages /Count 7 /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R] >>
 endobj
 18 0 obj
-<< /Length 1279 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(6. Turning Aletheia into a classical particle word) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(Aletheia uses the same raster-to-particle method as AI but a different font treatment.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 744 Td
-ET
-BT
-/F1 9.4 Tf
-54 734 Td
-(The displayed word remains Aletheia in Latin letters. The design goal was a Greek or) Tj
-0 -13 Td
-(classical visual character, not Greek alphabet substitution. Cinzel is loaded from) Tj
-0 -13 Td
-(Google Fonts and used first, with Palatino, Book Antiqua and Times New Roman as) Tj
-0 -13 Td
-(fallbacks.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 677 Td
-ET
-BT
-/F1 9.4 Tf
-54 667 Td
-(The text is sampled more densely than AI so the longer word retains enough definition.) Tj
-0 -13 Td
-(The target width is also larger so Aletheia can span much of the screen.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 636 Td
-ET
-BT
-/F1 9.4 Tf
-54 626 Td
-(A small z spread prevents the word from becoming a perfectly flat sheet. When the) Tj
-0 -13 Td
-(universe is tilted slightly, the word still has a little depth.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 595 Td
-ET
-BT
-/F1 9.4 Tf
-54 585 Td
-(Font reference:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 567 Td
-(https://fonts.google.com/specimen/Cinzel) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 7) Tj
-ET
-endstream
-endobj
-19 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 18 0 R >>
-endobj
-20 0 obj
-<< /Length 1564 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(7. Morphing: let the stars do the walking) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The Spiral, AI and Aletheia target arrays all contain the same number of coordinates.) Tj
-0 -13 Td
-(The point cloud itself is created once.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(On each animation frame, the current position moves a fraction of the remaining distance) Tj
-0 -13 Td
-(toward the active target:) Tj
-ET
-BT
-/F1 9.4 Tf
-54 690 Td
-ET
-BT
-/F3 8.4 Tf
-54 680 Td
-(pos[j] += \(target[j] - pos[j]\) * attraction) Tj
-ET
-BT
-/F1 9.4 Tf
-54 662 Td
-ET
-BT
-/F1 9.4 Tf
-54 652 Td
-(The attraction factor is calculated with delta time so the transition remains reasonably) Tj
-0 -13 Td
-(consistent across different frame rates.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 621 Td
-ET
-BT
-/F1 9.4 Tf
-54 611 Td
-(This easing is the visual heart of the animation. If the attraction is too strong, the) Tj
-0 -13 Td
-(stars snap into place and the transformation is lost. If it is too weak, the word never) Tj
-0 -13 Td
-(becomes clear before the next stage.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 567 Td
-ET
-BT
-/F1 9.4 Tf
-54 557 Td
-(Auto mode keeps each stage visible for a while: roughly 7 seconds for Spiral, 9 seconds) Tj
-0 -13 Td
-(for AI, and 10 seconds for Aletheia, before returning to Spiral.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 526 Td
-ET
-BT
-/F1 9.4 Tf
-54 516 Td
-(Reference:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 498 Td
-(https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 8) Tj
-ET
-endstream
-endobj
-21 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 20 0 R >>
-endobj
-22 0 obj
-<< /Length 1521 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(8. The artificial sun) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The central sun is intentionally inexpensive. It is not a sphere mesh, volumetric light) Tj
-0 -13 Td
-(or particle simulation.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(A hidden 256 by 256 Canvas 2D image paints a radial gradient: white core, warm cream,) Tj
-0 -13 Td
-(pale blue glow, then full transparency.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 690 Td
-ET
-BT
-/F1 9.4 Tf
-54 680 Td
-(That canvas becomes a THREE.CanvasTexture. The texture is placed on a SpriteMaterial,) Tj
-0 -13 Td
-(and the material is used by a THREE.Sprite.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 649 Td
-ET
-BT
-/F1 9.4 Tf
-54 639 Td
-(A sprite always faces the camera. That makes it ideal for a glowing star disc: the) Tj
-0 -13 Td
-(universe can rotate while the sun remains visually circular.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 608 Td
-ET
-BT
-/F1 9.4 Tf
-54 598 Td
-(Additive blending reinforces the glow. A gentle oscillation changes opacity and size) Tj
-0 -13 Td
-(slightly over time.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 567 Td
-ET
-BT
-/F1 9.4 Tf
-54 557 Td
-(Current preferred sun size is 4.0. Debug includes both a size slider and an on/off) Tj
-0 -13 Td
-(checkbox.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 526 Td
-ET
-BT
-/F1 9.4 Tf
-54 516 Td
-(References:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 498 Td
-(https://threejs.org/docs/pages/Sprite.html) Tj
-ET
-BT
-/F3 8.4 Tf
-54 480 Td
-(https://threejs.org/docs/pages/SpriteMaterial.html) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 9) Tj
-ET
-endstream
-endobj
-23 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 22 0 R >>
-endobj
-24 0 obj
-<< /Length 1493 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(9. Pointer repulsion and drag rotation) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(Two different pointer behaviours are implemented.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 744 Td
-ET
-BT
-/F1 9.4 Tf
-54 734 Td
-(Dragging changes target rotations for the entire universe group. Actual rotation eases) Tj
-0 -13 Td
-(toward those target angles. This feels smoother than assigning rotation directly on) Tj
-0 -13 Td
-(every mouse event.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 690 Td
-ET
-BT
-/F1 9.4 Tf
-54 680 Td
-(Ordinary pointer movement repels nearby stars. The difficult part is mapping a 2D screen) Tj
-0 -13 Td
-(coordinate into the 3D particle coordinate system.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 649 Td
-ET
-BT
-/F1 9.4 Tf
-54 639 Td
-(THREE.Raycaster creates a ray from the camera through the pointer. That ray is) Tj
-0 -13 Td
-(intersected with an invisible plane passing through the universe centre and facing the) Tj
-0 -13 Td
-(camera. The intersection point is then converted into the universe's local coordinates.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 595 Td
-ET
-BT
-/F1 9.4 Tf
-54 585 Td
-(Particles inside a small radius are pushed away from that local point. This is not full) Tj
-0 -13 Td
-(particle physics; it is a lightweight interactive force designed to feel tactile.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 554 Td
-ET
-BT
-/F1 9.4 Tf
-54 544 Td
-(Reference:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 526 Td
-(https://threejs.org/docs/pages/Raycaster.html) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 10) Tj
-ET
-endstream
-endobj
-25 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 24 0 R >>
-endobj
-26 0 obj
-<< /Length 1486 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(10. Camera fitting and the scale-debugging lesson) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(One of the most useful lessons from development was that apparently missing geometry can) Tj
-0 -13 Td
-(simply be incorrectly scaled or badly framed.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(The FIT UNIVERSE function calls computeBoundingSphere\(\) on the particle geometry. It) Tj
-0 -13 Td
-(multiplies the local radius by the universe scale, then derives a camera distance from) Tj
-0 -13 Td
-(the PerspectiveCamera field of view.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 677 Td
-ET
-BT
-/F1 9.4 Tf
-54 667 Td
-(Conceptually:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 649 Td
-(worldRadius = localRadius * universeScale) Tj
-ET
-BT
-/F3 8.4 Tf
-54 631 Td
-(cameraZ = worldRadius / tan\(fov / 2\)) Tj
-ET
-BT
-/F1 9.4 Tf
-54 613 Td
-ET
-BT
-/F1 9.4 Tf
-54 603 Td
-(A small margin is added so the cloud is not clipped.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 585 Td
-ET
-BT
-/F1 9.4 Tf
-54 575 Td
-(The final preferred development defaults are:) Tj
-ET
-BT
-/F1 9.4 Tf
-54 557 Td
-(Universe 1.00) Tj
-ET
-BT
-/F1 9.4 Tf
-54 539 Td
-(Particles 0.30) Tj
-ET
-BT
-/F1 9.4 Tf
-54 521 Td
-(Camera 0.50) Tj
-ET
-BT
-/F1 9.4 Tf
-54 503 Td
-(Sun 4.0) Tj
-ET
-BT
-/F1 9.4 Tf
-54 485 Td
-ET
-BT
-/F1 9.4 Tf
-54 475 Td
-(Mouse-wheel camera changes were removed because accidental wheel movement made the) Tj
-0 -13 Td
-(chosen default appear to reset itself.) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 11) Tj
-ET
-endstream
-endobj
-27 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 26 0 R >>
-endobj
-28 0 obj
-<< /Length 1480 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(11. The Star-Wars-style crawl) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The gold crawl is not Three.js geometry. It is normal HTML and CSS placed above the) Tj
-0 -13 Td
-(WebGL canvas.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(The wrapper is transparent, full width and clipped to about 90 percent of the viewport) Tj
-0 -13 Td
-(height. It defines CSS perspective. The text block is rotated backward with) Tj
-0 -13 Td
-(rotateX\(67deg\). A keyframe animation translates the block upward.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 677 Td
-ET
-BT
-/F1 9.4 Tf
-54 667 Td
-(Because the overlay itself has no opaque background, the universe remains visible behind) Tj
-0 -13 Td
-(the words. A mild top gradient acts only as a fade.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 636 Td
-ET
-BT
-/F1 9.4 Tf
-54 626 Td
-(The first crawl heading, Aletheia, is deliberately large and heavy - approximately twice) Tj
-0 -13 Td
-(the size of the earlier version. The next line, Let AI do the walking, is the main) Tj
-0 -13 Td
-(slogan.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 582 Td
-ET
-BT
-/F1 9.4 Tf
-54 572 Td
-(The crawl remains ordinary editable HTML text, which makes wording and line lengths much) Tj
-0 -13 Td
-(easier to tune than WebGL text.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 541 Td
-ET
-BT
-/F1 9.4 Tf
-54 531 Td
-(Reference:) Tj
-ET
-BT
-/F3 8.4 Tf
-54 513 Td
-(https://developer.mozilla.org/en-US/docs/Web/CSS/perspective) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 12) Tj
-ET
-endstream
-endobj
-29 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 28 0 R >>
-endobj
-30 0 obj
-<< /Length 1214 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(12. Top-left title and hidden Debug mode) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The public interface is intentionally quiet. At the top left is a small fixed panel with) Tj
-0 -13 Td
-(the title Aletheia Three.js Animation, a one-line interaction hint, and a Debug button.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(Debug is off by default. Pressing the button toggles a debug-on class on document.body.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 703 Td
-ET
-BT
-/F1 9.4 Tf
-54 693 Td
-(CSS selectors hide the scale panel, stage badge, bottom buttons and bottom-right summary) Tj
-0 -13 Td
-(while debug-on is absent. This preserves all the useful tuning tools without making the) Tj
-0 -13 Td
-(normal animation look like a development console.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 649 Td
-ET
-BT
-/F1 9.4 Tf
-54 639 Td
-(The button text changes to Close Debug while the tools are visible.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 621 Td
-ET
-BT
-/F1 9.4 Tf
-54 611 Td
-(This is a broadly useful pattern for hobby projects: keep diagnostics inside the app,) Tj
-0 -13 Td
-(but hide them behind a deliberate developer control.) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 13) Tj
-ET
-endstream
-endobj
-31 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 30 0 R >>
-endobj
-32 0 obj
-<< /Length 1352 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(13. Bottom-left debug controls) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(When Debug is enabled, the bottom-left panel exposes the variables that mattered most) Tj
-0 -13 Td
-(during visual tuning.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(Universe changes the scale of the Three.js universe group. Particles changes the) Tj
-0 -13 Td
-(shader's point-size multiplier. Camera changes the multiplier applied to the fitted) Tj
-0 -13 Td
-(camera distance. Sun Size changes the sprite scale. Sun on/off toggles the sprite.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 677 Td
-ET
-BT
-/F1 9.4 Tf
-54 667 Td
-(The quick universe buttons are 0.5x, 0.7x and 1x. The earlier 10x experiment was removed) Tj
-0 -13 Td
-(because it compressed the useful composition and made the star field appear misleadingly) Tj
-0 -13 Td
-(dense.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 623 Td
-ET
-BT
-/F1 9.4 Tf
-54 613 Td
-(FIT UNIVERSE recalculates framing. RESET VIEW restores Universe 1.00, Particles 0.30,) Tj
-0 -13 Td
-(Camera 0.50 and Sun 4.0.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 582 Td
-ET
-BT
-/F1 9.4 Tf
-54 572 Td
-(Below the controls, a diagnostic block reports stage, universe scale, particle size,) Tj
-0 -13 Td
-(camera z, sun size, local radius, world radius and the point count.) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 14) Tj
-ET
-endstream
-endobj
-33 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 32 0 R >>
-endobj
-34 0 obj
-<< /Length 1416 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(14. Bottom-middle controls and bottom-right live summary) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The bottom-middle buttons are mainly development and demonstration tools.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 744 Td
-ET
-BT
-/F1 9.4 Tf
-54 734 Td
-(Spiral, AI and Aletheia force a particular target shape. Auto resumes the timed cycle.) Tj
-0 -13 Td
-(Replay returns to Spiral. Crawl toggles the perspective text. Fullscreen calls the) Tj
-0 -13 Td
-(browser Fullscreen API.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 690 Td
-ET
-BT
-/F1 9.4 Tf
-54 680 Td
-(The bottom-right summary is deliberately compact:) Tj
-ET
-BT
-/F1 9.4 Tf
-54 662 Td
-(Debug - Universe 1.00 / Particles 0.30 / Camera 0.50 / Sun 4.0) Tj
-ET
-BT
-/F1 9.4 Tf
-54 644 Td
-ET
-BT
-/F1 9.4 Tf
-54 634 Td
-(An earlier implementation made this line static. That was a real bug: sliders changed) Tj
-0 -13 Td
-(the animation, but the summary did not change.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 603 Td
-ET
-BT
-/F1 9.4 Tf
-54 593 Td
-(The fix is a general UI rule: if text represents application state, generate it from the) Tj
-0 -13 Td
-(live variables instead of maintaining a second hard-coded copy.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 562 Td
-ET
-BT
-/F1 9.4 Tf
-54 552 Td
-(The updateDebugHint\(\) function is called whenever Universe, Particles, Camera, Sun Size) Tj
-0 -13 Td
-(or Sun on/off changes.) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 15) Tj
-ET
-endstream
-endobj
-35 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 34 0 R >>
-endobj
-36 0 obj
-<< /Length 1570 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(15. Performance, portability and next steps) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(The application deliberately uses a modest point count and a single THREE.Points object.) Tj
-0 -13 Td
-(The same point cloud is reused for every morph target.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 731 Td
-ET
-BT
-/F1 9.4 Tf
-54 721 Td
-(Performance choices include: capped device pixel ratio, typed arrays, one) Tj
-0 -13 Td
-(requestAnimationFrame loop, a sprite rather than a volumetric sun, HTML/CSS for text) Tj
-0 -13 Td
-(overlays, and a separate mostly-static background star field.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 677 Td
-ET
-BT
-/F1 9.4 Tf
-54 667 Td
-(The current file can run directly from disk as an .htm file, but it needs internet) Tj
-0 -13 Td
-(access for the Three.js CDN and Google Font. A fully offline edition could bundle those) Tj
-0 -13 Td
-(dependencies locally.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 623 Td
-ET
-BT
-/F1 9.4 Tf
-54 613 Td
-(Possible future enhancements include adaptive point count for slower devices, a) Tj
-0 -13 Td
-(prefers-reduced-motion mode, GPU-side particle interpolation, additional target words or) Tj
-0 -13 Td
-(symbols, and a small editor for creating new text or shape targets.) Tj
-ET
-BT
-/F1 9.4 Tf
-54 569 Td
-ET
-BT
-/F1 9.4 Tf
-54 559 Td
-(The key lesson is not the specific spiral or font. It is the architecture: one simple) Tj
-0 -13 Td
-(point system, several target coordinate sets, and browser technologies used where each) Tj
-0 -13 Td
-(is strongest.) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 16) Tj
-ET
-endstream
-endobj
-37 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 36 0 R >>
-endobj
-38 0 obj
-<< /Length 2274 >>
-stream
-BT
-/F2 20 Tf
-54 790 Td
-(16. Reference URLs) Tj
-ET
-BT
-/F1 9.4 Tf
-54 762 Td
-(Three.js documentation) Tj
-ET
-BT
-/F3 8.4 Tf
-54 744 Td
-(https://threejs.org/docs/) Tj
-ET
-BT
-/F1 9.4 Tf
-54 726 Td
-ET
-BT
-/F1 9.4 Tf
-54 716 Td
-(WebGLRenderer) Tj
-ET
-BT
-/F3 8.4 Tf
-54 698 Td
-(https://threejs.org/docs/pages/WebGLRenderer.html) Tj
-ET
-BT
-/F1 9.4 Tf
-54 680 Td
-ET
-BT
-/F1 9.4 Tf
-54 670 Td
-(Points) Tj
-ET
-BT
-/F3 8.4 Tf
-54 652 Td
-(https://threejs.org/docs/pages/Points.html) Tj
-ET
-BT
-/F1 9.4 Tf
-54 634 Td
-ET
-BT
-/F1 9.4 Tf
-54 624 Td
-(BufferGeometry) Tj
-ET
-BT
-/F3 8.4 Tf
-54 606 Td
-(https://threejs.org/docs/pages/BufferGeometry.html) Tj
-ET
-BT
-/F1 9.4 Tf
-54 588 Td
-ET
-BT
-/F1 9.4 Tf
-54 578 Td
-(ShaderMaterial) Tj
-ET
-BT
-/F3 8.4 Tf
-54 560 Td
-(https://threejs.org/docs/pages/ShaderMaterial.html) Tj
-ET
-BT
-/F1 9.4 Tf
-54 542 Td
-ET
-BT
-/F1 9.4 Tf
-54 532 Td
-(PerspectiveCamera) Tj
-ET
-BT
-/F3 8.4 Tf
-54 514 Td
-(https://threejs.org/docs/pages/PerspectiveCamera.html) Tj
-ET
-BT
-/F1 9.4 Tf
-54 496 Td
-ET
-BT
-/F1 9.4 Tf
-54 486 Td
-(Raycaster) Tj
-ET
-BT
-/F3 8.4 Tf
-54 468 Td
-(https://threejs.org/docs/pages/Raycaster.html) Tj
-ET
-BT
-/F1 9.4 Tf
-54 450 Td
-ET
-BT
-/F1 9.4 Tf
-54 440 Td
-(Sprite and SpriteMaterial) Tj
-ET
-BT
-/F3 8.4 Tf
-54 422 Td
-(https://threejs.org/docs/pages/Sprite.html) Tj
-ET
-BT
-/F3 8.4 Tf
-54 404 Td
-(https://threejs.org/docs/pages/SpriteMaterial.html) Tj
-ET
-BT
-/F1 9.4 Tf
-54 386 Td
-ET
-BT
-/F1 9.4 Tf
-54 376 Td
-(Canvas fillText and getImageData) Tj
-ET
-BT
-/F3 8.4 Tf
-54 358 Td
-(https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText) Tj
-ET
-BT
-/F3 8.4 Tf
-54 340 Td
-(https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData) Tj
-ET
-BT
-/F1 9.4 Tf
-54 322 Td
-ET
-BT
-/F1 9.4 Tf
-54 312 Td
-(requestAnimationFrame) Tj
-ET
-BT
-/F3 8.4 Tf
-54 294 Td
-(https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) Tj
-ET
-BT
-/F1 9.4 Tf
-54 276 Td
-ET
-BT
-/F1 9.4 Tf
-54 266 Td
-(CSS perspective) Tj
-ET
-BT
-/F3 8.4 Tf
-54 248 Td
-(https://developer.mozilla.org/en-US/docs/Web/CSS/perspective) Tj
-ET
-BT
-/F1 9.4 Tf
-54 230 Td
-ET
-BT
-/F1 9.4 Tf
-54 220 Td
-(Cinzel font) Tj
-ET
-BT
-/F3 8.4 Tf
-54 202 Td
-(https://fonts.google.com/specimen/Cinzel) Tj
-ET
-BT
-/F1 7 Tf
-54 30 Td
-(Aletheia Three.js Animation - hobby developer how-to) Tj
-ET
-BT
-/F1 7 Tf
-500 30 Td
-(Page 17) Tj
-ET
-endstream
-endobj
-39 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 38 0 R >>
+<< /Type /Catalog /Pages 17 0 R >>
 endobj
 xref
-0 40
+0 19
 0000000000 65535 f 
-0000000016 00000 n 
-0000000065 00000 n 
-0000000234 00000 n 
-0000000304 00000 n 
-0000000379 00000 n 
-0000000447 00000 n 
-0000001870 00000 n 
-0000002016 00000 n 
-0000003536 00000 n 
-0000003682 00000 n 
-0000005553 00000 n 
-0000005701 00000 n 
-0000007482 00000 n 
-0000007630 00000 n 
-0000009704 00000 n 
-0000009852 00000 n 
-0000011607 00000 n 
-0000011755 00000 n 
-0000013087 00000 n 
-0000013235 00000 n 
-0000014852 00000 n 
-0000015000 00000 n 
-0000016574 00000 n 
-0000016722 00000 n 
-0000018268 00000 n 
-0000018416 00000 n 
-0000019955 00000 n 
-0000020103 00000 n 
-0000021636 00000 n 
-0000021784 00000 n 
-0000023051 00000 n 
-0000023199 00000 n 
-0000024604 00000 n 
-0000024752 00000 n 
-0000026221 00000 n 
-0000026369 00000 n 
-0000027992 00000 n 
-0000028140 00000 n 
-0000030467 00000 n 
+0000000030 00000 n 
+0000000100 00000 n 
+0000000175 00000 n 
+0000003657 00000 n 
+0000003794 00000 n 
+0000007408 00000 n 
+0000007545 00000 n 
+0000010939 00000 n 
+0000011076 00000 n 
+0000014289 00000 n 
+0000014427 00000 n 
+0000017749 00000 n 
+0000017888 00000 n 
+0000021235 00000 n 
+0000021374 00000 n 
+0000023152 00000 n 
+0000023291 00000 n 
+0000023389 00000 n 
 trailer
-<< /Size 40 /Root 1 0 R >>
+<< /Size 19 /Root 18 0 R >>
 startxref
-30615
+23440
 %%EOF
