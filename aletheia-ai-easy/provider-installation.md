@@ -39,6 +39,20 @@ For spoken input, use Live Voice for conversation. Live can web-search and use m
 
 **Read the beginner-facing companion:** https://karstenevans.github.io/aletheia-knowledge/resources/aletheia-chatgpt-free-guide.htm
 
+### Paid-plan Work/Codex note (24 September 2026)
+
+On current Plus plans, GPT-6 Astra is available in **Work and Codex**, but Astra usage is limited and Work/Codex share the included agentic allowance. OpenAI currently describes both five-hour and weekly usage windows; its own Plus estimate for Astra is roughly 5–45 local messages per five-hour window, with actual usage varying substantially by task and settings.
+
+Therefore do not make a long Aletheia build depend on one uninterrupted Work run. Stage it, save checkpoints to the repository and use ordinary Chat or a more economical Work/Codex model for work that does not need Astra.
+
+**Codex** is the better-shaped ChatGPT surface for repository engineering: inspect the repo, read `AGENTS.md`, edit multiple files, run tests/commands, review diffs and iterate. It is not automatically the fastest route for a small static HTML page.
+
+Official references:
+- https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex
+- https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex
+- https://openai.com/codex/
+
+
 Official references (rechecked for this adapter):
 
 - https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq
