@@ -159,3 +159,92 @@ The delayed third beat should feel surprising and delightful for children while 
 ### Design boundary
 
 These are **original Aletheia cinematic stings**, not reproductions of MGM or another studio ident. Do not copy a protected logo, exact ring composition, lion footage, typography, music or animation. Use the broad cinematic grammar only: framed reveal, character performance, hold and fade.
+
+## Aletheia Watch — local competitor and change monitor
+
+**Status:** IDEA / promote from the existing competitor-monitor Skill when implementation starts.
+
+### Purpose
+
+Give a small local business a simple way to discover relevant nearby competitors, choose the public pages worth watching, establish a dated baseline and then check for material changes such as prices, menus, products, packages, opening details, promotions or positioning.
+
+This is **competitive intelligence from public sources**, not scraping-for-scraping's-sake and not a covert-surveillance product.
+
+### First-run flow
+
+```text
+WHAT DO YOU DO?
+Thai massage / restaurant / food shop / book shop / etc.
+        ↓
+POSTCODE / TOWN + SEARCH RADIUS
+        ↓
+DISCOVER CURRENT NEARBY BUSINESSES
+        ↓
+USER SELECTS COMPETITORS
+        ↓
+DISCOVER OFFICIAL WEBSITE + USEFUL WATCH PAGES
+        ↓
+USER SELECTS FIELDS/PAGES TO WATCH
+        ↓
+CAPTURE DATED BASELINE
+        ↓
+OPTIONAL WEEKLY/MONTHLY CHECK
+```
+
+The app may suggest likely pages such as:
+
+- treatments/services and prices;
+- menus;
+- product/category pages;
+- offers/promotions;
+- opening/contact pages;
+- news/blog;
+- recruitment;
+- delivery/booking terms.
+
+The user approves the watch list. A business discovered by search is not automatically a competitor and an old/duplicate listing must not become a watch target without checking identity.
+
+### Geography
+
+Ask for a coarse postcode/town and a radius. Use current local search/map/business discovery to suggest candidates. Keep exact home/private location out of the workflow when a business postcode/town is sufficient.
+
+### Baseline and change rule
+
+The first successful capture is **BASELINE**, not "a change".
+
+A later report may claim change only when a comparable earlier observation exists. Preserve:
+
+- competitor identity;
+- page/field locator;
+- previous observed value;
+- current observed value;
+- observation/retrieval dates;
+- source URL;
+- material uncertainty or page-layout change.
+
+A redesigned webpage or parser failure is not proof that a price/product changed.
+
+### Scheduling
+
+The static app should be useful without a scheduler: save/export watch configuration and run CHECK NOW manually.
+
+Optional adapters can schedule the same read-only job weekly or monthly using ChatGPT Tasks/Work, Claude, Kimi, Manus, Grok, Odysseus or another capable system. Scheduling is enhancement, not a foundation dependency.
+
+Default scheduled behaviour should be **notify only for material supported change** rather than sending "nothing happened" noise.
+
+### Commercial/reaction layer
+
+Keep the observation separate from the response.
+
+Aletheia Watch may explain why a change could matter, but recommendations remain hypotheses until evidence supports them. Do not automatically alter the user's prices, website or advertising because a competitor changed theirs.
+
+### Relationship to the 11 Skills pack
+
+The existing `competitor-monitor` Skill already contains useful baseline/provenance/change rules. Reuse its workflow meaning when designing Watch, but do not mutate the 11-skills repository merely to make the app.
+
+A future Watch app deserves its own specification because geography, competitor selection, persistent watch lists, baseline history and scheduling configuration are genuine interface/state needs.
+
+### Possible resource layer
+
+A general Watch app is primarily a utility. Any book/tool/affiliate resources are secondary and must not affect which competitors are selected, which changes are reported or their evidence status.
+
