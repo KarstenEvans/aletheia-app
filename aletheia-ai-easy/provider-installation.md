@@ -172,9 +172,15 @@ Kimi currently exposes several distinct surfaces: Chat, Search, Memory Space, Ag
 
 ### Kimi Work
 
-Kimi Work is a local Mac/Windows agent. It can use Skills, projects, browser WebBridge, local files and scheduled tasks.
+Kimi Work is a local Mac/Windows agent. It can use local project folders, Skills/plugins, the Kimi Browser Extension, Computer Use, schedules, Agent Swarm, Goal mode and a persistent project `AGENTS.md`.
 
-Its permission levels range from routine auto-operation through manual approval to fully automatic mode. Aletheia should prefer the narrowest level needed. Fully automatic local file operation can overwrite/delete or otherwise damage data, so do not treat it as the default.
+Current Academy guidance says Projects can point directly at an existing local folder. `AGENTS.md` is not just a Kimi Code feature: Kimi Work also uses it for project rules across future tasks. That makes Aletheia's small repository router directly useful.
+
+Its permission levels include Manual Approval, Default and Fully Automatic. Prefer the narrowest level needed. Fully automatic file/browser/computer operation can make consequential changes, so do not treat it as the default.
+
+For long work, Goal mode is especially interesting: define a measurable end state, verification method and constraints, then Kimi can continue testing/refining for hours. Still require repository checkpoints so an interrupted run is resumable.
+
+Agent Swarm can split genuinely parallel work across subagents. Use it for independent workstreams rather than multiplying agents by habit.
 
 Kimi Work's local scheduled tasks run only while the desktop client is open. Kimi's cloud-created tasks do not have that same local requirement.
 
@@ -184,9 +190,16 @@ Kimi Code is the coding-agent route. It supports repository `AGENTS.md`, Skills 
 
 Sub-agents have separate context windows and consume their own model tokens, so use parallel agents for genuinely independent work rather than by default.
 
+Kimi Code can also import Codex and Claude Code instructions, Skills and MCP settings with its current `/import-from-cc-codex` workflow. Test the imported result before treating it as equivalent configuration.
+
+Kimi's API now supports both the OpenAI Responses API and Anthropic Messages API, so Codex or Claude Code can use Kimi models directly as a custom provider. This separates the **coding harness** from the **model**, which is useful for Aletheia portability.
+
 Official references:
 
 - https://www.kimi.com/en/help/new-user-guide/overview
+- https://www.kimi.ai/academy/kimi-work-getting-started
+- https://www.kimi.ai/academy/kimi-code-cheat-sheet
+- https://www.kimi.ai/academy/use-kimi-api-in-codex-and-claude-code
 - https://www.kimi.com/en/help/kimi-work/overview
 - https://www.kimi.com/en/help/kimi-work/kimi-work-faq
 - https://www.kimi.com/en/help/plugins-and-skills/use-skills-in-code
