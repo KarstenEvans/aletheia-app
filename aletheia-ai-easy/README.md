@@ -7,7 +7,7 @@ A free-first, portable onboarding layer for the Aletheia ecosystem.
 - `aletheia-bootstrap.md` - vendor-neutral loader/rules.
 - `aletheia-memory-template.md` - blank portable user memory.
 - `aletheia-setup.htm` - local consent-first memory builder.
-- `provider-installation.md` - current setup routes for ChatGPT, Gemini, Claude, Copilot and DeepSeek.
+- `provider-installation.md` - current setup routes for ChatGPT, Gemini, Claude, Copilot, DeepSeek, Kimi, Manus, Grok and optional Odysseus orchestration.
 - `five-video-setup-series.md` - scripts/plan for five short setup videos, not a five-day course.
 - `course-ideas.md` - genuine learning/course candidates.
 - `user-guide.md` - beginner documentation.
