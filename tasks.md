@@ -438,3 +438,37 @@ For substantial jobs:
 
 This is now part of `aletheia-GUI.md` / `aletheia-dev.md` and should inform future Work/Codex/Claude/Kimi/Manus/Grok/Odysseus workflows.
 
+
+
+## Aletheia Improve — 24 September 2026
+
+### IMPROVE-001 | SOURCE BUILD COMPLETE / VERIFY LIVE
+
+Created \`aletheia-improve/\` with:
+
+- \`aletheia-improve.md\` — provider-neutral improvement workflow;
+- \`aletheia-improve-memory.md\` — live repository/path registry;
+- \`aletheia-improve-page.md\` — browser build/QA contract;
+- \`aletheia-improve.htm\` — static launcher;
+- \`aletheia-improve-rsc.htm\` — free-first resources;
+- local \`tasks.md\` and \`ideas.md\`.
+
+Core behaviour:
+
+1. refresh the registry and current GitHub repository trees;
+2. resolve target/canonical spelling;
+3. search for existing apps, Skills, knowledge collections and shared components before creating anything;
+4. load current target/shared source excerpts;
+5. accept local text supporting files and list PDFs/binaries for manual AI attachment;
+6. build a provider-neutral pack for ChatGPT, Gemini, Claude, DeepSeek, Kimi, Manus, Grok or copy-only use;
+7. keep static/free-first operation with no required API, Worker or hosted backend.
+
+Static verification passed: inline JavaScript compiles; no duplicate IDs; live registry JSON parses; current repository-tree discovery found the correct strongest targets for Aletheia Avatar, Aletheia Site Audit, Aletheia AI Knowledge, Storyteller and Thalia Humour.
+
+LIVE/DEVICE still open: the external page checker could not access the GitHub Pages URL, so verify the rendered app/resource page and GitHub API CORS in a real browser, then test Android Chrome and Windows Chrome/Edge.
+
+### IMPROVE-002 | THALIA HUMOUR EMAIL INTAKE IDEA
+
+Do not create a second “Huma” application. The existing owner is \`KarstenEvans/thalia-protocol\` with \`thalia-humour-app.md\`, \`thalia-humour.htm\` and the Humour Base/Humour Method model.
+
+A future Odysseus-backed intake may monitor a narrowly scoped mail rule and stage proposed Humour Method records. Raw email must be untrusted data, validated against a strict schema before any AI/GitHub write authority is available. Confirm the exact Gmail plus-address and whether \`[Thalia]\` means subject prefix, Gmail label or another tag before implementation.
