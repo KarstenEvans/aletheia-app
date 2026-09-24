@@ -4,6 +4,18 @@ Portable Markdown and HTML applications using the [Aletheia Protocol](https://gi
 
 Each app lives in its own lowercase folder. The portable Markdown file is the application; an HTML interface is added only when it provides a genuine benefit.
 
+## Start here for app work
+
+- `AGENTS.md` — short router for coding/agent tools.
+- `aletheia-GUI.md` — shared interaction, mobile, browser, link/window, accessibility and fallback rules.
+- `aletheia-dev.md` — source-of-truth, page-spec, resumability, permissions, testing and reconstruction rules.
+- `aletheia-code.md` — small reusable named procedures only.
+- `tasks.md` — current implementation and verification work.
+- `ideas.md` — ideas that have not yet been promoted into implementation.
+
+For substantial HTML work, read the target app's current files and create/reconcile its `*-page.md` build specification. Do not rely on an old chat as the missing specification.
+
+
 ## Apps
 
 ### Aletheia Language Learn
