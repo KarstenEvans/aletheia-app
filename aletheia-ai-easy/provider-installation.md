@@ -1,6 +1,6 @@
 # Aletheia AI Easy - Provider Installation Guide
 
-> Originally checked against provider documentation on 15 September 2026; ChatGPT rechecked on 23 September 2026. Other adapters require their own recheck before publishing new screenshots. Interfaces change. Recheck the linked provider help page before publishing screenshots or exact button labels.
+> Originally checked against provider documentation on 15 September 2026; ChatGPT rechecked on 23 September 2026; Claude, DeepSeek, Kimi, Manus, Grok and Odysseus routes rechecked on 24 September 2026. Interfaces change. Recheck the linked provider help page before publishing screenshots or exact button labels.
 
 ## The simple rule
 
@@ -69,23 +69,38 @@ Official references:
 
 Gemini Skills may later be a useful adapter, but they are not the minimum baseline because availability is more limited than ordinary Gemini/Gems.
 
-## Claude
+## Claude (rechecked 24 September 2026)
 
-**Recommended baseline:** create a Claude Project. Projects are currently available to all users, including Free users, with a maximum of five projects on Free according to Anthropic's current help page.
+### Ordinary Claude / Projects
 
-1. Create a Project.
-2. Set project instructions to the compact Aletheia bootstrap.
-3. Add `aletheia-memory.md` to Project knowledge.
-4. Start chats inside the Project.
+Projects are currently available to all Claude users, including Free users; Anthropic's current help states Free users can create up to five Projects.
 
-Claude also has account-wide **Instructions for Claude**. A very short universal Aletheia preference can live there, while project-specific memory belongs in project knowledge.
+Recommended Aletheia route:
 
-Important: Anthropic states that chat context is not automatically shared between chats in a project unless the information is in project knowledge. That makes the portable memory file useful rather than redundant.
+1. Create a Project for the defined body of work.
+2. Put the compact Aletheia bootstrap in Project instructions.
+3. Add the reviewed `aletheia-memory.md` or project state to Project knowledge when exact portable context is useful.
+4. Keep canonical project decisions/checkpoints in files rather than assuming provider memory is complete.
+5. Review Settings > Memory separately if you want Claude's own cross-chat memory.
+
+Anthropic's current release notes say memory is on by default for Free, Pro and Max, with remembered Topics visible/editable under Settings > Memory; sensitive-topic memory has a separate opt-in control. This provider memory is convenience, not the Aletheia ledger.
+
+### Claude Code
+
+For a code repository, use a short root `CLAUDE.md` as a router to the real project documentation, in the same spirit as Aletheia's root `AGENTS.md`.
+
+Do not copy the whole protocol into `CLAUDE.md`. Point it to the repository's actual specification, build/test commands, conventions and approval boundaries. Anthropic itself describes `CLAUDE.md` as a project briefing that Claude Code reads automatically.
+
+### Longer and recurring tasks
+
+Paid Claude plans can run scheduled tasks. Current Claude/Cowork Projects can carry their own instructions, context, memory and scheduled work. Keep recurring actions read/draft-first unless external action is explicitly authorised.
 
 Official references:
 
-- https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects
-- https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features
+- https://support.claude.com/en/articles/9517075-what-are-projects
+- https://support.claude.com/en/articles/12138966-release-notes
+- https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts
+- https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork
 
 ## Microsoft Copilot
 
@@ -98,19 +113,156 @@ Official references:
 - https://support.microsoft.com/en-us/microsoft-copilot/file-upload-in-microsoft-copilot
 - https://support.microsoft.com/en-gb/microsoft-365-copilot/provide-custom-instructions-for-your-microsoft-365-copilot-notebook
 
-## DeepSeek
+## DeepSeek (rechecked 24 September 2026)
 
-Do not claim persistent custom instructions or memory unless the user can actually see that feature in their current DeepSeek interface.
+Do not claim persistent consumer custom instructions or personal memory unless the user's current DeepSeek interface actually exposes them.
 
-**Web/chat baseline:** start a new chat by supplying/pasting the bootstrap and the current `aletheia-memory.md` when file/text input is available. If there is no persistent project/instruction feature, repeat this when a fresh chat needs the context.
+### Consumer/chat baseline
 
-**API/local wrapper:** inject the bootstrap as a system/instructions message and send the needed memory/context with each request. DeepSeek's current API documentation explicitly describes its chat/response APIs as stateless.
+For a fresh chat, supply only the relevant Aletheia bootstrap/state needed for the task. Keep the portable memory file minimal and review DeepSeek's current privacy terms before supplying sensitive personal material.
+
+### API / independent harness
+
+DeepSeek's current Chat/Responses APIs are explicitly stateless. The client must send the necessary history/context again for each request.
+
+That makes the Aletheia pattern straightforward:
+
+1. stable compact bootstrap/system context;
+2. relevant user/project state;
+3. current task;
+4. tool results;
+5. checkpoint/compaction summary when history grows.
+
+DeepSeek supports tool/function calling, but the model requests the call; the surrounding host/harness executes the real function. Therefore permission belongs to Odysseus, the app or other host, not to the model merely because it can name a tool.
+
+DeepSeek's automatic context caching can reduce repeated-prefix cost. Caching is not persistent project memory.
 
 Official references:
 
 - https://api-docs.deepseek.com/guides/multi_round_chat
-- https://api-docs.deepseek.com/api/create-chat-completion/
 - https://api-docs.deepseek.com/api/create-response/
+- https://api-docs.deepseek.com/guides/tool_calls/
+- https://api-docs.deepseek.com/updates/
+
+## Kimi / Moonshot AI (checked 24 September 2026)
+
+Kimi currently exposes several distinct surfaces: Chat, Search, Memory Space, Agent, Kimi Work and Kimi Code.
+
+### Easiest personal setup
+
+1. Use ordinary Chat for conversation/files.
+2. Use Search when current web information matters.
+3. Use Memory Space only for preferences you deliberately want Kimi to retain.
+4. Keep `aletheia-memory.md` / CHECKPOINT as the inspectable portable source when exact project state matters.
+5. Use Agent only for a task that genuinely needs autonomous execution.
+
+### Kimi Work
+
+Kimi Work is a local Mac/Windows agent. It can use Skills, projects, browser WebBridge, local files and scheduled tasks.
+
+Its permission levels range from routine auto-operation through manual approval to fully automatic mode. Aletheia should prefer the narrowest level needed. Fully automatic local file operation can overwrite/delete or otherwise damage data, so do not treat it as the default.
+
+Kimi Work's local scheduled tasks run only while the desktop client is open. Kimi's cloud-created tasks do not have that same local requirement.
+
+### Kimi Code
+
+Kimi Code is the coding-agent route. It supports repository `AGENTS.md`, Skills (`SKILL.md`), MCP and custom Markdown-defined agents. Aletheia's small root `AGENTS.md` is therefore directly useful.
+
+Sub-agents have separate context windows and consume their own model tokens, so use parallel agents for genuinely independent work rather than by default.
+
+Official references:
+
+- https://www.kimi.com/en/help/new-user-guide/overview
+- https://www.kimi.com/en/help/kimi-work/overview
+- https://www.kimi.com/en/help/kimi-work/kimi-work-faq
+- https://www.kimi.com/en/help/plugins-and-skills/use-skills-in-code
+- https://www.kimi.com/code/docs/en/kimi-code-cli/customization/agents
+
+## Manus (checked 24 September 2026)
+
+### Recommended Aletheia route: Manus Project
+
+A Manus Project has reusable instructions and knowledge across sessions.
+
+1. Create a Project for the defined task/domain.
+2. Put the compact Aletheia bootstrap in the Project instruction.
+3. Add reviewed project state/knowledge files.
+4. Add only the connectors/Skills the workflow needs.
+5. Review any Project-proposed updates before accepting them.
+
+Manus now allows Projects to propose learned changes to instructions, files or Skills, with user approval. That matches Aletheia's propose-before-accept pattern.
+
+### Chat versus Agent
+
+Use **Chat** for answers, search, file discussion and planning when autonomous execution is unnecessary. Current Manus help says Chat mode does not consume Manus credits.
+
+Use **Agent** when you need the sandbox/browser/code/file workflow. Agent work consumes credits based on model tokens, virtual machines and third-party APIs, so long tasks should be staged/checkpointed rather than designed as one fragile marathon.
+
+### Skills and schedules
+
+Manus Skills use `SKILL.md` plus optional scripts/references/templates and can be imported from packages or public GitHub repositories. Review a Skill before enabling executable resources.
+
+Scheduled Tasks can run inside a task, Project or Manus-built web app and reuse that location's instructions/files/results. This is promising for a future Aletheia Watch baseline-and-change workflow.
+
+Official references:
+
+- https://manus.im/en/blog/manus-projects
+- https://help.manus.im/en/articles/11711128-what-are-the-differences-between-chat-mode-and-agent-mode
+- https://help.manus.im/en/articles/11711097-what-are-the-rules-for-credits-consumption-and-how-can-i-obtain-them
+- https://help.manus.im/en/articles/14753565-how-to-share-and-use-skills-in-manus
+- https://manus.im/blog/manus-schedules
+
+## Grok / SpaceXAI (checked 24 September 2026)
+
+Current Grok has more than chat: Grok Build, Skills, Automations, connectors/MCP and project memory.
+
+### Simple Aletheia setup
+
+For ordinary Grok, keep the portable Aletheia bootstrap/state available to the conversation. Use a custom Skill for reusable Aletheia workflow instructions if that is more convenient than repeating them.
+
+### Grok Build
+
+For coding/app work, Grok Build has persistent project memory for conventions, decisions and facts. Treat that as working memory, not the only canonical project record.
+
+### Skills
+
+Grok Skills persist expertise/workflow rules across conversations and include a Skill Creator. Adapt Aletheia workflow meaning rather than assuming another provider's exact Skill package format is directly compatible.
+
+### Automations
+
+Grok Automations can run a saved job on a schedule or on an email trigger, with files/connectors/Skills as context. For Aletheia, prepare/draft/monitor first and keep consequential send/purchase/delete/publish actions behind explicit authority.
+
+Official references:
+
+- https://x.ai/news/grok-skills
+- https://x.ai/news/grok-automations
+- https://x.ai/build/changelog
+- https://x.ai/news/grok-build-memory
+- https://docs.x.ai/grok/connectors
+
+## Odysseus (optional self-hosted orchestration; checked 24 September 2026)
+
+Odysseus is not another consumer AI provider in the same sense as ChatGPT or Claude. It is a self-hosted workspace/harness that can connect local and hosted models.
+
+Current project documentation describes:
+
+- chat and agents;
+- local/API models including OpenAI, Anthropic and Gemini-compatible routes;
+- MCP, files, shell, Skills and memory;
+- deep research and model comparison;
+- documents;
+- IMAP/SMTP email;
+- notes/tasks/calendar and scheduled agent tasks.
+
+Aletheia should sit **above** Odysseus as the portable evidence/state/authority layer. Odysseus can be the capability/orchestration layer.
+
+Do not assume that an API call through Odysseus inherits consumer-account memory such as Gemini Personal Intelligence or ChatGPT memory. Supply required Aletheia state explicitly and connect private systems deliberately.
+
+Because Odysseus can expose powerful local tools, keep authentication enabled, private data out of Git and raw model/service ports off the public internet.
+
+Project reference:
+
+- https://github.com/odysseus-dev/odysseus
 
 ## Other capable AIs
 
