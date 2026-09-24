@@ -5,11 +5,13 @@ This is a small entry-point for coding agents. It points to the real project fil
 ## Read first
 
 1. `README.md`
-2. `aletheia-code.md`
-3. `tasks.md`
-4. `ideas.md` when the request concerns future work
-5. The target app's current Markdown specification and HTML
-6. Any target `*-page.md`, manifest/JSON, source register, assets and resource page that the app actually uses
+2. `aletheia-GUI.md`
+3. `aletheia-dev.md`
+4. `aletheia-code.md`
+5. `tasks.md`
+6. `ideas.md` when the request concerns future work
+7. The target app's current Markdown specification and HTML
+8. Any target `*-page.md`, manifest/JSON, source register, assets and resource page that the app actually uses
 
 Protocol source: `https://github.com/KarstenEvans/aletheia-protocol`
 
