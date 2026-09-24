@@ -248,3 +248,28 @@ A future Watch app deserves its own specification because geography, competitor 
 
 A general Watch app is primarily a utility. Any book/tool/affiliate resources are secondary and must not affect which competitors are selected, which changes are reported or their evidence status.
 
+
+## 11 Aletheia-enabled Skills — triage before redesign
+
+**Status:** REVIEW ONLY. Do not rewrite the skills yet.
+
+Repository reviewed: `KarstenEvans/11-aletheia-enabled-workflow-skills`.
+
+The current pack is more substantial than its origin as an article-derived idea suggests: each workflow already has an Aletheia-informed evidence/action boundary and the competitor monitor has dated-baseline/change logic. The useful next step is **classification and testing**, not wholesale rewriting.
+
+Working classification:
+
+- **Humanizer:** keep as Skill; an app adds little unless voice-profile management becomes visual/persistent.
+- **Inbox Triage:** Skill + authorised email connector; external send remains a separate approval/action.
+- **Content Repurposer:** keep as Skill.
+- **Decision Helper:** keep as Skill; possible app only if a persistent comparison/decision ledger proves useful.
+- **Weekly Review:** keep as Skill unless a history/dashboard becomes genuinely useful.
+- **GEO/AEO Optimizer:** keep as Skill for content; the existing Site Audit is the richer website-level app.
+- **Competitor Monitor:** strongest candidate to become **Aletheia Watch** because it benefits from geography, persistent watch targets, baselines, page/field selection, history and schedules.
+- **Executive Brief:** keep as Skill.
+- **Meeting Prep:** Skill + calendar/email/records connectors.
+- **Sales Follow-up:** Skill + CRM/email connectors; draft first, send only on explicit authority.
+- **Feedback Synthesizer:** keep as Skill unless a persistent multi-source feedback dashboard is later justified.
+
+Compatibility experiment later: test one low-risk Skill and Competitor Monitor in Codex/Kimi/Manus/Odysseus-style environments before claiming the pack is portable across them. Preserve workflow meaning even where packaging differs.
+
