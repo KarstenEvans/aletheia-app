@@ -494,3 +494,11 @@ Related commits:
 Static verification: all three inline browser scripts parse; no duplicate HTML IDs; the new bundled-app checkbox is included in the AI problem list; Phone Link and Gaming Services guardrails are present.
 
 Still to verify live/device: open the GitHub Pages app on Windows Chrome/Edge and Android Chrome, select **Unused preinstalled/bundled apps**, build the rescue plan, and confirm the result/AI handoff renders correctly.
+
+
+2026-09-26 | Awin Publisher MasterTag audit | DONE / VERIFY LIVE
+Files read: current public production HTML inventory plus shared `aletheia-GUI.md` and `aletheia-dev.md`.
+Files changed: public production HTML missing the Awin Publisher MasterTag; shared GUI/dev rules.
+Rule: publisher `3182162`, exactly one tag immediately before `</body>`; exclude backups/local tests and do not add tracking code to Markdown.
+Static result: all 17 current production HTML pages were checked/updated; archived Storyteller backup remains untouched.
+Live still to verify: deployed pages load the script successfully and Convert-a-Link/plugin activation is working on the publisher account.
