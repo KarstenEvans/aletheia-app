@@ -365,3 +365,25 @@ When the same failure appears in two apps, decide whether the durable lesson bel
 - Aletheia Protocol only if it is truly protocol-level.
 
 Do not paste the same workaround into eleven pages and call that architecture.
+
+
+## 19. Affiliate tracking and Awin MasterTag
+
+For public production HTML in the Aletheia / Swindon.org.uk web estate, include the Awin Publisher MasterTag for publisher `3182162` exactly once, immediately before `</body>`:
+
+```html
+<script src="https://www.dwin2.com/pub.3182162.min.js"></script>
+```
+
+Build/reconstruction checks:
+
+1. distinguish production HTML from backups, local experiments and test fixtures;
+2. count the MasterTag before inserting it;
+3. production HTML should contain exactly one occurrence;
+4. do not add the tag to Markdown or data files;
+5. preserve `data-awinignore` or the current project exclusion mechanism on factual/source links that should not be converted;
+6. add a visible affiliate disclosure near commercial content when required;
+7. verify Convert-a-Link/Awin behaviour separately from static HTML presence. A script tag being present does not prove the Awin account, advertiser approval or plugin is active.
+
+This is a publishing/monetisation layer, never a source-of-truth or evidence dependency.
+
