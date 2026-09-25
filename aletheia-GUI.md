@@ -331,3 +331,26 @@ The rebuild fails if it:
 ## 18. One-line test
 
 **Can a first-time visitor immediately understand what this app does, complete its main task, and escape cleanly if an optional feature fails?**
+
+
+## 19. Awin Publisher MasterTag on public HTML
+
+Public Aletheia HTML pages that are published as part of the Aletheia / Swindon.org.uk web estate use the Awin Publisher MasterTag for publisher `3182162`.
+
+Required placement:
+
+```html
+<script src="https://www.dwin2.com/pub.3182162.min.js"></script>
+</body>
+```
+
+Rules:
+
+- exactly one MasterTag per public production HTML page;
+- place it immediately before the closing `</body>`;
+- do not put it in Markdown, local test files, archived backups or downloadable source examples;
+- before adding it, count existing occurrences to avoid duplicate tracking;
+- factual/source links that must not be monetised should use the project's Awin-ignore convention where supported;
+- visible affiliate disclosure is still required where commercial/affiliate links are presented. The MasterTag itself is not a disclosure;
+- commercial relationships must not alter factual claims, evidence labels or safety guidance.
+
