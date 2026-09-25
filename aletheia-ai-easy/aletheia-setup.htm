@@ -166,5 +166,6 @@ async function copy(){if(!generated) build(); try{await navigator.clipboard.writ
 function clearAll(){document.querySelectorAll('input[type=text],textarea:not(#chatgptRules)').forEach(x=>x.value='');document.querySelectorAll('#apps input').forEach(x=>x.checked=false);$('approveApps').checked=true;$('approveMemory').checked=true;generated='';$('preview').textContent='Your memory file will appear here.';$('save').disabled=true;$('copy').disabled=true;$('status').textContent='Form cleared. Nothing was saved.'}
 $('generate').addEventListener('click',build);$('save').addEventListener('click',save);$('copy').addEventListener('click',copy);$('clear').addEventListener('click',clearAll);
 </script>
+<script src="https://www.dwin2.com/pub.3182162.min.js"></script>
 </body>
 </html>
