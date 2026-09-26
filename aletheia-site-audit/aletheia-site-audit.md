@@ -49,6 +49,51 @@ Check where possible exact-domain/site indexing, titles/descriptions, canonicals
 ## Stage 4 — Site Quality
 After reachability/discovery, audit navigation, mobile usability, accessibility basics, page purpose, local relevance, stale/duplicate/thin content, privacy/affiliate disclosure, performance evidence, trust/provenance and broken resources. Keep recommendations proportional and KISS.
 
+## Stage 4A — Native Ad / Advertorial Pattern
+
+Optional competitor/landing-page analysis. Use when the user supplies a competitor advertorial, product landing page, native ad destination or unusually visible commercial page.
+
+The purpose is **not** to copy the page. Extract the useful architecture and separate it from questionable persuasion.
+
+Inspect where observable:
+
+- traffic/acquisition clues: search ads, display/native advertising, UTM/tracking parameters, Google Ads/DoubleClick infrastructure, Outbrain/Taboola/Revcontent or similar;
+- page title, H1/H2 hierarchy and natural-language question coverage;
+- direct-answer paragraphs, FAQs, product/use-case/specification coverage and semantic breadth;
+- internal links, external references, breadcrumbs, related pages and collection/category architecture;
+- crawlable text vs JS-only content;
+- structured data and supported schema;
+- image names, captions and alt text where accessible;
+- CTA placement and the journey from ad/story → landing page → product/resource/action;
+- trust/provenance signals and disclosure;
+- emotional devices such as named-person narratives, urgency, scarcity, retirement/final-batch stories, countdowns, testimonials and locality claims.
+
+For every notable technique classify it:
+
+- **REUSE ETHICALLY** — useful information architecture, discoverability, clarity or navigation;
+- **TEST** — plausible SEO/AEO/conversion technique whose effect is not proven by the page alone;
+- **DO NOT COPY** — deceptive, unverifiable, manipulative, misleading or unsuitable for Aletheia/Swindon.org.uk;
+- **UNKNOWN** — insufficient evidence.
+
+Do not infer that an ad-tech hostname such as `googleads.g.doubleclick.net` is an affiliate network. Treat it as an advertising/tracking clue only unless separate evidence establishes an affiliate relationship. Do not call a merchant a dropshipper, scam or fake-maker operation without evidence; label supply-chain conclusions as hypotheses when unverified.
+
+### Native Ad / Advertorial output
+
+Return:
+
+1. **Traffic clues observed**
+2. **Landing-page architecture**
+3. **Question / answer coverage**
+4. **SEO/AEO techniques worth testing**
+5. **Conversion mechanics**
+6. **Trust / disclosure weaknesses**
+7. **Persuasion tactics to reject**
+8. **Ethical Aletheia/Swindon version**
+9. **Three smallest experiments**
+10. **How to measure them** (Search Console/analytics/referrals where available)
+
+The ethical version should favour original, useful, source-backed content that deserves citation even if no search engine or AI indexes it.
+
 ## Stage 5 — Cross-AI Test
 For difficult access problems, run the same Reachability Gate independently in capable systems such as ChatGPT, Claude, Gemini, Copilot, DeepSeek, Kimi or others. Each run creates its own `<hostname>-results.md`. Compare without erasing disagreement. Provider identity is evidence metadata, not a reliability ranking by nationality or brand.
 
