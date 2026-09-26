@@ -16,6 +16,16 @@
 - [ ] Test Safari/WebKit where practical.
 - [ ] Add root \`tasks.md\` receipt after live verification.
 
+## Discovery / cross-pollination pass — 26 September 2026
+
+- [x] Add a default-on **SEO/AEO + Swindon.org.uk cross-pollination check** to the Improve launcher.
+- [x] Add Swindon.org.uk GUI/code/ideas plus Aletheia Knowledge GUI/ideas to the generated context when the pass is selected.
+- [x] Add output checks for primary/secondary/spoken/AI-answer queries, SEO title, meta description, slug, answer-first copy, headings, internal links, topic hubs and annotated Go Deeper sources.
+- [x] Add reciprocal Swindon.org.uk ↔ Aletheia routing rules and duplicate/canonical guardrails.
+- [x] Static JavaScript syntax check passed after the launcher edit; duplicate element ID check passed.
+- [ ] Browser-test the new checkbox/pack behavior on Android Chrome and Windows Chrome/Edge.
+- [ ] Verify the Swindon.org.uk rendered Resources page implements its updated source specification before calling the bridge live.
+
 ## Thalia Humour integration candidate
 
 - [ ] Use Aletheia Improve on the existing \`KarstenEvans/thalia-protocol\` Thalia Humour app before creating any new humour app.
