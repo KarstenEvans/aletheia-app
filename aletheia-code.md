@@ -33,6 +33,19 @@ A reusable procedure belongs here when several apps need the same small operatio
 ## DISCOVERY-FILES-GENERATOR
 After a verified inventory, propose `robots.txt`, `sitemap.xml` and `llms.txt`. Inspect existing files first; never invent sitemap URLs; never call generated files live until fetched from production; treat `llms.txt` as supplemental; validate and retest after publication.
 
+## DISCOVERY-CROSS-POLLINATION-GATE
+1. Decide whether the target is a public explanatory page/app where discovery matters.
+2. If a useful Swindon.org.uk counterpart exists, give it the concise answer-first/public-front-door role.
+3. Keep deeper reusable knowledge, evidence and interaction in the Aletheia app/Knowledge layer.
+4. Link Swindon.org.uk → deeper Aletheia and Aletheia → matching Swindon.org.uk resource/front-door page.
+5. Check primary/secondary/spoken/AI-answer query variants, SEO title, meta description and clean slug.
+6. Check descriptive headings, meaningful internal links, related questions and annotated Go Deeper sources.
+7. Create a topic hub only when several substantive pages/cards genuinely belong together; do not create thin keyword/tag pages.
+8. If two public pages are substantially duplicate, choose one primary/canonical version and link rather than cloning the copy.
+9. Measure real impressions/clicks/referrals after publication where possible. Generated metadata is not proof of visibility.
+
+**Orchestrator:** `aletheia-improve/aletheia-improve.md`
+
 ## Promotion rule
 If a fragment grows into a multi-stage workflow, move it into a dedicated app and leave a pointer here. This prevents Aletheia Code and Aletheia AI Easy becoming bloated.
 
