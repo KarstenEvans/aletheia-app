@@ -502,3 +502,17 @@ Files changed: public production HTML missing the Awin Publisher MasterTag; shar
 Rule: publisher `3182162`, exactly one tag immediately before `</body>`; exclude backups/local tests and do not add tracking code to Markdown.
 Static result: all 17 current production HTML pages were checked/updated; archived Storyteller backup remains untouched.
 Live still to verify: deployed pages load the script successfully and Convert-a-Link/plugin activation is working on the publisher account.
+
+
+## Native Ad / Advertorial Pattern pilot | TODO
+
+Use the new Site Audit **Native Ad / Advertorial Pattern** section on 3-5 competitor/high-visibility landing pages across different subjects.
+
+For each:
+- identify acquisition/ad-tech clues without confusing ad serving with affiliate relationships;
+- extract question structure, semantic coverage, internal-link pattern, resource/download loop and conversion journey;
+- classify REUSE ETHICALLY / TEST / DO NOT COPY / UNKNOWN;
+- propose one Aletheia or Swindon.org.uk page experiment;
+- define the Search Console/analytics metric before publication.
+
+Do not infer cause from visibility alone. Record what is actually observed and what remains hypothesis.
