@@ -313,3 +313,24 @@ On Apple, record:
 The desired result is:
 
 > Full Three.js where WebGL works; useful Canvas 2D compatibility where WebKit itself cannot sustain WebGL; never unexplained crawl-only failure.
+
+
+### Responsive default profiles
+
+Use the available viewport width, not operating-system detection.
+
+For compact/mobile layout at **900 CSS px or narrower**:
+
+- Universe: **1.20**
+- Particle scale: **0.70**
+- Camera multiplier: **1.30**
+- Sun size: **3.0**
+
+For wider/desktop layout:
+
+- Universe: **1.00**
+- Particle scale: **0.30**
+- Camera multiplier: **0.50**
+- Sun size: **4.0**
+
+Apply the profile on first load. **RESET VIEW** must re-read the current viewport profile and restore the matching defaults. Do not overwrite a user's live slider adjustments merely because the browser is resized; only initial load and explicit Reset apply defaults.
