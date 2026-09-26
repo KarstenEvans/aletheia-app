@@ -233,6 +233,73 @@ For Swindon.org.uk and Aletheia, prefer question-led pages that give a useful an
 
 Do not assume a technique caused visibility merely because it appears on a visible competitor page. Measure the result.
 
+## Discovery / SEO / AEO / Swindon.org.uk cross-pollination pass
+
+For a public human-facing Aletheia app, knowledge page or Swindon.org.uk page, check whether discovery can be improved without duplicating the same content on two sites.
+
+Use this role split where it fits:
+
+```text
+Swindon.org.uk
+  = concise public/search front door
+  = direct answer + local/public context + related topics
+          ↕
+Aletheia app / Aletheia Knowledge
+  = deeper interactive tool, evidence, cards, analysis or reusable knowledge
+```
+
+Do **not** force every Aletheia project onto Swindon.org.uk. Add the public front door only when it gives a visitor a useful searchable entry point.
+
+For the discovery pass, produce or check:
+
+- primary search question/query;
+- secondary query variants;
+- likely spoken question;
+- likely AI-answer/retrieval question;
+- SEO title;
+- meta description;
+- suggested clean slug;
+- concise answer-first introduction;
+- three key points where the subject benefits from them;
+- descriptive headings that make sense when extracted independently;
+- existing internal Swindon.org.uk pages worth linking;
+- existing Aletheia app/knowledge pages worth linking;
+- matching Swindon.org.uk front-door/resource page, if one exists;
+- matching Aletheia deep link, if one exists;
+- genuinely useful related questions;
+- annotated **Go Deeper** sources explaining why each source is useful;
+- missing topic hub opportunities;
+- measurement/check date.
+
+### Reciprocal-link rule
+
+Where both surfaces exist:
+
+1. the Swindon.org.uk page links clearly to the deeper Aletheia tool/knowledge;
+2. the Aletheia app/resource/knowledge metadata links back to the matching Swindon.org.uk public/resource page;
+3. both link sideways to a small number of genuinely related topics;
+4. source/evidence links remain distinct from commercial/resource links.
+
+### Topic-hub rule
+
+A repeated concept such as **Hedgehogs**, **Pollinators**, **Windows**, **Swindon history** or **AI privacy** may become a topic/knowledge hub when there are enough substantive pages to justify it.
+
+Prefer a useful hub with a short explanation and curated links over an empty tag archive. As a working threshold, normally wait until at least three worthwhile pages/cards belong together.
+
+Do not create hundreds of thin keyword/tag pages.
+
+### Duplication/canonical rule
+
+The two surfaces should have different jobs, not two copies of the same article.
+
+- Swindon.org.uk: concise answer, context, related routes and public discovery.
+- Aletheia: deeper knowledge, evidence, interaction, tools or reusable cards.
+- If two pages become substantially duplicate, choose one primary/canonical public version and link rather than cloning the copy.
+
+### Measurement rule
+
+Do not treat generated keywords as proof of visibility. After publication, measure Search Console/analytics where available and record which queries/pages actually earn impressions, clicks, useful referrals or citations.
+
 ## Improvement test
 
 Before adding a feature:
