@@ -228,3 +228,88 @@ Fallback behaviour:
 - [ ] Safari/WebKit is tested by capability, not disabled by OS detection.
 - [ ] Reduced-motion users receive a usable static/reduced experience.
 - [ ] Test current Chrome/Edge on Windows, Chrome on Android, and Safari on macOS/iPhone/iPad where available; record untested combinations rather than claiming universal compatibility.
+
+
+---
+
+## Safari / WebKit compatibility implementation - 26 September 2026
+
+Aletheia Improve was run against the live `aletheia-threejs-animation.htm` after the owner reported:
+
+- Windows/PC: works;
+- Android: works;
+- Apple: HTML/CSS crawl visible, but Three.js stars / Spiral / AI / Aletheia not visible.
+
+### Findings
+
+The crawl is intentionally independent HTML/CSS. The previous Three.js path could fail before useful diagnostics in two important ways:
+
+1. older Safari/WebKit could reject optional-chaining syntax used in the inline application script before any runtime error handler executed;
+2. `new THREE.WebGLRenderer(...)` was not guarded, so WebGL context-creation failure could abort all Three.js setup while leaving the independent crawl running.
+
+WebKit has documented WebGL context-loss regressions affecting iOS/iPadOS/Safari. This is a browser/device capability problem, not evidence that Three.js is categorically unsupported on Apple.
+
+### Current renderer ladder
+
+Keep Three.js **r160** for this compatibility build:
+
+1. try WebGL2 with antialiasing;
+2. if that fails, replace the canvas and try WebGL1 without antialiasing;
+3. if necessary, try `experimental-webgl`;
+4. if no usable WebGL context survives, replace the canvas with a lightweight **Canvas 2D compatibility mode**;
+5. keep the HTML/CSS crawl independently available throughout.
+
+The fresh-canvas replacement matters because a canvas that has already acquired one graphics-context type cannot reliably be reused to request a different context type.
+
+### Why not upgrade Three.js during this repair
+
+The current Three.js release is newer than r160, but the r160 -> r161 migration removed the old global `three.min.js` build and r163 removed WebGL1 support from `WebGLRenderer`.
+
+A later Three.js upgrade should therefore be a deliberate separate migration to ES modules / current rendering architecture, not bundled into this Safari repair. Keeping r160 temporarily preserves a WebGL1 recovery path for older/problematic WebKit sessions.
+
+### Canvas 2D compatibility mode
+
+If WebGL fails or is lost, the page now keeps:
+
+- dark space background;
+- animated starfield;
+- central glow;
+- Spiral stage;
+- AI stage;
+- Aletheia stage;
+- the independent HTML/CSS crawl.
+
+The 2D mode intentionally omits the full 3D drag / raycast particle-repulsion behaviour. It is a useful fallback, not a false claim that Three.js itself is still running.
+
+### Other compatibility changes
+
+- removed avoidable optional-chaining syntax from the application path;
+- added WebKit-prefixed fullscreen fallback;
+- added reduced-motion behaviour;
+- WebGL context loss switches to compatibility mode instead of leaving an unexplained empty canvas;
+- inline JavaScript syntax check passes after the changes.
+
+### Current external evidence
+
+- Three.js migration guide: https://github.com/mrdoob/three.js/wiki/Migration-Guide
+- WebKit bug 264684, WebGL context loss: https://bugs.webkit.org/show_bug.cgi?id=264684
+- WebKit bug 301800, iOS/Safari 18.7.2 context loss: https://bugs.webkit.org/show_bug.cgi?id=301800
+- WebKit bug 321667, later iOS WebGL shader/context regression: https://bugs.webkit.org/show_bug.cgi?id=321667
+
+### Device verification still required
+
+Do **not** mark Apple support complete until tested on the actual failing Apple device/browser.
+
+On Apple, record:
+
+- device model;
+- iOS/iPadOS/macOS version;
+- Safari version where available;
+- whether mode is full Three.js WebGL2, WebGL1 recovery, or Canvas 2D fallback;
+- whether Spiral, AI, Aletheia and crawl all display;
+- whether page reload restores full WebGL after a context-loss session;
+- any console error if available.
+
+The desired result is:
+
+> Full Three.js where WebGL works; useful Canvas 2D compatibility where WebKit itself cannot sustain WebGL; never unexplained crawl-only failure.
