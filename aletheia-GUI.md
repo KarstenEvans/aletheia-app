@@ -354,3 +354,24 @@ Rules:
 - visible affiliate disclosure is still required where commercial/affiliate links are presented. The MasterTag itself is not a disclosure;
 - commercial relationships must not alter factual claims, evidence labels or safety guidance.
 
+
+
+## 20. Discoverability and answer-ready public pages
+
+When an Aletheia app publishes explanatory content to the open web, make the useful answer understandable without requiring an AI service, hidden state or a click into raw Markdown.
+
+Useful public-page pattern:
+- descriptive question/topic title;
+- direct answer near the top;
+- concise explanation and caveats;
+- related questions only when genuinely useful;
+- source/provenance links;
+- deeper app/knowledge route;
+- one appropriate resource/download;
+- stable internal links and ordinary crawlable HTML.
+
+Do not assume AI systems share a live common memory. Design for independent crawling, indexing, retrieval and citation.
+
+Competitor landing pages may be analysed through **Aletheia Site Audit → Native Ad / Advertorial Pattern**. Reuse useful architecture, not deceptive persuasion. Avoid fake scarcity, unverifiable biographies, disguised ads, fake testimonials, misleading locality and scaled thin content.
+
+A page should remain worth publishing even if no search engine or AI ever indexes it.
