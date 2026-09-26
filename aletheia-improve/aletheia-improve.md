@@ -206,6 +206,33 @@ Separate:
 - INFERENCE;
 - PROPOSED improvement.
 
+## Competitor landing-page pattern extraction
+
+When an improvement includes a competitor advert, advertorial, landing page or unusually visible commercial page, reuse the **Aletheia Site Audit → Native Ad / Advertorial Pattern** method.
+
+Extract reusable architecture rather than copying wording:
+
+- topic and question structure;
+- direct-answer placement;
+- semantic coverage;
+- internal-link pathways;
+- source and provenance presentation;
+- crawlable HTML and supported structured data;
+- resource, download and backlink loops;
+- image and alt-text opportunities;
+- ad-to-content-to-action journey;
+- measurement ideas.
+
+Classify each technique as:
+- **REUSE ETHICALLY**
+- **TEST**
+- **DO NOT COPY**
+- **UNKNOWN**
+
+For Swindon.org.uk and Aletheia, prefer question-led pages that give a useful answer immediately, then evidence, caveats, related questions, source links, deeper Aletheia content and one relevant resource or download.
+
+Do not assume a technique caused visibility merely because it appears on a visible competitor page. Measure the result.
+
 ## Improvement test
 
 Before adding a feature:
