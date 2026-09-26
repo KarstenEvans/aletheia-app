@@ -516,3 +516,58 @@ For each:
 - define the Search Console/analytics metric before publication.
 
 Do not infer cause from visibility alone. Record what is actually observed and what remains hypothesis.
+
+
+### THREEJS-SAFARI-001 | IMPLEMENTED / DEVICE VERIFY | Aletheia Improve Safari compatibility pass — 26 September 2026
+
+Target:
+- `aletheia-threejs-animation/aletheia-threejs-animation.htm`
+
+Owner observation before change:
+- PC: full animation works;
+- Android: full animation works;
+- Apple: HTML/CSS crawl works, Three.js stars / Spiral / AI / Aletheia do not.
+
+Improve findings:
+- crawl is deliberately independent of Three.js, explaining why it survived;
+- critical inline script used optional chaining, which can cause a parse-time failure on older Safari before runtime diagnostics;
+- renderer creation was unguarded;
+- WebKit has documented WebGL context-loss regressions, so capability/context loss must be handled rather than assuming an OS-level ban.
+
+Implemented:
+- removed optional chaining from the critical app path;
+- renderer ladder: WebGL2 -> fresh-canvas WebGL1 without antialiasing -> experimental WebGL;
+- if WebGL cannot start, use animated Canvas 2D compatibility mode;
+- if WebGL context is lost, switch to Canvas 2D rather than crawl-only failure;
+- Canvas 2D retains stars, central glow, Spiral, AI, Aletheia and the independent crawl;
+- added Safari/WebKit fullscreen fallback;
+- added reduced-motion handling;
+- created `aletheia-threejs-animation-page.md`;
+- updated `aletheia-threejs-animation-code.md` with compatibility architecture and evidence.
+
+Why Three.js remains r160:
+- r161 removed the legacy global `three.min.js` build;
+- r163 removed WebGL1 support from `WebGLRenderer`;
+- upgrading is therefore a separate ES-module/current-renderer migration, not part of this repair.
+
+Static checks:
+- inline application JavaScript: PASS;
+- duplicate IDs: none;
+- WebGL2 retry: present;
+- WebGL1 retry: present;
+- Canvas 2D fallback: present;
+- Awin MasterTag preserved.
+
+Commits:
+- `1649277e8c4cb74237d7a83de268692a37819cda` — Safari syntax compatibility;
+- `519de90325a7d990354f5cf0c8de80045b532a9e` — WebGL2/WebGL1 renderer retry;
+- `2c722242e4180ea17b115c82f5b9dd92cfc012cb` — Canvas2D compatibility mode;
+- `116bc13afc955dfdabf52a82653fade7d06c9e75` — fullscreen/reduced-motion compatibility;
+- `62c24c903c06f8da01d3ff25dd66d270c147fe39` — code-spec documentation;
+- `94f949c0d9d8a23a4a93b705cc2fb237c7ac73ab` — page specification.
+
+Still required:
+- test the exact previously failing Apple device;
+- record whether it uses WebGL2, WebGL1 or Canvas 2D;
+- retest Android and PC to rule out regression;
+- if Apple still shows crawl only, capture Safari/Web Inspector console output and OS/device version.
