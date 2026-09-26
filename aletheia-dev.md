@@ -387,3 +387,22 @@ Build/reconstruction checks:
 
 This is a publishing/monetisation layer, never a source-of-truth or evidence dependency.
 
+
+
+## 20. SEO/AEO discovery experiments
+
+Treat SEO/AEO as measured publishing work, not folklore.
+
+For a proposed question-led/answer-ready page:
+1. confirm the topic is genuinely useful and belongs to an existing app/knowledge/resource route;
+2. inspect current search intent and competing pages when freshness matters;
+3. use the Site Audit **Native Ad / Advertorial Pattern** method for competitor architecture;
+4. separate REUSE ETHICALLY / TEST / DO NOT COPY / UNKNOWN;
+5. publish crawlable HTML with a useful answer first;
+6. use canonical URLs, internal links, real source links and supported structured data where appropriate;
+7. update sitemap/discovery files when the public route is real;
+8. measure Search Console/analytics before scaling the pattern.
+
+Do not treat FAQ rich-result markup, `llms.txt`, ad-tech scripts, or a competitor's visibility as proof of ranking effect. Correlation is a research lead, not causation.
+
+A/B or before/after experiments should change as few variables as practical and record date, page, change, metric and result.
