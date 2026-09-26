@@ -28,15 +28,16 @@ The page itself is not the AI and does not pretend to edit GitHub by magic.
 2. target application/project input;
 3. optional improvement/definition prompt;
 4. AI provider selector;
-5. optional supporting-file picker;
-6. primary **REFRESH & BUILD PACK** button;
-7. current-state/ambiguity status;
-8. existing related work found;
-9. questions requiring human confirmation;
-10. generated improvement pack;
-11. COPY and OPEN AI actions;
-12. resources/help links;
-13. footer.
+5. **SEO/AEO + Swindon.org.uk cross-pollination** checkbox, on by default;
+6. optional supporting-file picker;
+7. primary **REFRESH & BUILD PACK** button;
+8. current-state/ambiguity status;
+9. existing related work found;
+10. questions requiring human confirmation;
+11. generated improvement pack;
+12. COPY and OPEN AI actions;
+13. resources/help links;
+14. footer.
 
 ## Inputs and stored state
 
@@ -44,6 +45,9 @@ The page itself is not the AI and does not pretend to edit GitHub by magic.
 - Improvement idea: textarea.
 - Provider: select.
 - Supporting files: local browser File objects.
+- Discovery/cross-pollination pass: boolean, default on.
+
+The discovery pass tells the generated pack to check answer-first structure, search/AI query variants, internal links, topic hubs, annotated Go Deeper sources, and reciprocal Swindon.org.uk ↔ Aletheia routes. It does not automatically publish or create pages.
 
 No personal data is required. Do not upload files anywhere automatically.
 
@@ -110,6 +114,9 @@ The generated pack must contain:
 - explicit requirement to search for overlap before creating anything;
 - KISS gate;
 - resource-page check;
+- optional discovery/cross-pollination instructions when selected;
+- SEO title, meta description, query variants, internal-link and topic-hub checks when selected;
+- reciprocal Swindon.org.uk ↔ Aletheia route check when selected;
 - testing/receipt requirements.
 
 ## AI provider behaviour
@@ -128,6 +135,33 @@ Provider options initially:
 COPY uses navigator.clipboard where available, with a textarea/select fallback.
 
 OPEN AI opens exactly one destination in a separate tab/window from the user click. It does not claim to paste or upload automatically.
+
+## Discovery / cross-pollination control
+
+The default checked control should read approximately:
+
+```text
+☑ SEO/AEO + Swindon.org.uk cross-pollination check
+```
+
+When selected, the launcher should add current Swindon.org.uk GUI/code/ideas and Aletheia Knowledge GUI/ideas context to the improvement pack where available, even when the named target lives in another Aletheia repository.
+
+The receiving AI should then check:
+
+- direct answer near the top;
+- three concise key points where useful;
+- descriptive headings;
+- primary/secondary/spoken/AI-answer query variants;
+- SEO title, meta description and clean slug;
+- contextual internal links;
+- matching deeper Aletheia tool/knowledge link;
+- matching Swindon.org.uk front-door/resource link;
+- related-topic and topic-hub opportunities;
+- annotated Go Deeper sources;
+- duplicate/canonical risk;
+- measurable post-publication checks.
+
+Do not create a Swindon.org.uk page merely to satisfy the checklist. The public front door must have independent visitor value.
 
 ## Navigation/window behaviour
 
