@@ -124,3 +124,30 @@ Classify every notable technique:
 - UNKNOWN
 
 This mode should call/reuse the canonical **Aletheia Site Audit → Native Ad / Advertorial Pattern** method instead of creating a second competing framework.
+
+
+## Discovery / cross-pollination pass
+
+**Status:** IMPLEMENTED IN V0.1 LAUNCHER / LIVE DEVICE VERIFY PENDING
+
+The default-on Improve pass now asks the receiving AI to treat Swindon.org.uk and Aletheia as complementary surfaces:
+
+- Swindon.org.uk = concise public/search front door;
+- Aletheia = deeper tool, evidence, knowledge or reusable cards;
+- reciprocal links where both genuinely exist;
+- curated sideways topic links;
+- no duplicated long-form article unless there is a deliberate canonical decision.
+
+The pack also requests:
+
+- primary, secondary, spoken and AI-answer query variants;
+- SEO title and meta description;
+- clean slug;
+- direct answer and three key points where useful;
+- descriptive headings;
+- internal-link opportunities;
+- topic-hub opportunities;
+- annotated Go Deeper sources;
+- measurement after publication.
+
+Future enhancement: show cross-pollination candidates directly in the launcher UI by searching related repository page/content terms, not just including the rule/context in the generated pack.
