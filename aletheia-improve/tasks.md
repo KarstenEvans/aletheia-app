@@ -37,3 +37,18 @@
 
 - [x] Canonical alias test: `Huma` and `Thalia Humor` resolve/search against existing **Thalia Humour** files rather than dead-ending on the mistyped name.
 - [x] AI/provider-sensitive targets automatically add current `aletheia-ai-knowledge.md` / discovery-source context to the improvement pack.
+
+
+## Native Ad / Advertorial Pattern integration | TODO / SPEC ADDED
+
+Canonical analysis now lives in `aletheia-site-audit/aletheia-site-audit.md`, Stage 4A.
+
+Improve should:
+- detect competitor/advertorial/landing-page improvement requests;
+- route them to that Site Audit method;
+- preserve the four technique labels;
+- turn accepted REUSE/TEST findings into the smallest app/site experiment;
+- never copy competitor prose or unverified persuasion claims;
+- record a measurable acceptance criterion.
+
+The Markdown orchestration rule has been added. Browser UI exposure is still a separate implementation task.
