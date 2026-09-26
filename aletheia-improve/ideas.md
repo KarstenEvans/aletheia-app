@@ -97,3 +97,30 @@ Possible later features:
 - optional link/resource checker;
 - optional “why not this existing app?” explanation panel;
 - compare two candidate implementations before selecting a canonical one.
+
+
+## Native Ad / Advertorial Pattern mode
+
+**Status:** ADD TO IMPROVE RESEARCH MODES
+
+When a user supplies a competitor advertorial, product landing page or unusually visible commercial page, offer a structured pattern extraction rather than a generic critique.
+
+Output:
+1. traffic/acquisition clues;
+2. landing-page architecture;
+3. question/answer coverage;
+4. SEO/AEO techniques worth testing;
+5. conversion mechanics;
+6. trust/disclosure weaknesses;
+7. persuasion tactics to reject;
+8. ethical Aletheia/Swindon version;
+9. three smallest experiments;
+10. how to measure them.
+
+Classify every notable technique:
+- REUSE ETHICALLY
+- TEST
+- DO NOT COPY
+- UNKNOWN
+
+This mode should call/reuse the canonical **Aletheia Site Audit → Native Ad / Advertorial Pattern** method instead of creating a second competing framework.
