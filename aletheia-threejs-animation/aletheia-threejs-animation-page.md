@@ -168,3 +168,21 @@ A browser session passes when either:
 2. WebGL is genuinely unavailable/broken and the page automatically provides the useful Canvas 2D compatibility presentation plus crawl.
 
 An unexplained **crawl-only** result is a failure and should be investigated.
+
+
+## Responsive default profiles
+
+Use the page's existing **900px compact breakpoint**.
+
+| Setting | Compact / mobile ≤900px | Wider / desktop >900px |
+| --- | ---: | ---: |
+| Universe | 1.20 | 1.00 |
+| Particles | 0.70 | 0.30 |
+| Camera | 1.30 | 0.50 |
+| Sun | 3.0 | 4.0 |
+
+These values are framing defaults, not device/OS assumptions.
+
+- Apply them at initial Three.js startup.
+- `RESET VIEW` reapplies the defaults for the current viewport.
+- Do not automatically change live user-adjusted values during a resize/orientation event.
