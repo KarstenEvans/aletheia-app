@@ -375,3 +375,19 @@ Do not assume AI systems share a live common memory. Design for independent craw
 Competitor landing pages may be analysed through **Aletheia Site Audit → Native Ad / Advertorial Pattern**. Reuse useful architecture, not deceptive persuasion. Avoid fake scarcity, unverifiable biographies, disguised ads, fake testimonials, misleading locality and scaled thin content.
 
 A page should remain worth publishing even if no search engine or AI ever indexes it.
+
+### Swindon.org.uk cross-pollination
+
+When an Aletheia app has a genuinely useful public/resource counterpart on Swindon.org.uk, use a reciprocal route rather than duplicate copy:
+
+- Swindon.org.uk = concise searchable front door and public context;
+- Aletheia app/knowledge = deeper specialist tool, evidence or reusable knowledge;
+- Swindon.org.uk links to the deeper Aletheia destination;
+- Aletheia links back to the matching Swindon.org.uk resource/front-door page;
+- both may link sideways to a few genuinely related topics.
+
+Do not force a Swindon.org.uk wrapper around every Aletheia app. The extra page must independently help a visitor.
+
+For public explanatory apps, Aletheia Improve should also check query variants, SEO title, meta description, clean slug, answer-first copy, descriptive headings, internal links, related questions, annotated Go Deeper sources and topic-hub opportunities. These are discovery aids, not ranking guarantees.
+
+Prefer curated topic hubs after several substantive pages exist. Do not create empty public tag archives or mass-produce keyword variations.
