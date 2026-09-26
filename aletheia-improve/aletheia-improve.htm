@@ -23,6 +23,11 @@ p{margin:.45rem 0 1rem}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 1px 1px #00000008}
 label{display:block;font-weight:750;margin:.2rem 0 .35rem}
+.checkrow{display:flex;align-items:flex-start;gap:.7rem;border:1px solid var(--line);background:#f9fbfa;border-radius:12px;padding:.75rem .85rem;margin:.75rem 0 1rem;font-weight:500}
+.checkrow input{width:auto;flex:0 0 auto;margin:.22rem 0 0}
+.checkrow span{display:block}
+.checkrow strong{display:block}
+.checkrow .small{display:block;margin-top:.15rem}
 input,textarea,select,button{font:inherit}
 input,textarea,select{width:100%;border:1px solid #9eafab;background:#fff;color:var(--ink);border-radius:10px;padding:.78rem}
 textarea{min-height:120px;resize:vertical}
@@ -83,6 +88,10 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
   </div>
   <label for="idea">What should change, or what should the new idea do?</label>
   <textarea id="idea" placeholder="Optional. Describe the problem, new idea, or improvement. Improve will still inspect the current project before proposing changes."></textarea>
+  <label class="checkrow" for="discoveryPass">
+    <input id="discoveryPass" type="checkbox" checked>
+    <span><strong>SEO/AEO + Swindon.org.uk cross-pollination check</strong><span class="small">Check answer-first structure, search/AI query variants, internal links, topic hubs, Go Deeper sources and reciprocal Swindon.org.uk ↔ Aletheia routes.</span></span>
+  </label>
   <label for="supportFiles">Supporting files</label>
   <input id="supportFiles" type="file" multiple accept=".md,.txt,.json,.csv,.html,.htm,.css,.js,.xml,.yml,.yaml,.log,.pdf,application/pdf,text/*">
   <p class="small">Text-like files stay in your browser and can be included in the pack. PDFs/binary files are listed for manual attachment in v0.1. This page does not silently upload your local files.</p>
@@ -127,6 +136,7 @@ footer{padding:20px 0 40px;color:var(--muted);font-size:.9rem}
     <summary>How this works</summary>
     <p>The launcher refreshes its small repository registry, queries current GitHub trees, looks for the named project and related files, then assembles a provider-neutral prompt. It does not replace the project’s own Markdown, GUI rules or development guide.</p>
     <p><strong>Existing first:</strong> if another Aletheia app, Skill or knowledge collection already covers the job, Improve asks the AI to extend, link or consolidate before creating anything new.</p>
+    <p><strong>Discovery pass:</strong> when selected, Improve also checks whether Swindon.org.uk can act as the concise public front door while the deeper Aletheia app/knowledge remains the specialist destination, with reciprocal links instead of duplicated copy.</p>
   </details>
 </section>
 </main>
@@ -288,7 +298,7 @@ function renderMatches(matches){
     d.appendChild(a);d.appendChild(meta);box.appendChild(d);
   });
 }
-function relatedCandidates(target,matches,trees){
+function relatedCandidates(target,matches,trees,discoveryPass){
   var set={}, out=[];
   function add(repo,path,priority){
     var k=repo+"|"+path;if(set[k])return;set[k]=1;out.push({repo:repo,path:path,priority:priority||0});
@@ -314,7 +324,14 @@ function relatedCandidates(target,matches,trees){
     add("KarstenEvans/aletheia-knowledge","knowledge/aletheia-ai-knowledge.md",65);
     add("KarstenEvans/aletheia-knowledge","knowledge/aletheia-ai-discovery-sources.md",30);
   }
-  return out.sort(function(a,b){return b.priority-a.priority;}).slice(0,22);
+  if(discoveryPass){
+    add("KarstenEvans/SwindonOrgUK","docs/swindonorguk-gui.md",72);
+    add("KarstenEvans/SwindonOrgUK","docs/code.md",64);
+    add("KarstenEvans/SwindonOrgUK","ideas.md",26);
+    add("KarstenEvans/aletheia-knowledge","aletheia-knowledge-GUI.md",70);
+    add("KarstenEvans/aletheia-knowledge","aletheia-knowledge-ideas.md",24);
+  }
+  return out.sort(function(a,b){return b.priority-a.priority;}).slice(0,28);
 }
 async function fetchSource(c){
   var entry=memory.coreRepositories.find(function(e){return e.repo===c.repo;})||{branch:"main"};
@@ -367,7 +384,7 @@ async function processUploads(){
   });
   $("filesCard").classList.toggle("hidden",!uploads.length);
 }
-function buildPrompt(target,idea,provider,refresh,trees,treeErrors,matches,qs,sources){
+function buildPrompt(target,idea,provider,discoveryPass,refresh,trees,treeErrors,matches,qs,sources){
   var lines=[];
   lines.push("# ALETHEIA IMPROVE PACK");
   lines.push("");
@@ -380,6 +397,15 @@ function buildPrompt(target,idea,provider,refresh,trees,treeErrors,matches,qs,so
   lines.push("");
   lines.push("## USER IDEA / REQUEST");
   lines.push(idea.trim()||"[No extra improvement prompt supplied. Inspect the current project and propose only material improvements.]");
+  lines.push("");
+  lines.push("## DISCOVERY / CROSS-POLLINATION PASS");
+  lines.push(discoveryPass?"ENABLED":"DISABLED");
+  if(discoveryPass){
+    lines.push("Use Swindon.org.uk as a concise public/search front door where that adds real visitor value, and Aletheia as the deeper interactive/knowledge layer. Do not clone the same article across both.");
+    lines.push("Check: primary query; secondary variants; likely spoken question; likely AI-answer/retrieval question; SEO title; meta description; clean slug; concise direct answer; three key points where useful; descriptive headings; contextual internal links; Aletheia deep link; Swindon.org.uk front-door/resource link; related questions; topic-hub opportunity; annotated Go Deeper sources; duplicate/canonical risk; post-publication measurement.");
+    lines.push("Where both surfaces exist, create reciprocal links and a few useful sideways topic links. Keep evidence/source links distinct from commercial/resource links.");
+    lines.push("Do not create thin tag pages. Prefer a useful topic hub only when several substantive pages/cards genuinely belong together.");
+  }
   lines.push("");
   lines.push("## EXECUTION CONTRACT");
   lines.push("You are running Aletheia Improve. Do not start by inventing a replacement.");
@@ -447,11 +473,12 @@ async function build(){
   $("foundCard").classList.remove("hidden");
   var qs=questionsFor(target,matches,warnings);
   renderQuestions(qs);
+  var discoveryPass=$("discoveryPass").checked;
   setStatus("Found "+matches.length+" likely repository file match"+(matches.length===1?"":"es")+". Loading the most relevant current source excerpts…",!refresh.live||errors.length>0);
-  var candidates=relatedCandidates(target,matches,trees);
+  var candidates=relatedCandidates(target,matches,trees,discoveryPass);
   var sourceSettled=await Promise.all(candidates.map(fetchSource));
   var sources=sourceSettled.filter(function(s){return s.ok||s.text;});
-  currentPack=buildPrompt(target,$("idea").value,$("provider").options[$("provider").selectedIndex].text,refresh,trees,errors,matches,qs,sources);
+  currentPack=buildPrompt(target,$("idea").value,$("provider").options[$("provider").selectedIndex].text,discoveryPass,refresh,trees,errors,matches,qs,sources);
   $("pack").value=currentPack;
   var manual=uploads.filter(function(f){return f.mode==="manual";}).map(function(f){return f.name;});
   $("manualFiles").textContent=manual.length?"Attach manually to the selected AI: "+manual.join(", "):"No manual binary attachments are pending.";
