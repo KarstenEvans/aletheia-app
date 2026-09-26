@@ -52,3 +52,26 @@ Improve should:
 - record a measurable acceptance criterion.
 
 The Markdown orchestration rule has been added. Browser UI exposure is still a separate implementation task.
+
+
+## Improve run: Aletheia Three.js Animation | IMPLEMENTED / APPLE DEVICE VERIFY
+
+Target resolved to:
+`KarstenEvans/aletheia-app/aletheia-threejs-animation/aletheia-threejs-animation.htm`
+
+Route: **EXTEND EXISTING**.
+
+Problem supplied by owner:
+full graphics work on PC and Android; Apple shows only the independent HTML/CSS crawl.
+
+Improve actions:
+- read current HTML, Three.js recreation spec and shared GUI/dev rules;
+- researched current Three.js/WebKit context behaviour;
+- removed avoidable Safari parse incompatibility;
+- added WebGL2 -> WebGL1 recovery;
+- added animated Canvas 2D compatibility mode for real WebGL failure/context loss;
+- added reduced-motion/Safari fullscreen handling;
+- created missing page specification;
+- recorded root task receipt.
+
+Do not call Apple support verified until the failing Apple device is retested.
