@@ -273,3 +273,37 @@ Working classification:
 
 Compatibility experiment later: test one low-risk Skill and Competitor Monitor in Codex/Kimi/Manus/Odysseus-style environments before claiming the pack is portable across them. Preserve workflow meaning even where packaging differs.
 
+
+
+## Ethical native-ad / answer-ready discovery pattern
+
+**Status:** TEST AS DISCOVERY METHOD
+
+Research into high-visibility advertorial/product pages suggests a useful architecture that Aletheia can borrow ethically:
+
+- one specific problem/question per page;
+- direct answer or story hook near the top;
+- broad but relevant semantic coverage;
+- useful subheadings and related questions;
+- crawlable text rather than JS-only content;
+- strong internal linking;
+- downloadable resources with backlinks;
+- clear next action;
+- source/provenance trail;
+- measurement via Search Console/analytics.
+
+Use **Aletheia Site Audit → Native Ad / Advertorial Pattern** to inspect a competitor page and classify techniques:
+- REUSE ETHICALLY
+- TEST
+- DO NOT COPY
+- UNKNOWN
+
+Do not copy fake scarcity, unverifiable maker stories, disguised advertising, fake testimonials, misleading geography/locality or mass-produced thin pages.
+
+Potential first pilots:
+- Garden Life / hedgehog and bee-hotel questions;
+- Secret Windows practical Windows questions;
+- Swindon factual/local-history questions;
+- Aletheia AI Easy questions that people repeatedly search for.
+
+The goal is not to manipulate AI. The goal is to publish answers that are genuinely useful and easy for humans, search engines and AI retrieval systems to parse and cite.
