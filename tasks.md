@@ -571,3 +571,25 @@ Still required:
 - record whether it uses WebGL2, WebGL1 or Canvas 2D;
 - retest Android and PC to rule out regression;
 - if Apple still shows crawl only, capture Safari/Web Inspector console output and OS/device version.
+
+
+### THREEJS-RESPONSIVE-DEFAULTS-001 | IMPLEMENTED / DEVICE VERIFY | 26 September 2026
+
+Owner supplied a working Android compact-screen configuration from the live Debug panel.
+
+Responsive framing profiles now use the existing 900px viewport breakpoint:
+
+- compact/mobile ≤900px: Universe 1.20, Particles 0.70, Camera 1.30, Sun 3.0;
+- wider/desktop >900px: Universe 1.00, Particles 0.30, Camera 0.50, Sun 4.0.
+
+Behaviour:
+- profile applies on initial load;
+- RESET VIEW restores the current viewport profile;
+- resize/orientation does not overwrite user-adjusted sliders automatically.
+
+Static JavaScript syntax check: PASS after final formatting repair.
+
+Implementation commit: `dd725edc6b5b386b34af5fee7df2399503c5f6a2`
+Specification commits: `4ba58516fa9d15f3699e080c4e281a949226ed59`, `ec2a151977a00d9094364455c6634c7bd510cd63`.
+
+Still verify visually on Android/PC and the previously failing Apple device.
