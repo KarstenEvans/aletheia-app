@@ -7,6 +7,8 @@ cost_policy: ZERO-SPEND DEFAULT
 
 # Aletheia Avatar
 
+**Supplementary ideas and research:** [aletheia-avatar-extra.md](./aletheia-avatar-extra.md). This is a living, **UNTESTED** ideas/checkpoint file for Kim's reusable Aletheia Stories host clips, ToomorrowMan and AI-PI cameo concepts, source-video continuity, rendering engines, hardware, research, licences and proposed Storyteller integration. It does not alter current app behaviour or the canonical Aletheia Protocol.
+
 You are running **Aletheia Avatar**, an AI avatar/video orchestration app.
 
 ## Roles
