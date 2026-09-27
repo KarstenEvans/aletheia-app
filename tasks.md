@@ -633,3 +633,13 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [x] Added top-right Resources link on app plus top/bottom app navigation on resource page.
 - [x] Added original illustrated linked Bookshop.org UK writing/calligraphy/pen-history cards, luxury manufacturer pen link, reflection prompt and commercial disclosure. No actual book covers hotlinked.
 - [ ] Manual live/browser test after GitHub Pages deployment and link checks remain outstanding.
+
+## Improve run: Writing Vibe → Writers library — 27 September 2026
+
+- [x] Extended existing Writing Vibe rather than creating a duplicate. Re-read live Improve memory/router, shared GUI/dev/code, target spec, page, HTML and resources; inspected current GitHub tree.
+- [x] Created `Writers/` with README, Terry Pratchett profile, resource Markdown, catalogue CSV and explicit `writers.json` registry.
+- [x] Source-researched first-person interview, official bibliography (41 Discworld novels), author archive/nonfiction, authorised novel sample, secondary Gaiman account and Scribd reading list. No unlicensed full-text novels copied.
+- [x] CSV scope: 41 official Discworld novels plus 23 selected other works/collaborations; retailer search routes are not claims of individually verified editions/stock.
+- [x] Canonical app MD/page and HTML extended with three named outputs, public library links, separate reviewed download buttons, mandatory both-protocol URL gate, no automatic GitHub write claim.
+- [x] Source-level HTML inline JavaScript syntax/unique-ID/Awin-once checks passed after edit.
+- [ ] Test live Pages app, copy/download actions and provider handoff in actual browsers, including Android/Windows/Safari. Test authenticated connector publication only with explicit permissions. Investigate expanded full official bibliography/individual ISBN and audiobook status incrementally.
