@@ -593,3 +593,18 @@ Implementation commit: `dd725edc6b5b386b34af5fee7df2399503c5f6a2`
 Specification commits: `4ba58516fa9d15f3699e080c4e281a949226ed59`, `ec2a151977a00d9094364455c6634c7bd510cd63`.
 
 Still verify visually on Android/PC and the previously failing Apple device.
+
+## Aletheia Legal Check — application versus technical sources (27 September 2026)
+
+- [x] Resolve canonical naming: **Aletheia Legal Check**, proposed `aletheia-legal-check/aletheia-legal-check.md`; version in YAML, not filename. Historical `aletheia-uk-legal-sources.md` is a technical source register, not the runnable app.
+- [x] Draft explicit START and mandatory live-research workflow, source-by-source receipt, blocked-source/manual fallback and no invented citation. Local v0.4.0 review pack prepared, NOT deployed.
+- [x] Review current Improve memory/workflow, repo AGENTS/README/shared GUI/dev/code/task rules, Aletheia and Thalia protocol routes.
+- [x] Prepare separate local draft Knowledge (10 cards), official-first resources Markdown/HTML, optional Storyteller gavel story and HTML page specification.
+- [ ] Test actual imported `aletheia-legal-check.md` in ChatGPT and Gemini: does a direct question invoke actual browsing and show source URLs and READ/LINK FOUND/BLOCKED status without a second user reminder? Record per-provider tool availability/results.
+- [ ] Test Find Case Law API search, CORS/network fallback, result identity/citation, PDF-only coverage and 429/400 handling; never mistake OpenAPI fixture Jarndyce for a real case.
+- [ ] Test legislation.gov.uk point-in-time version/extent/commencement and permitted BAILII discovery/link behaviour; separately check appeals/later legal treatment.
+- [ ] Ask National Archives for written clarification/licence for any intended AI/LLM or computational analysis of judgment text before enabling that feature.
+- [ ] Reconcile local source register/knowledge/resources with owning repos and publish only after review. Register approved Knowledge in `knowledge/knowledge.json` and approved story in `stories/stories.json`; do not prematurely claim either is live.
+- [ ] Build a functioning `aletheia-legal-check.htm` only from the app Markdown and `aletheia-legal-check-page.md`; source retrieval must actually work or be visibly unavailable. Pair with `aletheia-legal-check-rsc.htm`.
+- [ ] Test Windows Chrome/Edge, Android Chrome, Apple Safari/WebKit, accessibility/focus, source receipts, links/privacy, licence attribution; update README/manifest/site links only when verified.
+- [ ] Keep gifts, comedy and any eventual approved affiliates in separate resources section; no affiliate influence on legal findings.
