@@ -33,6 +33,23 @@ The published .htm is STATIC + AI HANDOFF. It can locally read .txt/.md/.csv/.ht
 7. Produce original transferable style guidance, NOT mimicry or a claim to write as the person. Brief illustrative prose must be novel, labelled as an example. For political figures, describe writing only, with no endorsement, electoral scoring, predictions or inferred motives. Never invent quotes, biographies, sources, dates or page content.
 8. Let the human review before saving/publishing. Create Markdown named aletheia-vibe-<name-slug>.md with source inventory, exclusions, observations, confidence/scope, time variation, style card, optional modes, do/don't, original example and gaps. Do not include unrelated personal data or a wholesale scraped corpus.
 
+## Writer library and three-file output (Aletheia Improve extension, 27 September 2026)
+
+The existing app is extended rather than duplicated. Canonical repository folder: `KarstenEvans/aletheia-app/Writers/`. For confirmed author name `Name Surname`, use:
+
+1. `Writers/aletheia-name-surname.md`: complete sourced writing vibe and evidence receipt.
+2. `Writers/aletheia-name-surname-rsc.md`: official bibliography, author/publisher sites, checked Bookshop.org UK author/title search links, legitimate audiobook/publisher previews and optional commercial disclosure.
+3. `Writers/name-surname.csv`: book title, series/category, publication order where established, credited collaborators, official source URL, Bookshop UK search link, optional verified ISBN/edition, checked availability/status and scope notes.
+4. `Writers/writers.json`: explicit curated manifest updated only after the three files are reviewed and saved.
+
+Every Markdown output starts with links to both Aletheia and Thalia Protocols. A full list of all books means use official bibliography and distinguish titles from editions, joint authorship, adaptations, companions and reprints. Do not invent ISBNs/years or assert current retailer stock from an unchecked search. Source-by-source research may draw on official author/publisher pages, clearly bylined posts and interviews, licensed samples, copyright-respecting social posts, legal audiobook previews, and Scribd/Everand **only where provenance/licensing is verified**. Do not reproduce or bulk-ingest unauthorised full-text books. Disambiguate subject names.
+
+**Static browser execution:** it may display a curated read-only Writers manifest, gather local text, prepare explicit source-search instructions, accept a researched AI-generated three-part package pasted back by the user and download three correctly named portable files. It CANNOT safely write directly to GitHub from public Pages without authorised write-capable integration. If the user is running inside a connected, write-authorised AI/agent, the agent can read current GitHub state, request review where appropriate, and create/update the three files plus registry with receipts. No token in HTML, no implied authentication and no promise that visiting GitHub Pages auto-saves.
+
+**Insufficient evidence:** if attributable original material is too sparse, return an incomplete evidence/needs-more-text receipt; do not publish a fabricated profile, invented bibliography or empty false-complete resource set. Saving remains an explicit, reviewable action.
+
+**Initial worked example:** `Writers/aletheia-terry-pratchett.md`, `Writers/aletheia-terry-pratchett-rsc.md`, `Writers/terry-pratchett.csv` and `Writers/writers.json`. This first CSV records all 41 official Discworld novels plus 23 selected non-Discworld/companion works, **not** every edition or every work; scope is visible.
+
 ## Final Markdown structure
 - Title, followed immediately by both Aletheia and Thalia Protocol references; identity and disambiguation; dated status; evidence scope
 - Direct summary (or INSUFFICIENT EVIDENCE statement; protocol links still required)
@@ -61,7 +78,7 @@ Canonical: https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROT
 Positivity-first, humour only when evidence demonstrates it. Analyse mechanism (dry aside, juxtaposition, self-deprecation, absurdity, timing) rather than forcing jokes into every author's profile. Distinguish analysis of a person's rhetoric from endorsing their statements.
 
 ## Resources
-Use aletheia-writing-vibe-rsc.htm, linked in the top-right header and footer of the app and with app navigation at top and bottom of the resources page. Official/published primary writing first; search providers and public source links are aids only. Separate clearly labelled optional Bookshop.org UK craft-books and writing-related gifts, including pen/history/calligraphy and luxury writing-instrument maker links, from the source/evidence section. Use verified direct links, illustrative CSS/SVG cards instead of hotlinked copyrighted covers, and a visible commercial/affiliate disclosure. No monetisation of evidentiary citations.
+See also [Writers library](../Writers/README.md) and its explicit [writers.json](../Writers/writers.json). Use aletheia-writing-vibe-rsc.htm, linked in the top-right header and footer of the app and with app navigation at top and bottom of the resources page. Official/published primary writing first; search providers and public source links are aids only. Separate clearly labelled optional Bookshop.org UK craft-books and writing-related gifts, including pen/history/calligraphy and luxury writing-instrument maker links, from the source/evidence section. Use verified direct links, illustrative CSS/SVG cards instead of hotlinked copyrighted covers, and a visible commercial/affiliate disclosure. No monetisation of evidentiary citations.
 
 ## Build and acceptance
 Follow AGENTS.md, aletheia-GUI.md, aletheia-dev.md, aletheia-code.md and Improve memory. Canonical MD first; page spec and HTML rendered implementation. Mobile-first accessible. No key or vendor API dependency. Static tests: file chooser, sanitiser, named-block extractor, short/no-evidence warning, copy fallback, research-pack export, safe external links, filename slug, no duplicate IDs, JS parse. LIVE and DEVICE tests remain separate.
