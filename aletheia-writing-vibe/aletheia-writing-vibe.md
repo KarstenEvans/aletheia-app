@@ -2,7 +2,8 @@
 title: Aletheia Writing Vibe
 system_id: aletheia-writing-vibe
 artifact_type: research-assisted-writing-style-app
-status: published static handoff v0.1
+version: '1.0'
+status: published static handoff
 rendered_file: aletheia-writing-vibe.htm
 page_spec: aletheia-writing-vibe-page.md
 resource_page: aletheia-writing-vibe-rsc.htm
@@ -16,13 +17,14 @@ reviewed: 2026-09-27
 
 
 ## START / menu
+Public demonstrations and placeholder copy use **Joe Bloggs**, a fictional name. Do not include real case studies or user-provided personal posts in public source, sample exports or shared UI.
 Ask: **Whose writing would you like to analyse?** Give their name, optional identity context or website, and paste/upload posts, articles or transcripts. Offer **RESEARCH + CREATE VIBE**, **LOCAL CLEAN + PREVIEW**, **EXPORT RESEARCH PACK**, and **RESOURCES**. Ask only material identity/source questions not already answered. For a name alone, request writing samples or explicitly begin a search and withhold an unsupported vibe.
 
 ## Operating mode / truthful boundary
 The published .htm is STATIC + AI HANDOFF. It can locally read .txt/.md/.csv/.html text, strip export noise, label candidate author blocks, prepare a search-and-analysis pack, open independently triggered public searches, copy/download the pack, and hand it to a selected external AI. It DOES NOT automatically scrape Facebook, perform AI analysis, retrieve inaccessible sources, log into sites, post to GitHub or silently transmit uploaded files. A connected authorised AI must actually research and produce the evidence-based final .md. Fail visibly when unavailable.
 
 ## Source and identity workflow
-1. Identify full name, profession/site/region only where supplied or sourced. Disambiguate same-name people before assigning content. Filename uses confirmed/display name slug (e.g. aletheia-vibe-gary-mason.md; aletheia-vibe-donald-trump.md), never a guessed alias.
+1. Identify full name, profession/site/region only where supplied or sourced. Disambiguate same-name people before assigning content. Filename uses confirmed/display name slug (e.g. aletheia-vibe-joe-bloggs.md), never a guessed alias.
 2. Ingest user-provided samples. Preserve source copy separately. Ignore standalone Facebook, See more/less, Reply, reactions, navigation, timestamps and Wordle grids. Start a candidate block on standalone matching author name, retain dates and words; distinguish original text, captions, comments, quotations, shares and third-party copy. Do not attribute reposted quotations to the profile subject.
 3. Search the accessible public web proactively for the named person's own blogs, official/personal sites, guest posts, columns, long-form captions, attributable public social posts, published essays/articles, interviews/transcripts containing their own words and accessible archives. Use name plus identity clues, domain/byline searches and cross-check official crosslinks. Do not stop at the pasted Facebook material. Record URL, title, author evidence, publication date, retrieval date and excerpt/observation. Treat snippets, lookalikes and same-name hits as leads, not proof. Do not bypass login/access controls. Search results are not independently validated merely because an AI returned them.
 4. Compare years and genres. Separate professional, personal, argumentative, promotional and later/earlier registers. Do not derive character/personality, private traits or political beliefs from writing habits.
@@ -59,7 +61,7 @@ Canonical: https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROT
 Positivity-first, humour only when evidence demonstrates it. Analyse mechanism (dry aside, juxtaposition, self-deprecation, absurdity, timing) rather than forcing jokes into every author's profile. Distinguish analysis of a person's rhetoric from endorsing their statements.
 
 ## Resources
-Use aletheia-writing-vibe-rsc.htm. Official/published primary writing first; search providers and public source links are aids only. No monetisation of evidentiary citations.
+Use aletheia-writing-vibe-rsc.htm, linked in the top-right header and footer of the app and with app navigation at top and bottom of the resources page. Official/published primary writing first; search providers and public source links are aids only. Separate clearly labelled optional Bookshop.org UK craft-books and writing-related gifts, including pen/history/calligraphy and luxury writing-instrument maker links, from the source/evidence section. Use verified direct links, illustrative CSS/SVG cards instead of hotlinked copyrighted covers, and a visible commercial/affiliate disclosure. No monetisation of evidentiary citations.
 
 ## Build and acceptance
 Follow AGENTS.md, aletheia-GUI.md, aletheia-dev.md, aletheia-code.md and Improve memory. Canonical MD first; page spec and HTML rendered implementation. Mobile-first accessible. No key or vendor API dependency. Static tests: file chooser, sanitiser, named-block extractor, short/no-evidence warning, copy fallback, research-pack export, safe external links, filename slug, no duplicate IDs, JS parse. LIVE and DEVICE tests remain separate.
