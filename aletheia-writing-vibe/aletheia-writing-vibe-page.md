@@ -1,6 +1,6 @@
 # Aletheia Writing Vibe — page build contract
 
-Status: static/AI handoff v0.1. Last reviewed 2026-09-27.
+Status: static/AI handoff 1.0. Last reviewed 2026-09-27.
 Canonical URL: https://karstenevans.github.io/aletheia-app/aletheia-writing-vibe/aletheia-writing-vibe.htm
 Rendered file: aletheia-writing-vibe.htm
 Source: aletheia-writing-vibe.md
@@ -11,6 +11,7 @@ Resources: aletheia-writing-vibe-rsc.htm
 Show both protocol references from the app and at the top of every generated research-pack Markdown. External AI instructions require both references near the beginning of the final subject-vibe Markdown, including insufficient-evidence outcomes. Search scope defaults to public author research; a direct user click opens multiple targeted search query links individually, and selected AI must actually browse if supported. Do not pretend manual search links are automatic online research.
 
 ## Actual page order
+Use fictional Joe Bloggs for all public demo placeholders. The header includes a right-aligned Resources link as well as the footer link. Resource page links back to the app at its top and bottom. No real-person example corpus in public source.
 Header, short limitation banner, name/identity and source URL, pasted sample/upload input, LOCAL CLEAN + PREVIEW and PREPARE RESEARCH PACK actions, attribution/source preview and counts, evidence gate/warning, provider selection and copy/download/open buttons, targeted blog/byline/public-post search links, resources, protocol footer.
 
 ## Runtime
