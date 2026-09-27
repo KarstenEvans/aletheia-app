@@ -619,3 +619,9 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [ ] Live GitHub Pages load, browser workflow, clipboard/file chooser and real AI-provider handoff tests pending; test Windows Chrome/Edge, Android Chrome, Safari/WebKit; source-level checks do not imply these passes.
 - [ ] Test Gary Mason sample as a complete end-to-end research case in connected AI; verify exclusion of reposts and dated bylined sources.
 - [ ] Consider an optional authorised connected runner only after handoff mode passes. Never embed API keys or claim the static page searches itself.
+
+## Protocol-reference rule + Writing Vibe online discovery — 27 September 2026
+
+- [x] Shared GUI/dev rules require every Aletheia app to declare at the beginning of its canonical Markdown that all generated Markdown includes both Aletheia and Thalia references near its beginning, including no-evidence outputs.
+- [x] Writing Vibe spec/page/output handoff updated for public blog, official site, attributable byline, guest article, public long-form social writing and archives search, with namesake verification and visible no-browsing fallback.
+- [ ] Verify in real provider tests that online search is actually performed and citations are checked; HTML manual search launcher is not a crawler.
