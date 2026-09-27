@@ -307,3 +307,15 @@ Potential first pilots:
 - Aletheia AI Easy questions that people repeatedly search for.
 
 The goal is not to manipulate AI. The goal is to publish answers that are genuinely useful and easy for humans, search engines and AI retrieval systems to parse and cite.
+
+## Aletheia Legal Check — researched draft (27 September 2026)
+
+**Canonical name:** Aletheia Legal Check. **Planned app path:** `aletheia-legal-check/aletheia-legal-check.md` (no version in filename). Previous `Aletheia Law Check` and `Aletheia UK Legal Sources` drafts were not executable app contracts; distinguish the application from its technical source register. The corrected local draft is v0.4.0 pending cross-provider test/publication.
+
+**Purpose:** a portable conversational tool that actually invokes available live browsing to find applicable original legislation and judgments before answering a legal question, with a source-by-source READ / LINK FOUND / BLOCKED / NOT FOUND / NOT APPLICABLE receipt. If the host lacks browsing, say NOT LIVE VERIFIED and give exact manual routes. Never claim that an attached Markdown file itself enables tools.
+
+**Existing-work decision:** CREATE a separate legal research application for question, citation, date/jurisdiction and receipt state; REUSE Aletheia Protocol evidence/claim/conflict receipts and shared GUI/dev contracts; LINK to the separate `aletheia-uk-legal-sources.md` technical register, the proposed Aletheia Knowledge cards, and the optional Storyteller fiction *The Curious Case of the Missing Gavel*. No duplicate generic Trust Check or Source Recovery engine.
+
+**Official/free first:** Find Case Law, legislation.gov.uk, BAILII individual links within its rules, GOV.UK tribunal decisions and jurisdiction-specific judiciary repositories. Commercial Lexis/Lawtel links and separate optional books/gifts/comedy are resources, never evidence-ranking criteria. The National Archives' Open Justice Licence v2.0 does not itself authorise computational analysis; obtain written licence/scope clarification before automated AI judgment-text processing. BAILII does not permit unauthorised copying or ingestion of search results/HTML.
+
+**Publication status:** local draft files and resources preview exist; no live CHECK HTML, official API transport/device tests, Aletheia Knowledge manifest registration, story manifest entry, or affiliate approvals have been established. Only publish as working after behaviour and source receipts have been tested in actual target AI and browsers.
