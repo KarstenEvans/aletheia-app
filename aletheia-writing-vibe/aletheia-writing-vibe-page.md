@@ -28,3 +28,11 @@ Semantic labels, live status, visible focus, responsive single/two column layout
 
 ## Verify
 Static JavaScript parser, duplicate IDs, end tag, policy/source and injection safety checks. Device testing Windows Chrome/Edge, Android Chrome and Safari/WebKit pending. GitHub Pages and source/response check pending until independently observed.
+
+## Writer library / export extension (27 September 2026)
+
+- Curated public `../Writers/writers.json`, with a static Terry Pratchett starter link and direct profile/resources/CSV links. Static page does not enumerate a folder or claim automatic write privileges.
+- Result pack instructs research-capable AI to produce three named files: `Writers/aletheia-<name>.md`, `Writers/aletheia-<name>-rsc.md`, `Writers/<name>.csv`. It must search official author/publisher, published original writing, and licensed excerpts/audio and verify ISBN/retailer claims individually or leave fields unknown.
+- Three separate textareas accept the returned profile Markdown, resources Markdown, and CSV. Three download buttons each produce the proper name using the verified person field. Markdown download refuses if either Aletheia/Thalia canonical URL is absent. User reviews before saving through separately authorised GitHub access.
+- Reader/publisher distinction: app downloadable files do not create a GitHub commit, manifest registration or online page. Connected AI may save only after actually checking current tree and permissions, recording resulting commits.
+- Preserve search/clean/provider handoff, Awin once, mobile/accessibility and no-key/no-upload guarantees. Insufficient evidence must be explicit.
