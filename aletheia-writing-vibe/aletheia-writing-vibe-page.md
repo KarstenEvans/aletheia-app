@@ -6,8 +6,12 @@ Rendered file: aletheia-writing-vibe.htm
 Source: aletheia-writing-vibe.md
 Resources: aletheia-writing-vibe-rsc.htm
 
+## Mandatory protocol/output behaviour
+
+Show both protocol references from the app and at the top of every generated research-pack Markdown. External AI instructions require both references near the beginning of the final subject-vibe Markdown, including insufficient-evidence outcomes. Search scope defaults to public author research; a direct user click opens multiple targeted search query links individually, and selected AI must actually browse if supported. Do not pretend manual search links are automatic online research.
+
 ## Actual page order
-Header, short limitation banner, name/identity and source URL, pasted sample/upload input, LOCAL CLEAN + PREVIEW and PREPARE RESEARCH PACK actions, attribution/source preview and counts, evidence gate/warning, provider selection and copy/download/open buttons, research links, resources, protocol footer.
+Header, short limitation banner, name/identity and source URL, pasted sample/upload input, LOCAL CLEAN + PREVIEW and PREPARE RESEARCH PACK actions, attribution/source preview and counts, evidence gate/warning, provider selection and copy/download/open buttons, targeted blog/byline/public-post search links, resources, protocol footer.
 
 ## Runtime
 Static client-side, no API keys, trackers beyond repository-required production Awin tag, no autonomous retrieval or upload. Use FileReader for UTF-8 text; strip repeated Facebook chrome; preserve original copy in browser only. Accept .txt/.md/.csv/.html and pasted text. Sanitize all output by textContent/value, not innerHTML. User-entered URL is optional search hint, not a fetched source. External AI handoff prompt instructs public verification; page does not claim that a source was viewed. Avoid storing source text in localStorage. The browser can download a Markdown research pack, not a false completed author profile.
