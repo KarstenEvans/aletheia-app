@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "description": "Curated Aletheia writer registry; canonical files under Writers/",
+  "writers": [
+    {
+      "name": "Terry Pratchett",
+      "slug": "terry-pratchett",
+      "profile": "aletheia-terry-pratchett.md",
+      "resources": "aletheia-terry-pratchett-rsc.md",
+      "catalogue": "terry-pratchett.csv",
+      "profile_status": "researched synthesis",
+      "catalogue_scope": "41 Discworld novels and 23 selected other works",
+      "checked": "2026-09-27"
+    }
+  ]
+}
