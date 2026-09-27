@@ -608,3 +608,14 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [ ] Build a functioning `aletheia-legal-check.htm` only from the app Markdown and `aletheia-legal-check-page.md`; source retrieval must actually work or be visibly unavailable. Pair with `aletheia-legal-check-rsc.htm`.
 - [ ] Test Windows Chrome/Edge, Android Chrome, Apple Safari/WebKit, accessibility/focus, source receipts, links/privacy, licence attribution; update README/manifest/site links only when verified.
 - [ ] Keep gifts, comedy and any eventual approved affiliates in separate resources section; no affiliate influence on legal findings.
+
+## Aletheia Writing Vibe — 27 September 2026
+
+- [x] Improve route: CREATE NEW after checking repository tree for functional/name overlap and reading current Improve memory, AGENTS, GUI, dev, code and relevant tasks/ideas.
+- [x] Canonical MD, detailed page specification, mobile-first HTML and -rsc.htm published to `aletheia-writing-vibe/`.
+- [x] Local pasted/text-file intake, Facebook UI-line cleanup, original/repost attribution warnings, editable preview, output filename slug, research pack copy/download and manual provider handoff.
+- [x] No-evidence rule explicitly forbids fabricated vibe; independent source research and identity verification required of the receiving AI.
+- [x] Aletheia / Thalia links and research/privacy boundaries documented; page has one Awin tag in production HTML.
+- [ ] Live GitHub Pages load, browser workflow, clipboard/file chooser and real AI-provider handoff tests pending; test Windows Chrome/Edge, Android Chrome, Safari/WebKit; source-level checks do not imply these passes.
+- [ ] Test Gary Mason sample as a complete end-to-end research case in connected AI; verify exclusion of reposts and dated bylined sources.
+- [ ] Consider an optional authorised connected runner only after handoff mode passes. Never embed API keys or claim the static page searches itself.
