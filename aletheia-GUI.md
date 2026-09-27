@@ -6,6 +6,15 @@
 >
 > **Scope:** this document guides interfaces in `KarstenEvans/aletheia-app`. An individual app's `*-page.md` or app specification may declare justified exceptions.
 
+## Mandatory protocol references in every Aletheia Markdown output
+
+Every Aletheia app must state **at the beginning of its canonical Markdown/instructions** that every Aletheia Markdown file it generates must include references to **both** canonical protocols, irrespective of whether humour is used:
+
+- [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol)
+- [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
+
+Put the two links visibly near the beginning of every generated `.md` (after front matter/title) and explain their roles: Aletheia for provenance, evidence and uncertainty; Thalia for considered, optional humour and positivity-first tone. No invented protocol text or copied protocol specifications. The app's opening/instructions must declare this output contract; the HTML interface should make it visible when relevant. The absence of jokes does not excuse omitting the Thalia reference. On insufficient-evidence outputs, include both references even when no substantive analysis can be produced. Check the actual generated Markdown before exporting.
+
 ## 0. Read the real app before changing it
 
 Before a substantial rebuild:
