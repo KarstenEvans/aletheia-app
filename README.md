@@ -99,3 +99,8 @@ More Aletheia apps can be added as separate folders following the same portable,
 ## Licence
 
 No licence has been selected yet. Public visibility alone does not grant permission to copy, modify or redistribute the contents.
+
+## Aletheia Writing Vibe
+
+- [Open Writing Vibe](https://karstenevans.github.io/aletheia-app/aletheia-writing-vibe/aletheia-writing-vibe.htm) — paste/upload text and clean Facebook UI noise locally; prepare an explicit external-AI research pack. This static page does not scrape, browse or itself create a verified AI-written profile.
+- [Canonical workflow](aletheia-writing-vibe/aletheia-writing-vibe.md) · [Page specification](aletheia-writing-vibe/aletheia-writing-vibe-page.md) · [Resources](aletheia-writing-vibe/aletheia-writing-vibe-rsc.htm).
