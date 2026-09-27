@@ -301,6 +301,7 @@ function speakCurrent(){
       u.onstart=()=>{$('narrationFallback').classList.add('hide');};
        u.onend=advance;
       u.onerror=()=>{
+        if(generation!==speechGeneration||!playing||paused)return;
         if(!retried&&c.speaker&&settings.voice!==state.voice&&state.voice)
           say({voice:state.voice,rate:state.rate,pitch:state.pitch},true);
         else {playing=false;paused=true;$('playBtn').textContent='>';setStatus('Narration was blocked. Tap the visible button to hear the story.');$('narrationFallback').classList.remove('hide');}
