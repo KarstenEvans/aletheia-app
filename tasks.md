@@ -617,7 +617,7 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [x] No-evidence rule explicitly forbids fabricated vibe; independent source research and identity verification required of the receiving AI.
 - [x] Aletheia / Thalia links and research/privacy boundaries documented; page has one Awin tag in production HTML.
 - [ ] Live GitHub Pages load, browser workflow, clipboard/file chooser and real AI-provider handoff tests pending; test Windows Chrome/Edge, Android Chrome, Safari/WebKit; source-level checks do not imply these passes.
-- [ ] Test Gary Mason sample as a complete end-to-end research case in connected AI; verify exclusion of reposts and dated bylined sources.
+- [ ] Test a synthetic Joe Bloggs sample as a complete end-to-end research case in connected AI; verify exclusion of reposts and dated bylined sources. Do not publish real-person source posts or named personal test cases.
 - [ ] Consider an optional authorised connected runner only after handoff mode passes. Never embed API keys or claim the static page searches itself.
 
 ## Protocol-reference rule + Writing Vibe online discovery — 27 September 2026
@@ -625,3 +625,11 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [x] Shared GUI/dev rules require every Aletheia app to declare at the beginning of its canonical Markdown that all generated Markdown includes both Aletheia and Thalia references near its beginning, including no-evidence outputs.
 - [x] Writing Vibe spec/page/output handoff updated for public blog, official site, attributable byline, guest article, public long-form social writing and archives search, with namesake verification and visible no-browsing fallback.
 - [ ] Verify in real provider tests that online search is actually performed and citations are checked; HTML manual search launcher is not a crawler.
+
+## Writing Vibe 1.0 release — 27 September 2026
+
+- [x] Replaced named real-person demo references with fictional Joe Bloggs in public app source/spec and tasks.
+- [x] Updated existing canonical app files in place; release designation 1.0 without versioned filenames.
+- [x] Added top-right Resources link on app plus top/bottom app navigation on resource page.
+- [x] Added original illustrated linked Bookshop.org UK writing/calligraphy/pen-history cards, luxury manufacturer pen link, reflection prompt and commercial disclosure. No actual book covers hotlinked.
+- [ ] Manual live/browser test after GitHub Pages deployment and link checks remain outstanding.
