@@ -123,3 +123,14 @@ If loading fails, show an actionable message; missing biography includes must no
 2026-09-23: Removed generated “New title” from browser narration; introduced a 400ms heading-end pause with cancellation on playback interruption. JavaScript syntax checked; live voice test pending.
 
 2026-09-23: Added story-level character profiles, explicit quotation-based actor voice selection, best-effort locale fallback and default single-sentence captions. Preserved the current 400 ms heading pause without synthetic words. Static parser tested with the actual first story; live PC/Android voice availability and image playback still need user testing.
+
+## Story-first opening update (27 September 2026)
+
+- Choosing a story from the library, changing selection, or following a registered `?story=...` deep link calls `loadStory`, prepares the image and first cue, displays the selected story title over the stage, and schedules narration after an approximately 2.2-second title display.
+- Browser-TTS stories start at cue zero without requiring a press on the transport Play button. If a same-basename MP3/VTT is selected for a story without character voices, the player attempts that audio after the same delay.
+- If a browser denies autoplay, the page exposes an accessible **Tap to hear the story** button. A user gesture cannot be simulated or guaranteed by the app; don't claim silent autoplay always works on mobile Safari or other restricted environments.
+- Stop, story switch, back to library and manual Play cancel a pending opening timer. A generation token prevents a delayed opening from a previous story firing during a later one. Transport remains pause/skip/replay, not the primary starting gate.
+- The player still reads the literal Markdown title and subheadings; no artificial "New title" utterance is added. The existing heading pause remains 400ms. This opening title delay is separate from `[hold;seconds]` cues.
+- A new standalone resource page at `aletheia-storyteller-sunday-rsc.htm` links back to this player and to the main `aletheia-storyteller-rsc.htm`. `stories/ToomorrowMan-and-the-Sunday-That-Forgot-the-Sun-books.csv` contains the official 41 Discworld publication-order titles and a clearly non-exhaustive additional selection as search/research entries. Bookshop search links are NOT verified per-edition affiliate links.
+- The Sunday camera draft is still staged under `stories/drafts/` until the required image file exists at `stories/ToomorrowMan-and-the-Sunday-That-Forgot-the-Sun.webp`; do not switch the public story to a missing asset.
+- QA pending: real Android/Windows/macOS/iOS voice-autoplay behaviour, first-cue state after blocked audio, mobile focus crops, Bookshop search results, and deployed Pages links. Source-only checks are not browser testing.
