@@ -205,7 +205,3 @@ It just wasn't having it in Swindon.
 ## The End
 
 *Or possibly the beginning, depending on which button you press.*
-
----
-
-**Story notes:** Original Aletheia fiction featuring the existing ToomorrowMan, AI-PI and Schrödinger characters. Inspired by the general techniques of logical absurdity and warm comic fantasy, not an adaptation of any Terry Pratchett text. Uses a verified existing portrait as placeholder artwork; a dedicated Sunday illustration has not yet been created. Browser character-voice profiles are best-effort and depend on installed voices.
