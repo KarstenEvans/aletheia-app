@@ -4,6 +4,15 @@
 >
 > **Relationship:** `aletheia-GUI.md` governs common interaction/UX. `aletheia-code.md` remains the small library of reusable named procedures. This file explains how a whole app should be specified, built, tested and handed over.
 
+## Mandatory generated-Markdown protocol contract
+
+At the **beginning of every Aletheia app's canonical specification**, declare that any Markdown file created by that app MUST include both canonical protocol references near the beginning, immediately after optional YAML front matter and the title:
+
+- Aletheia Protocol: https://github.com/KarstenEvans/aletheia-protocol
+- Thalia Protocol: https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md
+
+Describe Aletheia as the evidence/provenance/uncertainty contract and Thalia as the optional humour/positivity companion. References are mandatory even when no jokes are appropriate, the output is provisional, or the evidence is insufficient. The app must apply this rule to downloaded, copied and AI-handoff output templates, not just its own documentation. Treat generated Markdown without either reference as a failed acceptance test. Do not add affiliate/tracking parameters to evidence/protocol URLs. This is a forward-looking shared contract; do not rewrite unrelated historical files without a separate migration/review.
+
 ## 0. Start every material app task here
 
 Read:
