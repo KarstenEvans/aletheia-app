@@ -62,6 +62,12 @@ A repository-aware maintenance launcher. Enter an Aletheia app/project or new id
 
 It prefers extending/reusing existing apps, Skills and knowledge collections over creating near-duplicates, and includes a canonical-name/spelling gate for speech-to-text ambiguities.
 
+### Aletheia Legal Check (local draft, testing pending)
+
+A source-led UK legal-research workflow is being prepared under the canonical name **Aletheia Legal Check**, with proposed application filename `aletheia-legal-check.md` (version stored inside the file). It will require actual official-source lookup and an honest source-by-source receipt, or a visible `NOT LIVE VERIFIED` fallback where the chosen AI has no retrieval tools. Its separate technical reference is `aletheia-uk-legal-sources.md`.
+
+**Not yet a published app:** the v0.4 Markdown, HTML page specification, knowledge cards, resources and optional Storyteller story are local review drafts pending imported-AI and browser/API tests. See [ideas.md](ideas.md) and [tasks.md](tasks.md) for scope and release gates. Do not confuse a static resources page with a functioning CHECK search tool.
+
 ### Aletheia Storyteller
 
 An illustrated, narratable browser reader for portable Markdown adventures and character biographies. It uses named image hotspots for smooth pan and zoom, a searchable story/BIO index and optional `[bio-Filename.md]` inclusion.
