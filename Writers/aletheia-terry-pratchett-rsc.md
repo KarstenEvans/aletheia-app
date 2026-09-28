@@ -23,6 +23,9 @@ catalogue: terry-pratchett.csv
 - [Small Gods](https://www.audible.co.uk/pd/Small-Gods-Audiobook/B09LZ4LZ1X): Andy Serkis, Bill Nighy and Peter Serafinowicz.
 - The [CSV](terry-pratchett.csv) adds three audio columns. Five selected editions were checked individually; other rows use a clearly labelled author-level catalogue rather than fabricated product links. Checked 28 September 2026.
 
+## Book discovery on Aletheia
+Our [main public Terry Pratchett page](aletheia-terry-pratchett.htm#allbooks) now renders all 64 CSV entries into an original local bookshelf, with individual Bookshop title-search destinations and either specifically checked Audible book editions or a clearly identified general Audible author-catalogue link. External estate, publisher and third-party sites remain attributed research and further-reading sources; their prose/artwork/referral tracking are not copied. Direct retailer/search links are not automatically personal affiliate tracking links.
+
 ## Books and bibliography
 - [Bookshop.org UK: search Terry Pratchett](https://uk.bookshop.org/beta-search?keywords=Terry+Pratchett) (search route; verify live edition and stock before buying).
 - [Official author/publisher series and books](https://terrypratchett.com/books/).
