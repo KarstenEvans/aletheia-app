@@ -13,6 +13,16 @@
       "checked": "2026-09-28",
       "page": "aletheia-terry-pratchett.htm",
       "resources_page": "aletheia-terry-pratchett-rsc.htm"
+    },
+    {
+      "name": "William Shakespeare",
+      "slug": "william-shakespear",
+      "profile": "aletheia-vibe-william-shakespear.md",
+      "resources": "aletheia-william-shakespear-rsc.md",
+      "catalogue": "william-shakespear.csv",
+      "profile_status": "researched draft; review before publication",
+      "catalogue_scope": "14 selected works; non-exhaustive; edition ISBNs unverified",
+      "checked": "2026-09-28"
     }
   ]
 }
