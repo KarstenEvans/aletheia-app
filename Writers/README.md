@@ -14,7 +14,7 @@ The folder contains **public, reviewable, evidence-led writer profiles**, compan
 ## Initial verified writer
 - [Terry Pratchett public HTML page](aletheia-terry-pratchett.htm), showing selected individually verified Audible editions, Bookshop and research links.
 - [Terry Pratchett](aletheia-terry-pratchett.md)
-- [Terry Pratchett resources](aletheia-terry-pratchett-rsc.md)
+- [Terry Pratchett visitor resources](aletheia-terry-pratchett-rsc.htm) · [canonical Markdown](aletheia-terry-pratchett-rsc.md)
 - [Terry Pratchett catalogue](terry-pratchett.csv) (41 Discworld novels plus 23 selected additional titles, five individually checked Audible links and author-catalogue fallbacks for the rest; not a complete bibliography of every edition).
 
 ## Publication/permissions
