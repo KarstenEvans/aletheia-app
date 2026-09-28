@@ -1,7 +1,7 @@
 ---
 title: Aletheia Terry Pratchett Resources
 status: curated linked bibliography
-last_checked: 2026-09-27
+last_checked: 2026-09-28
 catalogue: terry-pratchett.csv
 ---
 
@@ -9,6 +9,19 @@ catalogue: terry-pratchett.csv
 
 **Aletheia Protocol:** https://github.com/KarstenEvans/aletheia-protocol
 **Thalia Protocol:** https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md
+
+## Public Terry Pratchett reading and listening page
+- [Terry Pratchett: Writing Vibe, Bookshop.org and selected Audible editions](aletheia-terry-pratchett.htm). This is a crawlable reader-facing HTML page with exactly one publisher Awin MasterTag; audiobook links are direct untracked Audible URLs pending Audible programme approval.
+
+## Audible UK: verified entry points
+- [Terry Pratchett's Audible UK author catalogue](https://www.audible.co.uk/author/Terry-Pratchett/B000AQ0NN8).
+- [Audible UK's Discworld series catalogue](https://www.audible.co.uk/series/Discworld-Audiobooks/B00HRG5ZPU). Editions, narrators and abridgement can vary.
+- [The Colour of Magic](https://www.audible.co.uk/pd/The-Colour-of-Magic-Audiobook/B09LZ1X1RK): Colin Morgan, Peter Serafinowicz and Bill Nighy.
+- [Mort](https://www.audible.co.uk/pd/Mort-Audiobook/B09LZ5JWV7): Sian Clifford, Peter Serafinowicz and Bill Nighy.
+- [Wyrd Sisters](https://www.audible.co.uk/pd/Wyrd-Sisters-Audiobook/B09LZ19TCV): Indira Varma, Peter Serafinowicz and Bill Nighy.
+- [Guards! Guards!](https://www.audible.co.uk/pd/Guards-Guards-Audiobook/B09M8W9JY5): Jon Culshaw, Peter Serafinowicz, Bill Nighy and Ben Aaronovitch (introduction).
+- [Small Gods](https://www.audible.co.uk/pd/Small-Gods-Audiobook/B09LZ4LZ1X): Andy Serkis, Bill Nighy and Peter Serafinowicz.
+- The [CSV](terry-pratchett.csv) adds three audio columns. Five selected editions were checked individually; other rows use a clearly labelled author-level catalogue rather than fabricated product links. Checked 28 September 2026.
 
 ## Books and bibliography
 - [Bookshop.org UK: search Terry Pratchett](https://uk.bookshop.org/beta-search?keywords=Terry+Pratchett) (search route; verify live edition and stock before buying).
@@ -37,6 +50,12 @@ catalogue: terry-pratchett.csv
 - City and institutions: *Guards! Guards!*, *The Truth*, *Going Postal*.
 - Childhood/coming of age: *The Wee Free Men*, *A Hat Full of Sky*, *The Amazing Maurice and His Educated Rodents*.
 - Direct nonfiction authorial voice: *A Slip of the Keyboard*. These are qualitative study pathways, not a ranking.
+
+## Audible Awin enrolment and tracking
+- [Audible's UK affiliate explanation](https://www.audible.co.uk/ep/affiliates) confirms a route through Awin.
+- [Awin Audible advertiser profile, ID 8095](https://ui.awin.com/merchant-profile/8095?setLocale=en_US): retrieved public terms state £4 for a 30-day trial membership, £7 for the discount membership plan and a 14-day attribution window; review logged-in live agreement for the current terms.
+- Apply to programme while signed into Awin. Until approval, use ordinary Audible product/catalogue links and do not call them affiliate links or claim commission. After approval, create advertiser-approved tracking/deep links, check destination, permitted placement and actual tracked conversion. MasterTag alone does not establish advertiser approval or a qualifying referral.
+- Avoid prohibited brand PPC, direct/forced redirects, cookie dropping, unapproved voucher promotions, or misleading free-trial messaging. Product links and commercial suggestions are separate from evidence.
 
 ## Affiliate/disclosure
 Bookshop.org links are direct search/product links without invented affiliate parameters. Any site-wide monetisation must be disclosed separately; affiliate arrangements never determine evidence or evaluation. Prices and stock are not cached in this file.
