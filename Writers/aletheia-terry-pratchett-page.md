@@ -3,7 +3,7 @@
 **Aletheia Protocol:** https://github.com/KarstenEvans/aletheia-protocol
 **Thalia Protocol:** https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md
 
-Status: public static reader (28 September 2026). Rendered file: `aletheia-terry-pratchett.htm`. Primary source: `aletheia-terry-pratchett.md`. Companion `aletheia-terry-pratchett-rsc.md`, `terry-pratchett.csv`, `writers.json`.
+Status: public static reader (28 September 2026). Rendered file: `aletheia-terry-pratchett.htm`. Primary source: `aletheia-terry-pratchett.md`. Visitor resources `aletheia-terry-pratchett-rsc.htm`; canonical resource source `aletheia-terry-pratchett-rsc.md`, `terry-pratchett.csv`, `writers.json`.
 Canonical URL: https://karstenevans.github.io/aletheia-app/Writers/aletheia-terry-pratchett.htm
 
 ## Purpose and page order
@@ -14,3 +14,6 @@ No JS/API needed to read page. External links are user-initiated and open separa
 
 ## Data and testing
 Primary source for Discworld 41-book order is publisher catalogue. Five selected individual Audible products verified in UK listings, as documented in `-rsc.md`. Remaining CSV entries link to Audible's author catalogue, tagged `author catalogue only; individual title not checked`. Narrator/edition credit is specific to a UK product page. Never store temporary trial prices/promotional offers in the static page. Test all links, response, browser rendering/mobile zoom/keyboard, alt/ARIA and exactly one MasterTag; do not claim live device tests without observing them.
+
+## Resources route
+Public navigation links to `aletheia-terry-pratchett-rsc.htm`; canonical research notes remain `.md` and are linked only as source/download. Match the app GUI resource-page rule and maintain one production MasterTag in each `.htm`.
