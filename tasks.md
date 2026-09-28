@@ -683,3 +683,19 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [x] Preserved Start Presentation user-gesture narration and original app controls; verified committed HTML has one Awin MasterTag.
 - [ ] Run actual Chrome/Edge/Android/Safari playback and narration QA on deployed Pages. Source inspection is not an end-to-end browser test.
 - [ ] For a LinkedIn native video, separately export MP4 with correctly licensed audio and timed captions; current HTML is interactive, not an embedded video export.
+
+
+## Terry Pratchett on-page commerce and Constellation pilot — 28 September 2026
+
+- [x] Audit the existing source-level main reader, resources page and every CSV row. Baseline was 64 Bookshop title-search URLs; 5 individually identified Audible URLs; 59 generic Audible author-page fallbacks, all untracked. See `Writers/aletheia-terry-pratchett-link-audit.md` for a per-link receipt and live-check limitations.
+- [x] Remove generic Audible author-page calls to action on the public main page/resources shopping entrance and clear the 59 fallback destinations in CSV. Show pending product-level audio links rather than pretend the generic catalogue is an individual item.
+- [x] Keep 64 titles browsable on Aletheia, with five individual Audible destinations; preserve the Writing Vibe popup, CSV download, published protocols and exactly one publisher MasterTag per production HTML.
+- [x] Add contextual direct gift destination cards to main page and a fuller resources gift section: official Greebo (out of stock), Luggage plush, Death of Rats figurine, Librarian bookend/miniatures, and clearly unofficial Hex-inspired educational ant habitat.
+- [x] Pilot visible ★ constellation links to Apps, Stories, Writers, Knowledge and Swindon UK on the two Pratchett HTML pages; extend the principle to `aletheia-GUI.md` and future work in `ideas.md`.
+- [ ] Verify all source-level URL entries through live destination retrieval/browser click as availability permits; do not turn a fetch-blocked/503 URL into a claim of a broken retail listing. Recheck *The Colour of Magic* Audible URL, which returned 503 in this retrieval.
+- [ ] Individually establish UK Audible audiobook destination, edition, abridged/unabridged status and narrator for the other 59 catalogue titles. Update CSV and cards incrementally. Never swap back to the generic author catalogue.
+- [ ] Replace 64 Bookshop title-search destinations with individual verified products and **personal affiliate links only after** Bookshop UK account approval; record each ISBN/edition and test the tracked click. The generic title-search button is explicitly not a product affiliate link.
+- [ ] Confirm Audible Awin programme acceptance/account tracking and obtain permitted member signup + title deep links from the owner's authorised account; validate active promotion/trial wording, terms and tracked testing, then enable an on-page membership CTA. Do not fabricate `awinaffid` or assume the MasterTag makes referrals eligible.
+- [ ] Establish whether Discworld Emporium or other named gift merchants offer an acceptable approved affiliate route. Leave all present gift CTAs ordinary direct product links until confirmed.
+- [ ] Review product stock periodically, especially Greebo and Death of Rats plushes; note official licence distinction and responsible ant-keeping information.
+- [ ] Test deployed HTML/CSV fetch, all constellation destinations, external clicks, narrow Android browser, desktop keyboard and Safari. Track **SOURCE INSPECTED / HTTP VERIFIED / BROWSER VERIFIED / AFFILIATE TESTED** separately.
