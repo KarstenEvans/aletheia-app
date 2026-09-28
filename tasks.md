@@ -659,3 +659,14 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [x] Ensured safe HTTPS retailer-domain check, quoted CSV parsing, clear five-specific-vs-author-catalogue audiobook distinction and download fallback.
 - [x] Checked inline JavaScript syntax, IDs uniqueness, one Awin MasterTag in GitHub source.
 - [ ] Verify rendering and link reachability in actual live Pages browsers, then attach only approved personal Bookshop/Audible affiliate tracking when account credentials/authorisation are available.
+
+## Public collection index front doors — 28 September 2026
+- [x] Read current repository routing, GUI, development, code, Ideas and Tasks rules and inspect the actual app folders and Storyteller/Writers manifests.
+- [x] Create root `index.html` covering 13 app directories and Storyteller; label Markdown-only workflows accurately; add accessible search/filter and ordinary destination links.
+- [x] Create `stories/index.html` for all eight current manifest entries with Storyteller `?story=` deep links; preserve existing Storyteller and story Markdown.
+- [x] Create `Writers/index.html` for the live Terry Pratchett page and clearly labelled Shakespeare research draft; link the existing Writing Vibe tool.
+- [x] Preserve existing Knowledge repository `index.html`; document routes, provenance, dependencies and test limitations in `collection-indexes-page.md`.
+- [ ] Verify deployed Pages routes, app links, Storyteller deep links, keyboard/mobile/Safari behaviour, and actual Awin loading in a browser (source-only checks are not deployment tests).
+- [ ] Add a curated apps JSON manifest when app publishing workflow warrants it; keep root index current as more apps become public.
+- [ ] Scope a Legal Check public index only after its reviewed canonical app/resources and location are confirmed; do not show a broken public star.
+- [ ] Point Aletheia Constellation stars in the AI history film to the confirmed collection indexes after deployment verification.
