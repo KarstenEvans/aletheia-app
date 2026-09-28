@@ -648,7 +648,7 @@ Still verify visually on Android/PC and the previously failing Apple device.
 
 - [x] Found Audible advertiser Awin profile 8095, including public commission/cookie and promotion restrictions; approval and current logged-in conditions still need publisher action.
 - [x] Created `Writers/aletheia-terry-pratchett.htm` reader-facing page with original content, book and Audible catalogue links and five individually checked Audible UK product URLs; exactly one Awin MasterTag.
-- [x] Extended `terry-pratchett.csv` with Audible link, narrator and checked-status columns, using author-catalogue fallbacks rather than unverified individual item links for remaining rows.
+- [x] Extended `terry-pratchett.csv` with Audible link, narrator and checked-status columns. Historic author-catalogue fallbacks for 59 unverified rows were subsequently removed on 28 September; see the newer on-page commerce task section.
 - [x] Linked reader in Writers manifest, README, writing-vibe app and resources; updated profile/resource notes.
 - [ ] Once accepted to Audible's Awin advertiser programme, use its authorised tracking link builder/deep linking for the approved destinations. Verify commission terms, source classification and tracked testing before claiming referral revenue. Static source and ordinary retail URLs alone do not prove conversions.
 - [ ] Live GitHub Pages/browser/device and actual external URLs/availability to be rechecked after deployment.
@@ -656,7 +656,7 @@ Still verify visually on Android/PC and the previously failing Apple device.
 ## Pratchett independent bookshelf — 28 September 2026
 - [x] Integrated CSV-driven 41 Discworld + 23 other title browse grid into existing main `Writers/aletheia-terry-pratchett.htm`, preserving individual Bookshop search and Audible routes.
 - [x] Removed the main shopping detour to the estate bibliography, retaining the official site as credited factual research. Do not clone third-party copyrighted text/artwork or referral parameters.
-- [x] Ensured safe HTTPS retailer-domain check, quoted CSV parsing, clear five-specific-vs-author-catalogue audiobook distinction and download fallback.
+- [x] Ensured safe HTTPS retailer-domain check, quoted CSV parsing, five individual vs 59 pending audiobook distinction and download fallback.
 - [x] Checked inline JavaScript syntax, IDs uniqueness, one Awin MasterTag in GitHub source.
 - [ ] Verify rendering and link reachability in actual live Pages browsers, then attach only approved personal Bookshop/Audible affiliate tracking when account credentials/authorisation are available.
 
