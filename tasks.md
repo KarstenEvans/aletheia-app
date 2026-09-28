@@ -670,3 +670,8 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [ ] Add a curated apps JSON manifest when app publishing workflow warrants it; keep root index current as more apps become public.
 - [ ] Scope a Legal Check public index only after its reviewed canonical app/resources and location are confirmed; do not show a broken public star.
 - [ ] Point Aletheia Constellation stars in the AI history film to the confirmed collection indexes after deployment verification.
+
+## AI history presentation publication — 28 September 2026
+- [x] Publish current Start Presentation HTML at `stories/Aletheia-The-Story-of-Artificial-Intelligence.htm`, with one production Awin MasterTag.
+- [x] Add visitor-facing launch card to `stories/index.html` without registering the HTML film as a Markdown Storyteller story.
+- [ ] Check deployed Pages URL and user-gesture narration/controls on Windows, Android and Safari before sharing widely; source verification alone is not browser playback.
