@@ -400,3 +400,26 @@ Do not force a Swindon.org.uk wrapper around every Aletheia app. The extra page 
 For public explanatory apps, Aletheia Improve should also check query variants, SEO title, meta description, clean slug, answer-first copy, descriptive headings, internal links, related questions, annotated Go Deeper sources and topic-hub opportunities. These are discovery aids, not ranking guarantees.
 
 Prefer curated topic hubs after several substantive pages exist. Do not create empty public tag archives or mass-produce keyword variations.
+
+## 21. Aletheia Constellation: curated star navigation
+
+On published HTML pages with several genuinely related destinations, allow a lightweight, reusable **star navigation** row near the end. A star must carry an accessible text label and lead to a confirmed live public collection index, not a raw Markdown file or an empty placeholder. Examples: Aletheia Apps, Stories, Knowledge, Writers, and Swindon.org.uk. Use no more than a useful handful. The current Terry Pratchett reader and its resources page are pilot examples.
+
+- Ordinary internal route or same-window navigation by default; no JS needed, no animation required.
+- Responsive flex-wrap; a 44px-ish touch target, visible keyboard focus, readable name rather than star alone.
+- Use one canonical hub per collection; link reciprocally where the destination has independent value. Do not force duplicate wrappers.
+- Verify each actual deployed index URL before claiming the constellation works, particularly mobile and Safari.
+- Keep future stars in `tasks.md`; do not add broken/dead public star buttons for unpublished apps.
+
+## 22. Commerce stays on the useful page until the final retailer handoff
+
+A subject's Aletheia HTML reader should provide its own useful, searchable or browsable catalogue and descriptive gift suggestions. Do not make a broad retailer author's page, search results, or another site's gift catalogue the primary browse step when we can show the relevant options locally. One product, one plainly labelled outbound CTA, only on a visitor's click.
+
+- Separate **discovery/source attribution** links from **commercial product/sign-up** buttons. Do not copy source prose, cover art, retailer tracking IDs or copyrighted product assets.
+- For each product show its identity, edition/format where material, source/destination, checked date, whether the destination is product-specific, and stock/price only when checked and dated.
+- When a product-level URL is unknown, show `link pending verification`, not a generic author/merchant fallback dressed up as a product button. A genuinely useful title-specific retailer search can be labelled explicitly as an **untracked search**, never an individual affiliate product.
+- Advertiser acceptance is per programme. A publisher MasterTag alone is not proof of an approved Audible/Bookshop/gift referral. Add a membership signup CTA only with the advertiser-authorised and tested destination, correct offer/eligibility wording and a clear disclosure. Checkout/payment still takes place on the retailer's service, not an unauthorised imitation on our site.
+- The site owner must provide or authorise generated personal affiliate links. Preserve research links without indiscriminate Awin conversion; respect approved ignore rules. Never promise referral earnings.
+- Keep direct non-affiliate product links visibly distinguished from approved tracked links. Do not market an out-of-stock item as purchasable.
+- Optional gift collections should be editorially related, small and relevant, without compromising the page's core answer; mark unofficial/inspired products clearly and check animal welfare/safety for living gift ideas.
+- Keep a source-level link inventory and a separate dated live destination/affiliate-tracking receipt. Passing a URL syntax check is not a live product or conversion test.
