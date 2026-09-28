@@ -40,6 +40,6 @@ Static JavaScript parser, duplicate IDs, end tag, policy/source and injection sa
 ## Terry Pratchett reader/audiobook extension (28 September 2026)
 
 - Writer registry has explicit `page` for `../Writers/aletheia-terry-pratchett.htm`; link it from library UI and resource page, preserving source/CSV links.
-- Terry reader links Bookshop.org UK and Audible official catalogue and five verified editions; no invented partner/tracking URL. Source and retail links separated, Awin MasterTag exactly once.
+- Terry reader presents its own 64-title catalogue, individual Bookshop UK title searches and five identified Audible UK edition URLs; the 59 unverified audio rows have no generic author-catalogue fallback. An approved membership/partner tracking URL is still pending. Source and retail links separated, Awin MasterTag exactly once.
 - CSV has audiobook source, narrator credits and per-row verification status; do not claim every title has been individually checked.
 - No new required API, no autoplay or forced redirects; open third-party pages only on user click.
