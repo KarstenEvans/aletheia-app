@@ -323,3 +323,15 @@ The goal is not to manipulate AI. The goal is to publish answers that are genuin
 ## Aletheia Writing Vibe — promoted to app (27 September 2026)
 
 Canonical files: `aletheia-writing-vibe/aletheia-writing-vibe.md` and companion `-page.md`, `.htm`, `-rsc.htm`. Existing-work gate: CREATE NEW, since source attribution, author disambiguation, time/genre comparison and an evidence-limited Markdown handoff warrant their own interface. V1 intentionally uses static local cleaner + external AI research pack, not direct unauthorised scraping. Later optional: authenticated browsing adapter, citation import and source-by-source evidence ledger, always human-approved. Do not duplicate app as a separate generic humanizer.
+
+
+## Aletheia Constellation and thematic gift shelves — 28 September 2026
+
+**Status:** pilot on Terry Pratchett reader; extension to other public HTML pages is an idea until each destination has been verified.
+
+- Curated ★ index row across related public **Apps, Stories, Knowledge, Writers and Swindon UK** HTML pages. Accessible text on every star; never a link to an unpublished empty page.
+- Contextual, original gift shelf near the end of a subject's main page, mirrored with extra evidence on the resources page only when useful. Do not make visitors browse a third-party author's catalogue to discover individual items.
+- Terry Pratchett demonstration: official Greebo cat plush (stock alert), Luggage plush, Death of Rats figurine, Librarian/bookends and Unseen University miniatures. **Hex-inspired AI ant-computer** as a clearly unofficial, educational ant habitat with live-animal welfare information. Explore related ideas: book gifts, reading blankets, annotated maps, stationery, board games, miniature libraries, or mechanical curiosities, subject to evidence and licensing.
+- Research Bookshop UK, Audible UK, Discworld Emporium and ant-keeping retailers' affiliate options individually. Do not mistake having Awin installed for advertiser approval or assume a merchant has a programme.
+- Future reusable mini knowledge / data file: label, image permission/source, specific URL, identity/stock check, affiliate programme/approval, approved tracking URL and last checked date. Publish no invented affiliate parameters or third-party product images.
+- Keep the commercial shelf an optional footer companion to useful content, not a promotional obstruction. Use a small pilot and actual click/conversion evidence before applying site-wide.
