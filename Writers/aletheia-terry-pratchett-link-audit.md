@@ -180,3 +180,23 @@ All authored static anchor occurrences are listed below. Dynamic bookshelf links
 6. Record each separate stage as SOURCE INSPECTED / HTTP VERIFIED / BROWSER VERIFIED / AFFILIATE TESTED; log status and date rather than claiming that one stage implies the next.
 
 **Evidence links:** [Audible UK programme](https://www.audible.co.uk/ep/affiliates); [Bookshop UK affiliate programme](https://uk.bookshop.org/affiliates/profile/introduction); [Discworld Emporium](https://www.discworldemporium.com/); [public reader](aletheia-terry-pratchett.htm); [resource page](aletheia-terry-pratchett-rsc.htm).
+
+## Writing Vibe modal: dynamically rendered Markdown links
+
+The main page also fetches `aletheia-terry-pratchett.md` when **Read the Writing Vibe** is clicked. Its limited renderer creates anchors from Markdown `[label](URL)` references only; ordinary bare URLs are shown as readable source text, not automatically turned into links. The following are the source document's Markdown link routes, separate from commerce:
+
+| Modal link label | Target | Role |
+|---|---|---|
+| Public writer landing page | aletheia-terry-pratchett.htm | LOCAL CANONICAL FILE |
+| Research and book resources | aletheia-terry-pratchett-rsc.md | LOCAL CANONICAL FILE |
+| Discworld-plus-selected-works catalogue | terry-pratchett.csv | LOCAL CANONICAL FILE |
+
+On Markdown fetch failure the page presents an explicit source fallback: https://github.com/KarstenEvans/aletheia-app/blob/main/Writers/aletheia-terry-pratchett.md. On CSV fetch failure the page offers its same-origin `terry-pratchett.csv` file. These are functional fallback/download routes, not affiliate calls.
+
+## Source-level QA receipt (28 September 2026)
+
+- Authored static anchors inventoried: **34** on the main reader and **43** on the resources page. Dynamic 64-row Bookshop/Audible catalogue and **3** rendered Markdown reference links are catalogued separately above.
+- Main inline JavaScript compiled successfully in source-level syntax check; zero duplicate HTML IDs detected in main or resources source.
+- Each production HTML file contains exactly **one** `pub.3182162.min.js` MasterTag. Neither HTML page has a generic Audible author URL as an outgoing href.
+- Repo content checks found the Apps, Stories, Writers and Knowledge `index.html` files and all same-repo reader/resources/CSV targets. This checks existence in GitHub, **not** successful GitHub Pages deployment or real device/browser behaviour.
+- Fresh public GitHub Pages retrieval was blocked by this retrieval tool (DisabledError / inaccessible), so the new deployed version and constellation links are **NOT LIVE VERIFIED** here. No assertion that all external product URLs or affiliate conversions work.
