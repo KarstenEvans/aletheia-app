@@ -2,7 +2,7 @@
 title: Aletheia Terry Pratchett
 artifact_type: evidence-based-writer-vibe
 status: researched synthesis
-last_checked: 2026-09-27
+last_checked: 2026-09-28
 resource_file: aletheia-terry-pratchett-rsc.md
 book_list: terry-pratchett.csv
 ---
@@ -58,6 +58,11 @@ Invent one impossible rule about a commonplace job (for example, a municipal dep
 - Discworld book page, authorised short quotation and audio sample: https://terrypratchett.com/books/the-colour-of-magic/
 - Neil Gaiman's interpretation, SECONDARY COMMENTARY, not words authored by Terry: https://www.theguardian.com/books/2014/sep/24/terry-pratchett-angry-not-jolly-neil-gaiman
 - Scribd DISCOVERY ONLY: https://www.scribd.com/document/692174756/DW-Reading-List-V5-Publication-Order (bibliographic list, not a verified licensed full-text edition).
+
+## Related reader format and audio sources
+- [Public writer landing page](aletheia-terry-pratchett.htm) includes selected verified Audible UK editions, narrator credits, direct links and Bookshop.org.
+- Audiobook performances are helpful when studying delivery and dialogue but are performances by narrators, not direct evidence of Pratchett's prose habits by themselves.
+- Product catalogue checked 28 September 2026; current retailer offers and prices not stored.
 
 ## Related files
 - [Research and book resources](aletheia-terry-pratchett-rsc.md)
