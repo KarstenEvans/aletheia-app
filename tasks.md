@@ -675,3 +675,11 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [x] Publish current Start Presentation HTML at `stories/Aletheia-The-Story-of-Artificial-Intelligence.htm`, with one production Awin MasterTag.
 - [x] Add visitor-facing launch card to `stories/index.html` without registering the HTML film as a Markdown Storyteller story.
 - [ ] Check deployed Pages URL and user-gesture narration/controls on Windows, Android and Safari before sharing widely; source verification alone is not browser playback.
+
+## AI history film expansion — 28 September 2026
+- [x] Updated existing published HTML from one-second source-video analysis, keeping original artwork/copy separate: 20 dated milestones, including Boole, McCulloch/Pitts, Rosenblatt, 1986 backpropagation, ImageNet, GPT-3.
+- [x] Added three sequential information beats per scene, 20-chapter counter and year-clock hold/transition; facts retain clickable source cards.
+- [x] Replaced navigation stars with public-facing Apps, Stories, Knowledge, Writers, Storyteller, Writing Vibe and Swindon destinations, plus explicitly named protocol links.
+- [x] Preserved Start Presentation user-gesture narration and original app controls; verified committed HTML has one Awin MasterTag.
+- [ ] Run actual Chrome/Edge/Android/Safari playback and narration QA on deployed Pages. Source inspection is not an end-to-end browser test.
+- [ ] For a LinkedIn native video, separately export MP4 with correctly licensed audio and timed captions; current HTML is interactive, not an embedded video export.
