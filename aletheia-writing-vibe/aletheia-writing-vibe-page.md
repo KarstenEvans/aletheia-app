@@ -36,3 +36,10 @@ Static JavaScript parser, duplicate IDs, end tag, policy/source and injection sa
 - Three separate textareas accept the returned profile Markdown, resources Markdown, and CSV. Three download buttons each produce the proper name using the verified person field. Markdown download refuses if either Aletheia/Thalia canonical URL is absent. User reviews before saving through separately authorised GitHub access.
 - Reader/publisher distinction: app downloadable files do not create a GitHub commit, manifest registration or online page. Connected AI may save only after actually checking current tree and permissions, recording resulting commits.
 - Preserve search/clean/provider handoff, Awin once, mobile/accessibility and no-key/no-upload guarantees. Insufficient evidence must be explicit.
+
+## Terry Pratchett reader/audiobook extension (28 September 2026)
+
+- Writer registry has explicit `page` for `../Writers/aletheia-terry-pratchett.htm`; link it from library UI and resource page, preserving source/CSV links.
+- Terry reader links Bookshop.org UK and Audible official catalogue and five verified editions; no invented partner/tracking URL. Source and retail links separated, Awin MasterTag exactly once.
+- CSV has audiobook source, narrator credits and per-row verification status; do not claim every title has been individually checked.
+- No new required API, no autoplay or forced redirects; open third-party pages only on user click.
