@@ -11,20 +11,29 @@ catalogue: terry-pratchett.csv
 **Thalia Protocol:** https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md
 
 ## Public Terry Pratchett reading and listening page
-- [Terry Pratchett: Writing Vibe, Bookshop.org and selected Audible editions](aletheia-terry-pratchett.htm). This is a crawlable reader-facing HTML page with exactly one publisher Awin MasterTag; audiobook links are direct untracked Audible URLs pending Audible programme approval.
+- [Terry Pratchett: Writing Vibe, Bookshop.org and selected Audible editions](aletheia-terry-pratchett.htm). This is a crawlable reader-facing HTML page with exactly one publisher Awin MasterTag; audiobook links are individual untracked Audible URLs pending Audible programme approval. The main page now hosts the catalogue and gifts without author-page shopping detours.
 
 ## Audible UK: verified entry points
-- [Terry Pratchett's Audible UK author catalogue](https://www.audible.co.uk/author/Terry-Pratchett/B000AQ0NN8).
-- [Audible UK's Discworld series catalogue](https://www.audible.co.uk/series/Discworld-Audiobooks/B00HRG5ZPU). Editions, narrators and abridgement can vary.
+- [The original Audible author catalogue](https://www.audible.co.uk/author/Terry-Pratchett/B000AQ0NN8) is a research/inventory source only, not an on-page commercial fallback.
+- [Discworld series catalogue](https://www.audible.co.uk/series/Discworld-Audiobooks/B00HRG5ZPU) is background research only. Editions, narrators and abridgement can vary.
 - [The Colour of Magic](https://www.audible.co.uk/pd/The-Colour-of-Magic-Audiobook/B09LZ1X1RK): Colin Morgan, Peter Serafinowicz and Bill Nighy.
 - [Mort](https://www.audible.co.uk/pd/Mort-Audiobook/B09LZ5JWV7): Sian Clifford, Peter Serafinowicz and Bill Nighy.
 - [Wyrd Sisters](https://www.audible.co.uk/pd/Wyrd-Sisters-Audiobook/B09LZ19TCV): Indira Varma, Peter Serafinowicz and Bill Nighy.
 - [Guards! Guards!](https://www.audible.co.uk/pd/Guards-Guards-Audiobook/B09M8W9JY5): Jon Culshaw, Peter Serafinowicz, Bill Nighy and Ben Aaronovitch (introduction).
 - [Small Gods](https://www.audible.co.uk/pd/Small-Gods-Audiobook/B09LZ4LZ1X): Andy Serkis, Bill Nighy and Peter Serafinowicz.
-- The [CSV](terry-pratchett.csv) adds three audio columns. Five selected editions were checked individually; other rows use a clearly labelled author-level catalogue rather than fabricated product links. Checked 28 September 2026.
+- The [CSV](terry-pratchett.csv) has five individual audio links; the remaining 59 audio URL fields are empty until product-level checks succeed. The Colour of Magic fetch returned 503 during a 28 September recheck, so its current reachability is inconclusive; the other four product URLs opened in this retrieval environment.
 
 ## Book discovery on Aletheia
-Our [main public Terry Pratchett page](aletheia-terry-pratchett.htm#allbooks) now renders all 64 CSV entries into an original local bookshelf, with individual Bookshop title-search destinations and either specifically checked Audible book editions or a clearly identified general Audible author-catalogue link. External estate, publisher and third-party sites remain attributed research and further-reading sources; their prose/artwork/referral tracking are not copied. Direct retailer/search links are not automatically personal affiliate tracking links.
+Our [main public Terry Pratchett page](aletheia-terry-pratchett.htm#allbooks) now renders all 64 CSV entries into an original local bookshelf, with individual Bookshop title-search destinations and only five specifically identified Audible book editions. The other 59 cards do not offer an outgoing audio detour. External estate, publisher and third-party sites remain attributed research and further-reading sources; their prose/artwork/referral tracking are not copied. Direct retailer/search links are not automatically personal affiliate tracking links.
+
+## Gifts and Hex-inspired curiosity (reviewed 28 September 2026)
+- [Greebo plush](https://www.discworldemporium.com/product/greebo-plush/) — official, shown out of stock.
+- [The Luggage plush](https://www.discworldemporium.com/product/the-luggage-plush/) — official, listed at review.
+- [Death of Rats figurine](https://www.discworldemporium.com/product/discworld-icons-death-of-rats/) — official; [plush alternative](https://www.discworldemporium.com/product/death-of-rats-plushy/) out of stock.
+- [The Librarian bookend](https://www.discworldemporium.com/product/discworld-bookends-the-librarian/) and [Unseen University miniatures](https://www.discworldemporium.com/product/discworld-denizens-unseen-university-collection/) — official.
+- [HEXANEST ant habitat kit](https://antsuk.com/product/hexanest-ant-starter-set-2-0/) — independently selected Hex-inspired real-world educational gift. Not officially licensed, not a computing device; responsible husbandry required.
+- Merchandise and ant-keeping links are direct, untracked and editorial. An approved affiliate partnership is not established; do not borrow third-party tracking codes, reviews or product images.
+- [Per-link audit and status](aletheia-terry-pratchett-link-audit.md).
 
 ## Books and bibliography
 - [Bookshop.org UK: search Terry Pratchett](https://uk.bookshop.org/beta-search?keywords=Terry+Pratchett) (search route; verify live edition and stock before buying).
