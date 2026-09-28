@@ -17,3 +17,7 @@ Primary source for Discworld 41-book order is publisher catalogue. Five selected
 
 ## Resources route
 Public navigation links to `aletheia-terry-pratchett-rsc.htm`; canonical research notes remain `.md` and are linked only as source/download. Match the app GUI resource-page rule and maintain one production MasterTag in each `.htm`.
+
+## Readable Writing Vibe popup
+
+The public main page's **Read the Writing Vibe** control opens an accessible native modal dialog, fetches the same-origin canonical `aletheia-terry-pratchett.md`, removes front matter and renders a safe limited subset of Markdown (headings, paragraphs, emphasis, lists, quotes, tables and HTTP(S) links). HTML in untrusted Markdown must be escaped before rendering; do not insert unsanitised raw HTML. Provide a visible close button, Escape/standard dialog behaviour, and an explicit source download. On fetch failure, show an error with an accessible GitHub source fallback. The resource links remain visitor-facing HTML. The `.md` remains canonical, not the primary reading UI.
