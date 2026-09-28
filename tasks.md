@@ -652,3 +652,10 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [x] Linked reader in Writers manifest, README, writing-vibe app and resources; updated profile/resource notes.
 - [ ] Once accepted to Audible's Awin advertiser programme, use its authorised tracking link builder/deep linking for the approved destinations. Verify commission terms, source classification and tracked testing before claiming referral revenue. Static source and ordinary retail URLs alone do not prove conversions.
 - [ ] Live GitHub Pages/browser/device and actual external URLs/availability to be rechecked after deployment.
+
+## Pratchett independent bookshelf — 28 September 2026
+- [x] Integrated CSV-driven 41 Discworld + 23 other title browse grid into existing main `Writers/aletheia-terry-pratchett.htm`, preserving individual Bookshop search and Audible routes.
+- [x] Removed the main shopping detour to the estate bibliography, retaining the official site as credited factual research. Do not clone third-party copyrighted text/artwork or referral parameters.
+- [x] Ensured safe HTTPS retailer-domain check, quoted CSV parsing, clear five-specific-vs-author-catalogue audiobook distinction and download fallback.
+- [x] Checked inline JavaScript syntax, IDs uniqueness, one Awin MasterTag in GitHub source.
+- [ ] Verify rendering and link reachability in actual live Pages browsers, then attach only approved personal Bookshop/Audible affiliate tracking when account credentials/authorisation are available.
