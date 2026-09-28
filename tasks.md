@@ -643,3 +643,12 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [x] Canonical app MD/page and HTML extended with three named outputs, public library links, separate reviewed download buttons, mandatory both-protocol URL gate, no automatic GitHub write claim.
 - [x] Source-level HTML inline JavaScript syntax/unique-ID/Awin-once checks passed after edit.
 - [ ] Test live Pages app, copy/download actions and provider handoff in actual browsers, including Android/Windows/Safari. Test authenticated connector publication only with explicit permissions. Investigate expanded full official bibliography/individual ISBN and audiobook status incrementally.
+
+## Audible UK links for Terry Pratchett — 28 September 2026
+
+- [x] Found Audible advertiser Awin profile 8095, including public commission/cookie and promotion restrictions; approval and current logged-in conditions still need publisher action.
+- [x] Created `Writers/aletheia-terry-pratchett.htm` reader-facing page with original content, book and Audible catalogue links and five individually checked Audible UK product URLs; exactly one Awin MasterTag.
+- [x] Extended `terry-pratchett.csv` with Audible link, narrator and checked-status columns, using author-catalogue fallbacks rather than unverified individual item links for remaining rows.
+- [x] Linked reader in Writers manifest, README, writing-vibe app and resources; updated profile/resource notes.
+- [ ] Once accepted to Audible's Awin advertiser programme, use its authorised tracking link builder/deep linking for the approved destinations. Verify commission terms, source classification and tracked testing before claiming referral revenue. Static source and ordinary retail URLs alone do not prove conversions.
+- [ ] Live GitHub Pages/browser/device and actual external URLs/availability to be rechecked after deployment.
