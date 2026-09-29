@@ -41,3 +41,7 @@ Affiliate Tools page: standalone crawlable static page with SEO title, descripti
 6. Human approval required before modifying live website configuration, publishing an audit outcome or enabling optional tracking or paid services.
 
 **Page ownership:** keep the common tools as one resource, link through Site Audit and future Discover; update the current repo master before edits rather than rebuilding working behaviour from this note alone.
+
+## Shared Constellation update (29 September 2026)
+
+Both Site Audit launcher and Affiliate Tools HTML now include the reusable `../shared/link-sprites.css` and `../shared/link-sprites.js`, with five static labelled crosslinks before the footer and the shared `shared/link-sprites.json` dated manifest. The optional witch points to `seasonal/halloween-gifts.htm` between 1 September and 10 November inclusive. A winter icon change is scheduled in the same manifest for 25 November–31 December; no unbuilt Christmas destination is linked. Test date boundaries, manifest success/fallback, small-screen keyboard navigation, reduced motion, unique IDs and exactly one Awin tag in each page. No affiliate conversion on editorial crosslinks.
