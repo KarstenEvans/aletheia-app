@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Discover Anywhere | Aletheia preview</title>
+<meta name="description" content="Choose any destination, topic and answer language. Open live source searches or copy a source-checking Aletheia research prompt.">
+<style>
+:root{--ink:#153039;--muted:#526a72;--line:#c8d9d9;--bg:#f6faf8;--card:#fff;--teal:#126c65;--focus:#f6a623}
+*{box-sizing:border-box}html{scroll-padding-top:115px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+a{color:#095c64}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.skip{position:absolute;top:-90px;left:12px;background:white;padding:12px;z-index:200}.skip:focus{top:6px}
+header{position:sticky;top:0;z-index:20;background:#143e48;color:white;box-shadow:0 2px 9px #1739422b}
+.header-inner{max-width:1100px;margin:auto;padding:9px 16px 0}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand a{color:white;text-decoration:none;font-weight:800;letter-spacing:.05em}.brand small{font-weight:400;color:#d1e3e4}
+nav{display:flex;gap:4px;overflow-x:auto;white-space:nowrap;scrollbar-width:thin;overscroll-behavior-inline:contain}nav a{display:inline-block;padding:9px 13px;min-height:44px;color:white;text-decoration:none;border-radius:7px}nav a:hover,nav a:focus-visible{background:#245964}
+main,footer{max-width:1100px;margin:auto;padding:20px 16px}h1{font-size:clamp(1.65rem,4vw,2.5rem);line-height:1.2;margin:10px 0}p{max-width:75ch}.lead{color:var(--muted);font-size:1.07rem}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(15px,3vw,25px);margin:16px 0}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}label{display:block;font-weight:650}label span{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+input,select,textarea{width:100%;min-width:0;border:1px solid #8ca9ac;border-radius:8px;background:white;color:var(--ink);padding:11px;font:inherit;min-height:44px}
+textarea{min-height:12rem;resize:vertical}.wide{grid-column:1/-1}.check{display:flex;align-items:center;gap:9px}.check input{width:20px;height:20px;min-height:20px;flex:none}
+button,.action{background:var(--teal);border:1px solid var(--teal);border-radius:9px;color:white;font:inherit;font-weight:700;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;text-decoration:none;cursor:pointer}
+button:hover,.action:hover{background:#08534d;color:white}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.secondary{color:var(--teal);background:white}.secondary:hover{background:#e9f4f2;color:var(--ink)}
+.note{border-left:4px solid var(--teal);padding:9px 12px;background:#eaf4f1;color:#234b4a}.status{font-weight:650}
+#result{scroll-margin-top:115px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px;margin:14px 0}.links a{display:block;padding:13px;border:1px solid var(--line);border-radius:9px;background:white;min-height:48px}
+footer{font-size:.86rem;color:var(--muted);border-top:1px solid var(--line)}footer a{margin-right:12px}
+[hidden]{display:none!important}@media(max-width:620px){form{grid-template-columns:1fr}.brand small{display:none}nav a{padding:9px 11px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to discovery</a>
+<header><div class="header-inner">
+<div class="brand"><a href="../index.html" aria-label="Aletheia Apps home">ΑΛΗΘΕΙΑ <small>• Discover anywhere</small></a><a href="https://www.swindon.org.uk/" style="font-size:.85rem">Swindon.org.uk</a></div>
+<nav aria-label="Discover navigation"><a href="#discover">Discover</a><a href="#result">Research links</a><a href="#how">How it works</a><a href="#protocols">Sources & protocols</a></nav>
+</div></header>
+<main id="main">
+<h1>Discover anywhere</h1>
+<p class="lead">One search starting point for anywhere on Earth. Choose a destination, a topic and the language you would like to read. No need to share where you currently are.</p>
+<section id="discover" class="panel" aria-labelledby="discover-title">
+<h2 id="discover-title">Where would you like to explore?</h2>
+<form id="search-form">
+<div><label for="place">Place <span>City, region or country; required</span></label><input id="place" name="place" autocomplete="off" required placeholder="Ayutthaya, Thailand" maxlength="140"></div>
+<div><label for="detail">Optional place detail <span>Country or region if the name is ambiguous</span></label><input id="detail" name="detail" placeholder="Thailand" maxlength="100"></div>
+<div><label for="topic">Discover</label><select id="topic" name="topic"><option value="interesting places and things to do">Places & things to do</option><option value="free attractions and activities">Free things to do</option><option value="independent restaurants and food">Food & drink</option><option value="history and unusual local stories">History & unusual stories</option><option value="upcoming public events">What's on & events</option><option value="current local news">Local news</option><option value="public services and community groups">Services & community</option></select></div>
+<div><label for="language">Answer language <span>Any language, e.g. English, Norsk, ไทย</span></label><input id="language" name="language" value="English" maxlength="60" required></div>
+<div class="wide"><label for="interest">Anything in particular? <span>Optional. No personal information needed.</span></label><input id="interest" name="interest" placeholder="Accessible, family-friendly, near railway station…" maxlength="180"></div>
+<div class="wide"><label class="check"><input type="checkbox" id="free" checked>Prefer free information and free activities first</label></div>
+<div class="wide"><button type="submit">Discover this place</button></div>
+</form></section>
+<section class="panel" id="result" aria-labelledby="research-title">
+<h2 id="research-title">Research links</h2>
+<p id="status" class="status" role="status" aria-live="polite">Choose a place above. This pilot prepares real search links; it does not pretend to have checked live listings.</p>
+<div id="links" class="links" aria-label="External research routes"></div>
+<div id="handoff" hidden>
+<h3>Continue with Aletheia research</h3><p>Copy the research brief, then paste it into your preferred AI service with web search enabled. Check its source links before relying on any current facts.</p>
+<label for="prompt">Editable research brief</label><textarea id="prompt"></textarea>
+<div class="actions"><button type="button" id="copy">Copy research brief</button><a class="action secondary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a><a class="action secondary" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Open Gemini ↗</a></div>
+<p id="copy-status" role="status" aria-live="polite"></p>
+</div>
+</section>
+<section class="panel" id="how"><h2>What this pilot does</h2>
+<p>It creates source-search links for the place you choose and an Aletheia-style research brief in your chosen answer language. Your inputs stay in this page unless you open an external search or copy them to an AI. There is no location permission, account, subscription, live results feed, automated newsletter or affiliate link.</p>
+<p class="note">Search engines and AI providers have their own privacy practices. Events, opening hours, prices and news may change; use the original source and its date. Search snippets are leads, not independently verified facts.</p></section>
+</main>
+<footer id="protocols"><a href="https://github.com/KarstenEvans/aletheia-protocol" target="_blank" rel="noopener noreferrer">Aletheia Protocol</a><a href="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md" target="_blank" rel="noopener noreferrer">Thalia Protocol</a><a href="../index.html">Apps home</a><a href="https://www.swindon.org.uk/resources/affiliate-disclosure.htm" target="_blank" rel="noopener noreferrer">Affiliate disclosure</a><p>Prototype only. Research links are independent, unpaid and not endorsements.</p></footer>
+<script>
+(function(){
+"use strict";
+const form=document.getElementById("search-form"),place=document.getElementById("place"),detail=document.getElementById("detail"),topic=document.getElementById("topic"),language=document.getElementById("language"),interest=document.getElementById("interest"),free=document.getElementById("free"),links=document.getElementById("links"),status=document.getElementById("status"),handoff=document.getElementById("handoff"),prompt=document.getElementById("prompt");
+const url=new URL(location.href);const preset=url.searchParams.get("place");if(preset)place.value=preset.slice(0,140);
+const make=(label,base,query)=>{const a=document.createElement("a");a.textContent=label+" ↗";a.href=base+encodeURIComponent(query);a.target="_blank";a.rel="noopener noreferrer";links.appendChild(a)};
+form.addEventListener("submit",function(e){
+e.preventDefault();if(!form.reportValidity())return;
+const where=[place.value.trim(),detail.value.trim()].filter(Boolean).join(", "),subject=topic.value,lang=language.value.trim(),extra=interest.value.trim(),f=free.checked;
+links.replaceChildren();
+const q=[subject,where,extra].filter(Boolean).join(" ");
+make("Map search","https://www.google.com/maps/search/?api=1&query=",q);
+make("Official / original sources","https://www.google.com/search?q=",q+" official local site");
+make("Independent sources","https://www.google.com/search?q=",q+" independent local guide");
+make("OpenStreetMap","https://www.openstreetmap.org/search?query=",where);
+make("Recent news / events","https://news.google.com/search?q=",where+" "+(subject.includes("news")?"news":"events"));
+if(f)make("Free options first","https://www.google.com/search?q=",q+" free entry free activities");
+status.textContent="External searches prepared for "+where+". No live results have been checked by this page.";
+const brief=[
+"Research request: Discover "+subject+" in "+where+".",
+extra?"Additional requirements: "+extra+".":"",
+"Respond in "+lang+". Search original local-language sources too, translate faithfully and preserve original names.",
+f?"Show genuinely free information and free activities first; separate optional paid entries.":"",
+"Perform a current web search. Give useful findings first, with original direct source links, publisher and date checked.",
+"For events verify dates, local time zone, cancellation and whether each event is still upcoming. Verify opening times and prices from official sources where relevant.",
+"Distinguish official sources, independent reports, user comments and unverified leads. Do not invent businesses, articles, local experiences, quotes or personal visits.",
+"State conflicts, unavailable pages and what could not be verified. Separate affiliate or paid recommendations from evidence and disclose them. Do not auto-publish.",
+"Aletheia Protocol: https://github.com/KarstenEvans/aletheia-protocol",
+"Thalia Protocol (optional humour): https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md"
+].filter(Boolean).join("\n\n");
+prompt.value=brief;handoff.hidden=false;document.getElementById("copy-status").textContent="";
+document.getElementById("result").scrollIntoView({behavior:"auto",block:"start"});
+});
+document.getElementById("copy").addEventListener("click",async function(){
+const message=document.getElementById("copy-status");try{if(!navigator.clipboard||!navigator.clipboard.writeText)throw Error("Clipboard unavailable");await navigator.clipboard.writeText(prompt.value);message.textContent="Research brief copied."}catch(e){prompt.focus();prompt.select();message.textContent="Automatic copy was blocked. Select and copy the highlighted text manually."}
+});
+})();
+</script>
+</body></html>
