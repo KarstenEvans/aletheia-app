@@ -66,3 +66,10 @@ If a fragment grows into a multi-stage workflow, move it into a dedicated app an
 5. On failure, show a useful static/CSS fallback plus navigation and a concise error/retry path.
 6. Respect reduced motion and cap expensive rendering where appropriate.
 7. Diagnose the capability/dependency failure; do not disable graphics merely because the device is Apple, Android or Windows.
+
+## ALETHEIA-CONSTELLATION-LINKS
+1. Use the existing `shared/link-sprites.json` curated source of HTTPS destinations and dates rather than inventing per-page star lists.
+2. Add contained, mobile-friendly HTML footer anchors (five useful static defaults), shared CSS/JS and visible labels, not decorative flying links over the page.
+3. Render `🧙` Halloween special only for browser-local 09-01..11-10 inclusive; use default stars for 11-11..11-24 and January..August, winter icons for 11-25..12-31. Do not show an unverified Christmas destination.
+4. No JS, failed manifest or cross-origin fetch must leave the basic five static links usable. Respect reduced motion, hover/focus pause, standard keyboard/touch and ordinary HTTPS editorial destinations with `data-awinignore`.
+5. Test the dates and actual deployed routes. See `shared/README.md` and `aletheia-GUI.md` §21 for implementation and approval boundaries.
