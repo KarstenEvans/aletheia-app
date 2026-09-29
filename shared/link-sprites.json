@@ -1,0 +1,89 @@
+{
+  "schema": "aletheia-constellation-v1",
+  "updated": "2026-09-29",
+  "description": "Editorial cross-links, not affiliate offers. Visible content in a bounded footer component.",
+  "seasons": [
+    {
+      "id": "halloween",
+      "start": "09-01",
+      "end": "11-10",
+      "inclusive": true,
+      "themeLabel": "Halloween"
+    },
+    {
+      "id": "winter",
+      "start": "11-25",
+      "end": "12-31",
+      "inclusive": true,
+      "themeLabel": "Winter gifts"
+    }
+  ],
+  "links": [
+    {
+      "id": "swindon",
+      "label": "Swindon UK",
+      "url": "https://swindon.org.uk/",
+      "sprites": {
+        "default": "✦",
+        "halloween": "✦",
+        "winter": "❄️"
+      }
+    },
+    {
+      "id": "apps",
+      "label": "Aletheia Apps",
+      "url": "https://karstenevans.github.io/aletheia-app/",
+      "sprites": {
+        "default": "★",
+        "halloween": "★",
+        "winter": "⭐"
+      }
+    },
+    {
+      "id": "knowledge",
+      "label": "Aletheia Knowledge",
+      "url": "https://karstenevans.github.io/aletheia-knowledge/",
+      "sprites": {
+        "default": "✧",
+        "halloween": "✧",
+        "winter": "🎁"
+      }
+    },
+    {
+      "id": "stories",
+      "label": "Stories",
+      "url": "https://karstenevans.github.io/aletheia-app/stories/",
+      "sprites": {
+        "default": "✦",
+        "halloween": "✦",
+        "winter": "🦌"
+      }
+    },
+    {
+      "id": "writers",
+      "label": "Writers",
+      "url": "https://karstenevans.github.io/aletheia-app/Writers/",
+      "sprites": {
+        "default": "★",
+        "halloween": "★",
+        "winter": "🎄"
+      }
+    }
+  ],
+  "seasonalLinks": [
+    {
+      "id": "halloween-gifts",
+      "season": "halloween",
+      "label": "Halloween Gifts & Resources",
+      "url": "https://karstenevans.github.io/aletheia-app/seasonal/halloween-gifts.htm",
+      "sprite": "🧙"
+    }
+  ],
+  "policy": {
+    "maximumLinks": 6,
+    "missingDestination": "exclude until verified",
+    "sourceLinksAreNotAffiliateLinks": true,
+    "browserLocalDate": true,
+    "holidayLabels": "Halloween 1 Sep–10 Nov inclusive; winter 25 Nov–31 Dec inclusive; normal stars otherwise"
+  }
+}
