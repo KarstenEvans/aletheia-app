@@ -718,3 +718,15 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [ ] Establish whether Discworld Emporium or other named gift merchants offer an acceptable approved affiliate route. Leave all present gift CTAs ordinary direct product links until confirmed.
 - [ ] Review product stock periodically, especially Greebo and Death of Rats plushes; note official licence distinction and responsible ant-keeping information.
 - [ ] Test deployed HTML/CSV fetch, all constellation destinations, external clicks, narrow Android browser, desktop keyboard and Safari. Track **SOURCE INSPECTED / HTTP VERIFIED / BROWSER VERIFIED / AFFILIATE TESTED** separately.
+
+### Affiliate Tools / Site Audit HTML (29 September 2026)
+
+**GITHUB SOURCE COMMITTED / LIVE + DEVICE VERIFY TODO.** The existing Site Audit was only portable Markdown; added `aletheia-site-audit/aletheia-site-audit.htm` browser launcher, accessible hamburger menu and exact workflow handoff, and `aletheia-site-audit/affiliate-tools.htm` standalone, searchable Google/Bing/website/affiliate resource. Added `aletheia-site-audit/aletheia-site-audit-page.md` reconstruction/QA spec; updated Markdown Stage 3A (optional Search Intelligence), results schema, homepage and README. Related checked canonical research in Knowledge is AK-098. The HTML is a launchpad, not a simulated live Google/Bing account, automated crawler or paid course.
+
+- [x] Put useful official/free tools first: Trends, Trending Now, Bing keywords, Search Console, Bing search and AI citation performance, then PageSpeed, Rich Results, Bing Site Scan, Google Search Central and optional Clarity/Analytics with privacy guardrails.
+- [x] Add Awin, Bookshop UK, ClickBank and provisional other networks as separate vendor links with merchant/product verification and disclosure advice. Unresolved remembered network name `Trust Partner` is not represented as a verified brand.
+- [x] Add optional report rows with metric/source/geo/date/unit/coverage, no fake volume/account access and Stage 1 reachability first.
+- [x] Plan a **Tools → Affiliate Tools** nav entry in future worldwide Aletheia Discover; do not create an unrelated duplicate of this static page or shift Discover from consumer/location discovery to paid keyword SEO.
+- [ ] Independently verify both public GitHub Pages HTML URLs are deployed, official outbound routes/menus, narrow Android/desktop keyboard, Clipboard API success/fallback, search filter, no duplicate element IDs and Awin MasterTag exactly once. Source commits do not prove live Pages delivery.
+- [ ] When Discover is implemented, inspect its actual files and add the shared Affiliate Tools link to the final responsive menu. Swindon AI4U may link to the same single public URL after reconciling its actual deployed source.
+- [ ] Conduct one actual authorised Site Audit pilot with publicly accessible trends and, only if supplied by a verified owner, own-property Search Console/Bing exports. Record tested vs not tested; no account signup, tracking installer, payment or ads spending in this task.
