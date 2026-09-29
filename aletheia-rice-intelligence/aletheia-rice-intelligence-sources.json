@@ -1,0 +1,1367 @@
+{
+  "version": "0.1-prototype",
+  "research_cutoff": "2026-09-29",
+  "groups": [
+    {
+      "id": "price",
+      "label": "Rice prices and market benchmarks",
+      "section": "Rice prices"
+    },
+    {
+      "id": "seller_th",
+      "label": "Supplier watch: Thailand",
+      "section": "Supplier watch"
+    },
+    {
+      "id": "seller_kh",
+      "label": "Supplier watch: Cambodia",
+      "section": "Supplier watch"
+    },
+    {
+      "id": "seller_vn",
+      "label": "Supplier watch: Vietnam",
+      "section": "Supplier watch"
+    },
+    {
+      "id": "seller_in",
+      "label": "Supplier watch: India and Pakistan",
+      "section": "Supplier watch"
+    },
+    {
+      "id": "crop",
+      "label": "Crop and production outlooks",
+      "section": "Crop outlooks"
+    },
+    {
+      "id": "weather",
+      "label": "Weather and climate",
+      "section": "Weather"
+    },
+    {
+      "id": "water",
+      "label": "Water, river and satellite monitoring",
+      "section": "Crop & water"
+    },
+    {
+      "id": "trade",
+      "label": "Trade, transport and freight",
+      "section": "Trade & routes"
+    },
+    {
+      "id": "policy",
+      "label": "Policy, food safety and trade statistics",
+      "section": "Trade & rules"
+    },
+    {
+      "id": "company",
+      "label": "Company/share monitoring",
+      "section": "Companies"
+    },
+    {
+      "id": "library",
+      "label": "Training and reference library",
+      "section": "Library"
+    }
+  ],
+  "sources": [
+    {
+      "group": "price",
+      "id": "trea-price",
+      "name": "Thai Rice Exporters Association: FOB price table",
+      "url": "https://www.thairiceexporters.or.th/price.htm",
+      "cadence": "weekly",
+      "access": "public table",
+      "note": "Milled FOB benchmark, not a firm supplier offer. Includes crop-year distinctions.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "trea-market",
+      "name": "TREA weekly market report",
+      "url": "https://thairiceexporters.or.th/report_2026.html",
+      "cadence": "weekly",
+      "access": "public site",
+      "note": "News and price situation, source in Thai.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "fao-rice",
+      "name": "FAO Rice Price Update",
+      "url": "https://www.fao.org/markets-and-trade/commodities/rice/fao-rice-price-update",
+      "cadence": "monthly",
+      "access": "public report",
+      "note": "International export benchmarks; monthly not daily.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "fao-fpma",
+      "name": "FAO FPMA domestic rice prices",
+      "url": "https://www.fao.org/giews/food-prices/en/",
+      "cadence": "variable/monthly",
+      "access": "public database",
+      "note": "Domestic market quotations not FOB exports.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "worldbank-pink",
+      "name": "World Bank commodity price data",
+      "url": "https://www.worldbank.org/en/research/commodity-markets",
+      "cadence": "monthly",
+      "access": "public downloads",
+      "note": "Monthly benchmark series; price basis differs.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "apeda-prices",
+      "name": "APEDA AgriExchange",
+      "url": "https://agriexchange.apeda.gov.in/",
+      "cadence": "variable",
+      "access": "public portal",
+      "note": "Indian agricultural export information and quotations.",
+      "country": "India",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "vfa",
+      "name": "Vietnam Food Association",
+      "url": "https://vietfood.org.vn/",
+      "cadence": "variable",
+      "access": "public website",
+      "note": "Trade news/quotations when published.",
+      "country": "Vietnam",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "crf",
+      "name": "Cambodia Rice Federation",
+      "url": "https://crf.org.kh/",
+      "cadence": "variable",
+      "access": "public website",
+      "note": "Rice industry news, export statistics; no guaranteed live offer.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "oryza",
+      "name": "Oryza global rice intelligence",
+      "url": "https://oryza.com/",
+      "cadence": "daily/variable",
+      "access": "commercial",
+      "note": "Licence before integrating or redistributing content.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "the-rice-trader",
+      "name": "The Rice Trader",
+      "url": "https://world-rice.com/",
+      "cadence": "weekly/variable",
+      "access": "commercial",
+      "note": "Subscription intelligence, not an open scraping API.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "platts",
+      "name": "S&P Global rice methodology/news",
+      "url": "https://www.spglobal.com/commodityinsights/en/",
+      "cadence": "variable",
+      "access": "commercial",
+      "note": "Verify currently active assessments and licence. Cambodian Phka Malis assessments discontinued 1 May 2026.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "price",
+      "id": "cme-zr",
+      "name": "CME Rough Rice futures",
+      "url": "https://www.cmegroup.com/markets/agriculture/grains/rough-rice.html",
+      "cadence": "exchange trading",
+      "access": "market licence may apply",
+      "note": "US rough/paddy contract is NOT Thai/Cambodian milled jasmine benchmark.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-asia-golden",
+      "name": "Asia Golden Rice",
+      "url": "https://www.asiagoldenrice.com/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Rice miller/exporter; request grade-specific current offer.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-capital-rice",
+      "name": "Capital Rice",
+      "url": "https://www.thairiceexporters.or.th/board_of_director_eng.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Association lists Capital Rice. Contact/availability to reconfirm.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-thai-hua",
+      "name": "Thai Hua (2511)",
+      "url": "https://www.thairiceexporters.or.th/board_of_director_eng.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Member/board company, not daily public price.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-chia-meng",
+      "name": "Bangsue Chia Meng Rice Mill",
+      "url": "https://www.thairiceexporters.or.th/member_1.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Miller; confirm products and supply.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-cp-intertrade",
+      "name": "C.P. Intertrade",
+      "url": "https://www.thairiceexporters.or.th/member_2.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Brand and exporter; request B2B quote.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-siam-grains",
+      "name": "Siam Grains",
+      "url": "https://www.thairiceexporters.or.th/board_of_director_eng.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Member listed in TREA.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-seng-thong",
+      "name": "Seng Thong Rice (1968)",
+      "url": "https://www.thairiceexporters.or.th/board_of_director_eng.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Member listed in TREA.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-thai-capital",
+      "name": "Thai Capital Crops",
+      "url": "https://www.thairiceexporters.or.th/board_of_director_eng.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Member listed in TREA.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-riceland",
+      "name": "Riceland International",
+      "url": "https://www.thairiceexporters.or.th/board_of_director_eng.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Member listed in TREA.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-bangkok-rice",
+      "name": "Bangkok Rice",
+      "url": "https://www.thairiceexporters.or.th/member_1.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Listed rice exporter.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-ake",
+      "name": "Ake Rice Mill",
+      "url": "https://www.thairiceexporters.or.th/member_1.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Listed mill.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-asiagrains",
+      "name": "Asia Grains Syndicate",
+      "url": "https://www.thairiceexporters.or.th/member_1.htm",
+      "cadence": "on quotation",
+      "access": "association listing",
+      "note": "Listed exporter.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_th",
+      "id": "th-members",
+      "name": "TREA full member directory",
+      "url": "https://www.thairiceexporters.or.th/member.htm",
+      "cadence": "on quotation",
+      "access": "directory",
+      "note": "Discover additional verified members, confirm current contact.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "seller_kh",
+      "id": "kh-amru",
+      "name": "Amru Rice",
+      "url": "http://www.amrurice.com.kh/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Organic and jasmine specialist; confirm website and contact.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "seller_kh",
+      "id": "kh-golden",
+      "name": "Golden Rice Cambodia",
+      "url": "https://goldenricecambodia.com/en/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Miller/exporter; official site warns of impostor sales representatives.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "seller_kh",
+      "id": "kh-city",
+      "name": "City Rice Import Export",
+      "url": "https://www.cityrice.com/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Battambang miller; public catalogue/quote request.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "seller_kh",
+      "id": "kh-signature-of-asia",
+      "name": "Signature of Asia",
+      "url": "https://signaturesasia.com/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Exports Malis/fragrant/white rice; reconfirm current trading terms.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "seller_kh",
+      "id": "kh-signature-rice",
+      "name": "Signature Rice",
+      "url": "https://signaturerice.com/en/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Separate company/site from Signature of Asia; verify business identity.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "seller_kh",
+      "id": "kh-crf",
+      "name": "Cambodia Rice Federation directory / announcements",
+      "url": "https://crf.org.kh/",
+      "cadence": "variable",
+      "access": "industry association",
+      "note": "Directory and broader discovery, not price feed.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "seller_vn",
+      "id": "vn-vinafood2",
+      "name": "Vinafood II",
+      "url": "https://vinafood2.com.vn/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Major rice trade enterprise.",
+      "country": "Vietnam",
+      "status": "active"
+    },
+    {
+      "group": "seller_vn",
+      "id": "vn-gentraco",
+      "name": "Gentraco",
+      "url": "https://gentraco.com.vn/en/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Miller/exporter with quotation contact.",
+      "country": "Vietnam",
+      "status": "active"
+    },
+    {
+      "group": "seller_vn",
+      "id": "vn-tanlong",
+      "name": "Tân Long Group",
+      "url": "https://www.tanlonggroup.vn/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Rice production/trading business.",
+      "country": "Vietnam",
+      "status": "active"
+    },
+    {
+      "group": "seller_vn",
+      "id": "vn-loctroi",
+      "name": "Lộc Trời Group",
+      "url": "https://www.loctroi.vn/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Integrated agriculture/rice operations; check current status.",
+      "country": "Vietnam",
+      "status": "active"
+    },
+    {
+      "group": "seller_vn",
+      "id": "vn-vfa",
+      "name": "Vietnam Food Association member discovery",
+      "url": "https://vietfood.org.vn/",
+      "cadence": "variable",
+      "access": "industry association",
+      "note": "Find members and country trade context.",
+      "country": "Vietnam",
+      "status": "active"
+    },
+    {
+      "group": "seller_in",
+      "id": "in-krbl",
+      "name": "KRBL",
+      "url": "https://www.krblrice.com/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Indian basmati producer; reconfirm supplier status.",
+      "country": "India",
+      "status": "active"
+    },
+    {
+      "group": "seller_in",
+      "id": "in-lt",
+      "name": "LT Foods",
+      "url": "https://ltfoods.com/",
+      "cadence": "on quotation",
+      "access": "seller website",
+      "note": "Specialty/basmati rice.",
+      "country": "India",
+      "status": "active"
+    },
+    {
+      "group": "seller_in",
+      "id": "in-apeda",
+      "name": "APEDA exporter directory",
+      "url": "https://apeda.gov.in/exporter-directory",
+      "cadence": "directory",
+      "access": "official registry",
+      "note": "Search registered exporters, check registration and product.",
+      "country": "India",
+      "status": "active"
+    },
+    {
+      "group": "seller_in",
+      "id": "pk-reap",
+      "name": "Rice Exporters Association of Pakistan",
+      "url": "https://reap.com.pk/",
+      "cadence": "directory",
+      "access": "industry association",
+      "note": "Discover Pakistani exporters; confirm company identity.",
+      "country": "Pakistan",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "geoglam-amis",
+      "name": "GEOGLAM Crop Monitor for AMIS",
+      "url": "https://www.cropmonitor.org/crop-monitor-for-amis",
+      "cadence": "monthly",
+      "access": "public report",
+      "note": "Crop conditions and anomalies; date of conditions may precede issue.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "geoglam-global",
+      "name": "GEOGLAM Global Crop Monitor",
+      "url": "https://www.cropmonitor.org/global-crop-monitor",
+      "cadence": "monthly",
+      "access": "public report",
+      "note": "Global rice overview and climate influences.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "geoglam-ew",
+      "name": "GEOGLAM Early Warning Crop Monitor",
+      "url": "https://www.cropmonitor.org/crop-monitor-for-early-warning",
+      "cadence": "monthly",
+      "access": "public report",
+      "note": "Vulnerable agricultural regions.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "afsis-rgo",
+      "name": "AFSIS Rice Growing Outlook",
+      "url": "https://www.aptfsis.org/publication/rgo",
+      "cadence": "monthly",
+      "access": "public report",
+      "note": "Nine ASEAN countries including TH/KH/VN.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "afsis-aco",
+      "name": "AFSIS Agricultural Commodities Outlook",
+      "url": "https://www.aptfsis.org/publication",
+      "cadence": "semiannual",
+      "access": "public report",
+      "note": "Supply/demand balance, production/import/export outlook.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "afsis-ewi",
+      "name": "AFSIS Early Warning Information",
+      "url": "https://www.aptfsis.org/publication",
+      "cadence": "semiannual",
+      "access": "public report",
+      "note": "Planted/harvested area, damage, yield.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "usda-psd",
+      "name": "USDA FAS PSD Rice Supply/Demand",
+      "url": "https://apps.fas.usda.gov/psdonline/",
+      "cadence": "monthly/periodic",
+      "access": "public data",
+      "note": "Production, imports, exports and stocks; marketing year.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "usda-gain",
+      "name": "USDA FAS GAIN country reports",
+      "url": "https://fas.usda.gov/data",
+      "cadence": "periodic",
+      "access": "public reports",
+      "note": "Country assessments and revisions.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "fao-giews",
+      "name": "FAO GIEWS early warning",
+      "url": "https://www.fao.org/giews/",
+      "cadence": "variable",
+      "access": "public reports",
+      "note": "Country food/crop outlooks.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "jrc-asap",
+      "name": "EU JRC ASAP crop anomaly monitoring",
+      "url": "https://agricultural-production-hotspots.ec.europa.eu/",
+      "cadence": "monthly/variable",
+      "access": "public portal",
+      "note": "Satellite-driven crop stress; coverage varies.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "iris",
+      "name": "IRRI rice research and news",
+      "url": "https://www.irri.org/",
+      "cadence": "variable",
+      "access": "public pages",
+      "note": "Research and technical context, not a live quote service.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "crop",
+      "id": "amis",
+      "name": "AMIS Market Monitor",
+      "url": "https://www.amis-outlook.org/",
+      "cadence": "monthly",
+      "access": "public report",
+      "note": "Rice supply/demand and policy context.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "openmeteo",
+      "name": "Open-Meteo location forecast (prototype)",
+      "url": "https://open-meteo.com/en/docs",
+      "cadence": "daily/hourly models",
+      "access": "API, non-commercial licence",
+      "note": "Live prototype forecast; NOT observation or field-specific yield forecast.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "noaa",
+      "name": "NOAA CPC ENSO Diagnostic Discussion",
+      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.html",
+      "cadence": "monthly",
+      "access": "public advisory",
+      "note": "ENSO probability; infer no specific province impact alone.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "asmc",
+      "name": "ASEAN Specialised Meteorological Centre",
+      "url": "https://asmc.asean.org/asmc-seasonal-outlook",
+      "cadence": "monthly/seasonal",
+      "access": "public forecasts",
+      "note": "Regional outlook and haze/climate.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "ecmwf",
+      "name": "ECMWF public forecast / seasonal",
+      "url": "https://www.ecmwf.int/en/forecasts",
+      "cadence": "daily/seasonal",
+      "access": "public and licensed",
+      "note": "Forecast products with data access terms.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "tmd",
+      "name": "Thai Meteorological Department",
+      "url": "https://www.tmd.go.th/en/",
+      "cadence": "daily/warnings",
+      "access": "official public",
+      "note": "National and sub-national warnings.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "vn-met",
+      "name": "Vietnam National Centre for Hydro-Meteorological Forecasting",
+      "url": "https://nchmf.gov.vn/",
+      "cadence": "daily/warnings",
+      "access": "official public",
+      "note": "Vietnamese-language forecasts.",
+      "country": "Vietnam",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "kh-mowram",
+      "name": "Cambodian Ministry of Water Resources and Meteorology",
+      "url": "https://www.mowram.gov.kh/",
+      "cadence": "daily/variable",
+      "access": "official public",
+      "note": "National forecasts and warnings; verify latest page.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "imd",
+      "name": "India Meteorological Department",
+      "url": "https://mausam.imd.gov.in/",
+      "cadence": "daily/warnings",
+      "access": "official public",
+      "note": "Monsoon and weather alerts.",
+      "country": "India",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "wmo",
+      "name": "WMO El Niño / climate updates",
+      "url": "https://wmo.int/",
+      "cadence": "periodic",
+      "access": "public",
+      "note": "Corroboration, not farm forecast.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "iri",
+      "name": "IRI seasonal climate forecasts",
+      "url": "https://iri.columbia.edu/our-expertise/climate/forecasts/",
+      "cadence": "monthly",
+      "access": "public maps",
+      "note": "Climate forecast probabilities.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "weather",
+      "id": "visualcross",
+      "name": "Visual Crossing Weather API",
+      "url": "https://www.visualcrossing.com/weather-api/",
+      "cadence": "API",
+      "access": "commercial/freemium",
+      "note": "Commercial data connection to evaluate.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "mrc-overview",
+      "name": "Mekong River Commission forecast alerts",
+      "url": "https://www.mrcmekong.org/flood-and-drought-forecasting/",
+      "cadence": "daily wet season; weekly dry season",
+      "access": "public",
+      "note": "River levels, flood/drought monitoring; site-specific interpretation.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "mrc-portal",
+      "name": "MRC Flood Forecasting Portal",
+      "url": "https://portal.mrcmekong.org/monitoring/flood-forecasting",
+      "cadence": "daily wet season",
+      "access": "public portal",
+      "note": "A gauge reading alone cannot confirm inundation.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "mrc-api",
+      "name": "MRC data services",
+      "url": "https://data-services.mrcmekong.org/",
+      "cadence": "variable",
+      "access": "API; terms/access verify",
+      "note": "Adapter candidate; check API credentials and permissions.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "nasa-gpm",
+      "name": "NASA GPM IMERG precipitation",
+      "url": "https://gpm.nasa.gov/data/imerg",
+      "cadence": "near real-time",
+      "access": "public data",
+      "note": "Satellite precipitation estimates, not exact farm gauge.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "nasa-earth",
+      "name": "NASA Earthdata",
+      "url": "https://www.earthdata.nasa.gov/",
+      "cadence": "variable",
+      "access": "public/account",
+      "note": "Remote sensing observations.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "copernicus",
+      "name": "Copernicus Climate Data Store",
+      "url": "https://cds.climate.copernicus.eu/",
+      "cadence": "model/observation variable",
+      "access": "public/account",
+      "note": "ERA5, climate context and seasonal products.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "kh-dhrw",
+      "name": "Cambodia DHRW official daily water bulletins",
+      "url": "https://www.dhrw-cam.org/bulletintbl.php",
+      "cadence": "daily",
+      "access": "official government",
+      "note": "Station-level Mekong/tributary water levels and rainfall; underlying observation date on bulletin.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "kh-nffc",
+      "name": "Cambodia National Flood Forecasting Centre",
+      "url": "https://www.nffc.dhrw-cam.org/",
+      "cadence": "daily/variable",
+      "access": "official government",
+      "note": "Cambodian flood and drought forecasts; separate from MRC regional portal.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "water",
+      "id": "servir",
+      "name": "SERVIR Southeast Asia",
+      "url": "https://servir.adpc.net/",
+      "cadence": "variable",
+      "access": "public resources",
+      "note": "Geospatial drought/flood monitoring and research.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "trade",
+      "id": "mrc-routes",
+      "name": "MRC cross-border hydrology/river info",
+      "url": "https://www.mrcmekong.org/",
+      "cadence": "variable",
+      "access": "public",
+      "note": "Waterway conditions, not proof cargo clearance.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "trade",
+      "id": "maersk",
+      "name": "Maersk advisories",
+      "url": "https://www.maersk.com/news",
+      "cadence": "event-driven",
+      "access": "carrier announcements",
+      "note": "Check actual booked route and container schedule.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "trade",
+      "id": "freightos",
+      "name": "Freightos Baltic Index",
+      "url": "https://fbx.freightos.com/",
+      "cadence": "weekly",
+      "access": "commercial/public overview",
+      "note": "Container lane context, not Cambodia–Thailand road tariff.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "trade",
+      "id": "marine",
+      "name": "MarineTraffic",
+      "url": "https://www.marinetraffic.com/",
+      "cadence": "near real-time",
+      "access": "commercial/API",
+      "note": "AIS and port monitoring, licence required for integration.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "trade",
+      "id": "uncomtrade",
+      "name": "UN Comtrade",
+      "url": "https://comtradeplus.un.org/",
+      "cadence": "monthly/lagged",
+      "access": "public and API",
+      "note": "HS 1006 trade flow data, not daily spot price.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "trade",
+      "id": "icc",
+      "name": "ICC Incoterms 2020 knowledge",
+      "url": "https://iccwbo.org/business-solutions/incoterms-rules/",
+      "cadence": "reference",
+      "access": "official reference",
+      "note": "FOB vessel only; FCA often better for truck/container.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "trade",
+      "id": "wto-eping",
+      "name": "WTO ePing trade measure notifications",
+      "url": "https://eping.wto.org/",
+      "cadence": "event-driven",
+      "access": "public notification",
+      "note": "SPS/TBT alerts; check local import/export rules.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "policy",
+      "id": "th-dft",
+      "name": "Thai Department of Foreign Trade",
+      "url": "https://www.dft.go.th/",
+      "cadence": "event-driven",
+      "access": "official",
+      "note": "Rice trade rules, licences, origin/certification.",
+      "country": "Thailand",
+      "status": "active"
+    },
+    {
+      "group": "policy",
+      "id": "kh-moc",
+      "name": "Cambodia Ministry of Commerce",
+      "url": "https://www.moc.gov.kh/",
+      "cadence": "event-driven",
+      "access": "official",
+      "note": "Trade policy and notifications.",
+      "country": "Cambodia",
+      "status": "active"
+    },
+    {
+      "group": "policy",
+      "id": "vn-moit",
+      "name": "Vietnam Ministry of Industry and Trade",
+      "url": "https://moit.gov.vn/",
+      "cadence": "event-driven",
+      "access": "official",
+      "note": "Rice export policies and trade changes.",
+      "country": "Vietnam",
+      "status": "active"
+    },
+    {
+      "group": "policy",
+      "id": "in-dgft",
+      "name": "India Directorate General of Foreign Trade",
+      "url": "https://www.dgft.gov.in/",
+      "cadence": "event-driven",
+      "access": "official",
+      "note": "Rice export policy notices and restrictions.",
+      "country": "India",
+      "status": "active"
+    },
+    {
+      "group": "policy",
+      "id": "apeda",
+      "name": "APEDA (registration, trade information)",
+      "url": "https://apeda.gov.in/",
+      "cadence": "event-driven",
+      "access": "official",
+      "note": "Indian agricultural export requirements.",
+      "country": "India",
+      "status": "active"
+    },
+    {
+      "group": "policy",
+      "id": "usda-reg",
+      "name": "USDA FAS GAIN regulations/country reports",
+      "url": "https://fas.usda.gov/data",
+      "cadence": "variable",
+      "access": "official reports",
+      "note": "Policy and regulatory country context.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "policy",
+      "id": "fao-food",
+      "name": "FAO GIEWS Food Policy Monitoring",
+      "url": "https://www.fao.org/giews/food-prices/en/",
+      "cadence": "event-driven",
+      "access": "public",
+      "note": "Government trade/food measures and price alerts.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "company",
+      "id": "bgc-invest",
+      "name": "BGC Group investors (NASDAQ: BGC)",
+      "url": "https://ir.bgcg.com/",
+      "cadence": "event-driven",
+      "access": "corporate investor page",
+      "note": "Financial brokerage firm; NOT physical rice spot benchmark.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "company",
+      "id": "lt-invest",
+      "name": "LT Foods investors (NSE: LTFOODS)",
+      "url": "https://ltfoods.com/investors",
+      "cadence": "quarterly/annual",
+      "access": "corporate investor page",
+      "note": "Rice-related company; share-price licensing separately.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "company",
+      "id": "krbl-invest",
+      "name": "KRBL investors (NSE: KRBL)",
+      "url": "https://www.krblrice.com/",
+      "cadence": "quarterly/annual",
+      "access": "corporate site",
+      "note": "Indian rice exposure; verify exact ticker/listing.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "company",
+      "id": "olam-invest",
+      "name": "Olam Group investors (SGX: VC2)",
+      "url": "https://www.olamgroup.com/investors.html",
+      "cadence": "quarterly/annual",
+      "access": "corporate site",
+      "note": "Diversified group; avoid treating share as rice proxy.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "company",
+      "id": "set",
+      "name": "Stock Exchange of Thailand",
+      "url": "https://www.set.or.th/en/home",
+      "cadence": "market hours",
+      "access": "exchange",
+      "note": "Discover listed firms, separate equity performance from rice price.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "company",
+      "id": "nasdaq",
+      "name": "NASDAQ BGC quote lookup",
+      "url": "https://www.nasdaq.com/market-activity/stocks/bgc",
+      "cadence": "market hours",
+      "access": "market page",
+      "note": "Quote may be delayed; data/display rights apply.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "company",
+      "id": "bse",
+      "name": "BSE India company lookup",
+      "url": "https://www.bseindia.com/",
+      "cadence": "market hours",
+      "access": "exchange",
+      "note": "Search rice-company listings; disclosures/filings.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "library",
+      "id": "irri-almanac",
+      "name": "IRRI Rice Almanac 4th Ed (free)",
+      "url": "https://books.irri.org/9789712203008_content.pdf",
+      "cadence": "reference",
+      "access": "free PDF",
+      "note": "Rice growing, trade and country context.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "library",
+      "id": "springer-grain",
+      "name": "Physical Grain Trading (Springer, 2025)",
+      "url": "https://link.springer.com/book/10.1007/978-3-031-83975-7",
+      "cadence": "reference",
+      "access": "paid/book",
+      "note": "Practical cash grain trading and basis.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "library",
+      "id": "icc-training",
+      "name": "ICC Incoterms 2020",
+      "url": "https://iccwbo.org/business-solutions/incoterms-rules/",
+      "cadence": "reference",
+      "access": "official; parts paid",
+      "note": "Contract delivery and risk.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "library",
+      "id": "irri",
+      "name": "IRRI",
+      "url": "https://www.irri.org/",
+      "cadence": "variable",
+      "access": "free pages",
+      "note": "Rice production research, technical library.",
+      "country": "Global",
+      "status": "active"
+    },
+    {
+      "group": "library",
+      "id": "trea-members",
+      "name": "TREA membership directory",
+      "url": "https://www.thairiceexporters.or.th/member.htm",
+      "cadence": "periodic",
+      "access": "public directory",
+      "note": "Source for Thailand seller discovery.",
+      "country": "Global",
+      "status": "active"
+    }
+  ],
+  "regions": [
+    {
+      "id": "th-isan",
+      "name": "Northeast Thailand · Ubon Ratchathani",
+      "country": "Thailand",
+      "lat": 15.2448,
+      "lon": 104.8473
+    },
+    {
+      "id": "th-sur",
+      "name": "Northeast Thailand · Surin",
+      "country": "Thailand",
+      "lat": 14.8829,
+      "lon": 103.4937
+    },
+    {
+      "id": "th-roiet",
+      "name": "Northeast Thailand · Roi Et",
+      "country": "Thailand",
+      "lat": 16.0538,
+      "lon": 103.652
+    },
+    {
+      "id": "th-central",
+      "name": "Central Thailand · Suphan Buri",
+      "country": "Thailand",
+      "lat": 14.4745,
+      "lon": 100.1177
+    },
+    {
+      "id": "kh-battambang",
+      "name": "Cambodia · Battambang",
+      "country": "Cambodia",
+      "lat": 13.0957,
+      "lon": 103.2022
+    },
+    {
+      "id": "kh-prey-veng",
+      "name": "Cambodia · Prey Veng",
+      "country": "Cambodia",
+      "lat": 11.4868,
+      "lon": 105.3253
+    },
+    {
+      "id": "kh-kampong-thom",
+      "name": "Cambodia · Kampong Thom",
+      "country": "Cambodia",
+      "lat": 12.7111,
+      "lon": 104.8887
+    },
+    {
+      "id": "kh-takeo",
+      "name": "Cambodia · Takeo",
+      "country": "Cambodia",
+      "lat": 10.9908,
+      "lon": 104.785
+    },
+    {
+      "id": "vn-an-giang",
+      "name": "Vietnam · An Giang",
+      "country": "Vietnam",
+      "lat": 10.5216,
+      "lon": 105.1259
+    },
+    {
+      "id": "vn-can-tho",
+      "name": "Vietnam · Can Tho",
+      "country": "Vietnam",
+      "lat": 10.0452,
+      "lon": 105.7469
+    },
+    {
+      "id": "vn-dong-thap",
+      "name": "Vietnam · Dong Thap",
+      "country": "Vietnam",
+      "lat": 10.4938,
+      "lon": 105.6882
+    },
+    {
+      "id": "vn-soc-trang",
+      "name": "Vietnam · Soc Trang",
+      "country": "Vietnam",
+      "lat": 9.6025,
+      "lon": 105.9739
+    },
+    {
+      "id": "in-punjab",
+      "name": "India · Punjab",
+      "country": "India",
+      "lat": 30.7333,
+      "lon": 76.7794
+    },
+    {
+      "id": "in-haryana",
+      "name": "India · Haryana",
+      "country": "India",
+      "lat": 29.0588,
+      "lon": 76.0856
+    },
+    {
+      "id": "pk-punjab",
+      "name": "Pakistan · Punjab",
+      "country": "Pakistan",
+      "lat": 31.5204,
+      "lon": 74.3587
+    }
+  ],
+  "varieties": [
+    {
+      "id": "th-hom-mali",
+      "name": "Thai Hom Mali KDML105 / RD15",
+      "country": "Thailand"
+    },
+    {
+      "id": "th-jasmine",
+      "name": "Thai Jasmine / Thai fragrant (other)",
+      "country": "Thailand"
+    },
+    {
+      "id": "kh-phka-malis",
+      "name": "Cambodia Phka Malis / Phka Rumduol",
+      "country": "Cambodia"
+    },
+    {
+      "id": "kh-sen-kra-ob",
+      "name": "Cambodia Sen Kra Ob",
+      "country": "Cambodia"
+    },
+    {
+      "id": "vn-jasmine",
+      "name": "Vietnamese Jasmine / fragrant",
+      "country": "Vietnam"
+    },
+    {
+      "id": "vn-st25",
+      "name": "Vietnam ST25",
+      "country": "Vietnam"
+    },
+    {
+      "id": "vn-om5451",
+      "name": "Vietnam OM5451",
+      "country": "Vietnam"
+    },
+    {
+      "id": "white-5",
+      "name": "White long-grain 5% broken",
+      "country": "All"
+    },
+    {
+      "id": "white-25",
+      "name": "White long-grain 25% broken",
+      "country": "All"
+    },
+    {
+      "id": "parboiled",
+      "name": "Parboiled rice",
+      "country": "All"
+    },
+    {
+      "id": "glutinous",
+      "name": "Glutinous rice",
+      "country": "All"
+    },
+    {
+      "id": "basmati",
+      "name": "Indian / Pakistani Basmati",
+      "country": "India/Pakistan"
+    },
+    {
+      "id": "broken",
+      "name": "Broken rice / A1 super",
+      "country": "All"
+    },
+    {
+      "id": "organic",
+      "name": "Organic/certified rice",
+      "country": "All"
+    }
+  ],
+  "providers": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com/"
+    },
+    {
+      "id": "copilot",
+      "name": "Microsoft Copilot",
+      "url": "https://copilot.microsoft.com/"
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini",
+      "url": "https://gemini.google.com/"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "url": "https://claude.ai/"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "url": "https://chat.deepseek.com/"
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "url": "https://www.kimi.com/"
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "url": "https://chat.qwen.ai/"
+    },
+    {
+      "id": "manus",
+      "name": "Manus (optional agent)",
+      "url": "https://manus.im/"
+    }
+  ]
+}
