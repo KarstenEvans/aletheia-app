@@ -110,7 +110,7 @@ The ethical version should favour original, useful, source-backed content that d
 For difficult access problems, run the same Reachability Gate independently in capable systems such as ChatGPT, Claude, Gemini, Copilot, DeepSeek, Kimi or others. Each run creates its own `<hostname>-results.md`. Compare without erasing disagreement. Provider identity is evidence metadata, not a reliability ranking by nationality or brand.
 
 ## Results schema
-Include executive result; target/timestamp; AI/model/provider; tools used/unavailable; URL results; DNS; TLS; redirects; robots/sitemap/llms; browser-vs-automated fetch; hosting/shared-IP/reputation; search/discoverability; evidence table; ranked hypotheses; proposed repairs; retest plan; raw useful evidence; and Aletheia receipt.
+Include executive result; target/timestamp; AI/model/provider; tools used/unavailable; URL results; DNS; TLS; redirects; robots/sitemap/llms; browser-vs-automated fetch; hosting/shared-IP/reputation; search/discoverability; optional search intelligence sources available/unavailable; keyword/trend metrics with date/region/unit; owner-authorised Google/Bing property and AI citation reports where supplied; evidence table; ranked hypotheses; proposed repairs; retest plan; raw useful evidence; and Aletheia receipt.
 
 ## Aletheia receipt
 Record: Tested; Not tested/unavailable; Strongest verified finding; Strongest unresolved question; Material blocker YES/NO/UNKNOWN; Files generated; Changes actually made; Changes only proposed; Recommended next action; Confidence HIGH/MEDIUM/LOW with reason.
