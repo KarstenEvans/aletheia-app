@@ -23,6 +23,7 @@
   function render(el,data,date){
     if(!el||!data||!Array.isArray(data.links)||!Array.isArray(data.seasonalLinks))return false;
     var season=seasonAt(date||new Date(),data.seasons);
+    document.documentElement.dataset.aletheiaSeason=season;
     var items=data.links.filter(function(x){return x.label && isSafeUrl(x.url);}).map(function(x){
       return {item:x,sprite:x.sprites && (x.sprites[season]||x.sprites.default)||'★'};
     });
