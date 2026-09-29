@@ -23,6 +23,7 @@ Protocol source: `https://github.com/KarstenEvans/aletheia-protocol`
 - Build mobile-first, then desktop. Test touch, keyboard, zoom, reduced motion and narrow screens.
 - Support current Chromium, Firefox and Safari/WebKit where practical. Feature-detect browser APIs and graphics capabilities; do not assume a browser or operating system lacks a library merely from one failed run.
 - For WebGL/Three.js or other optional rendering, provide a useful fallback when the library, CDN or graphics context fails. The fallback must still explain what the page is and give the user working navigation/content.
+- New public standalone HTML with genuine related destinations follows the shared seasonal Constellation standard in `shared/README.md`, `shared/link-sprites.json` and GUI §21. Preserve ordinary fallback stars, dated witch/winter rules and reduced-motion; source/editorial links are not advertisements.
 - Primary in-app navigation stays predictable. Secondary resources/external searches may open a separate resizable desktop window when preserving the current task matters; use a normal new tab/fallback on mobile or when popups are blocked. One click opens one destination.
 - Never intercept downloads, anchors, `mailto:` or `tel:` with popup code.
 - Keep external dependencies explicit. If a local/offline build needs the internet for a CDN/font/API, say so and fail visibly.
