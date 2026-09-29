@@ -744,3 +744,15 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [ ] Do not claim owner account connected, app scan actually run, direct Disney+ Awin programme, publisher approvals, real-time item stock, ad spend or live-page browser success without receipts.
 
 **Static verification receipt (29 September 2026):** all three HTML source files (`affiliate-tools.htm`, `aletheia-site-audit.htm`, `seasonal/halloween-gifts.htm`) have no duplicate IDs or missing local `#fragment` targets; inline JavaScript syntax passes, each includes one MasterTag and the shared Constellation. Source manifest JSON parses, has five ordinary destinations plus one seasonal witch and all URLs are HTTPS. The actual `seasonAt` function passes 9 date tests: 1 September, 31 October, 10 November, 11 November, 24 November, 25 November, 31 December, 1 January and 31 August. The Affiliate Tools page includes the author's free Accessibility title and Books / Gifts is final in the menu. Live GitHub Pages browser/Android/Safari performance and merchant signups remain unverified.
+
+## Aletheia Rice Intelligence v0.3 — on-demand pilot (29 September 2026)
+
+- [x] Publish `aletheia-rice-intelligence/` GitHub app, briefing Markdown, 98-source catalogue, public default settings, empty data template and reconstruction page spec.
+- [x] Add selectable private Settings.md and Data.md import/export, persistent browser-origin ledger, optional user-authorised file handles and conservative reviewed-only historical price graph.
+- [x] Add authenticated Cloudflare Worker source, 18 bounded direct publication attempts, optional official-host follow-up discovery, optional Brave search and Workers AI synthesis. Price candidates always require human review.
+- [x] Source-level check of published HTML inline script, data ledger and Worker syntax; verify HTML IDs and linked filename references.
+- [ ] Deploy Worker in owner's Cloudflare account; configure private `RICE_ACCESS_TOKEN`, optional Brave key, and confirm allowed AI binding/budget.
+- [ ] Run LIVE sample briefing against current original publishers, independently inspect price extraction, observe source-fetch failures and preserve actual research receipt.
+- [ ] Test GitHub Pages URL and downloadable/reconnected Markdown in desktop Chrome/Edge, mobile Android and Safari. Github Pages cannot silently enumerate Downloads; require explicit file permission/import.
+- [ ] Obtain broker's usability feedback, especially high-value suppliers, alerts, price grades and the appropriate chart comparison units. Do not commit private trading observations to this public repository.
+
