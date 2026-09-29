@@ -1,0 +1,26 @@
+/* Aletheia Constellation v1: bounded editorial cross-links, not page-blocking confetti. */
+.aletheia-constellation{--as-bg:#12273b;--as-line:#38566c;--as-ink:#f3f8fc;--as-glow:#f3d37a;position:relative;isolation:isolate;overflow:hidden;max-width:1120px;margin:35px auto 18px;padding:19px clamp(14px,3vw,28px) 22px;border:1px solid var(--as-line);border-radius:20px;background:radial-gradient(ellipse at 10% 3%,#27576b,var(--as-bg) 78%);color:var(--as-ink);box-shadow:0 4px 20px #142b3a24}
+.aletheia-constellation[data-as-season="halloween"]{--as-glow:#ffc87c;background:radial-gradient(ellipse at 16% 7%,#573657,#16273a 78%);border-color:#74566e}
+.aletheia-constellation[data-as-season="winter"]{--as-glow:#bdeafa;background:radial-gradient(ellipse at 16% 7%,#1a5b79,#12283d 80%);border-color:#5893ac}
+.aletheia-constellation::before{content:"✦ · ✧ · ✦ · ✧ · ✦";position:absolute;top:-7px;right:7%;font-size:17px;letter-spacing:12px;color:#ffffff24;pointer-events:none}
+.aletheia-constellation[data-as-season="winter"]::before{content:"❄ · ✧ · ❄ · ✧";color:#dbf9ff50}
+.aletheia-constellation__head{position:relative;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.aletheia-constellation__head h2{color:var(--as-ink);font-size:clamp(1.1rem,2.4vw,1.4rem);line-height:1.25;margin:0}
+.aletheia-constellation__head p{margin:0;font-size:.88rem;color:#c4dbe6}
+.aletheia-constellation__links{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;position:relative}
+.aletheia-constellation__link{flex:1 1 139px;min-width:118px;max-width:210px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;min-height:74px;padding:9px 13px;border:1px solid #52768c;border-radius:13px;background:#234258bb;color:var(--as-ink)!important;text-align:center;text-decoration:none!important;font-weight:700;font-size:.89rem;line-height:1.3;transition:background-color .2s,transform .2s;border-color:.2s}
+.aletheia-constellation__link:hover{background:#335f72;border-color:var(--as-glow);transform:translateY(-2px)}
+.aletheia-constellation__link:focus-visible{outline:3px solid #f8df8b;outline-offset:3px}
+.aletheia-constellation__sprite{display:inline-block;line-height:1.05;font-size:1.7rem;color:var(--as-glow);text-shadow:0 0 9px #f5d79370;transform-origin:50% 75%;animation:aletheia-sprite-drift 3.8s ease-in-out infinite,aletheia-sprite-twinkle 5.7s ease-in-out infinite}
+.aletheia-constellation__link:nth-child(2) .aletheia-constellation__sprite{animation-delay:-1.8s}
+.aletheia-constellation__link:nth-child(3) .aletheia-constellation__sprite{animation-delay:-3s}
+.aletheia-constellation__link:nth-child(4) .aletheia-constellation__sprite{animation-delay:-.7s}
+.aletheia-constellation__link:nth-child(5) .aletheia-constellation__sprite{animation-delay:-2.6s}
+.aletheia-constellation__link:nth-child(6) .aletheia-constellation__sprite{animation-delay:-1.2s}
+.aletheia-constellation__link[data-as-special="halloween"]{border-color:#c38d4e;background:#4b3855c7}
+.aletheia-constellation__note{margin:11px 0 0!important;color:#c9dce4!important;font-size:.79rem!important}
+@keyframes aletheia-sprite-drift{0%,100%{transform:translateY(1px) rotate(-4deg)}50%{transform:translateY(-7px) rotate(5deg)}}
+@keyframes aletheia-sprite-twinkle{0%,100%{opacity:.85}50%{opacity:1}}
+.aletheia-constellation:hover .aletheia-constellation__sprite,.aletheia-constellation:focus-within .aletheia-constellation__sprite{animation-play-state:paused}
+@media(max-width:520px){.aletheia-constellation__link{flex:1 1 125px;min-width:125px;max-width:none;min-height:78px}.aletheia-constellation::before{letter-spacing:5px}}
+@media(prefers-reduced-motion:reduce){.aletheia-constellation *, .aletheia-constellation *::before{animation:none!important;transition:none!important}.aletheia-constellation__link:hover{transform:none}}
