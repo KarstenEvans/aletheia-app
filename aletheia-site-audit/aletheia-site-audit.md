@@ -46,6 +46,18 @@ If absent, invalid or stale, propose replacements. With enough verified inventor
 ## Stage 3 — Search & AI Discoverability
 Check where possible exact-domain/site indexing, titles/descriptions, canonicals, JSON-LD, crawlable core content, unnecessary JS-only content, HTML/Markdown discovery, broken/internal links, meaningful external references and independent AI retrieval evidence. Allowing a crawler does not guarantee ranking, recommendation or citation.
 
+## Stage 3A — Free Search Intelligence (optional)
+
+Use when the website owner asks for audience, query, keyword and AEO/GEO improvement information. **Stage 1 Reachability is always first.** The public [Affiliate Tools HTML directory](affiliate-tools.htm) is the browser launchpad; the source-traced research contract lives at [Aletheia Free Search Intelligence](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/knowledge/aletheia-free-search-intelligence.md).
+
+Check public/free official sources when tools are available: Google Trends Explore and Trending Now (a normalised/sampled 0–100 interest scale, **not** a count of searches); Bing Webmaster Keyword Research (keyword volumes, questions and trends, if accessible); Google Search Console and Bing Search Performance for the **verified owner's property only**, using authorised account access or owner-exported reports; Bing AI Performance for aggregated cited URLs and grounding-query groups if authorised/available. Grounding-query groups are **not** exact user prompts. Google Ads Keyword Planner requires Ads setup including billing details and is not a strict no-billing dependency; Microsoft Advertising Keyword Planner requires an advertiser account. No account setup, API permission, analytics/tracking installation, campaign launch or spend is implied by running an audit.
+
+For every numerical claim record provider, source URL, metric/unit (\`normalised_interest\`, \`estimated_volume\`, \`own_property_impressions\`, \`own_property_clicks\`, \`ai_citations\`), term/page, region, language, date range, captured-at time, public/account/CSV origin, coverage/limits, evidence label. Do not add Google and Bing metrics or present estimated numbers as measured totals. If a source cannot be accessed, mark \`NOT AVAILABLE / NOT TESTED\` and provide its official entry link rather than hallucinating a live report.
+
+An optional results appendix contains **Source availability; Trends and keyword questions; Our verified property (if supplied); AI citations (if supplied); missing useful answers/FAQs; smallest testable improvements; dated baseline and follow-up**. For current events/locations, independently confirm that something actually exists before publishing. Do not turn a search trend into an inferred fact.
+
+Separate the marketing opportunity from the actual content quality. If relevant affiliate links are assessed, check product/merchant evidence, identity, offer terms, refunds/renewals, UK/local availability, affiliate incentive and prominent disclosure. A high commission is not evidence of an independently useful product; do not copy paid-course material, build course-sales funnels or require paid ad-spy tools.
+
 ## Stage 4 — Site Quality
 After reachability/discovery, audit navigation, mobile usability, accessibility basics, page purpose, local relevance, stale/duplicate/thin content, privacy/affiliate disclosure, performance evidence, trust/provenance and broken resources. Keep recommendations proportional and KISS.
 
