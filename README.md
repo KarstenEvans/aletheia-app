@@ -18,6 +18,13 @@ For substantial HTML work, read the target app's current files and create/reconc
 
 ## Apps
 
+### Aletheia Site Audit and Affiliate Tools
+
+- [Site Audit browser launcher](https://karstenevans.github.io/aletheia-app/aletheia-site-audit/aletheia-site-audit.htm) — a static handoff page; actual evidence-based audit runs through the [portable Markdown workflow](aletheia-site-audit/aletheia-site-audit.md) in a capable AI.
+- [Affiliate Tools](https://karstenevans.github.io/aletheia-app/aletheia-site-audit/affiliate-tools.htm) — one source-backed, shareable, free-first directory of official Google/Bing keyword and website tools, analytics, affiliate networks and practical ethical affiliate-marketing methods. No account is connected or paid search run by the directory.
+- [Reconstruction and acceptance specification](aletheia-site-audit/aletheia-site-audit-page.md). Optional Search Intelligence is added to the site-audit results when actual source access is available. Aletheia Discover will link to the same resource when implemented, rather than duplicating it.
+
+
 ### Aletheia Language Learn
 
 Learn the language you actually need today from real subjects such as cooking, work, travel, repairs and family life.
