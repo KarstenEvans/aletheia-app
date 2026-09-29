@@ -12,8 +12,8 @@
 
 - [x] Fix scope as ONE worldwide multilingual location-aware discovery system, not city-site clones or local-only marketing.
 - [x] Preserve free-first, one common Aletheia editorial/newsletter system, optional local filters and owner-controlled publication.
-- [ ] Create `aletheia-discover/aletheia-discover.md` and `aletheia-discover/aletheia-discover-page.md`; inspect GUI/dev/code, link to Aletheia and Thalia and describe exact provider/privacy/fallback/QA contract.
-- [ ] Implement a smallest useful accessible static frontend: manual chosen place, language/topic, Discover actions, sticky header and horizontal menu, working source/search handoffs and explicit no-provider/unknown status. No simulated verified search results.
+- [x] Create `aletheia-discover/aletheia-discover.md` and `aletheia-discover/aletheia-discover-page.md`; read GUI/dev/code and document provider/privacy/fallback/QA contract. Draft committed on `feature/discover-worldwide-mvp-20260929`; review before merge.
+- [x] Implement a smallest useful **static pilot** with manual chosen place, language/topic, Discover action, sticky header, normal source-search links and explicit unverified-result status. Parser/static assertions passed 29 Sep; actual mobile/Safari/live checks and approval still required. Branch: `feature/discover-worldwide-mvp-20260929`.
 - [ ] Optional consent-first coarse location; disambiguation of duplicate place names and timezone-aware local events.
 - [ ] Pluggable genuine current web/AI source research, citations, original/translated text, date/freshness and conflict status; show error/blocked source state and provide manual handoff.
 - [ ] Canonical crawler-readable landing/editorial pages with original OG images, accurate authorship/dates, canonical and supported page-specific schema; validate social cards and no duplicate city filler.
@@ -22,6 +22,8 @@
 - [ ] Publishing preview/quality/repetition/permission gate. No external post/publish/send by default.
 - [ ] Pilot Swindon, Cardiff, Oslo and Ayutthaya across English, Norwegian and Thai where sources exist. Check result accuracy, script/HTML validation, keyboard/mobile/Android and Safari/WebKit plus reduced motion, honest offline/provider failure, and real deployment only when approved.
 - [ ] Link to Swindon front door and Knowledge only when runnable/validated; no dead public navigation.
+
+**Pilot checkpoint (29 Sep 2026):** `aletheia-discover/aletheia-discover.htm` + two build specifications and an explicitly labelled Apps-directory card are staged on a review branch, not live. CSS sticky and JS syntax/static/security assertions passed. The pilot prepares external searches and a source-checking AI brief, but performs no autonomous web retrieval or verification. Do not remove `noindex` or call the app publicly released before source/metadata/device/live checks and owner approval.
 
 **Boundary:** Do not edit/deploy Swindon production from the incomplete GitHub mirror. GitHub commits do not prove published/live behaviour. Name is pending owner choice.
 
