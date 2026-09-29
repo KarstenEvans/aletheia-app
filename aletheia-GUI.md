@@ -401,15 +401,18 @@ For public explanatory apps, Aletheia Improve should also check query variants, 
 
 Prefer curated topic hubs after several substantive pages exist. Do not create empty public tag archives or mass-produce keyword variations.
 
-## 21. Aletheia Constellation: curated star navigation
+## 21. Aletheia Constellation: standard shared seasonal link sprites (29 September 2026)
 
-On published HTML pages with several genuinely related destinations, allow a lightweight, reusable **star navigation** row near the end. A star must carry an accessible text label and lead to a confirmed live public collection index, not a raw Markdown file or an empty placeholder. Examples: Aletheia Apps, Stories, Knowledge, Writers, and Swindon.org.uk. Use no more than a useful handful. The current Terry Pratchett reader and its resources page are pilot examples.
+**Approved standard for new shareable standalone public HTML pages** with genuine relevant routes. The original Terry Pratchett star-nav pilot is now formalised as a contained, reusable **Aletheia Constellation** near the end of the article/app, before the footer. It sends independently arriving visitors back to a curated handful of Swindon UK and Aletheia Apps, Knowledge, Stories and Writers HTML homepages. These are editorial cross-links, **not affiliate ads** or a licence to auto-convert evidence/source links.
 
-- Ordinary internal route or same-window navigation by default; no JS needed, no animation required.
-- Responsive flex-wrap; a 44px-ish touch target, visible keyboard focus, readable name rather than star alone.
-- Use one canonical hub per collection; link reciprocally where the destination has independent value. Do not force duplicate wrappers.
-- Verify each actual deployed index URL before claiming the constellation works, particularly mobile and Safari.
-- Keep future stars in `tasks.md`; do not add broken/dead public star buttons for unpublished apps.
+**Canonical implementation:** [shared/README.md](shared/README.md), [shared/link-sprites.json](shared/link-sprites.json), `shared/link-sprites.css`, `shared/link-sprites.js`. One maintained JSON link/icon/season register; don't scatter manual seasonal URL lists or code through unrelated pages. Approved first integrations: Site Audit HTML, Affiliate Tools and evergreen Halloween Gifts & Resources.
+
+- Default sprites: animated-but-contained twinkling stars with clear text labels and individual meaningful `href` routes, not clickable decoration with no destination. Seasonal windows based on **visitor browser-local date**: Halloween and one `🧙` witch link to the actual Halloween gifts HTML **1 September–10 November inclusive**; normal stars **11–24 November**; winter gift/snow/reindeer/tree icons **25 November–31 December**, with the same verified default destinations; ordinary stars again **1 January–31 August**. Do not invent a Christmas page until one actually exists.
+- Maximum six destinations: five curated ordinary links plus the optional Halloween special. Seasonal item is not present outside its window; an evergreen Halloween page remains directly accessible year-round. Icons and links come from the central JSON catalogue. Human approval before adding or changing seasonal destinations. Static ordinary anchor fallbacks must be in the HTML for when JSON or JavaScript is unavailable.
+- Responsive card/row near the page end with a bounded decorative field; no full-page flying overlays, no obstruction of buttons/content, no autoplay sound, no third-party image assets. Approx. 44px or larger touch targets, keyboard-focus outline, accessible names, optional sprite animations that pause on hover/focus and disappear for `prefers-reduced-motion: reduce`.
+- One real canonical hub per collection; verify actual source and publicly deployed URL, particularly cross-site, mobile and Safari. External site page should not silently replace core primary navigation. A link to a not-yet-published HTML resource stays off the active manifest.
+- Use ordinary `https:` source/editorial links and `data-awinignore` convention, subject to actual Convert-a-Link testing. Awin MasterTag remains exactly once near `</body>`, separate from disclosure next to optional commercial content. Don't sell the navigation as if it were a merchant offer.
+- This standard applies to **new** standalone HTML and to previously published pages when next inspected/reworked. Do not blindly bulk-patch all HTML or leave duplicate constellations. For sites on other domains, test cross-origin manifest/CORS or deploy a single generated local copy with normal fallback, while the central Apps JSON remains editorial master.
 
 ## 22. Commerce stays on the useful page until the final retailer handoff
 
