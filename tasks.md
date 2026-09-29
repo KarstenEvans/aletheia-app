@@ -6,6 +6,25 @@
 >
 > This is an operational task list, not part of the canonical Aletheia Protocol.
 
+## PRIORITY TASK #001 — Worldwide Discover and shared sticky navigation
+
+**Status:** SPECIFICATION IN PROGRESS (not a live launch), 29 September 2026. Public name provisional: Atlas / Mystika / Discover. Companion: `ideas.md` #001, SwindonOrgUK #001 and `aletheia-knowledge` editorial work package.
+
+- [x] Fix scope as ONE worldwide multilingual location-aware discovery system, not city-site clones or local-only marketing.
+- [x] Preserve free-first, one common Aletheia editorial/newsletter system, optional local filters and owner-controlled publication.
+- [ ] Create `aletheia-discover/aletheia-discover.md` and `aletheia-discover/aletheia-discover-page.md`; inspect GUI/dev/code, link to Aletheia and Thalia and describe exact provider/privacy/fallback/QA contract.
+- [ ] Implement a smallest useful accessible static frontend: manual chosen place, language/topic, Discover actions, sticky header and horizontal menu, working source/search handoffs and explicit no-provider/unknown status. No simulated verified search results.
+- [ ] Optional consent-first coarse location; disambiguation of duplicate place names and timezone-aware local events.
+- [ ] Pluggable genuine current web/AI source research, citations, original/translated text, date/freshness and conflict status; show error/blocked source state and provide manual handoff.
+- [ ] Canonical crawler-readable landing/editorial pages with original OG images, accurate authorship/dates, canonical and supported page-specific schema; validate social cards and no duplicate city filler.
+- [ ] One editorial/blog/newsletter feed with location/interest/language filters, not thousands of city newsletters. RSS/manual entry first; do not invent licensed reuse rights.
+- [ ] Free-first commercial/resource treatment with source links separate from optional owner-approved affiliate links and disclosures.
+- [ ] Publishing preview/quality/repetition/permission gate. No external post/publish/send by default.
+- [ ] Pilot Swindon, Cardiff, Oslo and Ayutthaya across English, Norwegian and Thai where sources exist. Check result accuracy, script/HTML validation, keyboard/mobile/Android and Safari/WebKit plus reduced motion, honest offline/provider failure, and real deployment only when approved.
+- [ ] Link to Swindon front door and Knowledge only when runnable/validated; no dead public navigation.
+
+**Boundary:** Do not edit/deploy Swindon production from the incomplete GitHub mirror. GitHub commits do not prove published/live behaviour. Name is pending owner choice.
+
 ## Confirmed structure
 
 - **Canonical protocol:** `KarstenEvans/aletheia-protocol`
