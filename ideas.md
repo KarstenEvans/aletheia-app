@@ -3,6 +3,20 @@
 > Early-stage concepts. These are not promises or canonical protocol changes.
 > Promote an idea into `tasks.md` and its own app folder when it is ready for implementation.
 
+## PRIORITY IDEA #001 — Worldwide Aletheia Discover (29 September 2026)
+
+**Direction approved; public name provisional.** Working names: **Aletheia Atlas**, **Aletheia Mystika** (stylised name), or simply **Aletheia Discover**. `Topiki Aletheia` means Local Truth; `Mystiki Aletheia` means Secret Truth; `Topiki Mystiki Aletheia` means Local Secret Truth. The owner is exploring names and has **not selected a final one**. The technical folder should remain `aletheia-discover` independently of branding.
+
+The site is a **single worldwide AI-backed location-aware discovery interface**, not a franchise or cloned network of city sites. Any user may ask for places, free attractions, food, unusual history, events, current local news, community services and independent links in any selected geography and requested response language. Choosing Ayutthaya in Norwegian while physically in Swindon must work. Prefer a manually entered location; device location is opt-in and coarse, and no precise personal location is stored by default.
+
+Reference research: https://secretldn.com/food-drink/ and https://secretmedianetwork.com/en/ . Borrow patterns such as the compact sticky header, easy topic switching, engaging original previews, publisher clarity and time-sensitive editorial structure; do **not** replicate Secret London's protected articles, branding, imagery or one-site-per-city staffing model.
+
+**Required:** source/date-first results; current source search or clearly-labelled external-search fallback rather than pretending static results were verified; original source links, language and accurate translations; distinguish researched facts from discovery suggestions; preserve accessible mobile sticky navigation; HTML social previews, SEO/AEO/GEO and truthful JSON-LD; events with timezone/cancellation/expiry; free-first recommendations; one common Aletheia blog/newsletter with user-selectable place/topic/language filters; optional disclosed approved affiliates kept out of evidence sources; explicit human approval before publication. Generic AI filler, fabricated local reporting, endless cloned city pages and automatic social spam are prohibited.
+
+**Ownership:** `aletheia-app/aletheia-discover/` for runnable UI, exact specs and provider adapter; `aletheia-knowledge` for independently checked reusable cards; `SwindonOrgUK` for local front door and shared shell/SEO adoption, never as sole geographic scope. Keep the old Swindon homepage safe and reconcile PC/live/GitHub before changing it.
+
+See app `tasks.md` Priority Task #001 and the SwindonOrgUK repository `ideas.md`, `tasks.md`, `SwindonOrgUK-improve.md`. Specification and staging are not an implemented global live search or a production release.
+
 ## Aletheia Deck Forge / Visual Knowledge
 
 **Status:** IDEA — research/prototype candidate  
