@@ -415,3 +415,9 @@ For a proposed question-led/answer-ready page:
 Do not treat FAQ rich-result markup, `llms.txt`, ad-tech scripts, or a competitor's visibility as proof of ranking effect. Correlation is a research lead, not causation.
 
 A/B or before/after experiments should change as few variables as practical and record date, page, change, metric and result.
+
+## 21. Constellation inclusion and seasonal navigation QA (29 September 2026)
+
+For a new public standalone HTML page with several genuine cross-site destinations, include [the approved reusable Constellation](shared/README.md). Read `shared/link-sprites.json` for the single editable link/icon/season catalogue; add its CSS and JS using the correct relative paths and preserve five semantic static fallback links near the footer. Do not rewrite app logic, replace primary navigation or copy/modify the manifest separately on each page. Respect the source proof and human approval gate before seasonal destination activation. If site is cross-domain, first test remote manifest CORS or generate an approved local static fallback: source file committed does not imply Pages/CDN response is live.
+
+**Mandatory date-boundary checks:** 09-01, 10-31, 11-10 = witch; 11-11 and 11-24 = plain stars with no Halloween link; 11-25 through 12-31 = winter sprites; 01-01 onward = plain stars. Use browser-local date. Verify `prefers-reduced-motion`, no overlap or full-screen pointer layer, accessible link text/focus and small-screen layout. No seasonal link may point to a placeholder; fallback remains functional without JS/fetch. Editorial links must not become affiliate links. Retain one MasterTag per public HTML and a separate disclosure where commercial links actually exist.
