@@ -3,6 +3,12 @@
 > Early-stage concepts. These are not promises or canonical protocol changes.
 > Promote an idea into `tasks.md` and its own app folder when it is ready for implementation.
 
+### Shared Affiliate Tools link for Discover (29 September 2026)
+
+**Decision:** Aletheia Discover remains Priority #001, still a specification/idea, not a deployed application. Its location-first, worldwide visitor discovery experience must remain distinct from professional website analytics. Include an optional **Tools → Affiliate Tools** entry in its responsive navigation when Discover is built, linking to the already-created canonical public tool directory: `https://karstenevans.github.io/aletheia-app/aletheia-site-audit/affiliate-tools.htm`. This is a standalone, search-indexable resource that Site Audit also links to. Do not copy 30 KB of tool descriptions into the Discover UI, do not use the keyword dashboard as the location-discovery engine, and do not let marketing metrics outrank current verified local content.
+
+The HTML directory groups Google Trends/Trending Now, Bing Webmaster Keyword Research, Google Search Console, Bing AI Performance, technical audits, analytics/privacy, Awin/Bookshop.org/ClickBank/other networks and original ethical affiliate methods. Official links are launch actions, **not automated runs**; account-owner metrics require voluntary/authorised exports or verified access. Crosslinks: `aletheia-site-audit/aletheia-site-audit.htm` and `aletheia-site-audit/aletheia-site-audit.md`; deeper fact/research notes in `KarstenEvans/aletheia-knowledge/knowledge/aletheia-free-search-intelligence.md` (AK-098). Public page deployment still needs independent check.
+
 ## PRIORITY IDEA #001 — Worldwide Aletheia Discover (29 September 2026)
 
 **Direction approved; public name provisional.** Working names: **Aletheia Atlas**, **Aletheia Mystika** (stylised name), or simply **Aletheia Discover**. `Topiki Aletheia` means Local Truth; `Mystiki Aletheia` means Secret Truth; `Topiki Mystiki Aletheia` means Local Secret Truth. The owner is exploring names and has **not selected a final one**. The technical folder should remain `aletheia-discover` independently of branding.
