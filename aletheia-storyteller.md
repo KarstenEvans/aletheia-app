@@ -275,3 +275,17 @@ ToomorrowMan's YouTube channel is supplied as https://www.youtube.com/@TooMorrow
 6. Put `[bio-Filename.md]` in another story **only when inclusion is intentional**. Test direct bio playback as well as inclusion.
 7. If MP3 narration is supplied, provide matching sentence-aligned `.vtt` and retest cue timing. Use browser narration for dynamically expanded includes.
 8. Update `aletheia-storyteller-page.md`, this file and the relevant task/handover register when behaviour changes.
+
+## External case-file links inside stories
+
+Added 30 September 2026 for **Case File 42**. A story may deliberately expose one evidence/resource link without replacing the Storyteller page:
+
+```text
+[link;https://example.org/case-file.htm;label=OPEN CASE FILE 42 ↗]
+...
+[link-off]
+```
+
+The link appears as an accessible button above the caption and opens in a separate browser context with `target="_blank"` and `rel="noopener noreferrer"`. Only `http:` or `https:` URLs are accepted. `[link-off]` hides the control. This is for optional evidence, case files and deeper resources; do not turn every paragraph into navigation or use it for affiliate conversion of factual sources.
+
+Current story using the command: `stories/ToomorrowMan-and-the-Case-of-the-Missing-AI.md`. Its new-scene art prompts live in `stories/Case-File-42-image-prompts.md`. Until those images are approved and uploaded, Storyteller retains the last successfully loaded canonical scene and reports a missing artwork status rather than substituting a different-looking character.
