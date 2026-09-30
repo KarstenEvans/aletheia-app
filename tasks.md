@@ -129,16 +129,20 @@ Do not create this merely to add another repository. Create it when the front-do
 ## Aletheia learning / courses
 
 - [x] Create shared Aletheia Accessibility Layer v0.1 (30 September 2026): semantic baseline + reusable text-size, Focus and browser read-aloud controls; document higher-level dictation/OCR/translate/simplify/visual capability boundaries.
-- [ ] Integrate the shared accessibility component into Learn and future Language Learn HTML, then test Android/desktop/Safari, keyboard and 200% zoom before wider reuse.
+- [x] Integrate the shared accessibility component into Learn and Language Learn HTML.
+- [ ] Browser-test the shared accessibility component on Android/desktop/Safari, keyboard and 200% zoom before wider reuse.
 
 - [x] Promote the established Ctrl-V AI handoff into shared GUI/dev/code rules (30 September 2026): hidden/reviewable payload → copy while page owns focus → open one selected AI → user pastes → manual fallback; keep this distinct from browser-local OPT2 and Cloudflare OPT3.
 - [x] Rework Aletheia Learn HTML around the shared Ctrl-V HANDOFF as the first useful public execution path; Cloudflare Worker remains an optional later OPT3 path, not a prerequisite.
+- [x] Add LEA / HI / PRA / TES / REC / REM / REV / VIS / MAT / DRA / TBA / FOC / SLO / ANS / PRO / SAV command deck to Learn and compatible aliases to Language Learn.
+- [x] Add optional favourite-AI learning profile plus sourced provider setup guidance; keep it optional and project-specific where possible.
+- [x] Add Learn resources page with evidence-based books/free resources and phone-first keyboard/projector/phone gift ideas; add Thai-specific Language Learn resources page.
 - [ ] Test Aletheia Learn handoff with ChatGPT, Gemini, Copilot, DeepSeek and Claude on Android Chrome and desktop Chrome/Edge; separately test Safari/WebKit popup/paste fallback.
 
 - [x] Create the canonical `aletheia-learn/aletheia-learn.md` core after Everway + learning-science Walkabout (30 September 2026): real-task learning, progressive hint ladder, assisted-vs-independent evidence, transfer checks, metacognition and universal access layer.
 - [ ] Run the new Aletheia Learn conformance prompts on at least three capable AI hosts and record where they over-answer, under-help, mislabel mastery or ignore `ANSWER NOW`.
-- [ ] Reconcile **Aletheia Language Learn** with the generic Learn core so it inherits anti-crutch, transfer and accessibility principles without losing language-specific pronunciation/register/dialect rules.
-- [ ] Decide whether Aletheia Learn needs a dedicated HTML interface only after Markdown-host testing shows a real usability gap; do not create UI merely for decoration.
+- [x] Reconcile **Aletheia Language Learn** v0.2.0 with the generic Learn core while preserving language-specific pronunciation/register/dialect rules; make Thai first-class with script/tone/vowel-length/classifier/particle practice.
+- [x] Create dedicated Learn and Language Learn HTML as useful doorway/control panels: task inputs, command deck, one-click Ctrl-V AI handoff and manual fallback.
 
 - [ ] Keep **Aletheia AI Starter** as the beginner learning course rather than duplicating it with AI Easy setup.
 - [ ] Develop only courses that justify practice/exercises/a useful finished output.
