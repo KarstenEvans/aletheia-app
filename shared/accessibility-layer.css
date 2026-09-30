@@ -1,0 +1,14 @@
+/* Aletheia Accessibility Layer v0.1 */
+.aletheia-access{max-width:1120px;margin:12px auto;padding:10px 14px;border:1px solid #b8ccd2;border-radius:14px;background:#fff;color:#183342}
+.aletheia-access__head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.aletheia-access__head strong{margin-right:auto}
+.aletheia-access button{font:inherit;font-weight:750;min-height:44px;padding:8px 11px;border:1px solid #7598a3;border-radius:9px;background:#edf5f5;color:#17313f;cursor:pointer}
+.aletheia-access button[aria-pressed="true"]{background:#184f5b;color:white;border-color:#184f5b}
+.aletheia-access button:focus-visible{outline:3px solid #e5a13a;outline-offset:3px}
+.aletheia-access__status{font-size:.84rem;color:#526974;min-height:1.3em;margin:.35rem 0 0}
+html[data-aletheia-text="small"]{font-size:90%}
+html[data-aletheia-text="large"]{font-size:112.5%}
+html[data-aletheia-text="xlarge"]{font-size:125%}
+html[data-aletheia-focus="true"] [data-aletheia-focus-hide]{display:none!important}
+@media(max-width:520px){.aletheia-access__head strong{flex-basis:100%}.aletheia-access button{flex:1 1 88px}}
+@media(prefers-reduced-motion:reduce){.aletheia-access *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
