@@ -787,7 +787,7 @@ Still verify visually on Android/PC and the previously failing Apple device.
 
 ### Story draft — The AI That Said It Had Finished (30 September 2026)
 
-**Status:** DRAFT STORY WRITTEN / ART AND PUBLICATION PENDING.
+**Status:** STORY + STANDALONE HTML COMMITTED / LIVE & ART VERIFICATION PENDING.
 
 Created:
 - `stories/drafts/ToomorrowMan-and-the-AI-That-Said-It-Had-Finished.md`
@@ -798,14 +798,16 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [x] Read current Storyteller router/specification, manifest and relevant canon before writing.
 - [x] Draft complete standalone story using current voice-profile and Storyteller command syntax.
 - [x] Build nine-scene art direction with existing character canon and caption-space requirements.
-- [ ] Human review/revise story tone, length and teaching clarity.
+- [x] Human review/revise story tone, length and teaching clarity.
 - [ ] Generate/approve story artwork without changing established ToomorrowMan / AI-PI / Schrödinger appearance.
 - [ ] Inspect actual final images and assign real hotspot coordinates.
-- [ ] Move approved story from `stories/drafts/` to `stories/`.
-- [ ] Add approved story to `stories/stories.json`; do not register the draft.
-- [ ] Update `aletheia-storyteller-page.md` with the new story/image inventory.
+- [x] Promote approved story into `stories/` while retaining the draft as provenance.
+- [x] Add approved story to `stories/stories.json`.
+- [x] Update `aletheia-storyteller-page.md` with the story, Sif bio, standalone HTML, resources and YouTube-prep inventory.
 - [ ] Static parser/cue check, then real browser smoke test for narration, captions, camera moves, narrow mobile and reduced motion.
+- [x] Standalone HTML and YouTube prep completed: `stories/ToomorrowMan-and-the-AI-That-Said-It-Had-Finished.htm`, matching page spec, resource page and Knowledge YouTube production pack.
+- [x] Add and register `stories/bio-Sif.md`; approved concert image binary still needs repository upload and hotspot inspection.
 - [ ] Only after deployed verification provide/share the public Storyteller deep link.
 
-**Important:** source commits are not proof of public deployment. The draft is intentionally not in the live story manifest yet.
+**Important:** source commits are not proof of public deployment. The promoted story is now in the manifest, but live GitHub Pages/browser verification is still pending.
 
