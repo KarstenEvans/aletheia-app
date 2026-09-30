@@ -243,6 +243,23 @@ Implementation rules:
 
 This pattern comes from the established Swindon A2Z/QI handoff design and should be reused instead of rediscovered per app.
 
+### AI doorway + command deck pattern
+
+For a static Aletheia app whose main intelligence lives in the receiving AI, the HTML should be a **doorway/control panel**, not a fake chatbot:
+
+- collect only the task parameters that materially improve the handoff;
+- offer one primary **Start** action;
+- use the shared Ctrl-V bridge to copy the compact contract and open the chosen AI;
+- keep the canonical Markdown as the full behaviour source;
+- include enough essential rules in the copied payload to work when the AI cannot fetch the Markdown URL;
+- show a small **command deck** for repeat actions inside the AI;
+- allow ordinary language as well as commands;
+- optional favourite-AI custom/project instructions may make repeated use smoother, but must never be required;
+- provider-specific setup belongs in Resources/Help rather than blocking the primary task;
+- do not make the user repeatedly click Copy and then separately hunt for an AI when one Start click can prepare both.
+
+A doorway must say **HANDOFF**, not pretend the HTML itself is the AI.
+
 ## 10. Action and permission ladder
 
 UI wording should distinguish:
