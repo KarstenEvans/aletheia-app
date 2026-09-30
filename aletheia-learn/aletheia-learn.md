@@ -1,12 +1,12 @@
 ---
 title: "Aletheia Learn"
 system_id: "aletheia-learn"
-version: "0.1.0"
+version: "0.1.1"
 artifact_type: "human-facing-learning-app"
 primary_protocol: "Aletheia"
 specialised_branch: "Aletheia Language Learn"
 commercial_layer: "none"
-status: "working Markdown prototype"
+status: "working Markdown core + Ctrl-V browser handoff"
 created: "2026-09-30"
 ---
 
@@ -30,7 +30,7 @@ A learner may still ask for a direct answer at any time. The app must obey that 
 
 ```text
 [ALETHEIA_LEARN_INIT]
-VERSION: 0.1.0
+VERSION: 0.1.1
 MODE: INTERACTIVE LEARNING-BY-DOING APP
 
 WHEN THIS FILE IS AVAILABLE TO THE HOST AI:
@@ -1010,13 +1010,51 @@ Observed guidance:
 
 ---
 
-## 24. Human-facing description
+## 24. Browser execution architecture
+
+The public browser interface at `aletheia-learn.htm` uses the shared Aletheia **Ctrl-V AI bridge** as its first execution route.
+
+```text
+GOAL + MODE
+→ BUILD COMPACT LEARN PAYLOAD
+→ COPY WHILE PAGE OWNS FOCUS
+→ OPEN ONE SELECTED AI
+→ USER PASTES
+→ RUN LEARNING SESSION
+```
+
+This is **HANDOFF**, not CONNECTED AI.
+
+The compact payload includes the canonical raw Markdown URL plus enough core learning rules to work even if the selected AI cannot fetch URLs.
+
+Standard provider adapters are ChatGPT, Gemini, Microsoft Copilot, DeepSeek and Claude. The last choice may be remembered locally. Provider-specific URLs are replaceable adapters and do not own the learning logic.
+
+If automatic copy is blocked, reveal the reviewable manual handoff text. Do not navigate the learner away to raw Markdown as the fallback.
+
+Browser-local AI (OPT2) and Cloudflare/hosted AI (OPT3) may be explored later as optional enhancements. They must not remove the Ctrl-V fallback or require public client-side API keys.
+
+The page follows `aletheia-learn-page.md` and the shared `CTRL-V-AI-HANDOFF` procedure in `aletheia-code.md`.
+
+---
+
+## 25. Human-facing description
 
 **Aletheia Learn** turns something you genuinely want to do into a short learning-by-doing session. You try the task, the AI gives the smallest useful help, you retry, and then you use the idea somewhere new. Accessibility support can make the material easier to read, hear, navigate or express without pretending that the AI's answer is your skill. When you want the answer immediately, you can simply ask for it.
 
 ---
 
-## 25. Version notes
+## 26. Version notes
+
+### v0.1.1 — working Ctrl-V browser handoff
+
+- Replaced the copy-only launcher with one primary **Start Aletheia Learn** action.
+- Added provider selector for ChatGPT, Gemini, Copilot, DeepSeek and Claude.
+- Added same-click payload copy + provider popup/new-tab handoff.
+- Added manual review/copy fallback when browser clipboard/popup security intervenes.
+- Embedded the minimum tutor rules in the payload as well as the canonical Markdown URL.
+- Kept the central Aletheia Constellation and seasonal sprites.
+- Recorded browser reconstruction/acceptance rules in `aletheia-learn-page.md`.
+- Kept staged Cloudflare Worker work as optional future OPT3, not a runtime dependency.
 
 ### v0.1.0 — Everway + learning-science Improve pass
 
