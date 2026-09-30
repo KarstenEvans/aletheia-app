@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aletheia Decision Check</title>
+<meta name="description" content="A calm nine-stage evidence and decision worksheet: assumptions, evidence, challenge, pre-mortem, uncertainty and a deliberate STOP point.">
+<style>
+:root{color-scheme:dark;--bg:#08101e;--panel:#121d30;--ink:#edf4ff;--muted:#b8c6d8;--gold:#f1cf8a;--line:#40516a;--ok:#b9f0cb}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#1d3150 0,transparent 46rem),var(--bg);color:var(--ink);font:16px/1.55 system-ui,Segoe UI,sans-serif}
+header,main,footer{max-width:1050px;margin:auto;padding:1.2rem 1.4rem}header{border-bottom:1px solid var(--line)}h1,h2{font-family:Georgia,serif}h1{font-size:clamp(2rem,5vw,3.8rem);margin:.3rem 0}.lead{max-width:780px;color:var(--muted)}.grid{display:grid;gap:1rem}.stage,.box{background:linear-gradient(145deg,#17253d,#10192a);border:1px solid var(--line);border-radius:16px;padding:1rem}.stage h2{margin:.1rem 0 .35rem}.num{display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font-weight:800;margin-right:.5rem}
+textarea,input,select{width:100%;background:#091426;color:var(--ink);border:1px solid #647791;border-radius:9px;padding:.75rem;font:inherit}textarea{min-height:105px;resize:vertical}.small{color:var(--muted);font-size:.9rem}.toolbar{display:flex;gap:.7rem;flex-wrap:wrap;margin:1rem 0}button,a.btn{border:1px solid var(--gold);background:#2f291f;color:#fff3cf;border-radius:9px;padding:.65rem .9rem;font:700 15px system-ui;text-decoration:none;cursor:pointer}button:focus-visible,a:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.quiet{display:none}.quiet.on{display:grid}.details.off{display:none}.qgrid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+table{width:100%;border-collapse:collapse;display:block;overflow:auto}th,td{border-bottom:1px solid var(--line);padding:.5rem;vertical-align:top;min-width:130px}td input{min-width:140px}.stop{border:2px solid #c95e58}.stop h2{color:#ffb9b4}.check{display:flex;gap:.6rem;align-items:flex-start;margin:.55rem 0}.check input{width:auto;margin-top:.3rem}.ready{color:var(--ok);font-weight:800}.note{border-left:3px solid var(--gold);padding-left:1rem;color:var(--muted)}footer{border-top:1px solid var(--line);color:var(--muted);margin-top:2rem}
+@media(max-width:650px){header,main,footer{padding:1rem}.stage,.box{padding:.85rem}}
+</style></head><body>
+<header><div class="small">ALETHEIA · JUDGMENT OVER OUTPUT</div><h1>Aletheia Decision Check</h1><p class="lead">Nine questions to make assumptions, evidence and uncertainty visible. The tool helps structure a decision. It does not make the decision for you.</p></header>
+<main>
+<div class="toolbar"><button id="quietBtn" type="button" aria-pressed="false">Quiet Mode</button><button id="exportBtn" type="button">Export Markdown</button><button id="resetBtn" type="button">Reset</button></div>
+<section id="quiet" class="quiet qgrid" aria-label="Quiet Mode">
+<div class="box"><h2>What changed?</h2><textarea data-k="quiet-changed"></textarea></div>
+<div class="box"><h2>What matters?</h2><textarea data-k="quiet-matters"></textarea></div>
+<div class="box"><h2>What needs your attention?</h2><textarea data-k="quiet-attention"></textarea></div>
+</section>
+<section id="details" class="details grid">
+<div class="stage"><h2><span class="num">1</span>Define the decision</h2><p class="small">What actual choice or action must be made?</p><textarea data-k="s1"></textarea></div>
+<div class="stage"><h2><span class="num">2</span>Identify assumptions</h2><p class="small">What must be true for the current plan to work?</p><textarea data-k="s2"></textarea></div>
+<div class="stage"><h2><span class="num">3</span>Gather evidence</h2><p class="small">Record observations and sources. Separate fact, inference and forecast.</p><textarea data-k="s3"></textarea></div>
+<div class="stage"><h2><span class="num">4</span>Challenge the strongest assumption</h2><p class="small">What evidence would make you change your mind?</p><textarea data-k="s4"></textarea></div>
+<div class="stage"><h2><span class="num">5</span>Pre-mortem</h2><p class="small">Assume this failed. What plausible causes, warning signs and mitigations explain the failure?</p><textarea data-k="s5"></textarea></div>
+<div class="stage"><h2><span class="num">6</span>Find missing information</h2><p class="small">What do you still not know, and could it change the decision?</p><textarea data-k="s6"></textarea></div>
+<div class="stage"><h2><span class="num">7</span>Reduce alternatives</h2><p class="small">Remove duplicates and weak variants. Keep materially different survivors.</p><textarea data-k="s7"></textarea></div>
+<div class="stage"><h2><span class="num">8</span>Show remaining uncertainty</h2><p class="small">What disagreement, ambiguity or evidence limit remains?</p><textarea data-k="s8"></textarea></div>
+<div class="stage"><h2><span class="num">9</span>STOP / human decision</h2><p class="small">State the current decision point. "Enough" means enough for this task, not certainty.</p><textarea data-k="s9"></textarea></div>
+
+<div class="box"><h2>Evidence Grid</h2><p class="small">Apply consistent questions to sources or options. Add only evidence you can identify.</p>
+<table><thead><tr><th>Source / option</th><th>Claim / factor</th><th>Supports / contradicts</th><th>Date</th><th>Evidence / note</th><th></th></tr></thead><tbody id="eRows"></tbody></table>
+<button id="addRow" type="button">+ Add evidence row</button></div>
+
+<div class="box stop"><h2>STOP check</h2><p class="note">If these are satisfied, stop generating more variants by default. Use Go deeper only deliberately.</p>
+<label class="check"><input type="checkbox" data-k="c1">The actual decision is clear.</label>
+<label class="check"><input type="checkbox" data-k="c2">Material assumptions have been challenged.</label>
+<label class="check"><input type="checkbox" data-k="c3">Relevant supporting and contrary evidence has been checked.</label>
+<label class="check"><input type="checkbox" data-k="c4">Important missing information is obtained or explicitly accepted.</label>
+<label class="check"><input type="checkbox" data-k="c5">Remaining uncertainty is visible.</label>
+<p id="stopStatus" role="status"></p></div>
+</section>
+</main>
+<footer><p>Aletheia Protocol: evidence, provenance, uncertainty and receipts. Thalia Protocol: optional appropriate humour. Local-first V1; no external AI required.</p></footer>
+<script>
+(()=>{'use strict';const KEY='aletheia-decision-check-v1',q=s=>document.querySelector(s),qa=s=>[...document.querySelectorAll(s)];let state={};try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){}
+function save(){qa('[data-k]').forEach(el=>state[el.dataset.k]=el.type==='checkbox'?el.checked:el.value);state.rows=qa('#eRows tr').map(tr=>qa('input',tr).map(x=>x.value));localStorage.setItem(KEY,JSON.stringify(state));stopStatus()}
+function bind(){qa('[data-k]').forEach(el=>{if(el.type==='checkbox')el.checked=!!state[el.dataset.k];else el.value=state[el.dataset.k]||'';el.addEventListener(el.type==='checkbox'?'change':'input',save)})}
+function row(vals=['','','','','']){const tr=document.createElement('tr');for(let i=0;i<5;i++){const td=document.createElement('td'),inp=document.createElement('input');inp.value=vals[i]||'';inp.addEventListener('input',save);td.appendChild(inp);tr.appendChild(td)}const td=document.createElement('td'),b=document.createElement('button');b.type='button';b.textContent='Remove';b.onclick=()=>{tr.remove();save()};td.appendChild(b);tr.appendChild(td);q('#eRows').appendChild(tr)}
+function stopStatus(){const c=qa('.stop input[type=checkbox]'),n=c.filter(x=>x.checked).length;q('#stopStatus').innerHTML=n===c.length?'<span class="ready">ENOUGH EVIDENCE CHECKS MARKED · STOP and make the human decision.</span>':n+' / '+c.length+' stop checks marked.'}
+(state.rows&&state.rows.length?state.rows:[['','','','','']]).forEach(row);bind();stopStatus();
+q('#addRow').onclick=()=>{row();save()};q('#quietBtn').onclick=()=>{const on=!q('#quiet').classList.contains('on');q('#quiet').classList.toggle('on',on);q('#details').classList.toggle('off',on);q('#quietBtn').setAttribute('aria-pressed',String(on));q('#quietBtn').textContent=on?'Exit Quiet Mode':'Quiet Mode'};
+q('#resetBtn').onclick=()=>{if(confirm('Clear this Decision Check from this browser?')){localStorage.removeItem(KEY);location.reload()}};
+q('#exportBtn').onclick=()=>{save();const stages=[1,2,3,4,5,6,7,8,9].map(i=>'## '+i+'\n'+(state['s'+i]||'')).join('\n\n');const rows=(state.rows||[]).map(r=>'| '+r.map(x=>String(x).replace(/\|/g,'/')).join(' | ')+' |').join('\n');const md='# Aletheia Decision Check\n\nAletheia Protocol: https://github.com/KarstenEvans/aletheia-protocol\nThalia Protocol: https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md\n\n'+stages+'\n\n## Evidence Grid\n| Source / option | Claim / factor | Supports / contradicts | Date | Evidence / note |\n|---|---|---|---|---|\n'+rows+'\n\n## Quiet Mode\n- What changed? '+(state['quiet-changed']||'')+'\n- What matters? '+(state['quiet-matters']||'')+'\n- What needs attention? '+(state['quiet-attention']||'')+'\n';const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([md],{type:'text/markdown'}));a.download='aletheia-decision-check.md';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+})();
+</script>
+<script src="https://www.dwin2.com/pub.3182162.min.js"></script>
+</body></html>
