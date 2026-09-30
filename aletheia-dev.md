@@ -258,6 +258,25 @@ One delegated popup helper per page is normally enough.
 
 Use a separate window/tab when it preserves valuable current task state. Do not force every link into a popup. Primary app navigation should remain unsurprising.
 
+### Static AI Ctrl-V bridge
+
+When a static HTML app needs a general AI but no backend is required, implement the shared **Ctrl-V AI bridge** from `aletheia-GUI.md` before adding a Worker/API.
+
+Acceptance requirements:
+
+- one primary action can both prepare the payload and open the selected provider;
+- copying occurs before focus moves away, without waiting for network work;
+- popup/new-tab behaviour follows the secondary-window rules;
+- copy failure exposes a manual review/copy fallback;
+- payload contains enough compact instructions to work even if the receiving AI cannot fetch the canonical Markdown URL;
+- payload also identifies the canonical Markdown URL so a capable AI can load the current full contract;
+- no API key, token or private provider credential appears in public HTML;
+- the UI labels the architecture as HANDOFF, not CONNECTED;
+- test desktop keyboard paste and Android/iOS ordinary Paste behaviour separately;
+- provider choice is an adapter and may be replaced without changing the canonical app.
+
+Only promote to browser-local AI, Worker/API, connector or agentic execution when that materially improves the task and the lower-dependency handoff remains available where useful.
+
 ## 12. Cross-platform implementation
 
 Use standard browser features first.
