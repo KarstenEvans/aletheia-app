@@ -277,6 +277,18 @@ Acceptance requirements:
 
 Only promote to browser-local AI, Worker/API, connector or agentic execution when that materially improves the task and the lower-dependency handoff remains available where useful.
 
+### AI doorway reconstruction rule
+
+When rebuilding a handoff-first app:
+
+1. read the canonical app Markdown and its command deck;
+2. keep the HTML thin: task parameters, provider choice, Start, status, manual fallback, concise commands, resources;
+3. never replace the working Ctrl-V handoff with a dead "Copy prompt" button that does not also open the selected AI;
+4. never make optional custom instructions a prerequisite;
+5. provider setup guidance must be sourced/current because provider interfaces change;
+6. retain shared accessibility and Constellation components;
+7. keep future browser-local/Worker/connector execution as optional higher capability levels unless explicitly promoted.
+
 ## 12. Cross-platform implementation
 
 Use standard browser features first.
