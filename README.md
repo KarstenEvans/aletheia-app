@@ -30,6 +30,20 @@ For substantial HTML work, read the target app's current files and create/reconc
 - [Reconstruction and acceptance specification](aletheia-site-audit/aletheia-site-audit-page.md). Optional Search Intelligence is added to the site-audit results when actual source access is available. Aletheia Discover will link to the same resource when implemented, rather than duplicating it.
 
 
+### Aletheia Learn
+
+Learn by doing rather than letting AI quietly do the learning task for you. Aletheia Learn turns a real goal into a short attempt, coaching, retry, transfer and independent-check loop, while keeping accessibility support available.
+
+- **Version:** 0.1.0
+- **Status:** Working Markdown prototype
+- **Primary protocol:** Aletheia
+- **Core rule:** remove access barriers without automatically removing the thinking that builds the skill
+- [Read the app](aletheia-learn/aletheia-learn.md)
+- [Open the raw Markdown](https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-learn/aletheia-learn.md)
+
+It distinguishes assisted task performance from evidence of independent learning, uses a progressive hint ladder, supports direct `ANSWER NOW` when the learner wants it, and records supported / independent / transferred / reviewed skill states without inventing grades or certificates.
+
+
 ### Aletheia Language Learn
 
 Learn the language you actually need today from real subjects such as cooking, work, travel, repairs and family life.
@@ -96,6 +110,8 @@ Published stories are explicitly listed in `stories/stories.json`; a static web 
 
 ```text
 aletheia-app/
+├── aletheia-learn/
+│   └── aletheia-learn.md
 ├── aletheia-language-learn/
 │   └── aletheia-language-learn.md
 └── aletheia-news/
