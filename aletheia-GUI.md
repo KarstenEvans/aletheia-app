@@ -425,4 +425,46 @@ A subject's Aletheia HTML reader should provide its own useful, searchable or br
 - The site owner must provide or authorise generated personal affiliate links. Preserve research links without indiscriminate Awin conversion; respect approved ignore rules. Never promise referral earnings.
 - Keep direct non-affiliate product links visibly distinguished from approved tracked links. Do not market an out-of-stock item as purchasable.
 - Optional gift collections should be editorially related, small and relevant, without compromising the page's core answer; mark unofficial/inspired products clearly and check animal welfare/safety for living gift ideas.
-- Keep a source-level link inventory and a separate dated live destination/affiliate-tracking receipt. Passing a URL syntax check is not a live product or conversion test.
+- Keep a source-level link inventory and a separate dated live destination/affiliate-tracking receipt. Passing a URL syntax check is not a live product or conversion test.\n\n## 23. Judgment-first interaction: fewer options, visible uncertainty, and a real STOP
+
+**Approved 30 September 2026.** For consequential research, comparison and recommendation interfaces, Aletheia should optimise for **better judgment rather than maximum output volume**. AI may explore broadly behind the interface, but the default human-facing view should reduce cognitive load and preserve the user's decision authority.
+
+Use the reusable **Decision Check** sequence when materially relevant:
+
+1. **Define the decision** — state the actual choice/action, not merely the topic.
+2. **Identify assumptions** — make hidden premises visible.
+3. **Gather evidence** — source claims and distinguish observation, inference and forecast.
+4. **Challenge the strongest assumption** — actively seek evidence that could overturn it; do not merely strengthen the user's opening hypothesis.
+5. **Pre-mortem** — assume the plan failed; list plausible failure routes and mitigations.
+6. **Find missing information** — say what is still unknown and whether it could change the choice.
+7. **Reduce alternatives** — collapse duplicates and weak options; normally surface a small number of materially different survivors rather than dumping every generated variation.
+8. **Show remaining uncertainty** — expose disagreements, confidence limits and what would change the conclusion.
+9. **STOP / continue deliberately** — when evidence is sufficient for the stated decision, show a completion signal. Further research is an explicit **Go deeper** action, not automatic continuation.
+
+### Quiet Mode
+For monitoring, intelligence and evidence-heavy pages, provide a low-noise default that answers:
+- **What changed?**
+- **What matters?**
+- **What needs your attention?**
+
+Detailed evidence, grids, logs and alternatives remain available behind deliberate expansion. Quiet Mode must not hide a material warning or contradiction.
+
+### Evidence Grid
+Where the same questions are applied across multiple sources/items, prefer a compact evidence grid with consistent columns such as source/item, claim/factor, supports, contradicts, date, evidence link and uncertainty. This is an Aletheia research pattern, not a copy of any vendor product.
+
+### Confirmation versus verification
+If a user asks Aletheia to prove or support an existing belief, consequential workflows should reframe internally to **verify**, including contrary evidence. Do not manufacture false balance; weight evidence according to quality.
+
+### Value signals
+When useful, ask whether the tool:
+- found something previously missed;
+- caught an error;
+- challenged an assumption;
+- confirmed a claim with evidence;
+- changed the next action;
+- did not materially help.
+
+Do not make "tokens used", "number of outputs" or "minutes saved" the primary success signal when a slower check prevents a costly mistake.
+
+### Visible human decision point
+For consequential action, make it clear where AI advice ends and the human choice begins. Invisible/background AI can be useful, but material automated influence should be inspectable: what changed, why, evidence/provenance, uncertainty and how to challenge or override it.\n
