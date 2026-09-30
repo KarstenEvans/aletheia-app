@@ -215,6 +215,34 @@ Do not present a higher level when only a lower level exists.
 
 When an AI provider is optional, the app must not become unusable because that provider changes, reaches a quota or disappears.
 
+### Ctrl-V AI bridge: the standard zero-backend handoff
+
+For a static Aletheia page whose useful next step needs a general AI, the preferred universal handoff is:
+
+1. assemble the task plus the smallest sufficient Aletheia instructions in an off-screen/reviewable buffer;
+2. from the **same user click**, copy that buffer while the Aletheia page still owns focus;
+3. immediately open the user-selected AI in one separate window/tab;
+4. leave the Aletheia task page intact underneath;
+5. tell the user to paste with **Ctrl+V**, **Command+V**, **Shift+Insert**, or the device's ordinary **Paste** action;
+6. if copy is blocked, reveal a compact manual handoff textarea and Copy control rather than failing silently.
+
+This is a **HANDOFF** capability, not CONNECTED AI. Do not describe it as an API integration.
+
+Implementation rules:
+
+- prebuild or synchronously assemble the payload before opening the provider;
+- prefer a synchronous selection/`execCommand("copy")` fallback when the popup must be opened in the same activation event; on secure pages, the modern Clipboard API may additionally be used;
+- do not await a network request before opening the AI window;
+- on desktop, use the shared approximately 900 × 760 resizable/scrollable secondary-window pattern where useful;
+- on mobile/tablet, allow an ordinary new tab/window;
+- provide one AI selector rather than five competing launch buttons;
+- remember the user's last provider locally when appropriate;
+- standard public choices may include ChatGPT, Gemini, Microsoft Copilot, DeepSeek and Claude, but provider URLs/interfaces must remain replaceable adapters;
+- the durable app logic remains in canonical Markdown/specification, not inside provider-specific prompt folklore;
+- the receiving AI should start the requested task immediately rather than displaying HELP first.
+
+This pattern comes from the established Swindon A2Z/QI handoff design and should be reused instead of rediscovered per app.
+
 ## 10. Action and permission ladder
 
 UI wording should distinguish:
