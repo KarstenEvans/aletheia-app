@@ -43,7 +43,7 @@ Learn by doing rather than letting AI quietly do the learning task for you. Alet
 - [Read the app](aletheia-learn/aletheia-learn.md)
 - [Open the raw Markdown](https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-learn/aletheia-learn.md)
 
-It distinguishes assisted task performance from evidence of independent learning, uses a progressive hint ladder, supports direct `ANSWER NOW` when the learner wants it, and records supported / independent / transferred / reviewed skill states without inventing grades or certificates. The public HTML is deliberately a **HANDOFF** app: it copies the compact learning contract and opens one selected AI; it does not claim a connected backend.
+It distinguishes assisted task performance from evidence of independent learning and uses the H0–H5 **Hint Ladder**. Phone-friendly commands include `LEA`, `HI`, `PRA`, `TES`, `REC`, `REM`, `VIS`, `MAT`, `DRA`, `TBA`, `ANS`, `PRO` and `SAV`. The public HTML is deliberately a **HANDOFF** doorway: one Start click prepares/copies the learning contract and opens one selected AI; it does not claim a connected backend.
 
 
 ### Aletheia Language Learn
@@ -61,9 +61,9 @@ Learn the language you actually need today from real subjects such as cooking, w
 - [Read the app](aletheia-language-learn/aletheia-language-learn.md)
 - [Open the raw Markdown](https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-language-learn/aletheia-language-learn.md)
 
-To use it, download or attach the raw Markdown file to a capable conversational AI and type or say **START**. A specific request such as “Teach me Thai for cooking fish” starts the lesson directly.
+The browser doorway is now the simplest route: choose a language, real-life goal, mode and AI, then press **Start Language Learn**. It copies the compact specialist contract and opens the selected AI for paste-and-run. The raw Markdown remains the portable source of truth.
 
-The app remains useful without voice, persistent memory, Astra, Odysseus, Codex, an avatar or web access. Optional components must not be presented as required or officially integrated.
+Language Learn inherits the general Hint Ladder, retrieval/transfer and active visual/matching/drawing patterns while preserving language-specific pronunciation, register and dialect rules. The app remains useful without voice, persistent memory, Astra, Odysseus, Codex, an avatar, Worker or web access.
 
 
 ### Aletheia News
