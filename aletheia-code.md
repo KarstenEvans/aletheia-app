@@ -58,6 +58,18 @@ If a fragment grows into a multi-stage workflow, move it into a dedicated app an
 6. Exclude downloads, anchors, `mailto:` and `tel:`.
 7. Open synchronously from the user's click when browser activation is required.
 
+## CTRL-V-AI-HANDOFF
+1. Build the complete compact AI payload synchronously from already available page state.
+2. Put it into an off-screen textarea, select it and attempt synchronous copy while the page still owns the user click.
+3. Open exactly one selected AI destination immediately from that same click. Desktop may use the standard approximately 900 × 760 resizable/scrollable child window; mobile uses ordinary new-tab/window behaviour.
+4. Keep the Aletheia page underneath and show: **Paste into the AI and send**.
+5. Where secure Clipboard API is available, it may reinforce the copy operation, but do not await it before opening the provider.
+6. If copy fails, reveal a small manual handoff textarea + Copy control. Never navigate the user to raw Markdown as the fallback.
+7. Include the canonical app Markdown URL plus enough embedded instructions that the handoff still works when the receiving AI cannot fetch URLs.
+8. Keep provider URLs in one replaceable map/select control. Remember the last provider locally when useful.
+9. Label this architecture **HANDOFF**. It is not CONNECTED AI.
+10. Test Chrome/Edge desktop, Android Chrome, and Safari/WebKit paste/popup behaviour independently.
+
 ## OPTIONAL-GRAPHICS-GATE
 1. Check that the graphics library loaded.
 2. Feature-detect the actual required browser capability.
