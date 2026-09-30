@@ -4,7 +4,7 @@
 >
 > This is not conversational memory. It is a small repository/path registry which the HTML launcher and any capable AI can re-read from the current GitHub default branch on every run.
 
-Last reviewed: 2026-09-24
+Last reviewed: 2026-09-30
 
 ## Machine-readable registry
 
@@ -101,10 +101,21 @@ The browser app parses the JSON between the markers. If parsing or network acces
   "canonicalNames": [
     {"canonical":"Thalia Humour","watchFor":["Huma","Humar","Humor app","Thalia Humor"],"note":"Repository spelling is British English: Humour."},
     {"canonical":"Aletheia Improve","watchFor":["Aletheia Improved","Althea Improve","Althea Improved"],"note":"Use Aletheia Improve for the app/workflow name."},
+    {"canonical":"Aletheia Learn","watchFor":["Althea Learn","Alethea Learn"],"note":"General learning-by-doing core at aletheia-learn/aletheia-learn.md; do not confuse with the specialised Aletheia Language Learn app."},
     {"canonical":"Aletheia","watchFor":["Althea","Alethea"],"note":"Confirm before renaming files or projects."},
     {"canonical":"Odysseus","watchFor":["Odyssey","Odyseus"],"note":"Self-hosted workspace/agent project."}
   ],
   "specialTargets": [
+    {
+      "name": "Aletheia Learn",
+      "repo": "KarstenEvans/aletheia-app",
+      "primary": "aletheia-learn/aletheia-learn.md"
+    },
+    {
+      "name": "Aletheia Language Learn",
+      "repo": "KarstenEvans/aletheia-app",
+      "primary": "aletheia-language-learn/aletheia-language-learn.md"
+    },
     {
       "name": "Aletheia AI Knowledge",
       "repo": "KarstenEvans/aletheia-knowledge",
