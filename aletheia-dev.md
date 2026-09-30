@@ -296,6 +296,22 @@ Provide a fallback appropriate to the task.
 
 Avoid browser sniffing such as `if (isApple) disableThreeJS` unless there is a specific verified browser bug and a narrowly documented workaround.
 
+### Shared accessibility component
+
+Before creating app-specific accessibility widgets, inspect `shared/accessibility-layer.md`.
+
+The shared CSS/JS may be used for text sizing, Focus mode and browser speech synthesis. It is progressive enhancement only:
+
+- page remains useful if CSS/JS fails;
+- feature-detect speech and other browser APIs;
+- no autoplay audio;
+- no inferred diagnosis;
+- no hidden safety-critical content;
+- local preferences may be stored, but not diagnoses or private learning history;
+- AI-only functions such as SIMPLIFY/TRANSLATE/VISUAL must remain labelled as host/AI capabilities, not browser-page capabilities unless actually implemented locally.
+
+Test at ordinary mobile width and 200% browser zoom.
+
 ## 13. Graphics and animation
 
 Animation is decoration or presentation unless the app explicitly exists to demonstrate animation.
