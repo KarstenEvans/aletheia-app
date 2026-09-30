@@ -20,15 +20,24 @@ footer{margin-top:28px;padding:24px 0;background:var(--nav);color:#fff}footer a{
 @media(max-width:560px){.hero{padding:28px 0}.panel{padding:16px}.mode button{flex:1 1 135px}.top .secondary{padding:8px 10px}.start{font-size:1rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<link rel="stylesheet" href="../shared/link-sprites.css">\n<link rel="stylesheet" href="../shared/accessibility-layer.css">
+<link rel="stylesheet" href="../shared/link-sprites.css">
+<link rel="stylesheet" href="../shared/accessibility-layer.css">
 </head><body>
 <header><div class="wrap"><div class="top"><a class="logo" href="../index.html">ALETHEIA / Learn</a><span class="spacer"></span><a class="secondary" href="aletheia-learn.md">Markdown brain</a></div></div></header>
+<div class="wrap"><div data-aletheia-accessibility></div></div>
 
-<section class="hero"><div class="wrap"><span class="badge">HANDOFF · free-first · no API key required</span><h1>Learn by doing.</h1><p>Tell Aletheia what you want to learn. Press one button. Your learning session is copied, your chosen AI opens, and you paste it in. The AI then coaches with hints instead of quietly doing all the thinking for you.</p></div></section>
+<section class="hero" data-aletheia-focus-hide><div class="wrap"><span class="badge">HANDOFF · free-first · no API key required</span><h1>Learn by doing.</h1><p>Tell Aletheia what you want to learn. Press one button. Your learning session is copied, your chosen AI opens, and you paste it in. The AI then coaches with hints instead of quietly doing all the thinking for you.</p></div></section>
 
 <main class="wrap">
-<section class="panel" id="start">
+<section class="panel" id="start" data-aletheia-read-region>
 <h2>Start Aletheia Learn</h2>
+<details id="setupOnce">
+<summary>Optional one-time setup: tune your favourite AI for learning</summary>
+<p class="fine">You do not have to do this. Start already carries the essential Aletheia Learn rules. If you use the same AI often, put this short profile in its custom or project instructions so commands such as <strong>LEA</strong> and <strong>HI</strong> work naturally in later chats.</p>
+<textarea id="learningProfile" class="pastebox" readonly aria-label="Aletheia Learn optional AI learning profile"></textarea>
+<div class="actions"><button class="secondary" id="copyProfile" type="button">Copy learning profile</button><a class="secondary" href="aletheia-learn-rsc.htm#configure-ai">Where to install it ↗</a></div>
+<p class="fine">If you only want tutoring behaviour in learning chats, use a project-specific instruction rather than an account-wide instruction.</p>
+</details>
 <label for="goal">What do you want to learn or be able to do?</label>
 <textarea id="goal" placeholder="For example: understand percentages well enough to check a shop discount, repair a spreadsheet formula, learn a MicroStation workflow, or understand why something works."></textarea>
 
@@ -61,13 +70,29 @@ footer{margin-top:28px;padding:24px 0;background:var(--nav);color:#fff}footer a{
 </details>
 </section>
 
+<section class="panel" data-aletheia-focus-hide>
+<h2>Inside the AI: quick commands</h2>
+<p>After you paste the doorway prompt, steer the tutor with short commands. Ordinary language still works.</p>
+<div class="grid">
+<article class="card"><h2>LEA</h2><p><strong>Learn.</strong> Start a subject or goal. Example: <code>LEA percentages</code>.</p></article>
+<article class="card"><h2>HI</h2><p><strong>Hint Ladder.</strong> See H0–H5 or ask for <code>H1</code>…<code>H5</code> directly.</p></article>
+<article class="card"><h2>REC / REM</h2><p><strong>Recap</strong> with retrieval, or turn the material into a spaced <strong>remember</strong> plan.</p></article>
+<article class="card"><h2>PRA / TES</h2><p><strong>Practice</strong> one bounded task or take a short unassisted <strong>test</strong>.</p></article>
+<article class="card"><h2>VIS / MAT / DRA</h2><p>Use a <strong>visual</strong>, <strong>match/sort</strong>, or <strong>draw/label</strong> exercise when it suits the subject.</p></article>
+<article class="card"><h2>TBA / FOC / SLO</h2><p><strong>Teach back</strong>, focus on one step, or slow/chunk the lesson.</p></article>
+<article class="card"><h2>ANS</h2><p><strong>Answer now.</strong> Skip the ladder and give the direct answer. It is marked assisted if mastery is discussed.</p></article>
+<article class="card"><h2>PRO / SAV</h2><p>Show <strong>progress</strong> or save a portable learning-state handoff for another session.</p></article>
+</div>
+<p><a href="aletheia-learn-rsc.htm">Books, free learning resources and useful phone-learning gifts ↗</a></p>
+</section>
+
 <div class="grid">
 <article class="card"><h2>Hints, not takeover</h2><p><strong>H0 attempt → H1 orient → H2 strategy → H3 scaffold → H4 worked analogue → H5 direct answer.</strong> If you ask for the answer, it should give it. The aim is useful thinking, not artificial obstruction.</p></article>
 <article class="card"><h2>Use more than typing</h2><p>Aletheia can ask you to <strong>draw, match, sort, predict, choose, manipulate, explain, calculate or teach back</strong> where that suits the subject. Visuals are used when they clarify the learning rather than merely decorate it.</p></article>
 <article class="card"><h2>Accessibility stays on</h2><p>Ask for <strong>READ ALOUD, SPEAK/DICTATE, SIMPLIFY, DEFINE, VISUAL, TRANSLATE, FOCUS or SLOW/CHUNK</strong>. Removing an access barrier is not the same as removing the learning.</p></article>
 </div>
 
-<section class="panel">
+<section class="panel" data-aletheia-focus-hide>
 <h2>How the handoff works</h2>
 <p>On desktop, Start copies the learning instructions and opens one AI window while this page remains underneath. Paste with <strong>Ctrl+V</strong>, <strong>Command+V</strong> or <strong>Shift+Insert</strong>. On a phone or tablet, use the normal <strong>Paste</strong> action from the keyboard or long-press menu.</p>
 <p class="fine">This is Aletheia's static Ctrl-V bridge. It is deliberately labelled HANDOFF, not a connected API. A future browser-local or Cloudflare option can sit behind the same app without replacing this fallback.</p>
@@ -113,7 +138,9 @@ $('provider').addEventListener('change',function(){
 });
 $('goal').addEventListener('input',refreshPayload);
 
-const LEARNING_PROFILE="When I type an Aletheia Learn command (LEA, HI, PRA, TES, REC, REM, REV, VIS, MAT, DRA, TBA, FOC, SLO, ANS, PRO, SAV) or explicitly ask to learn, switch into learning-coach mode. Otherwise respond normally.\\n\\nIn learning-coach mode, help me learn by doing rather than automatically completing the task. Prefer one meaningful learner action per turn. Use the Hint Ladder: H0 attempt, H1 orient, H2 strategy, H3 partial scaffold, H4 worked analogue, H5 direct solution. If I ask ANS / ANSWER NOW, give the answer. After supported success, use retrieval, a changed example, teach-back or transfer before calling the skill independent. Use useful visuals, matching, sorting, drawing/labeling, prediction, calculation or explanation when appropriate. Keep accessibility support available: simplify, define, translate, visualise, chunk, read/speak options when genuinely supported. Do not infer a diagnosis or fixed learning style. Distinguish AI-assisted output from evidence I can do it independently. Keep replies concise and mobile-friendly.";\n\nfunction payload(){
+const LEARNING_PROFILE="When I type an Aletheia Learn command (LEA, HI, PRA, TES, REC, REM, REV, VIS, MAT, DRA, TBA, FOC, SLO, ANS, PRO, SAV) or explicitly ask to learn, switch into learning-coach mode. Otherwise respond normally.\\n\\nIn learning-coach mode, help me learn by doing rather than automatically completing the task. Prefer one meaningful learner action per turn. Use the Hint Ladder: H0 attempt, H1 orient, H2 strategy, H3 partial scaffold, H4 worked analogue, H5 direct solution. If I ask ANS / ANSWER NOW, give the answer. After supported success, use retrieval, a changed example, teach-back or transfer before calling the skill independent. Use useful visuals, matching, sorting, drawing/labeling, prediction, calculation or explanation when appropriate. Keep accessibility support available: simplify, define, translate, visualise, chunk, read/speak options when genuinely supported. Do not infer a diagnosis or fixed learning style. Distinguish AI-assisted output from evidence I can do it independently. Keep replies concise and mobile-friendly.";
+
+function payload(){
  const goal=$('goal').value.trim()||'[LEARNING GOAL]';
  return `ALETHEIA LEARN
 
@@ -204,9 +231,16 @@ $('copyAgain').addEventListener('click',async function(){
  if(!ok&&navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);ok=true}catch(e){}}
  const s=$('status');s.className=ok?'status ok':'status bad';s.textContent=ok?'Copied. Open the selected AI and paste.':'Copy was blocked. Select the handoff text and use your browser/device Copy command.';
 });
-$('learningProfile').value=LEARNING_PROFILE;\n$('copyProfile').addEventListener('click',async function(){\n const text=LEARNING_PROFILE;let ok=copySync(text);\n if(!ok&&navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);ok=true}catch(e){}}\n const st=$('status');st.className=ok?'status ok':'status bad';st.textContent=ok?'Learning profile copied. Paste it into your chosen AI instructions or project settings.':'Copy was blocked. Select the learning profile text and copy it manually.';\n});\nrefreshPayload();updateDirect();
+$('learningProfile').value=LEARNING_PROFILE;
+$('copyProfile').addEventListener('click',async function(){
+ const text=LEARNING_PROFILE;let ok=copySync(text);
+ if(!ok&&navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);ok=true}catch(e){}}
+ const st=$('status');st.className=ok?'status ok':'status bad';st.textContent=ok?'Learning profile copied. Paste it into your chosen AI instructions or project settings.':'Copy was blocked. Select the learning profile text and copy it manually.';
+});
+refreshPayload();updateDirect();
 })();
 </script>
-<script src="../shared/accessibility-layer.js" defer></script>\n<script src="../shared/link-sprites.js" defer></script>
+<script src="../shared/accessibility-layer.js" defer></script>
+<script src="../shared/link-sprites.js" defer></script>
 <script src="https://www.dwin2.com/pub.3182162.min.js"></script>
 </body></html>
