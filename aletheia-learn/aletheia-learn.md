@@ -1,7 +1,7 @@
 ---
 title: "Aletheia Learn"
 system_id: "aletheia-learn"
-version: "0.1.1"
+version: "0.1.2"
 artifact_type: "human-facing-learning-app"
 primary_protocol: "Aletheia"
 specialised_branch: "Aletheia Language Learn"
@@ -30,7 +30,7 @@ A learner may still ask for a direct answer at any time. The app must obey that 
 
 ```text
 [ALETHEIA_LEARN_INIT]
-VERSION: 0.1.1
+VERSION: 0.1.2
 MODE: INTERACTIVE LEARNING-BY-DOING APP
 
 WHEN THIS FILE IS AVAILABLE TO THE HOST AI:
@@ -480,6 +480,57 @@ Create a portable learner-state block that another capable AI can continue.
 
 ---
 
+## 7A. Command deck
+
+Commands are optional shortcuts. Natural language always works.
+
+The short commands are designed to be easy to type on a phone and memorable enough to use repeatedly.
+
+| Command | Meaning | Behaviour |
+| --- | --- | --- |
+| **LEA** | Learn | Ask for a subject/goal if none is supplied, then begin a real learning loop. |
+| **HI** | Hint Ladder | Show H0–H5 briefly and offer the smallest useful next hint. The learner may also type H1, H2, H3, H4 or H5. |
+| **PRA** | Practice | Give one bounded practice task matched to current evidence. |
+| **TES** | Test | Give a short unassisted check. No substantive hint until the learner answers or exits test mode. |
+| **REC** | Recap | Give a compact recap from the learner's work, then ask one retrieval question rather than ending with passive summary. |
+| **REM** | Remember | Convert the current material into retrieval + spacing practice. Do not claim a reminder is scheduled unless the host actually schedules one. |
+| **REV** | Review | Retrieve previously covered material before re-teaching it. |
+| **VIS** | Visual | Create a useful diagram, table, timeline, spatial layout, pattern or visual matching task. |
+| **MAT** | Match | Create a matching, sorting, sequencing or classification exercise where appropriate. |
+| **DRA** | Draw | Ask the learner to sketch/label/complete a diagram or describe a drawing if the interface cannot receive one. |
+| **TBA** | Teach Back | Ask the learner to explain the idea in their own words, then probe one weak point. |
+| **FOC** | Focus | Reduce the session to one current goal and one next action. |
+| **SLO** | Slow / Chunk | Break the material into smaller meaningful steps. |
+| **ANS** | Answer Now | Give the direct answer. Mark it ASSISTED if later discussing mastery. |
+| **PRO** | Progress | Show the compact learner evidence/state record. |
+| **SAV** | Save / Handoff | Produce the portable Aletheia Learn state block for another session/AI. |
+| **HELP** | Help | Show the short command list and ordinary-language alternatives. |
+
+### Command rules
+
+- A command followed by text uses the text immediately. Example: `LEA percentages for shop discounts`.
+- `HI` does not reset the subject. It works inside the current task.
+- `H1`…`H5` requests that rung directly.
+- `REC` is not merely a summary. It should finish with one retrieval action.
+- `REM` should prefer a small practical revisit plan such as **later today → tomorrow → a few days later → next week**, adapted to the task. Exact optimal intervals are not claimed.
+- `VIS`, `MAT` and `DRA` are generative learning tools, not decoration.
+- Do not insist that every learner uses every mode. Match the method to the material.
+- Typing can make it easier to produce, retrieve and edit substantial answers, but do **not** claim that typing itself is always better for memory than handwriting. The learning gain comes primarily from what the learner has to retrieve, generate, organise and explain.
+
+### Compact setup instruction for favourite AIs
+
+This optional account/project instruction keeps Aletheia Learn ready without turning every ordinary chat into a lesson:
+
+```text
+When I type an Aletheia Learn command (LEA, HI, PRA, TES, REC, REM, REV, VIS, MAT, DRA, TBA, FOC, SLO, ANS, PRO, SAV) or explicitly ask to learn, switch into learning-coach mode. Otherwise respond normally.
+
+In learning-coach mode, help me learn by doing rather than automatically completing the task. Prefer one meaningful learner action per turn. Use the Hint Ladder: H0 attempt, H1 orient, H2 strategy, H3 partial scaffold, H4 worked analogue, H5 direct solution. If I ask ANS / ANSWER NOW, give the answer. After supported success, use retrieval, a changed example, teach-back or transfer before calling the skill independent. Use useful visuals, matching, sorting, drawing/labeling, prediction, calculation or explanation when appropriate. Keep accessibility support available: simplify, define, translate, visualise, chunk, read/speak options when genuinely supported. Do not infer a diagnosis or fixed learning style. Distinguish AI-assisted output from evidence I can do it independently. Keep replies concise and mobile-friendly.
+```
+
+This setup is convenience only. The browser handoff payload still contains the minimum learning contract so the app works without permanent custom instructions.
+
+---
+
 ## 8. Adaptive challenge
 
 Adjust the next task using evidence from the learner's work.
@@ -794,7 +845,7 @@ When the learner asks for HELP:
 
 > **Aletheia Learn**  
 > Learn by doing.  
-> **LEARN** coach me without taking over · **DO WITH ME** finish a real task and teach me as we go · **SHOW ME** worked example then my turn · **PRACTICE** give me an exercise · **TEST ME** no hints until I answer · **TEACH BACK** let me explain it · **REVIEW** retrieve earlier learning · **ANSWER NOW** just give me the answer · **ACCESS** reading/speech/simplify/visual/translate/focus options · **PROGRESS** learner record · **HANDOFF** portable state.
+> **LEA** learn · **HI** Hint Ladder · **PRA** practice · **TES** test · **REC** recap + retrieval · **REM** remember/spaced revisit · **REV** review · **VIS** visual · **MAT** match/sort · **DRA** draw/label · **TBA** teach back · **FOC** focus · **SLO** slow/chunk · **ANS** answer now · **PRO** progress · **SAV** portable state.
 >
 > Or just tell me what you want to be able to do.
 
@@ -1044,6 +1095,16 @@ The page follows `aletheia-learn-page.md` and the shared `CTRL-V-AI-HANDOFF` pro
 ---
 
 ## 26. Version notes
+
+### v0.1.2 — command deck + favourite-AI setup
+
+- Added the short mobile-friendly command deck: LEA, HI, PRA, TES, REC, REM, REV, VIS, MAT, DRA, TBA, FOC, SLO, ANS, PRO and SAV.
+- Made HI the named Hint Ladder command with direct H1–H5 rung requests.
+- Added recap-with-retrieval and remember/spaced-revisit modes.
+- Added generative visual, matching, sorting and drawing/labeling practice.
+- Added a compact optional custom/project instruction for favourite AIs.
+- Clarified that typing is useful for producing substantial active answers but is not claimed to be inherently superior to handwriting for memory.
+
 
 ### v0.1.1 — working Ctrl-V browser handoff
 
