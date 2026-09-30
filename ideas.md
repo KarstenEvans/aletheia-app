@@ -370,3 +370,30 @@ Required companion ideas:
 - **Human decision point:** the tool may advise and reduce options, but does not silently make consequential choices.
 
 Origin research is preserved separately in Aletheia Knowledge as `knowledge/aletheia-judgment-over-output.md`. Case File 42 and the Storyteller adventure provide the public/story explanation of the same design lesson.\n
+
+## AI Journal gold mine — agent trust, workflow and verification (30 September 2026)
+
+**Status:** RESEARCHED IDEA SET / CONSOLIDATE WITH EXISTING APPS.
+
+Deep trawl source note: `KarstenEvans/aletheia-knowledge/ideas/aletheia-ai-journal-gold-mine.md`.
+
+Promote these as reusable capabilities rather than duplicate apps:
+
+- **Aletheia Agent Inspector / Trust Layer** — compare intended action, attempted action, reported completion and verified outcome; show tools, evidence, authority, approvals, exceptions and rollback state.
+- **Aletheia Workflow Mapper** — `discover -> describe -> automate`; document trigger, inputs, authoritative sources, exceptions, human judgement, approval gates and completion evidence before automation.
+- **Aletheia Agent Register / AGENTS.md Dashboard** — read real repository `AGENTS.md` and agent manifests; show purpose, owner, scope, permissions, memory/state, approvals, receipts, last review and revocation path. Flag observed but undeclared automations as **UNKNOWN AGENT** for investigation.
+- **Aletheia Knowledge Health Check** — detect stale/duplicate/conflicting material, ambiguous masters, missing provenance, orphan files, poor naming/indexing and unclear retention/ownership. Prefer dimensions and evidence over a fake single truth score.
+- **Aletheia Make or Buy** — compare paid SaaS, a narrow local build, open source and hybrid routes against actual required functions, maintenance, privacy, lock-in, APIs, cost and reversibility.
+- **Agent Conflict Resolver** — surface incompatible multi-agent objectives/evidence and escalate instead of allowing infinite agent loops.
+- **System Evaluation** — evaluate the configured operating loop (model + tools + prompt + permissions + data + memory + retries + approval gates), not model benchmarks alone.
+
+Shared rules now adopted:
+- **Done != verified done.**
+- **Capability != permission.**
+- **Discover -> Describe -> Automate.**
+- Consequence boundaries, not arbitrary every-step friction, are where human approval matters most.
+- Durable evidence and temporary working context should be treated differently.
+- Repository `AGENTS.md` is an active router that must actually be read.
+
+Do not implement all of these at once. First candidates for prototyping are Agent Inspector as a generic report/receipt format and Workflow Mapper against one real Aletheia workflow.
+
