@@ -44,7 +44,7 @@ table{width:100%;border-collapse:collapse;display:block;overflow:auto}th,td{bord
 </main>
 <footer><p>Aletheia Protocol: evidence, provenance, uncertainty and receipts. Thalia Protocol: optional appropriate humour. Local-first V1; no external AI required.</p></footer>
 <script>
-(()=>{'use strict';const KEY='aletheia-decision-check-v1',q=s=>document.querySelector(s),qa=s=>[...document.querySelectorAll(s)];let state={};try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){}
+(()=>{'use strict';const KEY='aletheia-decision-check-v1',q=(s,r=document)=>r.querySelector(s),qa=(s,r=document)=>[...r.querySelectorAll(s)];let state={};try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){}
 function save(){qa('[data-k]').forEach(el=>state[el.dataset.k]=el.type==='checkbox'?el.checked:el.value);state.rows=qa('#eRows tr').map(tr=>qa('input',tr).map(x=>x.value));localStorage.setItem(KEY,JSON.stringify(state));stopStatus()}
 function bind(){qa('[data-k]').forEach(el=>{if(el.type==='checkbox')el.checked=!!state[el.dataset.k];else el.value=state[el.dataset.k]||'';el.addEventListener(el.type==='checkbox'?'change':'input',save)})}
 function row(vals=['','','','','']){const tr=document.createElement('tr');for(let i=0;i<5;i++){const td=document.createElement('td'),inp=document.createElement('input');inp.value=vals[i]||'';inp.addEventListener('input',save);td.appendChild(inp);tr.appendChild(td)}const td=document.createElement('td'),b=document.createElement('button');b.type='button';b.textContent='Remove';b.onclick=()=>{tr.remove();save()};td.appendChild(b);tr.appendChild(td);q('#eRows').appendChild(tr)}
