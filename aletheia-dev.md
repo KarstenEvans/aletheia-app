@@ -420,4 +420,50 @@ A/B or before/after experiments should change as few variables as practical and 
 
 For a new public standalone HTML page with several genuine cross-site destinations, include [the approved reusable Constellation](shared/README.md). Read `shared/link-sprites.json` for the single editable link/icon/season catalogue; add its CSS and JS using the correct relative paths and preserve five semantic static fallback links near the footer. Do not rewrite app logic, replace primary navigation or copy/modify the manifest separately on each page. Respect the source proof and human approval gate before seasonal destination activation. If site is cross-domain, first test remote manifest CORS or generate an approved local static fallback: source file committed does not imply Pages/CDN response is live.
 
-**Mandatory date-boundary checks:** 09-01, 10-31, 11-10 = witch; 11-11 and 11-24 = plain stars with no Halloween link; 11-25 through 12-31 = winter sprites; 01-01 onward = plain stars. Use browser-local date. Verify `prefers-reduced-motion`, no overlap or full-screen pointer layer, accessible link text/focus and small-screen layout. No seasonal link may point to a placeholder; fallback remains functional without JS/fetch. Editorial links must not become affiliate links. Retain one MasterTag per public HTML and a separate disclosure where commercial links actually exist.
+**Mandatory date-boundary checks:** 09-01, 10-31, 11-10 = witch; 11-11 and 11-24 = plain stars with no Halloween link; 11-25 through 12-31 = winter sprites; 01-01 onward = plain stars. Use browser-local date. Verify `prefers-reduced-motion`, no overlap or full-screen pointer layer, accessible link text/focus and small-screen layout. No seasonal link may point to a placeholder; fallback remains functional without JS/fetch. Editorial links must not become affiliate links. Retain one MasterTag per public HTML and a separate disclosure where commercial links actually exist.\n\n## 22. Judgment pipeline, model agnosticism and stopping criteria
+
+**Approved 30 September 2026.** Build research-heavy Aletheia tools as **decision-support systems**, not output fountains.
+
+### Default judgment pipeline
+
+```text
+DEFINE DECISION
+  -> IDENTIFY ASSUMPTIONS
+  -> GATHER EVIDENCE
+  -> CHALLENGE STRONGEST ASSUMPTION
+  -> PRE-MORTEM
+  -> FIND MISSING INFORMATION
+  -> REDUCE ALTERNATIVES
+  -> SHOW REMAINING UNCERTAINTY
+  -> STOP / HUMAN DECISION
+```
+
+A stage may be skipped only when genuinely irrelevant. The interface should preserve stage receipts for consequential work.
+
+### Stop criteria
+Before beginning open-ended research, define what would count as enough where practical: source diversity, primary-source confirmation, contradiction status, freshness and unresolved unknowns. When the threshold is met, report **ENOUGH EVIDENCE FOR THE STATED TASK** and stop spawning more variants. A user may deliberately choose **Go deeper**.
+
+Never claim certainty merely because the stop threshold was reached. STOP means sufficient for the current task, not omniscience.
+
+### Perspective expansion
+For material questions, search outside the current hypothesis when evidence access permits. Track:
+- independent versus repeated/derivative sources;
+- primary versus secondary evidence;
+- contrary evidence;
+- geographic/domain perspective where it could change the result;
+- stale evidence versus current evidence.
+
+### Model-agnostic architecture
+Store workflow state, evidence, claims, receipts and user-approved context in portable formats rather than binding them to one model/provider. Provider/model is an execution component, not the canonical knowledge base. A replacement model should be able to reconstruct the task from durable files and receipts.
+
+### Domain memory as asset
+Public/source-backed knowledge, project history, corrected claims and structured observations can increase usefulness over time. Preserve provenance and corrections. Do not confuse accumulated context with truth merely because it is local or proprietary.
+
+### Human cognitive budget
+Treat attention as finite infrastructure alongside token/API budgets. Avoid interfaces that require the user to supervise large streams of generated output. Prefer triage, progressive disclosure, Quiet Mode and exception-first reporting.
+
+### Pre-mortem as reusable procedure
+For a proposed action: "Assume this failed after the relevant period. What are the plausible causes, early warning signs and mitigations?" Label hypothetical failure routes as scenarios, not predictions.
+
+### Background/invisible AI
+Embedding AI inside ordinary workflow is acceptable when useful, but consequential influence must remain auditable. Record the actor/model/tool where practical, trigger, input scope, material output, evidence, uncertainty, approval boundary and final action receipt.\n
