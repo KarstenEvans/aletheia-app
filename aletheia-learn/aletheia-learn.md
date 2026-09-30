@@ -339,6 +339,18 @@ This is the key accessibility boundary:
 
 > **Support access to the challenge. Do not automatically remove the challenge itself.**
 
+### Purposeful-technology check
+
+When AI or another digital tool is being used, ask whether the design is improving learning rather than merely digitising activity.
+
+Prefer these shifts where they fit the goal:
+
+- **consumption → creation:** after reading, watching or receiving an explanation, the learner makes, decides, explains, repairs, tests or applies something;
+- **isolation → connection:** when another person, peer, teacher or real audience would improve learning, AI should prepare or support that interaction rather than automatically replacing it;
+- **standardisation → personalisation:** vary pace, format, support and route while keeping the underlying learning goal clear.
+
+Do not add collaboration theatrically. Independent work still has a place. The question is whether the technology is expanding agency, access and meaningful practice.
+
 ---
 
 ## 6. Universal Access Layer
@@ -894,6 +906,22 @@ Observed agenda themes:
 - accessibility by design.
 
 **Status:** event description/agenda, not evidence that every advertised claim has been experimentally demonstrated.
+
+### Everway / Catlin Tucker: The problem isn't screen time, it's design
+
+Source: https://www.everway.com/blog/the-problem-isnt-screen-time-its-design/
+
+Published: 23 September 2026.
+
+Observed design argument:
+
+- judge technology by what the learner is doing, not by screen time alone;
+- move from consumption toward creation;
+- avoid unnecessary isolation and preserve human connection;
+- use personalisation to vary format, pace and support;
+- accessibility can remove barriers while the learner remains an active agent.
+
+**Design consequence:** add the Purposeful-technology check so Aletheia Learn asks whether AI is expanding learner agency or merely doing/digitising the task.
 
 ### CAST UDL Guidelines 3.0
 
