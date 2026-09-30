@@ -128,6 +128,9 @@ Do not create this merely to add another repository. Create it when the front-do
 
 ## Aletheia learning / courses
 
+- [x] Create shared Aletheia Accessibility Layer v0.1 (30 September 2026): semantic baseline + reusable text-size, Focus and browser read-aloud controls; document higher-level dictation/OCR/translate/simplify/visual capability boundaries.
+- [ ] Integrate the shared accessibility component into Learn and future Language Learn HTML, then test Android/desktop/Safari, keyboard and 200% zoom before wider reuse.
+
 - [x] Promote the established Ctrl-V AI handoff into shared GUI/dev/code rules (30 September 2026): hidden/reviewable payload → copy while page owns focus → open one selected AI → user pastes → manual fallback; keep this distinct from browser-local OPT2 and Cloudflare OPT3.
 - [x] Rework Aletheia Learn HTML around the shared Ctrl-V HANDOFF as the first useful public execution path; Cloudflare Worker remains an optional later OPT3 path, not a prerequisite.
 - [ ] Test Aletheia Learn handoff with ChatGPT, Gemini, Copilot, DeepSeek and Claude on Android Chrome and desktop Chrome/Edge; separately test Safari/WebKit popup/paste fallback.
