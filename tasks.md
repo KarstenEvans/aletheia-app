@@ -756,3 +756,15 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [ ] Test GitHub Pages URL and downloadable/reconnected Markdown in desktop Chrome/Edge, mobile Android and Safari. Github Pages cannot silently enumerate Downloads; require explicit file permission/import.
 - [ ] Obtain broker's usability feedback, especially high-value suppliers, alerts, price grades and the appropriate chart comparison units. Do not commit private trading observations to this public repository.
 
+## Case File 42 / Judgment-over-output implementation (30 September 2026)
+
+- [x] Create `stories/ToomorrowMan-and-the-Case-of-the-Missing-AI.md` using established character voice profiles and canon.
+- [x] Create `stories/Case-File-42-image-prompts.md` with explicit canon locks and six new-scene prompts plus article/social hero prompt.
+- [x] Register the new story in `stories/stories.json`.
+- [x] Add reusable Storyteller `[link;https://...;label=...]` / `[link-off]` commands so evidence/case pages can open separately without replacing the story.
+- [x] Add shared Aletheia judgment-first GUI/dev rules: nine-stage Decision Check, Quiet Mode, evidence grid, verification-not-confirmation, perspective expansion, cognitive budget, model-agnostic storage and STOP criteria.
+- [x] Create working local-first `aletheia-decision-check/` app with local persistence, evidence rows and Markdown export.
+- [ ] Generate/approve the six new Case File 42 story illustrations against the existing canonical character artwork; do not accept drift.
+- [ ] Live-test Storyteller Case File link, mobile caption/button collision, keyboard, popup blocking and missing-art behaviour.
+- [ ] Live-test Decision Check localStorage/export on desktop and Android/Safari; source commit alone is not a device test.
+- [ ] Add the evidence-backed Cabinet of Curiosities Case File 42 page and folder index, then verify deployed Pages.
