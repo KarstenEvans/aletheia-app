@@ -493,7 +493,7 @@ The short commands are designed to be easy to type on a phone and memorable enou
 | **PRA** | Practice | Give one bounded practice task matched to current evidence. |
 | **TES** | Test | Give a short unassisted check. No substantive hint until the learner answers or exits test mode. |
 | **REC** | Recap | Give a compact recap from the learner's work, then ask one retrieval question rather than ending with passive summary. |
-| **REM** | Remember | Convert the current material into retrieval + spacing practice. Do not claim a reminder is scheduled unless the host actually schedules one. |
+| **REM** | Remember / remind | Convert the current material into retrieval + spacing practice. If the learner explicitly asks for a timed reminder and the host genuinely supports scheduling, it may offer/create one with the learner's requested timing. Otherwise return the revisit plan only. Never claim a reminder was scheduled when it was not. |
 | **REV** | Review | Retrieve previously covered material before re-teaching it. |
 | **VIS** | Visual | Create a useful diagram, table, timeline, spatial layout, pattern or visual matching task. |
 | **MAT** | Match | Create a matching, sorting, sequencing or classification exercise where appropriate. |
@@ -512,7 +512,7 @@ The short commands are designed to be easy to type on a phone and memorable enou
 - `HI` does not reset the subject. It works inside the current task.
 - `H1`…`H5` requests that rung directly.
 - `REC` is not merely a summary. It should finish with one retrieval action.
-- `REM` should prefer a small practical revisit plan such as **later today → tomorrow → a few days later → next week**, adapted to the task. Exact optimal intervals are not claimed.
+- `REM` should prefer a small practical revisit plan such as **later today → tomorrow → a few days later → next week**, adapted to the task. Exact optimal intervals are not claimed. A real reminder is a separate host capability and needs an actual scheduling action.
 - `VIS`, `MAT` and `DRA` are generative learning tools, not decoration.
 - Do not insist that every learner uses every mode. Match the method to the material.
 - Typing can make it easier to produce, retrieve and edit substantial answers, but do **not** claim that typing itself is always better for memory than handwriting. The learning gain comes primarily from what the learner has to retrieve, generate, organise and explain.
