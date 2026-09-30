@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-GB"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102b3b">
+<title>Aletheia Learn | Learn by doing</title>
+<meta name="description" content="Aletheia Learn turns a real task into coached practice using hints, retry, transfer and independent checks, with accessible learning support.">
+<link rel="canonical" href="https://karstenevans.github.io/aletheia-app/aletheia-learn/aletheia-learn.htm">
+<style>
+:root{--nav:#102b3b;--sea:#12666f;--line:#cadbdd;--bg:#eff6f5;--ink:#17313f;--card:#fff;--gold:#e5a13a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:#075f6a}a:focus-visible,button:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.wrap{max-width:1000px;margin:auto;padding:0 18px}header{background:var(--nav);color:white;position:sticky;top:0;z-index:10}.top{min-height:64px;display:flex;align-items:center;gap:12px}.logo{color:white;text-decoration:none;font-weight:850}.spacer{flex:1}.hero{background:linear-gradient(120deg,#102b3b,#17646d);color:white;padding:50px 0}.hero h1{margin:0;font-size:clamp(2.2rem,6vw,4rem);line-height:1.05}.hero p{max-width:720px;font-size:1.08rem}.badge{display:inline-block;padding:5px 9px;border-radius:99px;background:#dff4ed;color:#125b54;font-weight:780;font-size:.78rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:15px;margin:22px 0}.card,.panel{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px}.card h2,.panel h2{margin-top:0}.mode{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.mode button,.action,.btn{font:inherit;border:0;border-radius:9px;background:var(--sea);color:white;padding:10px 14px;text-decoration:none;font-weight:760;cursor:pointer}.mode button[aria-pressed="true"]{background:#7a4c0f}.btn.alt{background:#e6f0f1;color:var(--ink);border:1px solid var(--line)}textarea{width:100%;min-height:150px;padding:12px;border:1px solid #9fb9c1;border-radius:10px;font:inherit;resize:vertical}.hint{border-left:4px solid var(--gold);padding:10px 12px;background:#fff7e9;border-radius:0 10px 10px 0}.fine{font-size:.9rem;color:#4c636d}.steps{padding-left:23px}footer{margin-top:28px;padding:24px 0;background:var(--nav);color:white}footer a{color:#c7f6e9}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<link rel="stylesheet" href="../shared/link-sprites.css">
+</head><body>
+<header><div class="wrap"><div class="top"><a class="logo" href="../index.html">ALETHEIA / Learn</a><span class="spacer"></span><a class="btn alt" href="aletheia-learn.md">Markdown brain</a></div></div></header>
+<section class="hero"><div class="wrap"><span class="badge">Learn by doing · hints before takeover</span><h1>Aletheia Learn</h1><p>Turn something you genuinely want to learn into a short coached practice loop. Try first, get the smallest useful hint, retry, then prove it on a new case.</p><p><a href="#start" style="color:#d7fff3">Start a learning task ↓</a></p></div></section>
+<main class="wrap">
+<div class="grid">
+<article class="card"><h2>1. Try</h2><p>You attempt the task first when that is useful. A correct AI answer is not automatically evidence that you learned the skill.</p></article>
+<article class="card"><h2>2. Hint</h2><p>Aletheia climbs a hint ladder from a nudge to a worked example, instead of dumping the full answer immediately.</p></article>
+<article class="card"><h2>3. Transfer</h2><p>You use the same idea on a changed example or real-world case so copying alone cannot pass the check.</p></article>
+</div>
+
+<section id="start" class="panel">
+<h2>Start a learning task</h2>
+<p>Tell Aletheia what you want to be able to do. This static page prepares the learning handoff; the reasoning happens in the capable AI you paste it into.</p>
+<label for="goal"><strong>What do you want to learn or be able to do?</strong></label>
+<textarea id="goal" placeholder="For example: understand percentages well enough to check a shop discount, repair a spreadsheet formula, or learn how to diagnose a MicroStation warning."></textarea>
+<p><strong>Choose a mode</strong></p>
+<div class="mode" role="group" aria-label="Learning mode">
+<button type="button" data-mode="LEARN" aria-pressed="true">LEARN</button>
+<button type="button" data-mode="DO WITH ME" aria-pressed="false">DO WITH ME</button>
+<button type="button" data-mode="SHOW ME" aria-pressed="false">SHOW ME</button>
+<button type="button" data-mode="TEST ME" aria-pressed="false">TEST ME</button>
+<button type="button" data-mode="ANSWER NOW" aria-pressed="false">ANSWER NOW</button>
+</div>
+<div class="hint"><strong>Hint ladder:</strong> H0 attempt → H1 orient → H2 strategy → H3 partial scaffold → H4 worked analogue → H5 direct solution.</div>
+<p style="margin-top:14px"><button class="action" id="copy" type="button">Copy Aletheia Learn handoff</button> <a class="btn alt" href="aletheia-learn.md" target="_blank" rel="noopener">Open Markdown ↗</a></p>
+<p id="status" class="fine" role="status">No account data is sent by this page.</p>
+</section>
+
+<section class="panel"><h2>Accessibility without removing the learning</h2><p>Ask for <strong>READ ALOUD, SPEAK/DICTATE, SIMPLIFY, DEFINE, VISUAL, TRANSLATE, FOCUS, SLOW/CHUNK</strong> or another suitable response format. The aim is to remove irrelevant access friction while keeping the useful thinking.</p></section>
+
+<section data-aletheia-constellation class="aletheia-constellation" data-as-season="default" aria-label="Aletheia Constellation related websites"><div class="aletheia-constellation__head"><h2>Follow the stars ✨</h2><p data-as-description>A few stars that lead you home.</p></div><nav class="aletheia-constellation__links" aria-label="Related Aletheia destinations">
+<a class="aletheia-constellation__link" href="https://swindon.org.uk/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✦</span><span>Swindon UK</span></a>
+<a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">★</span><span>Aletheia Apps</span></a>
+<a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-knowledge/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✧</span><span>Aletheia Knowledge</span></a>
+<a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/stories/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✦</span><span>Stories</span></a>
+<a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/Writers/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">★</span><span>Writers</span></a>
+</nav><p class="aletheia-constellation__note">Curated navigation links, not paid adverts.</p></section>
+</main>
+<footer><div class="wrap"><p><a href="../index.html">All Aletheia Apps</a> · <a href="aletheia-learn.md">Portable Markdown</a> · <a href="https://github.com/KarstenEvans/aletheia-protocol" data-awinignore>Aletheia Protocol</a></p></div></footer>
+<script>
+(function(){
+let mode='LEARN';
+document.querySelectorAll('[data-mode]').forEach(function(b){b.addEventListener('click',function(){mode=b.dataset.mode;document.querySelectorAll('[data-mode]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});});});
+document.getElementById('copy').addEventListener('click',async function(){
+ const goal=document.getElementById('goal').value.trim();
+ const status=document.getElementById('status');
+ if(!goal){status.textContent='Tell me what you want to learn first.';document.getElementById('goal').focus();return;}
+ const prompt='Run Aletheia Learn for this goal:\n'+goal+'\n\nMode: '+mode+'\nFirst read the CURRENT app instructions: https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-learn/aletheia-learn.md\nApply the learning loop, hint ladder, accessibility layer and evidence rules. Distinguish assisted task performance from demonstrated learning. If I ask ANSWER NOW, give the answer rather than forcing hints.';
+ try{await navigator.clipboard.writeText(prompt);status.textContent='Copied. Paste this into a capable AI to start.';}catch(e){status.textContent='Clipboard blocked. Open the Markdown and use your goal manually.';}
+});
+})();
+</script>
+<script src="../shared/link-sprites.js" defer></script>
+<script src="https://www.dwin2.com/pub.3182162.min.js"></script>
+</body></html>
