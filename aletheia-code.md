@@ -79,6 +79,16 @@ If a fragment grows into a multi-stage workflow, move it into a dedicated app an
 6. Respect reduced motion and cap expensive rendering where appropriate.
 7. Diagnose the capability/dependency failure; do not disable graphics merely because the device is Apple, Android or Windows.
 
+## ACCESSIBILITY-LAYER-GATE
+1. Start with semantic accessible HTML; the shared component is enhancement, not repair.
+2. Reuse `shared/accessibility-layer.css/js` before inventing another text-size/focus/read-aloud toolbar.
+3. Mark only non-essential chrome with `data-aletheia-focus-hide`; keep the task, safety messages and exit route visible.
+4. Mark one preferred `data-aletheia-read-region` when read-aloud should cover a specific region; selected text takes priority.
+5. Feature-detect speech APIs and fail visibly but gently.
+6. Do not label AI functions such as OCR, translate or simplify as local unless the page actually implements them.
+7. Store only benign local preferences such as text size/focus; never infer or store diagnoses.
+8. Test narrow mobile, keyboard, 200% zoom and reduced motion.
+
 ## ALETHEIA-CONSTELLATION-LINKS
 1. Use the existing `shared/link-sprites.json` curated source of HTTPS destinations and dates rather than inventing per-page star lists.
 2. Add contained, mobile-friendly HTML footer anchors (five useful static defaults), shared CSS/JS and visible labels, not decorative flying links over the page.
