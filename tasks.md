@@ -784,3 +784,28 @@ Still verify visually on Android/PC and the previously failing Apple device.
 - [ ] Live-test Storyteller Case File link, mobile caption/button collision, keyboard, popup blocking and missing-art behaviour.
 - [ ] Live-test Decision Check localStorage/export on desktop and Android/Safari; source commit alone is not a device test.
 - [ ] Add the evidence-backed Cabinet of Curiosities Case File 42 page and folder index, then verify deployed Pages.
+
+### Story draft — The AI That Said It Had Finished (30 September 2026)
+
+**Status:** DRAFT STORY WRITTEN / ART AND PUBLICATION PENDING.
+
+Created:
+- `stories/drafts/ToomorrowMan-and-the-AI-That-Said-It-Had-Finished.md`
+- `stories/drafts/ToomorrowMan-and-the-AI-That-Said-It-Had-Finished-image-plan.md`
+
+Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green status tick is a claim until task-appropriate evidence supports the intended outcome.
+
+- [x] Read current Storyteller router/specification, manifest and relevant canon before writing.
+- [x] Draft complete standalone story using current voice-profile and Storyteller command syntax.
+- [x] Build nine-scene art direction with existing character canon and caption-space requirements.
+- [ ] Human review/revise story tone, length and teaching clarity.
+- [ ] Generate/approve story artwork without changing established ToomorrowMan / AI-PI / Schrödinger appearance.
+- [ ] Inspect actual final images and assign real hotspot coordinates.
+- [ ] Move approved story from `stories/drafts/` to `stories/`.
+- [ ] Add approved story to `stories/stories.json`; do not register the draft.
+- [ ] Update `aletheia-storyteller-page.md` with the new story/image inventory.
+- [ ] Static parser/cue check, then real browser smoke test for narration, captions, camera moves, narrow mobile and reduced motion.
+- [ ] Only after deployed verification provide/share the public Storyteller deep link.
+
+**Important:** source commits are not proof of public deployment. The draft is intentionally not in the live story manifest yet.
+
