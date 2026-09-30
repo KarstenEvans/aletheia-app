@@ -136,3 +136,12 @@ If loading fails, show an actionable message; missing biography includes must no
 - A new standalone resource page at `aletheia-storyteller-sunday-rsc.htm` links back to this player and to the main `aletheia-storyteller-rsc.htm`. `stories/ToomorrowMan-and-the-Sunday-That-Forgot-the-Sun-books.csv` contains the official 41 Discworld publication-order titles and a clearly non-exhaustive additional selection as search/research entries. Bookshop search links are NOT verified per-edition affiliate links.
 - The original Sunday camera draft remains in `stories/drafts/` for provenance; the public story and image are now published together.
 - QA pending: real Android/Windows/macOS/iOS voice-autoplay behaviour, first-cue state after blocked audio, mobile focus crops, Bookshop search results, and deployed Pages links. Source-only checks are not browser testing.
+
+## Case File 42 link integration (30 September 2026)
+
+- Added reusable `[link;URL;label=...]` and `[link-off]` story commands.
+- The rendered link is a normal keyboard-focusable anchor, opens separately, and is cleared on story change.
+- Registered `ToomorrowMan-and-the-Case-of-the-Missing-AI.md` in `stories/stories.json`.
+- New art is intentionally **not** generated/substituted automatically. `Case-File-42-image-prompts.md` locks ToomorrowMan, AI-PI and Schrödinger to existing bios/assets before any new illustration work.
+- The story's evidence button points to the planned Cabinet of Curiosities page `case-file-42-the-ai-that-vanished-into-everything.htm`.
+- Static source implementation complete; live Pages click, popup behaviour, mobile placement and missing-image fallbacks remain browser/device verification tasks.
