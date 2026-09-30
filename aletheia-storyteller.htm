@@ -226,7 +226,7 @@ async function execute(cmd){
   if(cmd.cmd==='pan'){const n=(cmd.args[0]||'').toLowerCase();applyFocus(n,currentZoom||hotspots[n]?.z||2,dur(cmd));return}
   if(cmd.cmd==='wide'||cmd.cmd==='zoomout'){applyFocus(null,1,dur(cmd));return}
   if(cmd.cmd==='hold'){const s=parseFloat(cmd.args[0]||cmd.opts.dur||'1');await new Promise(r=>setTimeout(r,Math.max(0,s)*1000));return}
-  if(cmd.cmd==='link'){const href=cmd.args[0]||'';const a=$('storyLink');if(/^https?:\\/\\//i.test(href)){a.href=href;a.textContent=cmd.opts.label||'OPEN CASE FILE ↗';a.hidden=false;}return}
+  if(cmd.cmd==='link'){const href=cmd.args[0]||'';const a=$('storyLink');if(href.startsWith('https://')||href.startsWith('http://')){a.href=href;a.textContent=cmd.opts.label||'OPEN CASE FILE ↗';a.hidden=false;}return}
   if(cmd.cmd==='link-off'||cmd.cmd==='linkoff'){const a=$('storyLink');a.hidden=true;a.removeAttribute('href');return}
 }
 async function executeCommands(list){for(const c of list||[])await execute(c)}
