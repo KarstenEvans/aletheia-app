@@ -324,6 +324,24 @@ For ordinary public apps:
 - reduced-motion fallback;
 - captions/transcripts where practical for produced audio/video.
 
+### Shared Aletheia Accessibility Layer
+
+The optional reusable component lives at:
+
+- `shared/accessibility-layer.md`
+- `shared/accessibility-layer.css`
+- `shared/accessibility-layer.js`
+
+It does **not** replace ordinary accessible HTML. Level 0 semantics, labels, keyboard operation, visible focus, contrast, zoom, alt text, reduced motion and captions remain required whether the component loads or not.
+
+Where useful, the shared component may provide local/free controls such as text sizing, Focus mode and browser read-aloud. Apps may then expose higher-level capabilities such as dictation, OCR, translation, simplification or visual explanation only when the browser/host/AI genuinely supports them.
+
+Accessibility is available without requiring disability disclosure or diagnosis.
+
+For learning apps, preserve the learning goal while removing irrelevant access friction. A support may remain enabled during an independent check unless that support is itself the skill being tested.
+
+Use `data-aletheia-focus-hide` only on non-essential chrome and `data-aletheia-read-region` on the preferred reading area. Never hide safety-critical content in Focus mode and never autoplay speech.
+
 ## 15. Error behaviour
 
 Never fail silently.
