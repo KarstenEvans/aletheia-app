@@ -34,14 +34,15 @@ For substantial HTML work, read the target app's current files and create/reconc
 
 Learn by doing rather than letting AI quietly do the learning task for you. Aletheia Learn turns a real goal into a short attempt, coaching, retry, transfer and independent-check loop, while keeping accessibility support available.
 
-- **Version:** 0.1.0
-- **Status:** Working Markdown prototype
+- **Version:** 0.1.1
+- **Status:** Working Markdown core + Ctrl-V browser handoff
 - **Primary protocol:** Aletheia
 - **Core rule:** remove access barriers without automatically removing the thinking that builds the skill
+- [Open Aletheia Learn](https://karstenevans.github.io/aletheia-app/aletheia-learn/aletheia-learn.htm) — start a goal, choose a mode/provider, then use the one-click copy/open Ctrl-V handoff.
 - [Read the app](aletheia-learn/aletheia-learn.md)
 - [Open the raw Markdown](https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-learn/aletheia-learn.md)
 
-It distinguishes assisted task performance from evidence of independent learning, uses a progressive hint ladder, supports direct `ANSWER NOW` when the learner wants it, and records supported / independent / transferred / reviewed skill states without inventing grades or certificates.
+It distinguishes assisted task performance from evidence of independent learning, uses a progressive hint ladder, supports direct `ANSWER NOW` when the learner wants it, and records supported / independent / transferred / reviewed skill states without inventing grades or certificates. The public HTML is deliberately a **HANDOFF** app: it copies the compact learning contract and opens one selected AI; it does not claim a connected backend.
 
 
 ### Aletheia Language Learn
