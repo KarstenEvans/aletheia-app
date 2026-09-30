@@ -45,6 +45,16 @@
       "file": "stories/bio-Prudence.md",
       "title": "BIO: P.R.U.D.E.N.C.E.",
       "type": "bio"
+    },
+    {
+      "file": "stories/ToomorrowMan-and-the-AI-That-Said-It-Had-Finished.md",
+      "title": "ToomorrowMan and the AI That Said It Had Finished",
+      "type": "story"
+    },
+    {
+      "file": "stories/bio-Sif.md",
+      "title": "BIO: Sif, Archaeologist of the AI Age",
+      "type": "bio"
     }
   ]
 }
