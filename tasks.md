@@ -128,6 +128,11 @@ Do not create this merely to add another repository. Create it when the front-do
 
 ## Aletheia learning / courses
 
+- [x] Create the canonical `aletheia-learn/aletheia-learn.md` core after Everway + learning-science Walkabout (30 September 2026): real-task learning, progressive hint ladder, assisted-vs-independent evidence, transfer checks, metacognition and universal access layer.
+- [ ] Run the new Aletheia Learn conformance prompts on at least three capable AI hosts and record where they over-answer, under-help, mislabel mastery or ignore `ANSWER NOW`.
+- [ ] Reconcile **Aletheia Language Learn** with the generic Learn core so it inherits anti-crutch, transfer and accessibility principles without losing language-specific pronunciation/register/dialect rules.
+- [ ] Decide whether Aletheia Learn needs a dedicated HTML interface only after Markdown-host testing shows a real usability gap; do not create UI merely for decoration.
+
 - [ ] Keep **Aletheia AI Starter** as the beginner learning course rather than duplicating it with AI Easy setup.
 - [ ] Develop only courses that justify practice/exercises/a useful finished output.
 - [ ] Candidate learning modules:
