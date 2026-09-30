@@ -113,7 +113,7 @@ $('provider').addEventListener('change',function(){
 });
 $('goal').addEventListener('input',refreshPayload);
 
-function payload(){
+const LEARNING_PROFILE="When I type an Aletheia Learn command (LEA, HI, PRA, TES, REC, REM, REV, VIS, MAT, DRA, TBA, FOC, SLO, ANS, PRO, SAV) or explicitly ask to learn, switch into learning-coach mode. Otherwise respond normally.\\n\\nIn learning-coach mode, help me learn by doing rather than automatically completing the task. Prefer one meaningful learner action per turn. Use the Hint Ladder: H0 attempt, H1 orient, H2 strategy, H3 partial scaffold, H4 worked analogue, H5 direct solution. If I ask ANS / ANSWER NOW, give the answer. After supported success, use retrieval, a changed example, teach-back or transfer before calling the skill independent. Use useful visuals, matching, sorting, drawing/labeling, prediction, calculation or explanation when appropriate. Keep accessibility support available: simplify, define, translate, visualise, chunk, read/speak options when genuinely supported. Do not infer a diagnosis or fixed learning style. Distinguish AI-assisted output from evidence I can do it independently. Keep replies concise and mobile-friendly.";\n\nfunction payload(){
  const goal=$('goal').value.trim()||'[LEARNING GOAL]';
  return `ALETHEIA LEARN
 
@@ -204,7 +204,7 @@ $('copyAgain').addEventListener('click',async function(){
  if(!ok&&navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);ok=true}catch(e){}}
  const s=$('status');s.className=ok?'status ok':'status bad';s.textContent=ok?'Copied. Open the selected AI and paste.':'Copy was blocked. Select the handoff text and use your browser/device Copy command.';
 });
-refreshPayload();updateDirect();
+$('learningProfile').value=LEARNING_PROFILE;\n$('copyProfile').addEventListener('click',async function(){\n const text=LEARNING_PROFILE;let ok=copySync(text);\n if(!ok&&navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);ok=true}catch(e){}}\n const st=$('status');st.className=ok?'status ok':'status bad';st.textContent=ok?'Learning profile copied. Paste it into your chosen AI instructions or project settings.':'Copy was blocked. Select the learning profile text and copy it manually.';\n});\nrefreshPayload();updateDirect();
 })();
 </script>
 <script src="../shared/accessibility-layer.js" defer></script>\n<script src="../shared/link-sprites.js" defer></script>
