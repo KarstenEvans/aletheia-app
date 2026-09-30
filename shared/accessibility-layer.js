@@ -40,5 +40,5 @@ function build(root){
  if(!('speechSynthesis'in window)){root.querySelector('[data-access-read]').disabled=true;root.querySelector('[data-access-stop]').disabled=true}
 }
 let saved='normal',focus=false;try{saved=localStorage.getItem(keyText)||'normal';focus=localStorage.getItem(keyFocus)==='1'}catch(e){}
-setText(saved);setFocus(focus);roots.forEach(build);
+roots.forEach(build);setText(saved);setFocus(focus);
 })();
