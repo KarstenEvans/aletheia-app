@@ -397,3 +397,14 @@ Shared rules now adopted:
 
 Do not implement all of these at once. First candidates for prototyping are Agent Inspector as a generic report/receipt format and Workflow Mapper against one real Aletheia workflow.
 
+### AI Journal third-walkabout additions
+
+Fold these into existing concepts rather than create unnecessary standalone apps:
+
+- **Small-Business Tool Fit Check** becomes a mode of **Make or Buy**: start from the user's actual problem, team, budget and existing tools before recommending anything.
+- **Agentic Commerce Readiness** should extend Site Audit / Shop Price / Publisher when relevant: product identity, current price/stock, merchant identity, returns, structured data and strict separation between comparison authority and purchase authority.
+- **Consequence ladder:** READ -> DRAFT -> DIGITAL WRITE -> EXTERNAL COMMIT -> PHYSICAL EFFECT. Increase identity, approval, verification and recovery requirements as consequence rises.
+- **Accessibility co-design:** keep keyboard/screen-reader semantics, text/speech adjustment, reduced motion, clear language and real-user testing in design scope rather than post-build polish.
+
+Detailed sources and rationale remain in `KarstenEvans/aletheia-knowledge/ideas/aletheia-ai-journal-gold-mine.md`.
+
