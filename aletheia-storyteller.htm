@@ -13,7 +13,7 @@
 #titleCard{position:absolute;left:50%;top:14%;transform:translateX(-50%);max-width:min(90vw,950px);text-align:center;text-shadow:0 2px 18px #000;pointer-events:none}
 #titleCard h1{font-size:clamp(2rem,5vw,5rem);margin:0 0 .4rem;line-height:1.02} #titleCard p{font-size:clamp(1rem,2vw,1.4rem);margin:0;color:#eee}
 #caption{position:absolute;left:50%;bottom:max(7vh,64px);transform:translateX(-50%);width:min(90vw,1100px);padding:.72rem 1.05rem;border-radius:14px;background:rgba(0,0,0,.60);backdrop-filter:blur(4px);font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.25rem,2.7vw,2.3rem);font-weight:700;line-height:1.32;text-align:center;text-shadow:0 1px 4px #000;min-height:3.1em;display:flex;align-items:center;justify-content:center}
-#caption.off{display:none}
+#caption.off{display:none}\n#storyLink{position:fixed;left:50%;bottom:max(19vh,160px);transform:translateX(-50%);z-index:21;display:inline-block;padding:.72rem 1rem;border:1px solid #f3cc85;border-radius:999px;background:rgba(5,8,14,.86);color:#ffe5a5;text-decoration:none;font:800 14px/1.2 system-ui,sans-serif;letter-spacing:.04em;box-shadow:0 10px 32px #0008}#storyLink[hidden]{display:none}#storyLink:hover,#storyLink:focus-visible{outline:3px solid #f3cc85;outline-offset:3px;background:#1b2636}
 #miniControls{position:fixed;left:10px;top:10px;z-index:20;padding:5px 8px;border-radius:10px;background:rgba(255,255,255,.16);backdrop-filter:blur(5px);font:800 21px/1.1 ui-monospace,SFMono-Regular,Consolas,monospace;opacity:.9;transition:opacity .2s}
 #miniControls:hover{opacity:1} #miniControls a,#menuButton{color:var(--blue);text-decoration:none;cursor:pointer;background:transparent;border:0;font:inherit;padding:4px 7px} #miniControls a:hover,#menuButton:hover{text-decoration:underline}
 #menuButton{position:fixed;right:10px;top:10px;z-index:25;background:rgba(255,255,255,.16);backdrop-filter:blur(5px);border-radius:10px;font:700 14px system-ui;color:var(--blue)}
@@ -43,7 +43,7 @@
   <div id="titleCard"><h1>Aletheia Storyteller</h1><p>Choose a story.</p></div>
   <div id="caption">Aletheia Storyteller</div>
 </div>
-<div id="status" role="status" aria-live="polite">Loading stories…</div>
+<div id="status" role="status" aria-live="polite">Loading stories…</div>\n<a id="storyLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Open case file ↗</a>
 <section id="storyLibrary" aria-label="Story library">
   <div class="libraryBox">
     <h2>📚 Choose a story</h2>
@@ -75,7 +75,7 @@
   <label for="captionCount">Caption window</label>
   <select id="captionCount"><option value="1" selected>1 sentence</option><option value="2">2 sentences</option><option value="3">3 sentences</option><option value="0">Off</option></select>
   <p class="small">Narrator defaults to UK English; [voice:Character] changes quoted dialogue only. Captions default to one sentence. MP3 mode expects a same-name `.mp3` and sentence-aligned `.vtt`.</p>
-  <p class="small">Camera commands: `[image;file;name=x,y,zoom]`, `[zoom;name]`, `[pan;name]`, `[wide]`, `[hold;seconds]`. If seconds are omitted, HOLD defaults to 1 second. [bio-Filename.md] inserts a separate biography as narrated story text when deliberately placed on its own line.</p>
+  <p class="small">Camera commands: `[image;file;name=x,y,zoom]`, `[zoom;name]`, `[pan;name]`, `[wide]`, `[hold;seconds]`. External evidence links: `[link;https://example.org/page;label=OPEN CASE FILE ↗]`, hidden again with `[link-off]`. If seconds are omitted, HOLD defaults to 1 second. [bio-Filename.md] inserts a separate biography as narrated story text when deliberately placed on its own line.</p>
   <p class="small" id="buildInfo">Build 2026-09-27 unobstructed opening · one-sentence captions · headings read without added words.</p>
 </div>
 <audio id="audio" preload="metadata"></audio>
@@ -225,7 +225,7 @@ async function execute(cmd){
   if(cmd.cmd==='zoom'){const n=(cmd.args[0]||'').toLowerCase();applyFocus(n,hotspots[n]?.z||2,dur(cmd));return}
   if(cmd.cmd==='pan'){const n=(cmd.args[0]||'').toLowerCase();applyFocus(n,currentZoom||hotspots[n]?.z||2,dur(cmd));return}
   if(cmd.cmd==='wide'||cmd.cmd==='zoomout'){applyFocus(null,1,dur(cmd));return}
-  if(cmd.cmd==='hold'){const s=parseFloat(cmd.args[0]||cmd.opts.dur||'1');await new Promise(r=>setTimeout(r,Math.max(0,s)*1000));return}
+  if(cmd.cmd==='hold'){const s=parseFloat(cmd.args[0]||cmd.opts.dur||'1');await new Promise(r=>setTimeout(r,Math.max(0,s)*1000));return}\n  if(cmd.cmd==='link'){const href=cmd.args[0]||'';const a=$('storyLink');if(/^https?:\\/\\//i.test(href)){a.href=href;a.textContent=cmd.opts.label||'OPEN CASE FILE ↗';a.hidden=false;}return}\n  if(cmd.cmd==='link-off'||cmd.cmd==='linkoff'){const a=$('storyLink');a.hidden=true;a.removeAttribute('href');return}
 }
 async function executeCommands(list){for(const c of list||[])await execute(c)}
 function chooseVoice(){
