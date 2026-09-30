@@ -145,3 +145,23 @@ If loading fails, show an actionable message; missing biography includes must no
 - New art is intentionally **not** generated/substituted automatically. `Case-File-42-image-prompts.md` locks ToomorrowMan, AI-PI and Schrödinger to existing bios/assets before any new illustration work.
 - The story's evidence button points to the planned Cabinet of Curiosities page `case-file-42-the-ai-that-vanished-into-everything.htm`.
 - Static source implementation complete; live Pages click, popup behaviour, mobile placement and missing-image fallbacks remain browser/device verification tasks.
+
+## Sif and verified-done story update (30 September 2026)
+
+- Added and registered `stories/bio-Sif.md`: Sif is the eternally young **Archaeologist of the AI Age**, a fictional modern continuation/echo of the Norse Sif (Thor's wife, not Odin's). Her biography connects the existing Cabinet of Curiosities role to Storyteller canon, includes her long acquaintance with Newt, dry views on Thor's boots and Norse male certainty, and a deliberately fictional modern Nordic-music/Þingvellir concert episode.
+- The concert passage treats modern musicians as Sif's affectionate "descendants" in a mythic/story sense, **not a genealogical claim about real artists**. Þingvellir's real Alþing history belongs to sourced resource material; divine concert appearances remain fiction.
+- The owner approved a dark moonlit Viking/Nordic concert illustration showing Sif singing with musicians, ordinary Icelandic fans and mythic figures among the audience. The binary image has been generated in the working conversation but is **not yet a repository asset**. Until it is actually committed and fetched back, `bio-Sif.md` begins with `[image;none]` rather than a broken or invented filename.
+- Promoted `stories/ToomorrowMan-and-the-AI-That-Said-It-Had-Finished.md` from draft to the public Storyteller manifest. Core teaching states are **ATTEMPTED → COMPLETED → VERIFIED**; the story's recurring rule is **Done != verified done**.
+- Added standalone crawlable rendition `stories/ToomorrowMan-and-the-AI-That-Said-It-Had-Finished.htm` and reconstruction spec `stories/ToomorrowMan-and-the-AI-That-Said-It-Had-Finished-page.md`. The standalone page uses owner-requested static side-star navigation on wide screens plus the shared bottom Constellation.
+- Added `aletheia-storyteller-ai-finished-rsc.htm` with free-first sources, follow-through/execution terminology, separately disclosed Bookshop.org UK affiliate links using affiliate ID **18254**, and gift-card route.
+- The richer nine-scene image plan remains an enhancement. The story is playable with current existing artwork; do not claim those nine new images exist until uploaded and inspected.
+- A YouTube production pack is stored in `KarstenEvans/aletheia-knowledge/youtube/drafts/aletheia-ai-that-said-it-had-finished-youtube.md`. It is deliberately not in the public YouTube index until a real reviewed YouTube video/ID exists.
+
+### Remaining verification
+
+- [ ] Commit the approved Sif concert image as an actual Storyteller asset, inspect it from GitHub, replace `[image;none]` with the exact filename and real hotspot coordinates.
+- [ ] Real browser test direct `?story=bio-Sif` and `?story=ToomorrowMan-and-the-AI-That-Said-It-Had-Finished` routes.
+- [ ] Check standalone HTML side stars, shared Constellation, mobile layout and resource links after Pages deployment.
+- [ ] Verify Bookshop.org affiliate redirects in a normal browser; source-pattern inclusion is not commission verification.
+- [ ] Produce/render the actual YouTube video, captions and thumbnail, then add its reviewed entry to the Knowledge YouTube HTML/JSON indexes.
+
