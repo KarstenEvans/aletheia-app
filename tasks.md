@@ -128,6 +128,10 @@ Do not create this merely to add another repository. Create it when the front-do
 
 ## Aletheia learning / courses
 
+- [x] Promote the established Ctrl-V AI handoff into shared GUI/dev/code rules (30 September 2026): hidden/reviewable payload → copy while page owns focus → open one selected AI → user pastes → manual fallback; keep this distinct from browser-local OPT2 and Cloudflare OPT3.
+- [x] Rework Aletheia Learn HTML around the shared Ctrl-V HANDOFF as the first useful public execution path; Cloudflare Worker remains an optional later OPT3 path, not a prerequisite.
+- [ ] Test Aletheia Learn handoff with ChatGPT, Gemini, Copilot, DeepSeek and Claude on Android Chrome and desktop Chrome/Edge; separately test Safari/WebKit popup/paste fallback.
+
 - [x] Create the canonical `aletheia-learn/aletheia-learn.md` core after Everway + learning-science Walkabout (30 September 2026): real-task learning, progressive hint ladder, assisted-vs-independent evidence, transfer checks, metacognition and universal access layer.
 - [ ] Run the new Aletheia Learn conformance prompts on at least three capable AI hosts and record where they over-answer, under-help, mislabel mastery or ignore `ANSWER NOW`.
 - [ ] Reconcile **Aletheia Language Learn** with the generic Learn core so it inherits anti-crutch, transfer and accessibility principles without losing language-specific pronunciation/register/dialect rules.
