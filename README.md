@@ -18,6 +18,11 @@ For substantial HTML work, read the target app's current files and create/reconc
 
 ## Apps
 
+### Aletheia Shopping (Shop Price)
+
+- [Open Aletheia Shopping](https://karstenevans.github.io/aletheia-app/aletheia-shop-price-app/aletheia-shop-price-app.htm) — local-first editable Grocery/DIY/Cars & Sports/Books & Gifts or Blank shopping lists, original AI barcode-photo handoff, sourced per-item/complete basket comparisons, and optional private \`shopping-list.md\` history chart. The HTML does not itself retrieve or certify live retailer prices.
+- [Canonical instructions](aletheia-shop-price-app/aletheia-shop-price-app.md) · [Reconstruction specification](aletheia-shop-price-app/aletheia-shop-price-app-page.md) · [Current test status](aletheia-shop-price-app/tasks.md) · [Resources](aletheia-shop-price-app/aletheia-shop-price-app-rsc.htm).
+
 ### Aletheia Rice Intelligence
 
 - [Open the rice-market research app](https://karstenevans.github.io/aletheia-app/aletheia-rice-intelligence/aletheia-rice-intelligence.htm) — on-demand source selection, evidence-first briefing handoff or optional authenticated Cloudflare Worker, and portable private Markdown settings/data with reviewed-only price history.
