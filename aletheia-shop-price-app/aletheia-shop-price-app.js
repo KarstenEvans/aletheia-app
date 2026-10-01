@@ -158,9 +158,10 @@ el('loadMd').addEventListener('change',async e=>{const file=e.target.files&&e.ta
  try{importMd(await file.text())}catch(err){msg('fileStatus','Import failed: '+err.message)}e.target.value='';
 });
 el('csv').addEventListener('click',()=>{if(!ranks.length){msg('priceStatus','No complete verified results to download.');return}
- const rows=['Rank,Shop,Total GBP,Checked'];
- ranks.forEach((x,i)=>rows.push((i+1)+',"'+x.shop.replace(/"/g,'""')+'",'+x.total+','+checked));
- download(rows.join('\r\n'),'shopping-weekly-comparison.csv','text/csv');
+ const first=ranks.slice(0,3);
+ const cell=x=>'"'+String(x).replace(/"/g,'""').replace(/^([=+@-])/,"'$1")+'"';
+ const rows=[['Measure',...first.map((_,i)=>'Shop '+(i+1))],['Retailer',...first.map(x=>x.shop)],['Basket total GBP',...first.map(x=>x.total)],['Checked at',...first.map(()=>checked)]];
+ download(rows.map(row=>row.map(cell).join(',')).join('\r\n'),'shopping-weekly-comparison.csv','text/csv');
 });
 el('cameraImage').addEventListener('change',async e=>{const file=e.target.files&&e.target.files[0];if(!file)return;
  if(file.size>15000000){msg('scanStatus','Image too large. Use your AI camera or type the barcode.');return}
