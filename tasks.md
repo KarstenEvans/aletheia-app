@@ -549,7 +549,15 @@ Implemented:
 - exposed the companion from the browser UI;
 - updated canonical Markdown/protocol contract, evidence register and root README;
 - created the target reconstruction specification;
-- synchronised the linked Secret Windows knowledge/resources in their owning repository.
+- synchronised the linked Secret Windows knowledge/resources in their owning repository;
+- switched Delivery Optimization measurement to `Get-DeliveryOptimizationPerfSnap.CacheSizeBytes`, using current-job status only as fallback;
+- added saved-state Restore actions for Soft Updates, Edge background policy and Game DVR;
+- made the Windows 10 Upgrade Shield refuse to run on Windows 11.
+
+Static/source checks after the final changes:
+- browser: three inline scripts parse; one H1; no duplicate IDs; one Awin MasterTag; low-space option reaches both plan and AI handoff; PowerShell download link present;
+- PowerShell text structure: here-string pairs match; masked `{}`, `()` and `[]` delimiter counts match; `Show-MainMenu` is defined/invoked; DO uses `CacheSizeBytes`; pagefile/recovery are excluded from the reclaimable total; restore functions and the Windows-10-only guard are present;
+- environment limitation: no PowerShell runtime is installed in the current execution container, so these are source checks, **not** a Windows PowerShell parser/runtime pass.
 
 Still required: execute the PowerShell companion on real Windows 10 and Windows 11; test non-admin/admin paths; confirm Delivery Optimization/VSS readings; smoke-test GitHub Pages on Windows Chrome/Edge and Android Chrome.
 
