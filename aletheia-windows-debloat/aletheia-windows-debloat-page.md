@@ -62,10 +62,13 @@ LOCAL / REVERSIBLE WRITE only after an exact confirmation phrase:
 - Search sleep/disable + restore;
 - selected telemetry quiet + restore;
 - Windows 10 Upgrade Shield + restore;
-- soft update preference;
+- soft update preference + restore from saved registry state;
 - manual update gate + restore from saved state;
-- Edge background/Game DVR policy;
+- Edge background policy + restore from saved registry state;
+- Game DVR policy + restore from saved registry state;
 - memory-compression/SysMain controlled tests.
+
+The Windows 10 Upgrade Shield must detect the installed OS and refuse its Windows 10 target-release policy on Windows 11.
 
 Never delete services, alter protected ACLs, rename Windows DLLs, disable Defender as a performance tweak, disable the pagefile, install drivers automatically or request a BitLocker recovery key in AI.
 
