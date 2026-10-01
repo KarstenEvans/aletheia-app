@@ -13,7 +13,7 @@ const templates={
 const key='aletheia-shopping-v1', oldkey='aletheia-shop-price-last-shop';
 let state={template:'blank',shops:[],items:[],loyalty:[],history:[]},offers=[],ranks=[],checked=null,handle=null;
 const msg=(id,t)=>el(id).textContent=t;
-const basketKey=()=>JSON.stringify(state.items.map(norm).sort());
+const basketKey=()=>JSON.stringify({items:state.items.map(norm).sort(),shops:state.shops.map(norm).sort(),loyalty:state.loyalty.map(norm).sort()});
 function store(){try{localStorage.setItem(key,JSON.stringify(state))}catch(e){msg('setupStatus','Local saving unavailable. Export shopping-list.md to preserve changes.');}}
 function readOld(str){
  const p=String(str||'').match(/ALETHEIA_SHOP_PRICE_LAST_SHOP([\s\S]*?)END_ALETHEIA_SHOP_PRICE_LAST_SHOP/);
@@ -34,6 +34,7 @@ function sync(){
  try{if(block)localStorage.setItem(oldkey,block);else localStorage.removeItem(oldkey)}catch(e){}
  el('lastShop').dispatchEvent(new Event('input'));graph();
 }
+window.loadLegacyShop=function(str){const old=readOld(str);if(!old)return false;state.shops=old.shops;state.items=old.items;state.template='blank';paint();sync();return true};
 window.getShopTask=function(){
  return 'SELECTED ALETHeIA SHOPPING COMMAND: '+el('question').value+
  '\nSelected shops ONLY:\n'+state.shops.join('\n')+
@@ -147,7 +148,7 @@ el('compareQuotes').addEventListener('click',()=>{
 });
 el('recordCheck').addEventListener('click',()=>{
  if(!ranks.length){msg('priceStatus','Record cancelled: no complete priced basket.');return}
- const best=ranks[0],rec={date:checked||new Date().toISOString(),basketKey:basketKey(),shop:best.shop,total:best.total};
+ const best=ranks[0],rec={date:checked||new Date().toISOString(),basketKey:basketKey(),shop:best.shop,total:best.total,source_count:offers.filter(q=>q.shop===best.shop).length};
  if(!state.history.some(x=>x.date===rec.date&&x.basketKey===rec.basketKey&&x.shop===rec.shop))state.history.push(rec);
  state.history=state.history.slice(-200);store();graph();msg('priceStatus','Recorded '+gbp(rec.total)+' at '+rec.shop+'. Export shopping-list.md for a durable backup.');
 });
