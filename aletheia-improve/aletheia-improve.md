@@ -414,3 +414,29 @@ When a target exposes reusable callable tools, Improve should inspect, where rel
 - static dependency mapping without importing/executing untrusted modules.
 
 The Tool Contract is currently a **draft migration target**, not permission to rewrite every existing app. Prefer incremental trials on a few reusable tools first.
+
+## Asset-delivery and illustrated-story publication gate
+
+**One-pass self-improvement added 1 October 2026.** Do not recursively rerun Improve on this instruction.
+
+For illustrated Storyteller/standalone HTML work:
+
+1. **GENERATED** means an image appears in a chat or local working folder; it is not necessarily a repository file.
+2. **PACKAGED** means exact binary bytes exist in a named archive with an inventory and ideally checksums. This still is not a repository upload.
+3. **COMMITTED** means a repository file exists at the exact path and can be fetched back by the repository connector with matching file content/hash.
+4. **DEPLOYED** means the public image URL was fetched successfully from the published site.
+5. **RENDERED** means the actual HTML/Storyteller opened and showed the intended scene and its zoom/captions on a real supported browser.
+
+Do not collapse these five distinct states into a single "done" tick.
+
+When binary files cannot be committed through available tool access, **do not knowingly replace a working production Storyteller image directive with a filename that is absent**. Put the improved image cues in an explicit unpublished draft, retain the playable canonical story, commit text/HTML with honest fallback as appropriate, and supply an exact image archive/inventory for a user-assisted or tool-capable upload. Link the outstanding work in page spec/tasks.
+
+For standalone HTML, include side-star/Constellation navigation when required by the owner and avoid overlays that interfere with readable captions. Never claim a static source-only inspection substitutes for an actual render.
+
+For four-lane story preparation, inspect:
+- canonical Storyteller Markdown and manifest;
+- standalone reader HTML + page spec;
+- sourced knowledge companion, with real-world claims separated from fiction;
+- YouTube preparation and publication gate.
+
+Do not add a YouTube library index entry until a real approved video and verified URL exist. Record each deliverable's state individually.
