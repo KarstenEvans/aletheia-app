@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aletheia Windows Debloat Tool — Windows Rescue V1.0</title>
+<title>Aletheia Windows Debloat Tool — Windows Rescue V1.1</title>
 <style>
 :root{color-scheme:light dark;--bg:#10141a;--card:#18202a;--ink:#eef4f7;--muted:#b9c4cc;--line:#34414e;--accent:#7fd2ff;--good:#9ee6a0;--warn:#ffd479}
 *{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
@@ -22,9 +22,9 @@ footer{margin-top:50px;color:var(--muted)}
 </head>
 <body><main>
 <section class="hero">
-<div class="sub">ALETHEIA WINDOWS DEBLOAT TOOL · WINDOWS RESCUE V1.0 CORE</div>
+<div class="sub">ALETHEIA WINDOWS DEBLOAT TOOL · WINDOWS RESCUE V1.1 IMPROVE PASS</div>
 <h1>Aletheia Windows Debloat Tool</h1>
-<p>For Windows 10 PCs that are getting slow, noisy, naggy or far too interested in changing themselves. The supported bundled-app checks also apply to Windows 11 where the same apps and controls are present.</p><p class="small">This is the original Windows Rescue V1.0 browser app, republished under the Aletheia Windows Debloat Tool name. The system-changing PowerShell companion is deliberately being held for an Aletheia Improve pass.</p>
+<p>For Windows 10 PCs that are getting slow, noisy, naggy or far too interested in changing themselves. The supported bundled-app checks also apply to Windows 11 where the same apps and controls are present.</p><p class="small">This browser page remains the safe planning front end. The optional PowerShell companion has now had its first Aletheia Improve pass: its truncated main menu was repaired and its audit gained a read-only free-space snapshot. It still needs real Windows 10/11 execution testing before being called fully verified.</p>
 <p><strong>Audit first. Ask what you want. Change one thing at a time. Keep rollback.</strong></p>
 <p class="small">Windows 11 is now the majority, but Windows 10 still represented roughly 30% of worldwide Windows desktop use in the July 2026 StatCounter snapshot. A lot of perfectly usable hardware remains in the dungeon.</p>
 </section>
@@ -38,6 +38,7 @@ footer{margin-top:50px;color:var(--muted)}
 <p>If the read-only audit finds a suspicious startup script, executable or persistence entry, Windows Rescue pauses optimisation. It will not run or delete the item automatically.</p>
 <p>AI users can ask the tool to create a security-research prompt. <strong>Copy it, open a new AI chat, and paste it as the first message.</strong> Never paste passwords, licence keys or BitLocker recovery keys.</p>
 </div>
+<a class="btn ghost" href="windows-rescue-tool.ps1" download>Windows Rescue PowerShell</a>
 <a class="btn ghost" href="driver-ai-prompt.ps1" download>Driver Sanctuary</a>
 <a class="btn ghost" href="windows-rescue-storage-upgrade.htm">SSD/storage guide</a>
 <a class="btn ghost" href="https://karstenevans.github.io/aletheia-knowledge/app/aletheia-secret-windows.htm">Secret Windows knowledge</a>
@@ -171,6 +172,7 @@ footer{margin-top:50px;color:var(--muted)}
 
 <h2>4B. Recover disk space before deleting anything</h2>
 <section class="panel">
+<p><strong>Want the actual numbers?</strong> The optional PowerShell companion now has a read-only <b>FREE-SPACE SNAPSHOT</b> for hiberfil.sys, pagefile allocation/use, Delivery Optimization cache/status and VSS shadow storage. It changes nothing in snapshot mode.</p>
 <p><strong>Measure first.</strong> A dramatic “65 GB saved” result can be real on one PC, but the total is machine-specific. Windows Rescue now checks the big system-managed consumers separately instead of treating them as one magic cleanup switch.</p>
 <div class="grid">
 <section class="panel"><h3>Hibernation file</h3>
