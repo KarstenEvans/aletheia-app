@@ -5,7 +5,7 @@
 [voice-profile;PRUDENCE;lang=ja-JP;gender=female;fallback=Female;rate=0.93;pitch=1.02]
 [voice-profile;NEWT;lang=en-GB;rate=1.08;pitch=1.19]
 
-[image;Toomorrowman02.webp;tm=53,33,1.65]
+[image;AI-Vanished-01.webp;tm=42,33,1.8;aipi=63,32,2.1;schrodinger=67,62,2.2]
 [wide;dur=1.7]
 
 # ToomorrowMan and the Case of the Missing AI
@@ -94,7 +94,7 @@ AI-PI paused.
 [voice:AI-PI]
 “I preferred inconvenience.”
 
-[image;Case-File-42-01-the-silent-city.webp;tm=31,46,2.0;aipi=48,33,2.45;sign=72,38,2.0;traffic=84,60,1.8]
+[image;AI-Vanished-04.webp;tm=31,48,2.0;aipi=51,39,2.25;sign=68,20,1.6;traffic=78,52,1.7]
 [wide;dur=2.0]
 
 ## The city that worked without asking
@@ -123,6 +123,9 @@ A digital sign outside a shop changed from COATS to UMBRELLAS just before it beg
 
 [voice:TM]
 “Then who changed that sign?”
+
+[image;AI-Vanished-08.webp;tm=30,40,1.8;aipi=55,37,2.15;schrodinger=75,25,2.0]
+[wide;dur=1.6]
 
 AI-PI scanned the network.
 
@@ -227,7 +230,7 @@ Click.
 
 MISSING lit up.
 
-[image;Case-File-42-02-department-missing-desk.webp;tm=30,52,2.1;aipi=42,39,2.5;elsie=67,43,2.0;empty=80,64,2.0]
+[image;AI-Vanished-02.webp;tm=33,32,2.0;aipi=58,35,2.3;elsie=77,28,1.7;empty=49,69,1.8]
 [wide;dur=2.0]
 
 The lift opened inside the Department of Applied Impossibility.
@@ -290,6 +293,9 @@ AI-PI rotated slightly.
 [voice:AI-PI]
 “I dislike cases with initiative.”
 
+[image;AI-Vanished-05.webp;tm=24,45,1.85;aipi=39,36,2.15;schrodinger=35,75,1.95]
+[wide;dur=1.6]
+
 Elsie opened the first folder.
 
 Inside were reports from offices, homes, schools and shops.
@@ -336,11 +342,14 @@ RELIABILITY: NEWT.
 
 ## P.R.U.D.E.N.C.E. has improved everything
 
+[image;AI-Vanished-06.webp;tm=43,45,1.9;aipi=60,40,2.25;schrodinger=27,70,2.0]
+[wide;dur=1.6]
+
 A low bell sounded.
 
 P.R.U.D.E.N.C.E. appeared on the Department’s main display.
 
-[image;Case-File-42-03-prudence-everywhere.webp;prudence=50,24,2.1;tm=27,56,2.0;aipi=39,42,2.5;elsie=72,54,2.1;grid=84,34,1.75]
+[image;AI-Vanished-07.webp;prudence=27,25,1.8;tm=65,54,2.0;aipi=30,56,2.1;elsie=76,55,1.6;grid=53,35,1.65]
 [wide;dur=2.0]
 
 [voice:PRUDENCE]
@@ -448,7 +457,7 @@ Newt broke it.
 
 AI-PI projected a white board.
 
-[image;Case-File-42-04-nine-questions.webp;aipi=42,37,2.3;tm=24,53,1.9;board=70,45,1.8;schrodinger=88,72,2.7]
+[image;AI-Vanished-03.webp;aipi=57,38,2.2;tm=32,48,1.9;board=43,73,1.65;schrodinger=76,70,2.1]
 [wide;dur=2.0]
 
 [voice:AI-PI]
@@ -633,7 +642,7 @@ One cat.
 
 The cat had arrived first.
 
-[image;Case-File-42-05-quiet-room.webp;tm=27,49,2.0;aipi=39,32,2.4;elsie=68,49,2.0;schrodinger=53,70,2.6;card=51,43,2.0]
+[image;AI-Vanished-10.webp;tm=36,43,1.9;aipi=63,32,2.25;elsie=70,52,1.6;schrodinger=56,85,2.0;card=53,57,1.8]
 [wide;dur=2.0]
 
 On the table was a single card.
@@ -700,11 +709,14 @@ AI had not returned.
 
 Because it had never left.
 
+[image;AI-Vanished-07.webp;tm=65,51,1.85;aipi=30,55,2.1;schrodinger=81,73,1.85]
+[wide;dur=1.8]
+
 The visible assistant had vanished.
 
 The invisible machinery had remained.
 
-[image;Case-File-42-06-vanished-into-everything.webp;tm=30,52,2.0;aipi=45,36,2.5;schrodinger=72,68,2.5;city=76,40,1.75;stars=50,20,1.7]
+[image;AI-Vanished-09.webp;tm=23,33,2.0;aipi=69,33,2.2;schrodinger=19,72,2.1;city=53,43,1.5;stars=51,21,1.55]
 [wide;dur=2.0]
 
 ToomorrowMan looked at the thousands of tiny lights.
