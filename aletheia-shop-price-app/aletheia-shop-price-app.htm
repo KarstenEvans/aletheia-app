@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aletheia Shopping | UK prices and personal shopping lists</title>
+<meta name="description" content="A lightweight launcher for Aletheia Shop Price. Keep the app prompt and saved shopping list separate, then join them when opening the chosen AI.">
+<style>
+:root{--bg:#f5f4ef;--card:#fff;--ink:#22251f;--muted:#62675e;--line:#d8ddd5;--accent:#315a45;--soft:#e9eee8;--warn:#fff4ce}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:860px;margin:auto;padding:24px 16px 64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:16px 0}
+h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.02;margin:.15rem 0 .45rem}
+h2{margin:.1rem 0 .7rem}
+.strap{font-size:1.22rem;font-weight:800;color:var(--accent)}
+.small{font-size:.9rem;color:var(--muted)}
+button{min-height:44px;border:0;border-radius:10px;padding:10px 14px;background:var(--accent);color:#fff;font-weight:750;cursor:pointer}
+.secondary{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-top:12px}
+.ai{background:var(--soft);color:var(--ink);border:2px solid transparent}
+.ai[aria-pressed="true"]{border-color:var(--accent);background:#fff}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+textarea{width:100%;min-height:170px;resize:vertical;border:1px solid #bfc7bb;border-radius:11px;padding:12px;font:15px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;background:#fff;color:var(--ink)}
+#basePrompt{min-height:230px}
+#lastShop{min-height:210px}
+#joinedPrompt{min-height:260px}
+.note{background:var(--warn);border-radius:12px;padding:14px 16px;margin-top:14px}
+.status{min-height:1.5em;color:var(--muted)}
+code{background:#f0f1ec;padding:2px 6px;border-radius:6px}
+a{color:var(--accent);font-weight:650}
+details{margin-top:12px}
+summary{cursor:pointer;font-weight:750}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted)}
+
+/* v1.0 mobile-first additions */
+label{display:block;font-weight:680;margin:8px 0}select,input[type=text],input[type=file]{font:inherit;max-width:100%;color:var(--ink);border:1px solid #9cae9a;border-radius:10px;background:white;padding:9px}
+select{width:100%}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}textarea.listbox{min-height:140px;font:15px/1.5 system-ui}
+.hint{background:var(--soft);border-radius:11px;padding:12px}.rankrow{display:flex;gap:12px;overflow-x:auto;padding:8px 2px}.ranktile{flex:1 0 155px;min-width:155px;border:1px solid var(--line);padding:14px;border-radius:12px;background:var(--soft)}.ranktile:first-child{background:#edfaeb;border:2px solid var(--accent)}
+#trend svg{width:100%;max-height:210px}#priceJson{min-height:130px}
+.statustext{min-height:1.5em;color:var(--muted)}.small a{font-weight:600}
+:focus-visible{outline:3px solid #197787;outline-offset:3px}
+@media(max-width:620px){main{padding:12px 11px 48px}.card{padding:14px}.two{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+
+<section class="card">
+<h1>Aletheia Shopping</h1>
+<p class="strap">Let your barcodes do the data entry.</p>
+<p>Pick a template, edit the shops and products, and let your chosen AI research prices. Compare checked results here and track the same basket over time.</p>
+<p><a href="https://swindon.org.uk/resources/aletheia-shop-price-app-rsc.htm">resources and Thalia</a></p>
+</section>
+
+
+<section class="card" id="setup">
+<h2>1. Choose a shopping template</h2>
+<label for="template">Shopping category</label>
+<select id="template"><option value="blank">Blank list</option><option value="grocery">Grocery</option><option value="diy">DIY &amp; garden</option><option value="cars">Cars &amp; sports</option><option value="gifts">Books &amp; gifts</option></select>
+<p class="small">Start from everyday examples. Replace anything that does not suit you. Changing a non-empty template asks before replacing your current list.</p>
+<div class="two"><div><label for="shopLines">Shops to check (one per line)</label><textarea class="listbox" id="shopLines" placeholder="Tesco&#10;Aldi&#10;Lidl"></textarea></div><div><label for="itemLines">Your shopping list (one per line, include size and quantity)</label><textarea class="listbox" id="itemLines" placeholder="Semi-skimmed milk 2 L&#10;Bread 800 g&#10;Eggs 6"></textarea></div></div>
+<div class="actions"><label for="cameraImage" style="margin:0">📷 Take / select barcode photo <input type="file" id="cameraImage" accept="image/*" capture="environment"></label></div>
+<p class="small">Photo decoding works only on supported browsers. If unsupported, use your chosen AI's <strong>+ → Camera / Photos</strong> to attach barcode or product pictures. This launcher does not retain photographs.</p>
+<p class="statustext" id="scanStatus" aria-live="polite"></p>
+<label for="question">Ask the AI for...</label>
+<select id="question"><option value="ITEM">Cheapest shop per item (top three)</option><option value="WEEKLY">Cheapest complete weekly shop (top three)</option><option value="SPLIT">Optional split-shop savings</option><option value="GRAPH">Shopping cost history</option></select>
+<label for="memberShops">Shops where you hold a loyalty card (optional, comma separated)</label>
+<input id="memberShops" type="text" style="width:100%" placeholder="Tesco, Sainsbury's">
+<p id="setupStatus" class="statustext" aria-live="polite"></p>
+</section>
+<section class="card">
+<h2>2. Choose your AI</h2>
+<div class="ai-grid" id="aiGrid">
+<button type="button" class="ai" data-ai="chatgpt" aria-pressed="true">ChatGPT</button>
+<button type="button" class="ai" data-ai="gemini" aria-pressed="false">Google Gemini</button>
+<button type="button" class="ai" data-ai="deepseek" aria-pressed="false">DeepSeek</button>
+<button type="button" class="ai" data-ai="other" aria-pressed="false">Other AI</button>
+</div>
+</section>
+
+<details class="card"><summary>Advanced: original AI launch instructions</summary><section>
+<h2>Edit the initial prompt</h2>
+<p>This is the fixed launcher instruction. It tells the AI where the Markdown app lives and how to start. It is kept separate from your shopping list.</p>
+<textarea id="basePrompt" aria-label="Initial AI prompt"></textarea>
+<div class="actions">
+<button type="button" class="secondary" id="resetPrompt">reset initial prompt</button>
+</div>
+</section></details>
+
+<details class="card"><summary>Advanced: compatible LAST_SHOP block</summary><section>
+<h2>Previous AI result</h2>
+<p>This contains only your latest shops and products. You can edit it directly. No prices belong here.</p>
+<textarea id="lastShop" aria-label="Saved shopping list" placeholder="ALETHEIA_SHOP_PRICE_LAST_SHOP&#10;shops:&#10;Lidl&#10;Aldi&#10;Sainsbury's&#10;products:&#10;whole milk 4 pints&#10;Kenco Gold Indulgence instant coffee 195 g&#10;END_ALETHEIA_SHOP_PRICE_LAST_SHOP"></textarea>
+<div class="actions">
+<button type="button" id="pasteAI">paste result from AI</button>
+<button type="button" class="secondary" id="saveText">save shopping list</button>
+<button type="button" class="secondary" id="clearSaved">clear shopping list</button>
+</div>
+<p id="saveStatus" class="status" aria-live="polite"></p>
+</section></details>
+
+<section class="card">
+<h2>3. Start shopping research</h2>
+<p>When you open the AI, the launcher joins the initial prompt and the saved shopping list into one launch message.</p>
+<div class="actions">
+<button type="button" id="openAI">open selected AI</button>
+<button type="button" class="secondary" id="copyJoined">copy joined prompt</button>
+</div>
+<p id="launchStatus" class="status" aria-live="polite"></p>
+
+<details>
+<summary>show the joined prompt</summary>
+<textarea id="joinedPrompt" aria-label="Joined prompt" readonly></textarea>
+</details>
+
+<div class="note">
+<strong>Inside the AI:</strong> use its normal chat interface. When it asks for products, tap the <strong>+ / attachment icon beside the message box</strong>. Choose <strong>Camera</strong> for new barcode photos or <strong>Photos / Gallery</strong> for saved images. Add as many as needed, then type <strong>NEXT</strong>.
+</div>
+</section>
+
+<section class="card" id="pricePanel">
+<h2>4. Compare evidence from your AI</h2>
+<p>Your AI should return dated prices and direct retailer links using the <code>ALETHEIA_SHOP_PRICE_QUOTES_JSON</code> format. Paste that result below. No price feed or made-up examples are built in.</p>
+<label for="priceJson">AI price quote block</label><textarea id="priceJson" spellcheck="false" placeholder="Paste the structured quote block from your chosen AI here."></textarea>
+<div class="actions"><button id="compareQuotes" type="button">Show cheapest three</button><button id="recordCheck" type="button" class="secondary">Record checked basket</button><button id="csv" type="button" class="secondary">Download weekly CSV</button></div>
+<p id="priceStatus" class="statustext" aria-live="polite">No sourced current prices supplied yet.</p>
+<h3>Cheapest stores by individual item</h3><div id="perItem"></div>
+<h3>Cheapest complete weekly shopping</h3><div id="weeklyResult" aria-live="polite"></div>
+<div id="missingResult"></div>
+</section>
+<section class="card">
+<h2>5. shopping-list.md and week-by-week graph</h2>
+<p>Lists and explicitly recorded, dated comparisons are kept locally. Import an existing file or save a new copy. A browser cannot silently update files in Downloads.</p>
+<div class="actions"><button type="button" id="saveMd">Save / download shopping-list.md</button><label for="loadMd" class="secondary" style="padding:8px;border-radius:10px">Import shopping-list.md <input type="file" id="loadMd" accept=".md,text/markdown,text/plain"></label></div>
+<p class="statustext" id="fileStatus" aria-live="polite"></p><h3>Comparable prices over time</h3><div id="trend"></div>
+</section>
+
+<footer>
+<p><a href="./aletheia-shop-price-app.md">view the Markdown app</a></p>
+<p class="small">Your latest lists and optional dated historical basket totals are stored locally; photos are not saved. Past totals are never used as current quotes.</p>
+</footer>
+
+</main>
+
+<script>
+(() => {
+  const AI = {
+    chatgpt: {name:'ChatGPT', url:'https://chatgpt.com/'},
+    gemini: {name:'Google Gemini', url:'https://gemini.google.com/app'},
+    deepseek: {name:'DeepSeek', url:'https://chat.deepseek.com/'},
+    other: {name:'Other AI', url:null}
+  };
+
+  const mdUrl = 'https://raw.githubusercontent.com/karstenevans/aletheia-app/main/aletheia-shop-price-app/aletheia-shop-price-app.md';
+  const storeKey = 'aletheia-shop-price-last-shop';
+  const aiKey = 'aletheia-shop-price-ai';
+  const promptKey = 'aletheia-shop-price-base-prompt';
+
+  const defaultBasePrompt =
+`Run Aletheia Shop Price.
+
+Canonical app instructions:
+${mdUrl}
+
+Please load and follow that Markdown app if you can access the URL.
+
+Start the Shop Price conversation now.
+Use the AI's normal interface.
+Use shops/products already supplied. Otherwise ask for shops first.
+Then ask me to add barcode photos using the + / attachment icon beside the message box.
+If a barcode cannot be identified, ask for a whole-product photo.
+Build one editable product line per product.
+Let me type NEXT when I have finished adding products.
+Check fresh sourced prices only across my selected shops and provide a structured quotes block if evidence is available.
+Never reuse old prices.
+
+At the end, always return a copyable ALETHEIA_SHOP_PRICE_LAST_SHOP block containing shops and products only.
+Do not put prices or photographs in that block.`;
+
+  const grid = document.getElementById('aiGrid');
+  const basePrompt = document.getElementById('basePrompt');
+  const lastShop = document.getElementById('lastShop');
+  const joinedPrompt = document.getElementById('joinedPrompt');
+  const launchStatus = document.getElementById('launchStatus');
+  const saveStatus = document.getElementById('saveStatus');
+
+  let selected = 'chatgpt';
+
+  try {
+    const savedAI = localStorage.getItem(aiKey);
+    if (savedAI && AI[savedAI]) selected = savedAI;
+    basePrompt.value = localStorage.getItem(promptKey) || defaultBasePrompt;
+    lastShop.value = localStorage.getItem(storeKey) || '';
+  } catch (e) {
+    basePrompt.value = defaultBasePrompt;
+  }
+
+  function renderAI() {
+    grid.querySelectorAll('.ai').forEach(btn => {
+      btn.setAttribute('aria-pressed', btn.dataset.ai === selected ? 'true' : 'false');
+    });
+  }
+
+  function validLastShop(text) {
+    const t = text.trim();
+    return t.includes('ALETHEIA_SHOP_PRICE_LAST_SHOP') &&
+           t.includes('END_ALETHEIA_SHOP_PRICE_LAST_SHOP');
+  }
+
+  function joinPrompt() {
+    const base = basePrompt.value.trim() || defaultBasePrompt;
+    const saved = lastShop.value.trim();
+
+    joinedPrompt.value = base + '\n\n' +
+      (validLastShop(saved)
+        ? `SAVED SHOPPING LIST FROM THE PREVIOUS RUN:\n\n${saved}\n\nOffer to reuse or edit this list before starting a new one.`
+        : `SAVED SHOPPING LIST:\n\nNone saved. Start a new shop.`);
+
+    if (window.getShopTask) joinedPrompt.value += '\n\n' + window.getShopTask();
+    return joinedPrompt.value;
+  }
+
+  renderAI();
+  joinPrompt();
+
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('.ai');
+    if (!btn) return;
+    selected = btn.dataset.ai;
+    try { localStorage.setItem(aiKey, selected); } catch (e) {}
+    renderAI();
+    joinPrompt();
+  });
+
+  basePrompt.addEventListener('input', () => {
+    try { localStorage.setItem(promptKey, basePrompt.value); } catch (e) {}
+    joinPrompt();
+  });
+
+  lastShop.addEventListener('input', joinPrompt);
+
+  document.getElementById('resetPrompt').addEventListener('click', () => {
+    basePrompt.value = defaultBasePrompt;
+    try { localStorage.setItem(promptKey, basePrompt.value); } catch (e) {}
+    joinPrompt();
+  });
+
+  async function copyJoined() {
+    const text = joinPrompt();
+    try {
+      await navigator.clipboard.writeText(text);
+      launchStatus.textContent = `Joined prompt copied for ${AI[selected].name}.`;
+      return true;
+    } catch (e) {
+      joinedPrompt.focus();
+      joinedPrompt.select();
+      launchStatus.textContent = 'Clipboard copy was blocked. The joined prompt is selected for manual copying.';
+      return false;
+    }
+  }
+
+  document.getElementById('copyJoined').addEventListener('click', copyJoined);
+
+  document.getElementById('openAI').addEventListener('click', () => {
+    const target = AI[selected];
+    const text = joinPrompt();
+
+    if (target.url) {
+      window.open(target.url, '_blank', 'noopener');
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          launchStatus.textContent = `${target.name} opened. The joined prompt is on your clipboard. Paste it into the new chat.`;
+        })
+        .catch(() => {
+          launchStatus.textContent = `${target.name} opened. Copy the joined prompt shown here and paste it into the new chat.`;
+        });
+    } else {
+      copyJoined();
+      launchStatus.textContent = 'Joined prompt ready. Open your preferred AI and paste it into a new chat.';
+    }
+  });
+
+  document.getElementById('pasteAI').addEventListener('click', async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (!text.trim()) {
+        saveStatus.textContent = 'The clipboard does not contain text.';
+        return;
+      }
+      lastShop.value = text.trim();
+      if (validLastShop(lastShop.value)) {
+        localStorage.setItem(storeKey, lastShop.value);
+        saveStatus.textContent = 'Shopping list pasted and saved.';
+      } else {
+        saveStatus.textContent = 'Text pasted, but it is not a complete LAST_SHOP block yet.';
+      }
+      joinPrompt();
+    } catch (e) {
+      lastShop.focus();
+      saveStatus.textContent = 'Clipboard reading was blocked. Paste the AI result into the shopping-list box manually, then press Save.';
+    }
+  });
+
+  document.getElementById('saveText').addEventListener('click', () => {
+    if (!validLastShop(lastShop.value)) {
+      saveStatus.textContent = 'This does not yet contain a complete LAST_SHOP block.';
+      return;
+    }
+    try {
+      localStorage.setItem(storeKey, lastShop.value.trim());
+      lastShop.value = lastShop.value.trim();
+      saveStatus.textContent = 'Shopping list saved for the next launch.';
+      joinPrompt();
+    } catch (e) {
+      saveStatus.textContent = 'This browser would not allow local saving.';
+    }
+  });
+
+  document.getElementById('clearSaved').addEventListener('click', () => {
+    lastShop.value = '';
+    try { localStorage.removeItem(storeKey); } catch (e) {}
+    saveStatus.textContent = 'Saved shopping list cleared.';
+    joinPrompt();
+  });
+})();
+</script>
+<script src="./aletheia-shop-price-app.js"></script>
+</body>
+</html>
