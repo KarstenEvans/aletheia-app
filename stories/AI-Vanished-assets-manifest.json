@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "title": "Case File 42 restored ten-scene artwork",
+  "created": "2026-10-01",
+  "canonicalRepository": "KarstenEvans/aletheia-app",
+  "destination": "stories/",
+  "status": "BINARY_UPLOAD_PENDING",
+  "sourceArchive": "aletheia-story-images.zip (provided in ChatGPT conversation)",
+  "scenes": [
+    {
+      "scene": 1,
+      "file": "AI-Vanished-01.webp",
+      "description": "opening Department workshop",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 2,
+      "file": "AI-Vanished-02.webp",
+      "description": "case file dossier",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 3,
+      "file": "AI-Vanished-03.webp",
+      "description": "intelligent library",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 4,
+      "file": "AI-Vanished-04.webp",
+      "description": "Swindon street",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 5,
+      "file": "AI-Vanished-05.webp",
+      "description": "mechanical core",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 6,
+      "file": "AI-Vanished-06.webp",
+      "description": "mirror observatory",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 7,
+      "file": "AI-Vanished-07.webp",
+      "description": "diffuse AI cloud",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 8,
+      "file": "AI-Vanished-08.webp",
+      "description": "everyday enchanted objects",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 9,
+      "file": "AI-Vanished-09.webp",
+      "description": "bounded machine",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    },
+    {
+      "scene": 10,
+      "file": "AI-Vanished-10.webp",
+      "description": "quiet epilogue",
+      "status": "NOT_VERIFIED_IN_GITHUB"
+    }
+  ],
+  "sif": {
+    "file": "SifConcert.webp",
+    "status": "NOT_VERIFIED_IN_GITHUB"
+  }
+}
