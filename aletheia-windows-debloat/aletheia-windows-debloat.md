@@ -1,9 +1,14 @@
 # Aletheia Windows Debloat Tool
-## Windows Rescue V1.0 core — The Grimoire of Windows Taming
+## Windows Rescue V1.1 Improve pass — The Grimoire of Windows Taming
 
-**Version:** V1.0  
-**Deployment status:** V1.0 security-first test candidate  
-**Protocols:** Aletheia Protocol + Thalia engagement layer  
+**Version:** V1.1  
+**Deployment status:** Improve source candidate; static/source checks complete, Windows execution still requires owner/device testing  
+**Protocols:** Aletheia Protocol + Thalia engagement layer
+
+**Aletheia Protocol:** https://github.com/KarstenEvans/aletheia-protocol  
+**Thalia Protocol:** https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md
+
+Any Markdown generated or exported by this app must include both protocol references near the beginning: Aletheia for provenance/evidence/uncertainty, and Thalia for optional considered humour/positivity.  
 **Human resource home:** https://swindon.org.uk/resources/
 
 ---
@@ -21,6 +26,8 @@ Windows 11 now has the majority of Windows desktop use, but Windows 10 still rep
 ### Core promise
 
 **Audit → Ask → Explain → Preview → Confirm → Change → Verify → Record → Roll back if needed.**
+
+The optional `windows-rescue-tool.ps1` companion now has a repaired main menu and a read-only **FREE-SPACE SNAPSHOT**. It measures the hibernation file, pagefile allocation/use, Delivery Optimization cache/status where the Windows module exposes it, and VSS shadow-storage use. It deliberately does **not** label pagefile or recovery storage as automatically reclaimable.
 
 Never silently apply a setting because a checklist says it is “best”.
 
@@ -116,6 +123,7 @@ PRIVACY      Review telemetry and compatibility scanning
 UPDATES      Review Windows Update / Windows 11 upgrade controls
 MEMORY       Review RAM, pagefile, memory compression and SysMain
 STORAGE      Review HDD/SSD/M.2/mSATA/optical-bay upgrade options
+SPACE        Measure hibernation, pagefile, Delivery Optimization and shadow-storage use
 DRIVERS      Create a current official-source driver research prompt
 STARTUP      Review startup apps/services/tasks
 SECURITY     Stop optimisation and investigate suspicious startup/persistence findings
