@@ -858,3 +858,27 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [ ] Consider local Ollama pre-warm only as an optional local-AI optimisation.
 - [ ] Review each candidate addition to shared `aletheia-GUI.md`, `aletheia-dev.md` and `aletheia-code.md` with the owner before editing.
 - [ ] After pilots, decide whether the Tool Contract should be added to AGENTS/read-first routing.
+
+## October 2026 Improve pass — Case File 42 and Verified Done
+
+**Scope:** two existing canonical Storyteller stories, standalone reader pages, evidence-based Knowledge, YouTube-prep, illustration handling.
+
+**Done (source commits):**
+- [x] Read current Aletheia Improve router/memory, Aletheia Apps AGENTS/GUI/dev and Storyteller specification, and Aletheia Knowledge rules.
+- [x] Keep the existing published Case File 42 narrative intact: `stories/ToomorrowMan-and-the-Case-of-the-Missing-AI.md`. It already had a complete plot, an indexed Storyteller entry and an existing Knowledge case-file reader.
+- [x] Save full **illustrated 10-scene camera draft** at `stories/drafts/ToomorrowMan-and-the-Case-of-the-Missing-AI-illustrated.md`; do not activate it before actual binary images exist.
+- [x] Create **standalone story HTML** at `stories/ToomorrowMan-and-the-Case-of-the-Missing-AI.htm`, with wide-screen side stars, Constellation links, ten scene references and image-error fallback to existing artwork.
+- [x] Create `stories/AI-Vanished-assets-manifest.json` mapping ten re-created scene images plus Sif's concert image.
+- [x] Preserve ten actual 1448×1086 generated pictures in a downloadable WebP archive (plus Sif's concert image) produced within the conversation, with manifest/checksums.
+- [x] Reconcile **The AI That Said It Had Finished** as already having canonical Storyteller text, standalone HTML, resources/gifts and YouTube production pack; add a research-grounded Knowledge companion to the Knowledge repository.
+- [x] Add Case File 42 research-grounded Knowledge companion and separate YouTube draft in the Knowledge repository.
+- [x] Run one scoped self-improvement on `aletheia-improve/aletheia-improve.md`: generated / packaged / committed / deployed / rendered must remain separate statuses. No recursive self-run.
+
+**Not yet complete, and MUST NOT be reported complete:**
+- [ ] Upload exact ten WebP image binaries and `SifConcert.webp` into GitHub `stories/` through a binary-capable route. Connector cannot currently take container-local file bytes; **archive creation is not a GitHub binary upload**.
+- [ ] Fetch back exact files from GitHub, compare checksums, then promote ten-scene Storyteller camera draft to canonical and align per-scene hotspots.
+- [ ] Replace `[image;none]` in `stories/bio-Sif.md` only after the actual Sif binary is installed.
+- [ ] Test GitHub Pages for both standalone HTMs, Sif and Case File 42 deep links, image fallback, captions and 10-scene camera movements, Android/Windows/Safari/keyboard/reduced motion.
+- [ ] Actually render and human-approve YouTube videos; upload them only with explicit publishing approval and real video IDs, then update YouTube indexes.
+
+**Rule:** source commit ≠ binary asset installed ≠ deployment ≠ browser/render verification.
