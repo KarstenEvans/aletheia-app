@@ -85,3 +85,22 @@ Improve actions:
 - recorded root task receipt.
 
 Do not call Apple support verified until the failing Apple device is retested.
+
+## One-shot Improve-on-Improve audit — 1 October 2026
+
+- [x] Resolve target as existing **Aletheia Improve** in `KarstenEvans/aletheia-app`.
+- [x] Re-read current Improve spec, memory/router, ideas/tasks and relevant shared repository contracts.
+- [x] Inspect public Felhaven architecture beyond the screenshot: Pythia registry/dispatch, Daedalus source map, Kairos scheduling boundary and tool contract tests.
+- [x] Create root `aletheia-tool-contract.md` draft covering discovery, schema/handler lockstep, authority, errors, verbatim results, stale data, receipts, testing and static architecture mapping.
+- [x] Add a one-pass self-improvement recursion guard to the Improve specification.
+- [x] Record extracted architectural ideas without changing the shared GUI/dev contracts.
+- [ ] Trial the Tool Contract against 2–4 existing Aletheia reusable capabilities and record incompatibilities before declaring it mandatory.
+- [ ] Design a generated tool registry proof-of-concept; do not duplicate metadata in a second hard-coded dispatcher.
+- [ ] Add registry-derived contract tests including a non-vacuous "registry actually populated" guard.
+- [ ] Add a static dependency/architecture-map pass to Improve that can identify orphaned tools, duplicate jobs, missing tests and undeclared dependencies without executing target code.
+- [ ] Define a common safe Activity Receipt for tool calls, with argument/result caps and secret redaction.
+- [ ] Prototype exact/verbatim output handling for identifiers/URLs/JSON/CSV so AI rewriting is optional rather than compulsory.
+- [ ] Define last-known-good/stale semantics for watch/polling apps separately from ordinary one-shot tools.
+- [ ] Evaluate local-model pre-warming only in the local-AI path; keep it optional and provider-agnostic.
+- [ ] Review proposed shared GUI/dev/code changes **one at a time with the owner before editing those files**.
+- [ ] Do not run another Improve-on-Improve pass unless explicitly requested.
