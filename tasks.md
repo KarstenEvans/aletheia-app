@@ -842,3 +842,19 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 
 **Important:** source commits are not proof of public deployment. The promoted story is now in the manifest, but live GitHub Pages/browser verification is still pending.
 
+## Aletheia Tool Contract and Improve self-audit — 1 October 2026
+
+- [x] Review the public `Felsyn/felhaven` architecture as an external implementation reference.
+- [x] Create `aletheia-tool-contract.md` draft at repository root.
+- [x] Run exactly one Aletheia Improve self-audit and add an explicit recursion guard.
+- [x] Record Felhaven-derived architecture ideas/tasks in the Improve folder and root project planning.
+- [ ] Select 2–4 low-risk existing capabilities for a Tool Contract pilot.
+- [ ] Prototype one generated tool registry and prove that schema + handler cannot drift independently.
+- [ ] Create registry-derived contract tests before broad migration.
+- [ ] Prototype Improve's static dependency map and orphan/duplicate/missing-test checks.
+- [ ] Prototype an Aletheia Activity Receipt/tool-call log with redaction and capped previews.
+- [ ] Test a verbatim output path for exact identifiers/URLs/JSON/CSV.
+- [ ] Define stale/last-known-good rules for monitoring/data apps.
+- [ ] Consider local Ollama pre-warm only as an optional local-AI optimisation.
+- [ ] Review each candidate addition to shared `aletheia-GUI.md`, `aletheia-dev.md` and `aletheia-code.md` with the owner before editing.
+- [ ] After pilots, decide whether the Tool Contract should be added to AGENTS/read-first routing.
