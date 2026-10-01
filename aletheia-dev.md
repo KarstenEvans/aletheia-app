@@ -514,3 +514,32 @@ For a proposed action: "Assume this failed after the relevant period. What are t
 
 ### Background/invisible AI
 Embedding AI inside ordinary workflow is acceptable when useful, but consequential influence must remain auditable. Record the actor/model/tool where practical, trigger, input scope, material output, evidence, uncertainty, approval boundary and final action receipt.\n
+
+## 23. Aletheia Tool Contract integration
+
+Use `aletheia-tool-contract.md` for reusable callable capabilities where a stable tool seam is useful.
+
+Preferred engineering flow:
+
+```text
+reusable tool
+  -> self-describing contract
+  -> generated registry
+  -> dispatch-time permission gate
+  -> handler
+  -> execution receipt
+```
+
+Rules:
+
+- keep the tool schema and real callable handler in lockstep; do not maintain drifting duplicate registries;
+- tool descriptions must state both **what the capability does** and **when it should be used**;
+- enforce authority and allowlists when the tool actually executes, not only in the prompt or GUI;
+- return controlled, stable machine-readable error codes rather than leaking raw exceptions into normal user/model output;
+- use the contract's exact/verbatim output path for identifiers, URLs, JSON/CSV and other material that must not be silently rewritten by a model;
+- require registry/contract tests to prove that discovery itself is working, so an empty or broken registry cannot pass vacuously;
+- keep standalone HTML apps as standalone apps when a shared callable tool adds no value;
+- adopt the contract incrementally for new or clearly reusable capabilities rather than forcing a repository-wide rewrite.
+
+Aletheia Improve should audit these rules when a target exposes tools. The canonical contract, examples, migration path and acceptance checklist live in `aletheia-tool-contract.md`.
+
