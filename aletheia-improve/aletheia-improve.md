@@ -440,3 +440,20 @@ For four-lane story preparation, inspect:
 - YouTube preparation and publication gate.
 
 Do not add a YouTube library index entry until a real approved video and verified URL exist. Record each deliverable's state individually.
+
+
+## Storyteller no-regression acceptance gate (1 October 2026)
+
+When improving an Aletheia illustrated story, read the canonical **current** `aletheia-storyteller.htm`, `aletheia-storyteller.md`, `aletheia-storyteller-page.md`, the complete story, bios and actual image files. This is an acceptance gate, not a new Storyteller implementation.
+
+- Canonical Markdown includes approved image/camera commands and explicit `[voice-profile;...]` / `[voice:...]` dialogue tags. Do not invent replacements for existing syntax or lose narrator/character separation.
+- Full viewport cinematic scene image, image-specific hotspot coordinates, camera pan/zoom/wide, lower caption. Missing images are pending, not pretend-complete.
+- Compact tape/cassette transport controls at **top-left**, unobtrusive hamburger/settings **top-right**, NOT a giant centred button bar. Settings contain voice selection, narration enable, and other secondary controls.
+- Narrator prefers installed **Google UK English Male** or other en-GB male **excluding George** if alternatives exist; user selection overrides. AI-PI: Thai `th-TH`; Prudence: Japanese `ja-JP`; Newt: en-GB; Sif: Australian Caroline where present (pending owner approval as Sif's canonical default); use best-effort documented fallback when unavailable.
+- If a story-position slider is shown it MUST be a draggable `input type=range` (or equivalent) that seeks to the selected sentence/camera point, supports keyboard movement, and keeps story state synchronized. Never show a non-interactive line dressed as a slider. Hide raw cue counts like `Cue 125 of 156` from visitors.
+- Animated side-star backlinks may follow the owner's supplied *The Story of Artificial Intelligence* pattern: discreet staggered twinkling, real labelled destinations, reduced-motion and keyboard focus. Keep the shared Constellation fallback and do not turn stars into floating ads.
+- Story outputs are separate: `Memory-Attic.md` canonical narrated story; `Memory-Attic.htm` full-screen playable standalone, not scroll-to-text; `Memory-Attic-rsc.htm` free-first resources/books/audiobooks/gifts; Knowledge only when reusable and nonduplicative; YouTube render/editing metadata script with actual publication gated on owner approval.
+- Prefer canonical protocol README reader `https://karstenevans.github.io/aletheia-protocol/README.htm` in visitor-facing links **after confirming public deployment**; fallback to `https://github.com/KarstenEvans/aletheia-protocol/blob/main/README.md` if not live. Normative documentation continues to point to the canonical specification and repository documents.
+- Validate actual page controls by clicking Start, selecting voice, changing seek position, pausing/resuming, inspecting camera and triggering a chapter transition. Record script and browser errors; record assets and voice availability limitations. Do not publish an unapproved story.
+
+This additional gate complements, and does not recursively restart, the earlier one-shot Improve self-improvement rule.
