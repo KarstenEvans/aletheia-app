@@ -408,3 +408,28 @@ Fold these into existing concepts rather than create unnecessary standalone apps
 
 Detailed sources and rationale remain in `KarstenEvans/aletheia-knowledge/ideas/aletheia-ai-journal-gold-mine.md`.
 
+## Aletheia Tool Fabric / common tool contract — 1 October 2026
+
+**Status:** ARCHITECTURE IDEA + DRAFT CONTRACT CREATED.
+
+Aletheia now has a draft root `aletheia-tool-contract.md`, prompted by a review of the public MIT-licensed Felhaven local-AI toolbox architecture.
+
+The opportunity is to let existing Aletheia apps expose selected reusable capabilities through a shared self-describing contract rather than building another monolithic Assistant or duplicating dispatch tables.
+
+Key ideas:
+
+- one tool, one job;
+- tool owns its description, input schema, authority and callable handler;
+- registry generated from tool declarations;
+- Assistant/Improve/apps consume the same registry;
+- execution-time permission gate;
+- structured errors;
+- exact/verbatim output route;
+- tool-call receipts;
+- static dependency map for Improve;
+- scheduler separated from tool logic;
+- model/provider remains replaceable.
+
+This must remain **incremental**. Existing useful standalone HTML apps do not need conversion merely to conform. Trial the contract on a few reusable capabilities, then promote only what reduces duplication or improves safety/debuggability.
+
+Shared GUI/dev adoption remains pending explicit item-by-item approval.
