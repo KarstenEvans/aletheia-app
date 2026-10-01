@@ -1,6 +1,6 @@
 # Windows Rescue V1.0 — Evidence & Provenance Notes
 
-**Research snapshot:** 30 August 2026
+**Research snapshot:** 30 August 2026; storage-space review added 1 October 2026
 
 This file records why Windows Rescue makes particular choices. It deliberately separates:
 1. **local evidence** — what the actual PC reports;
@@ -314,7 +314,45 @@ Windows Rescue judgement:
 
 ---
 
-## 15. Thalia note
+## 15. Storage-space article review — 1 October 2026
+
+Owner-supplied discovery link:
+https://share.google/4sEFL3XvaBnkWAPZ0
+
+Identified MakeUseOf article:
+https://www.makeuseof.com/disable-these-unnecessary-windows-features-free-up-storage/
+
+The article reports reclaiming about 65 GB on one PC through four areas: hibernation, pagefile sizing, System Restore, and Delivery Optimization. Windows Rescue treats that total as an individual result, not an expected saving.
+
+Primary checks:
+
+Hibernation / hiberfile:
+- https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options
+- https://learn.microsoft.com/windows/win32/power/system-power-states
+- https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/disable-and-re-enable-hibernation
+
+Delivery Optimization:
+- https://support.microsoft.com/en-us/windows/deployment/updates-lifecycle/delivery-optimization-in-windows
+- https://support.microsoft.com/en-us/windows/privacy/windows-update-delivery-optimization-and-privacy
+
+Pagefile sizing:
+- https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/how-to-determine-the-appropriate-page-file-size-for-64-bit-versions-of-windows
+
+System Protection / Point-in-time restore:
+- https://support.microsoft.com/en-us/windows/experience/backup-recovery/system-protection
+- https://support.microsoft.com/en-us/windows/experience/backup-recovery/point-time-restore-for-windows
+- https://learn.microsoft.com/en-us/windows/configuration/point-in-time-restore
+- https://learn.microsoft.com/windows/whats-new/whats-new-windows-11-version-26h2
+
+**Windows Rescue judgement:**
+- **Keep:** the hibernation idea, but present it as an optional reversible storage choice and explain the Fast Startup trade-off.
+- **Keep:** Delivery Optimization cache cleanup and the user-facing peer-sharing toggle; do not disable the service itself.
+- **Modify:** pagefile guidance. Do not use the article's fixed-size recipe as a general rule; keep system-managed paging unless measured commit/crash-dump needs justify a change.
+- **Reject as a default:** disabling classic System Restore simply because Point-in-time restore exists. Microsoft documents meaningful behavioural differences, including treatment of personal files and retention window. Review usage/quota and recovery needs first.
+
+---
+
+## 16. Thalia note
 
 The serious diagnosis comes first. Humour belongs near the end.
 
