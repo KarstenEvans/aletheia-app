@@ -140,10 +140,11 @@ paint();if(state.shops.length||state.items.length)sync();
 el('template').addEventListener('change',e=>{const choice=e.target.value;if((state.shops.length||state.items.length)&&!confirm('Replace your current shops and items with the '+choice+' template? Dated history is preserved.')){e.target.value=state.template;return}
  state.template=choice;state.shops=[...templates[choice].shops];state.items=[...templates[choice].items];paint();sync();msg('setupStatus','Template ready. Edit shops and items as needed.')});
 ['shopLines','itemLines','memberShops'].forEach(id=>el(id).addEventListener('input',sync));
+el('clearSaved').addEventListener('click',()=>{state.shops=[];state.items=[];state.template='blank';paint();sync();msg('setupStatus','Shopping list cleared. Previously recorded history remains separate.');});
 el('lastShop').addEventListener('change',()=>{const p=readOld(el('lastShop').value);if(p){state.shops=p.shops;state.items=p.items;state.template='blank';paint();sync()}});
 el('compareQuotes').addEventListener('click',()=>{
  if(!state.shops.length||!state.items.length){msg('priceStatus','Enter shops and products first.');return}
- try{const rejected=parse();compare();msg('priceStatus',offers.length+' sourced recent item/shop prices accepted; '+ranks.length+' complete baskets. Excluded '+JSON.stringify(rejected)+'.')}
+ try{const rejected=parse();compare();msg('priceStatus',offers.length+' AI-provided dated, HTTPS-linked offers accepted (not independently verified); '+ranks.length+' complete baskets. Excluded '+JSON.stringify(rejected)+'.')}
  catch(e){offers=[];ranks=[];msg('priceStatus','Invalid data: '+e.message);el('weeklyResult').textContent='No verified comparison.'}
 });
 el('recordCheck').addEventListener('click',()=>{
