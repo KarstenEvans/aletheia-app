@@ -1146,8 +1146,9 @@ function Show-UpdateMenu {
         Write-Host '2  Windows 10 Upgrade Shield (hold 22H2 / quiet compatibility tasks)'
         Write-Host '3  Restore Upgrade Shield'
         Write-Host '4  Soft update preferences (AUOptions=2 + driver shield + no P2P)'
-        Write-Host '5  CLOSE manual update gate'
-        Write-Host '6  OPEN manual update gate from saved state'
+        Write-Host '5  Restore soft update preferences'
+        Write-Host '6  CLOSE manual update gate'
+        Write-Host '7  OPEN manual update gate from saved state'
         Write-Host 'B  Back'
         $c=(Read-Host 'Choose').Trim().ToUpperInvariant()
         switch ($c) {
@@ -1155,8 +1156,9 @@ function Show-UpdateMenu {
             '2' { Set-Win10UpgradeShield; Read-Host 'Enter to continue' | Out-Null }
             '3' { Restore-Win10UpgradeShield; Read-Host 'Enter to continue' | Out-Null }
             '4' { Set-SoftUpdatePreference; Read-Host 'Enter to continue' | Out-Null }
-            '5' { Close-UpdateGate; Read-Host 'Enter to continue' | Out-Null }
-            '6' { Open-UpdateGate; Read-Host 'Enter to continue' | Out-Null }
+            '5' { Restore-SoftUpdatePreference; Read-Host 'Enter to continue' | Out-Null }
+            '6' { Close-UpdateGate; Read-Host 'Enter to continue' | Out-Null }
+            '7' { Open-UpdateGate; Read-Host 'Enter to continue' | Out-Null }
             'B' { return }
         }
     }
@@ -1172,7 +1174,9 @@ function Show-PrivacyMenu {
         Write-Host '4  Quiet Telemetry (DiagTrack + selected tasks)'
         Write-Host '5  Restore telemetry'
         Write-Host '6  Lean Edge background'
-        Write-Host '7  Disable Game DVR'
+        Write-Host '7  Restore Edge background policy'
+        Write-Host '8  Disable Game DVR'
+        Write-Host '9  Restore Game DVR policy'
         Write-Host 'B  Back'
         $c=(Read-Host 'Choose').Trim().ToUpperInvariant()
         switch ($c) {
@@ -1182,7 +1186,9 @@ function Show-PrivacyMenu {
             '4' { Set-TelemetryQuiet; Read-Host 'Enter to continue' | Out-Null }
             '5' { Restore-TelemetryQuiet; Read-Host 'Enter to continue' | Out-Null }
             '6' { Set-EdgeLean; Read-Host 'Enter to continue' | Out-Null }
-            '7' { Set-GameDvrOff; Read-Host 'Enter to continue' | Out-Null }
+            '7' { Restore-EdgeLean; Read-Host 'Enter to continue' | Out-Null }
+            '8' { Set-GameDvrOff; Read-Host 'Enter to continue' | Out-Null }
+            '9' { Restore-GameDvr; Read-Host 'Enter to continue' | Out-Null }
             'B' { return }
         }
     }
@@ -1227,7 +1233,7 @@ CONTROLLED CHANGES
 
 RULES
   - Every system-changing action requires an exact confirmation phrase.
-  - Original service states are saved before reversible service changes.
+  - Original service/registry states are saved before reversible changes and exposed through Restore actions.
   - CLOSED UPDATE GATE never deletes services, changes ACLs or renames DLLs.
   - BITS is not disabled just to stop Windows Update.
   - Pagefile and Defender are not generic debloat targets.
