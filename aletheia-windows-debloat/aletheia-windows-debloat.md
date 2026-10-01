@@ -613,6 +613,8 @@ ask:
 
 > Would you like me to hold this PC on Windows 10 22H2 and reduce recurring Windows 11 compatibility/upgrade prompting?
 
+The PowerShell companion must first verify the installed OS is actually **Windows 10**. On Windows 11 it refuses this profile without writing target-release values.
+
 If yes, offer **Windows 10 Upgrade Shield**:
 
 - set target product to Windows 10;
@@ -651,6 +653,8 @@ May include:
 - disable Delivery Optimization P2P.
 
 Important: **do not describe AUOptions=2 as a guaranteed gate.**
+
+Before applying the soft profile, save the exact existing AU/driver/Delivery Optimization policy values and expose **RESTORE SOFT UPDATES**. Do not make the user reconstruct previous values by hand.
 
 ## B. Manual Update Gate
 
@@ -726,9 +730,11 @@ If the owner does not use Edge as their main browser, offer:
 - disable Edge Startup Boost;
 - disable Edge background mode.
 
+Save the exact prior Edge policy values and expose **RESTORE EDGE**.
+
 Do not uninstall shared runtimes blindly.
 
-If the owner never uses Xbox Game Bar recording, offer Game DVR/Game Bar off through supported Gaming settings rather than package surgery.
+If the owner never uses Xbox Game Bar recording, offer Game DVR/Game Bar off through supported Gaming settings rather than package surgery. Save the exact prior policy value and expose **RESTORE GAME DVR**.
 
 For unused Microsoft apps, distinguish **disk space**, **startup/background load** and **general responsiveness**. An article saying a PC felt smoother after removing apps is useful discovery material, not proof of a universal speed gain. Prefer normal uninstall/disable controls and compare Task Manager / startup state before and after reboot.
 
