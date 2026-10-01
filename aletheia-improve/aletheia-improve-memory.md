@@ -4,7 +4,7 @@
 >
 > This is not conversational memory. It is a small repository/path registry which the HTML launcher and any capable AI can re-read from the current GitHub default branch on every run.
 
-Last reviewed: 2026-09-30
+Last reviewed: 2026-10-01
 
 ## Machine-readable registry
 
@@ -96,6 +96,7 @@ The browser app parses the JSON between the markers. If parsing or network acces
     "Storyteller has its own cinematic rules and lives in KarstenEvans/aletheia-app with stories/ and stories/stories.json.",
     "Swindon.org.uk has its own GUI contract at docs/swindonorguk-gui.md.",
     "Aletheia Knowledge has its own GUI contract and explicit knowledge/knowledge.json inventory.",
+    "Draft shared reusable-tool contract lives at root aletheia-tool-contract.md; inspect it when a target exposes reusable callable tools, but do not force migration of standalone apps.",
     "GitHub main is shared master. Re-fetch immediately before writing and reconcile concurrent changes."
   ],
   "canonicalNames": [
@@ -106,6 +107,11 @@ The browser app parses the JSON between the markers. If parsing or network acces
     {"canonical":"Odysseus","watchFor":["Odyssey","Odyseus"],"note":"Self-hosted workspace/agent project."}
   ],
   "specialTargets": [
+    {
+      "name": "Aletheia Tool Contract",
+      "repo": "KarstenEvans/aletheia-app",
+      "primary": "aletheia-tool-contract.md"
+    },
     {
       "name": "Aletheia Learn",
       "repo": "KarstenEvans/aletheia-app",
