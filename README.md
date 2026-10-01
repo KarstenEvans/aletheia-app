@@ -93,6 +93,18 @@ A repository-aware maintenance launcher. Enter an Aletheia app/project or new id
 
 It prefers extending/reusing existing apps, Skills and knowledge collections over creating near-duplicates, and includes a canonical-name/spelling gate for speech-to-text ambiguities.
 
+### Aletheia Windows Debloat Tool
+
+A safe Windows rescue/debloat planner with an optional PowerShell companion for read-only diagnosis and narrowly scoped, exact-confirmation changes.
+
+- [Open Aletheia Windows Debloat](https://karstenevans.github.io/aletheia-app/aletheia-windows-debloat/aletheia-windows-debloat.htm)
+- [Canonical workflow](aletheia-windows-debloat/aletheia-windows-debloat.md)
+- [Reconstruction specification](aletheia-windows-debloat/aletheia-windows-debloat-page.md)
+- PowerShell companion: `aletheia-windows-debloat/windows-rescue-tool.ps1`
+- Linked evidence/knowledge: Aletheia Secret Windows in `KarstenEvans/aletheia-knowledge`
+
+The 1 October 2026 Aletheia Improve pass repaired the previously truncated PowerShell companion and added a read-only free-space snapshot for hibernation, pagefile use, Delivery Optimization cache/status and VSS shadow storage. **Windows 10/11 execution testing is still pending**, so this is a source candidate rather than a claim of fully verified device behaviour.
+
 ### Aletheia Legal Check (local draft, testing pending)
 
 A source-led UK legal-research workflow is being prepared under the canonical name **Aletheia Legal Check**, with proposed application filename `aletheia-legal-check.md` (version stored inside the file). It will require actual official-source lookup and an honest source-by-source receipt, or a visible `NOT LIVE VERIFIED` fallback where the chosen AI has no retrieval tools. Its separate technical reference is `aletheia-uk-legal-sources.md`.
