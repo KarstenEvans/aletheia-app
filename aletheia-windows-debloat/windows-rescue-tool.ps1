@@ -1,5 +1,5 @@
 # Windows Rescue App (The Grimoire of Windows Taming)
-# PowerShell companion — V1.0 CLEAN DEPLOYMENT CANDIDATE
+# PowerShell companion — V1.1 ALETHEIA IMPROVE SOURCE CANDIDATE
 # Windows 10 / Windows PowerShell 5.1 compatible where cmdlets exist.
 # Starts READ-ONLY. Every write action requires an explicit phrase.
 # It never deletes service registry keys, changes ACLs, renames system DLLs,
@@ -132,6 +132,137 @@ function Get-BitLockerText {
         }
     } catch {}
     '<Unavailable in this edition/shell>'
+}
+
+
+function Convert-BytesToGB($Bytes) {
+    if ($null -eq $Bytes) { return $null }
+    return [math]::Round(([double]$Bytes / 1GB),2)
+}
+
+function Get-StorageSpaceSnapshot {
+    $o = [ordered]@{
+        HiberfileGB = $null
+        HiberfileState = 'Unknown'
+        PagefileAllocatedGB = $null
+        PagefileCurrentGB = $null
+        PagefilePeakGB = $null
+        DeliveryOptimizationCacheGB = $null
+        DeliveryOptimizationState = 'Unavailable'
+        ShadowStorageUsedGB = $null
+        ShadowStorageAllocatedGB = $null
+        ShadowStorageState = 'Unavailable'
+    }
+
+    $hiberPath = Join-Path $env:SystemDrive 'hiberfil.sys'
+    try {
+        $h = Get-Item -LiteralPath $hiberPath -Force -ErrorAction Stop
+        $o.HiberfileGB = Convert-BytesToGB $h.Length
+        $o.HiberfileState = 'Present'
+    } catch {
+        $o.HiberfileState = 'Not present or inaccessible'
+    }
+
+    try {
+        $pagefiles = @(Get-CimInstance Win32_PageFileUsage -ErrorAction Stop)
+        if ($pagefiles.Count -gt 0) {
+            $allocatedMB = 0.0
+            $currentMB = 0.0
+            $peakMB = 0.0
+            foreach ($p in $pagefiles) {
+                $allocatedMB += [double]$p.AllocatedBaseSize
+                $currentMB += [double]$p.CurrentUsage
+                $peakMB += [double]$p.PeakUsage
+            }
+            $o.PagefileAllocatedGB = [math]::Round(($allocatedMB / 1024),2)
+            $o.PagefileCurrentGB = [math]::Round(($currentMB / 1024),2)
+            $o.PagefilePeakGB = [math]::Round(($peakMB / 1024),2)
+        }
+    } catch {}
+
+    if (Get-Command Get-DeliveryOptimizationStatus -ErrorAction SilentlyContinue) {
+        try {
+            $jobs = @(Get-DeliveryOptimizationStatus -AsObject -ErrorAction Stop)
+            $cacheBytes = 0.0
+            foreach ($j in $jobs) {
+                if ($null -ne $j.FileSizeInCache) {
+                    $cacheBytes += [double]$j.FileSizeInCache
+                }
+            }
+            $o.DeliveryOptimizationCacheGB = Convert-BytesToGB $cacheBytes
+            $o.DeliveryOptimizationState = 'Measured from current Delivery Optimization status'
+        } catch {
+            $o.DeliveryOptimizationState = 'Delivery Optimization status could not be read'
+        }
+    } else {
+        $o.DeliveryOptimizationState = 'Delivery Optimization PowerShell module unavailable'
+    }
+
+    try {
+        $shadow = @(Get-CimInstance Win32_ShadowStorage -ErrorAction Stop)
+        if ($shadow.Count -gt 0) {
+            $used = 0.0
+            $allocated = 0.0
+            foreach ($v in $shadow) {
+                $used += [double]$v.UsedSpace
+                $allocated += [double]$v.AllocatedSpace
+            }
+            $o.ShadowStorageUsedGB = Convert-BytesToGB $used
+            $o.ShadowStorageAllocatedGB = Convert-BytesToGB $allocated
+            $o.ShadowStorageState = "Measured across $($shadow.Count) shadow-storage association(s)"
+        } else {
+            $o.ShadowStorageState = 'No shadow storage reported'
+        }
+    } catch {
+        $o.ShadowStorageState = 'Shadow storage unavailable; an administrator shell may reveal more'
+    }
+
+    [pscustomobject]$o
+}
+
+function Show-StorageSpaceSnapshot {
+    $s = Get-StorageSpaceSnapshot
+    Write-AuditHeading 'FREE-SPACE SNAPSHOT'
+    Write-Host 'READ ONLY: this measures selected Windows-managed space consumers. Nothing is deleted.' -ForegroundColor Green
+    Write-Host ''
+
+    if ($null -ne $s.HiberfileGB) {
+        Write-Host ("Hibernation file:          {0} GB" -f $s.HiberfileGB)
+    } else {
+        Write-Host ("Hibernation file:          {0}" -f $s.HiberfileState)
+    }
+
+    if ($null -ne $s.PagefileAllocatedGB) {
+        Write-Host ("Pagefile allocated:        {0} GB (current use {1} GB; peak {2} GB)" -f $s.PagefileAllocatedGB,$s.PagefileCurrentGB,$s.PagefilePeakGB)
+    } else {
+        Write-Host 'Pagefile:                   not reported'
+    }
+
+    if ($null -ne $s.DeliveryOptimizationCacheGB) {
+        Write-Host ("Delivery Optimization:     {0} GB represented in current cache/status" -f $s.DeliveryOptimizationCacheGB)
+    } else {
+        Write-Host ("Delivery Optimization:     {0}" -f $s.DeliveryOptimizationState)
+    }
+
+    if ($null -ne $s.ShadowStorageUsedGB) {
+        Write-Host ("Restore/shadow storage:    {0} GB used; {1} GB allocated" -f $s.ShadowStorageUsedGB,$s.ShadowStorageAllocatedGB)
+    } else {
+        Write-Host ("Restore/shadow storage:    {0}" -f $s.ShadowStorageState)
+    }
+
+    $candidate = 0.0
+    $candidateKnown = $false
+    if ($null -ne $s.HiberfileGB) { $candidate += [double]$s.HiberfileGB; $candidateKnown=$true }
+    if ($null -ne $s.DeliveryOptimizationCacheGB) { $candidate += [double]$s.DeliveryOptimizationCacheGB; $candidateKnown=$true }
+    if ($candidateKnown) {
+        Write-Host ''
+        Write-Host ("Optional/cache candidate total: about {0} GB before checking whether you actually use hibernation." -f ([math]::Round($candidate,2))) -ForegroundColor Cyan
+    }
+
+    Write-Host ''
+    Write-Host 'Windows Rescue does NOT count the pagefile or recovery storage as automatically reclaimable.' -ForegroundColor Yellow
+    Write-Host 'Recommended order: clear expendable cache -> decide whether hibernation is wanted -> investigate unusual pagefile/recovery usage.' -ForegroundColor Green
+    Write-Host 'Use Disk Cleanup / Windows Storage for Delivery Optimization cleanup; do not manually delete protected system files.' -ForegroundColor Green
 }
 
 function Get-TaskState([string]$TaskPath,[string]$TaskName) {
@@ -276,6 +407,7 @@ function Get-WindowsRescueAudit {
     $ramGB = [math]::Round($cs.TotalPhysicalMemory/1GB,1)
     $logicalC = Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'"
     $drive = Get-SystemDriveSummary
+    $space = Get-StorageSpaceSnapshot
     $startup = @()
     try { $startup = @(Get-CimInstance Win32_StartupCommand | Sort-Object Name) } catch {}
     $startupRisks = @()
@@ -327,6 +459,13 @@ function Get-WindowsRescueAudit {
             Add-Line $report "Pagefile $($p.Name): allocated=$($p.AllocatedBaseSize) MB current=$($p.CurrentUsage) MB peak=$($p.PeakUsage) MB"
         }
     } catch {}
+
+    Add-Line $report ''
+    Add-Line $report 'Storage-space snapshot:'
+    Add-Line $report "Hibernation file: $($space.HiberfileGB) GB | $($space.HiberfileState)"
+    Add-Line $report "Pagefile totals: allocated=$($space.PagefileAllocatedGB) GB current=$($space.PagefileCurrentGB) GB peak=$($space.PagefilePeakGB) GB"
+    Add-Line $report "Delivery Optimization cache/status: $($space.DeliveryOptimizationCacheGB) GB | $($space.DeliveryOptimizationState)"
+    Add-Line $report "Restore/shadow storage: used=$($space.ShadowStorageUsedGB) GB allocated=$($space.ShadowStorageAllocatedGB) GB | $($space.ShadowStorageState)"
 
     Add-Line $report ''
     Add-Line $report 'Physical disks:'
@@ -405,6 +544,29 @@ function Get-WindowsRescueAudit {
     if ($logicalC) {
         Write-Host ("Free space: {0} GB" -f [math]::Round($logicalC.FreeSpace/1GB,1))
     }
+
+    Write-AuditHeading 'SPACE HOG SNAPSHOT'
+    if ($null -ne $space.HiberfileGB) {
+        Write-Host ("Hibernation file:       {0} GB" -f $space.HiberfileGB)
+    } else {
+        Write-Host ("Hibernation file:       {0}" -f $space.HiberfileState)
+    }
+    if ($null -ne $space.PagefileAllocatedGB) {
+        Write-Host ("Pagefile allocated:     {0} GB; peak use {1} GB" -f $space.PagefileAllocatedGB,$space.PagefilePeakGB)
+    } else {
+        Write-Host 'Pagefile:                not reported'
+    }
+    if ($null -ne $space.DeliveryOptimizationCacheGB) {
+        Write-Host ("Delivery Optimization:  {0} GB represented in current cache/status" -f $space.DeliveryOptimizationCacheGB)
+    } else {
+        Write-Host ("Delivery Optimization:  {0}" -f $space.DeliveryOptimizationState)
+    }
+    if ($null -ne $space.ShadowStorageUsedGB) {
+        Write-Host ("Restore/shadow storage: {0} GB used" -f $space.ShadowStorageUsedGB)
+    } else {
+        Write-Host ("Restore/shadow storage: {0}" -f $space.ShadowStorageState)
+    }
+    Write-Host 'Pagefile and recovery storage are shown for diagnosis, not labelled safe-to-delete space.' -ForegroundColor Yellow
 
     Write-AuditHeading 'RESCUE VERDICT'
     if ($isSSD -and $ramGB -ge 8) {
@@ -980,20 +1142,65 @@ WINDOWS RESCUE POWERSHELL — HELP
 
 READ ONLY
   A  Start here: safe guided audit
+  F  Free-space snapshot: hibernation, pagefile, Delivery Optimization, shadow storage
   S  Hardware research prompt -> copy/save -> NEW AI chat
 
 CONTROLLED CHANGES
   U  Windows Update / Windows 11 submenu
   P  Privacy / Search / background submenu
   M  Memory / SysMain submenu
-  C  Open Storage settings
+  C  Open Windows Storage settings
 
 RULES
-  - Every write action requires an exact confirmation phrase.
+  - Every system-changing action requires an exact confirmation phrase.
   - Original service states are saved before reversible service changes.
   - CLOSED UPDATE GATE never deletes services, changes ACLs or renames DLLs.
   - BITS is not disabled just to stop Windows Update.
   - Pagefile and Defender are not generic debloat targets.
+  - A large pagefile is measured first; Windows Rescue does not force an arbitrary 10 GB cap.
   - Search first uses Manual + stopped; Disabled is a separate stronger choice.
   - SysMain changes immediately re-check memory compression.
   - 4 GB systems keep memory compression by default, even with SSD.
+  - Free-space work starts with expendable cache and optional hibernation, not protected-file deletion.
+'@
+}
+
+function Show-MainMenu {
+    while ($true) {
+        Clear-Host
+        Write-Host 'ALETHEIA WINDOWS DEBLOAT / WINDOWS RESCUE' -ForegroundColor Cyan
+        Write-Host 'V1.1 Improve source candidate' -ForegroundColor DarkCyan
+        Write-Host ''
+        Write-Host 'Starts read-only. Controlled changes require exact confirmation.' -ForegroundColor Green
+        if (-not $script:IsAdmin) {
+            Write-Host 'Current shell is NOT administrator. Read-only audit still works; protected checks/actions may be limited.' -ForegroundColor Yellow
+        }
+        Write-Host ''
+        Write-Host 'A  Safe guided audit'
+        Write-Host 'F  Free-space snapshot (read-only)'
+        Write-Host 'S  Hardware upgrade/replacement research prompt'
+        Write-Host 'U  Windows Update / Windows 11 controls'
+        Write-Host 'P  Privacy / Search / background controls'
+        Write-Host 'M  Memory / SysMain controls'
+        Write-Host 'C  Open Windows Storage settings'
+        Write-Host 'H  Help'
+        Write-Host 'Q  Quit'
+        Write-Host ''
+        $c=(Read-Host 'Choose').Trim().ToUpperInvariant()
+
+        switch ($c) {
+            'A' { Get-WindowsRescueAudit; Read-Host 'Enter to return to the main menu' | Out-Null }
+            'F' { Show-StorageSpaceSnapshot; Read-Host 'Enter to return to the main menu' | Out-Null }
+            'S' { Show-StorageResearchPrompt; Read-Host 'Enter to return to the main menu' | Out-Null }
+            'U' { Show-UpdateMenu }
+            'P' { Show-PrivacyMenu }
+            'M' { Show-MemoryMenu }
+            'C' { Open-StorageSettings }
+            'H' { Clear-Host; Show-Help; Read-Host 'Enter to return to the main menu' | Out-Null }
+            'Q' { return }
+            default { Write-Host 'Unknown choice.' -ForegroundColor Yellow; Start-Sleep -Milliseconds 700 }
+        }
+    }
+}
+
+Show-MainMenu
