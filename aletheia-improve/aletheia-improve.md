@@ -373,3 +373,44 @@ EMAIL ACCOUNT
 Do not pass a raw email body directly to an agent that simultaneously has unrestricted GitHub write/shell authority.
 
 Odysseus is a plausible self-hosted orchestration layer because it has email, scheduled tasks, agents and MCP capability. Treat “automatic email-to-GitHub Humour key” as an integration to design and test, not as an assumed built-in switch.
+
+## One-shot self-improvement guard
+
+**Added 1 October 2026 after one controlled Aletheia Improve-on-Improve pass.**
+
+When the target is **Aletheia Improve itself**, perform one audit pass and stop.
+
+Rules:
+
+1. Set a conceptual `self_improve_depth = 1` for the run.
+2. Inspect the current Improve specification, registry/memory, ideas, tasks and relevant shared contracts.
+3. Produce findings and record accepted planning/specification changes.
+4. Do **not** automatically invoke Improve again on the revised Improve.
+5. A second self-pass requires a fresh explicit user request.
+6. Never interpret "improve Improve" as permission for an unbounded recursive loop.
+
+Classify self-audit findings into:
+
+- **RECORD NOW** — safe documentation, idea, task, source/provenance or non-consequential specification updates;
+- **SHARED-CONTRACT CANDIDATE** — proposed changes to `aletheia-GUI.md`, `aletheia-dev.md`, `aletheia-code.md`, AGENTS/router rules or other cross-app standards; require explicit human approval before implementation;
+- **APP IMPLEMENTATION** — HTML/JS/runtime behaviour changes; require the normal target-app approval/review boundary.
+
+## Tool Contract pass
+
+Aletheia's draft shared tool standard lives at root `aletheia-tool-contract.md`.
+
+When a target exposes reusable callable tools, Improve should inspect, where relevant:
+
+- one-tool/one-job boundaries;
+- self-description and "when to call" guidance;
+- input schema versus actual handler;
+- generated registry versus duplicate hand-maintained lists;
+- dispatch-time allowlists and authority ceilings;
+- structured error codes and secret-safe diagnostics;
+- exact/verbatim output requirements;
+- freshness, cached and stale-state honesty;
+- execution receipts;
+- tests that derive from the registry rather than a hard-coded tool count;
+- static dependency mapping without importing/executing untrusted modules.
+
+The Tool Contract is currently a **draft migration target**, not permission to rewrite every existing app. Prefer incremental trials on a few reusable tools first.
