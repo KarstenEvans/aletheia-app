@@ -66,6 +66,7 @@ footer{margin-top:50px;color:var(--muted)}
 <label><input type="checkbox" id="drivers"> Windows replaces drivers</label>
 <label><input type="checkbox" id="edge"> Edge/background apps</label>
 <label><input type="checkbox" id="bundled"> Unused preinstalled/bundled apps</label>
+<label><input type="checkbox" id="space"> Low disk space / C: nearly full</label>
 </div>
 
 <h3>What do you use it for?</h3>
@@ -168,6 +169,28 @@ footer{margin-top:50px;color:var(--muted)}
 <p class="small">Inspect registry files before importing them. Restart Windows after enabling the periodic backup.</p>
 </section>
 
+<h2>4B. Recover disk space before deleting anything</h2>
+<section class="panel">
+<p><strong>Measure first.</strong> A dramatic “65 GB saved” result can be real on one PC, but the total is machine-specific. Windows Rescue now checks the big system-managed consumers separately instead of treating them as one magic cleanup switch.</p>
+<div class="grid">
+<section class="panel"><h3>Hibernation file</h3>
+<p>A full hibernation file is commonly about <strong>40% of installed RAM</strong>; a reduced file used for Fast Startup is about <strong>20%</strong>. If you never hibernate, <code>powercfg /hibernate off</code> can reclaim the file. Undo with <code>powercfg /hibernate on</code>.</p>
+<p class="small"><strong>Trade-off:</strong> removing the hibernation file removes Hibernate and Fast Startup. If you want Fast Startup but not full hibernation, investigate a reduced hiberfile instead of simply deleting it.</p></section>
+
+<section class="panel"><h3>Delivery Optimization cache</h3>
+<p>Use Windows Disk Cleanup / Storage cleanup to remove <strong>Delivery Optimization Files</strong>. If you do not want peer-to-peer update sharing, turn off <strong>Allow downloads from other devices/PCs</strong> in Delivery Optimization settings.</p>
+<p class="small">Keep the Delivery Optimization service itself intact. Turning off peer sharing does not turn off Windows Update; updates still download from Microsoft.</p></section>
+
+<section class="panel warn"><h3>Pagefile</h3>
+<p><strong>Do not disable it or force an arbitrary 10 GB ceiling just to save space.</strong> Microsoft documents pagefile sizing as workload- and crash-dump-dependent. Windows Rescue keeps system-managed paging by default and investigates an unusually large pagefile only after checking RAM pressure, commit use and crash-dump requirements.</p></section>
+
+<section class="panel warn"><h3>Recovery snapshots</h3>
+<p>Do not blindly disable classic System Restore because a newer recovery feature exists. Where Windows offers <strong>Point-in-time restore</strong>, it can restore the whole recent system state including local files, while classic System Restore is aimed at system files/settings and can provide a different recovery window.</p>
+<p class="small">If recovery storage is large, review current usage and quotas first. Saving a few GB is not a bargain if it removes the only working rollback path.</p></section>
+</div>
+<p class="small">Discovery source reviewed 1 October 2026: MakeUseOf, “I freed up 65GB of storage by disabling these unnecessary Windows features”. The headline total is treated as one PC's result, not a promise.</p>
+</section>
+
 <h2>5. SSD before service whack-a-mole</h2>
 <section class="panel">
 <p>If Windows is still on a mechanical HDD, an SSD can be the highest-leverage improvement. Windows Rescue checks the exact model rather than guessing.</p>
@@ -232,6 +255,9 @@ function buildPlan(){
  if(ram==='4'){
    out.push('<p><strong>4 GB profile:</strong> keep the pagefile and keep memory compression unless a measured fault points to it. Check whether RAM is upgradeable.</p>');
  }
+ if(checked('space')){
+   out.push('<p><strong>Disk-space rescue:</strong> measure before deleting. Check Windows Storage/Temporary Files first, clear Delivery Optimization cache, then inspect hibernation if you do not use it. Keep the pagefile system-managed unless measurements justify a change. Review recovery-snapshot usage before disabling any recovery feature. Never manually delete WinSxS, DriverStore, pagefile.sys or recovery data just because a folder looks large.</p>');
+ }
  if(search==='rare'){
    out.push('<p><strong>Search:</strong> recommended first action is WSearch <em>Manual + stopped</em>, not immediately Disabled. If it restarts and you still want no indexing, the stronger sealed option is separate.</p>');
  } else if(search==='need'){
@@ -283,7 +309,7 @@ function buildPlan(){
     return [...document.querySelectorAll('input.use:checked')].map(x=>x.value);
   }
   function checkedProblems(){
-    const ids=['diskbusy','slow','memory','update','nag','telemetry','drivers','edge','bundled'];
+    const ids=['diskbusy','slow','memory','update','nag','telemetry','drivers','edge','bundled','space'];
     return ids.filter(id=>document.getElementById(id)?.checked);
   }
   function textOfSelect(id){
