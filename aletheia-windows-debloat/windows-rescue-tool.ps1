@@ -180,7 +180,19 @@ function Get-StorageSpaceSnapshot {
         }
     } catch {}
 
-    if (Get-Command Get-DeliveryOptimizationStatus -ErrorAction SilentlyContinue) {
+    if (Get-Command Get-DeliveryOptimizationPerfSnap -ErrorAction SilentlyContinue) {
+        try {
+            $perf = Get-DeliveryOptimizationPerfSnap -ErrorAction Stop
+            if ($null -ne $perf.CacheSizeBytes) {
+                $o.DeliveryOptimizationCacheGB = Convert-BytesToGB $perf.CacheSizeBytes
+                $o.DeliveryOptimizationState = 'Measured from Delivery Optimization CacheSizeBytes'
+            } else {
+                $o.DeliveryOptimizationState = 'Delivery Optimization performance snapshot returned no CacheSizeBytes'
+            }
+        } catch {
+            $o.DeliveryOptimizationState = 'Delivery Optimization performance snapshot could not be read'
+        }
+    } elseif (Get-Command Get-DeliveryOptimizationStatus -ErrorAction SilentlyContinue) {
         try {
             $jobs = @(Get-DeliveryOptimizationStatus -AsObject -ErrorAction Stop)
             $cacheBytes = 0.0
@@ -190,7 +202,7 @@ function Get-StorageSpaceSnapshot {
                 }
             }
             $o.DeliveryOptimizationCacheGB = Convert-BytesToGB $cacheBytes
-            $o.DeliveryOptimizationState = 'Measured from current Delivery Optimization status'
+            $o.DeliveryOptimizationState = 'Fallback estimate from current Delivery Optimization jobs'
         } catch {
             $o.DeliveryOptimizationState = 'Delivery Optimization status could not be read'
         }
