@@ -119,7 +119,7 @@ STORAGE      Review HDD/SSD/M.2/mSATA/optical-bay upgrade options
 DRIVERS      Create a current official-source driver research prompt
 STARTUP      Review startup apps/services/tasks
 SECURITY     Stop optimisation and investigate suspicious startup/persistence findings
-CLEAN        Review safe temporary-file cleanup
+CLEAN        Review safe cleanup, Delivery Optimization cache and hibernation space
 RUFUS        Explain clean-install / Rufus options
 PC CHECK     Decide KEEP / UPGRADE / CHANGE PATH / REPLACE
 PC FINDER    Search current replacement options
@@ -347,6 +347,40 @@ If storage and RAM are reasonable but CPU is pinned or clocks collapse, investig
 
 # 7. STORAGE RESCUE
 
+## Free-space first: system-managed storage
+
+When the complaint is **low disk space**, do not jump straight to app deletion or an SSD purchase. Check the large Windows-managed consumers first.
+
+### Hibernation
+A hibernation file can occupy several GB. Current Microsoft documentation describes a full hiberfile as commonly about **40% of installed RAM** and a reduced Fast-Startup-only hiberfile as about **20%**.
+
+Offer, only after asking whether Hibernate/Fast Startup are used:
+- inspect with `powercfg /a`;
+- disable hibernation with `powercfg /hibernate off` if the owner does not need it;
+- undo with `powercfg /hibernate on`;
+- consider a reduced hiberfile when Fast Startup is wanted without full hibernation.
+
+Explain that removing the hiberfile also removes Hibernate and Fast Startup. Do not sell the reclaimed size as fixed; it varies with RAM and configuration.
+
+### Delivery Optimization
+First clear **Delivery Optimization Files** using Windows Disk Cleanup / supported storage cleanup. If the owner does not want peer-to-peer sharing, turn off **Allow downloads from other devices/PCs**.
+
+Do **not** disable/delete the Delivery Optimization service merely to save disk space. Peer sharing can be off while Windows Update continues to download from Microsoft.
+
+### Pagefile
+Keep the pagefile by default. Do **not** copy a fixed “set it to 10 GB” rule from an article. Microsoft documents sizing as dependent on peak commit demand and crash-dump requirements. If pagefile.sys is unexpectedly huge:
+1. record RAM and current pagefile configuration;
+2. inspect memory pressure / committed memory;
+3. identify crash-dump requirements;
+4. only then consider a bounded change, with rollback.
+
+### Recovery storage
+Do not treat classic **System Restore** and newer **Point-in-time restore** as duplicates.
+
+Where Point-in-time restore is available, it can roll the whole recent PC state back, including local files, and its default retention is short. Classic System Restore is oriented to system files/settings and does not roll back personal files. Review actual storage usage, retention and quota before disabling either recovery path.
+
+**Windows Rescue rule:** reclaim expendable cache first, optional hibernation second, investigate unusual pagefile/recovery usage third. Do not sacrifice the only working rollback path to win a few GB.
+
 If Windows is on an HDD, ask:
 
 > **Would you like me to check whether a low-cost SSD upgrade would make more difference than software tweaks?**
@@ -435,6 +469,8 @@ The old HDD is **not a backup**. If it is old, warn about failure and require a 
 
 ## Pagefile
 **Load-bearing wall. Keep it.**
+
+A large pagefile is a reason to inspect memory pressure and crash-dump requirements, not a reason to impose an arbitrary fixed maximum. Prefer system-managed paging unless measured evidence supports a different configuration.
 
 On a 4 GB machine especially, disabling it can cause application failures or system instability.
 
