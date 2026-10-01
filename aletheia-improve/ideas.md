@@ -151,3 +151,35 @@ The pack also requests:
 - measurement after publication.
 
 Future enhancement: show cross-pollination candidates directly in the launcher UI by searching related repository page/content terms, not just including the rule/context in the generated pack.
+
+## Felhaven architecture harvest — 1 October 2026
+
+**Source reviewed:** public MIT-licensed `Felsyn/felhaven` repository, including Pythia, Daedalus, Kairos and contract tests.
+
+Useful patterns to adapt rather than clone:
+
+- **Self-describing tool modules:** each reusable capability owns its description/schema and handler.
+- **Generated tool registry:** build dispatch and model-visible definitions from one declaration so they cannot drift independently.
+- **Schema/handler lockstep tests:** validate declared parameters against the callable signature.
+- **What + when descriptions:** tool descriptions should say both what they do and when the model/host should use them.
+- **Non-vacuous contract guards:** tests should fail if discovery breaks and returns an empty registry rather than passing accidentally.
+- **Dispatch-time permission enforcement:** a hidden tool is not a forbidden tool; enforce allowlists at execution.
+- **Stable error vocabulary:** machine-readable error slugs, with raw exception material kept out of ordinary model/user output.
+- **Verbatim result route:** exact values can bypass model rewriting.
+- **Activity/rite receipts:** record tool, arguments, status, timing, safe result preview and failure code.
+- **Static architecture map:** inspect declarations/imports/docstrings without importing arbitrary modules.
+- **Single scheduler infrastructure:** recurring timing belongs to the host, not independently to every tool.
+- **Last-known-good display state:** failed refresh can retain an older valid value only when clearly marked stale.
+- **Local-model pre-warm:** optional optimisation for Ollama/local models; warm-up and live calls must share compatible runtime options.
+
+### Proposed Aletheia direction
+
+Treat the new root `aletheia-tool-contract.md` as a draft common seam. Trial it on a small number of existing reusable functions before making it mandatory across the estate.
+
+Potential first pilots:
+- Aletheia Assistant utility/tool calls;
+- Aletheia Site Audit front-door checks;
+- Aletheia Knowledge search/read;
+- Aletheia Improve repository/source inspection.
+
+Do not yet modify shared GUI/dev contracts automatically. Present each proposed shared change for human approval.
