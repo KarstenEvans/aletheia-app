@@ -531,6 +531,29 @@ Static verification: all three inline browser scripts parse; no duplicate HTML I
 Still to verify live/device: open the GitHub Pages app on Windows Chrome/Edge and Android Chrome, select **Unused preinstalled/bundled apps**, build the rescue plan, and confirm the result/AI handoff renders correctly.
 
 
+### WINDOWS-DEBLOAT-002 | IMPROVE IMPLEMENTED / WINDOWS DEVICE VERIFY | 1 October 2026
+
+Ran the current `Aletheia Improve` workflow against canonical **Aletheia Windows Debloat Tool**. Speech-to-text “Deepbloat” resolves to the existing app: **EXTEND EXISTING**, not a duplicate.
+
+Improve findings:
+- browser planner, canonical Markdown, Secret Windows knowledge, storage guide, Driver Sanctuary and PowerShell companion are one existing system;
+- `windows-rescue-tool.ps1` in GitHub was truncated inside `Show-Help`; its here-string never closed and its main menu was missing;
+- browser guidance discussed Windows-managed storage, but the companion did not measure those areas;
+- no target-local `aletheia-windows-debloat-page.md` reconstruction spec existed;
+- linked documentation still described the scripts as awaiting Improve.
+
+Implemented:
+- repaired the PowerShell ending and restored its main menu;
+- added read-only **FREE-SPACE SNAPSHOT** measuring hibernation file size, pagefile allocation/current/peak use, Delivery Optimization cache/status where exposed by Windows, and VSS shadow-storage use;
+- pagefile/recovery storage remain diagnostic only, never auto-labelled reclaimable;
+- exposed the companion from the browser UI;
+- updated canonical Markdown/protocol contract, evidence register and root README;
+- created the target reconstruction specification;
+- synchronised the linked Secret Windows knowledge/resources in their owning repository.
+
+Still required: execute the PowerShell companion on real Windows 10 and Windows 11; test non-admin/admin paths; confirm Delivery Optimization/VSS readings; smoke-test GitHub Pages on Windows Chrome/Edge and Android Chrome.
+
+
 2026-09-26 | Awin Publisher MasterTag audit | DONE / VERIFY LIVE
 Files read: current public production HTML inventory plus shared `aletheia-GUI.md` and `aletheia-dev.md`.
 Files changed: public production HTML missing the Awin Publisher MasterTag; shared GUI/dev rules.
