@@ -334,12 +334,15 @@ Hibernation / hiberfile:
 Delivery Optimization:
 - https://support.microsoft.com/en-us/windows/deployment/updates-lifecycle/delivery-optimization-in-windows
 - https://support.microsoft.com/en-us/windows/privacy/windows-update-delivery-optimization-and-privacy
+- https://learn.microsoft.com/en-us/powershell/module/deliveryoptimization/get-deliveryoptimizationstatus?view=windowsserver2025-ps
+- https://learn.microsoft.com/en-us/windows/deployment/do/waas-delivery-optimization-monitor
 
 Pagefile sizing:
 - https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/how-to-determine-the-appropriate-page-file-size-for-64-bit-versions-of-windows
 
 System Protection / Point-in-time restore:
 - https://support.microsoft.com/en-us/windows/experience/backup-recovery/system-protection
+- https://learn.microsoft.com/en-us/previous-versions/windows/desktop/vsswmi/win32-shadowstorage
 - https://support.microsoft.com/en-us/windows/experience/backup-recovery/point-time-restore-for-windows
 - https://learn.microsoft.com/en-us/windows/configuration/point-in-time-restore
 - https://learn.microsoft.com/windows/whats-new/whats-new-windows-11-version-26h2
