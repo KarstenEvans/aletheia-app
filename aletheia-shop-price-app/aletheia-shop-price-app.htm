@@ -51,7 +51,7 @@ select{width:100%}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}texta
 <h1>Aletheia Shopping</h1>
 <p class="strap">Let your barcodes do the data entry.</p>
 <p>Pick a template, edit the shops and products, and let your chosen AI research prices. Compare checked results here and track the same basket over time.</p>
-<p><a href="https://swindon.org.uk/resources/aletheia-shop-price-app-rsc.htm">resources and Thalia</a></p>
+<p><a href="./aletheia-shop-price-app-rsc.htm">resources and Thalia</a></p>
 </section>
 
 
@@ -125,7 +125,7 @@ select{width:100%}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}texta
 <p>Your AI should return dated prices and direct retailer links using the <code>ALETHEIA_SHOP_PRICE_QUOTES_JSON</code> format. Paste that result below. No price feed or made-up examples are built in.</p>
 <label for="priceJson">AI price quote block</label><textarea id="priceJson" spellcheck="false" placeholder="Paste the structured quote block from your chosen AI here."></textarea>
 <div class="actions"><button id="compareQuotes" type="button">Show cheapest three</button><button id="recordCheck" type="button" class="secondary">Record checked basket</button><button id="csv" type="button" class="secondary">Download weekly CSV</button></div>
-<p id="priceStatus" class="statustext" aria-live="polite">No sourced current prices supplied yet.</p>
+<p id="priceStatus" class="statustext" aria-live="polite">No independently verified price feed here. Review AI-supplied source links and check retailer totals.</p>
 <h3>Cheapest stores by individual item</h3><div id="perItem"></div>
 <h3>Cheapest complete weekly shopping</h3><div id="weeklyResult" aria-live="polite"></div>
 <div id="missingResult"></div>
@@ -290,6 +290,7 @@ Do not put prices or photographs in that block.`;
         return;
       }
       lastShop.value = text.trim();
+      if(window.loadLegacyShop) window.loadLegacyShop(lastShop.value);
       if (validLastShop(lastShop.value)) {
         localStorage.setItem(storeKey, lastShop.value);
         saveStatus.textContent = 'Shopping list pasted and saved.';
@@ -311,6 +312,7 @@ Do not put prices or photographs in that block.`;
     try {
       localStorage.setItem(storeKey, lastShop.value.trim());
       lastShop.value = lastShop.value.trim();
+      if(window.loadLegacyShop) window.loadLegacyShop(lastShop.value);
       saveStatus.textContent = 'Shopping list saved for the next launch.';
       joinPrompt();
     } catch (e) {
