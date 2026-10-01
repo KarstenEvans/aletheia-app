@@ -23,6 +23,9 @@ $script:SearchStateFile = Join-Path $script:StateRoot 'search-state.json'
 $script:SysMainStateFile = Join-Path $script:StateRoot 'sysmain-state.json'
 $script:TelemetryStateFile = Join-Path $script:StateRoot 'telemetry-state.json'
 $script:UpgradeStateFile = Join-Path $script:StateRoot 'upgrade-shield-state.json'
+$script:SoftUpdateStateFile = Join-Path $script:StateRoot 'soft-update-state.json'
+$script:EdgeStateFile = Join-Path $script:StateRoot 'edge-state.json'
+$script:GameDvrStateFile = Join-Path $script:StateRoot 'gamedvr-state.json'
 
 function Confirm-Exact([string]$Question, [string]$Phrase='YES') {
     Write-Host "`n$Question" -ForegroundColor Yellow
@@ -774,6 +777,11 @@ function Restore-SpecificRegState($States) {
 
 function Set-Win10UpgradeShield {
     if (-not (Require-Admin)) { return }
+    $os = Get-CimInstance Win32_OperatingSystem
+    if ([string]$os.Caption -notmatch 'Windows 10') {
+        Write-Host "Upgrade Shield is a Windows 10-only control. Detected: $($os.Caption). No change made." -ForegroundColor Yellow
+        return
+    }
     Write-Host 'This holds feature targeting at Windows 10 22H2 and quiets two recurring compatibility tasks.' -ForegroundColor White
     Write-Host 'It does not guarantee Microsoft can never introduce a different notification later.' -ForegroundColor Yellow
     if (-not (Confirm-Exact 'Apply the Windows 10 Upgrade Shield?' 'SHIELD WINDOWS 10')) { return }
@@ -827,10 +835,19 @@ function Set-SoftUpdatePreference {
     Write-Host 'SOFT preference only: notify-before-download, exclude drivers, no Delivery Optimization P2P.' -ForegroundColor White
     Write-Host 'This is NOT the closed update gate and Windows builds may not honour every preference identically.' -ForegroundColor Yellow
     if (-not (Confirm-Exact 'Apply soft update preferences?' 'SOFT UPDATES')) { return }
-    Export-RegKey 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' 'before-WindowsUpdate-soft.reg'
     $au='HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'
     $wu='HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
     $do='HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization'
+    if (-not (Test-Path $script:SoftUpdateStateFile)) {
+        $states = @()
+        $states += Get-SpecificRegState $au @('NoAutoUpdate','AUOptions')
+        $states += Get-SpecificRegState $wu @('ExcludeWUDriversInQualityUpdate')
+        $states += Get-SpecificRegState $do @('DODownloadMode')
+        Save-JsonState $script:SoftUpdateStateFile ([pscustomobject]@{Saved=(Get-Date -Format s); Registry=$states})
+    } else {
+        Write-Host 'Saved pre-soft-update state already exists; it will NOT be overwritten.' -ForegroundColor Yellow
+    }
+    Export-RegKey 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' 'before-WindowsUpdate-soft.reg'
     New-Item $au -Force | Out-Null
     New-ItemProperty $au -Name NoAutoUpdate -PropertyType DWord -Value 0 -Force | Out-Null
     New-ItemProperty $au -Name AUOptions -PropertyType DWord -Value 2 -Force | Out-Null
@@ -840,6 +857,17 @@ function Set-SoftUpdatePreference {
     New-ItemProperty $do -Name DODownloadMode -PropertyType DWord -Value 0 -Force | Out-Null
     Write-Log 'Applied soft update preferences: AUOptions=2, driver exclusion, DO mode 0.'
     Write-Host 'Soft update preferences applied.' -ForegroundColor Green
+}
+
+function Restore-SoftUpdatePreference {
+    if (-not (Require-Admin)) { return }
+    $state = Load-JsonState $script:SoftUpdateStateFile
+    if (-not $state) { Write-Host 'No saved soft-update state. Refusing to guess prior values.' -ForegroundColor Yellow; return }
+    if (-not (Confirm-Exact 'Restore the exact registry values saved before Soft Updates?' 'RESTORE SOFT UPDATES')) { return }
+    Restore-SpecificRegState $state.Registry
+    Write-Log 'Restored pre-soft-update registry values.'
+    Remove-Item $script:SoftUpdateStateFile -Force -ErrorAction SilentlyContinue
+    Write-Host 'Soft update preferences restored to the saved prior state.' -ForegroundColor Green
 }
 
 function Show-UpdateGateState {
@@ -912,23 +940,57 @@ function Set-EdgeLean {
     if (-not (Require-Admin)) { return }
     Write-Host 'Disables Edge Startup Boost and background mode. Edge remains installed and usable.'
     if (-not (Confirm-Exact 'Apply lean Edge background settings?' 'LEAN EDGE')) { return }
-    Export-RegKey 'HKLM\SOFTWARE\Policies\Microsoft\Edge' 'before-Edge.reg'
     $p='HKLM:\SOFTWARE\Policies\Microsoft\Edge'
+    if (-not (Test-Path $script:EdgeStateFile)) {
+        $states = Get-SpecificRegState $p @('StartupBoostEnabled','BackgroundModeEnabled')
+        Save-JsonState $script:EdgeStateFile ([pscustomobject]@{Saved=(Get-Date -Format s); Registry=$states})
+    } else {
+        Write-Host 'Saved pre-Edge state already exists; it will NOT be overwritten.' -ForegroundColor Yellow
+    }
+    Export-RegKey 'HKLM\SOFTWARE\Policies\Microsoft\Edge' 'before-Edge.reg'
     New-Item $p -Force | Out-Null
     New-ItemProperty $p -Name StartupBoostEnabled -PropertyType DWord -Value 0 -Force | Out-Null
     New-ItemProperty $p -Name BackgroundModeEnabled -PropertyType DWord -Value 0 -Force | Out-Null
     Write-Log 'Edge Startup Boost/background mode disabled.'
 }
 
+function Restore-EdgeLean {
+    if (-not (Require-Admin)) { return }
+    $state = Load-JsonState $script:EdgeStateFile
+    if (-not $state) { Write-Host 'No saved Edge policy state. Refusing to guess.' -ForegroundColor Yellow; return }
+    if (-not (Confirm-Exact 'Restore the exact Edge policy values saved before Lean Edge?' 'RESTORE EDGE')) { return }
+    Restore-SpecificRegState $state.Registry
+    Write-Log 'Restored pre-Lean-Edge policy values.'
+    Remove-Item $script:EdgeStateFile -Force -ErrorAction SilentlyContinue
+    Write-Host 'Edge background policy restored.' -ForegroundColor Green
+}
+
 function Set-GameDvrOff {
     if (-not (Require-Admin)) { return }
     Write-Host 'Do not use this if you rely on Xbox Game Bar recording.' -ForegroundColor Yellow
     if (-not (Confirm-Exact 'Disable Game DVR recording policy?' 'DISABLE GAME DVR')) { return }
-    Export-RegKey 'HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR' 'before-GameDVR.reg'
     $p='HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR'
+    if (-not (Test-Path $script:GameDvrStateFile)) {
+        $states = Get-SpecificRegState $p @('AllowGameDVR')
+        Save-JsonState $script:GameDvrStateFile ([pscustomobject]@{Saved=(Get-Date -Format s); Registry=$states})
+    } else {
+        Write-Host 'Saved pre-Game-DVR state already exists; it will NOT be overwritten.' -ForegroundColor Yellow
+    }
+    Export-RegKey 'HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR' 'before-GameDVR.reg'
     New-Item $p -Force | Out-Null
     New-ItemProperty $p -Name AllowGameDVR -PropertyType DWord -Value 0 -Force | Out-Null
     Write-Log 'Game DVR policy disabled.'
+}
+
+function Restore-GameDvr {
+    if (-not (Require-Admin)) { return }
+    $state = Load-JsonState $script:GameDvrStateFile
+    if (-not $state) { Write-Host 'No saved Game DVR policy state. Refusing to guess.' -ForegroundColor Yellow; return }
+    if (-not (Confirm-Exact 'Restore the exact Game DVR policy value saved before disabling it?' 'RESTORE GAME DVR')) { return }
+    Restore-SpecificRegState $state.Registry
+    Write-Log 'Restored pre-Game-DVR policy value.'
+    Remove-Item $script:GameDvrStateFile -Force -ErrorAction SilentlyContinue
+    Write-Host 'Game DVR policy restored.' -ForegroundColor Green
 }
 
 function Show-MemoryCompression {
