@@ -100,11 +100,59 @@ The browser app parses the JSON between the markers. If parsing or network acces
     "GitHub main is shared master. Re-fetch immediately before writing and reconcile concurrent changes."
   ],
   "canonicalNames": [
-    {"canonical":"Thalia Humour","watchFor":["Huma","Humar","Humor app","Thalia Humor"],"note":"Repository spelling is British English: Humour."},
-    {"canonical":"Aletheia Improve","watchFor":["Aletheia Improved","Althea Improve","Althea Improved"],"note":"Use Aletheia Improve for the app/workflow name."},
-    {"canonical":"Aletheia Learn","watchFor":["Althea Learn","Alethea Learn"],"note":"General learning-by-doing core at aletheia-learn/aletheia-learn.md; do not confuse with the specialised Aletheia Language Learn app."},
-    {"canonical":"Aletheia","watchFor":["Althea","Alethea"],"note":"Confirm before renaming files or projects."},
-    {"canonical":"Odysseus","watchFor":["Odyssey","Odyseus"],"note":"Self-hosted workspace/agent project."}
+    {
+      "canonical": "Thalia Humour",
+      "watchFor": [
+        "Huma",
+        "Humar",
+        "Humor app",
+        "Thalia Humor"
+      ],
+      "note": "Repository spelling is British English: Humour."
+    },
+    {
+      "canonical": "Aletheia Improve",
+      "watchFor": [
+        "Aletheia Improved",
+        "Althea Improve",
+        "Althea Improved"
+      ],
+      "note": "Use Aletheia Improve for the app/workflow name."
+    },
+    {
+      "canonical": "Aletheia Learn",
+      "watchFor": [
+        "Althea Learn",
+        "Alethea Learn"
+      ],
+      "note": "General learning-by-doing core at aletheia-learn/aletheia-learn.md; do not confuse with the specialised Aletheia Language Learn app."
+    },
+    {
+      "canonical": "Aletheia",
+      "watchFor": [
+        "Althea",
+        "Alethea"
+      ],
+      "note": "Confirm before renaming files or projects."
+    },
+    {
+      "canonical": "Odysseus",
+      "watchFor": [
+        "Odyssey",
+        "Odyseus"
+      ],
+      "note": "Self-hosted workspace/agent project."
+    },
+    {
+      "canonical": "Aletheia Shopping",
+      "watchFor": [
+        "Alethea shopping",
+        "Alithea shopping",
+        "Aletheia Shop Price",
+        "Shop Price app"
+      ],
+      "note": "Restore from aletheia-shop-price-app/ rather than create another shopping app."
+    }
   ],
   "specialTargets": [
     {
@@ -143,6 +191,14 @@ The browser app parses the JSON between the markers. If parsing or network acces
       "reader": "aletheia-storyteller.htm",
       "pageSpec": "aletheia-storyteller-page.md",
       "manifest": "stories/stories.json"
+    },
+    {
+      "name": "Aletheia Shopping",
+      "repo": "KarstenEvans/aletheia-app",
+      "primary": "aletheia-shop-price-app/aletheia-shop-price-app.md",
+      "reader": "aletheia-shop-price-app/aletheia-shop-price-app.htm",
+      "pageSpec": "aletheia-shop-price-app/aletheia-shop-price-app-page.md",
+      "note": "Previously called Aletheia Shop Price. UK editable templates, AI-native barcode photos, factual comparisons and private user-owned shopping-list.md history. Public app does not fetch live prices itself."
     }
   ]
 }
