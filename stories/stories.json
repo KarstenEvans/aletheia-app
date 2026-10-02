@@ -55,6 +55,11 @@
       "file": "stories/bio-Sif.md",
       "title": "BIO: Sif, Archaeologist of the AI Age",
       "type": "bio"
+    },
+    {
+      "file": "stories/ToomorrowMan-and-the-Job-That-Wasnt-There.md",
+      "title": "ToomorrowMan and the Job That Wasn't There",
+      "type": "story"
     }
   ]
 }
