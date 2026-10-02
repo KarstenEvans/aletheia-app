@@ -531,3 +531,9 @@ Do not make "tokens used", "number of outputs" or "minutes saved" the primary su
 
 ### Visible human decision point
 For consequential action, make it clear where AI advice ends and the human choice begins. Invisible/background AI can be useful, but material automated influence should be inspectable: what changed, why, evidence/provenance, uncertainty and how to challenge or override it.\n
+
+## Job-search/Worldwide handoff interface refinement (2026-10-02)
+
+The world-wide Aletheia site is the reusable app's primary home. Do not copy Swindon-only `/jobs/` or `/assets/` paths into portable HTML, force Swindon as default locality, or create competing site-specific job-search intelligence. Use the Swindon GUI's proven **useful result first**, single primary task, compact manual copy fallback, human approval and clear search verification rules. Keep the shared Aletheia Constellation curved twinkling/footer navigation, default stars and dated witch/winter manifest instead of individually adding two floating decorative icons. Normal browser search results are DISCOVERY, not verified employment data. For jobs, separate a direct Google search opening a dismissible window from a Ctrl-V AI handoff that can investigate vacancies. No auto-filled cross-origin AI inputs are promised.
+
+**Go Walkabout:** for creative exploration, reuse `shared/aletheia-go-walkabout.md`. It is optional, bounded, evidence-labelled and ends with STOP after at most three useful ideas; it is not a substitute for primary results. The UI should expose the corresponding command only when useful, with natural-language support.
