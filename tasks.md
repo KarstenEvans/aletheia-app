@@ -25,7 +25,7 @@
 
 **Boundary:** Do not edit/deploy Swindon production from the incomplete GitHub mirror. GitHub commits do not prove published/live behaviour. Name is pending owner choice.
 
-## Aletheia Job Search (2 October 2026)
+## Aletheia Job Search (2 October 2026)\n\n- [x] Reconcile uploaded Swindon source concepts with worldwide app; direct Google search opens a labelled external discovery window, plus one-click selected-AI system handoff.\n- [x] Add ATS knowledge cards and link to Aletheia Knowledge manifest (knowledge-only); register bounded reusable GO WALKABOUT.\n- [x] Register a Job Search teaching story in Storyteller manifest; crosslink from resources.\n- [ ] Run interactive Chrome/Safari/mobile QA and verify GitHub Pages publication; do not assume raw source commits prove deployment.\n- [ ] Add Knowledge reader/app entry when cards have passed page-spec/preview checks.
 
 - [x] Locate the Swindon production HTML and verify the original public route.
 - [x] Create worldwide canonical portable job-search .md, page build .md, user-controlled private memory template and full HTML handoff doorway in `aletheia-app/aletheia-job-search/`.
