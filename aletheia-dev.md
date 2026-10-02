@@ -543,3 +543,12 @@ Rules:
 
 Aletheia Improve should audit these rules when a target exposes tools. The canonical contract, examples, migration path and acceptance checklist live in `aletheia-tool-contract.md`.
 
+
+
+## Swindon-to-worldwide portability reconciliation (2026-10-02)
+
+Source comparison: local Swindon.org.uk app HTML, Markdown, page spec, Swindon GUI/dev notes and GoWalkabout introduction are *input* to Aletheia Improve, not replacements for the canonical worldwide Aletheia app GUI/dev. Extract portable, tested behaviour (single search, default Gemini handoff, verify individual vacancies, source links, privacy, mobile, undo/stop, local memory). Keep website-specific navigation and PHP/Fasthosts assumptions scoped to SwindonOrgUK. Static worldwide sites should use absolute public routes or correct relative GitHub Pages routes, and make `?embed=1` presentation optional. Never maintain divergent full job-search systems merely for site branding.
+
+**Reusable creativity pass:** a second/last bounded `GO WALKABOUT` pass may challenge a first improvement with unexplored approaches. Review new proposals *once*, integrate only verified/beneficial changes, then STOP (no recursive improve calls). Shared contract: `shared/aletheia-go-walkabout.md`. For a current jobs query, no live job is shown without checking its individual application page at a recorded time. Google results can be linked or opened in one dismissible window but cannot be silently fetched into static Pages HTML absent a real authorised data integration.
+
+**Required QA:** compare uploaded source capabilities to app, cite source/protocols in generated MD, validate URLs and JSON, test role/location Unicode query escaping, blocked popup and clipboard fallback, test default provider and provider switch, keyboard and reduced motion, perform Pages HTTP/live testing separately from GitHub commit receipts.
