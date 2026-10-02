@@ -25,6 +25,18 @@
 
 **Boundary:** Do not edit/deploy Swindon production from the incomplete GitHub mirror. GitHub commits do not prove published/live behaviour. Name is pending owner choice.
 
+## Aletheia Job Search (2 October 2026)
+
+- [x] Locate the Swindon production HTML and verify the original public route.
+- [x] Create worldwide canonical portable job-search .md, page build .md, user-controlled private memory template and full HTML handoff doorway in `aletheia-app/aletheia-job-search/`.
+- [x] Add provider selector, live-advert evidence contract, CV/job and LinkedIn checks, interview coaching, SAVE/LOAD, WATCH prompt preparation and shared seasonal Constellation links.
+- [x] Create official/free-first Aletheia resources and list Job Search in the repository README.
+- [x] Create an accurate SwindonOrgUK reconciliation page specification without overwriting unverified production files.
+- [ ] Independently test live GitHub Pages route and GitHub Pages configuration, provider popup/clipboard fallback, accessibility on desktop/mobile/Safari, iframe embed, seasonal dates and end-to-end AI command reliability.
+- [ ] Retrieve original production source from Fasthosts/local site tree, reconcile SwindonOrgUK mirror, review/launch Swindon branded source; maintain one portable canonical system.
+- [ ] Verify official source references/resources periodically; check links and current provider capabilities.
+- [ ] Test WATCH scheduling only with a genuinely supported AI feature; no claim of installed recurring search.
+
 ## Confirmed structure
 
 - **Canonical protocol:** `KarstenEvans/aletheia-protocol`
