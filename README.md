@@ -16,6 +16,12 @@ Each app lives in its own lowercase folder. The portable Markdown file is the ap
 For substantial HTML work, read the target app's current files and create/reconcile its `*-page.md` build specification. Do not rely on an old chat as the missing specification.
 
 
+## Aletheia Job Search
+
+- [Open Aletheia Job Search](https://karstenevans.github.io/aletheia-app/aletheia-job-search/aletheia-job-search.htm) — worldwide provider-neutral job search, verified-vacancy methodology, CV and LinkedIn gap checks, interview practice, portable private memory and scheduled-search prompt guidance. This is a static **HANDOFF** launcher, not a connected job database or active scheduled search.
+- [Canonical AI system](aletheia-job-search/aletheia-job-search.md) · [Browser page specification](aletheia-job-search/aletheia-job-search-page.md) · [Private memory template](aletheia-job-search/aletheia-job-search-memory.md) · [Resources](aletheia-job-search/aletheia-job-search-rsc.htm).
+- [Swindon live original](https://swindon.org.uk/apps/aletheia-job-search/aletheia-job-search.htm). The SwindonOrgUK GitHub mirror is **not yet reconciled** with the production source and has not been replaced.
+
 ## Apps
 
 ### Aletheia Shopping (Shop Price)
