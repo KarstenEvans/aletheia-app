@@ -95,3 +95,11 @@ If a fragment grows into a multi-stage workflow, move it into a dedicated app an
 3. Render `🧙` Halloween special only for browser-local 09-01..11-10 inclusive; use default stars for 11-11..11-24 and January..August, winter icons for 11-25..12-31. Do not show an unverified Christmas destination.
 4. No JS, failed manifest or cross-origin fetch must leave the basic five static links usable. Respect reduced motion, hover/focus pause, standard keyboard/touch and ordinary HTTPS editorial destinations with `data-awinignore`.
 5. Test the dates and actual deployed routes. See `shared/README.md` and `aletheia-GUI.md` §21 for implementation and approval boundaries.
+
+
+## BOUNDED-GO-WALKABOUT
+1. Finish the user's main task first, unless brainstorming itself is the task.
+2. Load `shared/aletheia-go-walkabout.md` for five angles, shortlist at most three meaningful possibilities, verify when able, challenge assumptions and STOP.
+3. Separate creative leads from verified current data. For Job Search, only individually checked employer application pages may be labelled currently open.
+4. Feed any accepted insight through Improve **once**, not recursively.
+5. Preserve privacy and user confirmation on consequential actions.
