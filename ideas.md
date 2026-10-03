@@ -433,3 +433,14 @@ Key ideas:
 This must remain **incremental**. Existing useful standalone HTML apps do not need conversion merely to conform. Trial the contract on a few reusable capabilities, then promote only what reduces duplication or improves safety/debuggability.
 
 Shared GUI/dev adoption remains pending explicit item-by-item approval.
+
+
+## Aletheia AI Easy — Copilot persistent-instructions discovery (3 October 2026)
+
+**Status: RESEARCH IDEA; NOT A VERIFIED UNLOCK.** Kes reports that free personal Copilot previously displayed a Custom Instructions editor that is now absent. Paid/enterprise Copilot includes customisation features, but equal-looking interfaces do not establish that they share local configuration or entitlement logic. Windows observations include `Microsoft.Copilot` and `Microsoft.MicrosoftOfficeHub` package registrations, app activation entries, and a Copilot background-task registration. These are **not** confirmed Custom Instructions feature flags.
+
+**Research proposal:** Perform an authorised, read-only comparison across free consumer, paid consumer and enterprise documentation/builds. Search public Microsoft docs, old forums/Usenet archives, GitHub, public Reddit and indexed social reports for actual setting/flag names; compare Windows HKCU Office/Copilot entries, MSIX manifests, user-app data and browser/service configurations. Use ETW/Procmon only on a personally owned or expressly authorised test machine. Record exact versions, source URLs, timestamps, results and false leads. Test any discovered writable feature setting on an expendable, backed-up personal test environment only after confirming application reads it, documented impact, safe rollback and no attempts to circumvent licences or access restrictions. **Never publish an invented .reg key or treat an app registration as a feature gate.**
+
+**Product design:** Aletheia AI Easy must support `LITE` (paste bootstrap into chat), `PERSISTENT` (documented user-accessible custom instructions/project feature where available), and `PORTABLE` (external local Markdown handover). Bootstrap in a chat is still bootstrap even without a persistent preferences editor; permanence is a different requirement. Add a clear pop-out bootstrap with copy button, keyboard accessibility and an ordinary same-page fallback.
+
+**Distribution idea from Kes:** Optional opt-in email newsletter or resource delivery for advanced setup guides. **Decision gate:** no hidden/evasive publication, deceptive Easter eggs, undisclosed registry edits, or email requirement for basic instructions. Give explicit consent, transparent contents, unsubscribe/privacy handling and public essential safety/rollback information. Subscription may deliver helpful advanced guides but is not a way to conceal unsupported feature unlocks.
