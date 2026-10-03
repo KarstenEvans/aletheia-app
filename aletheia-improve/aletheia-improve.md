@@ -457,3 +457,19 @@ When improving an Aletheia illustrated story, read the canonical **current** `al
 - Validate actual page controls by clicking Start, selecting voice, changing seek position, pausing/resuming, inspecting camera and triggering a chapter transition. Record script and browser errors; record assets and voice availability limitations. Do not publish an unapproved story.
 
 This additional gate complements, and does not recursively restart, the earlier one-shot Improve self-improvement rule.
+
+
+## Stop-the-line regression gate: S001 postmortem (4 October 2026)
+
+**Observed failure:** An S001 posting page was written with a fresh card-style GUI instead of the existing full-screen `aletheia-storyteller.htm`, referenced a generic Learn resources route rather than the current `aletheia-storyteller-rsc.htm`, and created nonfunctional/irrelevant navigation. Although this specification already required the shared GUI/dev files and Storyteller-specific rules, the implementation failed to follow them. **Do not describe this as lost or deleted protocol rules without a documented repository diff.**
+
+**Mandatory pre-write evidence gate:**
+1. Read `AGENTS.md`, `README.md`, `aletheia-GUI.md`, `aletheia-dev.md`, `aletheia-code.md`, `shared/README.md`, `shared/link-sprites.json` and the owning app's real HTML, MD, page spec, resources and manifest. Note each file actually read.
+2. For any story, use the **root** `aletheia-storyteller.htm`, `aletheia-storyteller.md`, `aletheia-storyteller-page.md`, `aletheia-storyteller-rsc.htm`, `stories/stories.json`, story source and actual image files. Do not invent `stories/storyteller.htm` or create a competing reader just because source images are absent.
+3. Every primary navigation and resources link must resolve to its intended real destination; audit relative paths from **the resulting page's directory**, not repository root. Source-only links must be labeled source, not playable story.
+4. If actual image binaries are absent, declare **ASSETS_MISSING**, withhold play/completed status, do not register a broken story, and use a labelled production gateway linking the canonical player. Do not silently substitute text cards for the existing cinematic experience.
+5. Use the current shared Constellation CSS/JS, *five actual static fallback stars*, seasonal JSON catalogue and reduced-motion behaviour; never replace these with decorative fixed stars pretending to be navigational widgets.
+6. Execute a link-resolution/static check, story JSON parsing, asset existence test, JS/CSS reference check and relevant browser/device/live tests **before declaring success**. A GitHub commit does not mean a working page.
+7. Preserve one regression receipt in tasks or project file, naming the wrong link, root cause, corrective commit and untested areas. Never mark COMPLETE without the source, art, navigation, resources and acceptance checklist passing.
+
+**Required status vocabulary:** source archived; story adapted; binary images generated locally; binaries uploaded; manifest registered; static tests passed; live URL verified; device/accessibility tests passed. Never collapse these into 'done'.
