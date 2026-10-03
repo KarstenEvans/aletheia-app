@@ -894,3 +894,18 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [ ] Actually render and human-approve YouTube videos; upload them only with explicit publishing approval and real video IDs, then update YouTube indexes.
 
 **Rule:** source commit ≠ binary asset installed ≠ deployment ≠ browser/render verification.
+
+
+## AI Easy: free Copilot instructions persistence and feature-gate audit (3 October 2026)
+
+**Status: OPEN / RESEARCH.** Linked idea: `ideas.md` → Aletheia AI Easy — Copilot persistent-instructions discovery. Starter exists at `aletheia-ai-easy/copilot-free-starter.md`.
+
+- [ ] Verify current free, paid personal and Microsoft 365 work Copilot instructions pathways from versioned authoritative sources. Record exact product/account/build and feature label.
+- [ ] Identify installed AppX/MSIX versions and local settings **read-only**, distinguishing `Microsoft.Copilot` from `Microsoft.MicrosoftOfficeHub`; review registration vs feature configuration vs cloud account controls.
+- [ ] Investigate archived forum/Usenet, GitHub and public technical discussions for evidence of an actual Custom Instructions registry setting; log positive and negative results with dated citations, no guesses.
+- [ ] Only if a real key is found, verify reader code or observed registry reads and reproduce safely on authorised disposable test setup; document rollback, support status and account eligibility. Do not distribute a speculative `.reg` patch.
+- [ ] Define AI Easy LITE/PERSISTENT/PORTABLE setup differences, simple instructions for a new user, free availability, and handover/restore tests.
+- [ ] Design bootstrap pop-out window and independent main-page step sequence, with Copy/Close, fallback when pop-ups are blocked, accessibility and no automatic external transfer.
+- [ ] Design optional **consent-based** subscriber delivery for advanced documentation; essential instructions remain openly accessible, no concealed policy bypass or claims of guaranteed unlock.
+- [ ] Test persistence across a fresh session for each supported provider (Copilot, Gemini, Claude, DeepSeek, Qwen etc.) and clearly mark untested providers.
+- [ ] Human review, security review, actual browser/device receipts and approval before publication.
