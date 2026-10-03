@@ -919,3 +919,13 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [ ] Reconcile updated GUI/dev shared contracts and existing resource pages before updating them; do not claim adoption/approval of every pending guideline.
 - [ ] Keep Copilot story and independent Sif Museum plot apart during drafting, then compare attributed concepts and outcomes.
 - [ ] For each item identify research-worthy factual claims and record referenced Knowledge cards, avoiding fictional claims presented as science.
+
+
+## Aletheia Improve Preflight Validator — introduced 4 October 2026
+- [x] Create `aletheia-improve/preflight.mjs` (Node 18+, offline, read-only, machine-readable JSON, PASS/FAIL/NOT_TESTED).
+- [x] Update `aletheia-improve/aletheia-improve.md` to require preflight before Storyteller COMPLETE/promotion.
+- [x] Check S001 source files against selected detector conditions: cinematic image tags and voice tags present; **burger control absent; full `-youtube-video.md` missing; six image filenames referenced but original image assets not yet verified installed**. Result: **FAIL as intended**, story incomplete.
+- [ ] Execute full validator on a fresh repository checkout (not run in this connector-only session); save exact JSON receipt and test exit codes with positive and deliberately broken fixtures.
+- [ ] Install/verify binary assets, correct burger and post navigation, finish complete YouTube script; rerun validation.
+- [ ] Add CI/PR integration after local tests, including manifest and asset checks; avoid claiming a release gate is enforced automatically until workflow is actually configured.
+- [ ] Perform real browser/mobile/seasonal/voice/hotspot checks; record manual results and human approval before COMPLETE.
