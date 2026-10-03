@@ -909,3 +909,13 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [ ] Design optional **consent-based** subscriber delivery for advanced documentation; essential instructions remain openly accessible, no concealed policy bypass or claims of guaranteed unlock.
 - [ ] Test persistence across a fresh session for each supported provider (Copilot, Gemini, Claude, DeepSeek, Qwen etc.) and clearly mark untested providers.
 - [ ] Human review, security review, actual browser/device receipts and approval before publication.
+
+
+## Aletheia Story List: sequenced productions — 3 October 2026
+- [x] Create [Aletheia Story List.md](Aletheia%20Story%20List.md) containing **22 stable IDs (S001–S022)** with original source, status and next steps.
+- [x] Confirm existing Storyteller `stories/stories.json` lists Missing AI, Missing Yesterday, Sunday That Forgot the Sun, Universe That Learned to Spell, AI That Said It Had Finished, Job That Wasn't There and bio-Sif; Copilot Pip and Museum source drafts exist separately.
+- [ ] **ACTIVE S001: Pip and the Maple's Secret**. Use Copilot archive `KarstenEvans/aletheia-knowledge/ideas/CoPilotandPip.md` as credited source, run Improve existing-work gate, create separate production specs, narration, original image plan, YouTube script, resources and review receipt.
+- [ ] Finish S001 asset/presentation/live tests before marking complete; next invocation **“Let's do a story”** resumes S001 until complete, then advances to S002.
+- [ ] Reconcile updated GUI/dev shared contracts and existing resource pages before updating them; do not claim adoption/approval of every pending guideline.
+- [ ] Keep Copilot story and independent Sif Museum plot apart during drafting, then compare attributed concepts and outcomes.
+- [ ] For each item identify research-worthy factual claims and record referenced Knowledge cards, avoiding fictional claims presented as science.
