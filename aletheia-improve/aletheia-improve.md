@@ -512,3 +512,19 @@ This additional gate complements, and does not recursively restart, the earlier 
 **Completion means:** full Storyteller source + actual image binaries + functioning cinematic playback and post HTM/menu/stars/backlinks/resources + conditional knowledge + complete YouTube-video Markdown + verified tests. If any mandatory item is blocked, remain IN PROGRESS and resume that item next invocation. Never substitute a divergent GUI.
 
 **Documentation safeguards:** Require both [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) and [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) references on new canonical Markdown, as required by shared GUI/dev.
+
+## Mandatory executable preflight (4 October 2026)
+
+**Before claiming any Storyteller production COMPLETE**, run the checked-in offline validator from the repository root with Node.js 18 or later:
+
+```sh
+node aletheia-improve/preflight.mjs --story Pip-and-the-Maples-Secret --strict
+```
+
+Substitute the actual story file stem. The tool is read-only, uses Node built-ins only, writes no files, and produces a machine-readable JSON receipt on stdout. Exit codes: **0** no static failures (without strict flag), **1** at least one mandatory check failed, **2** no static failures but manual tests remain unverified in strict mode. Never reclassify NOT_TESTED as PASS merely to obtain zero failures. Preserve the result in task receipts.
+
+The validator checks the required canonical project contracts, manifest/catalogue JSON, story deliverables, protocol references, source completeness proxy, camera/voice syntax presence, on-disk image assets, Storyteller manifest status, local HTML href/src paths, menu presence, correct resources/books-and-gifts destination, shared Constellation and five static fallback links, YouTube draft existence and basic structure. This is an **initial static gate**, not a complete parser or browser test: image-specific hotspot correctness, actual burger operation, page rendering, voice playback, accessibility, deployment and external link reachability still require verified tests. Existing unrelated stories do not fail solely because they are unfinished: run per target.
+
+**S001 regression fixture:** Pip's previously generated -post.htm lacked a burger menu and the canonical full-screen Storyteller image binaries are absent. The preflight should **FAIL** S001 until fixed, rather than declare victory because source files exist. Never add meaningless HTML strings just to satisfy regex tests: apply manual behavioural QA.
+
+**Operational order:** Read -> Improve -> run Preflight -> resolve FAIL -> run browser/device checks -> obtain human approval -> update statuses. A PRE-FLIGHT FAIL BLOCKS promotion/publication even when an AI can still generate text files. Separate publication approval applies regardless of PASS.
