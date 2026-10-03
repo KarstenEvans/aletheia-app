@@ -44,8 +44,8 @@ On receiving **"Let's do a story"** (also "next story", "do the next one"):
 
 ## Current cursor / work state
 - **ACTIVE: S001** — `Pip and the Maple's Secret`.
-- **Current stage: SOURCE_ARCHIVED / PRODUCTION_PENDING.**
-- **Next action:** Aletheia Improve S001: verify and preserve Copilot source text, create **new** Storyteller canonical draft, page spec, scene-map and YouTube production prompt; propose art assets, narration, stars and resources. Do not overwrite the source archive.
+- **Current stage: SOURCE_ARCHIVED / SPEC_READY / ART_AND_IMPLEMENTATION_PENDING.**
+- **Next action:** Adapt Copilot's credited source into a separate Storyteller-ready canonical narrative, prepare original illustration assets and integrate/test accessible HTM, resources and indexes. New page spec/story map: `stories/Pip-and-the-Maples-Secret-page.md`; new YouTube brief: `stories/Pip-and-the-Maples-Secret-youtube.md`. Do not overwrite source archive.
 - S002 remains a strict independent parallel branch, compared only after both versions are drafted.
 - Preserve all Copilot excerpts as a supplied third-party model contribution. The child/tree/bee design entered via a user-supplied scene image/description; Copilot explicitly indicated it did not fetch or inspect the image itself.
 - The list is an editorial queue, not proof that every named item has a published page. Additional documented stories may be appended with next unused ID after audit; never silently renumber IDs.
