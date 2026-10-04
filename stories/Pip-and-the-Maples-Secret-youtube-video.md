@@ -1,17 +1,30 @@
-# Pip and the Maple's Secret — YouTube Video Production Script
+# Pip and the Maple's Secret — YouTube Vids / complete video story
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
-**Status:** Full-text derived voiceover script, unrendered and unapproved. Source: `stories/Pip-and-the-Maples-Secret.md` revised 4 October 2026. Original six-scene seed and story by Copilot with Kes; expanded Aletheia adaptation by Sif/ChatGPT. This derivative is not a YouTube upload.
 
-## Video metadata
-Working title: Pip and the Maple's Secret | A Mystery in Six Scenes
-Audience: 8–12 reading/listening and family; gentle detective comedy, no startling music.
-Description draft: An upside-down map, a secret leaf, and a question-shaped key. Three trails lead to one forgotten drawing. Aletheia Storyteller adaptation of a six-scene Copilot/Kes story. Creator credit, source and project links require editorial review. For more, see Aletheia Stories and [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol). Affiliate books/gifts links only when relevant, tested and disclosed.
-Audio: Narrator UK English when supported; distinct light voices for CHILD, BRAMBLE, MAPLE, PIP. Voice assignments are production suggestions, not recorded audio. Manual word timing and VTT to be developed after narration.
-Assets: Six WebP filenames are embedded as references, **not verified installed**. Generate, upload and verify corresponding images before rendering.
+**Status:** COMPLETE SCRIPT / NOT RENDERED / NOT PUBLISHED / HUMAN APPROVAL PENDING. Compiled from the current canonical six-scene story Markdown. Original idea/text by Copilot with Kes; adaptation and script assembly by Sif/ChatGPT. Video editor is the user's approved YouTube Vids workflow where available; this Markdown **does not claim that a video was rendered or uploaded**.
 
-## Complete scene-by-scene voiceover and visual directions
-All spoken prose/dialogue below is derived directly from the revised complete Storyteller Markdown, retaining the six scenes. Bracketed camera/voice directives remain as editing instructions, NOT spoken words. Durations not determined until recorded narration. Editorial review must compare the original source for copyright attribution and ensure all six visuals match hotspots.
+## Suggested metadata
+- **Working YouTube title:** Pip and the Maple's Secret | A Woodland Mystery in Six Scenes
+- **Audience:** independently reading children roughly 8–12 and family co-viewers. A story that entertains both children and adults, with gentle character humour.
+- **Description:** An upside-down map, a question-shaped key and a butterfly's lost drawing: will Bramble's hopeless directions finally help solve the mystery? An Aletheia illustrated adaptation of a six-scene original by Copilot with Kes. Free story and companion resources: https://karstenevans.github.io/aletheia-app/stories/Pip-and-the-Maples-Secret.htm . Editorial credits and links must be rechecked before release.
+- **Aspect:** 16:9 images (1672 × 941); allow crops for mobile.
+- **Voices:** UK English narrator; optional distinct Child/Bramble/Maple/Pip. Record consent and rights for any synthetic voice selection. Do not impersonate a real person.
+- **Music:** optional licensed/rights-cleared understated woodland atmosphere; no audio starts without activation on web player.
+- **Credits:** Kes direction; Copilot six-scene source; Sif/ChatGPT story adaptation; human editorial approval pending.
+- **Affiliate:** Bookshop link belongs to the OPTIONAL separate resource page with disclosure, not embedded as an interruption to the story.
 
+## Delivery checklist
+Each section below contains the **complete story text**, not a six-line synopsis. Bracketed `[image]`, `[zoom]`, `[pan]`, `[wide]`, `[hold]` and `[voice:]` instructions are editing/voice direction cues, NOT words to narrate. The story must be performed in sequence; the seventh art piece is only an optional scene-4 cutaway.
+
+### Scene 1: The Door That Glowed
+
+**Image:** `Pip-and-the-Maples-Secret-01.webp`  
+**Editorial shot direction:** Introduce the tree as a place with a secret. Wide shot then zoom onto the child's key and Bramble. Establish the upside-down map as a clue.  
+**Approximate voiceover duration:** 1:43 at ~130 words/minute; NOT recorded/synchronised.  
+**Source narration and in-line direction tags (verbatim, not spoken when bracketed):**
+
+[image;Pip-and-the-Maples-Secret-01.webp;child=23,62,1.8;bee=43,40,1.8;door=79,48,2.0]
+[wide;dur=1.8]
 ## Scene 1 — The Door That Glowed
 
 [voice:NARRATOR]
@@ -62,11 +75,18 @@ On the map, a dotted line ran from the clearing to a hollow in the tree. Beside 
 
 Something wonderful was about to happen.
 
-[image;Pip-and-the-Maples-Secret-02.webp;leaf=50,62,2.2;child=22,36,1.8;bee=82,30,1.8]
+
+---
+
+### Scene 2: The Whispering Leaf
+
+**Image:** `Pip-and-the-Maples-Secret-02.webp`  
+**Editorial shot direction:** Hold a still shot of the leaf, reveal its glow, and slow down for the child's question. Avoid implying the leaf's colour is scientific.  
+**Approximate voiceover duration:** 1:33 at ~130 words/minute; NOT recorded/synchronised.  
+**Source narration and in-line direction tags (verbatim, not spoken when bracketed):**
+
+[image;Pip-and-the-Maples-Secret-02.webp;leaf=53,67,2.2;child=26,28,1.8;bee=82,43,1.8]
 [wide;dur=1.5]
-
-
-
 ## Scene 2 — The Whispering Leaf
 
 [voice:NARRATOR]
@@ -123,11 +143,18 @@ The leaf turned over. Its veins made the other half of the wing drawn on Bramble
 [voice:NARRATOR]
 The child kept the shape in mind. Something wonderful was beginning.
 
-[image;Pip-and-the-Maples-Secret-03.webp;bramble=27,43,2.1;pip=63,50,2.1]
+
+---
+
+### Scene 3: The Bee's Secret
+
+**Image:** `Pip-and-the-Maples-Secret-03.webp`  
+**Editorial shot direction:** Focus on Bramble and Pip. Let the joke about certified navigation breathe; show the map clue without adding anything absent from the source art.  
+**Approximate voiceover duration:** 2:12 at ~130 words/minute; NOT recorded/synchronised.  
+**Source narration and in-line direction tags (verbatim, not spoken when bracketed):**
+
+[image;Pip-and-the-Maples-Secret-03.webp;bramble=27,44,2.1;pip=62,52,2.1]
 [wide;dur=1.5]
-
-
-
 ## Scene 3 — The Bee's Secret
 
 [voice:NARRATOR]
@@ -187,11 +214,18 @@ Pip had sent Bramble for more than directions: somewhere in the woods was a draw
 
 Something wonderful was about to be remembered.
 
-[image;Pip-and-the-Maples-Secret-04.webp;leaf=50,68,2.2;child=22,38,1.6;pip=85,70,1.6;bee=10,64,1.5]
+
+---
+
+### Scene 4: The Hidden Color
+
+**Image:** `Pip-and-the-Maples-Secret-04.webp`  
+**Editorial shot direction:** Start with the bright leaf, then zoom the child, bee and butterfly. The seventh image can be used as an optional still cutaway within this scene.  
+**Approximate voiceover duration:** 1:58 at ~130 words/minute; NOT recorded/synchronised.  
+**Source narration and in-line direction tags (verbatim, not spoken when bracketed):**
+
+[image;Pip-and-the-Maples-Secret-04.webp;leaf=51,65,2.2;child=43,29,1.6;pip=82,57,1.6;bee=26,53,1.5]
 [wide;dur=1.5]
-
-
-
 ## Scene 4 — The Hidden Color
 
 [voice:NARRATOR]
@@ -249,11 +283,18 @@ The unnamed colour traced the veins on the leaf and lit a small notch in the bar
 [voice:NARRATOR]
 High in the branches, Pip fluttered once. The child had followed both clues. Something wonderful was ready to be revealed.
 
-[image;Pip-and-the-Maples-Secret-05.webp;drawing=50,62,2.1;pip=22,35,1.9;bee=79,62,1.6;child=54,40,1.8]
+
+---
+
+### Scene 5: The Memory in the Bark
+
+**Image:** `Pip-and-the-Maples-Secret-05.webp`  
+**Editorial shot direction:** Reveal the butterfly carving and the child's hand at the tree. Use a shorter, calmer zoom when the remembered promise becomes emotional.  
+**Approximate voiceover duration:** 2:21 at ~130 words/minute; NOT recorded/synchronised.  
+**Source narration and in-line direction tags (verbatim, not spoken when bracketed):**
+
+[image;Pip-and-the-Maples-Secret-05.webp;drawing=67,46,2.1;pip=67,44,1.9;bee=33,46,1.6;child=46,66,1.8]
 [wide;dur=1.5]
-
-
-
 ## Scene 5 — The Memory in the Bark
 
 [voice:NARRATOR]
@@ -317,11 +358,18 @@ The child unfolded Bramble's map, placed the leaf beside it and found a line of 
 [voice:NARRATOR]
 The child smiled. Pip's wing markings, Bramble's muddled map and the maple's secret had finally become one answer. Something wonderful was waiting on the other side.
 
-[image;Pip-and-the-Maples-Secret-06.webp;child=51,45,2.0;pip=23,37,1.8;bee=76,58,1.7;drawing=52,62,2.0]
+
+---
+
+### Scene 6: The Smile That Was Waiting
+
+**Image:** `Pip-and-the-Maples-Secret-06.webp`  
+**Editorial shot direction:** Return to the child holding the drawing in the hollow. Let the final map/key joke pay off and end in a calm wide hold.  
+**Approximate voiceover duration:** 2:38 at ~130 words/minute; NOT recorded/synchronised.  
+**Source narration and in-line direction tags (verbatim, not spoken when bracketed):**
+
+[image;Pip-and-the-Maples-Secret-06.webp;child=57,39,2.0;pip=31,43,1.8;bee=76,58,1.7;drawing=51,65,2.0]
 [wide;dur=1.5]
-
-
-
 ## Scene 6 — The Smile That Was Waiting
 
 [voice:NARRATOR]
@@ -396,21 +444,17 @@ Every discovery leaves a trail someone else can follow.
 [voice:NARRATOR]
 Keep your questions, share your maps and come back whenever you like.
 
-## Production status
+## Narration and editing guidance
+- Preserve the full written narrative, character-led jokes, clue trail and ending. Read lines unmarked as dialogue through the preceding `[voice:]` tag, with NARRATOR as the default.
+- Use the exact six `[image]` assets; `-07.webp` is an optional second angle in scene 4 and must not be represented as chapter seven.
+- Let the camera start wide, then use the existing hotspot x/y/z in each image cue for the editor's pan/zoom animation. Test crops so faces, key and drawing remain visible on phone previews.
+- Apply gentle caption-safe lower-thirds and no strobing or fast pans; offer static version to reduced-motion users.
+- The suggested duration estimates are **not VTT timestamps**. Generate captions from the actual narrated final recording, proofread and time-align against that audio.
+- Produce a genuine audio/video preview, review in the real YouTube-Vids/editor workflow, and obtain Kes's approval **before** upload. Add verified links only after publishing.
+- Verify Bookshop/Awin copy and Aletheia/Thalia links independently; no affiliate or tracker is required to read this story.
 
-- Canonical Storyteller adaptation: drafted.
-- Image files referenced above: generated locally as draft PNGs and still need final naming/conversion/upload into the repository.
-- Storyteller manifest registration: pending binary asset route and live test.
-- YouTube production pack: `stories/Pip-and-the-Maples-Secret-youtube.md`.
-- HTM posting page: `stories/Pip-and-the-Maples-Secret-post.htm`.
-
-## Camera, edit and accessibility contract
-For each [image] use its actual asset and validate hotspot coordinates visually; use [zoom], [pan], [wide], [hold] as shot directions in the Storyteller source. Keep controlled slow movement, no flashing or jump scares; opt for stills if reduced-motion chosen. Captions are the *spoken* lines, excluding directives. Record actual timestamps and create .vtt only when narration duration is known. Preview audio and text against frame/scene changes.
-
-## Publication checklist
-- [ ] Six real art assets installed and pixel-checked.
-- [ ] Captions aligned to final sound; voiceover human reviewed.
-- [ ] Render actual video using supported YouTube production tool and verify before claiming render.
-- [ ] Check 16:9 framing, phone readability, narration/captions and audio comfort.
-- [ ] Human approval to upload; verified public URL only after platform confirms.
-- [ ] Resources, bookshop, backlinks and any affiliate disclosure checked independently.
+## Evidence and readiness
+- Story scenes and current `[image]` cue text: transcribed directly from `stories/Pip-and-the-Maples-Secret.md`.
+- Scene count: 6. Approximate spoken words (excludes camera direction): 1616.
+- Six illustrations and one optional cutaway prepared as local WebPs, but installation on GitHub and real cinematic/web playback have NOT been verified.
+- No MP4, MP3 or captions file claimed; **RENDERED: NO; PUBLISHED: NO; TESTED LIVE: NO.**
