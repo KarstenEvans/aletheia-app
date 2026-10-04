@@ -1,0 +1,30 @@
+# Norwegian Student House: one episodic comedy series (working archive)
+[Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
+
+**Status:** Kes's firsthand reminiscences captured as source notes, 4 October 2026. One future YouTube comedy series, NOT two films for the cold-car stories, NOT an active production and NOT a new task competing with Pip. Character names and personal details are provisional; obtain consent/anonymise before publication, especially intimate/embarrassing stories. Dates and mechanisms may reflect imperfect decades-old recollection. Fictional adaptation may combine incidents but should not claim invented scenes actually happened.
+
+## Setting and ensemble
+Norwegian mixed student accommodation, around late 1985: nominally nursing student housing, with spare rooms used by engineering and chemistry/physiochemical students. Three floors; residents crossing courses, exam timetables, flirtation, night shifts and improvised technology lessons. A recurring ensemble with different perspectives, personalities and stories, in an episodic workplace/sitcom rhythm, but original scenes rather than rewritten copyrighted episodes of Friends, The Big Bang Theory or The Office.
+
+Kes's working title for house episodes: **The Breakfast Club** (avoid implying licence/affiliation with existing film); another possible fictional series title to select later. Student-house narrative, recurring cast, seasonal winter setting.
+
+## Source anecdotes, not scripted or verified
+- A student nicknamed **Anton** (short for Antoinette), reportedly had a boyfriend across the fjord, was sociable/flirtatious and maintained boundaries. Write respectful character agency; avoid jokes that demean her.
+- **Katrina** and a woman nicknamed **Fritz** (due to frizzy hair) were among chemistry-related students. A laboratory distillation apparatus and alcohol stored in jam jars were remembered. This is a hazardous anecdote, NOT instructions for distillation, mixing unknown alcohol, drinking or lab practice.
+- *The Princess and the Pea*: resident's stacked spare mattresses became the subject of playful hidden-object pranks; she later distributed objects back to their owners saying 'Is this yours?' Prioritise consent, harmlessness and character warmth if fictionalised.
+- Complaints about noise came from downstairs residents, some of whom eventually joined the communal gathering; all three floors gradually became involved. Memory mentions TV comedy viewing, but **Teletubbies first aired in 1997** and cannot appear in a scene set in December 1985. Keep the program memory as a later-era recollection or replace with era-accurate, rights-cleared fictional television.
+- Informal BASIC tuition on a BBC microcomputer, with engineering FORTRAN and real-time Norsk Data 100 work alongside exam weeks. Verify dates/availability of any tech detail if used as history.
+- Wednesday industrial-electronics exam: Kes recalls arriving sleep deprived with dark glasses given by Anton, a **bobble hat** representing students believed likely to fail, while his lecturer assumed he'd fail due to very low attendance. Kes reports leaving before eleven from a 09:00–15:00 exam, scoring about 1.5, among three students with that mark. The five questions built on one another, allowing an incremental Eureka moment. One analogue/electrical phase problem involved a factor √3 and/or 90-degree phase discrepancy; details should be checked, not presented as a solved engineering derivation.
+- His account of learning by informally reading an English-language textbook and explaining it to classmates is useful for a light-hearted study montage: explaining material helped him understand it. Avoid implying medication or exhaustion caused superior cognition.
+- Kes mentions a codeine-related medicine remembered as 'Glubamide' (spelling/identity uncertain), some punch, exhaustion and driving. **Do not recommend combining sedating medicine, alcohol, sleep deprivation or driving**; not a model to imitate.
+- Earlier winter anecdote: a Chrysler 180 developed radiator/cooling trouble in approximately −25°C, steam looked like a car fire to Helga during a farewell, and the car accumulated backwards icicles on the hazardous drive toward Drammen. Earlier separate experience at −32°C involved wheels unable to turn until workshop warming. These are recurring winter-world incidents of the *same* overall series, not two standalone productions; embellishment only with clear fictional framing. No hazardous vehicle-repair advice.
+- A narrator whose memory branches unexpectedly can become a comic device, but let the audience see the causal thread. Structure episodes around a main story plus two minor recurring strands, converging at a payoff. Historical setting allows generational double-level humour.
+
+## Story design notes
+Episode possibilities within **one series** (not green-lit individual productions): exam/bobble-hat and missing name in roll; the mattress returns; three-floor house party; the BBC BASIC impromptu school; the icy Chrysler/Helga misunderstanding. Keep recurring continuity, original dialogue, adult comedic situations without non-consensual pranks or unsafe conduct glorification. The audience may be older teens/adults rather than small children. No lifting the distinctive dialogue/plots of other copyrighted sitcoms.
+
+## Dates and uncertainty
+Kes recalls leaving college December 1985 and starting work January 1986, October 'Rocktober' memories and December winter travel. Verify event timing before a fact-based introduction; 'Teletubbies in 1985' is a chronological impossibility, as Teletubbies began in 1997. Keep a separate memory of watching it later, not as 1985 footage.
+
+## Editorial gate
+**Parking only**. Finish active S001 Pip before commencing production of this series. No extra entry in the current numbered production queue until Kes asks. Keep personal names private in public outputs until reviewed.
