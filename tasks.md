@@ -963,3 +963,11 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [x] Deliver downloadable 7-image offline ZIP (complete story HTML/post HTML/resources HTML/full script MD/source MD/images/manifest). Offline tests: static 12/12 PASS; Chromium scene change, zoom & wide, images load, burger, no horizontal mobile overflow and no JS errors PASS with external Awin script suppressed.
 - [ ] Actual GitHub image binary upload; public fetch and checksum confirmation, full GitHub checkout Node preflight run, live player/caption/voice/affiliate test and user approval.
 - [ ] Human approval to add S001 to Storyteller published manifest and story index. Do not advance to S002 until truly ready.
+
+
+## Stage-by-stage Markdown delivery — 4 October 2026
+
+- [x] Record the user-approved rule in shared GUI §11.1 and developer guide §5.1: complete Aletheia Markdown per stage, immediate artifact link, both protocols, evidence/gaps, checks and deterministic resumption.
+- [x] Route AGENTS.md and Improve output to the shared contract; include partial checkpoints and an honest file-access fallback.
+- [x] Validate targeted additive documentation changes and preservation of prior content. No app HTML, manifests, research proposals or normative protocol versions changed.
+- [ ] Verify user-facing download/access behaviour in each host; source documentation cannot repair a host artifact/environment association failure.

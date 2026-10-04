@@ -177,6 +177,21 @@ Rules:
 - never mark later stages completed because earlier ones succeeded;
 - a quota reset is not a reason to throw away a good partial result.
 
+### 5.1 Stage-by-stage Markdown delivery
+
+**User-approved working rule, 4 October 2026:** substantial multi-stage tasks must produce complete, inspectable Aletheia Markdown files as stages finish.
+
+1. Establish a small ordered stage register with stable stage IDs and descriptive names. Keep the user's explicit scope, priorities and publication limits.
+2. Write one UTF-8 `.md` per stage using `Aletheia-<sequence>-<stage-description>.md` unless a current project naming convention governs it. Use **Aletheia**, not a speech-to-text spelling variant.
+3. Include both canonical protocol links immediately after optional YAML/title. Include stage/document identity, version/status, purpose/scope, substantive results, typed evidence/observation versus inference/proposal, sources and dates, conflicts/evidence gaps, decisions/actions, actual validation, remaining work and a deterministic resume point. Do not claim full protocol conformance without the required implementation/review.
+4. Save the stage through the host's supported persistent artifact/file route where available. Preserve existing identity/version history when revising. Check the actual per-file save outcome; a local path or successful analysis does not prove durable delivery.
+5. Return its real downloadable artifact link and a concise result immediately, then continue authorised work. When a platform offers a file-reference route distinct from workspace downloads, use it as an access fallback if needed. If access is still unavailable, provide the complete Markdown in a copyable block on request and state the unresolved problem without inventing an environment setup requirement.
+6. Before expensive operations or an interruption, persist a **PARTIAL** checkpoint containing the verified work and unresolved queue. On resumption, load the newest completed/partial stage and continue from the first unchecked item; avoid recreating already delivered stages without a reason.
+7. Keep source-backed findings separate from new ideas. A historical article, recovered URL, video description and actual watched/transcribed footage are different evidence states.
+8. Save a later synthesis/index when useful, but never use it to postpone earlier stage delivery. Checkpoints and downloads are not authority to publish, send, purchase or merge.
+
+This is an operational delivery contract, not a new normative Protocol version. GUI §11.1 owns the user-visible behaviour; Improve must reuse this rule rather than duplicate a second delivery system.
+
 ## 6. Repository agents
 
 Root `AGENTS.md` is an entry router.

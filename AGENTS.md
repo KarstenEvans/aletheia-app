@@ -19,6 +19,7 @@ Protocol source: `https://github.com/KarstenEvans/aletheia-protocol`
 
 - Markdown/specification first; browser HTML is a rendition/interface.
 - Inspect the current app before editing. Preserve working features unless the task explicitly changes them.
+- For substantial multi-stage work, follow GUI §11.1 and developer guide §5.1: save and deliver a complete Aletheia Markdown file at each stage, expose its actual file link immediately, and preserve an honest partial/resume checkpoint before slow work. See those canonical sections for file-access fallbacks and publication boundaries.
 - KISS and static/free-first. Optional cloud AI, Workers, MCP, agents or paid APIs must not become required for the ordinary app unless the app explicitly says so.
 - Build mobile-first, then desktop. Test touch, keyboard, zoom, reduced motion and narrow screens.
 - Support current Chromium, Firefox and Safari/WebKit where practical. Feature-detect browser APIs and graphics capabilities; do not assume a browser or operating system lacks a library merely from one failed run.

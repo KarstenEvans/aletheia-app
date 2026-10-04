@@ -292,6 +292,20 @@ A substantial agent task should:
 
 This rule applies to Work, Codex, Claude, Kimi, Manus, Grok, Odysseus and future agent systems.
 
+### 11.1 Deliver a Markdown file at each completed stage
+
+For substantial research, walkabouts, Improve runs and other multi-stage work, expose useful results as they are completed. Do not make the user wait for the whole task before receiving its first usable artifact.
+
+- Use one descriptively named file per stage, for example `Aletheia-01-OpenAI-Partnership.md` or `Aletheia-02-Link-and-Video-Inventory.md`. Use the canonical spelling **Aletheia**.
+- Each file is a complete Aletheia Markdown research/work record, not a placeholder or a chat-only status note. Include both protocol links near the beginning, the result, evidence/source links and check dates, material uncertainty/conflicts, proposals or decisions, completed/remaining work and a resumption instruction.
+- Save through the host's supported persistent artifact mechanism where available, verify the save receipt, then present the stage's actual downloadable file link immediately before continuing. A typed path or a promise to create a file is not delivery.
+- Show one short human-readable result alongside the file. Offer the next stage separately; do not bury completed downloads behind a final omnibus report.
+- If file access fails, distinguish creation, saving and user-access verification. Supply a supported native file reference or full copyable Markdown fallback and describe the actual access problem. Do not tell the user that a running task lacks an execution environment without evidence.
+- Before a slow operation or interruption, save an honestly labelled **PARTIAL** stage checkpoint with the checked evidence and remaining queue. Never mark unvisited links, unwatched videos or unrun checks as completed.
+- Download/export/checkpointing does not grant publication authority. Research proposals, source-branch changes and live publication retain their separate scope and approval rules.
+
+Canonical engineering detail: [developer guide §5.1](aletheia-dev.md#51-stage-by-stage-markdown-delivery).
+
 ## 12. External dependencies
 
 Document every runtime dependency:
