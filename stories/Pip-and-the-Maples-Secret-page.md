@@ -2,6 +2,7 @@
 Date: 2026-10-03
 Status: SPEC_READY / CONTENT_ADAPTATION_AND_ART_PENDING
 Aletheia Protocol: https://github.com/KarstenEvans/aletheia-protocol
+Thalia Protocol: https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md
 Aletheia Improve: https://github.com/KarstenEvans/aletheia-app/blob/main/aletheia-improve/aletheia-improve.md
 Queue: https://github.com/KarstenEvans/aletheia-app/blob/main/Aletheia%20Story%20List.md
 
