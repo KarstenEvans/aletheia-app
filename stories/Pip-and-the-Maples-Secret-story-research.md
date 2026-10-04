@@ -22,3 +22,24 @@ Talking maple leaves, memory-kept drawings and magical colours are fictional. Fa
 
 ## Production gates
 Illustrations still need matching assets uploaded and visual hotspots checked; full YouTube-video.md should be derived from revised final narrative; -post.htm still lacks reviewed burger control; Storyteller manifest withheld until art exists. Run preflight and don't label live tests complete.
+
+## Kes's family-storytelling observations — 4 October 2026
+**Provenance:** First-person recollections and editorial preferences from Kes, not validated audience or psychological research. Do not present remembered broadcast/casting anecdotes or generalisations about gender, IQ, schooling or discipline as established facts.
+
+### Practical dual-audience rules for S001 and existing Storyteller
+- **Two layers, one coherent plot:** children follow concrete action, mystery, funny mistakes and consequences; adult co-readers catch an additional layer of bureaucracy, vanity, overconfident expertise and gently ironic dialogue. Neither layer should require adult innuendo or mockery to work.
+- **Performance is part of the medium:** readable-as-text story *also* gives a parent/caregiver/narrator opportunities for playful voices, tempo, facial reactions, pauses, character contradictions and controlled suspense. Do not assume any parent gender is inherently a better narrator.
+- **Safe tension:** clear stakes, surprising faces, cautious suspense, relief and warm resolution (rather than actual danger, jump scares or disturbing imagery). Children differ in preferences: include a gentle/quiet mode.
+- **Rebellious comedy:** a small character who confidently contradicts an overconfident authority creates comic energy. Bramble as self-certified navigator; child challenges claims; Pip offers a clever correction. Humour is character-led and age-accessible.
+- **Child intelligence:** let children ask awkward, precise questions, test clues, notice inconsistencies and solve a step before the adults. Encourage curiosity without claiming school universally reduces measured IQ.
+- **Animals and imaginative science:** bee, butterfly, tree, dragon/cat or rocket can be emotional entry points to gentle factual discovery, while keeping fictional behaviour distinct from science and checking existing Knowledge first.
+- **Repeatable motifs:** a funny line or error established early returns with changed meaning at the climax. Use modest mystery complexity instead of six equally weighted plots for ages around 8–12.
+- **Reading-aloud cue:** for scenes, note natural pause and optional character voice; script spoken humour from action, not parent-gender stereotypes.
+
+### References mentioned for later *comparative* inspiration, no imitation
+Julia Donaldson / Axel Scheffler's *The Gruffalo*: rhythmic read-aloud suspense and verbal outwitting; Aesop: compact cause/consequence; Jacqueline Wilson: child agency and emotionally grounded problems; Rowling: long arc clues and world building; Roald Dahl: unruly humour and imaginative peril; Tom Sharpe: adult farce (not a model for age-appropriate content); *Teletubbies* / *In the Night Garden*: younger audience and repetition; ToomorrowMan / AI-PI: contradictory dialogue for two-age appeal. Treat this as comparative craft lenses, not recommendations to copy distinctive plot, phrases or characters.
+
+### Fact-check queue only if relevant to a future article
+Kes's Teletubbies audience/casting memories, broadcaster schedules, schools-versus-IQ claims, and behavioural generalisations need credible sourcing. Basic reference correction: **Tinky Winky is purple and the largest; Po is red and the smallest**. These factual notes do not warrant a new app or knowledge page and must not be folded into fictional Pip text as historical evidence.
+
+**Priority remains:** complete S001 art, player, proper post, YouTube script and tests before expanding the story queue.
