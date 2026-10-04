@@ -61,3 +61,11 @@ Re-use Storyteller existing format and manifest after source reads; avoid a dupl
 - Live GitHub Pages story: NOT VERIFIED.
 - YouTube video: NOT CREATED OR POSTED.
 - Human approval: PENDING.
+
+
+## October 4 content and interface revision receipt
+- Source story kept at `stories/Pip-and-the-Maples-Secret.md` with six canonical Storyteller scene/camera command groups; Copilot's separate archived source preserved.
+- Reading page updated at `stories/Pip-and-the-Maples-Secret-post.htm` with all six scene bodies, a native accessible `details/summary` burger menu, Storyteller/Knowledge/source and Stories resources link, plus five shared Constellation fallback stars and seasonal asset references.
+- Missing picture binaries remain explicit placeholders, not fabricated thumbnails. Page is reading edition, not a false claim of finished cinematic playback.
+- `stories/Pip-and-the-Maples-Secret-youtube-video.md` is a complete scene-by-scene derivative, but not rendered audio or video.
+- Real device/browser, artwork hotspot and dynamic star-calendar verification remain NOT TESTED.
