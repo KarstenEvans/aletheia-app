@@ -69,3 +69,7 @@ Re-use Storyteller existing format and manifest after source reads; avoid a dupl
 - Missing picture binaries remain explicit placeholders, not fabricated thumbnails. Page is reading edition, not a false claim of finished cinematic playback.
 - `stories/Pip-and-the-Maples-Secret-youtube-video.md` is a complete scene-by-scene derivative, but not rendered audio or video.
 - Real device/browser, artwork hotspot and dynamic star-calendar verification remain NOT TESTED.
+
+
+## S001 asset preparation receipt (4 October 2026)
+Six source PNG illustrations were located in the working session and converted to verified readable WebP files with exact Storyteller image-cue basenames: `Pip-and-the-Maples-Secret-01.webp` through `-06.webp` (1672 × 941). A six-file ZIP with SHA-256 image manifest and upload instructions has been produced for Kes to upload to `stories/`. **GitHub binaries have NOT been uploaded**, so their public URLs, hotspot coordinates and Storyteller registration remain unverified; production status remains IN PROGRESS. Once uploaded, run the committed preflight validator and real browser/device tests before promotion. Image styles need character continuity review; generated scenes may not match every textual hotspot precisely.
