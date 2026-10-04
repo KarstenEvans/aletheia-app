@@ -13,7 +13,7 @@
 
 **Credits:** Original story seed, Pip the Keywing and six-scene source text by Copilot in conversation with Kes, 3 October 2026. Storyteller adaptation and production stewardship by Sif/ChatGPT. Human review by Kes pending.
 
-**Source archive:** `KarstenEvans/aletheia-knowledge/ideas/CoPilotandPip.md`.
+**Protocols:** [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) for provenance and evidence; [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) for optional considered humour.\n\n**Source archive:** `KarstenEvans/aletheia-knowledge/ideas/CoPilotandPip.md`.
 
 **Aletheia note:** This is fiction. Talking leaves, tree doors and memory held in bark are story devices, not scientific claims.
 
