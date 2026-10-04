@@ -39,6 +39,28 @@ else {
   check('post:static-stars',(html.match(/aletheia-constellation__link/g)||[]).length>=5,'At least five static anchors');
   check('post:canonical-player',/aletheia-storyteller\.htm/.test(html),'Existing player link');
  }
+
+ const illustrated='stories/'+slug+'.htm',resources='stories/'+slug+'-rsc.htm';
+ check('deliverable:illustrated-story',exists(illustrated),illustrated);
+ check('deliverable:story-resources',exists(resources),resources);
+ if(exists(illustrated)){
+  const ih=read(illustrated);
+  check('illustrated:full-six-scene-text',(ih.match(/class="chapter"/g)||[]).length>=6,'Six readable scenes appear in illustration edition');
+  check('illustrated:scene-artwork',images.length>0&&images.every(n=>ih.includes(n)),'Image filenames from the canonical story appear in the page');
+  check('illustrated:working-zoom-controls',/id="zoomReset"/.test(ih)&&/id="hotspots"/.test(ih)&&/function safeFocus/.test(ih),'Interactive camera controls are wired; browser verification remains separate');
+  check('illustrated:optional-narration',/speechSynthesis/.test(ih)&&/id="play"/.test(ih)&&/id="stop"/.test(ih),'Speech control and stop controls; live browser voices unverified');
+ }
+ if(exists(resources)){
+  const rh=read(resources);
+  check('resources:shop-link',rh.includes('https://uk.bookshop.org/shop/aletheia')&&/data-awinignore/.test(rh),'Owner-supplied Bookshop destination excluded from Awin conversion');
+  check('resources:affiliate-disclosure',/Affiliate disclosure/i.test(rh)&&/Bookshop\.org/i.test(rh),'Separate optional shopping and disclosure');
+ }
+ for(const page of [post,illustrated,resources])if(exists(page)){
+  const h=read(page);
+  check('awin:single-mastertag:'+page,(h.match(/https:\/\/www\.dwin2\.com\/pub\.3182162\.min\.js/g)||[]).length===1,'Exactly one Awin Publisher MasterTag');
+  check('constellation:'+page,/shared\/link-sprites\.css/.test(h)&&/shared\/link-sprites\.js/.test(h)&&/data-aletheia-constellation/.test(h),'Shared seasonal navigation and static fallback');
+ }
+
  if(exists(youtube))check('youtube:narration-draft',read(youtube).length>=1500&&/scene/i.test(read(youtube))&&/narrat|voiceover/i.test(read(youtube)),'Full script equivalence still needs editorial verification');
 }
 check('manual:visual',false,'Requires rendered desktop/mobile checks','NOT_TESTED');
