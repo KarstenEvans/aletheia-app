@@ -13,7 +13,9 @@
 
 **Credits:** Original story seed, Pip the Keywing and six-scene source text by Copilot in conversation with Kes, 3 October 2026. Storyteller adaptation and production stewardship by Sif/ChatGPT. Human review by Kes pending.
 
-**Protocols:** [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) for provenance and evidence; [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) for optional considered humour.\n\n**Source archive:** `KarstenEvans/aletheia-knowledge/ideas/CoPilotandPip.md`.
+**Protocols:** [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) for provenance and evidence; [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) for optional considered humour.
+
+**Source archive:** `KarstenEvans/aletheia-knowledge/ideas/CoPilotandPip.md`.
 
 **Aletheia note:** This is fiction. Talking leaves, tree doors and memory held in bark are story devices, not scientific claims.
 
@@ -110,7 +112,6 @@ Mine. And yours.
 [voice:NARRATOR]
 The key glowed a little brighter.
 
-[voice:NARRATOR]
 [voice:CHILD]
 "If the key is a question, why won't it open the little brass lock on your map?"
 
@@ -170,7 +171,6 @@ Yes. Pip the Keywing. Tiny butterfly. Big wonder. He said you might need a guide
 [voice:NARRATOR]
 The key glowed brighter. The maple door shimmered. And the clearing felt as if it was holding its breath.
 
-[voice:NARRATOR]
 [voice:CHILD]
 "Then why does your map say TURN RIGHT at the stream? The stream is behind us."
 
@@ -232,7 +232,6 @@ That's it. You unlocked it.
 [voice:NARRATOR]
 Somewhere in the branches above, a tiny butterfly with keyhole wings fluttered once, as if approving the discovery.
 
-[voice:NARRATOR]
 [voice:CHILD]
 "Maybe the right question isn't about what colour you've kept. Maybe it's about who you kept it for."
 
@@ -292,7 +291,6 @@ Maybe she needs someone to remember her promise.
 [voice:NARRATOR]
 The maple door shimmered, brighter than ever.
 
-[voice:NARRATOR]
 [voice:CHILD]
 "Was the girl afraid of coming back?"
 
@@ -355,7 +353,6 @@ The child smiled, a small smile at first, then a bigger one, the kind that feels
 [voice:PIP]
 Wonder unlocks everything. Even smiles that were waiting.
 
-[voice:NARRATOR]
 [voice:CHILD]
 "But whose promise was it?"
 
@@ -393,8 +390,11 @@ Keep your questions, share your maps and come back whenever you like.
 
 ## Production status
 
-- Canonical Storyteller adaptation: drafted.
-- Image files referenced above: generated locally as draft PNGs and still need final naming/conversion/upload into the repository.
-- Storyteller manifest registration: pending binary asset route and live test.
-- YouTube production pack: `stories/Pip-and-the-Maples-Secret-youtube.md`.
-- HTM posting page: `stories/Pip-and-the-Maples-Secret-post.htm`.
+- Canonical six-scene Storyteller story: revised, with six camera hotspots matched approximately to the supplied artwork.
+- Seven WebP illustrations prepared; six are canonical scene artwork, seventh is an optional Scene 4 cutaway. **GitHub binary upload and public fetch are pending**.
+- Interactive story page: `stories/Pip-and-the-Maples-Secret.htm` (GitHub source committed; public images still require upload).
+- Reading and sharing page: `stories/Pip-and-the-Maples-Secret-post.htm`.
+- Dedicated resources / Books & Gifts: `stories/Pip-and-the-Maples-Secret-rsc.htm`.
+- Full YouTube Vids script: `stories/Pip-and-the-Maples-Secret-youtube-video.md`; rendered MP4, timed captions and upload **not done**.
+- Offline seven-image self-contained HTML bundle generated in the conversation and locally QA-tested.
+- Canonical Storyteller manifest registration and human final approval: pending.
