@@ -4,7 +4,7 @@
 [voice-profile;MAPLE;lang=en-GB;fallback=Female;rate=0.9;pitch=0.92]
 [voice-profile;PIP;lang=en-GB;fallback=Female;rate=1.03;pitch=1.18]
 
-[image;Pip-and-the-Maples-Secret-01.webp;child=25,63,1.8;bee=45,38,1.8;door=74,36,2.0]
+[image;Pip-and-the-Maples-Secret-01.webp;child=23,62,1.8;bee=43,40,1.8;door=79,48,2.0]
 [wide;dur=1.8]
 
 # Pip and the Maple's Secret
@@ -67,7 +67,7 @@ On the map, a dotted line ran from the clearing to a hollow in the tree. Beside 
 
 Something wonderful was about to happen.
 
-[image;Pip-and-the-Maples-Secret-02.webp;leaf=50,62,2.2;child=22,36,1.8;bee=82,30,1.8]
+[image;Pip-and-the-Maples-Secret-02.webp;leaf=53,67,2.2;child=26,28,1.8;bee=82,43,1.8]
 [wide;dur=1.5]
 
 ## Scene 2 — The Whispering Leaf
@@ -126,7 +126,7 @@ The leaf turned over. Its veins made the other half of the wing drawn on Bramble
 [voice:NARRATOR]
 The child kept the shape in mind. Something wonderful was beginning.
 
-[image;Pip-and-the-Maples-Secret-03.webp;bramble=27,43,2.1;pip=63,50,2.1]
+[image;Pip-and-the-Maples-Secret-03.webp;bramble=27,44,2.1;pip=62,52,2.1]
 [wide;dur=1.5]
 
 ## Scene 3 — The Bee's Secret
@@ -188,7 +188,7 @@ Pip had sent Bramble for more than directions: somewhere in the woods was a draw
 
 Something wonderful was about to be remembered.
 
-[image;Pip-and-the-Maples-Secret-04.webp;leaf=50,68,2.2;child=22,38,1.6;pip=85,70,1.6;bee=10,64,1.5]
+[image;Pip-and-the-Maples-Secret-04.webp;leaf=51,65,2.2;child=43,29,1.6;pip=82,57,1.6;bee=26,53,1.5]
 [wide;dur=1.5]
 
 ## Scene 4 — The Hidden Color
@@ -248,7 +248,7 @@ The unnamed colour traced the veins on the leaf and lit a small notch in the bar
 [voice:NARRATOR]
 High in the branches, Pip fluttered once. The child had followed both clues. Something wonderful was ready to be revealed.
 
-[image;Pip-and-the-Maples-Secret-05.webp;drawing=50,62,2.1;pip=22,35,1.9;bee=79,62,1.6;child=54,40,1.8]
+[image;Pip-and-the-Maples-Secret-05.webp;drawing=67,46,2.1;pip=67,44,1.9;bee=33,46,1.6;child=46,66,1.8]
 [wide;dur=1.5]
 
 ## Scene 5 — The Memory in the Bark
@@ -314,7 +314,7 @@ The child unfolded Bramble's map, placed the leaf beside it and found a line of 
 [voice:NARRATOR]
 The child smiled. Pip's wing markings, Bramble's muddled map and the maple's secret had finally become one answer. Something wonderful was waiting on the other side.
 
-[image;Pip-and-the-Maples-Secret-06.webp;child=51,45,2.0;pip=23,37,1.8;bee=76,58,1.7;drawing=52,62,2.0]
+[image;Pip-and-the-Maples-Secret-06.webp;child=57,39,2.0;pip=31,43,1.8;bee=76,58,1.7;drawing=51,65,2.0]
 [wide;dur=1.5]
 
 ## Scene 6 — The Smile That Was Waiting
