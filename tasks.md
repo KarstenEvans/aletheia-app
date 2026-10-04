@@ -941,3 +941,14 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [ ] Run `node aletheia-improve/preflight.mjs --story Pip-and-the-Maples-Secret --strict` on local repo checkout; save JSON receipt, then complete browser/voice/mobile/live tests. No preflight execution claimed here.
 - [ ] Check LinkedIn post preview and YouTube renderer only when real app implementations/backends are found; no claim that either tool has rendered/published.
 - [ ] Obtain Kes's editorial approval of the story expansion and all public posting routes before publishing.
+
+
+### S001 asset wiring receipt, 4 October 2026 (current)
+- [x] Compare original seven supplied PNG illustrations with six uploaded WebPs; confirm first six SHA-256 values match supplied manifest and convert alternate seventh PNG to `Pip-and-the-Maples-Secret-07.webp`.
+- [x] Produce seven-WebP ZIP upload kit, SHA-256 manifest, instructions and standalone offline art comparison.
+- [x] Correct six Storyteller focus-point coordinate sets by inspecting the actual illustrated subjects.
+- [x] Wire six scene `img` tags plus optional seventh art to current full GitHub `-post.htm`, preserving fallback, real menu, shared stars and resources.
+- [x] Static GitHub checks: 10/10 selected source-structure checks pass (not a browser or preflight full suite).
+- [ ] Binary installation: seven uploaded WebPs have **not** been pushed into `stories/` on GitHub; requires actual file upload, not merely the ZIP.
+- [ ] Offline browser testing **NOT TESTED** (execution sandbox blocked Chromium navigation to file:// and loopback http:// URLs).
+- [ ] After upload fetch public assets, run full Node preflight, verify camera, speech and resource links and seek human approval, then register S001 in player. **Do not claim COMPLETE**.
