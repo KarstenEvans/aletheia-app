@@ -45,6 +45,26 @@ It wasn't guarding the door. It was waiting.
 The child looked up. The bee nodded. The maple rustled. And the key warmed in the child's hand.
 
 [voice:NARRATOR]
+At the bottom of the door was a brass plaque: THE WAY IN IS NOT THE WAY THROUGH. Someone had scratched a little arrow beneath it. The arrow pointed both ways.
+
+[voice:CHILD]
+"That's not particularly helpful."
+
+[voice:NARRATOR]
+The bee produced a tiny folded map. It was upside down.
+
+[voice:BRAMBLE]
+"Naturally. I am a certified navigator."
+
+[voice:CHILD]
+"Certified by whom?"
+
+[voice:BRAMBLE]
+"Myself. It was a very demanding examination."
+
+[voice:NARRATOR]
+On the map, a dotted line ran from the clearing to a hollow in the tree. Beside it was a drawing of half a butterfly wing. Bramble quickly folded the map before the child could ask more.
+
 Something wonderful was about to happen.
 
 [image;Pip-and-the-Maples-Secret-02.webp;leaf=50,62,2.2;child=22,36,1.8;bee=82,30,1.8]
@@ -91,7 +111,20 @@ Mine. And yours.
 The key glowed a little brighter.
 
 [voice:NARRATOR]
-Something wonderful was beginning.
+[voice:CHILD]
+"If the key is a question, why won't it open the little brass lock on your map?"
+
+[voice:MAPLE]
+"Because that lock belongs to somebody who drew a promise, not somebody who bought a key."
+
+[voice:NARRATOR]
+The leaf turned over. Its veins made the other half of the wing drawn on Bramble's map. The child noticed the shape, but Bramble was busy trying to persuade a compass that north had moved.
+
+[voice:BRAMBLE]
+"The forest has rotated. Terribly inconvenient."
+
+[voice:NARRATOR]
+The child kept the shape in mind. Something wonderful was beginning.
 
 [image;Pip-and-the-Maples-Secret-03.webp;bramble=27,43,2.1;pip=63,50,2.1]
 [wide;dur=1.5]
@@ -138,6 +171,21 @@ Yes. Pip the Keywing. Tiny butterfly. Big wonder. He said you might need a guide
 The key glowed brighter. The maple door shimmered. And the clearing felt as if it was holding its breath.
 
 [voice:NARRATOR]
+[voice:CHILD]
+"Then why does your map say TURN RIGHT at the stream? The stream is behind us."
+
+[voice:BRAMBLE]
+"I have two explanations. One is that the stream moved. The other is that I copied the map while looking in a mirror."
+
+[voice:CHILD]
+"Which one is more likely?"
+
+[voice:BRAMBLE]
+"I was hoping you wouldn't ask."
+
+[voice:NARRATOR]
+Pip had sent Bramble for more than directions: somewhere in the woods was a drawing split into two clues, one on his map and one on a leaf. Whoever joined them could find the place where a forgotten promise had been put away. Bramble had tried alone for three days and had been congratulating the wrong tree.
+
 Something wonderful was about to be remembered.
 
 [image;Pip-and-the-Maples-Secret-04.webp;leaf=50,68,2.2;child=22,38,1.6;pip=85,70,1.6;bee=10,64,1.5]
@@ -185,7 +233,20 @@ That's it. You unlocked it.
 Somewhere in the branches above, a tiny butterfly with keyhole wings fluttered once, as if approving the discovery.
 
 [voice:NARRATOR]
-Something wonderful was ready to be revealed.
+[voice:CHILD]
+"Maybe the right question isn't about what colour you've kept. Maybe it's about who you kept it for."
+
+[voice:MAPLE]
+"At last."
+
+[voice:NARRATOR]
+The unnamed colour traced the veins on the leaf and lit a small notch in the bark. When Bramble held his map backwards, the two half-wings lined up and the dotted line became a path to the notch.
+
+[voice:BRAMBLE]
+"An excellent map. Once you've turned it the correct wrong way."
+
+[voice:NARRATOR]
+High in the branches, Pip fluttered once. The child had followed both clues. Something wonderful was ready to be revealed.
 
 [image;Pip-and-the-Maples-Secret-05.webp;drawing=50,62,2.1;pip=22,35,1.9;bee=79,62,1.6;child=54,40,1.8]
 [wide;dur=1.5]
@@ -232,7 +293,26 @@ Maybe she needs someone to remember her promise.
 The maple door shimmered, brighter than ever.
 
 [voice:NARRATOR]
-Something wonderful was waiting on the other side.
+[voice:CHILD]
+"Was the girl afraid of coming back?"
+
+[voice:MAPLE]
+"Sometimes promises wait longer than we expect. It doesn't mean they were forgotten forever."
+
+[voice:NARRATOR]
+The child unfolded Bramble's map, placed the leaf beside it and found a line of tiny marks: a circle, three dots and a crooked star. They matched marks on the door's lower hinge. The key had no teeth because it had never been made to turn a lock. Its question-shaped end fitted into the star.
+
+[voice:BRAMBLE]
+"Precisely what I intended."
+
+[voice:CHILD]
+"You spent three days asking a tree stump for directions."
+
+[voice:BRAMBLE]
+"An unusually uncooperative stump."
+
+[voice:NARRATOR]
+The child smiled. Pip's wing markings, Bramble's muddled map and the maple's secret had finally become one answer. Something wonderful was waiting on the other side.
 
 [image;Pip-and-the-Maples-Secret-06.webp;child=51,45,2.0;pip=23,37,1.8;bee=76,58,1.7;drawing=52,62,2.0]
 [wide;dur=1.5]
@@ -276,7 +356,23 @@ The child smiled, a small smile at first, then a bigger one, the kind that feels
 Wonder unlocks everything. Even smiles that were waiting.
 
 [voice:NARRATOR]
-The child tucked the drawing safely into their pocket.
+[voice:CHILD]
+"But whose promise was it?"
+
+[voice:PIP]
+"The girl drew me before she went away. She promised that whoever asked a kind question would be allowed to find the drawing, and pass its story along. You didn't need to be the girl. You needed to be curious."
+
+[voice:NARRATOR]
+The child looked back at the plaque: THE WAY IN IS NOT THE WAY THROUGH. They understood now. The key opened the hollow, but the map, the leaf and the willingness to ask had led them there.
+
+[voice:CHILD]
+"Your map wasn't entirely wrong, Bramble."
+
+[voice:BRAMBLE]
+"An excellent review. I'll put it on the cover."
+
+[voice:NARRATOR]
+The child tucked the drawing safely into their pocket, promising to make a copy for the next explorer.
 
 [voice:NARRATOR]
 The maple door closed gently, no longer glowing, but no longer lonely.
