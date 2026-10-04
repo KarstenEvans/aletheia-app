@@ -952,3 +952,14 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [ ] Binary installation: seven uploaded WebPs have **not** been pushed into `stories/` on GitHub; requires actual file upload, not merely the ZIP.
 - [ ] Offline browser testing **NOT TESTED** (execution sandbox blocked Chromium navigation to file:// and loopback http:// URLs).
 - [ ] After upload fetch public assets, run full Node preflight, verify camera, speech and resource links and seek human approval, then register S001 in player. **Do not claim COMPLETE**.
+
+
+### Pip S001 complete story package handoff (4 October 2026)
+- [x] Commit full interactive `Pip-and-the-Maples-Secret.htm` using canonical 6-scene 112-paragraph source, 6 WebP references, zoom hotspots, manual navigation, browser voices, burger and shared Constellation.
+- [x] Complete the separate full-text `-post.htm` image fallback, star links, menu and local Books & Gifts navigation.
+- [x] Commit dedicated `-rsc.htm` with verified existing owner-supplied Bookshop UK store, disclosure, correct Awin link exclusion and exactly one Publisher MasterTag.
+- [x] Synchronise `-youtube-video.md` to current story, 6 scenes and optional 7th cutaway; distinguish video-script READY from video-rendered NOT DONE.
+- [x] Expand Improve preflight to check these specific deliverables, preserving PASS/FAIL/NOT_TESTED; keep static vs live checks separate.
+- [x] Deliver downloadable 7-image offline ZIP (complete story HTML/post HTML/resources HTML/full script MD/source MD/images/manifest). Offline tests: static 12/12 PASS; Chromium scene change, zoom & wide, images load, burger, no horizontal mobile overflow and no JS errors PASS with external Awin script suppressed.
+- [ ] Actual GitHub image binary upload; public fetch and checksum confirmation, full GitHub checkout Node preflight run, live player/caption/voice/affiliate test and user approval.
+- [ ] Human approval to add S001 to Storyteller published manifest and story index. Do not advance to S002 until truly ready.
