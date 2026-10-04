@@ -929,3 +929,15 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [ ] Install/verify binary assets, correct burger and post navigation, finish complete YouTube script; rerun validation.
 - [ ] Add CI/PR integration after local tests, including manifest and asset checks; avoid claiming a release gate is enforced automatically until workflow is actually configured.
 - [ ] Perform real browser/mobile/seasonal/voice/hotspot checks; record manual results and human approval before COMPLETE.
+
+
+## S001 Pip story craft and channel-contract consolidation — 4 October 2026
+- [x] Research interwoven plots, school-age riddle comprehension and incongruity/resolution; save sourced notes in `stories/Pip-and-the-Maples-Secret-story-research.md`.
+- [x] Improve existing six-scene Pip Storyteller Markdown in place with three converging clues, causal resolution and character-led humour, keeping Copilot source archive unchanged.
+- [x] Derive full `stories/Pip-and-the-Maples-Secret-youtube-video.md` from actual revised six-scene source, with all camera/voice directives and production status.
+- [x] Upgrade standalone `stories/Pip-and-the-Maples-Secret-post.htm` to full text reading page with native burger details/summary, relevant real resources route, five shared static constellation links and seasonal script.
+- [x] Create channel-specific `aletheia-youtube-GUI.md`, `aletheia-youtube-dev.md`, `aletheia-linkedin-GUI.md`, `aletheia-linkedin-dev.md` and route them from Improve; **these capture requirements and are not proof of deployed publishing apps**.
+- [ ] Install six generated images under Storyteller-required WebP names and verify matching hotspot locations; until then keep text fallback and do not register as playable.
+- [ ] Run `node aletheia-improve/preflight.mjs --story Pip-and-the-Maples-Secret --strict` on local repo checkout; save JSON receipt, then complete browser/voice/mobile/live tests. No preflight execution claimed here.
+- [ ] Check LinkedIn post preview and YouTube renderer only when real app implementations/backends are found; no claim that either tool has rendered/published.
+- [ ] Obtain Kes's editorial approval of the story expansion and all public posting routes before publishing.
