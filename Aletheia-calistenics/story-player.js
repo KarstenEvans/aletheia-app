@@ -1,18 +1,361 @@
+const A={
+  installPrompt:null,data:null,ex:0,phase:'idle',left:0,timer:null,paused:false,
+  recent:[],bag:[],settings:{voice:'caroline',rate:.93,music:'zen60',musicVolume:.09,facts:true,captions:true,auto:true},
+  ctx:null,musicTimers:[],musicNodes:[],musicBus:null,localAudio:null,localAudioUrl:null,speechActive:0,
 
-const A={installPrompt:null,data:null,ex:0,phase:'idle',left:0,timer:null,paused:false,recent:[],bag:[],settings:{voice:'caroline',music:'zen60',facts:true,captions:true,auto:true},ctx:null,musicTimers:[],musicNodes:[],musicMaster:null,
-async init(){this.data=await fetch('./workout.json').then(r=>r.json());this.settings={...this.settings,...JSON.parse(localStorage.getItem('aletheiaCalSettings')||'{}')};document.querySelectorAll('.poster').forEach(i=>i.src=window.ALETHEIA_POSTER);this.renderOverview();this.renderSettings();this.shuffle();this.show('home');if('serviceWorker'in navigator)navigator.serviceWorker.register('./service-worker.js').catch(()=>{});},
-show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.querySelector('#'+id).classList.add('active');document.querySelectorAll('.bottom button').forEach(x=>x.classList.toggle('on',x.dataset.s===id));window.scrollTo({top:0,behavior:'smooth'});},
-renderOverview(){const d=this.data;document.querySelector('#elist').innerHTML=d.exercises.map((e,i)=>'<div class="exercise-line"><span><b>'+(i+1)+'. '+e.title+'</b><br><span class="small">'+e.cue+'</span></span><b>'+e.duration+'s</b></div>').join('');document.querySelector('#safety').textContent=d.safety.intro+' '+d.safety.support;},
-renderSettings(){const mus=[['zen60','Zen Garden 60 BPM','Soft pentatonic bell phrases + warm drone'],['tao60','Tao Flow 60 BPM','Slower airy phrases + drone'],['up120','Upbeat 120 BPM','Light two-beat pulse for a livelier session'],['off','Music off','Narration and countdown only']];document.querySelector('#music').innerHTML=mus.map(m=>'<label class="setting"><span><b>'+m[1]+'</b><small>'+m[2]+'</small></span><input name="music" type="radio" value="'+m[0]+'" '+(this.settings.music===m[0]?'checked':'')+'></label>').join('');document.querySelectorAll('input[name=music]').forEach(x=>x.onchange=()=>{this.settings.music=x.value;this.save();this.restartMusic();});document.querySelector('#facts').checked=this.settings.facts;document.querySelector('#captions').checked=this.settings.captions;document.querySelector('#auto').checked=this.settings.auto;['facts','captions','auto'].forEach(k=>document.querySelector('#'+k).onchange=e=>{this.settings[k]=e.target.checked;this.save();});},
-save(){localStorage.setItem('aletheiaCalSettings',JSON.stringify(this.settings));},
-async install(){const help=document.querySelector('#installHelp');if(this.installPrompt){this.installPrompt.prompt();const r=await this.installPrompt.userChoice;help.textContent=r.outcome==='accepted'?'Installed or installation accepted. You can now open Aletheia from your device like an app.':'Installation was not completed. You can still use this page normally.';this.installPrompt=null;return;}const ua=navigator.userAgent||'';if(/iphone|ipad/i.test(ua))help.textContent='On iPhone/iPad: open in Safari, tap Share, then Add to Home Screen.';else if(/android/i.test(ua))help.textContent='On Android: open the browser menu and choose Install app or Add to Home screen.';else help.textContent='On PC: Chrome or Edge can offer Install app from the address bar or browser menu. The website works without installing it.';},start(){this.stopAll();this.ex=0;this.startMusic();this.renderExercise(true);},
-renderExercise(intro){this.phase='exercise';this.show('player');const e=this.data.exercises[this.ex];document.querySelector('#etitle').textContent=e.title;document.querySelector('#ecount').textContent='Exercise '+(this.ex+1)+' of '+this.data.exercises.length;document.querySelector('#bar').style.width=((this.ex+1)/this.data.exercises.length*100)+'%';document.querySelector('#cue').textContent=e.cue;document.querySelector('#mod').textContent=e.mod;this.zoom(e.focus);this.left=e.duration;this.clock('#time');if(intro)this.say(e.intro,1);setTimeout(()=>{if(this.phase==='exercise')this.begin(e)},intro?2500:300);},
-begin(e){this.say('Begin. '+e.duration+' seconds. '+e.cue,1);clearInterval(this.timer);this.timer=setInterval(()=>{if(this.paused)return;this.left--;this.clock('#time');const rounds=[];for(let n=Math.floor((e.duration-1)/10)*10;n>=20;n-=10)rounds.push(n);if(rounds.includes(this.left))this.say(String(this.left),.62);if(this.left<=10&&this.left>0)this.say(String(this.left),this.left<=5?.95:.78);if(this.left<=0){clearInterval(this.timer);this.say('And rest.',1);setTimeout(()=>this.rest(e),700)}},1000);},
-rest(e){this.phase='rest';this.show('rest');this.left=e.rest;this.clock('#rtime');const fact=this.nextFact();document.querySelector('#fact').textContent=this.settings.facts?fact:'Breathe, settle, and get ready for the next movement.';const nx=this.data.exercises[this.ex+1];document.querySelector('#next').textContent=nx?'Next: '+nx.title:'Session complete';this.say('Rest for '+e.rest+' seconds.',1);if(this.settings.facts)setTimeout(()=>this.say(fact,.84),4500);clearInterval(this.timer);this.timer=setInterval(()=>{if(this.paused)return;this.left--;this.clock('#rtime');if(this.left===10&&nx)this.say(e.next,.88);if(this.left<=0){clearInterval(this.timer);if(!this.settings.auto&&nx){document.querySelector('#rtime').textContent='READY';this.say('Rest complete. Press next when you are ready.',.9);return}if(nx){this.ex++;this.renderExercise(true)}else this.done()}},1000);},
-done(){this.phase='done';this.stopMusic();this.show('done');this.say('Session complete. Get up slowly and notice how you feel. Mitten has completed the quality-control inspection.',1);},prev(){if(this.ex>0){this.ex--;this.stopSpeech();this.renderExercise(true)}},next(){if(this.phase==='rest'){clearInterval(this.timer);if(this.ex<this.data.exercises.length-1){this.ex++;this.renderExercise(true)}else this.done();return}if(this.ex<this.data.exercises.length-1){this.ex++;this.stopSpeech();this.renderExercise(true)}else this.done();},pause(){this.paused=!this.paused;document.querySelectorAll('.pause').forEach(b=>b.textContent=this.paused?'▶ Resume':'Ⅱ Pause');if(this.paused)this.stopSpeech();},clock(sel){document.querySelector(sel).textContent='00:'+String(Math.max(0,this.left)).padStart(2,'0');},
-zoom(b){const img=document.querySelector('#stageimg'),st=document.querySelector('#stage');img.src=window.ALETHEIA_POSTER;img.onload=()=>{const sw=st.clientWidth,sh=st.clientHeight,iw=img.naturalWidth,ih=img.naturalHeight,s=Math.max(sw/(iw*b.w),sh/(ih*b.h)),dw=iw*s,dh=ih*s;img.style.width=dw+'px';img.style.height=dh+'px';img.style.left=(sw/2-(b.x+b.w/2)*dw)+'px';img.style.top=(sh/2-(b.y+b.h/2)*dh)+'px';};},shuffle(){this.bag=this.data.restFacts.map((_,i)=>i);for(let i=this.bag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[this.bag[i],this.bag[j]]=[this.bag[j],this.bag[i]];}},nextFact(){if(!this.bag.length)this.shuffle();let i=this.bag.shift(),g=0;while(this.recent.includes(i)&&this.bag.length&&g++<20){this.bag.push(i);i=this.bag.shift()}this.recent.push(i);if(this.recent.length>this.data.restFactNoRepeat)this.recent.shift();return this.data.restFacts[i];},say(t,v=1){if(!('speechSynthesis'in window)||!t)return;const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.93;u.pitch=1;u.volume=Math.max(.1,Math.min(1,v));const vs=speechSynthesis.getVoices(),uk=vs.filter(x=>/^en[-_]GB/i.test(x.lang)),female=/female|sonia|serena|susan|hazel|libby|kate/i;u.voice=uk.find(x=>female.test(x.name))||uk[0]||vs[0];speechSynthesis.speak(u);},stopSpeech(){if('speechSynthesis'in window)speechSynthesis.cancel();},toggleDrawer(on){document.querySelector('#drawer').classList.toggle('open',on);},
-async startMusic(){if(this.settings.music==='off')return;const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;this.ctx=new AC();await this.ctx.resume();this.musicMaster=this.ctx.createGain();this.musicMaster.gain.value=.055;this.musicMaster.connect(this.ctx.destination);this.scheduleMusic();},restartMusic(){if(this.ctx){this.stopMusic();this.startMusic();}},makeRev(sec=2.8,dec=2){const c=this.ctx,n=c.sampleRate,l=n*sec,b=c.createBuffer(2,l,n);for(let ch=0;ch<2;ch++){const d=b.getChannelData(ch);for(let i=0;i<l;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/l,dec)}const cv=c.createConvolver();cv.buffer=b;this.musicNodes.push(cv);return cv;},
-note(f,at,dur,vol,type='sine',pan=0,pluck=false){if(!this.ctx)return;const c=this.ctx,o=c.createOscillator(),g=c.createGain(),p=c.createStereoPanner(),lp=c.createBiquadFilter(),rv=this.reverb;o.type=type;o.frequency.value=f;lp.type='lowpass';lp.frequency.value=1600;p.pan.value=pan;g.gain.setValueAtTime(.0001,at);g.gain.exponentialRampToValueAtTime(vol,at+(pluck?.02:.35));g.gain.exponentialRampToValueAtTime(.0001,at+dur);o.connect(lp);lp.connect(g);g.connect(p);p.connect(this.musicMaster);if(rv){const w=c.createGain();w.gain.value=.22;p.connect(w);w.connect(rv);rv.connect(this.musicMaster);this.musicNodes.push(w)}o.start(at);o.stop(at+dur+.05);this.musicNodes.push(o,g,p,lp);},
-scheduleMusic(){const c=this.ctx;if(!c)return;this.reverb=this.makeRev();const profile=this.settings.music;let scale=[196,220,246.94,293.66,329.63,392,440],dr=[98,146.83,196],gap=[4.5,8],pluck=false,type='sine';if(profile==='zen60'){scale=[196,207.65,261.63,293.66,349.23,392];dr=[98,146.83];gap=[3.5,7];pluck=true;type='triangle'}if(profile==='up120'){scale=[196,220,246.94,293.66,329.63,392,440];dr=[98,146.83,196];gap=[1.6,3.4];pluck=true;type='triangle'}dr.forEach((f,i)=>{const o=c.createOscillator(),g=c.createGain(),lp=c.createBiquadFilter();o.type=i%2?'triangle':'sine';o.frequency.value=f;g.gain.value=.018/(i+1);lp.type='lowpass';lp.frequency.value=600;o.connect(lp);lp.connect(g);g.connect(this.musicMaster);o.start();this.musicNodes.push(o,g,lp)});const phrase=()=>{if(!this.ctx)return;let at=c.currentTime+.08,idx=Math.floor(Math.random()*scale.length),count=2+Math.floor(Math.random()*3);for(let i=0;i<count;i++){idx=Math.max(0,Math.min(scale.length-1,idx+(Math.random()<.5?1:-1)));this.note(scale[idx],at,pluck?1.8+Math.random()*1.6:3+Math.random()*3,.022+Math.random()*.018,type,-.5+Math.random(),pluck);at+=profile==='up120'?.45+Math.random()*.55:.8+Math.random()*1.2}const ms=(gap[0]+Math.random()*(gap[1]-gap[0]))*1000;this.musicTimers.push(setTimeout(phrase,ms));};phrase();},stopMusic(){this.musicTimers.forEach(clearTimeout);this.musicTimers=[];if(this.ctx){this.musicNodes.forEach(n=>{try{if(n.stop)n.stop();if(n.disconnect)n.disconnect()}catch{}});this.musicNodes=[];this.ctx.close().catch(()=>{});this.ctx=null;}},stopAll(){clearInterval(this.timer);this.stopSpeech();this.stopMusic();this.paused=false;}};window.addEventListener('DOMContentLoaded',()=>A.init());
+  async init(){
+    try{this.data=await fetch('./workout.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('workout.json '+r.status);return r.json()});}
+    catch(e){this.setAudioStatus('Workout data failed to load. Reload the page.',true);return;}
+    this.settings={...this.settings,...JSON.parse(localStorage.getItem('aletheiaCalSettings')||'{}')};
+    document.querySelectorAll('.poster').forEach(i=>i.src=window.ALETHEIA_POSTER);
+    this.renderOverview();this.renderMenu();this.shuffle();this.show('home');this.updateVoiceStatus();
+    if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=()=>this.updateVoiceStatus();
+    if('serviceWorker'in navigator)navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+  },
+
+  show(id){
+    document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+    const el=document.querySelector('#'+id);if(el)el.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  },
+
+  renderOverview(){
+    const d=this.data;
+    document.querySelector('#elist').innerHTML=d.exercises.map((e,i)=>
+      '<div class="exercise-line"><span><b>'+(i+1)+'. '+e.title+'</b><br><span class="small">'+e.cue+'</span></span><b>'+e.duration+'s</b></div>'
+    ).join('');
+    document.querySelector('#safety').textContent=d.safety.intro+' '+d.safety.support;
+  },
+
+  renderMenu(){
+    document.querySelector('#voiceMode').value=this.settings.voice;
+    document.querySelector('#speechRate').value=this.settings.rate;
+    document.querySelector('#speechRateVal').textContent=Number(this.settings.rate).toFixed(2);
+    document.querySelector('#musicStyle').value=this.settings.music;
+    document.querySelector('#musicVolume').value=this.settings.musicVolume;
+    document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume/.18*100)+'%';
+    document.querySelector('#facts').checked=this.settings.facts;
+    document.querySelector('#captions').checked=this.settings.captions;
+    document.querySelector('#auto').checked=this.settings.auto;
+
+    document.querySelector('#voiceMode').onchange=e=>{this.settings.voice=e.target.value;this.save();this.updateVoiceStatus();};
+    document.querySelector('#speechRate').oninput=e=>{this.settings.rate=+e.target.value;document.querySelector('#speechRateVal').textContent=this.settings.rate.toFixed(2);this.save();};
+    document.querySelector('#musicStyle').onchange=e=>{this.settings.music=e.target.value;this.save();this.updateLocalMusicVisibility();if(this.phase!=='idle'&&this.phase!=='done')this.restartMusic();};
+    document.querySelector('#musicVolume').oninput=e=>{this.settings.musicVolume=+e.target.value;document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume/.18*100)+'%';this.save();this.applyMusicVolume();};
+    ['facts','captions','auto'].forEach(k=>document.querySelector('#'+k).onchange=e=>{this.settings[k]=e.target.checked;this.save();});
+    document.querySelector('#localMusic').onchange=()=>{if(this.settings.music==='local'&&this.phase!=='idle'&&this.phase!=='done')this.restartMusic();};
+    this.updateLocalMusicVisibility();
+  },
+
+  save(){localStorage.setItem('aletheiaCalSettings',JSON.stringify(this.settings));},
+
+  toggleMenu(force){
+    const m=document.querySelector('#menu'),b=document.querySelector('#menuButton');
+    const on=typeof force==='boolean'?force:!m.classList.contains('open');
+    m.classList.toggle('open',on);b.setAttribute('aria-expanded',String(on));
+  },
+
+  go(id){this.toggleMenu(false);this.show(id);},
+
+  updateLocalMusicVisibility(){
+    document.querySelector('#localMusicWrap').hidden=this.settings.music!=='local';
+  },
+
+  async install(){
+    const help=document.querySelector('#installHelp');
+    if(this.installPrompt){
+      this.installPrompt.prompt();const r=await this.installPrompt.userChoice;
+      help.textContent=r.outcome==='accepted'?'Installation accepted.':'Installation was not completed; the web app still works normally.';
+      this.installPrompt=null;return;
+    }
+    const ua=navigator.userAgent||'';
+    if(/iphone|ipad/i.test(ua))help.textContent='iPhone/iPad: Safari → Share → Add to Home Screen.';
+    else if(/android/i.test(ua))help.textContent='Android: browser menu → Install app / Add to Home screen.';
+    else help.textContent='PC: Chrome or Edge → Install app from the address bar/browser menu.';
+  },
+
+  start(){
+    this.stopAll();this.ex=0;this.phase='exercise';this.paused=false;
+    this.startMusic();this.renderExercise(true);
+  },
+
+  stopWorkout(){
+    clearInterval(this.timer);this.stopSpeech();this.stopMusic();this.paused=false;this.phase='idle';
+    document.querySelectorAll('.pause').forEach(b=>b.textContent='Ⅱ Pause');
+    this.show('overview');
+  },
+
+  renderExercise(intro){
+    this.phase='exercise';this.show('player');
+    const e=this.data.exercises[this.ex];
+    document.querySelector('#etitle').textContent=e.title;
+    document.querySelector('#ecount').textContent='Exercise '+(this.ex+1)+' of '+this.data.exercises.length;
+    document.querySelector('#bar').style.width=((this.ex+1)/this.data.exercises.length*100)+'%';
+    document.querySelector('#cue').textContent=this.settings.captions?e.cue:'';
+    document.querySelector('#mod').textContent=e.mod;
+    this.zoom(e.focus);this.left=e.duration;this.clock('#time');
+    if(intro)this.say(e.intro,1);
+    setTimeout(()=>{if(this.phase==='exercise'&&!this.paused)this.begin(e)},intro?2600:300);
+  },
+
+  begin(e){
+    this.say('Begin. '+e.duration+' seconds. '+e.cue,1);
+    clearInterval(this.timer);
+    this.timer=setInterval(()=>{
+      if(this.paused)return;
+      this.left--;this.clock('#time');
+      const rounds=[];for(let n=Math.floor((e.duration-1)/10)*10;n>=20;n-=10)rounds.push(n);
+      if(rounds.includes(this.left))this.say(String(this.left),.55);
+      if(this.left<=10&&this.left>0)this.say(String(this.left),this.left<=5?.95:.72);
+      if(this.left<=0){clearInterval(this.timer);this.say('And rest.',1);setTimeout(()=>this.rest(e),700);}
+    },1000);
+  },
+
+  rest(e){
+    this.phase='rest';this.show('rest');this.left=e.rest;this.clock('#rtime');
+    const fact=this.nextFact();
+    document.querySelector('#fact').textContent=this.settings.facts?fact:'Breathe, settle, and get ready for the next movement.';
+    const nx=this.data.exercises[this.ex+1];
+    document.querySelector('#next').textContent=nx?'Next: '+nx.title:'Session complete';
+    this.say('Rest for '+e.rest+' seconds.',1);
+    if(this.settings.facts)setTimeout(()=>{if(this.phase==='rest'&&!this.paused)this.say(fact,.84)},4500);
+    clearInterval(this.timer);
+    this.timer=setInterval(()=>{
+      if(this.paused)return;
+      this.left--;this.clock('#rtime');
+      if(this.left===10&&nx)this.say(e.next,.88);
+      if(this.left<=0){
+        clearInterval(this.timer);
+        if(!this.settings.auto&&nx){document.querySelector('#rtime').textContent='READY';this.say('Rest complete. Press next when you are ready.',.9);return;}
+        if(nx){this.ex++;this.renderExercise(true)}else this.done();
+      }
+    },1000);
+  },
+
+  done(){
+    this.phase='done';this.stopMusic();this.show('done');
+    this.say('Session complete. Get up slowly and notice how you feel. Mitten has completed the quality-control inspection.',1);
+  },
+
+  prev(){
+    if(this.ex>0){clearInterval(this.timer);this.stopSpeech();this.ex--;this.renderExercise(true);}
+  },
+  next(){
+    clearInterval(this.timer);this.stopSpeech();
+    if(this.ex<this.data.exercises.length-1){this.ex++;this.renderExercise(true)}else this.done();
+  },
+
+  pause(){
+    this.paused=!this.paused;
+    document.querySelectorAll('.pause').forEach(b=>b.textContent=this.paused?'▶ Resume':'Ⅱ Pause');
+    if(this.paused){this.stopSpeech();this.suspendMusic();}
+    else{this.resumeMusic();if(this.phase==='exercise')this.say('Resuming.',.9);else if(this.phase==='rest')this.say('Rest timer resumed.',.9);}
+  },
+
+  clock(sel){document.querySelector(sel).textContent='00:'+String(Math.max(0,this.left)).padStart(2,'0');},
+
+  zoom(b){
+    const img=document.querySelector('#stageimg'),st=document.querySelector('#stage');
+    img.src=window.ALETHEIA_POSTER;
+    img.onload=()=>{
+      const sw=st.clientWidth,sh=st.clientHeight,iw=img.naturalWidth,ih=img.naturalHeight;
+      const s=Math.max(sw/(iw*b.w),sh/(ih*b.h)),dw=iw*s,dh=ih*s;
+      img.style.width=dw+'px';img.style.height=dh+'px';
+      img.style.left=(sw/2-(b.x+b.w/2)*dw)+'px';
+      img.style.top=(sh/2-(b.y+b.h/2)*dh)+'px';
+    };
+  },
+
+  shuffle(){
+    this.bag=this.data.restFacts.map((_,i)=>i);
+    for(let i=this.bag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[this.bag[i],this.bag[j]]=[this.bag[j],this.bag[i]];}
+  },
+  nextFact(){
+    if(!this.bag.length)this.shuffle();
+    let i=this.bag.shift(),g=0;
+    while(this.recent.includes(i)&&this.bag.length&&g++<20){this.bag.push(i);i=this.bag.shift();}
+    this.recent.push(i);if(this.recent.length>this.data.restFactNoRepeat)this.recent.shift();
+    return this.data.restFacts[i];
+  },
+
+  resolvedVoice(){
+    if(!('speechSynthesis'in window))return null;
+    const vs=speechSynthesis.getVoices(),norm=v=>String(v.lang||'').toLowerCase().replace('_','-');
+    if(!vs.length)return null;
+    if(this.settings.voice==='male'){
+      let v=vs.find(v=>norm(v)==='en-gb'&&/google uk english male/i.test(v.name)&&!/george/i.test(v.name));
+      if(!v)v=vs.find(v=>norm(v)==='en-gb'&&/male/i.test(v.name)&&!/george/i.test(v.name));
+      if(!v)v=vs.find(v=>norm(v)==='en-gb'&&!/george/i.test(v.name));
+      if(!v)v=vs.find(v=>norm(v)==='en-gb');
+      if(!v)v=vs.find(v=>norm(v).startsWith('en'));
+      return v||vs[0]||null;
+    }
+    let v=vs.find(v=>norm(v)==='en-gb'&&/caroline|sonia|serena|susan|hazel|libby|kate|female|woman/i.test(v.name)&&!/george/i.test(v.name));
+    if(!v)v=vs.find(v=>norm(v)==='en-gb'&&!/google uk english male|george|\bmale\b/i.test(v.name));
+    if(!v)v=vs.find(v=>norm(v)==='en-gb'&&!/george/i.test(v.name));
+    if(!v)v=vs.find(v=>norm(v)==='en-gb');
+    if(!v)v=vs.find(v=>norm(v).startsWith('en'));
+    return v||vs[0]||null;
+  },
+
+  updateVoiceStatus(){
+    const el=document.querySelector('#voiceStatus');if(!el)return;
+    if(!('speechSynthesis'in window)){el.textContent='Browser speech is unavailable; timers and captions still work.';return;}
+    const v=this.resolvedVoice();
+    el.textContent=v?'Device voice: '+v.name+' ('+v.lang+')':'Waiting for browser voices…';
+  },
+
+  testVoice(){this.say(this.settings.voice==='male'?'Ready when you are. Let us begin.':'Ready when you are. Let’s begin.',1);},
+
+  say(t,vol=1){
+    if(!('speechSynthesis'in window)||!t)return;
+    const u=new SpeechSynthesisUtterance(t),v=this.resolvedVoice();
+    if(v)u.voice=v;u.lang=v?.lang||'en-GB';u.rate=this.settings.rate;u.pitch=1;u.volume=Math.max(.1,Math.min(1,vol));
+    u.onstart=()=>{this.speechActive++;this.duckMusic(true);};
+    const end=()=>{this.speechActive=Math.max(0,this.speechActive-1);if(!this.speechActive)this.duckMusic(false);};
+    u.onend=end;u.onerror=end;
+    speechSynthesis.speak(u);
+  },
+
+  stopSpeech(){if('speechSynthesis'in window)speechSynthesis.cancel();this.speechActive=0;this.duckMusic(false);},
+
+  setAudioStatus(msg,warn=false){
+    const el=document.querySelector('#audioStatus');if(!el)return;el.textContent=msg;el.classList.toggle('warn',!!warn);
+  },
+
+  musicDef(){
+    if(this.settings.music==='zen60')return {name:'Zen Garden 60 BPM',bpm:60,scale:[196,207.65,261.63,293.66,349.23,392],drone:[98,146.83],gap:[6,13],dur:[2.5,6],type:'triangle',bright:1800,pluck:true};
+    if(this.settings.music==='up120')return {name:'Upbeat 120 BPM',bpm:120,scale:[196,220,261.63,293.66,329.63,392,440],drone:[130.81,196],gap:[2.4,5],dur:[1.8,4.5],type:'triangle',bright:2400,pluck:true};
+    return {name:'Tao Flow 60 BPM',bpm:60,scale:[196,220,246.94,293.66,329.63,392,440],drone:[98,146.83,196],gap:[5,11],dur:[3,7],type:'sine',bright:1700,pluck:false};
+  },
+
+  reg(...nodes){nodes.forEach(n=>{if(n)this.musicNodes.push(n)});},
+
+  makeReverb(seconds=3.4,decay=2.2){
+    const rate=this.ctx.sampleRate,length=rate*seconds,impulse=this.ctx.createBuffer(2,length,rate);
+    for(let ch=0;ch<2;ch++){const d=impulse.getChannelData(ch);for(let i=0;i<length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/length,decay);}
+    const conv=this.ctx.createConvolver();conv.buffer=impulse;this.reg(conv);return conv;
+  },
+
+  createMusicBus(){
+    const master=this.ctx.createGain(),target=Math.max(this.settings.musicVolume,.0001);
+    master.gain.setValueAtTime(.0001,this.ctx.currentTime);
+    master.gain.exponentialRampToValueAtTime(target,this.ctx.currentTime+1.2);
+    master.connect(this.ctx.destination);
+    this.musicBus={master,reverb:this.makeReverb()};
+    this.reg(master);
+  },
+
+  note(freq,start,duration,volume,type='sine',pan=0,brightness=1500,pluck=false){
+    if(!this.ctx||!this.musicBus)return;
+    const osc=this.ctx.createOscillator(),gain=this.ctx.createGain(),filter=this.ctx.createBiquadFilter(),
+      panner=this.ctx.createStereoPanner(),dry=this.ctx.createGain(),wet=this.ctx.createGain(),rev=this.musicBus.reverb;
+    osc.type=type;osc.frequency.setValueAtTime(freq,start);filter.type='lowpass';filter.frequency.value=brightness;panner.pan.value=pan;
+    const attack=pluck?.015:.4,peak=Math.max(volume,.0002);
+    gain.gain.setValueAtTime(.0001,start);gain.gain.exponentialRampToValueAtTime(peak,start+attack);
+    if(pluck)gain.gain.exponentialRampToValueAtTime(.0001,start+duration);
+    else{gain.gain.setValueAtTime(peak*.75,start+Math.max(attack+.2,duration*.55));gain.gain.exponentialRampToValueAtTime(.0001,start+duration);}
+    osc.connect(filter);filter.connect(gain);gain.connect(panner);panner.connect(dry);panner.connect(wet);dry.connect(this.musicBus.master);wet.connect(rev);rev.connect(this.musicBus.master);
+    dry.gain.value=.78;wet.gain.value=.25;osc.start(start);osc.stop(start+duration+.05);this.reg(osc,gain,filter,panner,dry,wet);
+  },
+
+  drone(freqs){
+    freqs.forEach((f,i)=>{
+      const osc=this.ctx.createOscillator(),g=this.ctx.createGain(),lp=this.ctx.createBiquadFilter();
+      osc.type=i%2?'triangle':'sine';osc.frequency.value=f;g.gain.value=.045/(i+1);lp.type='lowpass';lp.frequency.value=650;
+      osc.connect(lp);lp.connect(g);g.connect(this.musicBus.master);osc.start();this.reg(osc,g,lp);
+    });
+  },
+
+  schedulePulse(bpm){
+    const ms=60000/bpm,pulse=()=>{
+      if(!this.ctx||!this.musicBus)return;
+      const at=this.ctx.currentTime+.01,osc=this.ctx.createOscillator(),g=this.ctx.createGain(),lp=this.ctx.createBiquadFilter();
+      osc.type='sine';osc.frequency.value=bpm===120?150:120;lp.type='lowpass';lp.frequency.value=320;
+      g.gain.setValueAtTime(.0001,at);g.gain.exponentialRampToValueAtTime(.018,at+.01);g.gain.exponentialRampToValueAtTime(.0001,at+.16);
+      osc.connect(lp);lp.connect(g);g.connect(this.musicBus.master);osc.start(at);osc.stop(at+.2);this.reg(osc,g,lp);
+    };
+    pulse();this.musicTimers.push(setInterval(pulse,ms));
+  },
+
+  scheduleMusic(def){
+    this.createMusicBus();this.drone(def.drone);this.schedulePulse(def.bpm);
+    const phrase=()=>{
+      if(!this.ctx||!this.musicBus)return;
+      const count=2+Math.floor(Math.random()*4);let at=this.ctx.currentTime+.1,idx=Math.floor(Math.random()*def.scale.length),direction=Math.random()<.5?1:-1;
+      for(let i=0;i<count;i++){
+        idx=Math.max(0,Math.min(def.scale.length-1,idx+(i===0?0:direction*(Math.random()<.7?1:0))));
+        const dur=def.dur[0]+Math.random()*(def.dur[1]-def.dur[0]),pan=-.55+Math.random()*1.1,vol=.035+Math.random()*.03;
+        this.note(def.scale[idx],at,dur,vol,def.type,pan,def.bright,def.pluck);
+        at+=def.pluck?.65+Math.random()*1.25:1.8+Math.random()*2.8;
+      }
+      const gap=(def.gap[0]+Math.random()*(def.gap[1]-def.gap[0]))*1000;
+      this.musicTimers.push(setTimeout(phrase,gap));
+    };
+    phrase();
+  },
+
+  async startMusic(){
+    this.stopMusic();
+    if(this.settings.music==='off'){this.setAudioStatus('Music off. Narration and timers remain active.');return;}
+    if(this.settings.music==='local'){this.startLocalMusic();return;}
+    const AC=window.AudioContext||window.webkitAudioContext;
+    if(!AC){this.setAudioStatus('Web Audio is unavailable in this browser. Workout and narration still work.',true);return;}
+    try{
+      this.ctx=new AC();await this.ctx.resume();const def=this.musicDef();this.scheduleMusic(def);
+      this.setAudioStatus(def.name+' playing. Music ducks under the trainer voice.');
+    }catch(e){this.stopMusic();this.setAudioStatus('Music could not start. Tap Start again or choose Music off; the workout still works.',true);}
+  },
+
+  startLocalMusic(){
+    const inp=document.querySelector('#localMusic');
+    if(!inp?.files?.[0]){this.setAudioStatus('Choose a local audio file in MENU, or select a generated music bed.',true);return;}
+    if(this.localAudioUrl)URL.revokeObjectURL(this.localAudioUrl);
+    this.localAudioUrl=URL.createObjectURL(inp.files[0]);this.localAudio=new Audio(this.localAudioUrl);this.localAudio.loop=true;
+    this.localAudio.volume=Math.min(1,this.settings.musicVolume/.18*.55);
+    this.localAudio.play().then(()=>this.setAudioStatus('Local track playing from this device.')).catch(()=>this.setAudioStatus('The local track could not start.',true));
+  },
+
+  applyMusicVolume(){
+    if(this.musicBus&&this.ctx){
+      const target=Math.max(this.settings.musicVolume,.0001);
+      this.musicBus.master.gain.setTargetAtTime(target,this.ctx.currentTime,.08);
+    }
+    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.18*.55);
+  },
+
+  duckMusic(on){
+    if(this.musicBus&&this.ctx){
+      const target=Math.max(this.settings.musicVolume*(on?.34:1),.0001);
+      this.musicBus.master.gain.setTargetAtTime(target,this.ctx.currentTime,.08);
+    }
+    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.18*.55*(on?.34:1));
+  },
+
+  suspendMusic(){if(this.ctx?.state==='running')this.ctx.suspend().catch(()=>{});if(this.localAudio&&!this.localAudio.paused)this.localAudio.pause();},
+  resumeMusic(){if(this.ctx?.state==='suspended')this.ctx.resume().catch(()=>{});if(this.localAudio?.paused)this.localAudio.play().catch(()=>{});},
+  restartMusic(){if(this.phase==='idle'||this.phase==='done')return;this.startMusic();},
+
+  stopMusic(){
+    this.musicTimers.forEach(t=>{clearTimeout(t);clearInterval(t)});this.musicTimers=[];
+    if(this.localAudio){try{this.localAudio.pause();this.localAudio.currentTime=0}catch{}this.localAudio=null;}
+    if(this.localAudioUrl){URL.revokeObjectURL(this.localAudioUrl);this.localAudioUrl=null;}
+    if(this.ctx){
+      this.musicNodes.forEach(n=>{try{if(n.stop)n.stop();if(n.disconnect)n.disconnect()}catch{}});
+      this.musicNodes=[];this.ctx.close().catch(()=>{});this.ctx=null;
+    }
+    this.musicBus=null;
+  },
+
+  stopAll(){clearInterval(this.timer);this.stopSpeech();this.stopMusic();this.paused=false;}
+};
 
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();if(window.A)A.installPrompt=e;});
+window.addEventListener('DOMContentLoaded',()=>{
+  A.init();
+  document.addEventListener('click',e=>{
+    const m=document.querySelector('#menu'),b=document.querySelector('#menuButton');
+    if(m?.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))A.toggleMenu(false);
+  });
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')A.toggleMenu(false);});
+});
