@@ -30,7 +30,7 @@
 
   <label for="voiceMode">Trainer voice</label>
   <select id="voiceMode">
-    <option value="caroline">Caroline — UK female</option>
+    <option value="caroline">Caroline — Australian English</option>
     <option value="male">UK English Male — Storyteller</option>
   </select>
   <div id="voiceStatus" class="status" role="status" aria-live="polite">Waiting for browser voices…</div>
@@ -40,19 +40,26 @@
   </div>
 
   <label for="speechRate">Speech rate <span id="speechRateVal">0.93</span></label>
-  <input id="speechRate" type="range" min="0.75" max="1.20" value="0.93" step="0.01">
+  <input id="speechRate" type="range" min="0.75" max="1.20" value="1.00" step="0.01">
 
   <label for="musicStyle">Music bed</label>
   <select id="musicStyle">
-    <option value="zen60">Zen Garden 60 BPM</option>
+    <option value="zen60">Zen Garden — generated fallback</option>
     <option value="tao60">Tao Flow 60 BPM</option>
     <option value="up120">Upbeat 120 BPM</option>
     <option value="local">Local licensed track</option>
     <option value="off">Music off</option>
   </select>
+  <p class="small"><strong>Preferred recorded source:</strong>
+    <a data-awinignore href="https://pixabay.com/users/nourishedbymusic-19075120/" target="_blank" rel="noopener">NourishedByMusic on Pixabay ↗</a>.
+    <a data-awinignore href="https://pixabay.com/music/meditationspiritual-yoga-nidra-188882/" target="_blank" rel="noopener">Yoga Nidra ↗</a> is the first recorded-track choice. Download it under its current Pixabay licence, then choose <strong>Local licensed track</strong>. Until the MP3 is bundled, the generated Zen bed is the automatic fallback.
+  </p>
 
-  <label for="musicVolume">Music volume <span id="musicVolumeVal">50%</span></label>
-  <input id="musicVolume" type="range" min="0" max="0.18" value="0.09" step="0.005">
+  <label for="musicVolume">Music volume <span id="musicVolumeVal">60%</span></label>
+  <input id="musicVolume" type="range" min="0" max="0.30" value="0.18" step="0.005">
+  <div class="menu-actions">
+    <button type="button" onclick="A.testMusic()">Test music</button>
+  </div>
 
   <div id="localMusicWrap" hidden>
     <label for="localMusic">Local audio file</label>
