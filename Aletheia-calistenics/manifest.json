@@ -6,5 +6,13 @@
   "display": "standalone",
   "background_color": "#f7f0e8",
   "theme_color": "#66764a",
-  "description": "Guided story-style calisthenics workouts with narration, countdowns, rest facts, generated Zen music and Mitten."
+  "description": "Guided story-style calisthenics workouts with narration, countdowns, rest facts, generated Zen music and Mitten.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
