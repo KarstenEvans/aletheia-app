@@ -1,0 +1,10 @@
+{
+  "name": "Aletheia Story Workouts",
+  "short_name": "Aletheia Move",
+  "start_url": "./Aleteheia-calistenics.htm",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f0e8",
+  "theme_color": "#66764a",
+  "description": "Guided story-style calisthenics workouts with narration, countdowns, rest facts, generated Zen music and Mitten."
+}
