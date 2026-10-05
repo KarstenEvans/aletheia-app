@@ -53,7 +53,7 @@ Existing Storyteller narrator selection and Frequency Explorer music machinery a
 Allowed benign preferences:
 
 - logical voice mode (\`caroline\` or \`male\`);
-- speech rate;
+- speech rate, default 1.00;
 - music profile;
 - music volume;
 - captions;
@@ -109,6 +109,12 @@ Show actual resolved device voice. Do not silently choose George as the preferre
 
 Generated music starts only from an explicit Start/Resume user gesture.
 
+Preferred recorded source:
+
+- NourishedByMusic on Pixabay
+- Yoga Nidra as the first recorded-track choice
+- generated Zen remains the runtime fallback until an actual licensed MP3 asset is bundled or selected locally
+
 Profiles:
 
 - Zen Garden 60 BPM
@@ -142,6 +148,14 @@ Music volume must be adjustable from the menu.
 - Pause/Resume
 - Next
 - Stop
+
+Start/timer synchronisation:
+
+- wait for setup narration to finish;
+- wait two seconds;
+- speak the start cue/duration;
+- begin the timer only after that cue completes;
+- pause/resume must freeze this pre-start sequence as well as an active timer.
 
 Countdown pattern:
 
@@ -302,3 +316,15 @@ Live/device still required:
 - bump service-worker cache to avoid stale first-build assets
 
 Unresolved until live testing: actual device voice inventory and perceived audio loudness.
+
+
+### Playback correction acceptance tests — 5 October 2026
+
+- Cat-Cow begins with “Start by kneeling on your hands and knees.”
+- Caroline resolves `en-AU` + Caroline first when present.
+- UK English Male keeps the Storyteller order and does not prefer George.
+- Default speech rate is 1.00, including migration from the original 0.93 MVP default.
+- The exercise timer cannot decrement while setup narration is still speaking.
+- A two-second preparation delay occurs before the start cue/timer.
+- Pause is click-on / click-off and does not cancel the workout sequence.
+- Test music produces an audible generated tone/bed from a direct user gesture.
