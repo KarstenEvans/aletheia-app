@@ -22,6 +22,12 @@ For substantial HTML work, read the target app's current files and create/reconc
 - [Canonical AI system](aletheia-job-search/aletheia-job-search.md) · [Browser page specification](aletheia-job-search/aletheia-job-search-page.md) · [Private memory template](aletheia-job-search/aletheia-job-search-memory.md) · [Resources](aletheia-job-search/aletheia-job-search-rsc.htm).
 - [Swindon live original](https://swindon.org.uk/apps/aletheia-job-search/aletheia-job-search.htm). The SwindonOrgUK GitHub mirror is **not yet reconciled** with the production source and has not been replaced.
 
+## Aletheia Calisthenics
+
+- [Open Aletheia Calisthenics Story Workouts](https://karstenevans.github.io/aletheia-app/Aletheia-calistenics/Aleteheia-calistenics.htm) — mobile-first guided bodyweight workouts with exercise zooms, calm browser narration, timed countdowns/rests, rotating rest facts, generated Zen/Tao music and the Calisthenics with Cats starter session.
+- [Resources, free courses and Books & Gifts](Aletheia-calistenics/Aleteheia-calistenics-rsc.htm) · [Canonical app Markdown](Aletheia-calistenics/Aleteheia-calistenics.md) · [Browser page specification](Aletheia-calistenics/Aleteheia-calistenics-page.md).
+
+
 ## Apps
 
 ### Aletheia Shopping (Shop Price)
