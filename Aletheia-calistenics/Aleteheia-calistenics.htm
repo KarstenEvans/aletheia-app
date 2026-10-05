@@ -1,13 +1,197 @@
-<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#66764a"><title>Aletheia Calisthenics | Story Workouts</title><meta name="description" content="Mobile-first guided calisthenics story workouts with calm narration, countdowns, rest facts, procedural Zen music and Mitten the cat."><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="story-player.css"></head><body><div class="app">
-<header><div class="brand">Aletheia Story Workouts<small>Calisthenics with Cats</small></div><button class="round" onclick="A.toggleDrawer(true)" aria-label="Menu">☰</button></header>
-<main>
-<section id="home" class="screen active"><div class="hero"><div class="kicker">Move well • live brighter</div><h1>Story Workouts</h1><p>Guided strength, balance and mobility with calm coaching, timed rests, fresh facts and one highly observant cat.</p></div><button class="poster-card" onclick="A.show('overview')"><img class="poster" alt="Calisthenics with Cats poster"><span class="copy"><span class="badge">🐾 First complete workout</span><h2>Calisthenics with Cats</h2><p>Just a mat and a cat.</p></span></button><div class="panel"><h2>Why this format?</h2><p>The player zooms into each exercise, coaches it, counts down, rests, then moves on. The same story can later become a YouTube slide/video and a static social front.</p></div><div class="panel"><h2>Keep it on your phone or PC</h2><p class="small">The same link works on desktop and mobile. You can also install it from a supported browser for one-tap access.</p><button id="installBtn" class="secondary full" onclick="A.install()">Install / Add to Home Screen</button><p id="installHelp" class="small"></p></div></section>
-<section id="overview" class="screen"><div class="hero"><div class="kicker">Starter session</div><h1>Calisthenics with Cats</h1><p>Five gentle mat movements. Headstand stays outside normal autoplay as an advanced optional demonstration.</p></div><div class="panel"><span class="badge">Default: Caroline-style UK voice + Zen Garden 60 BPM</span><div class="exercise-list" id="elist"></div><p class="warn" id="safety"></p><button class="primary full" onclick="A.start()">Start guided workout</button><p><a href="Aleteheia-calistenics-rsc.htm">Free courses, NHS resources, Books & Gifts →</a></p></div></section>
-<section id="player" class="screen"><div class="row between"><div><div class="kicker" id="ecount"></div><h2 id="etitle" style="margin:.15em 0"></h2></div><button class="round" onclick="A.toggleDrawer(true)">☰</button></div><div class="progress"><div id="bar"></div></div><div class="stage" id="stage"><img id="stageimg" alt=""><div class="timer" id="time">00:30</div></div><div class="cue" id="cue"></div><div class="subcue" id="mod"></div><div class="controls"><button onclick="A.prev()">◀ Previous</button><button class="play pause" onclick="A.pause()">Ⅱ Pause</button><button onclick="A.next()">Next ▶</button></div></section>
-<section id="rest" class="screen rest"><div class="kicker">Recovery is part of the session</div><h2>Rest</h2><div class="rest-time" id="rtime">00:45</div><div class="fact" id="fact"></div><div class="panel"><b id="next"></b></div><div class="controls"><button onclick="A.show('settings')">⚙ Settings</button><button class="play pause" onclick="A.pause()">Ⅱ Pause</button><button onclick="A.next()">Next ▶</button></div></section>
-<section id="settings" class="screen"><div class="hero"><div class="kicker">Your coach, your pace</div><h1>Settings</h1></div><div class="panel"><h2>Music</h2><p class="small">The Zen beds are procedurally generated in your browser. No commercial recording is included.</p><div id="music"></div><h2>Options</h2><label class="setting"><span><b>Rest facts</b><small>Fresh short messages during recovery.</small></span><input id="facts" type="checkbox"></label><label class="setting"><span><b>Captions</b><small>Keep coaching cues on screen.</small></span><input id="captions" type="checkbox"></label><label class="setting"><span><b>Auto advance</b><small>Move on automatically after rest.</small></span><input id="auto" type="checkbox"></label><button class="primary full" onclick="A.show('home')">Save & return</button></div></section>
-<section id="done" class="screen complete"><div class="cat">🐾</div><h1>Nicely done.</h1><p>Five controlled movements, plenty of breathing, and Mitten has completed the quality-control inspection.</p><button class="primary full" onclick="A.start()">Repeat workout</button><p><a href="Aleteheia-calistenics-rsc.htm">Explore free courses & resources</a></p></section>
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#66764a">
+<title>Aletheia Calisthenics | Story Workouts for strength, balance and mobility</title>
+<meta name="description" content="Guided story-style calisthenics workouts with exercise zooms, UK narration, countdowns, timed rests, healthy-ageing facts, generated Zen music and Mitten the cat.">
+<link rel="canonical" href="https://karstenevans.github.io/aletheia-app/Aletheia-calistenics/Aleteheia-calistenics.htm">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="story-player.css">
+<link rel="stylesheet" href="../shared/link-sprites.css">
+</head>
+<body>
+<div class="app">
+<header data-aletheia-focus-hide>
+  <div class="brand">Aletheia Story Workouts<small>Calisthenics with Cats</small></div>
+  <button id="menuButton" aria-expanded="false" aria-controls="menu" onclick="A.toggleMenu()">☰ MENU</button>
+</header>
+
+<div id="menu" role="dialog" aria-label="Workout settings and navigation">
+  <div class="row between">
+    <h2>Aletheia Calisthenics</h2>
+    <button class="secondary" type="button" onclick="A.toggleMenu(false)" aria-label="Close menu">×</button>
+  </div>
+
+  <button class="menu-link" type="button" onclick="A.go('home')">HOME</button>
+  <button class="menu-link" type="button" onclick="A.go('overview')">CALISTHENICS WITH CATS</button>
+
+  <label for="voiceMode">Trainer voice</label>
+  <select id="voiceMode">
+    <option value="caroline">Caroline — UK female</option>
+    <option value="male">UK English Male — Storyteller</option>
+  </select>
+  <div id="voiceStatus" class="status" role="status" aria-live="polite">Waiting for browser voices…</div>
+  <div class="menu-actions">
+    <button type="button" onclick="A.testVoice()">Test voice</button>
+    <button type="button" onclick="A.stopSpeech()">Stop voice</button>
+  </div>
+
+  <label for="speechRate">Speech rate <span id="speechRateVal">0.93</span></label>
+  <input id="speechRate" type="range" min="0.75" max="1.20" value="0.93" step="0.01">
+
+  <label for="musicStyle">Music bed</label>
+  <select id="musicStyle">
+    <option value="zen60">Zen Garden 60 BPM</option>
+    <option value="tao60">Tao Flow 60 BPM</option>
+    <option value="up120">Upbeat 120 BPM</option>
+    <option value="local">Local licensed track</option>
+    <option value="off">Music off</option>
+  </select>
+
+  <label for="musicVolume">Music volume <span id="musicVolumeVal">50%</span></label>
+  <input id="musicVolume" type="range" min="0" max="0.18" value="0.09" step="0.005">
+
+  <div id="localMusicWrap" hidden>
+    <label for="localMusic">Local audio file</label>
+    <input id="localMusic" type="file" accept="audio/*">
+    <p class="small">The file stays on this device. Choose a track you are licensed to play.</p>
+  </div>
+
+  <div id="audioStatus" class="status" role="status" aria-live="polite">Music starts when you press Start workout.</div>
+
+  <label class="menu-check" for="facts"><span>Rest facts</span><input id="facts" type="checkbox"></label>
+  <label class="menu-check" for="captions"><span>Captions</span><input id="captions" type="checkbox"></label>
+  <label class="menu-check" for="auto"><span>Auto advance after rest</span><input id="auto" type="checkbox"></label>
+
+  <div class="menu-actions">
+    <button type="button" onclick="A.install()">Install app</button>
+    <button type="button" onclick="A.go('overview')">Workout list</button>
+  </div>
+  <div id="installHelp" class="small" aria-live="polite"></div>
+
+  <a class="menu-link" href="Aleteheia-calistenics-rsc.htm" target="_blank" rel="noopener">FREE COURSES & RESOURCES ↗</a>
+  <a class="menu-link" href="Aleteheia-calistenics-rsc.htm#books-gifts" target="_blank" rel="noopener">BOOKS & GIFTS ↗</a>
+  <a class="menu-link" href="../" target="_blank" rel="noopener">★ ALETHEIA APPS ↗</a>
+  <p class="small">General fitness information only. Stop if pain, chest pain or severe dizziness builds, and seek appropriate professional advice when needed.</p>
+</div>
+
+<main data-aletheia-read-region>
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="kicker">Move well • live brighter</div>
+    <h1>Story Workouts</h1>
+    <p>Guided strength, balance and mobility with calm coaching, exercise zooms, timed rests, fresh facts and one highly observant cat.</p>
+  </div>
+
+  <button class="poster-card" onclick="A.show('overview')">
+    <img class="poster" alt="Calisthenics with Cats exercise poster">
+    <span class="copy">
+      <span class="badge">🐾 First complete workout</span>
+      <h2>Calisthenics with Cats</h2>
+      <p>Just a mat and a cat.</p>
+    </span>
+  </button>
+
+  <div class="panel">
+    <h2>How it works</h2>
+    <p>The player zooms into the current exercise, coaches it, counts down, rests, then moves on. Open <strong>☰ MENU</strong> at any time for voice, music, captions or pacing.</p>
+    <button class="primary full" onclick="A.start()">Start workout</button>
+    <div class="home-links">
+      <a href="Aleteheia-calistenics-rsc.htm" target="_blank" rel="noopener">Free courses & resources ↗</a>
+      <a href="Aleteheia-calistenics-rsc.htm#books-gifts" target="_blank" rel="noopener">Books & Gifts ↗</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Same link on phone and PC</h2>
+    <p class="small">Use it in the browser or install it from a supported browser for one-tap access. Installation is optional.</p>
+    <button class="secondary full" onclick="A.install()">Install / Add to Home Screen</button>
+  </div>
+
+  <section data-aletheia-constellation class="aletheia-constellation" data-as-season="default" aria-label="Aletheia Constellation related websites">
+    <div class="aletheia-constellation__head">
+      <h2>Follow the stars ✨</h2>
+      <p data-as-description>A few useful routes back through Aletheia.</p>
+    </div>
+    <nav class="aletheia-constellation__links" aria-label="Related Aletheia destinations">
+      <a class="aletheia-constellation__link" href="https://www.swindon.org.uk/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✦</span><span>Swindon UK</span></a>
+      <a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">★</span><span>Aletheia Apps</span></a>
+      <a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-knowledge/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✧</span><span>Aletheia Knowledge</span></a>
+      <a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/stories/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✦</span><span>Stories</span></a>
+      <a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/Writers/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">★</span><span>Writers</span></a>
+    </nav>
+    <p class="aletheia-constellation__note">Curated navigation links, not paid adverts.</p>
+  </section>
+
+  <footer>Calisthenics Story App MVP. Exercise guidance is general information, not medical treatment.</footer>
+</section>
+
+<section id="overview" class="screen">
+  <div class="hero">
+    <div class="kicker">Starter session</div>
+    <h1>Calisthenics with Cats</h1>
+    <p>Five gentle mat movements. Headstand stays outside normal autoplay as an advanced optional demonstration.</p>
+  </div>
+  <div class="panel">
+    <span class="badge">Default: Caroline + Zen Garden 60 BPM</span>
+    <div class="exercise-list" id="elist"></div>
+    <p class="warnbox" id="safety"></p>
+    <button class="primary full" onclick="A.start()">Start guided workout</button>
+    <p class="small">Open ☰ MENU before or during the workout to change the trainer voice, music, volume, captions or auto-advance.</p>
+  </div>
+</section>
+
+<section id="player" class="screen">
+  <div class="row between">
+    <div><div class="kicker" id="ecount"></div><h1 id="etitle" style="font-size:2rem;margin:.15em 0"></h1></div>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+  <div class="stage" id="stage">
+    <img id="stageimg" alt="">
+    <div class="timer" id="time">00:30</div>
+  </div>
+  <div class="cue" id="cue"></div>
+  <div class="subcue" id="mod"></div>
+  <div class="controls">
+    <button onclick="A.prev()">◀ Previous</button>
+    <button class="play pause" onclick="A.pause()">Ⅱ Pause</button>
+    <button onclick="A.next()">Next ▶</button>
+    <button class="stop" onclick="A.stopWorkout()">■ Stop</button>
+  </div>
+</section>
+
+<section id="rest" class="screen rest">
+  <div class="kicker">Recovery is part of the session</div>
+  <h1>Rest</h1>
+  <div class="rest-time" id="rtime">00:45</div>
+  <div class="fact" id="fact"></div>
+  <div class="panel"><b id="next"></b></div>
+  <div class="controls">
+    <button onclick="A.go('overview')">Workout</button>
+    <button class="play pause" onclick="A.pause()">Ⅱ Pause</button>
+    <button onclick="A.next()">Next ▶</button>
+    <button class="stop" onclick="A.stopWorkout()">■ Stop</button>
+  </div>
+</section>
+
+<section id="done" class="screen complete">
+  <div class="cat">🐾</div>
+  <h1>Nicely done.</h1>
+  <p>Five controlled movements, plenty of breathing, and Mitten has completed the quality-control inspection.</p>
+  <button class="primary full" onclick="A.start()">Repeat workout</button>
+  <div class="home-links">
+    <a href="Aleteheia-calistenics-rsc.htm" target="_blank" rel="noopener">Explore free courses ↗</a>
+    <a href="Aleteheia-calistenics-rsc.htm#books-gifts" target="_blank" rel="noopener">Books & Gifts ↗</a>
+  </div>
+</section>
 </main>
-<nav class="bottom"><button data-s="home" class="on" onclick="A.show('home')">⌂<br>Home</button><button data-s="overview" onclick="A.show('overview')">▣<br>Workout</button><button data-s="settings" onclick="A.show('settings')">⚙<br>Settings</button><button onclick="location.href='Aleteheia-calistenics-rsc.htm'">☆<br>Resources</button></nav></div>
-<div class="drawer" id="drawer" onclick="if(event.target===this)A.toggleDrawer(false)"><nav><div class="row between"><h2>Aletheia</h2><button class="round" onclick="A.toggleDrawer(false)">×</button></div><button class="link" onclick="A.toggleDrawer(false);A.show('home')">Home</button><button class="link" onclick="A.toggleDrawer(false);A.show('overview')">Calisthenics with Cats</button><button class="link" onclick="A.toggleDrawer(false);A.show('settings')">Voice, music & captions</button><a href="Aleteheia-calistenics-rsc.htm">Free courses & resources</a><a href="../aletheia-shop-price-app/aletheia-shop-price-app.htm">Books & Gifts</a><a href="../">★ Aletheia Apps</a><p class="small">General fitness information only. Stop if pain or dizziness builds and seek professional advice when needed.</p></nav></div>
-<script src="poster-data.js"></script><script src="story-player.js"></script></body></html>
+</div>
+
+<script src="poster-data.js"></script>
+<script src="story-player.js"></script>
+<script src="../shared/link-sprites.js" defer></script>
+</body>
+</html>
