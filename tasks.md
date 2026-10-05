@@ -992,3 +992,13 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [ ] Verify Safari/WebKit where practical; record actual Speech Synthesis and Web Audio fallbacks.
 - [ ] Confirm the male option resolves to the preferred Storyteller-style UK English male voice available on each test device and does not prefer George.
 - [ ] Verify the deployed resource page, external/free-course links and Books & Gifts destinations after GitHub Pages refresh.
+
+
+## Calisthenics with Cats — WD text variant — 5 October 2026
+
+- [x] Apply the current Aletheia Improve routing/read/source checks and revised literary research to a separate Course 1 text variant.
+- [x] Add `Aletheia-calistenics/Aleteheia-calistenics-WD.md` with complete opening, five narrated movements, rests and ending; `WD` is a version label, not an author credit.
+- [x] Add compatible `Aletheia-calistenics/workout-WD.json`; retain exercise order/IDs, timings, crops, modifications, safety, defaults, advanced exclusion and 47 existing factual/supportive rest messages.
+- [x] Validate JSON and Markdown agreement, exact first instruction, both protocol references and distinct variant identity.
+
+Original course Markdown, `workout.json`, HTML, JavaScript, poster and PWA files are unchanged. The WD text/data are not selected in the current player; no live/device playback claim is made. Player selection/integration is a separate future task if requested.

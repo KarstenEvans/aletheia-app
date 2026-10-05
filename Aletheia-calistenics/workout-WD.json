@@ -1,0 +1,160 @@
+{
+  "id": "aletheia-calistenics-cats-v1-WD",
+  "title": "Calisthenics with Cats — WD",
+  "subtitle": "Just a mat, a cat, and an uninvited inspector",
+  "defaultVoice": "caroline",
+  "defaultMusic": "zen60",
+  "restFactNoRepeat": 5,
+  "safety": {
+    "intro": "Move in a comfortable range. Use an easier version whenever you need it. Stop if pain, chest pain, severe dizziness or feeling faint develops.",
+    "support": "If balance is uncertain, work near a wall or sturdy chair and keep support within easy reach."
+  },
+  "exercises": [
+    {
+      "id": "catcow",
+      "title": "Cat Stretch / Cat-Cow",
+      "duration": 40,
+      "rest": 30,
+      "focus": {
+        "x": 0,
+        "y": 0.24,
+        "w": 0.335,
+        "h": 0.32
+      },
+      "intro": "Start by kneeling on your hands and knees. Move gently between a soft arch and a comfortable rounded back. Mitten watches from beside the mat. Apparently the cat would like to know why a human is borrowing the cat stretch.",
+      "cue": "Move slowly. Let the movement follow your breathing. Mitten can wait for the paperwork.",
+      "mod": "Keep the movement small if your back feels sensitive.",
+      "next": "Next is a short plank. Knees down is absolutely fine."
+    },
+    {
+      "id": "plank",
+      "title": "Forearm Plank",
+      "duration": 30,
+      "rest": 45,
+      "focus": {
+        "x": 0.33,
+        "y": 0.24,
+        "w": 0.34,
+        "h": 0.32
+      },
+      "intro": "Set your elbows under your shoulders. Choose toes, knees, or a raised surface. Mitten has settled on a cushion to supervise. The inspector appears to have confused a workout with an invitation to lie down.",
+      "cue": "Stay long through the body. Breathe steadily. Choose the version that feels right for you.",
+      "mod": "Shorten the hold or use knees down if your back, neck or shoulders complain.",
+      "next": "Next is the push-up. Knees down or a higher surface is fine."
+    },
+    {
+      "id": "pushup",
+      "title": "Push-Up",
+      "duration": 30,
+      "rest": 45,
+      "focus": {
+        "x": 0.665,
+        "y": 0.24,
+        "w": 0.335,
+        "h": 0.32
+      },
+      "intro": "Hands under shoulders. Choose a full push-up, knees down, or a higher surface. Mitten is counting from the cushion. One blink, two blinks, three blinks. None of these counts as a push-up, but the inspector seems satisfied.",
+      "cue": "Lower with control. Clean repetitions, not rushed ones. You set the pace.",
+      "mod": "Use a wall or secure countertop if floor push-ups are uncomfortable.",
+      "next": "Next we turn onto the side for leg circles."
+    },
+    {
+      "id": "legcircles",
+      "title": "Side-Lying Leg Circles",
+      "duration": 60,
+      "rest": 40,
+      "focus": {
+        "x": 0,
+        "y": 0.55,
+        "w": 0.335,
+        "h": 0.31
+      },
+      "intro": "Lie comfortably on your side. We will do thirty seconds on each side. When the countdown says thirty, change sides. Mitten considers these small circles a promising new way of drawing a saucer. A saucer without lunch is less impressive.",
+      "cue": "Small smooth circles. Keep the hips as steady as you comfortably can.",
+      "mod": "Bend the moving knee slightly and make a smaller circle if needed.",
+      "next": "Next is the bridge. Mitten has appointed a bridge inspector: Mitten."
+    },
+    {
+      "id": "bridge",
+      "title": "Glute Bridge",
+      "duration": 45,
+      "rest": 45,
+      "focus": {
+        "x": 0.33,
+        "y": 0.55,
+        "w": 0.34,
+        "h": 0.31
+      },
+      "intro": "Lie on your back with knees bent and feet comfortable. Lift only as high as feels good. Mitten looks up from the cushion. At last, a bridge. The inspector checks whether it leads to the kitchen. It does not.",
+      "cue": "Lift gently, pause, and lower with control. There is no need to impress the inspector.",
+      "mod": "Use a mini bridge if your back feels sensitive.",
+      "next": "That completes the standard session. Mitten approves, although the kitchen remains disappointingly far away."
+    }
+  ],
+  "advanced": [
+    {
+      "id": "headstand",
+      "title": "Headstand — advanced optional",
+      "duration": 20,
+      "focus": {
+        "x": 0.665,
+        "y": 0.55,
+        "w": 0.335,
+        "h": 0.31
+      },
+      "note": "Not part of normal autoplay. Do not use this app to learn a headstand. Only for people already comfortable with inversions and a safe setup."
+    }
+  ],
+  "restFacts": [
+    "Any movement is better than none. Short bouts still count.",
+    "Older adults are encouraged to move every day, even if some of it is light activity.",
+    "Breaking up long periods of sitting with light activity is worthwhile.",
+    "Strength work is recommended on at least two days each week.",
+    "Balance and flexibility deserve regular practice as we get older.",
+    "Strength, balance and flexibility help support everyday physical function.",
+    "Balance practice can help reduce the risk of falls.",
+    "Better balance can also make everyday movement feel more confident.",
+    "Stronger muscles can make everyday jobs feel easier.",
+    "Bodyweight movements can count as muscle-strengthening activity.",
+    "Regular activity can help people stay independent for longer.",
+    "Physical activity supports heart health as we age.",
+    "Activity helps support bone health, not only muscles.",
+    "Regular physical activity supports balance and coordination.",
+    "Regular movement can support sleep quality.",
+    "Physical activity can help reduce feelings of anxiety.",
+    "Movement is one useful way to help manage stress.",
+    "Regular physical activity can support quality of life.",
+    "A brisk walk can be a simple form of moderate activity.",
+    "You do not need a gym to work on strength.",
+    "Yoga can contribute to strength and flexibility.",
+    "Tai chi is one way to combine controlled movement and balance practice.",
+    "Gardening can contribute to your weekly movement and strength work.",
+    "Build up gradually from what you can comfortably do today.",
+    "Good form is a fine reason to slow down.",
+    "If you feel unsteady, steady yourself before carrying on.",
+    "A sturdy chair, wall or another stable support can make balance work safer.",
+    "Stable footwear can make controlled movement easier.",
+    "If a movement does not feel right, reduce the range or choose the easier version.",
+    "If you are unsure whether an exercise suits you, ask a doctor or physiotherapist.",
+    "A smaller range of motion can still be useful practice.",
+    "Resting between exercises can help you return with better control.",
+    "Recovery is part of the session, not an interruption to it.",
+    "Steady breathing can help you keep a smooth, controlled rhythm.",
+    "Slower repetitions can make it easier to notice your position and balance.",
+    "Sit-to-stand practice is one practical way to train strength and balance for daily life.",
+    "Strength and balance can be trained at home as well as in a gym.",
+    "Walking and strengthening work complement each other; they train different things.",
+    "Strong muscles help support the everyday tasks that keep us independent.",
+    "Balance practice can begin with very small challenges and stable support nearby.",
+    "Keep support close until you feel genuinely steady, not merely brave.",
+    "Move at a pace that lets you stay in control.",
+    "A rest break is pacing, not failure.",
+    "Regular activity can help confidence grow alongside physical ability.",
+    "Light activity is still more useful than remaining sedentary for long periods.",
+    "The best routine is one you can repeat safely and consistently.",
+    "Today’s goal is not perfection. It is another useful bit of movement.",
+    "Mitten has inspected the mat and found one serious problem: a human was using it.",
+    "The inspector has completed three blinks and a yawn. An impressive amount of administration.",
+    "Mitten has awarded this session a purr. The certificate is imaginary; your movement was real."
+  ]
+}
