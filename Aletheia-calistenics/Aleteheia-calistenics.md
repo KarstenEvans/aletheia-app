@@ -29,7 +29,10 @@ For each exercise:
 
 - show the relevant crop/zoom from the master exercise artwork;
 - introduce the movement and an easier modification;
-- start the exercise timer;
+- wait for the setup narration to finish;
+- provide a two-second preparation delay;
+- speak the start cue and duration;
+- only then start the exercise timer;
 - announce round ten-second markers;
 - count the final ten seconds one by one;
 - say “And rest”;
@@ -65,6 +68,12 @@ The menu should show the actual system voice selected on the current device so t
 ## Music
 
 Reuse the proven Aletheia Frequency Explorer Web Audio pattern rather than the earlier near-silent custom oscillator mix.
+
+Preferred recorded source:
+
+- **NourishedByMusic on Pixabay** — https://pixabay.com/users/nourishedbymusic-19075120/
+- **Yoga Nidra** — https://pixabay.com/music/meditationspiritual-yoga-nidra-188882/ — the first recorded-track choice, currently listed by Pixabay as free for use under the Pixabay Content License.
+- The creator page is not itself a streamable audio asset. Until the licensed MP3 is actually bundled or selected locally, **Zen Garden remains the automatic runtime fallback**.
 
 Generated profiles:
 
@@ -144,3 +153,12 @@ A user-selected local audio file is used only by the browser page and is not upl
 - Procedural music ancestry: recovered Aletheia Frequency Explorer browser app.
 - Public-health rest/safety themes: NHS and UK activity guidance linked from the resource page.
 - Improve audit: \`Aletheia-01-Calisthenics-Improve-Audit.md\`.
+
+
+## Playback corrections — 5 October 2026
+
+- Opening instruction changed to: “Start by kneeling on your hands and knees.”
+- Default speech rate is **1.00**.
+- Timer sequencing is narration → two-second preparation delay → start cue → timer.
+- Pause is a true toggle. It pauses/resumes speech, timer progression and music without requiring the button to be held.
+- Generated music gain was increased and a direct **Test music** control was added.
