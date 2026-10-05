@@ -971,3 +971,24 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [x] Route AGENTS.md and Improve output to the shared contract; include partial checkpoints and an honest file-access fallback.
 - [x] Validate targeted additive documentation changes and preservation of prior content. No app HTML, manifests, research proposals or normative protocol versions changed.
 - [ ] Verify user-facing download/access behaviour in each host; source documentation cannot repair a host artifact/environment association failure.
+
+
+## Aletheia Calisthenics — Improve pass — 5 October 2026
+
+- [x] Run Aletheia Improve against the current repository source rather than the prior chat.
+- [x] Read root AGENTS/README, GUI/dev/code/tasks, Aletheia Improve, shared Constellation rules, target Markdown/page/HTML/resources/data, current Storyteller voice code and recovered Frequency Explorer audio implementation.
+- [x] Save Stage 01 audit at `Aletheia-calistenics/Aletheia-01-Calisthenics-Improve-Audit.md`.
+- [x] Replace the first-build near-silent music implementation with a Frequency Explorer-derived Web Audio engine: master gain, reverb, drones, generated phrases, 60/120 BPM pulse, volume control, local licensed-track option and narration ducking.
+- [x] Reuse Storyteller's UK English male narrator preference order and explicitly avoid George when choosing the preferred male voice.
+- [x] Show the actual resolved browser/device voice in the menu and provide a Test voice control.
+- [x] Replace the duplicate bottom navigation + drawer with one Storyteller-style `☰ MENU` that preserves workout state and carries voice/music/caption/pacing/install/resource settings.
+- [x] Rebuild `Aleteheia-calistenics-rsc.htm` as a calisthenics-specific Free Courses + Healthy Ageing + Music + Books & Gifts page; remove the generic Aletheia Shopping handoff.
+- [x] Add shared Aletheia Constellation integration and static fallback links to the reworked public pages.
+- [x] Expand the canonical app Markdown and page reconstruction/acceptance specification.
+- [x] Bump the PWA cache to `aletheia-calistenics-v2` and remove older Calisthenics caches on service-worker activation.
+- [x] Static/repository checks: required menu ARIA present; duplicate bottom nav absent; resource links present; Storyteller male/George exclusion present; Frequency Explorer-derived music functions present; resources contain books and gifts; no Shopping handoff remains; one Awin MasterTag on resources; Constellation present; service-worker cache bump present.
+- [ ] Verify the deployed GitHub Pages app in Windows Chrome and Edge: audible generated music, music volume, narration ducking, countdown, pause/resume and Stop.
+- [ ] Verify Android Chrome: same public URL, menu touch behaviour, voice/music playback and Add to Home Screen / install path.
+- [ ] Verify Safari/WebKit where practical; record actual Speech Synthesis and Web Audio fallbacks.
+- [ ] Confirm the male option resolves to the preferred Storyteller-style UK English male voice available on each test device and does not prefer George.
+- [ ] Verify the deployed resource page, external/free-course links and Books & Gifts destinations after GitHub Pages refresh.
