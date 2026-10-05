@@ -1,12 +1,17 @@
 const A={
-  installPrompt:null,data:null,ex:0,phase:'idle',left:0,timer:null,paused:false,
-  recent:[],bag:[],settings:{voice:'caroline',rate:.93,music:'zen60',musicVolume:.09,facts:true,captions:true,auto:true},
-  ctx:null,musicTimers:[],musicNodes:[],musicBus:null,localAudio:null,localAudioUrl:null,speechActive:0,
+  installPrompt:null,data:null,ex:0,phase:'idle',left:0,timer:null,paused:false,flowToken:0,
+  recent:[],bag:[],settings:{voice:'caroline',rate:1.0,music:'zen60',musicVolume:.18,facts:true,captions:true,auto:true},
+  ctx:null,musicTimers:[],musicNodes:[],musicBus:null,localAudio:null,localAudioUrl:null,speechActive:0,speechWaiters:new Set(),
 
   async init(){
     try{this.data=await fetch('./workout.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('workout.json '+r.status);return r.json()});}
     catch(e){this.setAudioStatus('Workout data failed to load. Reload the page.',true);return;}
-    this.settings={...this.settings,...JSON.parse(localStorage.getItem('aletheiaCalSettings')||'{}')};
+    const saved=JSON.parse(localStorage.getItem('aletheiaCalSettings')||'{}');
+    this.settings={...this.settings,...saved};
+    // Migrate the first MVP defaults so existing testers get the corrected timing/audio defaults.
+    if(saved.rate===undefined||saved.rate===.93)this.settings.rate=1.0;
+    if(saved.musicVolume===undefined||saved.musicVolume===.09)this.settings.musicVolume=.18;
+    this.save();
     document.querySelectorAll('.poster').forEach(i=>i.src=window.ALETHEIA_POSTER);
     this.renderOverview();this.renderMenu();this.shuffle();this.show('home');this.updateVoiceStatus();
     if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=()=>this.updateVoiceStatus();
@@ -33,7 +38,7 @@ const A={
     document.querySelector('#speechRateVal').textContent=Number(this.settings.rate).toFixed(2);
     document.querySelector('#musicStyle').value=this.settings.music;
     document.querySelector('#musicVolume').value=this.settings.musicVolume;
-    document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume/.18*100)+'%';
+    document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume/.30*100)+'%';
     document.querySelector('#facts').checked=this.settings.facts;
     document.querySelector('#captions').checked=this.settings.captions;
     document.querySelector('#auto').checked=this.settings.auto;
@@ -41,7 +46,7 @@ const A={
     document.querySelector('#voiceMode').onchange=e=>{this.settings.voice=e.target.value;this.save();this.updateVoiceStatus();};
     document.querySelector('#speechRate').oninput=e=>{this.settings.rate=+e.target.value;document.querySelector('#speechRateVal').textContent=this.settings.rate.toFixed(2);this.save();};
     document.querySelector('#musicStyle').onchange=e=>{this.settings.music=e.target.value;this.save();this.updateLocalMusicVisibility();if(this.phase!=='idle'&&this.phase!=='done')this.restartMusic();};
-    document.querySelector('#musicVolume').oninput=e=>{this.settings.musicVolume=+e.target.value;document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume/.18*100)+'%';this.save();this.applyMusicVolume();};
+    document.querySelector('#musicVolume').oninput=e=>{this.settings.musicVolume=+e.target.value;document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume/.30*100)+'%';this.save();this.applyMusicVolume();};
     ['facts','captions','auto'].forEach(k=>document.querySelector('#'+k).onchange=e=>{this.settings[k]=e.target.checked;this.save();});
     document.querySelector('#localMusic').onchange=()=>{if(this.settings.music==='local'&&this.phase!=='idle'&&this.phase!=='done')this.restartMusic();};
     this.updateLocalMusicVisibility();
@@ -74,18 +79,35 @@ const A={
     else help.textContent='PC: Chrome or Edge → Install app from the address bar/browser menu.';
   },
 
-  start(){
+  async start(){
     this.stopAll();this.ex=0;this.phase='exercise';this.paused=false;
-    this.startMusic();this.renderExercise(true);
+    await this.startMusic();
+    this.renderExercise(true);
   },
 
   stopWorkout(){
-    clearInterval(this.timer);this.stopSpeech();this.stopMusic();this.paused=false;this.phase='idle';
+    this.flowToken++;clearInterval(this.timer);this.stopSpeech();this.stopMusic();this.paused=false;this.phase='idle';
     document.querySelectorAll('.pause').forEach(b=>b.textContent='Ⅱ Pause');
     this.show('overview');
   },
 
-  renderExercise(intro){
+  async waitPausable(ms,token){
+    let remaining=ms,last=performance.now();
+    return await new Promise(resolve=>{
+      const step=()=>{
+        if(token!==this.flowToken)return resolve(false);
+        const now=performance.now();
+        if(!this.paused)remaining-=now-last;
+        last=now;
+        if(remaining<=0)return resolve(true);
+        setTimeout(step,50);
+      };
+      step();
+    });
+  },
+
+  async renderExercise(intro){
+    const token=++this.flowToken;
     this.phase='exercise';this.show('player');
     const e=this.data.exercises[this.ex];
     document.querySelector('#etitle').textContent=e.title;
@@ -94,20 +116,27 @@ const A={
     document.querySelector('#cue').textContent=this.settings.captions?e.cue:'';
     document.querySelector('#mod').textContent=e.mod;
     this.zoom(e.focus);this.left=e.duration;this.clock('#time');
-    if(intro)this.say(e.intro,1);
-    setTimeout(()=>{if(this.phase==='exercise'&&!this.paused)this.begin(e)},intro?2600:300);
+    if(intro){
+      await this.say(e.intro+' '+e.cue,1);
+      if(token!==this.flowToken||this.phase!=='exercise')return;
+      const ready=await this.waitPausable(2000,token);
+      if(!ready||token!==this.flowToken||this.phase!=='exercise')return;
+    }
+    await this.say('Begin. '+e.duration+' seconds.',1);
+    if(token!==this.flowToken||this.phase!=='exercise')return;
+    this.begin(e,token);
   },
 
-  begin(e){
-    this.say('Begin. '+e.duration+' seconds. '+e.cue,1);
+  begin(e,token){
     clearInterval(this.timer);
     this.timer=setInterval(()=>{
+      if(token!==this.flowToken){clearInterval(this.timer);return;}
       if(this.paused)return;
       this.left--;this.clock('#time');
       const rounds=[];for(let n=Math.floor((e.duration-1)/10)*10;n>=20;n-=10)rounds.push(n);
       if(rounds.includes(this.left))this.say(String(this.left),.55);
       if(this.left<=10&&this.left>0)this.say(String(this.left),this.left<=5?.95:.72);
-      if(this.left<=0){clearInterval(this.timer);this.say('And rest.',1);setTimeout(()=>this.rest(e),700);}
+      if(this.left<=0){clearInterval(this.timer);this.say('And rest.',1).then(()=>{if(token===this.flowToken)this.rest(e);});}
     },1000);
   },
 
@@ -133,23 +162,31 @@ const A={
   },
 
   done(){
-    this.phase='done';this.stopMusic();this.show('done');
+    this.flowToken++;this.phase='done';this.stopMusic();this.show('done');
     this.say('Session complete. Get up slowly and notice how you feel. Mitten has completed the quality-control inspection.',1);
   },
 
   prev(){
-    if(this.ex>0){clearInterval(this.timer);this.stopSpeech();this.ex--;this.renderExercise(true);}
+    if(this.ex>0){clearInterval(this.timer);this.flowToken++;this.stopSpeech();this.ex--;this.renderExercise(true);}
   },
   next(){
-    clearInterval(this.timer);this.stopSpeech();
+    clearInterval(this.timer);this.flowToken++;this.stopSpeech();
     if(this.ex<this.data.exercises.length-1){this.ex++;this.renderExercise(true)}else this.done();
   },
 
   pause(){
     this.paused=!this.paused;
-    document.querySelectorAll('.pause').forEach(b=>b.textContent=this.paused?'▶ Resume':'Ⅱ Pause');
-    if(this.paused){this.stopSpeech();this.suspendMusic();}
-    else{this.resumeMusic();if(this.phase==='exercise')this.say('Resuming.',.9);else if(this.phase==='rest')this.say('Rest timer resumed.',.9);}
+    document.querySelectorAll('.pause').forEach(b=>{
+      b.textContent=this.paused?'▶ Resume':'Ⅱ Pause';
+      b.setAttribute('aria-pressed',String(this.paused));
+    });
+    if(this.paused){
+      if('speechSynthesis'in window&&speechSynthesis.speaking&&!speechSynthesis.paused)speechSynthesis.pause();
+      this.suspendMusic();
+    }else{
+      if('speechSynthesis'in window&&speechSynthesis.paused)speechSynthesis.resume();
+      this.resumeMusic();
+    }
   },
 
   clock(sel){document.querySelector(sel).textContent='00:'+String(Math.max(0,this.left)).padStart(2,'0');},
@@ -190,11 +227,13 @@ const A={
       if(!v)v=vs.find(v=>norm(v).startsWith('en'));
       return v||vs[0]||null;
     }
-    let v=vs.find(v=>norm(v)==='en-gb'&&/caroline|sonia|serena|susan|hazel|libby|kate|female|woman/i.test(v.name)&&!/george/i.test(v.name));
+    let v=vs.find(v=>norm(v)==='en-au'&&/caroline/i.test(v.name));
+    if(!v)v=vs.find(v=>norm(v)==='en-au'&&/female|woman|karen|lee|catherine/i.test(v.name)&&!/george/i.test(v.name));
+    if(!v)v=vs.find(v=>norm(v)==='en-au'&&!/male|george/i.test(v.name));
+    if(!v)v=vs.find(v=>norm(v)==='en-au');
+    if(!v)v=vs.find(v=>norm(v)==='en-gb'&&/caroline|sonia|serena|susan|hazel|libby|kate|female|woman/i.test(v.name)&&!/george/i.test(v.name));
     if(!v)v=vs.find(v=>norm(v)==='en-gb'&&!/google uk english male|george|\bmale\b/i.test(v.name));
-    if(!v)v=vs.find(v=>norm(v)==='en-gb'&&!/george/i.test(v.name));
-    if(!v)v=vs.find(v=>norm(v)==='en-gb');
-    if(!v)v=vs.find(v=>norm(v).startsWith('en'));
+    if(!v)v=vs.find(v=>norm(v).startsWith('en')&&!/george/i.test(v.name));
     return v||vs[0]||null;
   },
 
@@ -208,16 +247,32 @@ const A={
   testVoice(){this.say(this.settings.voice==='male'?'Ready when you are. Let us begin.':'Ready when you are. Let’s begin.',1);},
 
   say(t,vol=1){
-    if(!('speechSynthesis'in window)||!t)return;
-    const u=new SpeechSynthesisUtterance(t),v=this.resolvedVoice();
-    if(v)u.voice=v;u.lang=v?.lang||'en-GB';u.rate=this.settings.rate;u.pitch=1;u.volume=Math.max(.1,Math.min(1,vol));
-    u.onstart=()=>{this.speechActive++;this.duckMusic(true);};
-    const end=()=>{this.speechActive=Math.max(0,this.speechActive-1);if(!this.speechActive)this.duckMusic(false);};
-    u.onend=end;u.onerror=end;
-    speechSynthesis.speak(u);
+    return new Promise(resolve=>{
+      if(!('speechSynthesis'in window)||!t){resolve();return;}
+      const u=new SpeechSynthesisUtterance(t),v=this.resolvedVoice();
+      if(v)u.voice=v;
+      u.lang=v?.lang||(this.settings.voice==='caroline'?'en-AU':'en-GB');
+      u.rate=this.settings.rate;u.pitch=1;u.volume=Math.max(.1,Math.min(1,vol));
+      let settled=false;
+      const finish=()=>{
+        if(settled)return;settled=true;
+        this.speechWaiters.delete(finish);
+        this.speechActive=Math.max(0,this.speechActive-1);
+        if(!this.speechActive)this.duckMusic(false);
+        resolve();
+      };
+      this.speechWaiters.add(finish);
+      u.onstart=()=>{this.speechActive++;this.duckMusic(true);};
+      u.onend=finish;u.onerror=finish;
+      speechSynthesis.speak(u);
+    });
   },
 
-  stopSpeech(){if('speechSynthesis'in window)speechSynthesis.cancel();this.speechActive=0;this.duckMusic(false);},
+  stopSpeech(){
+    if('speechSynthesis'in window)speechSynthesis.cancel();
+    [...this.speechWaiters].forEach(f=>f());
+    this.speechWaiters.clear();this.speechActive=0;this.duckMusic(false);
+  },
 
   setAudioStatus(msg,warn=false){
     const el=document.querySelector('#audioStatus');if(!el)return;el.textContent=msg;el.classList.toggle('warn',!!warn);
@@ -262,7 +317,7 @@ const A={
   drone(freqs){
     freqs.forEach((f,i)=>{
       const osc=this.ctx.createOscillator(),g=this.ctx.createGain(),lp=this.ctx.createBiquadFilter();
-      osc.type=i%2?'triangle':'sine';osc.frequency.value=f;g.gain.value=.045/(i+1);lp.type='lowpass';lp.frequency.value=650;
+      osc.type=i%2?'triangle':'sine';osc.frequency.value=f;g.gain.value=.11/(i+1);lp.type='lowpass';lp.frequency.value=650;
       osc.connect(lp);lp.connect(g);g.connect(this.musicBus.master);osc.start();this.reg(osc,g,lp);
     });
   },
@@ -272,7 +327,7 @@ const A={
       if(!this.ctx||!this.musicBus)return;
       const at=this.ctx.currentTime+.01,osc=this.ctx.createOscillator(),g=this.ctx.createGain(),lp=this.ctx.createBiquadFilter();
       osc.type='sine';osc.frequency.value=bpm===120?150:120;lp.type='lowpass';lp.frequency.value=320;
-      g.gain.setValueAtTime(.0001,at);g.gain.exponentialRampToValueAtTime(.018,at+.01);g.gain.exponentialRampToValueAtTime(.0001,at+.16);
+      g.gain.setValueAtTime(.0001,at);g.gain.exponentialRampToValueAtTime(.04,at+.01);g.gain.exponentialRampToValueAtTime(.0001,at+.16);
       osc.connect(lp);lp.connect(g);g.connect(this.musicBus.master);osc.start(at);osc.stop(at+.2);this.reg(osc,g,lp);
     };
     pulse();this.musicTimers.push(setInterval(pulse,ms));
@@ -285,7 +340,7 @@ const A={
       const count=2+Math.floor(Math.random()*4);let at=this.ctx.currentTime+.1,idx=Math.floor(Math.random()*def.scale.length),direction=Math.random()<.5?1:-1;
       for(let i=0;i<count;i++){
         idx=Math.max(0,Math.min(def.scale.length-1,idx+(i===0?0:direction*(Math.random()<.7?1:0))));
-        const dur=def.dur[0]+Math.random()*(def.dur[1]-def.dur[0]),pan=-.55+Math.random()*1.1,vol=.035+Math.random()*.03;
+        const dur=def.dur[0]+Math.random()*(def.dur[1]-def.dur[0]),pan=-.55+Math.random()*1.1,vol=.075+Math.random()*.045;
         this.note(def.scale[idx],at,dur,vol,def.type,pan,def.bright,def.pluck);
         at+=def.pluck?.65+Math.random()*1.25:1.8+Math.random()*2.8;
       }
@@ -312,7 +367,7 @@ const A={
     if(!inp?.files?.[0]){this.setAudioStatus('Choose a local audio file in MENU, or select a generated music bed.',true);return;}
     if(this.localAudioUrl)URL.revokeObjectURL(this.localAudioUrl);
     this.localAudioUrl=URL.createObjectURL(inp.files[0]);this.localAudio=new Audio(this.localAudioUrl);this.localAudio.loop=true;
-    this.localAudio.volume=Math.min(1,this.settings.musicVolume/.18*.55);
+    this.localAudio.volume=Math.min(1,this.settings.musicVolume/.30*.75);
     this.localAudio.play().then(()=>this.setAudioStatus('Local track playing from this device.')).catch(()=>this.setAudioStatus('The local track could not start.',true));
   },
 
@@ -321,7 +376,7 @@ const A={
       const target=Math.max(this.settings.musicVolume,.0001);
       this.musicBus.master.gain.setTargetAtTime(target,this.ctx.currentTime,.08);
     }
-    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.18*.55);
+    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.30*.75);
   },
 
   duckMusic(on){
@@ -329,12 +384,22 @@ const A={
       const target=Math.max(this.settings.musicVolume*(on?.34:1),.0001);
       this.musicBus.master.gain.setTargetAtTime(target,this.ctx.currentTime,.08);
     }
-    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.18*.55*(on?.34:1));
+    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.30*.75*(on?.34:1));
   },
 
   suspendMusic(){if(this.ctx?.state==='running')this.ctx.suspend().catch(()=>{});if(this.localAudio&&!this.localAudio.paused)this.localAudio.pause();},
   resumeMusic(){if(this.ctx?.state==='suspended')this.ctx.resume().catch(()=>{});if(this.localAudio?.paused)this.localAudio.play().catch(()=>{});},
   restartMusic(){if(this.phase==='idle'||this.phase==='done')return;this.startMusic();},
+
+  async testMusic(){
+    await this.startMusic();
+    if(this.ctx&&this.musicBus){
+      const now=this.ctx.currentTime+.05;
+      this.note(261.63,now,2.2,.13,'triangle',-.2,1900,true);
+      this.note(392,now+.18,2.5,.11,'triangle',.25,1800,true);
+      this.setAudioStatus('Music test playing now. If you cannot hear it, raise Music volume and check the device/browser volume.');
+    }
+  },
 
   stopMusic(){
     this.musicTimers.forEach(t=>{clearTimeout(t);clearInterval(t)});this.musicTimers=[];
@@ -347,7 +412,7 @@ const A={
     this.musicBus=null;
   },
 
-  stopAll(){clearInterval(this.timer);this.stopSpeech();this.stopMusic();this.paused=false;}
+  stopAll(){this.flowToken++;clearInterval(this.timer);this.stopSpeech();this.stopMusic();this.paused=false;}
 };
 
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();if(window.A)A.installPrompt=e;});
