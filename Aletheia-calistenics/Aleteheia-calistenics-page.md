@@ -132,7 +132,7 @@ Port the Frequency Explorer pattern:
 - scale-based generated phrases
 - audible default master level near the earlier Frequency Explorer \`0.09\`
 - gentle BPM pulse
-- music ducking during narration
+- steady user-selected music level during narration and countdowns; no automatic ducking
 - visible audio status/failure state
 
 Music volume must be adjustable from the menu.
@@ -159,9 +159,10 @@ Start/timer synchronisation:
 
 Countdown pattern:
 
-- round ten-second announcements;
-- final ten seconds spoken every second;
-- countdown speech is quieter than ordinary coaching until the last few seconds.
+- round ten-second announcements remain, including 30, 20 and 10 where applicable;
+- the continuous spoken countdown begins only at five seconds;
+- final sequence: 5, 4, 3, 2, 1, rest;
+- music volume remains unchanged while these announcements play.
 
 ### Rest
 
@@ -297,7 +298,7 @@ Live/device still required:
 - Android current Chrome
 - Safari/WebKit where practical
 - generated music audible at default volume after Start
-- narration ducks music
+- narration plays over music without changing the user's selected music level
 - male narrator resolves like Storyteller and does not prefer George
 - menu keyboard/touch behaviour
 - PWA install path
@@ -328,3 +329,12 @@ Unresolved until live testing: actual device voice inventory and perceived audio
 - A two-second preparation delay occurs before the start cue/timer.
 - Pause is click-on / click-off and does not cancel the workout sequence.
 - Test music produces an audible generated tone/bed from a direct user gesture.
+
+
+### Music continuity acceptance tests — 6 October 2026
+
+- Default music control displays 70%.
+- Speech and countdown events do not change music gain.
+- 10 seconds is announced once, followed later by 5, 4, 3, 2, 1.
+- No spoken 9, 8, 7 or 6 countdown.
+- Explicit Pause may pause the music; ordinary trainer speech must not.
