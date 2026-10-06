@@ -1,6 +1,6 @@
 const A={
   installPrompt:null,data:null,ex:0,phase:'idle',left:0,timer:null,paused:false,flowToken:0,
-  recent:[],bag:[],settings:{voice:'caroline',rate:1.0,music:'zen60',musicVolume:.18,facts:true,captions:true,auto:true},
+  recent:[],bag:[],settings:{voice:'caroline',rate:1.0,music:'zen60',musicVolume:.21,facts:true,captions:true,auto:true},
   ctx:null,musicTimers:[],musicNodes:[],musicBus:null,localAudio:null,localAudioUrl:null,speechActive:0,speechWaiters:new Set(),
 
   async init(){
@@ -10,7 +10,7 @@ const A={
     this.settings={...this.settings,...saved};
     // Migrate the first MVP defaults so existing testers get the corrected timing/audio defaults.
     if(saved.rate===undefined||saved.rate===.93)this.settings.rate=1.0;
-    if(saved.musicVolume===undefined||saved.musicVolume===.09)this.settings.musicVolume=.18;
+    if(saved.musicVolume===undefined||saved.musicVolume===.09||saved.musicVolume===.18)this.settings.musicVolume=.21;
     this.save();
     document.querySelectorAll('.poster').forEach(i=>i.src=window.ALETHEIA_POSTER);
     this.renderOverview();this.renderMenu();this.shuffle();this.show('home');this.updateVoiceStatus();
@@ -133,9 +133,9 @@ const A={
       if(token!==this.flowToken){clearInterval(this.timer);return;}
       if(this.paused)return;
       this.left--;this.clock('#time');
-      const rounds=[];for(let n=Math.floor((e.duration-1)/10)*10;n>=20;n-=10)rounds.push(n);
-      if(rounds.includes(this.left))this.say(String(this.left),.55);
-      if(this.left<=10&&this.left>0)this.say(String(this.left),this.left<=5?.95:.72);
+      const rounds=[];for(let n=Math.floor((e.duration-1)/10)*10;n>=10;n-=10)rounds.push(n);
+      if(rounds.includes(this.left))this.say(String(this.left),.72);
+      if(this.left<=5&&this.left>0)this.say(String(this.left),this.left<=2?.98:.84);
       if(this.left<=0){clearInterval(this.timer);this.say('And rest.',1).then(()=>{if(token===this.flowToken)this.rest(e);});}
     },1000);
   },
@@ -258,11 +258,10 @@ const A={
         if(settled)return;settled=true;
         this.speechWaiters.delete(finish);
         this.speechActive=Math.max(0,this.speechActive-1);
-        if(!this.speechActive)this.duckMusic(false);
         resolve();
       };
       this.speechWaiters.add(finish);
-      u.onstart=()=>{this.speechActive++;this.duckMusic(true);};
+      u.onstart=()=>{this.speechActive++;};
       u.onend=finish;u.onerror=finish;
       speechSynthesis.speak(u);
     });
@@ -271,7 +270,7 @@ const A={
   stopSpeech(){
     if('speechSynthesis'in window)speechSynthesis.cancel();
     [...this.speechWaiters].forEach(f=>f());
-    this.speechWaiters.clear();this.speechActive=0;this.duckMusic(false);
+    this.speechWaiters.clear();this.speechActive=0;
   },
 
   setAudioStatus(msg,warn=false){
@@ -358,7 +357,7 @@ const A={
     if(!AC){this.setAudioStatus('Web Audio is unavailable in this browser. Workout and narration still work.',true);return;}
     try{
       this.ctx=new AC();await this.ctx.resume();const def=this.musicDef();this.scheduleMusic(def);
-      this.setAudioStatus(def.name+' playing. Music ducks under the trainer voice.');
+      this.setAudioStatus(def.name+' playing at your selected level. Trainer voice plays over the music.');
     }catch(e){this.stopMusic();this.setAudioStatus('Music could not start. Tap Start again or choose Music off; the workout still works.',true);}
   },
 
@@ -379,12 +378,9 @@ const A={
     if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.30*.75);
   },
 
-  duckMusic(on){
-    if(this.musicBus&&this.ctx){
-      const target=Math.max(this.settings.musicVolume*(on?.34:1),.0001);
-      this.musicBus.master.gain.setTargetAtTime(target,this.ctx.currentTime,.08);
-    }
-    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.30*.75*(on?.34:1));
+  duckMusic(){
+    // Story Workouts keep music steady under speech/countdowns.
+    this.applyMusicVolume();
   },
 
   suspendMusic(){if(this.ctx?.state==='running')this.ctx.suspend().catch(()=>{});if(this.localAudio&&!this.localAudio.paused)this.localAudio.pause();},
