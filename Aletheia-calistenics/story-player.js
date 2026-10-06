@@ -1,6 +1,6 @@
 const A={
   installPrompt:null,data:null,ex:0,phase:'idle',left:0,timer:null,paused:false,flowToken:0,
-  recent:[],bag:[],settings:{voice:'caroline',rate:1.0,music:'zen60',musicVolume:.21,facts:true,captions:true,auto:true},
+  recent:[],bag:[],settings:{voice:'caroline',rate:1.0,music:'atlas',musicVolume:.70,generatedMusicVolume:1.0,recordedMusicVolume:.70,facts:true,captions:true,auto:true},
   ctx:null,musicTimers:[],musicNodes:[],musicBus:null,localAudio:null,localAudioUrl:null,speechActive:0,speechWaiters:new Set(),
 
   async init(){
@@ -8,9 +8,19 @@ const A={
     catch(e){this.setAudioStatus('Workout data failed to load. Reload the page.',true);return;}
     const saved=JSON.parse(localStorage.getItem('aletheiaCalSettings')||'{}');
     this.settings={...this.settings,...saved};
-    // Migrate the first MVP defaults so existing testers get the corrected timing/audio defaults.
+    // Migrate older app settings into the 0–100% music scale and new recorded default.
     if(saved.rate===undefined||saved.rate===.93)this.settings.rate=1.0;
-    if(saved.musicVolume===undefined||saved.musicVolume===.09||saved.musicVolume===.18)this.settings.musicVolume=.21;
+    if(saved.musicVolume!==undefined && saved.musicVolume<=.30)this.settings.musicVolume=Math.min(1,saved.musicVolume/.30);
+    if(saved.generatedMusicVolume===undefined)this.settings.generatedMusicVolume=1.0;
+    if(saved.recordedMusicVolume===undefined)this.settings.recordedMusicVolume=.70;
+    if(saved.music===undefined||saved.music==='zen60'){
+      this.settings.music='atlas';
+      this.settings.musicVolume=this.settings.recordedMusicVolume;
+    }else if(this.isGeneratedMusic(this.settings.music)){
+      this.settings.musicVolume=this.settings.generatedMusicVolume;
+    }else if(this.settings.music!=='off'){
+      this.settings.musicVolume=this.settings.recordedMusicVolume;
+    }
     this.save();
     document.querySelectorAll('.poster').forEach(i=>i.src=window.ALETHEIA_POSTER);
     this.renderOverview();this.renderMenu();this.shuffle();this.show('home');this.updateVoiceStatus();
@@ -38,21 +48,38 @@ const A={
     document.querySelector('#speechRateVal').textContent=Number(this.settings.rate).toFixed(2);
     document.querySelector('#musicStyle').value=this.settings.music;
     document.querySelector('#musicVolume').value=this.settings.musicVolume;
-    document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume/.30*100)+'%';
+    document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume*100)+'%';
     document.querySelector('#facts').checked=this.settings.facts;
     document.querySelector('#captions').checked=this.settings.captions;
     document.querySelector('#auto').checked=this.settings.auto;
 
     document.querySelector('#voiceMode').onchange=e=>{this.settings.voice=e.target.value;this.save();this.updateVoiceStatus();};
     document.querySelector('#speechRate').oninput=e=>{this.settings.rate=+e.target.value;document.querySelector('#speechRateVal').textContent=this.settings.rate.toFixed(2);this.save();};
-    document.querySelector('#musicStyle').onchange=e=>{this.settings.music=e.target.value;this.save();this.updateLocalMusicVisibility();if(this.phase!=='idle'&&this.phase!=='done')this.restartMusic();};
-    document.querySelector('#musicVolume').oninput=e=>{this.settings.musicVolume=+e.target.value;document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume/.30*100)+'%';this.save();this.applyMusicVolume();};
+    document.querySelector('#musicStyle').onchange=e=>{
+      const oldStyle=this.settings.music;
+      if(this.isGeneratedMusic(oldStyle))this.settings.generatedMusicVolume=this.settings.musicVolume;
+      else if(oldStyle!=='off')this.settings.recordedMusicVolume=this.settings.musicVolume;
+      this.settings.music=e.target.value;
+      this.settings.musicVolume=this.isGeneratedMusic(this.settings.music)?this.settings.generatedMusicVolume:this.settings.recordedMusicVolume;
+      document.querySelector('#musicVolume').value=this.settings.musicVolume;
+      document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume*100)+'%';
+      this.save();this.updateLocalMusicVisibility();if(this.phase!=='idle'&&this.phase!=='done')this.restartMusic();
+    };
+    document.querySelector('#musicVolume').oninput=e=>{
+      this.settings.musicVolume=+e.target.value;
+      if(this.isGeneratedMusic(this.settings.music))this.settings.generatedMusicVolume=this.settings.musicVolume;
+      else if(this.settings.music!=='off')this.settings.recordedMusicVolume=this.settings.musicVolume;
+      document.querySelector('#musicVolumeVal').textContent=Math.round(this.settings.musicVolume*100)+'%';
+      this.save();this.applyMusicVolume();
+    };
     ['facts','captions','auto'].forEach(k=>document.querySelector('#'+k).onchange=e=>{this.settings[k]=e.target.checked;this.save();});
     document.querySelector('#localMusic').onchange=()=>{if(this.settings.music==='local'&&this.phase!=='idle'&&this.phase!=='done')this.restartMusic();};
     this.updateLocalMusicVisibility();
   },
 
   save(){localStorage.setItem('aletheiaCalSettings',JSON.stringify(this.settings));},
+
+  isGeneratedMusic(style){return ['zen60','tao60','up120'].includes(style);},
 
   toggleMenu(force){
     const m=document.querySelector('#menu'),b=document.querySelector('#menuButton');
@@ -292,7 +319,7 @@ const A={
   },
 
   createMusicBus(){
-    const master=this.ctx.createGain(),target=Math.max(this.settings.musicVolume,.0001);
+    const master=this.ctx.createGain(),target=Math.max(this.settings.musicVolume*.30,.0001);
     master.gain.setValueAtTime(.0001,this.ctx.currentTime);
     master.gain.exponentialRampToValueAtTime(target,this.ctx.currentTime+1.2);
     master.connect(this.ctx.destination);
@@ -352,6 +379,7 @@ const A={
   async startMusic(){
     this.stopMusic();
     if(this.settings.music==='off'){this.setAudioStatus('Music off. Narration and timers remain active.');return;}
+    if(this.settings.music==='atlas'){this.startBundledMusic();return;}
     if(this.settings.music==='local'){this.startLocalMusic();return;}
     const AC=window.AudioContext||window.webkitAudioContext;
     if(!AC){this.setAudioStatus('Web Audio is unavailable in this browser. Workout and narration still work.',true);return;}
@@ -361,21 +389,39 @@ const A={
     }catch(e){this.stopMusic();this.setAudioStatus('Music could not start. Tap Start again or choose Music off; the workout still works.',true);}
   },
 
+  startBundledMusic(){
+    this.localAudio=new Audio('./atlasaudio-relax-511892.mp3');
+    this.localAudio.loop=true;
+    this.localAudio.volume=Math.min(1,this.settings.musicVolume);
+    this.localAudio.play()
+      .then(()=>this.setAudioStatus('AtlasAudio Relax playing at '+Math.round(this.settings.musicVolume*100)+'%. Trainer voice plays over the music.'))
+      .catch(async()=>{
+        this.setAudioStatus('Bundled AtlasAudio track is unavailable. Falling back to generated Zen music.',true);
+        this.localAudio=null;
+        this.settings.music='zen60';
+        this.settings.musicVolume=this.settings.generatedMusicVolume;
+        this.renderMenu();
+        const AC=window.AudioContext||window.webkitAudioContext;
+        if(!AC)return;
+        try{this.ctx=new AC();await this.ctx.resume();const def=this.musicDef();this.scheduleMusic(def);}catch(e){}
+      });
+  },
+
   startLocalMusic(){
     const inp=document.querySelector('#localMusic');
-    if(!inp?.files?.[0]){this.setAudioStatus('Choose a local audio file in MENU, or select a generated music bed.',true);return;}
+    if(!inp?.files?.[0]){this.setAudioStatus('Choose a local audio file in MENU, or select another music bed.',true);return;}
     if(this.localAudioUrl)URL.revokeObjectURL(this.localAudioUrl);
     this.localAudioUrl=URL.createObjectURL(inp.files[0]);this.localAudio=new Audio(this.localAudioUrl);this.localAudio.loop=true;
-    this.localAudio.volume=Math.min(1,this.settings.musicVolume/.30*.75);
-    this.localAudio.play().then(()=>this.setAudioStatus('Local track playing from this device.')).catch(()=>this.setAudioStatus('The local track could not start.',true));
+    this.localAudio.volume=Math.min(1,this.settings.musicVolume);
+    this.localAudio.play().then(()=>this.setAudioStatus('Local track playing from this device at '+Math.round(this.settings.musicVolume*100)+'%.')).catch(()=>this.setAudioStatus('The local track could not start.',true));
   },
 
   applyMusicVolume(){
     if(this.musicBus&&this.ctx){
-      const target=Math.max(this.settings.musicVolume,.0001);
+      const target=Math.max(this.settings.musicVolume*.30,.0001);
       this.musicBus.master.gain.setTargetAtTime(target,this.ctx.currentTime,.08);
     }
-    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume/.30*.75);
+    if(this.localAudio)this.localAudio.volume=Math.min(1,this.settings.musicVolume);
   },
 
   duckMusic(){
