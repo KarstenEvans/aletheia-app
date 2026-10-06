@@ -1,0 +1,88 @@
+name: Fetch AtlasAudio Relax MP3
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/fetch-atlasaudio-relax.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-audio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch Pixabay Relax by AtlasAudio
+        shell: bash
+        run: |
+          python - <<'PY'
+          import html, json, re, sys, urllib.request
+          from pathlib import Path
+
+          page = "https://pixabay.com/music/meditationspiritual-relax-511892/"
+          req = urllib.request.Request(page, headers={"User-Agent":"Mozilla/5.0"})
+          raw = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "replace")
+          raw = html.unescape(raw)
+          raw = raw.replace("\\u0026", "&").replace("\\/","/")
+
+          patterns = [
+              r'https://cdn\.pixabay\.com/[^"\'<> ]+?\.mp3(?:\?[^"\'<> ]*)?',
+              r'"(?:audio_url|download_url|url)"\s*:\s*"([^"]+\.mp3[^"]*)"',
+          ]
+          urls = []
+          for pat in patterns:
+              for m in re.finditer(pat, raw):
+                  u = m.group(1) if m.lastindex else m.group(0)
+                  u = u.replace("\\/","/").replace("\\u0026","&")
+                  if u not in urls:
+                      urls.append(u)
+
+          if not urls:
+              Path("pixabay-page-debug.html").write_text(raw, encoding="utf-8")
+              raise SystemExit("Could not locate an MP3 URL in Pixabay page source")
+
+          out = Path("Aletheia-calistenics/atlasaudio-relax-511892.mp3")
+          out.parent.mkdir(parents=True, exist_ok=True)
+
+          errors = []
+          for u in urls:
+              try:
+                  req = urllib.request.Request(u, headers={
+                      "User-Agent":"Mozilla/5.0",
+                      "Referer":page,
+                  })
+                  data = urllib.request.urlopen(req, timeout=60).read()
+                  if len(data) < 1_000_000:
+                      errors.append((u, f"too small: {len(data)}"))
+                      continue
+                  if not (data[:3] == b"ID3" or data[:2] in (b"\xff\xfb", b"\xff\xf3", b"\xff\xf2")):
+                      errors.append((u, f"not MP3 signature: {data[:12]!r}"))
+                      continue
+                  out.write_bytes(data)
+                  print("Downloaded", len(data), "bytes from", u)
+                  break
+              except Exception as e:
+                  errors.append((u, repr(e)))
+          else:
+              print("Candidates:", json.dumps(urls, indent=2))
+              print("Errors:", json.dumps(errors, indent=2))
+              raise SystemExit("Found candidate URLs but none yielded a valid MP3")
+
+          print("Saved:", out, out.stat().st_size)
+          PY
+
+      - name: Commit MP3 if changed
+        shell: bash
+        run: |
+          git config user.name "Aletheia Audio Import"
+          git config user.email "actions@users.noreply.github.com"
+          git add Aletheia-calistenics/atlasaudio-relax-511892.mp3
+          if git diff --cached --quiet; then
+            echo "MP3 already present and unchanged."
+          else
+            git commit -m "Add AtlasAudio Relax MP3 for Calisthenics"
+            git push
+          fi
