@@ -1,4 +1,4 @@
-const C='aletheia-calistenics-v3';
+const C='aletheia-calistenics-v4';
 const CORE=['./','./Aleteheia-calistenics.htm','./Aleteheia-calistenics-rsc.htm','./story-player.css','./story-player.js','./poster-data.js','./workout.json','./manifest.json','./icon.svg','../shared/link-sprites.css','../shared/link-sprites.js','../shared/link-sprites.json'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(CORE)).catch(()=>{}));});
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('aletheia-calistenics-')&&k!==C).map(k=>caches.delete(k)))),self.clients.claim()])));
