@@ -1,8 +1,8 @@
 # Aletheia Rice Intelligence
 
 **Research-led product specification and source register**  
-**Research cut-off:** 29 September 2026 (Europe/London)  
-**Status:** Proposed product, not a functioning live-data service.  
+**Research baseline:** 29 September 2026; architecture updated 6 October 2026 (Europe/London)  
+**Status:** Working on-demand prototype; public-source research still depends on the selected AI/Worker and must not be presented as a continuous live-data terminal.  
 **Primary design principle:** Alert-first, not dashboard-first; free-first, commercial feeds optional; no automated trading.
 
 Aletheia Protocol: https://github.com/karstenevans/aletheia-protocol (source receipts, freshness, conflicts, uncertainty, auditability).  
@@ -155,3 +155,17 @@ Add reading notes by topic and permissioned short summaries, never copy paid tex
 - Whether he wants a personal public-data resource only, or an employer-authorised private workplace assistant.
 
 **Product decision:** start with one HTML front door and several well-named tools behind it; alerts-first, deep research on demand. No bloated default desktop and no autonomous orders.
+
+## 10. October 2026 intelligence upgrade
+
+### Event-sensitive research
+Every current run should explicitly test for material changes in: Thai flood/harvest access and quality; Mekong mainstream versus local/provincial flooding; Cambodia export-route and buyer changes including Philippines demand; Vietnam export policy and buyer demand; India monsoon/crop/stock policy; Pakistan road/port/logistics disruption; China import demand by origin. These are search questions, not permanent facts. Each run must establish the current state from dated sources.
+
+### Four independent scouts
+The browser can hand the same source-bounded job to GPT, GEM, DS and KIMI. Save each result separately and reconcile claims by underlying source independence. Provider diversity is useful for language/search discovery, especially Chinese-language material, but does not multiply evidential weight when several models repeat one source.
+
+### China demand layer
+Add official China-side agricultural trade, Customs and domestic price context to the source registry. China remains a buyer/demand perspective rather than a default production-origin country in the five-origin supply scope.
+
+### Imaginary paper lab
+Run only after evidence reconciliation. Starting capital is £100,000 × i. This is a performance experiment for the intelligence process, not a route to autonomous trading. Simulated LONG/SHORT labels represent benchmark direction, require source-backed entry definitions and invalidation conditions, and are scored only against later comparable observations. NO_TRADE is valid.
