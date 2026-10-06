@@ -55,7 +55,52 @@ Every numerical or operational fact gets primary-source link, observed/released 
 
 If the user supplied a specific question (e.g. 'Find Cambodian Phka Malis supply for Thailand next month'), answer with the same evidence rules and add follow-up questions for broker, seller or forwarder. Never contact or purchase from a seller automatically. Finish with `Research completed at`, selected source count, checked/source access summary, and `Human confirmation required before dealing`.
 
-## 6. Source catalogue: exact IDs, names and starting URLs
+## 6. Four-scout reconciliation
+
+For important market runs, the browser app may run the same source-bounded brief independently through four manual provider handoffs:
+
+- `GPT` — ChatGPT
+- `GEM` — Google Gemini
+- `DS` — DeepSeek
+- `KIMI` — Kimi
+
+The clipboard/open/paste-back route is the canonical provider-neutral path. Aletheia AI Easy may supply the same portable bootstrap/evidence rules to each provider where useful, but provider memory, browser extensions, projects or custom instructions are conveniences rather than evidence.
+
+Save returned reports with the provider suffix, for example `aletheia-rice-report-YYYY-MM-DD-GPT.md`. Reconciliation must compare the underlying cited evidence, not vote by model count. Four models repeating one Reuters story or one ministry release are still one underlying evidential chain.
+
+Reconciliation output must include a claim trust table covering: claim, providers that found it, genuinely independent underlying sources, strongest source class, source/observation freshness, contradictions, confidence and reason. Preserve useful unique discoveries even when only one scout found them, provided the original source verifies the claim.
+
+### China-facing demand pass
+
+China is a buyer/demand layer, not a sixth production origin in the default five-country supply scope. Where material, check Chinese original/official sources for import demand and domestic-market context, especially:
+
+- Ministry of Agriculture and Rural Affairs agricultural trade reports;
+- General Administration of Customs monthly trade statistics;
+- National Bureau of Statistics circulation-market price releases.
+
+Do not confuse a Chinese domestic rice price series with Southeast Asian FOB export prices.
+
+## 7. Imaginary paper-trading laboratory
+
+The optional Paper Lab begins with **£100,000 × i**, where `i = sqrt(-1)`. It is intentionally imaginary capital.
+
+Purpose: test whether Aletheia's evidence process produces useful directional hypotheses over time without risking real money.
+
+Rules:
+
+1. No real order, brokerage instruction, counterparty contact, leverage, derivative execution or transfer of funds is authorised.
+2. `NO_TRADE` is a successful outcome when evidence is weak or contradictory.
+3. A LONG/SHORT entry is a synthetic benchmark direction only. It does not assert that physical rice can be bought, sold or shorted at the benchmark.
+4. Maximum three new simulated positions per synthesis; maximum **£25,000 × i** per position; maximum **£60,000 × i** aggregate new notional in one synthesis; total open notional may not exceed the **£100,000 × i** bankroll.
+5. Every non-NO_TRADE position requires at least two genuinely independent underlying evidence sources, with at least one primary/official source where available.
+6. Entry, mark and close values must remain comparable in origin/grade/basis/currency/unit. Do not score a Thai FOB 5% entry against a Cambodian retail bag price.
+7. Record thesis, confidence, horizon, evidence URLs and explicit invalidation condition.
+8. Marking/closing is a user-visible local action. The browser does not fetch or execute a market order.
+9. Export the private paper ledger if durable history is wanted. Browser storage alone is not durable evidence.
+
+The experiment is judged later by both outcome and process quality: calibration, source quality, missed contradictions, stale-data errors and whether `NO_TRADE` was used appropriately.
+
+## 8. Source catalogue: exact IDs, names and starting URLs
 
 Sources below are starting points for verifying the newest original release, NOT promises of public APIs, daily quotations, access or current validity. If a source has moved or cannot be verified, flag it. Source filters from the exported settings reference IDs.
 
@@ -201,3 +246,9 @@ TREA issue 23 Sep 2026, USD/MT, milled FOB: Thai Hom Mali premium 2024/25 $1,253
 
 ## v0.3 historical data handoff
 Attach the personal exported Data.md as historical evidence only. Historical source-checks and past prices are NOT new market quotations. A price candidate remains needs-review until human confirmation. Every generated Markdown report retains both protocol links.
+
+
+- [cn-moa-trade] **China Ministry of Agriculture: agricultural trade reports** | Group: `demand` | Global buyer context | monthly/periodic | official public reports | https://gjs.moa.gov.cn/ncpmy/ | China-side agricultural trade reports; preserve period and underlying Customs source.
+- [cn-customs-monthly] **General Administration of Customs of China: monthly statistics** | Group: `demand` | Global buyer context | monthly | official public statistics | https://english.customs.gov.cn/statics/report/monthly.html | Use HS 1006/rice where available; distinguish quantity, value, origin and revisions.
+- [cn-nbs-rice] **National Bureau of Statistics of China: circulation market prices** | Group: `demand` | Global buyer context | 10-day/periodic | official public release | https://www.stats.gov.cn/english/PressRelease/ | Domestic China price context; not Southeast Asian FOB parity.
+
