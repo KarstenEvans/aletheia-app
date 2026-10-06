@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Aletheia Frequency Explorer: experimental binaural sound, narrated short stories, generated music and local audio in a static browser app.">
 <title>Aletheia Frequency Explorer</title>
 <style>
 :root{
@@ -38,19 +39,43 @@ a{color:var(--accent)}
 .pill{display:inline-block;background:var(--panel2);border:1px solid var(--border);border-radius:999px;padding:4px 9px;margin:3px;font-size:.84rem}
 footer{color:var(--muted);font-size:.9rem;padding:20px 0 40px}
 code{color:#b9eee7}
+
+/* Aletheia Improve v2 shell */
+body{background:radial-gradient(circle at 12% 8%,rgba(120,215,202,.11),transparent 25rem),radial-gradient(circle at 88% 4%,rgba(130,160,255,.08),transparent 28rem),var(--bg)}
+main{max-width:1080px}.topbar{position:sticky;top:0;z-index:35;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;background:linear-gradient(var(--bg) 72%,transparent)}
+.brand{font-weight:900}.menuBtn{min-width:50px;font-size:1.2rem}.quickGrid{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}.bigStart{font-size:1.05rem;padding:14px 17px}
+.infoBox{background:#0c141d;border:1px solid var(--border);border-radius:12px;padding:0 12px;margin-top:10px}.infoBox summary{cursor:pointer;padding:10px 0;font-weight:800}
+.songGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.songCard{background:#101923;border:1px solid var(--border);border-radius:13px;padding:12px}.songCard strong{display:block;margin-bottom:5px}
+audio{width:100%;margin-top:10px}.drawerBackdrop{position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;z-index:50}.drawerBackdrop.open{display:block}
+.settingsDrawer{position:fixed;top:0;right:0;width:min(94vw,560px);height:100dvh;overflow:auto;background:#0b121a;border-left:1px solid var(--border);box-shadow:-20px 0 60px rgba(0,0,0,.5);z-index:51;padding:18px;transform:translateX(103%);transition:transform .22s ease}
+.settingsDrawer.open{transform:translateX(0)}.drawerHead{display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:-18px;background:#0b121a;padding:16px 0 12px;z-index:2}.settingsDrawer>.card{box-shadow:none;margin:12px 0}.hidden{display:none!important}
+@media(max-width:720px){.quickGrid{grid-template-columns:1fr}.settingsDrawer{width:100vw}}@media(prefers-reduced-motion:reduce){.settingsDrawer{transition:none}}
 </style>
 </head>
 <body>
+<div id="drawerBackdrop" class="drawerBackdrop" aria-hidden="true"></div>
+<aside id="settingsDrawer" class="settingsDrawer" aria-label="Frequency Explorer settings" aria-hidden="true">
+<div class="drawerHead"><div><strong>☰ Explorer settings</strong><div class="small">Sound, music, speech and advanced controls</div></div><button id="closeMenu" class="secondary" type="button" aria-label="Close settings">✕</button></div>
+<div id="drawerContent"></div></aside>
 <main>
+<div class="topbar"><div class="brand">✦ ALETHEIA <span class="small">Frequency Explorer</span></div><button id="openMenu" class="secondary menuBtn" type="button" aria-expanded="false" aria-controls="settingsDrawer" aria-label="Open settings">☰</button></div>
   <h1>🎧 Aletheia Frequency Explorer</h1>
-  <p style="font-weight:800;color:#78d7ca">REBUILT CHECK: SWAP EARS · TIMED PAUSES · LOOP SPEECH · FRESH REFLECTION · MUSIC PALETTES</p>
-  <p class="subtitle">One-file v1.0 draft · REBUILT 2026-08-27 · binaural sound · evolving procedural music · live-source reflections · timed speech</p>
+  <p style="font-weight:800;color:#78d7ca">IMPROVED: 300/303 DEFAULT · STORY MODE · ☰ SETTINGS · OPTIONAL STORY SONGS</p>
+  <p class="subtitle">v2.0 · improved 6 October 2026 · binaural sound · evolving procedural music · narrated Aletheia stories · local-file fallback</p>
 
   <section class="card notice">
     <strong>Start quietly.</strong> Stop for pain, ringing, pressure, dizziness or discomfort.
     “Low intensity” is relative browser output, not a calibrated dB SPL measurement.
     Binaural separation normally requires headphones/earbuds.
   </section>
+  <section class="card" id="quickSession"><div class="quickGrid"><div><h2>Start a session</h2>
+  <p class="small">Default: 300 Hz left + 303 Hz right = 3 Hz difference. That is a delta-range experiment, not a proven “ideal” setting.</p>
+  <p id="quickBeatReadout" class="status">300 Hz left / 303 Hz right / 3.0 Hz difference</p><p id="beatHint" class="small"></p>
+  <details class="infoBox"><summary>ⓘ What do the beat frequencies mean?</summary><p class="small">The <strong>difference</strong> between the two ear tones is the binaural-beat frequency. Conventional EEG bands are often labelled roughly delta 1–4 Hz, theta 4–8 Hz, alpha 8–13 Hz and beta 13–30 Hz. Matching a difference to a band does not prove the brain will be forced into that state or create a particular effect.</p></details></div>
+  <div><label for="storySelect">What should Aletheia read?</label><select id="storySelect"><option value="">Fresh reflection (default)</option></select>
+  <div class="row" style="margin-top:10px"><button id="loadStoryBtn" class="secondary" type="button">📖 Load story</button><a id="storyDownload" class="small hidden" href="#" download>Download story</a></div>
+  <div class="row" style="margin-top:14px"><button id="quickStart" class="bigStart" type="button">▶ Start complete session</button><button id="quickStop" class="stop" type="button">■ Stop</button></div>
+  <p id="quickSessionStatus" class="status">Session stopped.</p></div></div></section>
 
   <section class="card">
     <h2>1. Sound session</h2>
@@ -58,11 +83,11 @@ code{color:#b9eee7}
     <div class="grid">
       <div>
         <label for="leftHz">Left ear (Hz)</label>
-        <input id="leftHz" type="number" min="20" max="20000" step="0.1" value="196.6">
+        <input id="leftHz" type="number" min="20" max="20000" step="0.1" value="300">
       </div>
       <div>
         <label for="rightHz">Right ear (Hz)</label>
-        <input id="rightHz" type="number" min="20" max="20000" step="0.1" value="214.7">
+        <input id="rightHz" type="number" min="20" max="20000" step="0.1" value="303">
       </div>
       <div>
         <label for="duration">Session length (minutes)</label>
@@ -75,6 +100,10 @@ code{color:#b9eee7}
     </div>
 
     <p id="beatReadout" class="status"></p>
+    <div class="grid"><div><label for="beatPreset">Difference preset</label><select id="beatPreset"><option value="3" selected>3 Hz · delta-range</option><option value="6">6 Hz · theta-range</option><option value="10">10 Hz · alpha-range</option><option value="18">18 Hz · beta-range</option><option value="custom">Custom</option></select></div>
+    <div><label for="beatOffset">Difference (Hz)</label><input id="beatOffset" type="number" min="0.5" max="30" step="0.1" value="3"></div></div>
+    <p><label><input id="lockBeat" type="checkbox" checked> Keep right ear at base + difference</label></p>
+    <p class="small">With the lock on: 100 → 100/103, 200 → 200/203, 300 → 300/303. Unlock it for independent channels.</p>
 
     <div class="grid">
       <div>
@@ -91,6 +120,7 @@ code{color:#b9eee7}
           <option value="japanese">Japanese contemplative-inspired</option>
           <option value="indian">Indian / Yogic-inspired</option>
           <option value="tao" selected>Tao / Chinese contemplative-inspired</option>
+          <option value="bundled">Aletheia story song</option>
           <option value="local">Local recorded track</option>
           <option value="none">No music</option>
         </select>
@@ -103,6 +133,7 @@ code{color:#b9eee7}
       </div>
     </div>
 
+    <div style="margin-top:14px"><label for="bundledAudioSelect">Optional Aletheia story song</label><select id="bundledAudioSelect"><option value="">Choose a story song</option><option value="audio/Ike-Sour-Tea.mp3">Ike's Sour Tea</option><option value="audio/Ike-Sour-Tea-02.mp3">Ike's Sour Tea 02</option><option value="audio/Ike-the-Shield-Bug.mp3">Ike the Shield Bug</option></select><div class="small">Choose “Aletheia story song” above. Missing hosted audio can be loaded locally.</div></div>
     <div style="margin-top:14px">
       <label for="localMusic">Optional local recorded music</label>
       <input id="localMusic" type="file" accept="audio/*">
@@ -169,6 +200,11 @@ code{color:#b9eee7}
       If the web request fails, the app falls back to its local theme generator.
     </p>
   </section>
+
+  <section class="card" id="storySongs"><h2>Would you like to hear some songs?</h2><p class="small">The supplied Ike tracks are story songs, not treatment audio. Preview them here, or select one as a music bed in ☰. Vocals can compete with narration.</p>
+  <div class="songGrid"><div class="songCard"><strong>Ike's Sour Tea</strong><span class="small">about 2m 46s</span><button type="button" class="secondary songPreview" data-src="audio/Ike-Sour-Tea.mp3">▶ Preview</button></div>
+  <div class="songCard"><strong>Ike's Sour Tea 02</strong><span class="small">about 3m 00s</span><button type="button" class="secondary songPreview" data-src="audio/Ike-Sour-Tea-02.mp3">▶ Preview</button></div>
+  <div class="songCard"><strong>Ike the Shield Bug</strong><span class="small">about 2m 45s</span><button type="button" class="secondary songPreview" data-src="audio/Ike-the-Shield-Bug.mp3">▶ Preview</button></div></div><audio id="songPreviewPlayer" controls preload="none"></audio><div id="songStatus" class="small">If a repository MP3 is not deployed yet, use ☰ → Local recorded track with the supplied file.</div></section>
 
   <section class="card">
     <h2>3. Speech timing</h2>
@@ -294,7 +330,7 @@ code{color:#b9eee7}
     <div class="status">THIS .HTM FILE IS THE COMPLETE APP.
 
 BINAURAL EXAMPLE
-LEFT 196.6 Hz + RIGHT 214.7 Hz = 18.1 Hz difference.
+DEFAULT EXAMPLE: LEFT 300 Hz + RIGHT 303 Hz = 3 Hz difference. This is a delta-range preset, not a proven ideal or treatment setting.
 
 SWAP EARS
 Press ⇄ Swap ears. The actual left/right oscillator assignments are exchanged.
@@ -348,10 +384,10 @@ Thalia Protocol: https://github.com/karstenevans/thalia-protocol
 
 RESOURCES
 Matching resource page:
-https://swindon.org.uk/resources/aletheia-frequency-explorer-rsc.htm
+aletheia-frequency-explorer-rsc.htm
 
 Story download:
-https://swindon.org.uk/resources/Rocket_and_the_Flurkins_play_games_on_theMoon.txt</div>
+stories/Rocket-and-the-Flurkins-Play-Games-on-the-Moon.txt</div>
   </section>
 
 
@@ -363,13 +399,13 @@ https://swindon.org.uk/resources/Rocket_and_the_Flurkins_play_games_on_theMoon.t
     </p>
 
     <div class="status">APP PAGE
-https://swindon.org.uk/resources/aletheia-frequency-explorer.htm
+aletheia-frequency-explorer.htm
 
 RESOURCE PAGE
-https://swindon.org.uk/resources/aletheia-frequency-explorer-rsc.htm
+aletheia-frequency-explorer-rsc.htm
 
 DOWNLOADABLE STORY
-https://swindon.org.uk/resources/Rocket_and_the_Flurkins_play_games_on_theMoon.txt</div>
+stories/Rocket-and-the-Flurkins-Play-Games-on-the-Moon.txt</div>
 
     <h3>Protocol references</h3>
     <ul>
@@ -380,7 +416,7 @@ https://swindon.org.uk/resources/Rocket_and_the_Flurkins_play_games_on_theMoon.t
     <h3>Useful links</h3>
     <ul>
       <li><a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener">WHO safe listening guidance</a></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/37210412/" target="_blank" rel="noopener">Systematic review: binaural beats and brain entrainment</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/37205669/" target="_blank" rel="noopener">Systematic review: binaural beats and brain entrainment</a></li>
       <li><a href="https://onlinetonegenerator.com/" target="_blank" rel="noopener">Online Tone Generator</a></li>
       <li><a href="https://pixabay.com/music/search/thai%20massage/" target="_blank" rel="noopener">Pixabay: Thai massage music</a></li>
       <li><a href="https://pixabay.com/music/search/japanese%20meditation/" target="_blank" rel="noopener">Pixabay: Japanese meditation music</a></li>
@@ -1351,7 +1387,7 @@ Thalia Protocol:
 https://github.com/karstenevans/thalia-protocol
 
 Resource page:
-https://swindon.org.uk/resources/aletheia-frequency-explorer-rsc.htm
+aletheia-frequency-explorer-rsc.htm
 [/ALETHEIA_FREQUENCY_EXPLORER]
 </script>
 </body>
