@@ -34,7 +34,7 @@ For each exercise:
 - speak the start cue and duration;
 - only then start the exercise timer;
 - announce round ten-second markers;
-- count the final ten seconds one by one;
+- announce the ten-second marker, then count only the final five seconds: 5, 4, 3, 2, 1;
 - say “And rest”;
 - start the configured rest period;
 - select a rest message through a shuffle-bag with recent-repeat suppression;
@@ -47,7 +47,7 @@ Pause, previous, next and stop remain available during the workout.
 
 The app offers two logical trainer choices.
 
-### Caroline — UK female
+### Caroline — Australian English
 
 Prefer a good \`en-GB\` female voice when the device/browser exposes one. Because the Web Speech API does not provide reliable gender metadata, use sensible name hints and fall back to another \`en-GB\` voice.
 
@@ -85,7 +85,7 @@ Generated profiles:
 
 Generated profile names describe mood/instrumentation inspiration, not authentic traditional performance.
 
-Music starts only after the user explicitly starts a workout. Provide a visible music volume control and a visible failure/status message. Duck music while the trainer speaks, then restore it.
+Music starts only after the user explicitly starts a workout. Provide a visible music volume control and a visible failure/status message. Default background music is **70%**. Do **not** duck, lower or pulse the music volume around narration or countdowns: trainer speech plays over the user's chosen steady music level. Explicit Pause/Stop controls may pause or stop playback.
 
 No commercial recording is bundled. The resource page may link to sources such as Pixabay for users who want to choose a suitably licensed local track; the licence of the exact track must be checked before redistribution.
 
@@ -162,3 +162,12 @@ A user-selected local audio file is used only by the browser page and is not upl
 - Timer sequencing is narration → two-second preparation delay → start cue → timer.
 - Pause is a true toggle. It pauses/resumes speech, timer progression and music without requiring the button to be held.
 - Generated music gain was increased and a direct **Test music** control was added.
+
+
+## Countdown and music continuity — 6 October 2026
+
+- Round ten-second markers remain available, including 30, 20 and 10 where they occur in the exercise.
+- The continuous spoken countdown begins at **5**, not 10: **5, 4, 3, 2, 1, rest**.
+- Narration and countdowns do not alter music gain.
+- User-selected music volume is authoritative during playback.
+- Default music volume is 70%.
