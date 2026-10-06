@@ -460,6 +460,9 @@ let importedSpeechText = '';
 
 let localAudio = null;
 let localAudioUrl = null;
+let bundledAudio = null;
+let storyCatalog = [];
+let currentStory = null;
 
 const sourceQueries = {
   tao: '"Tao Te Ching" Laozi',
@@ -612,6 +615,7 @@ BINAURAL DIFFERENCE ${v.diff.toFixed(1)} Hz`;
     japanese:'JAPANESE-CONTEMPLATIVE-INSPIRED',
     indian:'INDIAN-YOGIC-INSPIRED',
     tao:'TAO-CHINESE-CONTEMPLATIVE-INSPIRED',
+    bundled:'ALETHEIA-STORY-SONG',
     local:'LOCAL-RECORDED-TRACK',
     none:'NONE'
   }[v.musicStyle];
@@ -652,7 +656,13 @@ function swapEars(){
   const l = $('leftHz').value;
   $('leftHz').value = $('rightHz').value;
   $('rightHz').value = l;
+  if($('lockBeat')){
+    $('lockBeat').checked=false;
+    $('rightHz').disabled=false;
+    $('beatPreset').value='custom';
+  }
   updateLabels();
+  updateBeatHint();
 }
 
 function reg(...nodes){ nodes.forEach(n=>{ if(n) audioNodes.push(n); }); }
@@ -799,6 +809,7 @@ const musicDefs = {
 function scheduleMusic(style,v){
   if(style==='none') return;
   if(style==='local'){ startLocalMusic(v); return; }
+  if(style==='bundled'){ startBundledMusic(v); return; }
 
   const def=musicDefs[style]||musicDefs.ambient;
   createMusicBus(v);
@@ -832,6 +843,22 @@ function scheduleMusic(style,v){
   phrase();
 }
 
+function startBundledMusic(v){
+  const sel=$('bundledAudioSelect');
+  const src=sel ? sel.value : '';
+  if(!src){
+    alert('Choose an Aletheia story song, or choose another music bed.');
+    return;
+  }
+  if(bundledAudio){ try{bundledAudio.pause();}catch(e){} }
+  bundledAudio=new Audio(src);
+  bundledAudio.loop=true;
+  bundledAudio.volume=clamp(v.musicVolume/.30,0,1)*.55;
+  bundledAudio.play().catch(()=>{
+    $('sessionStatus').textContent='The selected repository song is not available here. Use ☰ → Local recorded track, or the companion ZIP.';
+  });
+}
+
 function startLocalMusic(v){
   const inp=$('localMusic');
   if(!inp.files || !inp.files[0]){
@@ -849,6 +876,12 @@ function startLocalMusic(v){
 function stopAudioOnly(){
   audioTimers.forEach(clearTimeout);
   audioTimers=[];
+  if(bundledAudio){
+    try{bundledAudio.pause();bundledAudio.currentTime=0;}catch(e){}
+    bundledAudio=null;
+  }
+  const preview=$('songPreviewPlayer');
+  if(preview){try{preview.pause();preview.currentTime=0;}catch(e){}}
 
   if(localAudio){
     try{localAudio.pause();localAudio.currentTime=0;}catch(e){}
@@ -1314,6 +1347,97 @@ Mode: ${v.speechMode.toUpperCase()}`;
   updateSpeechStatus();
 }
 
+
+/* ---------- V2 UI / STORY MANIFEST / PRESETS ---------- */
+const defaultStoryCatalog=[
+ {id:'ike-shield-bug',title:'Ike the Kitten and the Green Shield Bug',file:'stories/Ike-the-Kitten-and-the-Green-Shield-Bug.txt'},
+ {id:'rocket-moon',title:'Rocket and the Flurkins Play Games on the Moon',file:'stories/Rocket-and-the-Flurkins-Play-Games-on-the-Moon.txt'},
+ {id:'rocket-moon-long',title:'Rocket and the Flurkins Play Games on the Moon · long',file:'stories/Rocket-and-the-Flurkins-Play-Games-on-the-Moon-LONG.txt'},
+ {id:'schrodinger-shield-bugs',title:'Schrödinger and the Pesky Shield Bugs',file:'stories/Schrodinger-and-the-Pesky-Shield-Bugs.txt'},
+ {id:'newt-tiff',title:'Newt Was Here First · Newt & Tiff',file:'stories/Newt-Was-Here-First.txt'}
+];
+
+function cardByHeading(title){
+  return [...document.querySelectorAll('main > section.card')].find(sec=>{
+    const h=sec.querySelector('h2'); return h && h.textContent.trim()===title;
+  });
+}
+function mountSettingsDrawer(){
+  const target=$('drawerContent');
+  ['1. Sound session','3. Speech timing','5. Exact AI recipe'].forEach(title=>{
+    const card=cardByHeading(title); if(card) target.appendChild(card);
+  });
+}
+function openSettings(){
+  $('settingsDrawer').classList.add('open'); $('drawerBackdrop').classList.add('open');
+  $('settingsDrawer').setAttribute('aria-hidden','false'); $('drawerBackdrop').setAttribute('aria-hidden','false');
+  $('openMenu').setAttribute('aria-expanded','true'); setTimeout(()=>$('closeMenu').focus(),0);
+}
+function closeSettings(){
+  $('settingsDrawer').classList.remove('open'); $('drawerBackdrop').classList.remove('open');
+  $('settingsDrawer').setAttribute('aria-hidden','true'); $('drawerBackdrop').setAttribute('aria-hidden','true');
+  $('openMenu').setAttribute('aria-expanded','false');
+}
+function updateBeatHint(){
+  const left=Number($('leftHz').value), right=Number($('rightHz').value), diff=Math.abs(right-left);
+  let band='custom';
+  if(diff>=1&&diff<4) band='delta-range';
+  else if(diff>=4&&diff<8) band='theta-range';
+  else if(diff>=8&&diff<13) band='alpha-range';
+  else if(diff>=13&&diff<=30) band='beta-range';
+  $('quickBeatReadout').textContent=left+' Hz left / '+right+' Hz right / '+diff.toFixed(1)+' Hz difference · '+band;
+  $('beatHint').textContent='Classic psychoacoustic work places strongest binaural-beat perception around a 400–500 Hz carrier region; the selected difference controls the perceived beat rate.';
+}
+function syncBeatLock(){
+  const locked=$('lockBeat').checked;
+  $('rightHz').disabled=locked;
+  if(locked){
+    const left=Number($('leftHz').value), diff=Number($('beatOffset').value);
+    if(Number.isFinite(left)&&Number.isFinite(diff)) $('rightHz').value=(left+diff).toFixed(1).replace(/\.0$/,'');
+  }
+  updateLabels(); updateBeatHint(); savePreferences();
+}
+function setBeatPreset(){
+  const value=$('beatPreset').value;
+  if(value==='custom'){ $('lockBeat').checked=false; $('rightHz').disabled=false; }
+  else { $('beatOffset').value=value; $('lockBeat').checked=true; syncBeatLock(); }
+  updateBeatHint(); savePreferences();
+}
+async function loadStoryCatalog(){
+  let data=defaultStoryCatalog;
+  try{
+    const r=await fetch('stories/stories.json',{cache:'no-store'});
+    if(r.ok){const j=await r.json(); if(Array.isArray(j.stories)&&j.stories.length)data=j.stories;}
+  }catch(e){}
+  storyCatalog=data;
+  const sel=$('storySelect'); sel.innerHTML='<option value="">Fresh reflection (default)</option>';
+  data.forEach(item=>{const o=document.createElement('option');o.value=item.id;o.textContent=item.title;sel.appendChild(o);});
+}
+async function loadSelectedStory(){
+  const id=$('storySelect').value;
+  if(!id){currentStory=null;restoreGeneratedReflection();$('sourceBox').textContent='Reflection mode.';$('storyDownload').classList.add('hidden');return;}
+  const item=storyCatalog.find(x=>x.id===id); if(!item)return;
+  $('sourceBox').textContent='Loading '+item.title+'…';
+  try{
+    const r=await fetch(item.file,{cache:'no-store'}); if(!r.ok)throw new Error('HTTP '+r.status);
+    const raw=await r.text(); const chunks=splitImportedText(raw,'sentences');
+    importedSpeechText=chunks.join('\n\n'); $('reflection').textContent=importedSpeechText;
+    $('localTextStatus').textContent='Using Aletheia story: '+item.title+' · '+chunks.length+' speech unit(s).';
+    $('sourceBox').textContent='Aletheia story · '+item.title+' · loaded read-only from this app folder.';
+    currentStory=item;$('storyDownload').href=item.file;$('storyDownload').textContent='Download '+item.title;$('storyDownload').classList.remove('hidden');
+    $('speechMode').value='once';$('pauseSeconds').value='1';$('initialDelay').value='1';$('speechRate').value='0.85';
+    updateLabels();savePreferences();
+  }catch(e){$('sourceBox').textContent='Could not load that repository story. Use ☰ → Local speech text with the downloaded .txt file.';}
+}
+function previewStorySong(btn){
+  const p=$('songPreviewPlayer');p.src=btn.dataset.src;p.volume=.55;
+  p.play().then(()=>$('songStatus').textContent='Previewing '+btn.closest('.songCard').querySelector('strong').textContent+'.')
+   .catch(()=>$('songStatus').textContent='That repository MP3 is not deployed in this copy yet. Use ☰ → Local recorded track with the supplied MP3.');
+}
+const prefIds=['leftHz','rightHz','beatPreset','beatOffset','lockBeat','duration','toneVolume','musicStyle','bundledAudioSelect','musicVolume','speechMode','pauseSeconds','initialDelay','speechRate','speechVolume','wisdom','words','thalia','autoSpeech'];
+function savePreferences(){try{const o={};prefIds.forEach(id=>{const e=$(id);if(e)o[id]=e.type==='checkbox'?e.checked:e.value;});localStorage.setItem('aletheia-frequency-explorer-v2',JSON.stringify(o));}catch(e){}}
+function loadPreferences(){try{const raw=localStorage.getItem('aletheia-frequency-explorer-v2');if(!raw)return;const o=JSON.parse(raw);prefIds.forEach(id=>{const e=$(id);if(!e||!(id in o))return;if(e.type==='checkbox')e.checked=!!o[id];else e.value=o[id];});}catch(e){}}
+
 /* ---------- EVENTS ---------- */
 
 document.querySelectorAll('input,select').forEach(el=>{
@@ -1337,6 +1461,21 @@ if('speechSynthesis' in window){
   speechSynthesis.onvoiceschanged = loadVoices;
 }
 
+$('openMenu').addEventListener('click',openSettings);
+$('closeMenu').addEventListener('click',closeSettings);
+$('drawerBackdrop').addEventListener('click',closeSettings);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSettings();});
+$('quickStart').addEventListener('click',startSession);
+$('quickStop').addEventListener('click',stopEverything);
+$('loadStoryBtn').addEventListener('click',loadSelectedStory);
+$('leftHz').addEventListener('input',syncBeatLock);
+$('beatOffset').addEventListener('input',()=>{if($('lockBeat').checked)syncBeatLock();savePreferences();});
+$('lockBeat').addEventListener('change',syncBeatLock);
+$('beatPreset').addEventListener('change',setBeatPreset);
+document.querySelectorAll('.songPreview').forEach(b=>b.addEventListener('click',()=>previewStorySong(b)));
+prefIds.forEach(id=>{const e=$(id);if(e){e.addEventListener('input',savePreferences);e.addEventListener('change',savePreferences);}});
+new MutationObserver(()=>{$('quickSessionStatus').textContent=$('sessionStatus').textContent;}).observe($('sessionStatus'),{childList:true,characterData:true,subtree:true});
+
 $('copyRecipe').addEventListener('click',async()=>{
   updateLabels();
   try{
@@ -1348,8 +1487,13 @@ $('copyRecipe').addEventListener('click',async()=>{
   }
 });
 
+mountSettingsDrawer();
+loadPreferences();
+syncBeatLock();
 updateLabels();
+updateBeatHint();
 createOfflineReflection();
+loadStoryCatalog();
 loadVoices();
 setTimeout(loadVoices,250);
 setTimeout(loadVoices,1000);
@@ -1357,7 +1501,7 @@ setTimeout(loadVoices,1000);
 
 <script type="text/plain" id="aletheia-embedded-spec">
 [ALETHEIA_FREQUENCY_EXPLORER]
-VERSION: 1.0.0-draft
+VERSION: 2.0.0-improved
 TYPE: self-contained browser + AI-readable app
 
 KEY PARSING:
