@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "note": "The three supplied MP3s are included in the companion ZIP. Repository availability is checked at runtime because binary upload may require a manual GitHub upload step.",
+  "tracks": [
+    {
+      "title": "Ike's Sour Tea",
+      "file": "audio/Ike-Sour-Tea.mp3",
+      "duration_seconds": 165.8
+    },
+    {
+      "title": "Ike's Sour Tea 02",
+      "file": "audio/Ike-Sour-Tea-02.mp3",
+      "duration_seconds": 179.68
+    },
+    {
+      "title": "Ike the Shield Bug",
+      "file": "audio/Ike-the-Shield-Bug.mp3",
+      "duration_seconds": 164.84
+    }
+  ]
+}
