@@ -1,6 +1,6 @@
 {
-  "version": "0.1-prototype",
-  "research_cutoff": "2026-09-29",
+  "version": "0.4",
+  "research_cutoff": "2026-10-06",
   "groups": [
     {
       "id": "price",
@@ -41,6 +41,11 @@
       "id": "water",
       "label": "Water, river and satellite monitoring",
       "section": "Crop & water"
+    },
+    {
+      "id": "demand",
+      "label": "Demand intelligence: China and major buyers",
+      "section": "Demand"
     },
     {
       "id": "trade",
@@ -1141,6 +1146,36 @@
       "note": "Source for Thailand seller discovery.",
       "country": "Global",
       "status": "active"
+    },
+    {
+      "id": "cn-moa-trade",
+      "name": "China Ministry of Agriculture: agricultural trade reports",
+      "group": "demand",
+      "country": "China",
+      "cadence": "monthly/periodic",
+      "access": "official public reports",
+      "url": "https://gjs.moa.gov.cn/ncpmy/",
+      "note": "Official China-side agricultural trade reports; rice tables can show import volumes by supplying country. Preserve report period and underlying Customs source."
+    },
+    {
+      "id": "cn-customs-monthly",
+      "name": "General Administration of Customs of China: monthly statistics",
+      "group": "demand",
+      "country": "China",
+      "cadence": "monthly",
+      "access": "official public statistics",
+      "url": "https://english.customs.gov.cn/statics/report/monthly.html",
+      "note": "Official Chinese customs monthly bulletin. Use HS 1006/rice where available; distinguish quantity, value, origin and release revisions."
+    },
+    {
+      "id": "cn-nbs-rice",
+      "name": "National Bureau of Statistics of China: circulation market prices",
+      "group": "demand",
+      "country": "China",
+      "cadence": "10-day/periodic",
+      "access": "official public release",
+      "url": "https://www.stats.gov.cn/english/PressRelease/",
+      "note": "Domestic China processing-market price context such as japonica rice. Not an import parity or Southeast Asian FOB quote."
     }
   ],
   "regions": [
