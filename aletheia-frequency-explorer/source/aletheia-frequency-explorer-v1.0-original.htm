@@ -1,0 +1,1358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aletheia Frequency Explorer</title>
+<style>
+:root{
+  --bg:#0e1218;--panel:#181e27;--panel2:#222a36;--text:#eef3f7;
+  --muted:#aeb9c5;--accent:#78d7ca;--border:#313b49;--warn:#f0c674;
+  --danger:#da8b8b;--good:#91d795;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:1000px;margin:auto;padding:22px}
+h1{font-size:clamp(2rem,5vw,3rem);margin:.2rem 0}
+h2{margin:.1rem 0 12px}
+h3{margin:18px 0 8px}
+.subtitle,.small{color:var(--muted)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;margin:16px 0}
+.notice{border-left:4px solid var(--warn)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+label{display:block;font-weight:700;margin-bottom:6px}
+input,select,button,textarea{font:inherit}
+input,select,textarea{width:100%;background:var(--panel2);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px}
+input[type=range]{padding:0}
+input[type=checkbox]{width:auto;margin-right:7px}
+button{border:0;border-radius:11px;padding:11px 14px;background:var(--accent);color:#07211d;font-weight:800;cursor:pointer}
+button.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--border)}
+button.stop{background:var(--danger);color:#260d0d}
+button:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row button{width:auto}
+.status{white-space:pre-wrap;font:14px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;background:#0a0e13;border:1px solid #252e39;border-radius:10px;padding:11px}
+.reflection{white-space:pre-wrap;font-size:1.08rem;line-height:1.9;background:#10151d;border-radius:12px;padding:16px;min-height:150px}
+.source{background:#111820;border-left:3px solid var(--accent);padding:10px 12px;border-radius:8px;margin:10px 0}
+a{color:var(--accent)}
+.pill{display:inline-block;background:var(--panel2);border:1px solid var(--border);border-radius:999px;padding:4px 9px;margin:3px;font-size:.84rem}
+footer{color:var(--muted);font-size:.9rem;padding:20px 0 40px}
+code{color:#b9eee7}
+</style>
+</head>
+<body>
+<main>
+  <h1>🎧 Aletheia Frequency Explorer</h1>
+  <p style="font-weight:800;color:#78d7ca">REBUILT CHECK: SWAP EARS · TIMED PAUSES · LOOP SPEECH · FRESH REFLECTION · MUSIC PALETTES</p>
+  <p class="subtitle">One-file v1.0 draft · REBUILT 2026-08-27 · binaural sound · evolving procedural music · live-source reflections · timed speech</p>
+
+  <section class="card notice">
+    <strong>Start quietly.</strong> Stop for pain, ringing, pressure, dizziness or discomfort.
+    “Low intensity” is relative browser output, not a calibrated dB SPL measurement.
+    Binaural separation normally requires headphones/earbuds.
+  </section>
+
+  <section class="card">
+    <h2>1. Sound session</h2>
+
+    <div class="grid">
+      <div>
+        <label for="leftHz">Left ear (Hz)</label>
+        <input id="leftHz" type="number" min="20" max="20000" step="0.1" value="196.6">
+      </div>
+      <div>
+        <label for="rightHz">Right ear (Hz)</label>
+        <input id="rightHz" type="number" min="20" max="20000" step="0.1" value="214.7">
+      </div>
+      <div>
+        <label for="duration">Session length (minutes)</label>
+        <input id="duration" type="number" min="1" max="180" step="1" value="20">
+      </div>
+      <div>
+        <label>Ear channels</label>
+        <button id="swapEars" class="secondary" type="button">⇄ Swap ears</button>
+      </div>
+    </div>
+
+    <p id="beatReadout" class="status"></p>
+
+    <div class="grid">
+      <div>
+        <label for="toneVolume">Binaural tone volume</label>
+        <input id="toneVolume" type="range" min="0" max="0.12" step="0.002" value="0.025">
+        <div class="small"><span id="toneVolLabel"></span> relative level</div>
+      </div>
+
+      <div>
+        <label for="musicStyle">Music bed</label>
+        <select id="musicStyle">
+          <option value="ambient">Neutral ambient</option>
+          <option value="thai">Thai spa-inspired</option>
+          <option value="japanese">Japanese contemplative-inspired</option>
+          <option value="indian">Indian / Yogic-inspired</option>
+          <option value="tao" selected>Tao / Chinese contemplative-inspired</option>
+          <option value="local">Local recorded track</option>
+          <option value="none">No music</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="musicVolume">Music volume</label>
+        <input id="musicVolume" type="range" min="0" max="0.30" step="0.005" value="0.09">
+        <div class="small"><span id="musicVolLabel"></span> relative level</div>
+      </div>
+    </div>
+
+    <div style="margin-top:14px">
+      <label for="localMusic">Optional local recorded music</label>
+      <input id="localMusic" type="file" accept="audio/*">
+      <div class="small">Used only with “Local recorded track”. The audio stays on your device.</div>
+    </div>
+
+    <p class="small">
+      Built-in music is procedurally generated in this file. “Thai”, “Japanese”, “Indian/Yogic” and “Tao/Chinese”
+      are mood/instrumentation inspirations, not claims of authentic traditional performance.
+    </p>
+
+    <div class="row">
+      <button id="startBtn">▶ Start complete session</button>
+      <button id="stopBtn" class="stop">■ Stop everything</button>
+    </div>
+    <p id="sessionStatus" class="status">Session stopped.</p>
+  </section>
+
+  <section class="card">
+    <h2>2. Fresh reflection</h2>
+
+    <div class="grid">
+      <div>
+        <label for="wisdom">Wisdom palette</label>
+        <select id="wisdom">
+          <option value="tao" selected>Tao-inspired</option>
+          <option value="stoic">Stoic-inspired</option>
+          <option value="yogic">Yogic-inspired</option>
+          <option value="buddhist">Buddhist-inspired</option>
+          <option value="secular">Secular philosophical</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="words">Words</label>
+        <select id="words">
+          <option value="sparse">Sparse</option>
+          <option value="refrain" selected>Refrain</option>
+          <option value="reflection">Gentle reflection</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="thalia">Thalia</label>
+        <select id="thalia">
+          <option value="off">Off</option>
+          <option value="light">Light</option>
+          <option value="warm" selected>Warm · more playful</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:14px">
+      <button id="freshReflection">🌐 Find inspiration & create fresh reflection</button>
+      <button id="offlineReflection" class="secondary">Create offline variation</button>
+    </div>
+
+    <div id="sourceBox" class="source small">No source fetched yet. Press “Find inspiration”.</div>
+    <div id="reflection" class="reflection"></div>
+
+    <p class="small">
+      Online mode searches public Wikisource material for a fresh inspiration seed, then creates new wording from the idea.
+      The resulting reflection is not presented as a quotation from the source.
+      If the web request fails, the app falls back to its local theme generator.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>3. Speech timing</h2>
+
+    <div class="grid">
+      <div>
+        <label for="speechMode">Text playback</label>
+        <select id="speechMode">
+          <option value="once">Say each line once</option>
+          <option value="loop" selected>Loop text until session ends</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="pauseSeconds">Pause after every line (seconds)</label>
+        <input id="pauseSeconds" type="number" min="1" max="900" step="1" value="60">
+      </div>
+
+      <div>
+        <label for="initialDelay">First line delay (seconds)</label>
+        <input id="initialDelay" type="number" min="0" max="900" step="1" value="15">
+      </div>
+
+      <div>
+        <label for="speechRate">Speech rate</label>
+        <input id="speechRate" type="range" min="0.5" max="1.1" step="0.05" value="0.70">
+        <div class="small"><span id="speechRateLabel"></span>×</div>
+      </div>
+
+      <div>
+        <label for="speechVolume">Speech volume</label>
+        <input id="speechVolume" type="range" min="0.1" max="1.0" step="0.05" value="0.85">
+        <div class="small"><span id="speechVolumeLabel"></span>% of browser speech maximum</div>
+      </div>
+
+      <div>
+        <label for="voiceSelect">Voice</label>
+        <select id="voiceSelect">
+          <option value="">Browser default voice</option>
+        </select>
+        <div class="small" id="voiceInfo">Voice list loads from this browser/device.</div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:12px">
+      <button id="previewVoice" class="secondary" type="button">🔊 Preview voice</button>
+      <button id="refreshVoices" class="secondary" type="button">↻ Refresh voices</button>
+    </div>
+
+    <h3>Local speech text</h3>
+    <div class="grid">
+      <div>
+        <label for="speechTextFile">Choose local .txt or .md file</label>
+        <input id="speechTextFile" type="file" accept=".txt,.md,text/plain,text/markdown">
+        <div class="small">The file is read locally in your browser. It is not uploaded by this app.</div>
+      </div>
+
+      <div>
+        <label for="textSplitMode">Split imported text into</label>
+        <select id="textSplitMode">
+          <option value="sentences" selected>Sentences</option>
+          <option value="lines">Existing line breaks</option>
+          <option value="paragraphs">Paragraphs</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:12px">
+      <button id="useLocalText" class="secondary" type="button">Use selected text for speech</button>
+      <button id="restoreReflection" class="secondary" type="button">Restore generated reflection</button>
+    </div>
+
+    <div id="localTextStatus" class="small" style="margin-top:8px">No local speech text selected.</div>
+
+    <p>
+      <label><input id="autoSpeech" type="checkbox" checked> Start speech automatically with the sound session</label>
+    </p>
+
+    <div class="row">
+      <button id="speakBtn" class="secondary">▶ Start timed speech</button>
+      <button id="stopSpeechBtn" class="secondary">■ Stop speech</button>
+    </div>
+
+    <p id="speechStatus" class="status">Speech stopped.</p>
+  </section>
+
+  <section class="card">
+    <h2>4. Music choices</h2>
+    <p>
+      The built-in styles are generated in-browser. They now contain evolving note phrases, envelopes, stereo movement
+      and a synthetic reverberant space, rather than only a continuous tone.
+    </p>
+    <div>
+      <span class="pill">Ambient pads</span>
+      <span class="pill">Soft bell/mallet phrases</span>
+      <span class="pill">Sparse plucked tones</span>
+      <span class="pill">Drone + melodic movement</span>
+      <span class="pill">Pentatonic-like contemplative phrases</span>
+    </div>
+
+    <h3>Optional recorded music</h3>
+    <p class="small">
+      You can download a suitably licensed track and select it above as a Local recorded track.
+      Starting points:
+      <a href="https://pixabay.com/music/search/thai%20massage/" target="_blank" rel="noopener">Thai massage</a> ·
+      <a href="https://pixabay.com/music/search/japanese%20meditation/" target="_blank" rel="noopener">Japanese meditation</a> ·
+      <a href="https://pixabay.com/music/search/india%20yoga/" target="_blank" rel="noopener">India/Yoga</a> ·
+      <a href="https://pixabay.com/music/search/chinese%20meditation%20music/" target="_blank" rel="noopener">Chinese meditation</a>.
+      Check the licence of the exact recording before redistributing it.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>5. Exact AI recipe</h2>
+    <textarea id="recipe" rows="15" readonly></textarea>
+    <div class="row" style="margin-top:10px">
+      <button id="copyRecipe" class="secondary">Copy recipe</button>
+    </div>
+  </section>
+
+  <section class="card" id="help">
+    <h2>6. HELP</h2>
+    <div class="status">THIS .HTM FILE IS THE COMPLETE APP.
+
+BINAURAL EXAMPLE
+LEFT 196.6 Hz + RIGHT 214.7 Hz = 18.1 Hz difference.
+
+SWAP EARS
+Press ⇄ Swap ears. The actual left/right oscillator assignments are exchanged.
+
+SPEECH
+Every visible non-empty reflection line is a separate utterance.
+After a line finishes, the app waits the chosen Pause value.
+ONCE = stop after the last line.
+LOOP = return to the first line and repeat until the sound session ends.
+
+VOICE
+Preferred default: Catherine · English (Australia), when available.
+If Catherine is unavailable, the app prefers another en-AU voice, then falls back to the browser default.
+You can still choose any other voice exposed by this browser/device.
+Preview Voice reads one short test sentence.
+
+SPEECH VOLUME
+Adjust speech independently from binaural tone and music.
+Default is 85% of the browser speech-synthesis maximum.
+If words are difficult to hear, raise Speech Volume and/or lower Music Volume.
+Browser/device master volume still applies.
+
+LOCAL SPEECH TEXT
+Choose a .txt or .md file from your device.
+Split it by sentences, line breaks, or paragraphs.
+“Use selected text for speech” replaces the current reflection display with that imported text.
+“Restore generated reflection” returns to the last generated reflection.
+The local file is read only in this browser session.
+
+FRESH REFLECTION
+“Find inspiration” searches Wikisource for public historical material related to the selected palette.
+A short source seed is used to choose a theme.
+New wording is created locally and is NOT attributed as a historical quotation.
+
+THALIA WARM
+Uses stronger absurdist, dry, semantic and occasionally cosmic/bureaucratic humour mechanisms.
+It does not copy Monty Python, Red Dwarf, or another creator's actual lines/style.
+
+MUSIC
+Built-in music is generated by this file.
+The binaural tone and music have separate volume controls.
+A licensed local recording can be used instead.
+
+AI
+Upload this same .htm file to a capable AI.
+If that AI cannot execute browser audio, it must not pretend it is playing.
+
+PROTOCOLS
+Aletheia Protocol: https://github.com/karstenevans/Aletheia-protocol
+Thalia Protocol: https://github.com/karstenevans/thalia-protocol
+
+RESOURCES
+Matching resource page:
+https://swindon.org.uk/resources/aletheia-frequency-explorer-rsc.htm
+
+Story download:
+https://swindon.org.uk/resources/Rocket_and_the_Flurkins_play_games_on_theMoon.txt</div>
+  </section>
+
+
+  <section class="card" id="resources">
+    <h2>7. Resources & protocols</h2>
+    <p>
+      This app follows Aletheia memory/provenance ideas and can optionally use Thalia-style humour/reflection.
+      For the human-facing support page, use the matching resource page with <code>-rsc.htm</code>:
+    </p>
+
+    <div class="status">APP PAGE
+https://swindon.org.uk/resources/aletheia-frequency-explorer.htm
+
+RESOURCE PAGE
+https://swindon.org.uk/resources/aletheia-frequency-explorer-rsc.htm
+
+DOWNLOADABLE STORY
+https://swindon.org.uk/resources/Rocket_and_the_Flurkins_play_games_on_theMoon.txt</div>
+
+    <h3>Protocol references</h3>
+    <ul>
+      <li><a href="https://github.com/karstenevans/Aletheia-protocol" target="_blank" rel="noopener">Aletheia Protocol</a></li>
+      <li><a href="https://github.com/karstenevans/thalia-protocol" target="_blank" rel="noopener">Thalia Protocol</a></li>
+    </ul>
+
+    <h3>Useful links</h3>
+    <ul>
+      <li><a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener">WHO safe listening guidance</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/37210412/" target="_blank" rel="noopener">Systematic review: binaural beats and brain entrainment</a></li>
+      <li><a href="https://onlinetonegenerator.com/" target="_blank" rel="noopener">Online Tone Generator</a></li>
+      <li><a href="https://pixabay.com/music/search/thai%20massage/" target="_blank" rel="noopener">Pixabay: Thai massage music</a></li>
+      <li><a href="https://pixabay.com/music/search/japanese%20meditation/" target="_blank" rel="noopener">Pixabay: Japanese meditation music</a></li>
+      <li><a href="https://pixabay.com/music/search/india%20yoga/" target="_blank" rel="noopener">Pixabay: India / Yoga music</a></li>
+      <li><a href="https://pixabay.com/music/search/chinese%20meditation%20music/" target="_blank" rel="noopener">Pixabay: Chinese / Tao-style meditation music</a></li>
+    </ul>
+
+    <p class="small">
+      The app itself remains the executable one-file browser tool. The <code>-rsc.htm</code> page is the companion human-facing resources page.
+    </p>
+  </section>
+
+  <footer>
+    Experimental wellbeing/creative listening tool. No frequency, binaural difference, music style or reflection wording
+    is claimed to diagnose, prevent, treat or cure disease.
+  </footer>
+</main>
+
+<script>
+'use strict';
+
+const $ = id => document.getElementById(id);
+
+let ctx = null;
+let audioNodes = [];
+let audioTimers = [];
+let sessionStopTimer = null;
+let sessionEndAt = 0;
+let sessionTick = null;
+
+let speechTimer = null;
+let speechTick = null;
+let speechRunning = false;
+let speechEndAt = 0;
+let speechLineIndex = 0;
+let nextSpeechAt = 0;
+
+let availableVoices = [];
+let lastGeneratedReflection = '';
+let importedSpeechText = '';
+
+let localAudio = null;
+let localAudioUrl = null;
+
+const sourceQueries = {
+  tao: '"Tao Te Ching" Laozi',
+  stoic: '"Meditations" "Marcus Aurelius" OR Epictetus',
+  yogic: '"Yoga Sutras" Patanjali OR "Bhagavad Gita"',
+  buddhist: 'Dhammapada',
+  secular: 'philosophy wisdom essays'
+};
+
+const themeBanks = {
+  tao: {
+    themes: [
+      {keys:['water','river','stream','valley','soft','yield'], tag:'yielding',
+       core:['Less force.','Notice what is already moving.','Yielding is not the same as giving up.','Make room for the path to show itself.']},
+      {keys:['empty','space','nothing','void','vessel','door'], tag:'space',
+       core:['Leave a little space.','An empty place can still be useful.','Not every silence needs furniture.','Make room before adding more.']},
+      {keys:['desire','want','content','enough','simple'], tag:'enough',
+       core:['Enough can be an active choice.','Put down one unnecessary wanting.','Simple is not the same as small.','Let this moment travel light.']},
+      {keys:['way','path','walk','journey','step'], tag:'path',
+       core:['Take the next unforced step.','The whole path does not need carrying.','A direction can exist without a shove.','Walk the part that is here.']}
+    ]
+  },
+  stoic: {
+    themes: [
+      {keys:['control','power','choice','will','ours'], tag:'control',
+       core:['Keep hold of what is actually yours to steer.','Release the part that belongs to weather.','Choose the next response, not the whole universe.','A boundary can make the task lighter.']},
+      {keys:['judg','opinion','appear','mind','thought'], tag:'judgement',
+       core:['A thought is an arrival, not an instruction.','Check the judgement before obeying it.','Events and interpretations are not identical twins.','Choose which thought gets a chair.']},
+      {keys:['duty','work','action','act','deed'], tag:'action',
+       core:['Return to the next useful action.','Character is built in small choices.','Do what belongs to this moment.','The next step is allowed to be ordinary.']}
+    ]
+  },
+  yogic: {
+    themes: [
+      {keys:['mind','thought','attention','concentration','practice'], tag:'attention',
+       core:['Return gently.','Attention wandered; now it has returned.','The return is part of the practice.','Let attention settle without wrestling it.']},
+      {keys:['action','fruit','result','work','duty'], tag:'nonattachment',
+       core:['Do the action without carrying the entire result.','Let effort be yours and outcome keep some privacy.','Work with the step that is present.','Release the scoreboard for a while.']},
+      {keys:['still','quiet','peace','rest'], tag:'stillness',
+       core:['Stillness does not need to be forced.','Let quiet arrive in its own time.','A pause can contain movement without becoming noise.','Return to one simple point of attention.']}
+    ]
+  },
+  buddhist: {
+    themes: [
+      {keys:['mind','thought','heed','attention'], tag:'mind',
+       core:['A thought can arrive without becoming a command.','Notice it.','Let it change.','Return without argument.']},
+      {keys:['change','passing','impermanent','decay','death'], tag:'change',
+       core:['What is here is already changing.','Hold it lightly.','Let the moment become the next moment.','Nothing needs gripping simply because it is passing.']},
+      {keys:['desire','craving','attachment','cling'], tag:'attachment',
+       core:['Notice the grip before tightening it.','Wanting can be observed without being obeyed.','Set one thing down.','Leave the hand open for a moment.']}
+    ]
+  },
+  secular: {
+    themes: [
+      {keys:['time','future','tomorrow','day'], tag:'time',
+       core:['This moment does not need to solve the next one.','Let later arrive later.','Keep only this moment’s paperwork.','One thing at a time remains a complete method.']},
+      {keys:['thought','mind','idea','reason'], tag:'thought',
+       core:['A thought can be useful without being permanent.','Test it before promoting it.','Curiosity is lighter than certainty.','Leave room for a better explanation.']},
+      {keys:['work','action','begin','start'], tag:'action',
+       core:['Begin with one visible action.','Small does not mean meaningless.','Start where the hands can actually reach.','Momentum does not need a speech before it begins.']}
+    ]
+  }
+};
+
+const warmHumour = {
+  tao:[
+    'The river has declined your project plan.',
+    'Water remains strangely uninterested in management meetings.',
+    'The universe has not requested a PowerPoint.',
+    'Not every useful thing arrives wearing a hard hat.'
+  ],
+  stoic:[
+    'The weather continues to ignore customer feedback.',
+    'The universe has not opened a support ticket.',
+    'Fate appears to have misplaced the suggestion box.',
+    'Your response is the one department still taking calls.'
+  ],
+  yogic:[
+    'The mind has opened seventeen tabs and forgotten which one contains now.',
+    'No need to sack the mind; just close a few tabs.',
+    'The inner committee may adjourn without reaching a unanimous decision.',
+    'Enlightenment can survive a short tea break.'
+  ],
+  buddhist:[
+    'The thought arrived without luggage; no need to give it a lease.',
+    'Impermanence remains extremely bad at long-term tenancy.',
+    'The mind has filed an urgent memo; urgency has not been independently verified.',
+    'The moment refuses to hold still for the photograph.'
+  ],
+  secular:[
+    'Tomorrow has its own inbox.',
+    'The next hour has not even packed yet.',
+    'Your brain has submitted a draft; edits remain permitted.',
+    'The emergency committee may have accidentally met about a teaspoon.'
+  ]
+};
+
+const lightHumour = {
+  tao:['Let the river keep some of the administration.','A little less pushing leaves more hands free.'],
+  stoic:['Weather is outside your department.','Keep the steering wheel; release the scenery.'],
+  yogic:['Return gently; no disciplinary hearing is required.','Attention came back. That counts.'],
+  buddhist:['Let the thought visit without forwarding its mail.','Notice, release, return.'],
+  secular:['Tomorrow can clock in tomorrow.','One thing is enough paperwork for now.']
+};
+
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function clamp(n,a,b){ return Math.max(a,Math.min(b,n)); }
+
+function getValues(){
+  const left = Number($('leftHz').value);
+  const right = Number($('rightHz').value);
+  return {
+    left,
+    right,
+    diff: Math.abs(right-left),
+    duration: Number($('duration').value),
+    toneVolume: Number($('toneVolume').value),
+    musicStyle: $('musicStyle').value,
+    musicVolume: Number($('musicVolume').value),
+    wisdom: $('wisdom').value,
+    words: $('words').value,
+    thalia: $('thalia').value,
+    speechMode: $('speechMode').value,
+    pauseSeconds: Number($('pauseSeconds').value),
+    initialDelay: Number($('initialDelay').value),
+    speechRate: Number($('speechRate').value),
+    speechVolume: Number($('speechVolume').value),
+    voiceURI: $('voiceSelect') ? $('voiceSelect').value : '',
+    autoSpeech: $('autoSpeech').checked
+  };
+}
+
+function updateLabels(){
+  const v = getValues();
+  $('beatReadout').textContent =
+`LEFT ${v.left} Hz
+RIGHT ${v.right} Hz
+BINAURAL DIFFERENCE ${v.diff.toFixed(1)} Hz`;
+
+  $('toneVolLabel').textContent = Math.round(v.toneVolume/0.12*100) + '% of app tone range';
+  $('musicVolLabel').textContent = Math.round(v.musicVolume/0.30*100) + '% of app music range';
+  $('speechRateLabel').textContent = v.speechRate.toFixed(2);
+  if($('speechVolumeLabel')){
+    $('speechVolumeLabel').textContent = Math.round(v.speechVolume * 100);
+  }
+
+  const musicName = {
+    ambient:'AMBIENT',
+    thai:'THAI-SPA-INSPIRED',
+    japanese:'JAPANESE-CONTEMPLATIVE-INSPIRED',
+    indian:'INDIAN-YOGIC-INSPIRED',
+    tao:'TAO-CHINESE-CONTEMPLATIVE-INSPIRED',
+    local:'LOCAL-RECORDED-TRACK',
+    none:'NONE'
+  }[v.musicStyle];
+
+  $('recipe').value =
+`SESSION ${v.wisdom.toUpperCase()}
+| BINAURAL LEFT ${v.left} RIGHT ${v.right}
+| INTENSITY LOW
+| TONE_VOLUME ${v.toneVolume.toFixed(3)}
+| MUSIC ${musicName}
+| MUSIC_VOLUME ${v.musicVolume.toFixed(3)}
+| WORDS ${v.words.toUpperCase()}
+| THALIA ${v.thalia.toUpperCase()}
+| SPEECH ${v.speechMode.toUpperCase()}
+| VOICE ${v.voiceURI ? v.voiceURI : 'BROWSER-DEFAULT'}
+| SPEECH_VOLUME ${Math.round(v.speechVolume * 100)} PERCENT
+| PAUSE_AFTER_EACH_LINE ${v.pauseSeconds} SECONDS
+| FIRST_LINE_DELAY ${v.initialDelay} SECONDS
+| DURATION ${v.duration} MINUTES
+
+Interpret exactly as:
+left_channel_hz: ${v.left}
+right_channel_hz: ${v.right}
+beat_difference_hz: ${v.diff.toFixed(1)}
+wisdom_palette: ${v.wisdom}
+music_bed: ${musicName.toLowerCase()}
+words: ${v.words}
+thalia_level: ${v.thalia}
+speech_mode: ${v.speechMode}
+voice: ${v.voiceURI ? v.voiceURI : 'browser-default'}
+speech_volume_percent: ${Math.round(v.speechVolume * 100)}
+pause_after_each_line_seconds: ${v.pauseSeconds}
+first_line_delay_seconds: ${v.initialDelay}
+duration_minutes: ${v.duration}`;
+}
+
+function swapEars(){
+  const l = $('leftHz').value;
+  $('leftHz').value = $('rightHz').value;
+  $('rightHz').value = l;
+  updateLabels();
+}
+
+function reg(...nodes){ nodes.forEach(n=>{ if(n) audioNodes.push(n); }); }
+
+function makeReverb(seconds=3.2, decay=2.0){
+  const rate = ctx.sampleRate;
+  const length = rate * seconds;
+  const impulse = ctx.createBuffer(2,length,rate);
+  for(let ch=0;ch<2;ch++){
+    const d = impulse.getChannelData(ch);
+    for(let i=0;i<length;i++){
+      d[i] = (Math.random()*2-1) * Math.pow(1-i/length,decay);
+    }
+  }
+  const conv = ctx.createConvolver();
+  conv.buffer = impulse;
+  reg(conv);
+  return conv;
+}
+
+function createBinaural(v){
+  const merger = ctx.createChannelMerger(2);
+  const master = ctx.createGain();
+  master.gain.setValueAtTime(0.0001,ctx.currentTime);
+  master.gain.exponentialRampToValueAtTime(Math.max(v.toneVolume,0.0001),ctx.currentTime+3);
+
+  const lo = ctx.createOscillator();
+  const ro = ctx.createOscillator();
+  const lg = ctx.createGain();
+  const rg = ctx.createGain();
+
+  lo.type='sine'; ro.type='sine';
+  lo.frequency.value=v.left; ro.frequency.value=v.right;
+  lg.gain.value=.75; rg.gain.value=.75;
+
+  lo.connect(lg); ro.connect(rg);
+  lg.connect(merger,0,0);
+  rg.connect(merger,0,1);
+  merger.connect(master);
+  master.connect(ctx.destination);
+  lo.start(); ro.start();
+  reg(lo,ro,lg,rg,merger,master);
+}
+
+function note(freq,start,duration,volume,type='sine',pan=0,brightness=1500,pluck=false){
+  if(!ctx) return;
+
+  const osc=ctx.createOscillator();
+  const gain=ctx.createGain();
+  const filter=ctx.createBiquadFilter();
+  const panner=ctx.createStereoPanner();
+  const dry=ctx.createGain();
+  const wet=ctx.createGain();
+  const rev=musicBus.reverb;
+
+  osc.type=type;
+  osc.frequency.setValueAtTime(freq,start);
+  filter.type='lowpass';
+  filter.frequency.value=brightness;
+  panner.pan.value=pan;
+
+  const attack=pluck ? .015 : .4;
+  const peak=Math.max(volume,.0002);
+  gain.gain.setValueAtTime(.0001,start);
+  gain.gain.exponentialRampToValueAtTime(peak,start+attack);
+  if(pluck){
+    gain.gain.exponentialRampToValueAtTime(.0001,start+duration);
+  }else{
+    gain.gain.setValueAtTime(peak*.75,start+Math.max(attack+.2,duration*.55));
+    gain.gain.exponentialRampToValueAtTime(.0001,start+duration);
+  }
+
+  osc.connect(filter);
+  filter.connect(gain);
+  gain.connect(panner);
+  panner.connect(dry);
+  panner.connect(wet);
+  dry.connect(musicBus.master);
+  wet.connect(rev);
+  rev.connect(musicBus.master);
+
+  dry.gain.value=.78;
+  wet.gain.value=.25;
+
+  osc.start(start);
+  osc.stop(start+duration+.05);
+  reg(osc,gain,filter,panner,dry,wet);
+}
+
+let musicBus=null;
+
+function createMusicBus(v){
+  const master=ctx.createGain();
+  master.gain.setValueAtTime(.0001,ctx.currentTime);
+  master.gain.exponentialRampToValueAtTime(Math.max(v.musicVolume,.0001),ctx.currentTime+4);
+  master.connect(ctx.destination);
+  musicBus={master,reverb:makeReverb(3.4,2.2)};
+  reg(master);
+}
+
+function drone(freqs,v){
+  freqs.forEach((f,i)=>{
+    const osc=ctx.createOscillator();
+    const g=ctx.createGain();
+    const lp=ctx.createBiquadFilter();
+    osc.type=i%2?'triangle':'sine';
+    osc.frequency.value=f;
+    g.gain.value=.045/(i+1);
+    lp.type='lowpass'; lp.frequency.value=650;
+    osc.connect(lp); lp.connect(g); g.connect(musicBus.master);
+    osc.start();
+    reg(osc,g,lp);
+  });
+}
+
+const musicDefs = {
+  ambient:{
+    scale:[220,246.94,293.66,329.63,392,440],
+    drone:[110,164.81,220],
+    gap:[5,10], dur:[4,9], type:'sine', bright:1200, pluck:false
+  },
+  thai:{
+    scale:[196,220,261.63,293.66,329.63,392,440],
+    drone:[130.81,196],
+    gap:[3.5,7], dur:[1.8,4.5], type:'triangle', bright:2400, pluck:true
+  },
+  japanese:{
+    scale:[196,207.65,261.63,293.66,349.23,392],
+    drone:[98,146.83],
+    gap:[6,13], dur:[2.5,6], type:'triangle', bright:1800, pluck:true
+  },
+  indian:{
+    scale:[146.83,164.81,196,220,246.94,293.66,329.63],
+    drone:[73.42,110,146.83,220],
+    gap:[4,9], dur:[5,10], type:'sine', bright:1300, pluck:false
+  },
+  tao:{
+    scale:[196,220,246.94,293.66,329.63,392,440],
+    drone:[98,146.83,196],
+    gap:[5,11], dur:[3,7], type:'sine', bright:1700, pluck:false
+  }
+};
+
+function scheduleMusic(style,v){
+  if(style==='none') return;
+  if(style==='local'){ startLocalMusic(v); return; }
+
+  const def=musicDefs[style]||musicDefs.ambient;
+  createMusicBus(v);
+  drone(def.drone,v);
+
+  const endAt=sessionEndAt;
+
+  function phrase(){
+    if(!ctx || Date.now()>=endAt) return;
+
+    const count=2+Math.floor(Math.random()*4);
+    let at=ctx.currentTime+.1;
+    const direction=Math.random()<.5?1:-1;
+    let idx=Math.floor(Math.random()*def.scale.length);
+
+    for(let i=0;i<count;i++){
+      idx=clamp(idx + (i===0?0:direction*(Math.random()<.7?1:0)),0,def.scale.length-1);
+      const f=def.scale[idx];
+      const dur=def.dur[0]+Math.random()*(def.dur[1]-def.dur[0]);
+      const pan=-.55+Math.random()*1.1;
+      const vol=.035+Math.random()*.03;
+      note(f,at,dur,vol,def.type,pan,def.bright,def.pluck);
+      at += def.pluck ? .65+Math.random()*1.25 : 1.8+Math.random()*2.8;
+    }
+
+    const gap=(def.gap[0]+Math.random()*(def.gap[1]-def.gap[0]))*1000;
+    const t=setTimeout(phrase,gap);
+    audioTimers.push(t);
+  }
+
+  phrase();
+}
+
+function startLocalMusic(v){
+  const inp=$('localMusic');
+  if(!inp.files || !inp.files[0]){
+    alert('Choose a local audio file or select a generated music bed.');
+    return;
+  }
+  if(localAudioUrl) URL.revokeObjectURL(localAudioUrl);
+  localAudioUrl=URL.createObjectURL(inp.files[0]);
+  localAudio=new Audio(localAudioUrl);
+  localAudio.loop=true;
+  localAudio.volume=clamp(v.musicVolume/.30,0,1)*.55;
+  localAudio.play().catch(()=>{});
+}
+
+function stopAudioOnly(){
+  audioTimers.forEach(clearTimeout);
+  audioTimers=[];
+
+  if(localAudio){
+    try{localAudio.pause();localAudio.currentTime=0;}catch(e){}
+    localAudio=null;
+  }
+  if(localAudioUrl){
+    URL.revokeObjectURL(localAudioUrl);
+    localAudioUrl=null;
+  }
+
+  if(ctx){
+    audioNodes.forEach(n=>{
+      try{ if(n.stop)n.stop(); if(n.disconnect)n.disconnect(); }catch(e){}
+    });
+    audioNodes=[];
+    ctx.close().catch(()=>{});
+    ctx=null;
+  }
+  musicBus=null;
+}
+
+function formatRemaining(ms){
+  const sec=Math.max(0,Math.ceil(ms/1000));
+  const m=Math.floor(sec/60);
+  const s=sec%60;
+  return `${m}:${String(s).padStart(2,'0')}`;
+}
+
+async function startSession(){
+  stopEverything();
+  const v=getValues();
+
+  if(!Number.isFinite(v.left)||!Number.isFinite(v.right)||v.left<20||v.right<20){
+    alert('Enter audible left/right frequencies of at least 20 Hz.');
+    return;
+  }
+
+  ctx=new (window.AudioContext||window.webkitAudioContext)();
+  await ctx.resume();
+
+  sessionEndAt=Date.now()+Math.max(1,v.duration)*60*1000;
+  createBinaural(v);
+  scheduleMusic(v.musicStyle,v);
+
+  sessionTick=setInterval(()=>{
+    $('sessionStatus').textContent =
+`PLAYING
+${v.left} Hz left / ${v.right} Hz right / ${v.diff.toFixed(1)} Hz difference
+Music: ${v.musicStyle}
+Remaining: ${formatRemaining(sessionEndAt-Date.now())}`;
+  },500);
+
+  sessionStopTimer=setTimeout(stopEverything,Math.max(1,v.duration)*60*1000);
+
+  if(v.autoSpeech){
+    if(!speechLines().length) createOfflineReflection();
+    startTimedSpeech(sessionEndAt);
+  }
+}
+
+function stopEverything(){
+  if(sessionStopTimer){clearTimeout(sessionStopTimer);sessionStopTimer=null;}
+  if(sessionTick){clearInterval(sessionTick);sessionTick=null;}
+  stopTimedSpeech();
+  stopAudioOnly();
+  sessionEndAt=0;
+  $('sessionStatus').textContent='Session stopped.';
+}
+
+/* ---------- FRESH SOURCE + REFLECTION ---------- */
+
+function stripHtmlToText(htmlText){
+  const doc=new DOMParser().parseFromString(htmlText,'text/html');
+  doc.querySelectorAll('style,script,table,.mw-editsection,sup,nav').forEach(n=>n.remove());
+  return (doc.body.textContent||'').replace(/\s+/g,' ').trim();
+}
+
+function sentenceCandidates(text){
+  return text.split(/(?<=[.!?])\s+/)
+    .map(s=>s.trim())
+    .filter(s=>s.length>=45 && s.length<=240 && !/copyright|wikisource|navigation|contents/i.test(s));
+}
+
+async function fetchFreshSource(){
+  const palette=$('wisdom').value;
+  const query=sourceQueries[palette];
+
+  $('sourceBox').textContent='Searching Wikisource for a fresh inspiration seed…';
+
+  try{
+    const api='https://en.wikisource.org/w/api.php';
+    const sUrl=api+'?'+new URLSearchParams({
+      origin:'*',action:'query',list:'search',srsearch:query,srnamespace:'0',srlimit:'12',format:'json'
+    });
+    const sr=await fetch(sUrl);
+    if(!sr.ok) throw new Error('Search request failed');
+    const sj=await sr.json();
+    const results=(sj.query&&sj.query.search)||[];
+    if(!results.length) throw new Error('No source results');
+
+    const chosen=rand(results.slice(0,Math.min(results.length,8)));
+    const pUrl=api+'?'+new URLSearchParams({
+      origin:'*',action:'parse',page:chosen.title,prop:'text|displaytitle',format:'json'
+    });
+    const pr=await fetch(pUrl);
+    if(!pr.ok) throw new Error('Source request failed');
+    const pj=await pr.json();
+    const raw=pj.parse && pj.parse.text && pj.parse.text['*'];
+    if(!raw) throw new Error('No readable source text');
+
+    const plain=stripHtmlToText(raw);
+    const candidates=sentenceCandidates(plain);
+    if(!candidates.length) throw new Error('No suitable short source sentence');
+
+    const seed=rand(candidates);
+    const pageUrl='https://en.wikisource.org/wiki/'+encodeURIComponent(chosen.title.replace(/ /g,'_'));
+
+    createReflectionFromSeed(seed,chosen.title,pageUrl,true);
+  }catch(err){
+    $('sourceBox').textContent='Live source fetch failed or was blocked. Using an offline theme seed instead.';
+    createOfflineReflection();
+  }
+}
+
+function identifyTheme(palette,seed){
+  const groups=themeBanks[palette].themes;
+  const low=seed.toLowerCase();
+  let best=groups[0],score=-1;
+
+  groups.forEach(g=>{
+    const s=g.keys.reduce((n,k)=>n+(low.includes(k)?1:0),0);
+    if(s>score){score=s;best=g;}
+  });
+  return best;
+}
+
+function uniqueRandom(arr,count){
+  const copy=[...arr];
+  const result=[];
+  while(copy.length && result.length<count){
+    const i=Math.floor(Math.random()*copy.length);
+    result.push(copy.splice(i,1)[0]);
+  }
+  return result;
+}
+
+function buildReflectionLines(palette,theme,words,thalia){
+  const core=uniqueRandom(theme.core,Math.min(4,theme.core.length));
+  let lines=[];
+
+  if(words==='sparse'){
+    lines=[core[0],core[1],core[2]||core[0]];
+  }else if(words==='reflection'){
+    lines=[core[0],core[1],core[2]||core[0],core[3]||core[1],
+      'Notice what changes when you give that idea a little room.'];
+  }else{
+    const anchor=core[0];
+    lines=[anchor,core[1],anchor,core[2]||core[1],anchor,core[3]||core[1],anchor];
+  }
+
+  if(thalia==='light'){
+    lines.splice(Math.min(3,lines.length),0,rand(lightHumour[palette]));
+  }else if(thalia==='warm'){
+    const one=rand(warmHumour[palette]);
+    let two=rand(warmHumour[palette]);
+    if(two===one && warmHumour[palette].length>1){
+      two=warmHumour[palette][(warmHumour[palette].indexOf(one)+1)%warmHumour[palette].length];
+    }
+    lines.splice(Math.min(2,lines.length),0,one);
+    if(lines.length>5) lines.splice(lines.length-2,0,two);
+  }
+
+  return lines;
+}
+
+function createReflectionFromSeed(seed,title,url,isLive){
+  const palette=$('wisdom').value;
+  const words=$('words').value;
+  const thalia=$('thalia').value;
+  const theme=identifyTheme(palette,seed);
+  const lines=buildReflectionLines(palette,theme,words,thalia);
+
+  $('reflection').textContent=lines.join('\n\n');
+  lastGeneratedReflection = $('reflection').textContent;
+  if(isLive){
+    const excerpt=seed.length>180?seed.slice(0,177)+'…':seed;
+    $('sourceBox').innerHTML =
+      `<strong>Fresh source seed:</strong> ${escapeHtml(excerpt)}<br>`+
+      `<strong>Source:</strong> <a href="${url}" target="_blank" rel="noopener">${escapeHtml(title)}</a><br>`+
+      `<strong>Theme detected:</strong> ${escapeHtml(theme.tag)} · `+
+      `new reflection wording generated locally; not a quotation.`;
+  }else{
+    $('sourceBox').textContent =
+      `Offline variation · palette ${palette} · theme ${theme.tag}. `+
+      `No historical quotation is claimed.`;
+  }
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function createOfflineReflection(){
+  const palette=$('wisdom').value;
+  const groups=themeBanks[palette].themes;
+  const theme=rand(groups);
+  const fakeSeed=rand(theme.keys)+' '+rand(theme.core);
+  createReflectionFromSeed(fakeSeed,'Offline Aletheia theme generator','',false);
+}
+
+
+/* ---------- VOICES + LOCAL SPEECH TEXT ---------- */
+
+function loadVoices(){
+  if(!('speechSynthesis' in window) || !$('voiceSelect')) return;
+
+  availableVoices = speechSynthesis.getVoices() || [];
+  const sel = $('voiceSelect');
+  const previous = sel.value;
+
+  sel.innerHTML = '<option value="">Browser default voice</option>';
+
+  availableVoices
+    .slice()
+    .sort((a,b)=>{
+      if(a.lang !== b.lang) return a.lang.localeCompare(b.lang);
+      return a.name.localeCompare(b.name);
+    })
+    .forEach(v=>{
+      const opt=document.createElement('option');
+      opt.value=v.voiceURI;
+      const local = v.localService ? 'local' : 'browser/network';
+      opt.textContent=`${v.name} · ${v.lang} · ${local}`;
+      sel.appendChild(opt);
+    });
+
+  // Preserve an explicit user choice where possible.
+  if(previous && availableVoices.some(v=>v.voiceURI===previous)){
+    sel.value=previous;
+  } else {
+    // Preferred default:
+    // 1) Catherine with Australian English
+    // 2) any voice named Catherine
+    // 3) any Australian English voice
+    // 4) browser default
+    const catherineAU =
+      availableVoices.find(v =>
+        /catherine/i.test(v.name) &&
+        /^en[-_]AU$/i.test(v.lang)
+      );
+
+    const anyCatherine =
+      availableVoices.find(v => /catherine/i.test(v.name));
+
+    const anyAustralian =
+      availableVoices.find(v => /^en[-_]AU$/i.test(v.lang));
+
+    const preferred = catherineAU || anyCatherine || anyAustralian || null;
+
+    if(preferred){
+      sel.value = preferred.voiceURI;
+    }
+  }
+
+  const chosen = selectedVoice();
+  if(chosen){
+    $('voiceInfo').textContent =
+      `Default voice: ${chosen.name} · ${chosen.lang}` +
+      (/catherine/i.test(chosen.name) ? ' · preferred Catherine voice' : '');
+  } else {
+    $('voiceInfo').textContent =
+      availableVoices.length
+        ? `${availableVoices.length} voice(s) available; browser default selected.`
+        : 'No selectable voices returned yet; browser default will be used.';
+  }
+
+  updateLabels();
+}
+
+function selectedVoice(){
+  const uri = $('voiceSelect') ? $('voiceSelect').value : '';
+  if(!uri) return null;
+  return availableVoices.find(v=>v.voiceURI===uri) || null;
+}
+
+function previewSelectedVoice(){
+  if(!('speechSynthesis' in window)){
+    alert('Speech synthesis is not available in this browser.');
+    return;
+  }
+
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(
+    'This is the selected Aletheia reflection voice.'
+  );
+  const v=selectedVoice();
+  if(v) u.voice=v;
+  u.rate=Number($('speechRate').value)||0.7;
+  u.pitch=.94;
+  u.volume=Number($('speechVolume').value)||0.85;
+  speechSynthesis.speak(u);
+}
+
+function splitImportedText(raw,mode){
+  const cleaned=String(raw||'').replace(/\r\n/g,'\n').trim();
+  if(!cleaned) return [];
+
+  if(mode==='lines'){
+    return cleaned.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+  }
+
+  if(mode==='paragraphs'){
+    return cleaned.split(/\n\s*\n+/).map(s=>s.replace(/\s+/g,' ').trim()).filter(Boolean);
+  }
+
+  // Sentence mode.
+  const normalized=cleaned.replace(/\s+/g,' ');
+  const matches=normalized.match(/[^.!?]+(?:[.!?]+["'’”)]*|$)/g);
+  return (matches||[normalized]).map(s=>s.trim()).filter(Boolean);
+}
+
+async function useSelectedLocalText(){
+  const input=$('speechTextFile');
+  if(!input.files || !input.files[0]){
+    alert('Choose a local .txt or .md file first.');
+    return;
+  }
+
+  try{
+    const file=input.files[0];
+    const raw=await file.text();
+    const chunks=splitImportedText(raw,$('textSplitMode').value);
+
+    if(!chunks.length){
+      alert('No usable speech text was found in that file.');
+      return;
+    }
+
+    importedSpeechText=chunks.join('\n\n');
+    $('reflection').textContent=importedSpeechText;
+    $('localTextStatus').textContent =
+      `Using local text: ${file.name} · ${chunks.length} speech unit(s) · split by ${$('textSplitMode').value}.`;
+  }catch(err){
+    $('localTextStatus').textContent='Could not read the selected local text file.';
+  }
+}
+
+function restoreGeneratedReflection(){
+  if(lastGeneratedReflection){
+    $('reflection').textContent=lastGeneratedReflection;
+    $('localTextStatus').textContent='Restored the last generated reflection.';
+  }else{
+    createOfflineReflection();
+    $('localTextStatus').textContent='Created and restored a generated reflection.';
+  }
+}
+
+/* ---------- TIMED SPEECH ---------- */
+
+function speechLines(){
+  return $('reflection').textContent
+    .split(/\n+/)
+    .map(s=>s.trim())
+    .filter(Boolean);
+}
+
+function stopTimedSpeech(){
+  speechRunning=false;
+  if(speechTimer){clearTimeout(speechTimer);speechTimer=null;}
+  if(speechTick){clearInterval(speechTick);speechTick=null;}
+  if('speechSynthesis' in window) speechSynthesis.cancel();
+  nextSpeechAt=0;
+  $('speechStatus').textContent='Speech stopped.';
+}
+
+function speakLine(line,v,onDone){
+  if(!('speechSynthesis' in window)){
+    $('speechStatus').textContent='Speech synthesis is unavailable in this browser.';
+    speechRunning=false;
+    return;
+  }
+
+  const u=new SpeechSynthesisUtterance(line);
+  const chosenVoice = selectedVoice();
+  if(chosenVoice) u.voice = chosenVoice;
+  u.rate=v.speechRate;
+  u.pitch=.94;
+  u.volume=Math.max(0.1, Math.min(1.0, v.speechVolume));
+  u.onend=()=>onDone();
+  u.onerror=()=>onDone();
+  speechSynthesis.speak(u);
+}
+
+function startTimedSpeech(optionalEndAt){
+  stopTimedSpeech();
+
+  const v=getValues();
+  const lines=speechLines();
+  if(!lines.length){
+    createOfflineReflection();
+  }
+  const actualLines=speechLines();
+  if(!actualLines.length) return;
+
+  speechRunning=true;
+  speechLineIndex=0;
+  speechEndAt=optionalEndAt || (Date.now()+Math.max(1,v.duration)*60*1000);
+
+  function updateSpeechStatus(){
+    if(!speechRunning) return;
+    const remaining=formatRemaining(speechEndAt-Date.now());
+    let nextText='speaking now';
+    if(nextSpeechAt>Date.now()){
+      nextText=`next line in ${Math.ceil((nextSpeechAt-Date.now())/1000)}s`;
+    }
+    $('speechStatus').textContent =
+`TIMED SPEECH
+Mode: ${v.speechMode.toUpperCase()}
+Pause after each line: ${v.pauseSeconds}s
+Line: ${Math.min(speechLineIndex+1,actualLines.length)} of ${actualLines.length}
+${nextText}
+Session speech time remaining: ${remaining}`;
+  }
+
+  function next(){
+    if(!speechRunning || Date.now()>=speechEndAt){
+      stopTimedSpeech();
+      $('speechStatus').textContent='Speech finished with session.';
+      return;
+    }
+
+    if(speechLineIndex>=actualLines.length){
+      if(v.speechMode==='loop'){
+        speechLineIndex=0;
+      }else{
+        speechRunning=false;
+        if(speechTick){clearInterval(speechTick);speechTick=null;}
+        $('speechStatus').textContent='Speech completed one full pass. Sound session may continue.';
+        return;
+      }
+    }
+
+    const line=actualLines[speechLineIndex];
+    const shownIndex=speechLineIndex+1;
+    nextSpeechAt=0;
+    $('speechStatus').textContent =
+`SPEAKING LINE ${shownIndex} OF ${actualLines.length}
+"${line}"
+After this line: pause ${v.pauseSeconds}s
+Mode: ${v.speechMode.toUpperCase()}`;
+
+    speakLine(line,v,()=>{
+      if(!speechRunning) return;
+      speechLineIndex++;
+      nextSpeechAt=Date.now()+Math.max(1,v.pauseSeconds)*1000;
+      speechTimer=setTimeout(next,Math.max(1,v.pauseSeconds)*1000);
+    });
+  }
+
+  speechTick=setInterval(updateSpeechStatus,500);
+  nextSpeechAt=Date.now()+Math.max(0,v.initialDelay)*1000;
+  speechTimer=setTimeout(next,Math.max(0,v.initialDelay)*1000);
+  updateSpeechStatus();
+}
+
+/* ---------- EVENTS ---------- */
+
+document.querySelectorAll('input,select').forEach(el=>{
+  el.addEventListener('input',updateLabels);
+  el.addEventListener('change',updateLabels);
+});
+
+$('swapEars').addEventListener('click',swapEars);
+$('startBtn').addEventListener('click',startSession);
+$('stopBtn').addEventListener('click',stopEverything);
+$('freshReflection').addEventListener('click',fetchFreshSource);
+$('offlineReflection').addEventListener('click',createOfflineReflection);
+$('speakBtn').addEventListener('click',()=>startTimedSpeech());
+$('stopSpeechBtn').addEventListener('click',stopTimedSpeech);
+$('previewVoice').addEventListener('click',previewSelectedVoice);
+$('refreshVoices').addEventListener('click',loadVoices);
+$('useLocalText').addEventListener('click',useSelectedLocalText);
+$('restoreReflection').addEventListener('click',restoreGeneratedReflection);
+
+if('speechSynthesis' in window){
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+$('copyRecipe').addEventListener('click',async()=>{
+  updateLabels();
+  try{
+    await navigator.clipboard.writeText($('recipe').value);
+    $('copyRecipe').textContent='Copied';
+    setTimeout(()=>$('copyRecipe').textContent='Copy recipe',1200);
+  }catch(e){
+    $('recipe').select();
+  }
+});
+
+updateLabels();
+createOfflineReflection();
+loadVoices();
+setTimeout(loadVoices,250);
+setTimeout(loadVoices,1000);
+</script>
+
+<script type="text/plain" id="aletheia-embedded-spec">
+[ALETHEIA_FREQUENCY_EXPLORER]
+VERSION: 1.0.0-draft
+TYPE: self-contained browser + AI-readable app
+
+KEY PARSING:
+- BINAURAL LEFT 196.6 RIGHT 214.7 = actual left oscillator 196.6 Hz, actual right oscillator 214.7 Hz.
+- Difference = 18.1 Hz. It is not a separate audible 18.1 Hz tone.
+- SWAP EARS exchanges the actual channel frequency assignments.
+- TAO/STOIC/YOGIC/BUDDHIST/SECULAR are reflection palettes, not frequencies.
+- SPEECH ONCE speaks each line once.
+- SPEECH LOOP repeats the line sequence until the session ends.
+- PAUSE_AFTER_EACH_LINE N means wait N seconds AFTER an utterance finishes before speaking the next line.
+- Each non-empty reflection line is a separate SpeechSynthesisUtterance.
+- VOICE selects a browser/device SpeechSynthesis voice when available.
+- Preferred voice default is Catherine with en-AU when available; otherwise another en-AU voice, then browser default.
+- SPEECH_VOLUME is independent from binaural tone volume and music volume and maps to SpeechSynthesisUtterance.volume (0.1–1.0).
+- LOCAL SPEECH TEXT may be loaded from .txt or .md and split by sentence, line, or paragraph.
+- Imported local text is used locally and is not uploaded by the browser app.
+- THALIA WARM uses stronger original absurdist/dry/semantic humour mechanisms; never copy a creator's lines or exact style.
+- LIVE REFLECTION may use Wikisource as a public historical inspiration source. Generated wording must be labelled original, not a source quotation.
+- Built-in music is procedural and culturally inspired, not claimed as authentic traditional music.
+- If host AI cannot execute browser audio, do not pretend it is playing. Return the exact recipe and direct the user to open this .htm in a browser.
+- No health cure/treatment claims.
+
+Aletheia Protocol:
+https://github.com/karstenevans/Aletheia-protocol
+
+Thalia Protocol:
+https://github.com/karstenevans/thalia-protocol
+
+Resource page:
+https://swindon.org.uk/resources/aletheia-frequency-explorer-rsc.htm
+[/ALETHEIA_FREQUENCY_EXPLORER]
+</script>
+</body>
+</html>
