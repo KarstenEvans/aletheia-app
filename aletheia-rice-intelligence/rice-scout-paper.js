@@ -43,7 +43,7 @@ function scoutPrompt(code){
   var s=SCOUTS[code];
   return basePrompt()+
   '\n\n## FOUR-SCOUT PASS - '+s.name+' / '+code+
-  '\nAct as an independent rice-market research scout. Do not rely on another AI\\'s answer.'+
+  '\nAct as an independent rice-market research scout. Do not rely on another AI\'s answer.'+
   '\nSearch broadly in relevant original languages where useful. For China-facing demand, include Chinese official/primary sources where material.'+
   '\nSeparate OBSERVED FACT, SOURCE FORECAST and INFERENCE.'+
   '\nPreserve exact dates, country, rice grade, unit, trade basis and original URLs.'+
