@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#66764a">
 <title>Aletheia Calisthenics | Story Workouts for strength, balance and mobility</title>
-<meta name="description" content="Guided story-style calisthenics workouts with exercise zooms, UK narration, countdowns, timed rests, healthy-ageing facts, generated Zen music and Mitten the cat.">
+<meta name="description" content="Guided story-style calisthenics workouts with exercise zooms, UK narration, countdowns, timed rests, healthy-ageing facts, optional generated music, a recorded relaxation track and Mitten the cat.">
 <link rel="canonical" href="https://karstenevans.github.io/aletheia-app/Aletheia-calistenics/Aleteheia-calistenics.htm">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -44,19 +44,20 @@
 
   <label for="musicStyle">Music bed</label>
   <select id="musicStyle">
-    <option value="zen60">Zen Garden — generated fallback</option>
-    <option value="tao60">Tao Flow 60 BPM</option>
-    <option value="up120">Upbeat 120 BPM</option>
-    <option value="local">Local licensed track</option>
+    <option value="atlas">AtlasAudio — Relax (recorded default)</option>
+    <option value="zen60">Zen Garden — generated 60 BPM pulse</option>
+    <option value="tao60">Tao Flow — generated 60 BPM pulse</option>
+    <option value="up120">Upbeat — generated 120 BPM pulse</option>
+    <option value="local">Local audio file</option>
     <option value="off">Music off</option>
   </select>
-  <p class="small"><strong>Preferred recorded source:</strong>
-    <a data-awinignore href="https://pixabay.com/users/nourishedbymusic-19075120/" target="_blank" rel="noopener">NourishedByMusic on Pixabay ↗</a>.
-    <a data-awinignore href="https://pixabay.com/music/meditationspiritual-yoga-nidra-188882/" target="_blank" rel="noopener">Yoga Nidra ↗</a> is the first recorded-track choice. Download it under its current Pixabay licence, then choose <strong>Local licensed track</strong>. Until the MP3 is bundled, the generated Zen bed is the automatic fallback.
+  <p class="small"><strong>Default recorded track:</strong>
+    <a data-awinignore href="https://pixabay.com/music/meditationspiritual-relax-511892/" target="_blank" rel="noopener">Relax by AtlasAudio on Pixabay ↗</a>.
+    The bundled filename is <code>atlasaudio-relax-511892.mp3</code>. If the bundled file is unavailable, the app falls back to the generated Zen bed.
   </p>
 
   <label for="musicVolume">Music volume <span id="musicVolumeVal">70%</span></label>
-  <input id="musicVolume" type="range" min="0" max="0.30" value="0.21" step="0.005">
+  <input id="musicVolume" type="range" min="0" max="1" value="0.70" step="0.01">
   <p class="small">Music stays at your selected level while the trainer speaks and counts. It changes only when you move this control or explicitly pause/stop the workout.</p>
   <div class="menu-actions">
     <button type="button" onclick="A.testMusic()">Test music</button>
@@ -144,7 +145,7 @@
     <p>Five gentle mat movements. Headstand stays outside normal autoplay as an advanced optional demonstration.</p>
   </div>
   <div class="panel">
-    <span class="badge">Default: Caroline + Zen Garden 60 BPM</span>
+    <span class="badge">Default: Caroline + AtlasAudio Relax at 70%</span>
     <div class="exercise-list" id="elist"></div>
     <p class="warnbox" id="safety"></p>
     <button class="primary full" onclick="A.start()">Start guided workout</button>
