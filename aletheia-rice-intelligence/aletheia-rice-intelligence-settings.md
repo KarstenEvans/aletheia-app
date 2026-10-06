@@ -63,6 +63,7 @@ This document is the human/AI-readable source of the exported profile. JSON belo
     "crop",
     "weather",
     "water",
+    "demand",
     "trade",
     "policy",
     "company",
@@ -166,9 +167,12 @@ This document is the human/AI-readable source of the exported profile. JSON belo
     "springer-grain",
     "icc-training",
     "irri",
-    "trea-members"
+    "trea-members",
+    "cn-moa-trade",
+    "cn-customs-monthly",
+    "cn-nbs-rice"
   ],
-  "settings_version": "0.1",
+  "settings_version": "0.4",
   "weather_live_noncommercial_consent": false,
   "show_daily_scene": true,
   "show_joke": true,
