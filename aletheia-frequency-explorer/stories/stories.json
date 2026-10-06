@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "stories": [
+    {
+      "id": "ike-shield-bug",
+      "title": "Ike the Kitten and the Green Shield Bug",
+      "file": "stories/Ike-the-Kitten-and-the-Green-Shield-Bug.txt",
+      "provenance": "user-supplied"
+    },
+    {
+      "id": "rocket-moon",
+      "title": "Rocket and the Flurkins Play Games on the Moon",
+      "file": "stories/Rocket-and-the-Flurkins-Play-Games-on-the-Moon.txt",
+      "provenance": "user-supplied"
+    },
+    {
+      "id": "rocket-moon-long",
+      "title": "Rocket and the Flurkins Play Games on the Moon · long",
+      "file": "stories/Rocket-and-the-Flurkins-Play-Games-on-the-Moon-LONG.txt",
+      "provenance": "user-supplied"
+    },
+    {
+      "id": "schrodinger-shield-bugs",
+      "title": "Schrödinger and the Pesky Shield Bugs",
+      "file": "stories/Schrodinger-and-the-Pesky-Shield-Bugs.txt",
+      "provenance": "new original Aletheia narration; canonical Dragonfold bio consulted"
+    },
+    {
+      "id": "newt-tiff",
+      "title": "Newt Was Here First · Newt & Tiff",
+      "file": "stories/Newt-Was-Here-First.txt",
+      "provenance": "new original Aletheia narration from user premise"
+    }
+  ]
+}
