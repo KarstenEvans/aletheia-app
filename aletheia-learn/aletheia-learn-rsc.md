@@ -4,6 +4,39 @@
 **Purpose:** useful evidence-based learning resources plus practical phone-first hardware ideas.  
 **Commercial rule:** useful first; prices and stock change; source/reference links are not evidence that a product is the cheapest or best choice.
 
+## Guided course: Aletheia Learn – AI Fluency
+
+**Course:** [aletheia-learn-ai-fluency.md](aletheia-learn-ai-fluency.md)
+
+This is the first complete guided course built directly on Aletheia Learn's attempt → hint → retry → transfer method. It is provider-neutral and uses source-traced Harvard material as a learning spine rather than simply linking a playlist.
+
+The course teaches:
+
+- a practical mental model of LLMs and hallucination;
+- **TOCC** — Task → Outcome → Context → Check;
+- system context versus user task;
+- RAG/retrieval versus fine-tuning;
+- **FIT** — Fit → Impact → Testability;
+- evidence-aware verification;
+- misinformation versus disinformation;
+- risk, permissions and human authority;
+- a real-work capstone.
+
+Primary learning sources checked 7 October 2026:
+
+- CS50x 2026 Artificial Intelligence: https://cs50.harvard.edu/x/weeks/ai/
+- CS50x 2026 AI notes: https://cs50.harvard.edu/x/notes/ai/
+- Harvard Kennedy School archived Spring 2024 course: https://generative-ai-course.hks.harvard.edu/spring-2024
+- HKS Prompt Engineering: https://generative-ai-course.hks.harvard.edu/2-using-genai/class-4
+- HKS Beyond Chatbots: https://generative-ai-course.hks.harvard.edu/2-using-genai/class-5
+- HKS When and How to Use Generative AI: https://generative-ai-course.hks.harvard.edu/2-using-genai/class-6
+- HKS Risks of Generative AI: https://generative-ai-course.hks.harvard.edu/society/class-8
+- HKS Mis/Disinformation: https://generative-ai-course.hks.harvard.edu/society/class-11
+
+The HKS Spring 2024 material is an archived course, not a newly released 2026 programme. Its current site states that content is CC BY 4.0 except where otherwise noted.
+
+---
+
 ## Configure your favourite AI once
 
 Aletheia Learn works without permanent custom instructions because the HTML doorway copies the essential learning contract into each new AI session.
