@@ -1,7 +1,7 @@
 ---
 title: "Aletheia Learn"
 system_id: "aletheia-learn"
-version: "0.1.2"
+version: "0.1.3"
 artifact_type: "human-facing-learning-app"
 primary_protocol: "Aletheia"
 specialised_branch: "Aletheia Language Learn"
@@ -30,7 +30,7 @@ A learner may still ask for a direct answer at any time. The app must obey that 
 
 ```text
 [ALETHEIA_LEARN_INIT]
-VERSION: 0.1.2
+VERSION: 0.1.3
 MODE: INTERACTIVE LEARNING-BY-DOING APP
 
 WHEN THIS FILE IS AVAILABLE TO THE HOST AI:
@@ -795,6 +795,22 @@ Watching a video or reading an article is not, by itself, a completed learning p
 
 ---
 
+## 16A. Guided course — AI Fluency
+
+Aletheia Learn can also run a source-traced guided course without becoming a separate app.
+
+Current course:
+
+- **[Aletheia Learn – AI Fluency](aletheia-learn-ai-fluency.md)** — provider-neutral course built from current CS50x 2026 AI material, the archived Harvard Kennedy School generative-AI course, and Aletheia's evidence/verification model.
+- Course method: baseline → explanation → real task → smallest useful support → retry → verification → transfer.
+- Aletheia teaching tools added by the course: **TOCC** (Task → Outcome → Context → Check) and **FIT** (Fit → Impact → Testability).
+- Source-backed Harvard/CS50 concepts remain explicitly separated from Aletheia's own synthesis.
+- Do not mark the learner complete merely for reading or watching the source material; completion requires transfer evidence.
+
+When a learner explicitly asks to run **AI Fluency**, load and follow `aletheia-learn-ai-fluency.md` rather than improvising a replacement syllabus.
+
+---
+
 ## 17. Resource-router rule
 
 Prefer strong free/public resources when an external explanation is better than regenerating another generic lesson.
@@ -1095,6 +1111,13 @@ The page follows `aletheia-learn-page.md` and the shared `CTRL-V-AI-HANDOFF` pro
 ---
 
 ## 26. Version notes
+
+### v0.1.3 — AI Fluency guided course
+
+- Added the first source-traced guided course: `aletheia-learn-ai-fluency.md`.
+- Added the provider-neutral TOCC and FIT teaching patterns while keeping Harvard/CS50 source concepts distinct from Aletheia synthesis.
+- Course completion requires practice, verification and transfer rather than passive consumption.
+- Kept the course inside Aletheia Learn rather than creating another app.
 
 ### v0.1.2 — command deck + favourite-AI setup
 
