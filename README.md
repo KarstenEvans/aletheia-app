@@ -58,6 +58,7 @@ Learn by doing rather than letting AI quietly do the learning task for you. Alet
 - [Open Aletheia Learn](https://karstenevans.github.io/aletheia-app/aletheia-learn/aletheia-learn.htm) — start a goal, choose a mode/provider, then use the one-click copy/open Ctrl-V handoff.
 - [Resources, books, AI setup and phone-first learning kit](https://karstenevans.github.io/aletheia-app/aletheia-learn/aletheia-learn-rsc.htm)
 - [Read the app](aletheia-learn/aletheia-learn.md)
+- [Run/read the AI Fluency guided course](aletheia-learn/aletheia-learn-ai-fluency.md) — source-traced, provider-neutral AI learning using TOCC, FIT, verification and a real-work capstone.
 - [Open the raw Markdown](https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-learn/aletheia-learn.md)
 
 It distinguishes assisted task performance from evidence of independent learning and uses the H0–H5 **Hint Ladder**. Phone-friendly commands include `LEA`, `HI`, `PRA`, `TES`, `REC`, `REM`, `VIS`, `MAT`, `DRA`, `TBA`, `ANS`, `PRO` and `SAV`. The public HTML is deliberately a **HANDOFF** doorway: one Start click prepares/copies the learning contract and opens one selected AI; it does not claim a connected backend.
