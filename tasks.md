@@ -1002,3 +1002,15 @@ Core lesson: distinguish **ATTEMPTED**, **COMPLETED** and **VERIFIED**; a green 
 - [x] Validate JSON and Markdown agreement, exact first instruction, both protocol references and distinct variant identity.
 
 Original course Markdown, `workout.json`, HTML, JavaScript, poster and PWA files are unchanged. The WD text/data are not selected in the current player; no live/device playback claim is made. Player selection/integration is a separate future task if requested.
+
+
+## NEWS-VIDEO-001 — CHECK THIS VIDEO (8 October 2026)
+
+**Status: GitHub source changes / live and device QA pending.** Extend Aletheia News, no standalone app or paid backend.
+- [x] Reviewed root AGENTS, shared GUI/dev/code, Improve, current News Markdown, HTML, source register and resources.
+- [x] Add caption/claim/public URL entry; AI-neutral copy/open HANDOFF; manual-copy and popup fallback.
+- [x] Require explicit accessible-media receipt; MEDIA / STORY / DISCLOSURE split; nine-section Truth Card.
+- [x] Add page spec and free verification/provenance resources. Preserve GDELT, source grouping, research buttons and optional BBC Worker.
+- [ ] Verify desktop/mobile browser clipboard and window handling.
+- [ ] Verify current GitHub Pages deployment and news controls.
+- [ ] Assess actual AI output on genuine, disclosed synthetic, recaptioned real footage, inaccessible post, provenance-poor screenshot, and lion-cub example. Do not mark tested by prompt generation alone.
