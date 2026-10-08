@@ -1,7 +1,9 @@
 # Aletheia News
 
-**Status:** v0.2 design/prototype  
-**Updated:** 21 September 2026  
+[Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
+
+**Status:** v0.3 working prototype / video handoff  
+**Updated:** 8 October 2026  
 **Primary file:** `aletheia-news.md`  
 **Browser interface:** `aletheia-news.htm`  
 **Resources:** `aletheia-news-rsc.htm`  
@@ -46,6 +48,7 @@ When the user says **START**, show a compact menu:
 - HEALTH
 - BUSINESS
 - CHECK THIS NEWS
+- CHECK THIS VIDEO
 - COMPARE SOURCES
 
 If the user supplies a topic, question, URL or headline with START, begin directly.
@@ -143,6 +146,42 @@ When the user supplies an article URL or headline:
 7. provide source receipts.
 
 Do not bypass paywalls or reconstruct a restricted article from copied text.
+
+
+## CHECK THIS VIDEO
+
+**Capability: HANDOFF, not connected AI or automatic video detection.** Extend existing CHECK THIS NEWS, never create a separate app or backend.
+
+Use a visible CHECK THIS VIDEO panel accepting any combination of a public HTTP(S) URL, caption/narration and claim description; require only one field. The static HTML cannot play inaccessible videos, inspect metadata itself, upload files or send screenshots to an AI. Users may attach screenshots/clips manually in their chosen AI chat. The browser copies a complete verification request and opens one selected AI from the same click, with visible fallback when clipboard or popup access is blocked.
+
+### Three independent questions
+
+1. **MEDIA:** Evidence that footage is generated or materially altered by AI; distinguish ordinary edits, dubbing, AI speech and captions.
+2. **STORY:** Independent evidence that the claimed real-world incident occurred, with original footage, dates, location and primary evidence.
+3. **DISCLOSURE:** Whether synthetic, staged, illustrative or fictional material is properly labelled. AI use alone is not deception.
+
+### Research procedure
+
+Start with an **access receipt** distinguishing full inspected video, frames/screenshots, thumbnail/caption, or URL only. Never pretend to have watched inaccessible media. Find earliest original uploader, reverse-match earlier footage where tools permit, trace independent reporting versus copied viral/wire accounts, and seek primary documents or identifiable witnesses. Inspect C2PA/Content Credentials **only where technically available** and explain that credentials support declared media provenance, not proof that narrated events happened. Missing credentials mean origin UNKNOWN. Do not infer fakery solely from uncanny imagery, AI-like voice, soundtrack, missing metadata or a detector score. Respect platform logins, access restrictions and paywalls.
+
+### Truth Card output
+
+**CLAIM** (what is alleged); **OBSERVED** (exactly what was accessed); **PROVENANCE** (supported origin and editing information); **ESTABLISHED** (corroborated facts); **REPORTED** (attributed claims); **UNCERTAIN / CONTESTED** (remaining questions); **DISCLOSURE** (presentation and labels); **SOURCE RECEIPTS** (original URLs, publishers, titles, dates and reporting lineage); **CONCLUSION** (bounded summary with distinct MEDIA / STORY / DISCLOSURE assessments). Use **UNVERIFIED** where evidence is inadequate, not a one-number fake/real score. Do not accuse creators on insufficient grounds.
+
+### Lion-cub test case
+
+User example: https://lnkd.in/p/eT2ZXEFG (claimed abandoned paralysed lion cub rescued, given surgery and rehabilitation, then walking). Suspected synthetic storytelling is a test hypothesis, NOT a verified fake. Underwater rehabilitation treadmills exist; their appearance does not verify or refute the specific rescue. If inaccessible or uncorroborated, say UNVERIFIED, never invent a diagnosis, rescue history or source.
+
+### Verification tools (reviewed 8 October 2026)
+
+- Content Credentials Verify: https://verify.contentauthenticity.org/
+- InVID/WeVerify video verification: https://weverify.eu/verification-plugin/
+- Google Fact Check Explorer: https://toolbox.google.com/factcheck/explorer/
+
+### Acceptance scenarios
+
+Genuine footage; disclosed synthetic media; older genuine footage miscaptioned as a new event; inaccessible social-media post; screenshot lacking provenance. Prompt/HTML static fixtures are not real video, model or device tests. Preserve original news feeds, worker, clustering and research actions.
+
 
 ## Source strategy
 
