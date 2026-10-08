@@ -88,14 +88,15 @@ Language Learn inherits the general Hint Ladder, retrieval/transfer and active v
 
 A direct-first, evidence-aware news reader that discovers current reporting, groups coverage, traces reporting lineage, surfaces primary sources and supports independent research passes without copying full publisher articles.
 
-- **Version:** 0.2
-- **Status:** Working prototype / design
+- **Version:** 0.3
+- **Status:** Working prototype / video-check HANDOFF (browser QA pending)
 - **Primary protocol:** Aletheia
-- **Infrastructure:** Direct browser discovery by default; optional personal BBC RSS Worker
+- **Infrastructure:** Direct browser discovery; optional personal BBC RSS Worker; provider-neutral video-verification prompt
 - [Read the app](aletheia-news/aletheia-news.md)
 - [Open the browser interface](https://karstenevans.github.io/aletheia-app/aletheia-news/aletheia-news.htm)
 - [Open the resources page](https://karstenevans.github.io/aletheia-app/aletheia-news/aletheia-news-rsc.htm)
 - [View source register](aletheia-news/aletheia-news-sources.json)
+- [CHECK THIS VIDEO page specification](aletheia-news/aletheia-news-page.md)
 
 
 ### Aletheia Improve
