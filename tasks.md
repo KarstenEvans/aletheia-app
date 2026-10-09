@@ -1025,3 +1025,11 @@ Original course Markdown, `workout.json`, HTML, JavaScript, poster and PWA files
 - [x] Static inspection confirmed ten sequential modules, setup-before-prompts, HELP-first loader and no duplicate News video element IDs.
 - [ ] In two real AI hosts, paste the revised course and verify the initial welcome, HELP/START navigation, teaching before questions, hint ladder and ability to skip.
 - [ ] Test News handoff on desktop/mobile (clipboard, popup fallback, GDELT unchanged) and inspect a real resulting Truth Card. These are NOT claimed completed.
+
+## AIxcellent 42 — shared completion sound (9 October 2026)
+
+- [x] Owner selected the original `aletheia_aixcellent_42_be_excellent_winnie.mp3` as the final rendition; do not replace it with another version.
+- [x] Registered the asset contract and local SHA-256 at `shared/audio/README.md`.
+- [ ] Upload approved MP3 **binary** to `shared/audio/` and compare hosted SHA-256; this GitHub text-file connector does not upload local binary files.
+- [ ] Verify browser playback from the committed asset URL.
+- [ ] Implement opt-in completion audio only when explicitly requested for an actual Aletheia app; no autoplay, no auto-claim of success.
