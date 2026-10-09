@@ -37,6 +37,11 @@ footer{padding:26px 0 50px;color:var(--muted);font-size:.8rem}
 .video-handoff select{width:auto}
 .video-handoff button{white-space:normal;min-height:44px}
 .video-note{color:var(--muted);font-size:.9rem}
+.video-panel[hidden],.manual-prompt[hidden],#videoAIBackup[hidden]{display:none!important}
+.video-help{margin:0 0 13px;padding:10px 12px;border:1px solid var(--line);background:var(--panel2);border-radius:10px}
+.video-help summary{cursor:pointer;font-weight:650}
+.video-help ol{padding-left:23px;margin:9px 0}
+.video-example{margin:8px 0 0}.video-example button{white-space:normal;min-height:42px}
 .manual-prompt{display:grid;gap:8px}
 button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 @media(max-width:620px){.video-handoff select,.video-handoff button{width:100%}.video-panel{padding:12px}}
@@ -67,6 +72,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
   <section class="video-panel" id="videoPanel" hidden aria-labelledby="videoHeading">
     <h2 id="videoHeading">🎬 CHECK THIS VIDEO</h2>
     <p>Investigate the media, the alleged event and whether synthetic/fictional content was disclosed. This browser page prepares an AI research request; it does not watch or authenticate a video.</p>
+    <details class="video-help" open>
+      <summary>HELP: How to check a video (read this first)</summary>
+      <ol>
+        <li>Enter a link, a caption or your description of the alleged event. One field is enough.</li>
+        <li>Choose your preferred AI, then select <strong>Copy verification request &amp; open AI</strong>. Paste the copied request into that chat.</li>
+        <li>If the AI cannot open the video, attach screenshots or the clip yourself. Ask it to separate what it inspected from what the story claims, then review the source-linked Truth Card.</li>
+      </ol>
+      <p class="video-note">This is a research helper, not an automatic fake detector. AI-generated speech, dramatic music or missing Content Credentials alone do not establish fabrication. Mark unsupported cases UNVERIFIED.</p>
+      <p class="video-example"><button class="btn" type="button" id="videoExample">Load lion-cub example for a practice check</button></p>
+    </details>
     <div class="video-fields">
       <label for="videoUrl">Public video/social-media URL (optional)</label>
       <input type="url" inputmode="url" id="videoUrl" placeholder="https://…">
@@ -301,6 +316,13 @@ aiChoice.onchange=function(){
   try{localStorage.setItem('aletheiaNewsVideoProvider',this.value);}catch(e){}
   document.getElementById('videoAIBackup').href=VIDEO_PROVIDERS[this.value]||VIDEO_PROVIDERS.chatgpt;
 };
+document.getElementById('videoExample').onclick=function(){
+   document.getElementById('videoUrl').value='https://lnkd.in/p/eT2ZXEFG';
+   document.getElementById('videoCaption').value='';
+   document.getElementById('videoClaim').value='A post alleges an abandoned lion cub that could not walk underwent rescue, surgery, rehabilitation on an underwater treadmill and recovery. Suspected synthetic storytelling. Do NOT assume fake; verify access, provenance, and event independently. An underwater treadmill is real equipment, not evidence for this particular rescue.';
+   document.getElementById('videoClaim').focus();
+   videoStatus('Example loaded as an UNVERIFIED claim. Select your AI to research it; this page has not inspected the footage.');
+ };
 document.getElementById('videoResearch').onclick=checkVideo;
 document.getElementById('videoManualCopy').onclick=function(){
   var field=document.getElementById('videoPayload');field.focus();field.select();
