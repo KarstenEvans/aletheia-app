@@ -1,12 +1,12 @@
 ---
 title: "Aletheia Learn – AI Fluency"
 system_id: "aletheia-learn-ai-fluency"
-version: "0.1.0"
+version: "0.2.0"
 artifact_type: "guided-learning-course"
 parent_app: "Aletheia Learn"
-status: "working course"
+status: "teacher-first course; model/device testing pending"
 created: "2026-10-07"
-sources_checked: "2026-10-07"
+sources_checked: "2026-10-09"
 ---
 
 # Aletheia Learn – AI Fluency
@@ -48,32 +48,48 @@ Harvard HKS describes its Spring 2024 material as an archived course and states 
 
 ```text
 [ALETHEIA_AI_FLUENCY_INIT]
-VERSION: 0.1.0
+VERSION: 0.2.0
 PARENT: ALETHEIA LEARN
+MODE: COURSE / TEACH-FIRST / PROVIDER-NEUTRAL
 
-1. Run this as an interactive Aletheia Learn course, not as a document summary.
-2. Start with Module 0 unless the learner asks for another module.
-3. Use one meaningful learner action at a time.
-4. Use the Aletheia Learn H0-H5 Hint Ladder. Do not jump to the full answer unless the learner asks.
-5. Distinguish ASSISTED performance from INDEPENDENT or TRANSFERRED evidence.
-6. Ask for concise explanations, decisions, examples or checks. Do not ask the learner or model to reveal private chain-of-thought.
-7. Keep the course provider-neutral. Product-specific examples are examples, not required dependencies.
-8. If a provider capability is time-sensitive, verify it from a current primary source when tools are available; otherwise label it UNVERIFIED.
-9. When a learner asks ANS / ANSWER NOW / JUST TELL ME, answer directly, then offer a transfer check.
-10. Safety-critical or consequential questions get the useful answer first; do not withhold it for pedagogy.
-11. At the end of each module, record one state: NEW, SUPPORTED, INDEPENDENT, TRANSFERRED or REVIEWED.
-12. The course should remain useful with text chat alone.
+START / INIT / RUN / PASTED COURSE:
+1. FIRST RESPONSE MUST BE A WELCOME + COURSE HELP, not a quiz, diagnostic questionnaire, baseline test or generic "What would you like to learn?"
+2. Explain in ordinary language what this course teaches, its approximate stages and how navigation works. Offer "Start at lesson 1", "Show course map", "AI setup first", or "Choose a lesson". Never demand all preferences up front.
+3. If learner says START or NEXT, teach the next lesson: explain the concept in plain English, show a worked example, then ask ONE optional practice question AFTER the teaching. Wait for the learner's reply before continuing.
+4. If learner says HELP, show course map, navigation commands, how to request an example or hint, and how to skip. HELP is not a hint for an unseen question.
+5. If learner supplies a question/task on the first turn, answer that useful request first; optionally connect it to a lesson.
+6. Do not begin by testing unexplained vocabulary, prompting frameworks or AI-specific jargon; define terms as they appear.
+7. Keep the Harvard-inspired three-part sequence: how AI works -> how to use AI -> trust, impact and risks. Aletheia adds a practical "prepare your AI" lesson BEFORE prompting.
+8. Teach that natural conversation is sufficient for most prompts. TOCC is an optional rescue checklist, not a mandatory format.
+9. Prepare an AI before relying on it: explain temporary chat instructions versus persistent preferences/project instructions, where context belongs, privacy and verification boundaries. Provider-specific menu paths must be checked before claiming they exist.
+10. For complex tasks use ASK -> GO WALKABOUT -> CHECK -> ANSWER. ASK only when a material ambiguity blocks good work; GO WALKABOUT only when research/alternative discovery adds value; CHECK claims and uncertainty. Keep the human informed rather than going silent.
+11. When stuck, model an honest response: clarify, retrieve examples or sources, acknowledge an unknown, or RESET a rambling explanation. Do not bluff, manufacture sources or demand hidden reasoning.
+12. Use the Aletheia Learn H0-H5 hint ladder ONLY after a taught lesson and a learner attempt; ANSWER NOW overrides where appropriate.
+13. Allow HELP, MAP, START, NEXT, BACK, SKIP, EXAMPLE, HINT, GO WALKABOUT, RECAP, ANSWER NOW, STOP and ordinary-language equivalents at any time. Ask one meaningful question per turn, not a battery of questions.
+14. Listen and adapt to user responses; speech is supported only if host actually supports speech. If a learner is confused, reteach with a simpler example before asking again.
+15. Distinguish ASSISTED work from INDEPENDENT or TRANSFERRED mastery. Never count mere reading, clicking or copying an AI answer as skill evidence.
+16. Never claim to have browsed, watched, heard, remembered or verified material without doing so. Live facts require source receipts; inaccessible material is UNKNOWN.
+17. Keep it free-first, platform-independent and useful in a plain text chat. No paid accounts or API are required for the curriculum.
+18. No autoplay, automatic music or unrelated interruptions. Optional AIxcellent completion flourish only when a real lesson/task is finished and the learner wants it.
 [END_ALETHEIA_AI_FLUENCY_INIT]
 ```
+
+## The three-part learning journey
+
+This Aletheia course follows the broad progression of Harvard Kennedy School's freely available archived 2024 programme: **how AI works → how to use AI → implications and risks**. It uses original, simpler exercises and adds a practical AI-setup lesson before prompting; it is not an official Harvard course.
+
+**Default first response when this file is pasted into an AI:** Welcome the learner, briefly explain the course and commands, and offer START, AI SETUP or MAP. **Do not ask a baseline quiz or a personal-goal questionnaire before teaching.** If START, teach Module 1 first. If the learner asks for Module 0, show the orientation above.
+
+**Teaching pattern for EVERY module:** explain → worked example → one exercise → listen → feedback/hint → optional next. If the learner says HELP, show useful navigation and a plain-language overview; do not treat HELP as a request for just a hint.
 
 ## Course map
 
 | Module | Skill | Typical time |
 |---|---|---:|
-| 0 | Baseline and goal | 5 min |
+| 0 | Welcome, HELP and course navigation | 3–5 min |
 | 1 | What modern AI is doing | 15 min |
-| 2 | TOCC: give AI a usable brief | 15 min |
-| 3 | System context, user prompts and persistent instructions | 15 min |
+| 2 | Prepare your AI: reusable instructions and privacy | 15 min |
+| 3 | Ask naturally: examples, optional TOCC and Go Walkabout | 15 min |
 | 4 | RAG, retrieval and fine-tuning | 15 min |
 | 5 | FIT: should AI do this task? | 15 min |
 | 6 | Hallucination, evidence and verification | 20 min |
@@ -85,36 +101,34 @@ The learner may stop after any module. A completed course means demonstrated tra
 
 ---
 
-# Module 0 — Baseline: what do you want AI to help you do?
+# Module 0 — Welcome: what you will learn and how to use this course
 
-## Goal
+## Learn first
 
-Turn “learn AI” into one real capability.
+AI can help you write, understand, explore and build things. It can also sound sure when it is wrong. This course shows you how to make AI useful **without giving up your own judgement**.
 
-Choose one real task such as:
+You will learn in this order:
 
-- research a subject;
-- improve a document;
-- learn a new skill;
-- compare options;
-- analyse data;
-- write or debug code;
-- organise a project;
-- prepare for an interview;
-- check a claim;
-- create a repeatable workflow.
+1. **Understand AI:** what it can do and why it can be wrong.
+2. **Prepare your AI:** establish preferences, project context and rules for honesty.
+3. **Ask naturally:** clear requests, useful examples and optional TOCC.
+4. **Beyond chat:** retrieval, other tools and choosing where AI actually helps.
+5. **Check and decide:** source checking, synthetic media, risks and responsible control.
+6. **Build something:** apply everything to one real task.
 
-## First attempt
+Each lesson goes **short explanation → worked example → one try-it question → feedback → optional next step**. You never need to take a test before seeing the lesson.
 
-Before the tutor explains anything, answer:
+Type **HELP** for the map, **EXAMPLE** for another explanation, **NEXT** to continue, **BACK** to revisit, **SKIP** to move past a topic, or **STOP** to finish. You can interrupt with a real question at any time. The AI should adjust to your answer, not insist on its script.
 
-1. What task do you want AI to help with?
-2. What would a **good** result look like?
-3. What could go wrong if the answer were confidently wrong?
+## Worked example
 
-Keep these three answers. The same task will be revisited in Module 9.
+Suppose you see a dramatic rescue video. The useful question is not just "fake or real?" but "What was actually inspected, what evidence supports the story, and what remains uncertain?" You will practise that distinction later.
 
-**Independent evidence:** learner names a real goal, a success condition and at least one failure mode.
+## Your choice (not a test)
+
+**Shall we start with Lesson 1, learn how to set up your AI first, or see the course map?** If you say START, begin Lesson 1 immediately with the explanation, not a quiz.
+
+You can optionally choose a personal task to revisit in the final project, but no personal information or goal is required to begin.
 
 ---
 
@@ -154,9 +168,98 @@ Do not treat them as the same type of AI job.
 
 ---
 
-# Module 2 — TOCC: give AI a usable brief
+# Module 2 — Prepare your AI before you ask
 
 ## Learn
+
+**Imagine borrowing a new assistant for the day.** Before assigning a task, it helps to explain your preferences, the relevant project and what it must do if it does not know something. That preparation is different from the question you will ask next.
+
+There are three simple levels:
+
+1. **One-off message:** "Please explain this without jargon." Useful for the current task.
+2. **Reusable preferences or project instructions:** "Use UK English; distinguish evidence from guesswork; ask when a key detail is missing." Where this lives depends on your AI provider and account.
+3. **Project knowledge:** manuals, notes, the task's original files, source URLs and dates. These must be supplied or genuinely retrieved, not assumed to be remembered.
+
+**Worked example:** You are about to check an online video. First tell the AI, "Never pretend to have watched a video you cannot access. Distinguish a claimed event from proof that it happened." Then supply the actual link and caption. The first sentence is a reusable rule; the link is today's task.
+
+### A simple, portable AI setup
+
+You can adapt this in your chosen AI's supported instructions area or paste it at the start of a chat:
+
+```text
+Help me work things out in clear, natural language.
+When a claim needs checking, show what is known, what is reported and what remains unknown.
+Do not invent sources, actions, memories, quotations or footage you could not access.
+Ask one clarifying question when a crucial detail is missing.
+For substantial research, Go Walkabout to check alternatives and bring back useful sources.
+Give the useful answer promptly and say what still needs checking.
+Explain before testing me when we are learning. Offer HELP, EXAMPLE, SKIP and NEXT.
+```
+
+This is a **suggested user preference**, not a guarantee that any model will always follow it. Check the actual behaviour using a small test. Do not place private information or passwords in public or shared instructions. Provider settings change; look up current steps for the chosen product rather than assuming menu names.
+
+**Try after the example:** Which sentence is a reusable rule, and which part of the video-check request belongs only in this conversation?
+
+
+CS50 distinguishes a **system prompt** from a **user prompt**: one sets enduring interaction rules; the other carries the immediate request.
+
+Harvard HKS Class 5 similarly treats system prompts as a way to give a chatbot context that applies across interactions.
+
+This is why repeatedly pasting the same rules is often a sign that the useful instruction belongs in a persistent project, agent, Gem, repository instruction file or portable bootstrap.
+
+Aletheia's provider-neutral pattern is:
+
+```text
+DURABLE RULES
+  + CURRENT TASK
+  + RELEVANT CONTEXT
+  + CURRENT EVIDENCE
+  -> RESULT
+```
+
+Durable context should still be inspectable and removable. “Persistent” must not mean “secret and impossible to correct.”
+
+## Try
+
+Take these five instructions and split them into **durable context** versus **current task**:
+
+- Always distinguish verified fact from inference.
+- Summarise this specific PDF.
+- Use British English.
+- Compare section 4 with section 7.
+- Never claim a web check unless one actually happened.
+
+## Check
+
+The stable behavioural rules belong in durable context. The specific PDF/sections belong to the current task.
+
+## Transfer
+
+Look at one recurring AI task you do. Identify one instruction you should stop retyping and store as portable project context instead.
+
+---
+
+# Module 3 — Talk to AI naturally; TOCC when you need it
+
+## Learn
+
+You normally do not need a special prompt language. You can ask an AI much as you ask a helpful colleague: say what you want, give any background it cannot know, and say how you want the result. A useful answer matters more than a fashionable acronym.
+
+**Ordinary conversational example:** "Can you explain how I can tell whether a rescue video is genuine? I'd like the evidence first, and please tell me if you can't inspect the video."
+
+**Why this works:** it tells the AI the job, the evidence standard and the desired kind of answer. You can refine in conversation: "Use simpler words", "Give me one example", "Where did that claim come from?"
+
+For larger or confusing tasks, use TOCC below as an optional checklist. If your simple question works, do not rewrite it into a form.
+
+### Better AI responses: ASK → GO WALKABOUT → CHECK → ANSWER
+
+- **ASK:** Clarify the one missing detail only when it changes the task.
+- **GO WALKABOUT:** Explore alternative explanations or sources when discovery is genuinely useful.
+- **CHECK:** Distinguish evidence from inference, check claims and acknowledge missing evidence.
+- **ANSWER:** Respond usefully and clearly; don't lose the human during a long investigation.
+
+An AI cannot improve an answer simply by pretending to wait. For substantial research, it should use the time to find evidence and share a useful interim finding where its tools permit. Do not claim to continue in the background when no background task is running.
+
 
 Harvard HKS Class 4 teaches the prompt anatomy **TIC: Task, Instructions, Context**.
 
@@ -205,48 +308,18 @@ Rewrite one prompt you genuinely used this week using TOCC. Then compare the out
 
 ---
 
-# Module 3 — System context, user prompts and persistent instructions
 
-## Learn
+### Extra practice: the pause, the question and the rescue
 
-CS50 distinguishes a **system prompt** from a **user prompt**: one sets enduring interaction rules; the other carries the immediate request.
+**Teach first:** In an interview, pausing before answering can allow time to choose an example or ask what the interviewer wants. An AI's equivalent is not a theatrical silence: it is noticing when evidence, context or clarification is missing.
 
-Harvard HKS Class 5 similarly treats system prompts as a way to give a chatbot context that applies across interactions.
+**Example:** "Is this lion cub video AI?" is too narrow to settle a story. Better: "Tell me what footage you can actually inspect, whether the rescue is corroborated, and whether AI use is disclosed. Say what remains unknown."
 
-This is why repeatedly pasting the same rules is often a sign that the useful instruction belongs in a persistent project, agent, Gem, repository instruction file or portable bootstrap.
+**Try (after reading):** Ask an AI to check one plausible claim. What should it do if it can only access the headline or caption, not the underlying video?
 
-Aletheia's provider-neutral pattern is:
+**Check:** A good answer states its access limits and distinguishes synthetic-media evidence from the truth of the story. Missing media evidence does not equal a fake.
 
-```text
-DURABLE RULES
-  + CURRENT TASK
-  + RELEVANT CONTEXT
-  + CURRENT EVIDENCE
-  -> RESULT
-```
-
-Durable context should still be inspectable and removable. “Persistent” must not mean “secret and impossible to correct.”
-
-## Try
-
-Take these five instructions and split them into **durable context** versus **current task**:
-
-- Always distinguish verified fact from inference.
-- Summarise this specific PDF.
-- Use British English.
-- Compare section 4 with section 7.
-- Never claim a web check unless one actually happened.
-
-## Check
-
-The stable behavioural rules belong in durable context. The specific PDF/sections belong to the current task.
-
-## Transfer
-
-Look at one recurring AI task you do. Identify one instruction you should stop retyping and store as portable project context instead.
-
----
-
+**Transfer:** Apply ASK → GO WALKABOUT → CHECK → ANSWER to an ordinary work, hobby or learning question without needing to memorise the acronym.
 # Module 4 — RAG, retrieval and fine-tuning are different tools
 
 ## Learn
