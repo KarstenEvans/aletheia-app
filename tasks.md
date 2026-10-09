@@ -1049,3 +1049,23 @@ Original course Markdown, `workout.json`, HTML, JavaScript, poster and PWA files
 - [ ] UK voice selection and narration synchronisation at 1.0 in real browsers, including Voice Off and speech-unavailable fallback.
 - [ ] Animation actual frame rendering, mobile layout / 200% zoom, reduced-motion / Safari/WebKit, Constellation date windows and fallbacks.
 
+
+## AI-101-FRONT-002 — Cinematic KISS redesign and resources (9 October 2026)
+
+**Human QA trigger:** screenshot of AI 101 showed an overlong introduction, two competing dialogue panels, undersized/obscured Three.js animation and too many visible controls. Owner requested simple space animation + cinematic crawl, selector-triggered UK male speech, single Start Course button, burger for everything else.
+
+- [x] Run targeted Aletheia Improve against live `AGENTS.md`, GUI/dev/code, course/page/HTML, animation and shared Constellation. Record revised v0.2 spec.
+- [x] Replace `aletheia-learn-ai-fluency.htm` two-column cards with a full-screen existing Aletheia universe, original perspective text crawl, small Choose AI selector and one Start Course control.
+- [x] Start `en-GB` narration on AI selection (actual user gesture), voice rate/pitch `1.0`, prefer installed UK male non-George when available. Synchronise visible scroll with speech; fallback to timed crawl without voice.
+- [x] Put Help, Manual Copy, Voice on/off, Pause/Continue, Replay, Books/Gifts, AI subscriptions, Free lessons and back links in a keyboard-accessible upper-right burger.
+- [x] Support seven handoff AI destinations: ChatGPT, Gemini, Copilot, DeepSeek, Claude, Kimi and Grok.
+- [x] Keep canonical full-course Markdown loading/validation and copy-before-popup same-click behaviour; manual fallback remains, provider not auto-filled.
+- [x] Add `aletheia-learn-ai-fluency-rsc.htm`: free Harvard/CS50 learning, Co-Intelligence, AI Snake Oil, practical gifts, verified UK Bookshop gift card, official provider subscription/chat sources. No fabricated prices or affiliate IDs.
+- [x] Keep footer/back links, shared seasonal stars and one Awin MasterTag. Reduce loading/rendering when reduced motion requested.
+- [x] Add scoped narrator/course defaults in GUI/dev; do not change all Storyteller voices or other apps.
+- [x] Static validation: HTML JS syntax pass; no duplicate IDs; complete fetch/selector guard; 7 options; one popup call; voice rate 1.0; original animation independent of selection; 5 star links per public page; one MasterTag per page; resource destinations anchored and present. Existing interaction mock 12/12 passed before final option expansion.
+- [ ] Public GitHub Pages actual visual/device QA (Chrome/Edge desktop, Android, Safari/WebKit), including user screenshot comparison, stage text legibility and full animation.
+- [ ] On-device browser SpeechSynthesis, UK voice, selector-change unlock, scroll synchrony, pause/replay and reduced-motion behaviour.
+- [ ] Clipboard/popup blocked, large-prompt limits and pasted first course response for all seven providers.
+- [ ] Seasonal star date-window and external plan/link availability continued checks.
+
