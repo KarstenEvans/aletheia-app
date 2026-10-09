@@ -1033,3 +1033,19 @@ Original course Markdown, `workout.json`, HTML, JavaScript, poster and PWA files
 - [ ] Upload approved MP3 **binary** to `shared/audio/` and compare hosted SHA-256; this GitHub text-file connector does not upload local binary files.
 - [ ] Verify browser playback from the committed asset URL.
 - [ ] Implement opt-in completion audio only when explicitly requested for an actual Aletheia app; no autoplay, no auto-claim of success.
+
+## AI-101-FRONT-001 — AI Fluency narrated standalone course launcher (9 October 2026)
+
+- [x] Read root AGENTS, shared GUI/dev/code, Learn canonical course, Learn page, live Constellation JSON and existing Aletheia Three.js animation.
+- [x] Write matching page specification `aletheia-learn/aletheia-learn-ai-fluency-page.md`, linked to Aletheia and Thalia.
+- [x] Add opt-in `?embed=1` decorative mode to original animation without changing normal animation behaviour.
+- [x] Build standalone `aletheia-learn/aletheia-learn-ai-fluency.htm` with heading AI 101, KISS 3-line narrated intro, en-GB male preference (not George when alternatives exist), voice rate/pitch 1.0 and explicit Play/Pause/Restart/Voice/Next controls.
+- [x] Full canonical course Markdown fetched on load and validated before enabling Start. Copy full course synchronously, open one user-selected AI window and show manual paste/copy or popup fallback. No paid API/backend.
+- [x] Restore back links and use shared Constellation with five fallback stars, local heading Explore Aletheia, seasonal witch/winter from central manifest, exactly one Awin MasterTag.
+- [x] Link AI 101 front page from existing Aletheia Learn app without replacing generic Learn functionality.
+- [x] Static QA: inline JS syntax PASS, course readiness markers, full payload content, exactly one popup call, five providers, voice 1.0, three-line display, no duplicate IDs, existing shared stars, one MasterTag.
+- [ ] Live GitHub Pages browser availability and loading complete Markdown.
+- [ ] Clipboard permissions / popup blocked behaviour on Windows Chrome/Edge and Android; actual first-course AI response.
+- [ ] UK voice selection and narration synchronisation at 1.0 in real browsers, including Voice Off and speech-unavailable fallback.
+- [ ] Animation actual frame rendering, mobile layout / 200% zoom, reduced-motion / Safari/WebKit, Constellation date windows and fallbacks.
+
