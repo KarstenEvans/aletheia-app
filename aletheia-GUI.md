@@ -385,6 +385,10 @@ A useful error states:
 
 Do not expose stack traces, internal provider/tool names or private debug information to ordinary visitors.
 
+### Narrated introductions: selector-triggered course pages (9 October 2026)
+
+For Aletheia Learn AI 101 and similar *explicitly configured* narrated course front pages, keep the content first and avoid a competing narration-control panel. The animated background may begin on page load, but speech MUST begin only after a human interaction (such as changing the **Choose AI** selector). Browser SpeechSynthesis defaults to `en-GB`, **rate 1.0**, pitch 1.0, and prefers `Google UK English Male` if installed; next try another en-GB male avoiding George where alternatives exist, then other en-GB/browser fallbacks. Voice naming/gender are best-effort, not guaranteed. Synchronise a modest original on-screen crawl with utterance completion rather than describing line counts to learners. Allow voice off/replay/pause in a compact menu. If speech is unavailable, keep a readable timed/step-through text path. Honor browser autoplay policy, reduced-motion and accessibility preferences. These are **AI 101 presentation defaults**, not a mandate to change all existing Storyteller narrators or audio tracks.
+
 ## 16. Page-specific visual identity
 
 Shared rules do not mean every app must look identical.
