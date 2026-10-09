@@ -357,6 +357,14 @@ For Three.js/WebGL:
 
 If a remote font fails, use sensible local/system fallbacks.
 
+### Course-front cinematic handoff acceptance (9 October 2026)
+
+An AI 101 landing page may reuse the existing Aletheia animation with its opt-in `?embed=1` decoration mode. The animation must remain purely decorative, start independently of provider choice, not intercept the interface, and fall back to accessible text when WebGL or motion is unavailable.
+
+For the AI Fluency course, selecting an AI is the gesture that starts an `en-GB` preferred male SpeechSynthesis introduction at **rate 1.0**, with on-screen text advanced by speech-completion events. Do not insert a wall of instructional panels or require the user to click a second Play button. Keep only the selected AI, Start Course and succinct status visible; put resources, subscriptions, books/gifts, narration replay and manual-copy fallback behind a keyboard-operable top-right burger.
+
+Preload and validate the canonical full course Markdown, disable Start until the complete course and AI destination are ready, synchronously attempt a copy of the full payload before opening exactly one AI window, and leave a manual copy/open path for permissions failures. The receiving AI remains outside the app; the user pastes manually. No API charges, scraped provider input, fabricated integration or misleading completion. Keep central shared Constellation and exact-once Awin conventions.
+
 ## 14. Data and manifests
 
 Do not make static pages crawl GitHub directories at runtime.
