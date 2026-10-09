@@ -178,6 +178,10 @@ User example: https://lnkd.in/p/eT2ZXEFG (claimed abandoned paralysed lion cub r
 - InVID/WeVerify video verification: https://weverify.eu/verification-plugin/
 - Google Fact Check Explorer: https://toolbox.google.com/factcheck/explorer/
 
+### First-use and practice example
+
+The browser's CHECK THIS VIDEO panel includes expanded HELP before form entry, explains the handoff, and has a reversible **Load lion-cub example** button. This fills a URL and an explicitly UNVERIFIED claim; it does not access video or conclude fabrication. The user chooses whether to send it to an AI. When no media can be accessed, the system should remain at UNVERIFIED and request inspectable evidence.
+
 ### Acceptance scenarios
 
 Genuine footage; disclosed synthetic media; older genuine footage miscaptioned as a new event; inaccessible social-media post; screenshot lacking provenance. Prompt/HTML static fixtures are not real video, model or device tests. Preserve original news feeds, worker, clustering and research actions.
