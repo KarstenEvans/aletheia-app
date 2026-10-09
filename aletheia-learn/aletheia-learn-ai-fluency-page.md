@@ -2,7 +2,7 @@
 title: Aletheia Learn — AI Fluency course launcher
 system_id: aletheia-learn-ai-fluency-front
 version: 0.1.0
-status: implementation in progress
+status: source implementation committed; browser/device QA pending
 document_class: browser-page-specification
 date: 2026-10-09
 ---
@@ -21,6 +21,7 @@ Build one standalone, direct-linkable HTML doorway **inside the existing Alethei
 - Decorative original Aletheia animation: `../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1`, introduced by a purely additive opt-in query mode hiding animation debug UI and crawl while preserving normal standalone animation behaviour.
 - Constellation: `../shared/link-sprites.css` and `../shared/link-sprites.js`; five actual static fallback anchors from the central `shared/link-sprites.json` and dated Halloween/winter rules.
 - Awin MasterTag: exactly one production instance, per GUI/dev.
+- Visible course heading: **AI 101 · Start Here**. Local constellation heading: **Explore Aletheia ✨** (do not rename central nav destinations or other apps).
 
 ## Mandatory KISS learner explanation
 
@@ -60,3 +61,13 @@ The 3-line narration introduces how to choose an AI, copies/pastes the full cour
 Static review: HTML structure, one valid source fetch, disabled Start until complete, full-course clipboard, one popup per click, fallback textarea, correct provider map, selectors, voice rate 1.0, exact Constellation links/static fallback and one MasterTag; script parsing and no duplicate IDs.
 
 Browser/device still require **live observed** checks: Desktop Chrome/Edge, Android Chrome, Safari/WebKit, actual voice selection, browser clipboard permissions, blocked popup, reduced motion, animation fallbacks, provider first response and GitHub Pages deployment. Do not call those passed based on source inspection alone.
+
+## Source implementation receipt — 9 October 2026
+
+- New HTML: `aletheia-learn/aletheia-learn-ai-fluency.htm`.
+- Linked from `aletheia-learn/aletheia-learn.htm` while retaining its existing generic learning form.
+- Existing animation: `aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1` hides debug UI only in decorative iframe; normal animation remains unaffected.
+- Static source tests: inline script syntax compiled successfully; full 28,048-character course passes readiness markers; Start disabled until fetch completes; synchronous clipboard attempt before exactly one popup; five providers; no duplicate IDs; speech rate 1.0; a rolling 3-line display; narration starts only by user click; five Constellation fallback links; exactly one Awin MasterTag; original parent page links retained.
+- The AI selector stores only the provider identifier in localStorage (when allowed). It does not pre-fill the AI provider's chat box or submit automatically.
+- **Not verified live:** actual GitHub Pages release availability, player visuals/voice rendering, popup/clipboard browser permissions, phone layout and successful paste into each provider. This source receipt does not establish those tests.
+- AI providers may reject or truncate large prompts; preserve the raw Markdown link and manual-copy fallback.
