@@ -128,7 +128,7 @@ footer .footinner{max-width:1030px;margin:auto}
 
 <main>
 <section class="hero" aria-label="Aletheia AI 101 cinematic course introduction">
-<iframe id="cosmos" title="Aletheia animated AIverse" aria-hidden="true" tabindex="-1" inert src="../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1"></iframe>
+<iframe id="cosmos" title="Aletheia animated AIverse" aria-hidden="true" tabindex="-1" inert data-src="../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1"></iframe>
 <div class="herotop"><div class="eyebrow">Aletheia Learn · AI 101</div><h1>Learn AI. Keep your judgement.</h1></div>
 <div id="waiting"><h2>Let AI do the walking.</h2><p>Choose your AI to begin the introduction.</p></div>
 <div id="crawlViewport" aria-hidden="true"><div id="crawlTrack"></div></div>
@@ -141,6 +141,8 @@ footer .footinner{max-width:1030px;margin:auto}
 <option value="copilot">Microsoft Copilot</option>
 <option value="deepseek">DeepSeek</option>
 <option value="claude">Claude</option>
+<option value="kimi">Kimi</option>
+<option value="grok">Grok</option>
 </select></div>
 <button id="start" type="button" disabled>▶ Start Course</button>
 </div>
@@ -169,8 +171,9 @@ footer .footinner{max-width:1030px;margin:auto}
 (function(){
 "use strict";
 var $=function(id){return document.getElementById(id);};
-var providers={chatgpt:"https://chatgpt.com/",gemini:"https://gemini.google.com/app",copilot:"https://copilot.microsoft.com/",deepseek:"https://chat.deepseek.com/",claude:"https://claude.ai/"};
+var providers={chatgpt:"https://chatgpt.com/",gemini:"https://gemini.google.com/app",copilot:"https://copilot.microsoft.com/",deepseek:"https://chat.deepseek.com/",claude:"https://claude.ai/",kimi:"https://www.kimi.com/",grok:"https://grok.com/"};
 var course="",fullPrompt="",speech=window.speechSynthesis||null,token=0,step=0,timer=null,voiceOn=true,playing=false;
+if(!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)){$("cosmos").src=$("cosmos").dataset.src;}
 var lines=[
 "Welcome to Aletheia Learn, AI 101.",
 "First, discover what AI can and cannot do.",
@@ -275,7 +278,7 @@ function speakLine(v){
  try{speech.speak(u);}catch(e){scheduleNext(v);}
 }
 function beginIntro(){
- cancelVoice();step=0;playing=true;document.body.classList.add("started");
+ cancelVoice();step=0;playing=true;$("pause").textContent="Ⅱ Pause";document.body.classList.add("started");
  frame();speakLine(token);
 }
 $("provider").addEventListener("change",function(){
@@ -291,9 +294,8 @@ $("voiceToggle").addEventListener("click",function(){
  if(providers[$("provider").value])beginIntro();
 });
 $("pause").addEventListener("click",function(){
- if(!playing){if(providers[$("provider").value])beginIntro();return;}
- cancelVoice();this.textContent="▶ Resume";
- status("Introduction paused. Choose an AI again or use Replay in Menu to hear it.");
+ if(playing){cancelVoice();this.textContent="▶ Continue";status("Introduction paused. Use Continue to resume.");}
+ else if(providers[$("provider").value]){playing=true;this.textContent="Ⅱ Pause";speakLine(token);}
 });
 window.addEventListener("resize",function(){if(document.body.classList.contains("started"))frame();});
 window.addEventListener("pagehide",cancelVoice);
