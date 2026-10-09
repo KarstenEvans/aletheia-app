@@ -1011,6 +1011,17 @@ Original course Markdown, `workout.json`, HTML, JavaScript, poster and PWA files
 - [x] Add caption/claim/public URL entry; AI-neutral copy/open HANDOFF; manual-copy and popup fallback.
 - [x] Require explicit accessible-media receipt; MEDIA / STORY / DISCLOSURE split; nine-section Truth Card.
 - [x] Add page spec and free verification/provenance resources. Preserve GDELT, source grouping, research buttons and optional BBC Worker.
+- [x] Add human-first expanded HELP, safe lion-cub practice fixture and explicit HTML [hidden] styling (9 October). Static inspection confirmed 13 unique video IDs and retention of feed/worker/research function names.
 - [ ] Verify desktop/mobile browser clipboard and window handling.
 - [ ] Verify current GitHub Pages deployment and news controls.
 - [ ] Assess actual AI output on genuine, disclosed synthetic, recaptioned real footage, inaccessible post, provenance-poor screenshot, and lion-cub example. Do not mark tested by prompt generation alone.
+
+## AI-LEARN-HUMAN-001 — AI Fluency teach-first repair (9 October 2026)
+
+- [x] Read current AI Fluency course, Aletheia Learn parent, Aletheia Improve and AGENTS sources; checked Harvard Kennedy School course order.
+- [x] Update `aletheia-learn/aletheia-learn-ai-fluency.md` to v0.2.0: course welcome/HELP before testing, setup before prompting, conversational explanations and ASK → GO WALKABOUT → CHECK → ANSWER.
+- [x] Add narrow course-specific teacher-first exception to `aletheia-learn/aletheia-learn.md` v0.1.4.
+- [x] Save Stage 02 improvement receipt at `aletheia-learn/Aletheia-02-AI-Fluency-Human-First-Improve.md`.
+- [x] Static inspection confirmed ten sequential modules, setup-before-prompts, HELP-first loader and no duplicate News video element IDs.
+- [ ] In two real AI hosts, paste the revised course and verify the initial welcome, HELP/START navigation, teaching before questions, hint ladder and ability to skip.
+- [ ] Test News handoff on desktop/mobile (clipboard, popup fallback, GDELT unchanged) and inspect a real resulting Truth Card. These are NOT claimed completed.
