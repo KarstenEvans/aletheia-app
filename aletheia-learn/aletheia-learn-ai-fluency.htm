@@ -1,155 +1,305 @@
 <!doctype html>
-<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#061728"><title>Aletheia Learn | AI 101: AI Fluency</title>
-<meta name="description" content="Aletheia AI Fluency: choose an AI tutor and learn with a complete interactive course, guided by a narrated three-line introduction.">
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#061321">
+<title>AI 101 · Start Here | Aletheia Learn</title>
+<meta name="description" content="An animated entrance to Aletheia AI Fluency. Choose your AI, hear the introduction, then copy and launch the complete interactive course.">
 <link rel="canonical" href="https://karstenevans.github.io/aletheia-app/aletheia-learn/aletheia-learn-ai-fluency.htm">
 <link rel="stylesheet" href="../shared/link-sprites.css">
 <style>
-:root{color-scheme:dark;--bg:#061522;--panel:#10273ae8;--edge:#4a718a;--text:#f2f8ff;--muted:#c5d9e4;--accent:#a3f4e3;--gold:#f5dba0}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.56 system-ui,"Segoe UI",sans-serif}
-a{color:var(--accent)}button,select,textarea{font:inherit}
-button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.wrap{max-width:1040px;padding:0 16px;margin:auto}header{position:sticky;z-index:10;top:0;background:#061522f2;border-bottom:1px solid var(--edge);backdrop-filter:blur(10px)}
-.top{min-height:62px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;padding-top:8px;padding-bottom:8px}
-.brand{text-decoration:none;font-weight:850;color:var(--text)}.brand span{color:var(--gold)}nav.back{display:flex;gap:9px 17px;flex-wrap:wrap;font-size:.9rem}
-.hero{position:relative;isolation:isolate;min-height:355px;background:radial-gradient(ellipse at 70% 40%,#124762,#061a2d 65%);overflow:hidden}
-.hero iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;z-index:-2;opacity:.48}
-.hero:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#061522ed 0%,#06152288 72%,#06152299)}
-.hero .wrap{padding-top:36px;padding-bottom:60px}.kicker{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800}
-h1{font-size:clamp(2.1rem,5.1vw,3.6rem);line-height:1.11;margin:10px 0 14px;max-width:750px}h1 em{font-style:normal;color:var(--accent)}
-.lead{font-size:1.06rem;max-width:700px}.pills{display:flex;gap:7px;flex-wrap:wrap}.pills span{padding:5px 9px;border:1px solid #557e96;border-radius:30px;background:#0b2c40a8;font-size:.83rem}
-.cols{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-top:-32px}
-.panel{background:var(--panel);border:1px solid var(--edge);border-radius:17px;padding:20px;box-shadow:0 12px 26px #0004}
-h2{line-height:1.23}.panel h2{font-size:1.28rem;margin:0 0 10px}.panel p{margin:8px 0}
-.small{font-size:.89rem;color:var(--muted)}label{display:block;font-weight:750;margin:14px 0 7px}
-select{display:block;width:100%;min-height:49px;background:#061d2e;border:1px solid #87a8bc;color:#fff;border-radius:10px;padding:12px}
-button,.btn{background:#193e54;color:white;border:1px solid #86a6b9;border-radius:10px;min-height:44px;padding:9px 12px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
-button:hover:not(:disabled){filter:brightness(1.14)}button:disabled{opacity:.5;cursor:not-allowed}
-#start{width:100%;min-height:56px;background:var(--accent);border:0;color:#06242c;font-size:1.09rem;margin:14px 0}
-#status{border:1px solid #5f7f97;background:#071b2a;border-radius:9px;padding:10px 12px;font-size:.91rem}#status.error{color:#ffdddd;border-color:#d88e8e}
-ol.steps{padding-left:23px;font-size:.9rem}ol.steps li{margin:7px 0}
-.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.actions button,.actions .btn{flex:1 1 auto;font-size:.86rem}
-#caption{background:linear-gradient(135deg,#082334,#103249);border:1px solid #7194aa;border-radius:12px;padding:12px;display:grid;grid-template-rows:repeat(3,minmax(38px,auto));gap:4px;min-height:146px}
-#caption p{margin:0;color:#bbd1e0;font-size:.94rem}.active{color:#ffedaf!important;font-weight:800}.blank{visibility:hidden}
-#voiceStatus{color:#d1e0e9;font-size:.83rem;min-height:21px}
-details{margin:14px 0}summary{font-weight:700;color:var(--accent);cursor:pointer}details li,details p{font-size:.9rem}
-#text{display:block;width:100%;min-height:145px;max-height:320px;resize:vertical;border:1px solid #7196ac;border-radius:8px;background:#07182a;color:#f8ffff;padding:9px;font:12px/1.5 monospace}
-#backup[hidden],#retry[hidden]{display:none!important}
-.section{padding:35px 0 20px}.section h2{font-size:1.55rem;margin:0}
-.lessons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
-.lesson{padding:14px;background:#102a3e;border:1px solid #4a6780;border-radius:12px}.lesson b{color:var(--accent)}.lesson p{font-size:.88rem;color:#d5e6f0;margin:6px 0}
-.notice{border-left:3px solid var(--accent);background:#102e3b;padding:12px;margin:16px 0;border-radius:6px}
-footer{border-top:1px solid #3d6379;padding:24px 0 42px;color:var(--muted);font-size:.86rem}
-@media(max-width:760px){.cols{grid-template-columns:1fr;margin-top:-18px}.hero{min-height:320px}.lessons{grid-template-columns:repeat(2,minmax(0,1fr))}.hero .wrap{padding-top:26px;padding-bottom:36px}}
-@media(max-width:470px){.lessons{grid-template-columns:1fr}.panel{padding:15px}nav.back{font-size:.8rem}.hero h1{font-size:2.13rem}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero iframe{display:none}}
-</style></head><body>
-<header><div class="wrap top"><a class="brand" data-awinignore href="aletheia-learn.htm">✦ ALETHEIA <span>LEARN</span></a>
-<nav class="back" aria-label="Back links"><a data-awinignore href="aletheia-learn.htm">← Learn</a><a data-awinignore href="aletheia-learn-ai-fluency.md">Course .md</a><a data-awinignore href="aletheia-learn-rsc.htm">Resources</a><a data-awinignore href="../index.html">Apps home</a></nav></div></header>
-<section class="hero" aria-labelledby="title"><iframe id="animation" title="Decorative Aletheia universe" aria-hidden="true" tabindex="-1" inert loading="lazy"></iframe>
-<div class="wrap"><p class="kicker">AI 101 · Start Here · Aletheia Learn</p>
-<h1 id="title">Learn to work with AI.<br><em>Keep your judgement.</em></h1>
-<p class="lead">A complete, beginner-friendly course, not a surprise quiz. Explore what AI is, prepare your assistant, ask questions naturally, check its evidence and build something useful. <strong>Each lesson teaches before asking you to practise.</strong></p>
-<div class="pills"><span>10 modules</span><span>Free-first</span><span>Skip and go back</span><span>Your choice of AI</span></div></div></section>
-<main class="wrap"><div class="cols">
-<section class="panel" aria-labelledby="launch">
-<h2 id="launch">Choose your AI tutor</h2>
-<p>Choose an AI you already use. <strong>Start Course</strong> copies the complete original Markdown course to your clipboard, then opens your selected AI. You paste and send it yourself.</p>
-<label for="provider">AI selector</label><select id="provider"><option value="chatgpt">ChatGPT</option><option value="gemini">Google Gemini</option><option value="copilot">Microsoft Copilot</option><option value="deepseek">DeepSeek</option><option value="claude">Claude</option></select>
-<p class="small">No API key or account connection. If your AI has message-size limits, use the original Markdown link or attach the course file manually.</p>
-<button id="start" type="button" disabled>▶ Start Course · Copy &amp; Open AI</button>
-<div id="status" role="status" aria-live="polite">Loading complete course Markdown…</div><button id="retry" type="button" hidden>↻ Retry loading</button>
-<ol class="steps"><li>Choose your AI and click <strong>Start Course</strong>.</li>
-<li>In the new AI window use <strong>Ctrl+V</strong>, <strong>Command+V</strong> or mobile <strong>Paste</strong>; then send.</li>
-<li>Your AI should welcome you and explain the course. Say <strong>START</strong>, <strong>HELP</strong>, <strong>EXAMPLE</strong> or <strong>SKIP</strong>.</li></ol>
-<a id="backup" data-awinignore hidden target="_blank" rel="noopener noreferrer" href="https://chatgpt.com/">Open selected AI manually ↗</a>
-<details id="manual"><summary>Show full course prompt / manual copy</summary><p class="small">The full course text is available here if automatic clipboard access is blocked.</p>
-<textarea id="text" readonly aria-label="Full course prompt for manual copy"></textarea>
-<div class="actions"><button id="copy" type="button">Copy again</button><a class="btn" data-awinignore href="aletheia-learn-ai-fluency.md">Read original Markdown</a></div></details>
+:root{color-scheme:dark;--bg:#061321;--ink:#f2f9ff;--quiet:#cadce9;--gold:#ffdf8d;--teal:#9cf4df}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,select,textarea{font:inherit}
+a{color:var(--teal)}
+button:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.top{height:62px;display:flex;align-items:center;justify-content:space-between;padding:8px clamp(14px,4vw,52px);background:#061321ee;border-bottom:1px solid #345c73;position:relative;z-index:18}
+.brand{font-weight:850;letter-spacing:.035em;color:#f4faff;text-decoration:none}
+.brand span{color:var(--gold)}
+button{cursor:pointer;border:1px solid #6b98aa;border-radius:10px;background:#193c51;color:white;min-height:44px;padding:9px 15px}
+button:hover:not(:disabled){filter:brightness(1.14)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.burger{font-weight:750;min-width:94px;display:flex;align-items:center;justify-content:center;gap:8px}
+#menuBackdrop[hidden],#menuPanel[hidden],#manual[hidden],#backup[hidden],#retry[hidden]{display:none!important}
+#menuBackdrop{position:fixed;inset:62px 0 0;z-index:19;background:#020814aa}
+#menuPanel{position:fixed;right:clamp(8px,3vw,45px);top:70px;z-index:20;width:min(365px,calc(100vw - 16px));max-height:calc(100dvh - 82px);overflow-y:auto;background:#0a2334;border:1px solid #7495a7;box-shadow:0 16px 44px #000b;border-radius:14px;padding:17px}
+#menuPanel h2{margin:0 0 7px;font-size:1.13rem}
+#menuPanel p{font-size:.9rem;color:#c9dfec;margin:0 0 10px}
+#menuPanel a{display:block;color:#e8f8fa;text-decoration:none;padding:10px 6px;border-bottom:1px solid #2c5268}
+#menuPanel a:hover{text-decoration:underline}
+#menuPanel .category{font-size:.74rem;letter-spacing:.1em;color:var(--gold);margin:18px 0 6px;text-transform:uppercase;font-weight:850}
+#menuPanel .buttons{display:flex;gap:8px;flex-wrap:wrap}
+#menuPanel .buttons button{flex:1 1 auto;font-size:.84rem}
+#menuPanel details{padding:10px 0}
+#menuPanel summary{cursor:pointer;color:var(--teal);font-weight:700}
+#menuPanel textarea{width:100%;min-height:150px;max-height:290px;background:#071522;color:#e9f9ff;border:1px solid #7294aa;border-radius:8px;resize:vertical;padding:9px;font:11px/1.45 monospace}
+#menuPanel .menufooter{font-size:.8rem}
+.hero{position:relative;isolation:isolate;height:calc(100svh - 62px);min-height:510px;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#1b4a63 0%,#0b283d 38%,#061321 74%);display:flex;align-items:center;justify-content:center}
+#cosmos{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;opacity:.96;z-index:-2}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,#06132130 0%,transparent 26%,#06132100 65%,#061321cf 96%)}
+.herotop{position:absolute;z-index:3;top:clamp(16px,3vh,35px);left:16px;right:16px;text-align:center;pointer-events:none}
+.eyebrow{color:var(--gold);font-size:clamp(.77rem,1.3vw,.91rem);font-weight:800;letter-spacing:.19em;text-transform:uppercase}
+.herotop h1{margin:5px 0 0;font-size:clamp(1.3rem,2vw,2.1rem);text-shadow:0 2px 18px #000b;letter-spacing:-.02em}
+#waiting{position:absolute;left:20px;right:20px;top:42%;transform:translateY(-50%);text-align:center;color:#ffe8b5;z-index:2;pointer-events:none;transition:opacity .5s;text-shadow:0 3px 18px #000e}
+#waiting h2{font-family:Georgia,serif;font-size:clamp(1.8rem,3.5vw,3.6rem);letter-spacing:.03em;margin:0 0 11px}
+#waiting p{font-size:clamp(.95rem,1.4vw,1.15rem);margin:0;color:#e4f5ff}
+body.started #waiting{opacity:0;visibility:hidden}
+#crawlViewport{position:absolute;top:17%;bottom:19%;left:50%;width:min(880px,90vw);transform:translateX(-50%);overflow:hidden;perspective:720px;z-index:2;pointer-events:none;opacity:0;transition:opacity .6s;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 17%,#000 77%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 17%,#000 77%,transparent 100%)}
+body.started #crawlViewport{opacity:1}
+#crawlTrack{position:absolute;top:0;left:0;width:100%;transform-origin:center center;transition:transform 1100ms ease}
+.crawl-line{font-family:Georgia,"Palatino Linotype",serif;font-weight:750;font-size:clamp(1.35rem,3.1vw,2.65rem);line-height:1.28;text-align:center;padding:12px 6px;min-height:80px;margin:0;color:#af8e4f;text-shadow:0 4px 15px #000f;opacity:.6;transition:opacity .5s,color .5s}
+.crawl-line.current{color:#ffe6a8;opacity:1;text-shadow:0 0 24px #f6c86648,0 4px 18px #000}
+.crawl-line.past{opacity:.4}
+.crawl-line.future{opacity:.27}
+.launch{position:absolute;z-index:4;bottom:clamp(16px,3.2vh,38px);left:16px;right:16px;display:flex;flex-direction:column;align-items:center;gap:9px}
+.launchrow{display:flex;gap:11px;justify-content:center;align-items:end;width:min(610px,100%)}
+.field{min-width:210px;flex:1}
+.field label{display:block;margin:0 0 5px;font-size:.92rem;font-weight:800;color:white;text-shadow:0 2px 12px #000}
+#provider{width:100%;height:54px;border-radius:11px;border:1px solid #b0cbd7;padding:0 13px;background:#061c2ce8;color:#fff}
+#provider option{background:#061c2c}
+#start{height:54px;padding:12px 25px;background:var(--teal);border:0;color:#06252f;font-weight:850;font-size:1.04rem;white-space:nowrap}
+#launchStatus{margin:0;min-height:23px;text-align:center;max-width:700px;color:#e0eef4;font-size:.85rem;text-shadow:0 2px 12px #000e}
+#launchStatus.error{color:#ffdddd}
+#backup{font-size:.85rem;color:#ffe5aa;background:#09283de3;padding:5px 11px;border-radius:20px}
+.lower{max-width:1030px;margin:0 auto;padding:35px 16px 14px}
+.lower h2{margin:0 0 9px;font-size:1.32rem}
+.lower p{color:#cadce9;margin:0 0 13px}
+.breadcrumbs{display:flex;gap:16px;flex-wrap:wrap;font-size:.91rem;margin-bottom:28px}
+footer{margin-top:24px;border-top:1px solid #365a70;color:#bdd5e1;padding:23px 16px 35px;font-size:.84rem}
+footer .footinner{max-width:1030px;margin:auto}
+@media(max-width:650px){.top{height:58px}.hero{height:calc(100svh - 58px);min-height:490px}
+#menuBackdrop{top:58px}#menuPanel{top:65px}
+.launchrow{flex-direction:column;align-items:stretch;gap:7px}.field{width:100%;min-width:0}
+#start{width:100%}.launch{bottom:13px}
+#crawlViewport{top:16%;bottom:31%;width:min(92vw,560px)}
+.crawl-line{min-height:65px;padding:7px 3px;font-size:clamp(1.25rem,5.3vw,2.1rem)}
+.herotop{top:13px}#waiting{top:42%}
+}
+@media(max-height:610px){.hero{min-height:480px}.crawl-line{min-height:66px}#crawlViewport{top:14%;bottom:33%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#cosmos{display:none}#crawlTrack,.crawl-line,#waiting,#crawlViewport{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+<a class="brand" href="aletheia-learn.htm" data-awinignore>✦ ALETHEIA <span>LEARN</span></a>
+<button class="burger" id="menuToggle" type="button" aria-controls="menuPanel" aria-expanded="false">☰ Menu</button>
+</header>
+<div id="menuBackdrop" hidden></div>
+<nav id="menuPanel" aria-label="AI 101 menu" hidden>
+<h2>AI 101 · Menu</h2>
+<p>Choose an AI on the front page. The course is copied and opens in that AI when you press Start.</p>
+<a href="aletheia-learn-ai-fluency.htm" data-awinignore>✦ AI 101: Start Here</a>
+<a href="aletheia-learn.htm" data-awinignore>← Aletheia Learn</a>
+<a href="../index.html" data-awinignore>★ Aletheia Apps home</a>
+<a href="aletheia-learn-ai-fluency.md" data-awinignore>Read the complete course .md</a>
+<div class="category">Resources</div>
+<a href="aletheia-learn-ai-fluency-rsc.htm#books" data-awinignore>📚 Books</a>
+<a href="aletheia-learn-ai-fluency-rsc.htm#gifts" data-awinignore>🎁 Gifts &amp; equipment</a>
+<a href="aletheia-learn-ai-fluency-rsc.htm#subscriptions" data-awinignore>✨ AI chat &amp; subscriptions</a>
+<a href="aletheia-learn-ai-fluency-rsc.htm#free" data-awinignore>🎓 Free AI courses</a>
+<a href="aletheia-learn-ai-fluency-rsc.htm" data-awinignore>All AI 101 resources</a>
+<div class="category">Introduction controls</div>
+<div class="buttons">
+<button id="voiceToggle" type="button" aria-pressed="true">🔊 Voice on</button>
+<button id="replay" type="button">↻ Replay intro</button>
+<button id="pause" type="button">Ⅱ Pause</button>
+</div>
+<p class="menufooter">Narration: UK English male where available, normal speed 1.0. Select an AI to begin. Audio is never started simply by opening the page.</p>
+<div class="category">Troubleshooting</div>
+<details>
+<summary>How do I start?</summary>
+<p>Choose an AI, listen to the introduction if enabled, then press Start Course. In the new AI window paste using Ctrl+V, Command+V or mobile Paste, and send. Say START to begin Lesson 1.</p>
+</details>
+<details id="manual">
+<summary>Manual copy · Complete course</summary>
+<p>If automatic copy is blocked, select and copy this entire course payload. If the new AI window is blocked, use the direct link below.</p>
+<textarea id="prompt" readonly aria-label="Full AI Fluency course prompt"></textarea>
+<div class="buttons"><button id="copyAgain" type="button">Copy course again</button><button id="retry" type="button" hidden>Retry load</button></div>
+<a href="aletheia-learn-ai-fluency.md" data-awinignore>Open original course Markdown</a>
+<a href="https://chatgpt.com/" id="backup" data-awinignore hidden target="_blank" rel="noopener noreferrer">Open selected AI manually ↗</a>
+</details>
+<p class="menufooter">This is a static HANDOFF, not direct access to your AI account. Some AI chats have message-size limits; attach the Markdown file instead if necessary.</p>
+</nav>
+
+<main>
+<section class="hero" aria-label="Aletheia AI 101 cinematic course introduction">
+<iframe id="cosmos" title="Aletheia animated AIverse" aria-hidden="true" tabindex="-1" inert src="../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1"></iframe>
+<div class="herotop"><div class="eyebrow">Aletheia Learn · AI 101</div><h1>Learn AI. Keep your judgement.</h1></div>
+<div id="waiting"><h2>Let AI do the walking.</h2><p>Choose your AI to begin the introduction.</p></div>
+<div id="crawlViewport" aria-hidden="true"><div id="crawlTrack"></div></div>
+<div class="launch">
+<div class="launchrow">
+<div class="field"><label for="provider">Choose AI</label><select id="provider" aria-describedby="launchStatus">
+<option value="" selected disabled>Choose your AI…</option>
+<option value="chatgpt">ChatGPT</option>
+<option value="gemini">Google Gemini</option>
+<option value="copilot">Microsoft Copilot</option>
+<option value="deepseek">DeepSeek</option>
+<option value="claude">Claude</option>
+</select></div>
+<button id="start" type="button" disabled>▶ Start Course</button>
+</div>
+<p id="launchStatus" role="status" aria-live="polite">Loading the full course…</p>
+<a href="https://chatgpt.com/" id="backupInline" target="_blank" rel="noopener noreferrer" data-awinignore hidden>Open the selected AI manually ↗</a>
+</div>
 </section>
-<section class="panel" aria-labelledby="voiceHeading">
-<h2 id="voiceHeading">A three-line narrated introduction</h2>
-<p>The original Aletheia animation runs quietly behind the page. Press Play for a short spoken KISS guide, with each sentence appearing as the narrator speaks it.</p>
-<p class="small"><strong>UK English male voice preferred · Rate 1.0.</strong> Speech never starts automatically.</p>
-<div id="caption" aria-label="Three-line moving introduction" aria-live="off"><p class="active">Welcome to Aletheia Learn, AI 101.</p><p>Learn the idea before answering any questions.</p><p>Keep your judgement while exploring AI.</p></div>
-<div class="actions"><button id="play" type="button">▶ Play</button><button id="pause" type="button">Ⅱ Pause</button><button id="restart" type="button">↻ Restart</button><button id="voice" type="button" aria-pressed="true">🔊 Voice on</button><button id="next" type="button">Next line ›</button></div>
-<p id="voiceStatus" role="status" aria-live="polite">Ready to narrate whenever you are.</p>
-<details><summary>Read all the KISS instructions</summary><ol>
-<li>Welcome to Aletheia Learn: AI Fluency.</li><li>Learn the idea before answering a question.</li><li>See a worked example, then try it yourself.</li><li>Learn what AI can do, and set it up safely.</li><li>Talk naturally; prompt formulas are optional.</li><li>Ask, Go Walkabout, Check, then Answer.</li><li>Choose your AI and click Start Course.</li><li>Paste and send. Say START, HELP, NEXT or SKIP.</li></ol></details>
-</section></div>
-<section class="section" aria-labelledby="topics"><h2 id="topics">What you'll learn</h2>
-<p class="small">An original Aletheia course broadly following Harvard's archived AI teaching sequence: understanding, using and evaluating AI.</p>
-<div class="lessons">
-<article class="lesson"><b>01 · Understand</b><p>What AI and language models do, and why believable answers can be wrong.</p></article>
-<article class="lesson"><b>02 · Prepare</b><p>Set preferences, instructions, project context, privacy and honesty rules.</p></article>
-<article class="lesson"><b>03 · Ask naturally</b><p>Conversational prompting, optional TOCC, Ask → Walkabout → Check → Answer.</p></article>
-<article class="lesson"><b>04 · Use tools</b><p>Retrieval, project knowledge and deciding when AI is the right tool.</p></article>
-<article class="lesson"><b>05 · Check claims</b><p>Misinformation, synthetic media, sources, uncertainty, risk and permissions.</p></article>
-<article class="lesson"><b>06 · Build</b><p>Make one real AI workflow and test it for evidence of genuine learning.</p></article>
-</div><div class="notice"><strong>Handoff, not connected AI:</strong> Aletheia opens the destination and prepares the clipboard. You remain in control of the final paste and send.</div>
-<p><a data-awinignore href="aletheia-learn.htm">← Back to Learn</a> · <a data-awinignore href="aletheia-learn-ai-fluency.md">Full course</a> · <a data-awinignore href="aletheia-learn-rsc.htm">Resources</a></p>
-</section>
+<section class="lower" aria-label="Course overview and back links">
+<h2>AI 101: Start Here</h2>
+<p>Learn AI basics, prepare your assistant, ask naturally, check claims and build something useful. The tutor explains each idea before asking you to practise. All 10 modules are included when you click Start.</p>
+<div class="breadcrumbs"><a href="aletheia-learn.htm" data-awinignore>← Learn</a><a href="aletheia-learn-ai-fluency.md" data-awinignore>Full course</a><a href="aletheia-learn-ai-fluency-rsc.htm" data-awinignore>Books, Gifts &amp; Subscriptions</a><a href="../index.html" data-awinignore>Apps home</a></div>
 <section data-aletheia-constellation class="aletheia-constellation" data-as-season="default" aria-label="Aletheia Constellation related websites">
-<div class="aletheia-constellation__head"><h2>Explore Aletheia ✨</h2><p data-as-description>Follow the stars to more places to learn and explore.</p></div>
+<div class="aletheia-constellation__head"><h2>Explore Aletheia ✨</h2><p data-as-description>Follow the stars to more things worth discovering.</p></div>
 <nav class="aletheia-constellation__links" aria-label="Related Aletheia destinations">
 <a class="aletheia-constellation__link" data-awinignore href="https://swindon.org.uk/"><span class="aletheia-constellation__sprite" aria-hidden="true">✦</span><span>Swindon UK</span></a>
 <a class="aletheia-constellation__link" data-awinignore href="https://karstenevans.github.io/aletheia-app/"><span class="aletheia-constellation__sprite" aria-hidden="true">★</span><span>Aletheia Apps</span></a>
 <a class="aletheia-constellation__link" data-awinignore href="https://karstenevans.github.io/aletheia-knowledge/"><span class="aletheia-constellation__sprite" aria-hidden="true">✧</span><span>Aletheia Knowledge</span></a>
 <a class="aletheia-constellation__link" data-awinignore href="https://karstenevans.github.io/aletheia-app/stories/"><span class="aletheia-constellation__sprite" aria-hidden="true">✦</span><span>Stories</span></a>
 <a class="aletheia-constellation__link" data-awinignore href="https://karstenevans.github.io/aletheia-app/Writers/"><span class="aletheia-constellation__sprite" aria-hidden="true">★</span><span>Writers</span></a>
-</nav><p class="aletheia-constellation__note">Curated editorial links, not advertising.</p></section>
-</main><footer><div class="wrap"><p>✦ Aletheia Learn · AI 101 · <a data-awinignore href="aletheia-learn.htm">Back to Learn</a></p>
-<p><a data-awinignore href="https://github.com/KarstenEvans/aletheia-protocol">Aletheia Protocol</a> · <a data-awinignore href="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md">Thalia Protocol</a></p></div></footer>
+</nav><p class="aletheia-constellation__note">Editorial navigation, not advertisements.</p>
+</section>
+</section>
+</main>
+<footer><div class="footinner"><p>Aletheia Learn · AI 101. <a href="https://github.com/KarstenEvans/aletheia-protocol" data-awinignore>Aletheia Protocol</a> · <a href="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md" data-awinignore>Thalia Protocol</a></p></div></footer>
 <script>
 (function(){
 "use strict";
-var $=function(id){return document.getElementById(id)},synth=window.speechSynthesis||null;
+var $=function(id){return document.getElementById(id);};
 var providers={chatgpt:"https://chatgpt.com/",gemini:"https://gemini.google.com/app",copilot:"https://copilot.microsoft.com/",deepseek:"https://chat.deepseek.com/",claude:"https://claude.ai/"};
-var course="",prompt="";
-function notice(t,bad){$("status").textContent=t;$("status").classList.toggle("error",!!bad);}
-function complete(s){return s.length>14000&&s.includes("[ALETHEIA_AI_FLUENCY_INIT]")&&s.includes("# Module 0")&&s.includes("# Module 9")&&s.includes("github.com/KarstenEvans/aletheia-protocol")&&s.includes("github.com/KarstenEvans/thalia-protocol")}
-function envelope(s){return "ALETHEIA LEARN — FULL AI FLUENCY COURSE\nI am the learner. The COMPLETE canonical course is below. DO NOT summarise it or begin with a quiz. FIRST welcome me, explain the course, show HELP/navigation and offer START, AI SETUP or MAP. For each lesson: explain, demonstrate, then offer ONE optional practice question. Allow NEXT/BACK/SKIP/HELP/EXAMPLE and listen to my replies. Follow the attached course instructions.\n\n===== COMPLETE COURSE BEGINS =====\n"+s+"\n===== COURSE ENDS =====";}
-async function load(){
- $("start").disabled=true;$("retry").hidden=true;notice("Loading full course Markdown…");
- try{var r=await fetch("aletheia-learn-ai-fluency.md",{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);var s=await r.text();if(!complete(s))throw Error("Incomplete or invalid Markdown");
- course=s;prompt=envelope(s);$("text").value=prompt;$("start").disabled=false;notice("Ready: complete course loaded ("+s.length.toLocaleString()+" characters). Click Start Course to copy and open your AI.");
- }catch(e){course="";prompt="";$("text").value="";notice("Course unavailable: "+e.message+". Retry or open the raw Markdown.",true);$("retry").hidden=false;}}
-function copyNow(v){var t=document.createElement("textarea");t.value=v;t.setAttribute("readonly","");t.style.cssText="position:fixed;left:0;top:0;width:1px;height:1px;opacity:0";document.body.appendChild(t);t.focus();t.select();t.setSelectionRange(0,v.length);var ok=false;try{ok=!!document.execCommand("copy")}catch(e){}t.remove();return ok}
-function chosen(){return providers[$("provider").value]||providers.chatgpt}
-function start(){
- if(!prompt)return;
- var copied=copyNow(prompt),dest=chosen();$("backup").href=dest;$("backup").hidden=false;
- try{localStorage.setItem("aletheiaFluencyProvider",$("provider").value)}catch(e){}
- // The already-fetched full course is copied BEFORE exactly one synchronous popup.
- var w=window.open(dest,"_blank","width=900,height=760,resizable=yes,scrollbars=yes");
- if(w)try{w.opener=null}catch(e){}
- if(!copied){$("manual").open=true;$("text").focus();$("text").select()}
- notice((copied?"The whole course was copied. ":"Clipboard blocked: use manual copy. ")+(w?"Paste and send in the newly opened AI.":"Popup blocked: click Open selected AI manually."));}
-function copyAgain(){if(!prompt)return;if(copyNow(prompt)){notice("Complete course copied again.");return}if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(prompt).then(function(){notice("Complete course copied.");}).catch(function(){$("text").focus();$("text").select();notice("Use Copy manually on the selected text.");});else{$("text").focus();$("text").select();notice("Selected full course. Press Copy on your device.");}}
-try{var saved=localStorage.getItem("aletheiaFluencyProvider");if(providers[saved])$("provider").value=saved}catch(e){}
-$("provider").addEventListener("change",function(){$("backup").href=chosen()});
-$("start").addEventListener("click",start);$("retry").addEventListener("click",load);$("copy").addEventListener("click",copyAgain);load();
-if(!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches))$("animation").src="../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1";
-var lines=["Welcome to Aletheia Learn, AI 101.","Learn the idea before answering any questions.","See an example, then try it yourself.","Understand AI and prepare it safely.","Talk naturally; special prompt formulas are optional.","Ask, Go Walkabout, Check and Answer.","Choose your AI tutor and Start Course.","Paste and send. Say START, HELP, NEXT or SKIP."];
-var idx=0,seq=0,running=false,paused=false,voiceOn=true;
-function draw(){var children=$("caption").children;for(var k=0;k<3;k++){var val=lines[idx+k]||"";children[k].textContent=val;children[k].className=(k===0?"active":"")+(val?"":" blank");}}
-function vstatus(t){$("voiceStatus").textContent=t}
-function voice(){if(!synth)return null;var vs=synth.getVoices(),gb=vs.filter(function(v){return /^en[-_]GB$/i.test(v.lang)});return gb.find(function(v){return /google uk english male/i.test(v.name)})||gb.find(function(v){return /male|daniel|oliver|ryan|arthur/i.test(v.name)&&!/female|george/i.test(v.name)})||gb.find(function(v){return !/george/i.test(v.name)})||gb[0]||vs.find(function(v){return /^en/i.test(v.lang)&&!/george/i.test(v.name)})||null}
-function cancel(){seq++;if(synth)try{synth.cancel()}catch(e){}}
-function speak(token){if(token!==seq||!running||paused)return;draw();if(!voiceOn||!synth||typeof SpeechSynthesisUtterance==="undefined"){vstatus("Voice off or not available; use Next line.");return}
- var u=new SpeechSynthesisUtterance(lines[idx]);u.rate=1.0;u.pitch=1.0;u.lang="en-GB";var selected=voice();if(selected)u.voice=selected;
- u.onend=function(){if(token!==seq||paused||!running)return;if(idx<lines.length-1){idx++;speak(token)}else{running=false;vstatus("Narrated introduction completed. Start the course when ready.");}};
- u.onerror=function(){if(token===seq)vstatus("Browser speech is unavailable; text remains visible.")};
- vstatus("Narrating at 1.0"+(selected?" with "+selected.name:" with browser fallback")+".");try{synth.speak(u)}catch(e){vstatus("Could not start speech. Use Next line.");}}
-function play(){if(paused&&synth&&synth.paused){paused=false;running=true;synth.resume();vstatus("Narration resumed.");return}if(idx===lines.length-1&&!running)idx=0;cancel();paused=false;running=true;speak(seq)}
-function pause(){if(!running)return;if(paused){play();return}paused=true;if(synth)try{synth.pause()}catch(e){}vstatus("Paused. Press Play to resume.")}
-function restart(){cancel();idx=0;running=false;paused=false;draw();play()}
-function toggle(){voiceOn=!voiceOn;$("voice").textContent=voiceOn?"🔊 Voice on":"🔇 Voice off";$("voice").setAttribute("aria-pressed",String(voiceOn));cancel();running=voiceOn;paused=false;draw();if(voiceOn)speak(seq);else vstatus("Voice off. Instructions remain on screen.")}
-function next(){cancel();running=false;paused=false;idx=Math.min(lines.length-1,idx+1);draw();vstatus("Line "+(idx+1)+" of "+lines.length+". Press Play for narration.")}
-$("play").addEventListener("click",play);$("pause").addEventListener("click",pause);$("restart").addEventListener("click",restart);$("voice").addEventListener("click",toggle);$("next").addEventListener("click",next);
-window.addEventListener("pagehide",cancel);draw();
+var course="",fullPrompt="",speech=window.speechSynthesis||null,token=0,step=0,timer=null,voiceOn=true,playing=false;
+var lines=[
+"Welcome to Aletheia Learn, AI 101.",
+"First, discover what AI can and cannot do.",
+"Then, prepare your assistant before asking it to work.",
+"You can talk naturally. Magic prompt formulas are optional.",
+"Ask the question. Go Walkabout when discovery matters.",
+"Check the evidence. Admit what remains unknown.",
+"Let your AI tutor explain, then demonstrate, then ask.",
+"Choose your path. You may skip, return or ask for help.",
+"Press Start Course, paste the full course and say START.",
+"Be excellent to each other. Be AIxcellent with the evidence."
+];
+var menuToggle=$("menuToggle"),menu=$("menuPanel"),backdrop=$("menuBackdrop");
+function menuOpen(state){menu.hidden=!state;backdrop.hidden=!state;menuToggle.setAttribute("aria-expanded",String(state));if(state)menu.querySelector("a").focus();else menuToggle.focus();}
+menuToggle.addEventListener("click",function(){menuOpen(menu.hidden);});
+backdrop.addEventListener("click",function(){menuOpen(false);});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!menu.hidden)menuOpen(false);});
+menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){if(!menu.hidden)menuOpen(false);});});
+function status(message,bad){$("launchStatus").textContent=message;$("launchStatus").classList.toggle("error",!!bad);}
+function valid(s){return s.length>14000&&s.includes("[ALETHEIA_AI_FLUENCY_INIT]")&&s.includes("# Module 0")&&s.includes("# Module 9")&&s.includes("github.com/KarstenEvans/aletheia-protocol")&&s.includes("github.com/KarstenEvans/thalia-protocol");}
+function welcome(s){return "ALETHEIA LEARN — FULL AI FLUENCY COURSE\nI am the learner. The full authoritative course follows. In your first reply, welcome me, explain how this course works and offer START, AI SETUP or MAP. Do not summarise this document and do not begin with a quiz. Teach with explanation and an example before asking any practice question. Honour HELP, NEXT, BACK, EXAMPLE, SKIP and my answers. Always follow the supplied course instructions.\n\n===== COMPLETE COURSE BEGINS =====\n"+s+"\n===== COMPLETE COURSE ENDS =====";}
+function allowStart(){ $("start").disabled=!(course&&providers[$("provider").value]); }
+async function loadCourse(){
+ $("start").disabled=true;status("Loading full course…");
+ try{
+ var r=await fetch("aletheia-learn-ai-fluency.md",{cache:"no-store"});
+ if(!r.ok)throw Error("HTTP "+r.status);
+ var s=await r.text();
+ if(!valid(s))throw Error("incomplete course data");
+ course=s;fullPrompt=welcome(s);$("prompt").value=fullPrompt;allowStart();
+ status(providers[$("provider").value]?"Ready. Press Start Course.":"Choose your AI to begin.");
+ $("retry").hidden=true;
+ }catch(e){course="";fullPrompt="";$("prompt").value="";allowStart();status("Course unavailable. Use ☰ Menu → Manual copy → Retry or open the Markdown.",true);$("retry").hidden=false;}
+}
+function copySync(s){
+ var t=document.createElement("textarea");t.value=s;t.readOnly=true;
+ t.style.cssText="position:fixed;top:0;left:0;width:1px;height:1px;opacity:0";
+ document.body.appendChild(t);t.focus();t.select();t.setSelectionRange(0,s.length);
+ var ok=false;try{ok=!!document.execCommand("copy");}catch(e){}
+ t.remove();return ok;
+}
+function copyAgain(){
+ if(!fullPrompt)return;
+ if(copySync(fullPrompt)){status("Complete course copied. Paste into your AI.");return;}
+ if(navigator.clipboard&&navigator.clipboard.writeText)
+   navigator.clipboard.writeText(fullPrompt).then(function(){status("Complete course copied.");}).catch(function(){$("prompt").focus();$("prompt").select();status("Please copy selected text manually.");});
+ else{$("prompt").focus();$("prompt").select();status("Select-all ready. Use Copy on your keyboard or phone.");}
+}
+function aiUrl(){return providers[$("provider").value]||providers.chatgpt;}
+function startCourse(){
+ if($("start").disabled||!fullPrompt)return;
+ cancelVoice();
+ var ok=copySync(fullPrompt),url=aiUrl();
+ $("backup").href=url;$("backup").hidden=false;
+ $("backupInline").href=url;
+ var popup=window.open(url,"_blank","width=900,height=760,resizable=yes,scrollbars=yes");
+ if(popup){try{popup.opener=null;}catch(e){}}
+ if(!ok){openManual();$("prompt").focus();$("prompt").select();}
+ if(!popup){$("backupInline").hidden=false;}
+ status((ok?"Course copied. ":"Clipboard blocked; the full prompt is in ☰ Menu. ")+(popup?"Paste and send in your new AI window.":"Popup blocked; use the manual AI link."),!ok);
+}
+function openManual(){menu.hidden=false;backdrop.hidden=false;menuToggle.setAttribute("aria-expanded","true");$("manual").open=true;}
+$("start").addEventListener("click",startCourse);
+$("copyAgain").addEventListener("click",copyAgain);
+$("retry").addEventListener("click",loadCourse);
+loadCourse();
+
+var track=$("crawlTrack");
+lines.forEach(function(line,i){var p=document.createElement("p");p.className="crawl-line";p.textContent=line;p.dataset.index=String(i);track.appendChild(p);});
+var nodes=Array.prototype.slice.call(track.children);
+function frame(){
+ nodes.forEach(function(p,i){p.classList.toggle("current",i===step);p.classList.toggle("past",i<step);p.classList.toggle("future",i>step);});
+ var target=nodes[Math.min(step,nodes.length-1)],viewport=$("crawlViewport");
+ if(!target)return;
+ var offset=viewport.clientHeight*.58-(target.offsetTop+target.offsetHeight*.5);
+ track.style.transform="translate3d(0,"+offset+"px,0) rotateX(23deg)";
+}
+function cancelVoice(){token++;playing=false;if(timer!==null){clearTimeout(timer);timer=null;}if(speech){try{speech.cancel();}catch(e){}}}
+function preferredVoice(){
+ if(!speech)return null;
+ var all=speech.getVoices(),gb=all.filter(function(v){return /^en[-_]GB$/i.test(v.lang);});
+ return gb.find(function(v){return /google uk english male/i.test(v.name);})||
+ gb.find(function(v){return /male|daniel|oliver|ryan|arthur|alastair/i.test(v.name)&&!/female|george/i.test(v.name);})||
+ gb.find(function(v){return !/george/i.test(v.name);})||
+ gb[0]||all.find(function(v){return /^en/i.test(v.lang)&&!/george/i.test(v.name);})||null;
+}
+function scheduleNext(v){timer=setTimeout(function(){if(v===token)advance(v);},Math.max(2700,lines[step].length*73));}
+function advance(v){
+ if(v!==token||!playing)return;
+ if(step>=lines.length-1){playing=false;status("Introduction finished. Press Start Course.");return;}
+ step++;frame();speakLine(v);
+}
+function speakLine(v){
+ if(v!==token||!playing)return;
+ frame();
+ if(!voiceOn||!speech||typeof SpeechSynthesisUtterance==="undefined"){scheduleNext(v);return;}
+ var u=new SpeechSynthesisUtterance(lines[step]);u.lang="en-GB";u.rate=1.0;u.pitch=1.0;
+ var chosen=preferredVoice();if(chosen)u.voice=chosen;
+ var handled=false;
+ u.onend=function(){if(!handled&&v===token){handled=true;advance(v);}};
+ u.onerror=function(){if(!handled&&v===token){handled=true;scheduleNext(v);}};
+ try{speech.speak(u);}catch(e){scheduleNext(v);}
+}
+function beginIntro(){
+ cancelVoice();step=0;playing=true;document.body.classList.add("started");
+ frame();speakLine(token);
+}
+$("provider").addEventListener("change",function(){
+ allowStart();$("backupInline").hidden=true;menuOpenIfNeeded();
+ status(course?"Ready. Press Start Course whenever you like.":"Introduction playing. Loading course…");
+ beginIntro();
+});
+function menuOpenIfNeeded(){if(!menu.hidden){menu.hidden=true;backdrop.hidden=true;menuToggle.setAttribute("aria-expanded","false");}}
+$("replay").addEventListener("click",function(){if(!providers[$("provider").value]){status("Choose an AI first.");return;}menuOpen(false);beginIntro();});
+$("voiceToggle").addEventListener("click",function(){
+ voiceOn=!voiceOn;
+ this.textContent=voiceOn?"🔊 Voice on":"🔇 Voice off";this.setAttribute("aria-pressed",String(voiceOn));
+ if(providers[$("provider").value])beginIntro();
+});
+$("pause").addEventListener("click",function(){
+ if(!playing){if(providers[$("provider").value])beginIntro();return;}
+ cancelVoice();this.textContent="▶ Resume";
+ status("Introduction paused. Choose an AI again or use Replay in Menu to hear it.");
+});
+window.addEventListener("resize",function(){if(document.body.classList.contains("started"))frame();});
+window.addEventListener("pagehide",cancelVoice);
 })();
 </script>
 <script src="../shared/link-sprites.js" defer></script>
 <script src="https://www.dwin2.com/pub.3182162.min.js"></script>
-</body></html>
+</body>
+</html>
