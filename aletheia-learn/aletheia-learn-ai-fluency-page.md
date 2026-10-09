@@ -71,3 +71,27 @@ Browser/device still require **live observed** checks: Desktop Chrome/Edge, Andr
 - The AI selector stores only the provider identifier in localStorage (when allowed). It does not pre-fill the AI provider's chat box or submit automatically.
 - **Not verified live:** actual GitHub Pages release availability, player visuals/voice rendering, popup/clipboard browser permissions, phone layout and successful paste into each provider. This source receipt does not establish those tests.
 - AI providers may reject or truncate large prompts; preserve the raw Markdown link and manual-copy fallback.
+
+
+## Aletheia Improve v0.2 — KISS cinematic redesign (9 October 2026)
+
+**User observed browser screenshot:** two verbose card panels with duplicated instructions, small faint animation, exposed narrator controls and irrelevant three-line readout. The first impression did not match the Aletheia cinematic animation. User directly requested correction.
+
+**Revised ownership:** Same `aletheia-learn-ai-fluency.htm` file, same canonical course Markdown. Do **not** create another separate app or copy the course into the HTML.
+
+**Hero-first composition:**
+- Page starts with a compact masthead and a top-right **☰ Menu**, no second form/card column.
+- Existing `../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1` begins immediately as the dominant central full-width animated backdrop; do not wait for audio/provider selection.
+- The centre overlays a visible, slanted, high-contrast **Star Wars-inspired original Aletheia text crawl**, moving through lines in sync with each browser SpeechSynthesis utterance. No developer labels about line counts, no double dialogue boxes, no static wall of instructions.
+- Bottom central controls: labelled **Choose AI** selector initially unselected, plus one **Start Course** button. **Changing/selecting** an AI is the affirmative user gesture that starts the speech and scroll; there is no extra Play button. Narration defaults on, installed Google UK English Male preferred, en-GB male fallback excluding George if alternatives are available, pitch/rate 1.0. If speech unavailable or disabled, timed text crawl continues.
+- When the user has never chosen an AI, show a simple "Choose your AI to begin" overlay; no speech autoplay on load.
+- On Start the full currently fetched Markdown is copied, one provider window opens synchronously, and the user is told to paste. Stop any ongoing narration when the AI window opens. Disable Start unless full Markdown loaded AND an AI selected.
+- Preserve manual copy/popup fallback but put details and most explanations in burger menu; show an accessible concise status where needed.
+- Burger menu: AI 101 help, voice on/off + replay, original course Markdown, back to Learn / Apps, **Books & Gifts**, **AI Subscriptions**, **Free AI Lessons**, and Resources home.
+- New dedicated `aletheia-learn-ai-fluency-rsc.htm` covering evidence-backed official free teaching links, beginner books, practical low-cost gifts, and official pricing/subscription pages for ChatGPT, Claude, Gemini, Copilot, DeepSeek, Kimi and Grok. Distinguish free chats, paid individual plans and API billing. No invented prices, affiliate IDs or promise all subscriptions are giftable.
+- Seasonal stars remain the existing shared Constellation with five static fallbacks and centrally managed dated witch/winter decoration, below the cinematic hero, not a competing screen element.
+- Reduced-motion or WebGL failure must show real beginner introduction text and working controls, not a blank animation. Menu and links must be keyboard-usable, 44px-ish, responsive and not overlap.
+- At most one publisher MasterTag per production page.
+
+**Test checklist:** real HTML JS syntax parse; no ID duplicates; source fetch/disabled gating; one popup; copy before popup; selector-triggered speech, en-GB/rate=1.0; speak/crawl synchrony; animation iframe no wait; hidden menu by default; resources anchor targets; Constellation exactly five fallback links + one shared script; Awin tag count. Live browser/voice/device checks are independent and pending until genuinely observed.
+
