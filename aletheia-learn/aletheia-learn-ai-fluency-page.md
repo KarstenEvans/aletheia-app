@@ -1,97 +1,90 @@
 ---
-title: Aletheia Learn — AI Fluency course launcher
-system_id: aletheia-learn-ai-fluency-front
-version: 0.1.0
-status: source implementation committed; browser/device QA pending
-document_class: browser-page-specification
-date: 2026-10-09
+title: "Aletheia Learn — AI 101 Cinematic Front Page"
+system_id: "aletheia-learn-ai-fluency-front"
+version: "0.2.0"
+status: "GitHub source committed; public browser/device QA pending"
+document_class: "browser-page-specification"
+date: "2026-10-09"
 ---
-# Aletheia Learn — AI Fluency front-page specification
 
-[Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — truth anchors, provenance and limits.  
-[Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional humour, never a truth substitute.
+# Aletheia Learn — AI 101 Cinematic Front Page
 
-## Goal and ownership
+[Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence, provenance, transparency and human judgement.  
+[Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional humour and positivity, not a source of truth.
 
-Build one standalone, direct-linkable HTML doorway **inside the existing Aletheia Learn directory**, not a duplicate lesson/course or second canonical app. Its job is to explain the full AI Fluency course, present an AI choice and enable a one-click **COPY FULL COURSE → OPEN CHOSEN AI → USER PASTES** handoff.
+## Why v0.2 exists: observed user feedback
 
-- Canonical content: `aletheia-learn-ai-fluency.md`. The browser must load the actual complete Markdown before enabling Start.
-- Browser reader: `aletheia-learn-ai-fluency.htm`.
-- Parent: `aletheia-learn.htm`. Resources: `aletheia-learn-rsc.htm`.
-- Decorative original Aletheia animation: `../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1`, introduced by a purely additive opt-in query mode hiding animation debug UI and crawl while preserving normal standalone animation behaviour.
-- Constellation: `../shared/link-sprites.css` and `../shared/link-sprites.js`; five actual static fallback anchors from the central `shared/link-sprites.json` and dated Halloween/winter rules.
-- Awin MasterTag: exactly one production instance, per GUI/dev.
-- Visible course heading: **AI 101 · Start Here**. Local constellation heading: **Explore Aletheia ✨** (do not rename central nav destinations or other apps).
+The first GitHub Pages screenshot of AI 101 showed two large competing dialogue boxes, explanatory labels describing the implementation rather than teaching the user, a faint Aletheia animation, and too many controls. The human user requested: **KISS**, keep the middle for the live animation and Star Wars-style text/speech crawl, use **Choose AI** itself as the narrator-start gesture, keep only one **Start Course** button, and move books/gifts/subscriptions and the technical fallbacks into a top-right **☰ Menu**.
 
-## Mandatory KISS learner explanation
+This replaces that layout rather than creating a second application.
 
-The visible front page must explain: *this course teaches AI basics, safe AI setup, conversational requests, verification and building an actual workflow.* The course teaches **before** its first practice question, provides HELP, EXAMPLE, NEXT, BACK and SKIP, and is AI-provider-independent.
+## Canonical source and files
 
-The 3-line narration introduces how to choose an AI, copies/pastes the full course, and starts an interactive tutorial. Narration is supplemental: the instructions and controls are always readable without sound.
+- Course/content authority: `aletheia-learn-ai-fluency.md` v0.2.0.
+- Public HTML: `aletheia-learn-ai-fluency.htm`.
+- Dedicated resources page: `aletheia-learn-ai-fluency-rsc.htm`.
+- Parent Aletheia Learn: `aletheia-learn.htm`, linked to the AI 101 entry point.
+- Decorative original 3D animation: `../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1` (the standalone demo's original view is unchanged).
+- Shared Constellation: `../shared/link-sprites.css`, `../shared/link-sprites.js`, `../shared/link-sprites.json`.
+- Development router: root `AGENTS.md`, `aletheia-GUI.md`, `aletheia-dev.md`, `aletheia-code.md`, `tasks.md`.
 
-## Audio and animated reading
+## Page layout and exact interactions
 
-- User initiates intro using an explicit Play action. No unsolicited speech, music or autoplay.
-- Speech Synthesis uses preferred local `Google UK English Male`, then another installed en-GB male (avoid George where alternatives exist), then an en-GB available voice, then browser fallback.
-- Speech rate exactly **1.0**, pitch 1.0, user choice Voice On/Off.
-- One utterance per sentence, highlight the active line, and show a scrolling window of **at most three lines**. Resume/Pause and Restart must work; do not read entire course aloud.
-- Motion or speech unsupported? Preserve the same full static instruction list and visible course controls; `prefers-reduced-motion` prevents the animation iframe and transition.
-- The original Three.js demo is decorative only and never intercepts keyboard, mouse, accessibility or tap actions.
+1. Compact Aletheia Learn header, ordinary linked logo, right-aligned **☰ Menu** (keyboard accessible, Escape/backdrop dismissal).
+2. Dominant full-width animation stage: loads **as soon as page JavaScript runs**, not after selecting an AI. If reduced motion is requested, the iframe source is not loaded. If unavailable, the background is still informative, no blank blocking canvas.
+3. Short heading **Aletheia Learn · AI 101** and `Learn AI. Keep your judgement.`
+4. Before choosing an AI, the centre simply says `Let AI do the walking. Choose your AI to begin the introduction.`
+5. User changes the single **Choose AI** selector. This **user gesture** immediately starts an original, centre-aligned, perspective **cinematic text crawl** and optional SpeechSynthesis voice. There is no extra visible Play button and no published "three lines at a time" dashboard label.
+6. One **▶ Start Course** button below the stage, disabled until the whole current Markdown has loaded and a provider is selected. Its only effects are preparing the full course clipboard text, opening exactly one selected AI window, and displaying a compact paste instruction.
+7. Below the full-screen hero, preserve a concise text explanation, actual back links to Learn/Apps/Markdown/resources, then five static Constellation stars. Central shared JSON adds the Halloween witch 1 Sep–10 Nov and winter icons 25 Nov–31 Dec; no separate seasonal logic.
+8. Keep the usual production Awin Publisher MasterTag once only, with editorial links marked to avoid commercial treatment.
 
-## Start Course technical contract
+## Browser voice and crawl
 
-1. When page loads, `fetch("aletheia-learn-ai-fluency.md", {cache:"no-store"})` over the same origin. Accept only substantial, recognisable Markdown with loader and Module 9, not a 404 HTML page or truncated response. Display load status and keep Start disabled until success.
-2. Present one select with ChatGPT, Gemini, Copilot, DeepSeek, Claude, with last selected provider saved locally only. No API/backend, prompt injection into third-party UIs, or automatic submission.
-3. On the Start click: build a compact instruction envelope and **append the entire fetched, unchanged Markdown body**. Use a synchronous hidden-textarea selection/execCommand copy while the page owns focus, then synchronously open one selected provider window/tab in that same user activation. No awaited fetch or clipboard operation before opening.
-4. The envelope explicitly says to welcome/HELP and teach first before quizzes, honour the whole supplied Markdown, and wait for START/NEXT after the welcome.
-5. If synchronous copy fails, retain full prebuilt text in a visible selectable textarea and offer Copy again (modern clipboard allowed as fallback). On popup blocking provide direct provider link. Always show ordinary Paste instructions. If fetch failed, offer Retry and raw course download, not a fake partial prompt.
-6. Never assume the receiving provider fetched any URL. The pasted course must be complete without online retrieval.
-7. Preserve the source-of-truth Markdown: do not fork, inline duplicate or silently edit it in HTML.
+- User gesture: choosing an AI, or explicit Replay in the menu. **Never speak on mere page load**.
+- Preferred installed voice: `Google UK English Male`, otherwise another available en-GB male, avoiding George when alternatives exist, then en-GB/browser fallback. Browser speech voices and advertised gender names are not guaranteed.
+- `SpeechSynthesisUtterance`: `lang="en-GB"`, `rate=1.0`, `pitch=1.0`.
+- Each original short KISS introductory sentence has its own utterance. Advance the angled moving crawl only on `onend` (or timed fallback when voice unavailable/turned off), keeping speech and visible content related.
+- Intro content: understand AI, prepare an AI, speak naturally, ASK → GO WALKABOUT → CHECK → ANSWER, check evidence, human-first teaching, choose Start and Paste, Be Excellent.
+- Replay, Voice on/off, Pause/Continue are **inside the burger menu**. On Start Course, cancel narration so it does not talk over the new AI chat.
+- Accessibility: if speech unavailable, captions advance without audio; with reduced motion the static instruction/back links and working controls remain. Source text remains readable in the HTML, even if motion is suppressed.
 
-## Navigation and accessibility
+## AI handoff
 
-- Persistent visible **← Aletheia Learn**, **Read full Markdown**, **Resources** and **Aletheia Apps** links above the hero.
-- Main Start CTA visible without needing to finish animation, use keyboard-focus styling, live load/copy status, accessible labels and readable 3-line panel.
-- Below: semantic Aletheia Constellation with five static links even if JS fails. Halloween and winter central sprites supplied by shared manifest, no new seasonal logic.
-- One production Awin MasterTag near closing body, source/editorial links excluded from affiliate conversion as feasible.
-- Mobile-first controls, no horizontal overflow at narrow widths, reduced-motion and voice-off experience.
+- Preload `fetch("aletheia-learn-ai-fluency.md", {cache:"no-store"})` into memory. Reject failed fetch, 404 HTML and truncated content; require the loader, Module 0 and Module 9 markers and both protocol URLs.
+- Provider selector: ChatGPT, Google Gemini, Microsoft Copilot, DeepSeek, Claude, Kimi, Grok. Provider URLs are adapters, not canonical course logic; no user credentials stored or needed.
+- Build one short teacher-first startup envelope plus the **entire fetched, unchanged Markdown** (28,048 source characters at review).
+- On the Start user click: synchronous textarea-select/`execCommand("copy")` attempt first; then one synchronous `window.open` only. Clipboard and popup fallback appear inside the burger menu or as direct provider link when blocked. The user manually pastes and sends.
+- Do not prefill foreign provider websites or claim the recipient fetched the external Markdown.
+- Some AI providers impose prompt-size limits; provide the original Markdown file so the learner can instead attach it manually.
+- No account links, Worker, paid API, or external send permission.
 
-## Acceptance and release receipt
+## Burger contents
 
-Static review: HTML structure, one valid source fetch, disabled Start until complete, full-course clipboard, one popup per click, fallback textarea, correct provider map, selectors, voice rate 1.0, exact Constellation links/static fallback and one MasterTag; script parsing and no duplicate IDs.
+- Help to start, voice replay/on/off/pause, manual copy and fallback.
+- Back to Aletheia Learn, Apps home, authoritative course Markdown.
+- Dedicated AI 101 resources: Books, Gifts & equipment, AI chat & subscriptions, Free AI lessons.
+- Keep the main cinematic area free from these secondary instructions.
 
-Browser/device still require **live observed** checks: Desktop Chrome/Edge, Android Chrome, Safari/WebKit, actual voice selection, browser clipboard permissions, blocked popup, reduced motion, animation fallbacks, provider first response and GitHub Pages deployment. Do not call those passed based on source inspection alone.
+## AI 101 resources
 
-## Source implementation receipt — 9 October 2026
+The separate `aletheia-learn-ai-fluency-rsc.htm` uses actual editorial publisher and official provider links. It includes:
+- Harvard HKS archived 2024 generative AI teaching; CS50 AI lecture.
+- *Co-Intelligence* (Ethan Mollick), *AI Snake Oil* (Arvind Narayanan and Sayash Kapoor); verified Bookshop.org UK general shop and gift cards.
+- Optional headset, adjustable stand, keyboard, low-cost learning activities.
+- Official plan or chat URLs for ChatGPT, Claude, Gemini, Copilot, DeepSeek, Kimi and Grok. Provider pricing changes; never invent rates, account benefits, transferable subscriptions or affiliate IDs.
+- Full Aletheia stars and footer backlinks, one Awin MasterTag, source/date note.
 
-- New HTML: `aletheia-learn/aletheia-learn-ai-fluency.htm`.
-- Linked from `aletheia-learn/aletheia-learn.htm` while retaining its existing generic learning form.
-- Existing animation: `aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1` hides debug UI only in decorative iframe; normal animation remains unaffected.
-- Static source tests: inline script syntax compiled successfully; full 28,048-character course passes readiness markers; Start disabled until fetch completes; synchronous clipboard attempt before exactly one popup; five providers; no duplicate IDs; speech rate 1.0; a rolling 3-line display; narration starts only by user click; five Constellation fallback links; exactly one Awin MasterTag; original parent page links retained.
-- The AI selector stores only the provider identifier in localStorage (when allowed). It does not pre-fill the AI provider's chat box or submit automatically.
-- **Not verified live:** actual GitHub Pages release availability, player visuals/voice rendering, popup/clipboard browser permissions, phone layout and successful paste into each provider. This source receipt does not establish those tests.
-- AI providers may reject or truncate large prompts; preserve the raw Markdown link and manual-copy fallback.
+## Validation receipt (GitHub source, 9 October 2026)
 
+- Re-read actual root AGENTS, GUI/dev/code, parent Learn/course/page/animation and central Constellation catalogue before editing.
+- First implemented source-only mock interaction checks: **12/12 passed** (full-course load, disabled Start prior to selector choice, en-GB rate 1.0 preferred voice, one correct provider popup, full clipboard before popup, manual copy and blocked popup fallback). These were simulated, not actual Chrome/browser tests.
+- Final after Kimi/Grok and reduced-motion changes: **13/13 static checks passed** including current full-course fetch, selector narration path, seven options, single popup, one Awin, five stars, animation embed and reduced-motion gating.
+- Final inline JavaScript compiled syntactically; no duplicate `id` attributes in the inspected HTML.
+- **Pending:** deployed Pages reachability, visual review on Windows/mobile, actual SpeechSynthesis/crawl performance, popup permissions/clipboard, real paste into all seven AI providers, and exact seasonal star-date testing. These are not passed merely because source compiled.
 
-## Aletheia Improve v0.2 — KISS cinematic redesign (9 October 2026)
+## Acceptance of human feedback
 
-**User observed browser screenshot:** two verbose card panels with duplicated instructions, small faint animation, exposed narrator controls and irrelevant three-line readout. The first impression did not match the Aletheia cinematic animation. User directly requested correction.
+The screenshot complaint is addressed by removing the visible two-card design, not just hiding text within the cards. The new layout does not show "three-line narrator", "rate 1.0" or technical verification copy on the main hero. Choosing an AI begins narration; Start stays distinct and opens the provider.
 
-**Revised ownership:** Same `aletheia-learn-ai-fluency.htm` file, same canonical course Markdown. Do **not** create another separate app or copy the course into the HTML.
-
-**Hero-first composition:**
-- Page starts with a compact masthead and a top-right **☰ Menu**, no second form/card column.
-- Existing `../aletheia-threejs-animation/aletheia-threejs-animation.htm?embed=1` begins immediately as the dominant central full-width animated backdrop; do not wait for audio/provider selection.
-- The centre overlays a visible, slanted, high-contrast **Star Wars-inspired original Aletheia text crawl**, moving through lines in sync with each browser SpeechSynthesis utterance. No developer labels about line counts, no double dialogue boxes, no static wall of instructions.
-- Bottom central controls: labelled **Choose AI** selector initially unselected, plus one **Start Course** button. **Changing/selecting** an AI is the affirmative user gesture that starts the speech and scroll; there is no extra Play button. Narration defaults on, installed Google UK English Male preferred, en-GB male fallback excluding George if alternatives are available, pitch/rate 1.0. If speech unavailable or disabled, timed text crawl continues.
-- When the user has never chosen an AI, show a simple "Choose your AI to begin" overlay; no speech autoplay on load.
-- On Start the full currently fetched Markdown is copied, one provider window opens synchronously, and the user is told to paste. Stop any ongoing narration when the AI window opens. Disable Start unless full Markdown loaded AND an AI selected.
-- Preserve manual copy/popup fallback but put details and most explanations in burger menu; show an accessible concise status where needed.
-- Burger menu: AI 101 help, voice on/off + replay, original course Markdown, back to Learn / Apps, **Books & Gifts**, **AI Subscriptions**, **Free AI Lessons**, and Resources home.
-- New dedicated `aletheia-learn-ai-fluency-rsc.htm` covering evidence-backed official free teaching links, beginner books, practical low-cost gifts, and official pricing/subscription pages for ChatGPT, Claude, Gemini, Copilot, DeepSeek, Kimi and Grok. Distinguish free chats, paid individual plans and API billing. No invented prices, affiliate IDs or promise all subscriptions are giftable.
-- Seasonal stars remain the existing shared Constellation with five static fallbacks and centrally managed dated witch/winter decoration, below the cinematic hero, not a competing screen element.
-- Reduced-motion or WebGL failure must show real beginner introduction text and working controls, not a blank animation. Menu and links must be keyboard-usable, 44px-ish, responsive and not overlap.
-- At most one publisher MasterTag per production page.
-
-**Test checklist:** real HTML JS syntax parse; no ID duplicates; source fetch/disabled gating; one popup; copy before popup; selector-triggered speech, en-GB/rate=1.0; speak/crawl synchrony; animation iframe no wait; hidden menu by default; resources anchor targets; Constellation exactly five fallback links + one shared script; Awin tag count. Live browser/voice/device checks are independent and pending until genuinely observed.
-
+If a user observes problems, inspect the actual rendered/browser behavior and improve this same page. Do not fork another launcher.
