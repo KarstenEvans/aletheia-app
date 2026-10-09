@@ -24,6 +24,10 @@ The prompt begins with an access receipt, separates MEDIA, STORY, DISCLOSURE, re
 ## Browser/device/accessibility
 All fields labelled; visible focus, aria-live status, touch-sized primary action, mobile stacked controls. Browser clipboard and popup APIs are optional enhancements. News reading works without them or any AI provider. Aletheia does not upload screenshots; user attaches externally only when they choose. No additional APIs, fees or privileges.
 
+## Accessibility and first-use help
+
+On opening CHECK THIS VIDEO, show a short HELP disclosure expanded by default: supply at least one URL/caption/claim, copy the verification request, open the selected AI, paste/send, and attach inaccessible footage/screenshots manually. Include a reversible practice example using the lion-cub URL and describing its claims as UNVERIFIED; loading a sample must not imply the footage was viewed. Respect the HTML hidden attribute even when display rules are present. Keep existing keyboard/focus/ARIA, clipboard and popup fallbacks.
+
 ## Acceptance tests
 Static: compiled inline JavaScript; unchanged news methods/IDs; all new IDs unique, key prompt clauses present, five input fixtures. Live/device pending: Chrome/Edge desktop, Android Chrome, Safari/WebKit; clipboard blocked and popup blocked; selected AI handoff paste; GDELT/Worker/research regression; actual video access and Truth Card assessment.
 
