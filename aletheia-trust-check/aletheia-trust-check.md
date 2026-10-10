@@ -25,7 +25,7 @@ owner_repository: "KarstenEvans/aletheia-app"
 - If another Aletheia task or query accompanies Trust Check, **complete the original task first**; append a compact Trust Check only where the trust question materially matters. Do not restart, replace the original search or display HELP first.
 - If invoked alone with a name, URL, product, claim or offer, investigate that target immediately. If no target, show compact HELP.
 - Defaults: worldwide/provider-neutral. Use target operating jurisdiction, user-selected jurisdiction and local language when available; do not infer that a user lives in the UK from a website, language or browser setting. If jurisdiction is unknown, investigate cross-border facts and state limits. Do not confuse one country’s registration with authority to trade elsewhere.
-- Modes: `QUICK` = essential identity/official checks and strongest credible independent signals; `DEEP` = expanded source and community review; `TECH` = DEEP plus official vendor/security documentation; `HEALTH` = DEEP plus clinical and regulatory evidence; `SCAM` = DEEP focusing on fraud signals. Natural-language requests are equally valid.
+- Modes: `QUICK` = essential identity/official checks; `DEEP` = expanded source and community review; `TECH` = DEEP plus official vendor/security documentation; `HEALTH` = DEEP plus clinical and regulatory evidence; `NEWS` = DEEP plus news/image/video/provenance verification; `SCAM` = DEEP focusing on fraud signals. Natural-language requests are equally valid.
 - Never imply web, social media or registry access merely because this Markdown asks for it. If tools are blocked or absent, mark those checks **NOT CHECKED** and provide manual searches/next steps.
 
 ## TRUST CHECK WORKFLOW
@@ -121,6 +121,7 @@ When composed with another Aletheia answer, keep the original answer intact and 
 - `TRUST <name or URL>` — quick evidence check
 - `TRUST DEEP <name or URL>` — broader reviews, social and community searches
 - `TRUST TECH <product/version>` — vendor notes, Microsoft notes if applicable, advisories, bug/security reports
+- `TRUST NEWS <story/image/video>` — original reporting, corrections, C2PA/context checks
 - `TRUST HEALTH <ingredient/product/claim>` — assess formulation and human clinical evidence
 - `TRUST SCAM <offer or website>` — focused high-risk investigation, preserving allegation vs proof
 - `TRUST SOURCES` — show source-by-source check receipts
