@@ -1,5 +1,15 @@
 # Aletheia Apps - Tasks
 
+## Aletheia Trust Check — worldwide app, 10 October 2026
+
+**Owner:** `KarstenEvans/aletheia-app/aletheia-trust-check/`, review branch `feature/aletheia-trust-check-worldwide-20261010`. Aletheia Protocol and Thalia references appear in the canonical Markdown and generated prompt.
+
+- [x] Redirect ownership away from earlier SwindonOrgUK draft #4 (superseded, not published); one portable engine for Swindon A2Z and worldwide Aletheia.
+- [x] Preserve original Trust Check, extend worldwide jurisdiction + public Reddit/Discord/social + Microsoft technical sources + scam, fake AI, fake news and provenance investigation.
+- [x] New provider-neutral Ctrl-V HTML handoff, source-first `-rsc.htm` reporting and books/gifts page, exact page spec, short `TRUST-CHECK` code-library routine.
+- [ ] Browser/AI/device QA and manual fallback verification; test reporting route relevance and missing-source receipts.
+- [ ] Approve PR, merge, check public GitHub Pages URL and downstream A2Z integration only after inspecting current production source. **No live publication claim.**
+
 > **Purpose:** One working list for getting the Aletheia applications running, tested, linked and published.
 >
 > **Last updated:** 24 September 2026
