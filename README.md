@@ -16,6 +16,14 @@ Each app lives in its own lowercase folder. The portable Markdown file is the ap
 For substantial HTML work, read the target app's current files and create/reconcile its `*-page.md` build specification. Do not rely on an old chat as the missing specification.
 
 
+## Aletheia Trust Check
+
+**Worldwide, source-led checking of businesses, scams, claims, fake AI and fake news.** A small browser launcher builds one evidence-checking prompt and opens the visitor's chosen AI; it does not itself search the live web. Swindon A2Z and other apps use the same portable routine as an optional add-on, never as a duplicate local engine.
+
+- [Open Trust Check](https://karstenevans.github.io/aletheia-app/aletheia-trust-check/aletheia-trust-check.htm) (proposed GitHub Pages route; live deployment not verified)
+- [Canonical Markdown routine](aletheia-trust-check/aletheia-trust-check.md) · [Free scam-reporting and fake-AI resources, books & gifts](aletheia-trust-check/aletheia-trust-check-rsc.htm) · [Page build spec](aletheia-trust-check/aletheia-trust-check-page.md)
+- [Original unchanged source snapshot](aletheia-trust-check/aletheia-trust-check-original-2026-10-10.md) · [Reusable `TRUST-CHECK` primitive](aletheia-code.md#trust-check-composable-aletheia-routine) · [App tasks](aletheia-trust-check/tasks.md).
+
 ## Aletheia Job Search
 
 - [Open Aletheia Job Search](https://karstenevans.github.io/aletheia-app/aletheia-job-search/aletheia-job-search.htm) — worldwide provider-neutral job search, verified-vacancy methodology, CV and LinkedIn gap checks, interview practice, portable private memory and scheduled-search prompt guidance. This is a static **HANDOFF** launcher, not a connected job database or active scheduled search.
