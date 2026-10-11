@@ -56,3 +56,37 @@ Three different course families should be distinguished:
 - One official course site not accessible with research tool and not claimed UK-playable.
 - Video licences and regional playback restrictions not comprehensively checked.
 - No external videos or images downloaded or rehosted.
+
+## Correction: source-audit after reviewing six user-supplied pages (11 October 2026)
+
+**User feedback:** the suggested Chinese government website showed Chinese text without usable movement instructions, resembling diary or news content.
+
+**Observed from six user-provided page captures:**
+1. International Tai Chi Day *notice letter* (2026-03-04): a circular about events, competition, organisation and a reference to the free **98-lesson Chinese/English MOOC**. It is **not itself instructional**.
+2. Government sports-centre home page: general navigation and institutional news, **not instructional**.
+3. Notices list: announcements/budgets/events, **not instructional**.
+4. Competition regulations list, **not instructional**.
+5. Policies/regulations list, **not instructional**.
+6. Martial arts exchange/news list, **not instructional**; one headline says a 24-form course started but gives no movement technique.
+
+The government material is useful solely for provenance and discovery of the separate MOOC link. **Do not present these administrative pages as movement tutorials.**
+
+### Direct instructional sources identified in course/video indexes
+
+| Provider and link | Actually appears instructional? | Chair relevance | Verification limit |
+|---|---|---|---|
+| [Bilibili: Beijing Sport University 24-form breakdown](https://www.bilibili.com/video/BV1sF4118776/) | Yes; **23 individual video lessons** about each form (e.g. opening, cloud hands). | Traditional **standing** form; movement-name/progression reference only. | Lesson titles/durations visible; automated playback blocked by Bilibili. |
+| [Bilibili: Teacher Wu Man, Eight Forms](https://www.bilibili.com/video/BV1mgoLY6EdN/) | Yes; **15 episodes**, including hand shape, footwork, balance, breath, each form and corrections. | Strong source for translation of original principles, but standing skills not automatically safely seated. | Lesson metadata observed; playback not individually verified. |
+| [Bilibili: seated Baduanjin](https://www.bilibili.com/video/BV1Hr421F7LS/) | Yes; two segments labelled movement demonstration and theory. | Seated exercise pattern worth investigating but **Baduanjin/Qigong is not Tai Chi**. | Metadata seen; content not fully reviewed. |
+| [Dr Paul Lam free starter lesson](https://www.youtube.com/watch?v=hIOHGrYCEJ4) | Yes; free 40-min video from instructor channel, with 11-min warmup, first movements at 22:47 and cooldown. | Gentle practical intro; English explanation and adaptable movement. | Only first lesson is free, later programme may require purchase. |
+| [Henan university: 24-form instructional segments](https://tyb.hagmc.edu.cn/info/1017/1129.htm) | University page lists eight groups of teaching videos, not news; worth trying direct playback. | Standing form, not seated. | Video playability/access needs human browser check. |
+
+### Acceptance criteria added to Aletheia Improve
+
+For any link marketed as **free exercise instruction**, require:
+- Direct video/player or clearly listed individual lessons, not a sports-office notice/news index.
+- Concrete form names and demonstration/explanation, not just event dates.
+- Clear free/paywall status, language, standing/seated/Qigong categorisation and UK availability uncertainty.
+- If only an administrative page, place it in **Background research**, not in the main *Start learning* cards.
+- Do not confuse metadata verification with watching/clinically evaluating the exercise.
+- Source videos and wording must not be downloaded/rehosted without permission.
