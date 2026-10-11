@@ -330,13 +330,13 @@ function pause(){
  if(phase==="work"||phase==="rest"){remaining=Math.max(0,(deadline-Date.now())/1000);const from=phase;clearClock();releaseSpeech();setPhase("paused","Paused during "+from+". Press Resume.");$("start").dataset.pausedFrom=from;paint()}
 }
 function resume(){if(phase==="paused"){setPhase($("start").dataset.pausedFrom||"work","Resumed. Move at your own pace.");runClock()}}
-function next(n){clearClock();releaseSpeech();index=Math.max(0,Math.min(list.length-1,index+n));remaining=routine().secs;setPhase("idle","Ready for "+list[index].title+". Press Start.");paint()}
+function next(n){if(n>0&&index===list.length-1){finish();return}clearClock();releaseSpeech();index=Math.max(0,Math.min(list.length-1,index+n));remaining=routine().secs;setPhase("idle","Ready for "+list[index].title+". Press Start.");paint()}
 for(const r of course.routines){let o=document.createElement("option");o.value=r.id;o.textContent=r.label;$("routine").appendChild(o)}
 function updateEstimate(){const r=routine(),n=r.ids.filter(id=>!lookup[id]?.optional||$("optional").checked).length;setText("estimate","Approximately "+Math.ceil(n*(r.secs+r.rest)/60)+" minutes with rests")}
 $("safety").textContent=course.chair+" "+course.intro;
 $("routine").onchange=e=>{session=e.target.value;prepare();updateEstimate()};
 $("optional").onchange=()=>{prepare();updateEstimate()};
-$("voice").onchange=()=>{if(!$("voice").checked)releaseSpeech()};
+$("voice").onchange=()=>{if(!$("voice").checked){releaseSpeech();if(phase==="intro"){setPhase("work","Narration off. Move gently.");runClock()}}};
 $("start").onclick=()=>{if(phase==="work"||phase==="rest"||phase==="intro")pause();else if(phase==="paused")resume();else if(phase==="done"){prepare();enter()}else enter()};
 $("next").onclick=()=>next(1);$("prev").onclick=()=>next(-1);
 $("stop").onclick=()=>{prepare();setText("status","Stopped. You can restart whenever ready.")};
