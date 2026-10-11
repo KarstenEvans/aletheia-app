@@ -3,7 +3,7 @@
 - [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence, provenance and uncertainty.
 - [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional presentation only.
 
-**Status:** worldwide application source under review (10 October 2026). No confirmed live deployment.
+**Status:** worldwide application v0.4 under draft PR review (11 October 2026). No confirmed live deployment.
 **Owner:** [`KarstenEvans/aletheia-app`](https://github.com/KarstenEvans/aletheia-app), not SwindonOrgUK.
 
 ## What it does
@@ -11,6 +11,12 @@
 Enter the exact subject and click **Trust Check**. The `.htm` page synchronously copies an evidence-review prompt and opens a user-selected AI for paste and Send. The **receiving AI**, not the static web page, researches official sources, public social media, scam leads, company claims, technical notes and fake-AI/fake-news evidence using its real available tools. It must report inaccessible sources and offer relevant official reporting channels for plausible scams.
 
 For A2Z/Swindon.org.uk or another app, use **`TRUST-CHECK(target, mode, jurisdiction, context, parent_task)`** in the shared `../aletheia-code.md` as an optional composable routine. The full behavioural contract remains here as Markdown, not duplicated in the Swindon site.
+
+## Security and evidence-integrity improvement (11 October 2026)
+
+The app's original **ten checks** and v0.3 interaction remain intact. v0.4 adds **source-lineage checks**, rejecting prompt-injection instructions in fetched content, out-of-band deepfake/impersonation verification, and explicit human approval plus recoverable versions before any *integrated agent* performs state-changing operations. These are **research instructions, not an actual malware scanner or guaranteed detector**. The page remains a static provider-neutral paste-and-send handoff.
+
+The v0.3 Markdown/HTML were copied byte-for-byte into `archive/` before this pass; the unchanged original v1 method remains beside them. Test design is in `tests/security-cases.md`; `tests/trust-check-regression.mjs` provides a read-only Node static-source check. Browser and AI tests are still pending. See [Aletheia-03 improvement receipt](Aletheia-03-Trust-Check-Security-Improve.md).
 
 ## Files
 
@@ -23,6 +29,10 @@ For A2Z/Swindon.org.uk or another app, use **`TRUST-CHECK(target, mode, jurisdic
 | [`aletheia-trust-check-original-2026-10-10.md`](aletheia-trust-check-original-2026-10-10.md) | Preserved unmodified original method |
 | [`aletheia-trust-check-improve.md`](aletheia-trust-check-improve.md) | Aletheia Improve source/progress/validation receipt |
 | [`tasks.md`](tasks.md) | Release checklist and future integration |
+| [`Aletheia-03-Trust-Check-Security-Improve.md`](Aletheia-03-Trust-Check-Security-Improve.md) | Dated source/implementation/validation receipt |
+| [`tests/security-cases.md`](tests/security-cases.md) | Manual source-poisoning/impersonation/permission trial cases |
+| [`tests/trust-check-regression.mjs`](tests/trust-check-regression.mjs) | Read-only, local Node source/syntax regression |
+| [`archive/`](archive/) | Exact v0.3 Markdown and HTML snapshots, not live versions |
 
 ## Public URLs after approved release
 
