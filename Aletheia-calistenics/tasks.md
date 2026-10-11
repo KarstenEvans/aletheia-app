@@ -16,3 +16,12 @@
 - [ ] Evaluate whether to reuse the existing Story Workout shared engine for chair course with no regression.
 - [ ] User approval before merging review branch to main.
 - [ ] Re-test PWA cache/service worker after integration.
+
+## Chinese and Seated Tai Chi follow-up — 11 October 2026
+- [x] Research authoritative free Chinese / bilingual Tai Chi courses and seated adaptations (Aletheia-08).
+- [x] Add classified, source-linked China / seated Tai Chi cards to draft resources page.
+- [x] Commit a separate public review-only `chair-exercises-preview.htm` file on main without merging the app changes.
+- [ ] Verify GitHub Pages serves the review URL on desktop and mobile.
+- [ ] Ask a qualified Tai Chi teacher to review any planned genuine seated Tai Chi form and translations.
+- [ ] Keep sources as outbound links unless an explicit redistribution licence is obtained.
+- [ ] Resolve and cross-reference 007 personal-data intake separately from commercial Trust Check.
