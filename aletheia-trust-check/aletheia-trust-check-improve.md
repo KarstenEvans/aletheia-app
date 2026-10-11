@@ -46,3 +46,20 @@ The Aletheia worldwide *site* is separate from this Aletheia *app*. It has not b
 ## Next review action
 
 Review the GitHub draft PR and `tasks.md`, check browser/manual fallback/device paths and user-approved integration, then merge and deploy explicitly, verify the Pages URLs and update the receipt to LIVE only after an observed real response.
+
+
+## Aletheia-03 security and source-integrity follow-up (2026-10-11)
+
+**Authorised scope:** user approved preparation of the improvements on the same worldwide Trust Check draft branch, explicitly leaving the main branch and live website unchanged.
+
+**Prior version preserved:** exact Git blob copies of v0.3 Markdown and HTML were committed to `archive/` before modifying their originals, and checked against source blob SHAs. The preserved original uploaded 10 October file remained unchanged.
+
+**Implemented:** canonical workflow v0.4 source-lineage/data-integrity examination, quoted/hidden prompt-injection boundaries, independent impersonation callback, and approval/recovery limits on future action-capable integrations; corresponding static HTML handoff prompt updates. Retained existing UI, modes, source matrix and five AI destinations. Added `tests/trust-check-regression.mjs` and `tests/security-cases.md`, updated rebuild spec, README and tasks.
+
+**Observed connector-side structure check:** 17 focused checks passed for presence of contract rules, backup blob hashes, fixed form/provider elements, prompt data quoting, five Constellation links, manual fallback, unique IDs, saved tests and stage receipt. **This is not Node execution, a real browser check, model security testing or deployment verification.**
+
+**Source integrity caveat:** Object First's user-supplied 2026 vendor paper supports threat-model discovery; unverified statistics, product marketing or allegations in it were not imported as established facts.
+
+**Full handover:** [Aletheia-03-Trust-Check-Security-Improve.md](Aletheia-03-Trust-Check-Security-Improve.md).
+
+**Outstanding:** execute the committed Node regression in a real checkout, browser/device and live-AI manual cases, official-link freshness, owner diff approval, independent main merge and deployment approval. No normative Aletheia or Thalia protocol edits or Swindon live changes.
