@@ -31,6 +31,15 @@ Affiliate Tools page: standalone crawlable static page with SEO title, descripti
 - Copyright and trust: original advice, not paid-course replication; affiliate platform/product quality and claimed seller income are distinct from provider statements and actual verification.
 - Aletheia/Thalia references required in every downloaded/exported result.
 
+## Optional final GEO/AEO pass (12 October 2026)
+
+- The primary audit form offers an **unchecked-by-default** checkbox: **Include final GEO/AEO content pass**.
+- When selected, the copied handoff requests Stage 6 AFTER the ordinary technical/site-quality checks, links to the existing cross-provider `skills/geo-aeo-optimizer/SKILL.md` source and directs the receiving AI to return an audit of page-level extractability, provenance and a draft rather than altering any live site.
+- When unselected, the handoff explicitly says **skip the optional final pass**. This is independent of optional Stage 3A search intelligence.
+- Record whether a capable AI actually loaded the Skill, had only the in-workflow summary or did not run it. Linked Skills are reusable Markdown instructions, not a guaranteed installed ChatGPT plugin or website scan.
+- The report must distinguish source-backed observation from proposed rewrite, and require human review/approval before editing or publication.
+- QA: unchecked/checked output texts differ; long site URLs and mobile layout remain usable; original URL validation, clipboard state and menu unaffected; no promises of AI-citation improvements or automated edits.
+
 ## Acceptance checks
 
 1. Both HTML pages parse with no missing essential controls, zero duplicate element IDs, JavaScript syntax passes and exactly one site-wide Awin MasterTag immediately before \`</body>\` (other inline script can precede it).
