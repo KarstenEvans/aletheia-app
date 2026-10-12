@@ -1,5 +1,19 @@
 # Aletheia Apps - Tasks
 
+## Windows Rescue / 2027 certificate-health extension (12 October 2026)
+
+**Status: SOURCE UPDATED / WINDOWS DEVICE TEST PENDING.** Canonical app folder: `aletheia-windows-debloat/`.
+
+- [x] Research Microsoft 2027 Windows Update certificate rotation, distinct Secure Boot 2026 update, July 2026 Win10 KB5099539, Catalog/manual installs and ESU eligibility.
+- [x] Add read-only Windows Update submenu route `U > 8`, include likely/update-unknown status in safe audit; no certificate import or update-service change.
+- [x] Explain in HTML, canonical Markdown, page specification and source register; third-party community ESU scripts are research-only.
+- [ ] Validate PowerShell syntax + run on actual Windows 10 and Windows 11 as admin and non-admin; test unknown Secure Boot and OS states.
+- [ ] Check GitHub Pages live, mobile display, links, and confirm no broken prior buttons/plan/rollback routes.
+- [ ] Swindon.org.uk placement: link from Resources → Windows & PC Help when reconciled with **production**; do not overwrite live site from incomplete mirror.
+- [ ] Future worldwide Aletheia website: Apps → Computing & Security links to the **same** maintained Aletheia app; no duplicate tool clone.
+
+
+
 ## AI content and UsefulPrompts integration (12 October 2026)
 
 **Scope:** Integrate into existing apps/Skills, not a new tool collection yet. Original credit https://usefulprompts.ai/ and user-provided @usefulpromptsai Threads screenshots. Cross-repository research: `KarstenEvans/aletheia-knowledge/resources/usefulprompts-ai-rsc.htm`.
