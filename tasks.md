@@ -1100,3 +1100,17 @@ Original course Markdown, `workout.json`, HTML, JavaScript, poster and PWA files
 - [ ] Clipboard/popup blocked, large-prompt limits and pasted first course response for all seven providers.
 - [ ] Seasonal star date-window and external plan/link availability continued checks.
 
+
+
+## HUMOUR-SKETCHES-001 — canonical placement correction (12 October 2026)
+
+Owner explicitly requested `aletheia-app/aletheia-humour/sketches/` after reviewing an incorrectly hosted ChatGPT preview.
+
+- [x] Prepare both sketch folders, portable contracts, page specifications, resources and Humour Keys at the requested path.
+- [x] Keep default selected-AI handoff, optional real single-turn QI-style browser AI and honest Voice/timing boundaries.
+- [x] Reuse repository shared seasonal navigation, align canonical routes and public exactly-once Publisher MasterTag.
+- [x] Static syntax and relative-link checks; no private data or credentials included.
+- [ ] Verify new GitHub Pages routes after deployment and actual native voice/microphone/model behaviour on devices.
+
+The owner explicitly retained the ChatGPT-hosted copy as a test site. It remains untouched; the canonical repository files live at the requested path.
+

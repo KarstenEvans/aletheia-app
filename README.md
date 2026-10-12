@@ -171,3 +171,16 @@ No licence has been selected yet. Public visibility alone does not grant permiss
 
 - [Open Writing Vibe](https://karstenevans.github.io/aletheia-app/aletheia-writing-vibe/aletheia-writing-vibe.htm) — paste/upload text and clean Facebook UI noise locally; prepare an explicit external-AI research pack. This static page does not scrape, browse or itself create a verified AI-written profile.
 - [Canonical workflow](aletheia-writing-vibe/aletheia-writing-vibe.md) · [Page specification](aletheia-writing-vibe/aletheia-writing-vibe-page.md) · [Resources](aletheia-writing-vibe/aletheia-writing-vibe-rsc.htm).
+
+
+## Aletheia Humour — Sketches
+
+Original interactive AI sketches, using the user's selected AI and optional real browser AI, with portable Markdown and Humour Keys.
+
+- [Open Sketches](https://karstenevans.github.io/aletheia-app/aletheia-humour/sketches/index.htm)
+- [Argument Room](https://karstenevans.github.io/aletheia-app/aletheia-humour/sketches/argument-room/aletheia-argument-room.htm)
+- [Bridge Guardian](https://karstenevans.github.io/aletheia-app/aletheia-humour/sketches/bridge-guardian/aletheia-bridge-guardian.htm)
+- [Instructions and source](aletheia-humour/sketches/README.md)
+
+Source installed at the owner's requested location; real-device/model/voice checks remain pending.
+
