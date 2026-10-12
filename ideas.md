@@ -1,5 +1,30 @@
 # Aletheia Apps — Ideas
 
+## UsefulPrompts.ai inspiration and AI-independent workflow candidates (12 October 2026)
+
+**Source/credit:** https://usefulprompts.ai/ (fifteen generators checked 2026-10-12); separate @usefulpromptsai Threads five-short-video-steps example supplied by project owner. A credited original resource catalogue lives in `KarstenEvans/aletheia-knowledge/resources/usefulprompts-ai-rsc.htm`. Do not copy creator text/graphics, product claims or paid material.
+
+**Approved first:** Extend EXISTING `aletheia-learn/` with a short-video lesson. Five steps: short script with one hook/one point/one ask; scene-specific shot list; filming only with owned resources; legible sound-off captions with realistic draft timing; optional concise generated-footage instruction with **no embedded text**, followed by captions in editing. Teacher-first lesson + portable Markdown pack, no compulsory video API/backend or new app. Canonical lesson: `aletheia-learn/aletheia-learn-video-making.md`.
+
+**Approved optional Site Audit integration:** Add final GEO/AEO content optimisation pass AFTER diagnostics as checkbox OFF by default. Reuse existing portable Skill `KarstenEvans/11-aletheia-enabled-workflow-skills/skills/geo-aeo-optimizer/SKILL.md`. Check original-page factual support and citation readiness; propose rewrites and small experiments, no automatic edits or invented AI search ranking evidence.
+
+**Other candidates; only build if existing-work gate passes:**
+
+| Inspiration / source generator | Existing owner or routing | Priority / disposition |
+|---|---|---|
+| General Prompt Improver / plain-language task builder | Aletheia AI Easy + Aletheia Learn | P2: possible four-question Talk to AI beginner workflow (what, why, how, desired result); don't bury AI Easy under new app. |
+| YouTube/short video prompt | Aletheia Learn; Storyteller and Youtube dev; Content Repurposer Skill | P1: lesson created; production pack only, no render/upload claim. |
+| SEO generator | Site Audit + GEO/AEO Optimizer Skill | P1: optional editorial final pass; no ranking guarantees. |
+| LinkedIn & Marketing prompts | Aletheia Publisher (already proposed) + Content Repurposer | P2: adapt existing plan; approval before publication. |
+| Image generator prompts | Aletheia Storyteller | P2: single preset when needed; no standalone image app. |
+| CV & interview prompts | Aletheia Job Search and employment Knowledge | P2: evidence-based templates / interview teaching. |
+| PRD + Skill + System + Agent prompts | Aletheia Improve, dev/code, portable Skills | P2: reusable specifications, action/permission gates, not automatic agent autonomy. |
+| Fix Excel Formula | Aletheia Learn | P3: small teaching exercise, verified sample calculations, no false workbook edits. |
+| Etsy + Real Estate | none needed now | P4: research-only; don't create thin near-duplicate apps. |
+
+**Later idea, not approved build:** Aletheia AI Tools hub can link existing Skills/apps after at least two or three useful workflows are device-tested. Avoid 15 separate tools and provider-specific apps. Static/free-first, KISS, readable Markdown source, existing Ctrl-V handoff, official source credit, source/privacy check and Aletheia/Thalia links in generated Markdown. The user has not requested a brand-new tools app in this phase.
+
+
 > Early-stage concepts. These are not promises or canonical protocol changes.
 > Promote an idea into `tasks.md` and its own app folder when it is ready for implementation.
 
