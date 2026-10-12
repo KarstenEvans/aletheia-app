@@ -130,6 +130,14 @@ Current date rules remain:
 - 25 Nov–31 Dec: winter sprites;
 - 1 Jan–31 Aug: ordinary stars.
 
+## Video-making lesson extension (12 October 2026)
+
+- The existing Learn page gets **one** non-competing quick-start card before its normal goal form, linking to `aletheia-learn-video-making.md`.
+- **Try the video lesson** fills the existing goal field with one visible sample and selects **DO WITH ME**. It does not open an AI on its own. If the goal already contains text, ask before replacing it.
+- Reuse the original provider selector, copy/handoff fallback, focus and navigation. Do not create a second provider dialog or separate media generator.
+- The lesson is a teacher-first, provider-neutral five-stage script/shot list/equipment/captions/optional-video-prompt workflow with a complete, exportable production pack. No rendered footage is implied.
+- QA: check example prefill, goal-preservation confirmation, mode selection, original Start sequence, source link, accessibility/Android, and final Markdown with the required Aletheia and Thalia protocol references. Test real browser and AI handoffs before claiming live correctness.
+
 ## Acceptance tests
 
 1. Empty goal blocks launch and focuses the field.
