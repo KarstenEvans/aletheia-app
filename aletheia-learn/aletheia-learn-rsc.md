@@ -4,6 +4,14 @@
 **Purpose:** useful evidence-based learning resources plus practical phone-first hardware ideas.  
 **Commercial rule:** useful first; prices and stock change; source/reference links are not evidence that a product is the cheapest or best choice.
 
+## Five-step video lesson and credited free tool catalogue (12 October 2026)
+
+Aletheia Learn now links to its [teacher-first short-video lesson](aletheia-learn-video-making.md). It teaches an accessible worked example, scripting, realistic shot lists, filming with available equipment, accessible draft captions and optional AI-video-generator scene description. The resulting Markdown production pack is **planning only**, not rendered footage.
+
+The original inspiration was the creator [UsefulPrompts.ai](https://usefulprompts.ai/), including a separate @usefulpromptsai Threads five-step example. Credit and fifteen original external tool links are collected in [Aletheia Knowledge free AI instruction resources](https://karstenevans.github.io/aletheia-knowledge/resources/usefulprompts-ai-rsc.htm). No site prompts, branded graphics, paid content or original layouts are copied. Browse/review resources before using external services, and avoid pasting confidential documents into unverified third-party tools.
+
+---
+
 ## Guided course: Aletheia Learn – AI Fluency
 
 **Course:** [aletheia-learn-ai-fluency.md](aletheia-learn-ai-fluency.md)
