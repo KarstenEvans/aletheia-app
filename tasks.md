@@ -1,5 +1,22 @@
 # Aletheia Apps - Tasks
 
+## AI content and UsefulPrompts integration (12 October 2026)
+
+**Scope:** Integrate into existing apps/Skills, not a new tool collection yet. Original credit https://usefulprompts.ai/ and user-provided @usefulpromptsai Threads screenshots. Cross-repository research: `KarstenEvans/aletheia-knowledge/resources/usefulprompts-ai-rsc.htm`.
+
+- [x] Review current app and Skills paths; confirm Content Repurposer and GEO/AEO Optimizer live under `KarstenEvans/11-aletheia-enabled-workflow-skills/skills/`, not inside Site Audit, Aletheia Code or the provider's built-in plugins.
+- [x] Create teacher-first, five-stage `aletheia-learn/aletheia-learn-video-making.md` with protocol links, sample, commands and honest production pack.
+- [x] Add a compact **Try the video lesson** entry to existing Learn HTML with goal prefill and normal handoff; update main Learn Markdown and page spec without replacing other modes.
+- [x] Add an **unchecked** GEO/AEO final-content-pass option to Site Audit handoff, canonical Markdown and page specification, linking existing portable Skill without claiming it has run.
+- [ ] Run real mobile/desktop keyboard, video button, provider copy/paste and popup tests; sample at least ChatGPT plus one non-OpenAI AI; check exported Markdown Aletheia+Thalia links, captions versus scene plan and fact/privacy checks.
+- [ ] Run real Site Audit dry runs with Stage 6 off/on, confirm input parsing, clipboard fallback, Skill-access receipt, source support and unchanged production files. Avoid unsupported claim of ranking changes.
+- [ ] Review Knowledge resource link, creator credit and 15 original tool destinations; independent published Pages inspection; correct any broken links.
+- [ ] Prototype AI Easy **Talk to AI** four-question beginner mode only after checking existing AI Easy Learn onboarding; teach normal speech rather than technical 'prompts'.
+- [ ] Evaluate targeted Job Search CV/interview presets, Storyteller image preset, Publisher LinkedIn/marketing hook and Improve/Dev PRD/Skill/agent outline as existing-feature extensions.
+- [ ] Optional future: create a minimal **Aletheia AI Tools** index linking verified working apps/Skills, only after real user value is demonstrated. No duplicated implementations or rushed publication.
+- [ ] Log real rendering/media export/actual upload as separate capabilities if ever implemented; never mark plan output as rendered media.
+
+
 > **Purpose:** One working list for getting the Aletheia applications running, tested, linked and published.
 >
 > **Last updated:** 24 September 2026
