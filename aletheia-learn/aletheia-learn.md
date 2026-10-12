@@ -1163,3 +1163,8 @@ The page follows `aletheia-learn-page.md` and the shared `CTRL-V-AI-HANDOFF` pro
 ---
 
 ## END OF APP
+
+
+## Short video lesson (October 2026)
+
+A separate teacher-first course lives at [`aletheia-learn-video-making.md`](aletheia-learn-video-making.md). It teaches a five-stage practical production workflow (script, shots, available equipment, captions, optional AI-video-generation description) and produces a Markdown planning pack through any capable AI. The parent Learn handoff and hint ladder stay authoritative. The video lesson does **not** add a video-rendering backend, automatic uploads or a second publisher. Existing Content Repurposer Skill may transform approved source content into video ideas, but it is not the video production lesson itself. All resulting Aletheia Markdown retains Aletheia + Thalia protocol links, evidence/rights limits and honest completion states.
