@@ -109,8 +109,22 @@ The ethical version should favour original, useful, source-backed content that d
 ## Stage 5 — Cross-AI Test
 For difficult access problems, run the same Reachability Gate independently in capable systems such as ChatGPT, Claude, Gemini, Copilot, DeepSeek, Kimi or others. Each run creates its own `<hostname>-results.md`. Compare without erasing disagreement. Provider identity is evidence metadata, not a reliability ranking by nationality or brand.
 
+## Stage 6 — Optional GEO/AEO Content Optimizer (final editorial pass)
+
+**Default: OFF. Run only when the owner asks for it or selects the option.** Stage 1 reachability and relevant existing quality checks must run first. This stage is different from Stage 3/3A: it is a proposed **content rewrite and citation-readiness pass**, not keyword-volume measurement, rankings or proof of AI citations.
+
+**Canonical existing Skill:** [Aletheia GEO/AEO Optimizer](https://github.com/KarstenEvans/11-aletheia-enabled-workflow-skills/blob/main/skills/geo-aeo-optimizer/SKILL.md). When capable of reading this file, load the current version and its [domain modes](https://github.com/KarstenEvans/11-aletheia-enabled-workflow-skills/blob/main/skills/geo-aeo-optimizer/references/domain-modes.md). If inaccessible, say **SKILL NOT LOADED** and use only the explicit summary below, labelling that as fallback. Do not claim the Skill ran because the audit mentions GEO/AEO.
+
+1. Select the real page(s) and questions from observed/crawlable source. If the tool cannot fetch them, request a pasted page excerpt or report NOT TESTED.
+2. **Audit before rewriting:** check answer-first clarity, titles/headings, meaningful self-contained passages, factual specificity, citations, authorship/source dates, relevant FAQ, accessibility and discoverable links. Record missing, contradictory and unsupported claims.
+3. Preserve primary/official provenance, creator, date, exact locator, support limits and real expertise. Relevance scoring (0–10) is selection metadata, **never confidence**. Separate epistemic support, applicability and completeness; never turn search position or prose fluency into truth.
+4. Give a **proposed revised extract**, direct answer/FAQ and three smallest reversible editorial improvements. Use original wording, preserve author voice and avoid fictitious sources, credentials, evidence, first-person experiences or guaranteed rankings.
+5. Report `SKILL LOADED / FALLBACK ONLY / NOT TESTED`, selected page/URL, exact source observations, proposed changes, evidence to verify, human approval required and a measurement/retest suggestion. Do **not** rewrite, commit or publish to the site without separate explicit approval.
+
+Output as a labelled **OPTIONAL GEO/AEO FINAL PASS** appendix to `<hostname>-results.md`; original audit observations must remain intact. If the owner hasn't requested it, record **NOT REQUESTED** rather than running it.
+
 ## Results schema
-Include executive result; target/timestamp; AI/model/provider; tools used/unavailable; URL results; DNS; TLS; redirects; robots/sitemap/llms; browser-vs-automated fetch; hosting/shared-IP/reputation; search/discoverability; optional search intelligence sources available/unavailable; keyword/trend metrics with date/region/unit; owner-authorised Google/Bing property and AI citation reports where supplied; evidence table; ranked hypotheses; proposed repairs; retest plan; raw useful evidence; and Aletheia receipt.
+Include executive result; target/timestamp; AI/model/provider; tools used/unavailable; URL results; DNS; TLS; redirects; robots/sitemap/llms; browser-vs-automated fetch; hosting/shared-IP/reputation; search/discoverability; optional search intelligence sources available/unavailable; keyword/trend metrics with date/region/unit; owner-authorised Google/Bing property and AI citation reports where supplied; evidence table; ranked hypotheses; proposed repairs; retest plan; raw useful evidence; optional GEO/AEO final-pass status/findings when requested; and Aletheia receipt.
 
 ## Aletheia receipt
 Record: Tested; Not tested/unavailable; Strongest verified finding; Strongest unresolved question; Material blocker YES/NO/UNKNOWN; Files generated; Changes actually made; Changes only proposed; Recommended next action; Confidence HIGH/MEDIUM/LOW with reason.
