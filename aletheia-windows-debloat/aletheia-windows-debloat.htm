@@ -156,9 +156,25 @@ footer{margin-top:50px;color:var(--muted)}
 <p><strong>Soft preference</strong> can request notify-before-download, exclude driver updates and disable peer-to-peer delivery. It is not advertised as a perfect off switch.</p>
 <p><strong>Manual Update Gate</strong> is for an owner who wants Windows Update quiet until deliberately opened. It saves the machine's original service start values, closes the update services it can safely target, leaves BITS alone, and provides an OPEN action to restore the saved values.</p>
 <p class="small">Windows protected components may resist or later undo changes. The tool audits the real state after reboot instead of claiming victory because a registry write succeeded.</p>
+<p><strong>Before closing the gate:</strong> use the new read-only <a href="#certificate-update-health">Certificate &amp; Update Health check</a> to review certificate-update prerequisites and maintenance status.</p>
 <p><strong>ESU note:</strong> Consumer Windows 10 ESU can deliver critical/important security updates through 12 October 2027. If you close the gate, reopen it deliberately for security maintenance.</p>
 </section>
 
+
+<h2 id="certificate-update-health">4B. Certificate &amp; Update Health: Windows 10 / 11</h2>
+<section class="panel">
+<p><strong>Two different renewals:</strong> the <strong>2027 Windows Update connection certificates</strong> keep supported PCs able to reach trusted Windows Update services; the <strong>2026 UEFI Secure Boot certificates</strong> protect the boot chain. One does not establish the status of the other.</p>
+<p><strong>Safe route:</strong> download the inspectable <a href="windows-rescue-tool.ps1" download>Windows Rescue PowerShell companion</a>, run its read-only audit, then choose <strong>U → 8 Certificate and Update Health</strong>. It reports the Windows build, most recently visible hotfix, Secure Boot enabled/disabled state and existing update-gate indicators. It cannot prove that the individual certificates were provisioned.</p>
+<p><strong>Windows 10 22H2:</strong> Microsoft calls for the <strong>July 2026 cumulative update (KB5099539) or later</strong> for affected in-support installations before <strong>19 June 2027</strong>. The equivalent eligibility and deadline vary for other Windows editions. An unsupported Windows 10 Home/Pro machine normally needs a valid <strong>ESU entitlement</strong> for post-2025 security updates. The Microsoft Update Catalog supports manual package downloads, but downloading an MSU does not override servicing eligibility.</p>
+<p><strong>Owner control:</strong> this check never installs certificates, changes the registry, contacts update servers or opens a closed Update Gate. Do not spoof build numbers, ESU flags or certificate status: the actual trust and entitlement will not change. Check official documentation, make a backup and approve any later servicing action separately.</p>
+<div class="actions">
+<a class="btn ghost" href="https://techcommunity.microsoft.com/blog/Windows-ITPro-blog/prepare-for-windows-update-certificate-rotation-in-2027/4562463" target="_blank" rel="noopener">Microsoft: 2027 certificates ↗</a>
+<a class="btn ghost" href="https://www.catalog.update.microsoft.com/Search.aspx?q=KB5099539" target="_blank" rel="noopener">Official July 2026 update ↗</a>
+<a class="btn ghost" href="https://www.microsoft.com/en-gb/windows/extended-security-updates" target="_blank" rel="noopener">Windows 10 ESU ↗</a>
+<a class="btn ghost" href="https://support.microsoft.com/en-us/servicing/os/secure-boot/2025/06/windows-secure-boot-certificate-expiration-and-ca-updates" target="_blank" rel="noopener">Secure Boot certificates ↗</a>
+</div>
+<p class="small">Community enrolment scripts exist, but are not bundled or run by Aletheia. Treat them as separate, unverified research, never as a certificate repair.</p>
+</section>
 
 <h2>4A. Put the periodic Registry backup back</h2>
 <section class="panel">
@@ -268,6 +284,7 @@ function buildPlan(){
  if(checked('telemetry')) out.push('<p><strong>Privacy:</strong> offer Quiet Telemetry: DiagTrack + selected CEIP tasks; Windows 11 Appraiser tasks stay in the separate Upgrade Shield, with saved rollback. Defender/SmartScreen/Windows Error Reporting are not bundled into the switch.</p>');
  if(checked('nag') || w11==='stay') out.push('<p><strong>Windows 11:</strong> offer the Windows 10 Upgrade Shield: hold 22H2 and quiet recurring compatibility scans. Verify again after reboot.</p>');
  if(checked('update')){
+   out.push('<p><strong>Certificate safety:</strong> review the read-only Certificate &amp; Update Health check before closing the Update Gate. Build/date evidence is indicative, not direct certificate proof.</p>');
    out.push('<p><strong>Updates:</strong> choose between a soft preference and the stronger Manual Update Gate. The gate saves original service modes before closing. If ESU is active, deliberately reopen it for security updates.</p>');
  }
  if(checked('drivers')) out.push('<p><strong>Drivers:</strong> use Driver Sanctuary for OEM-first current research. Do not let Windows or an AI auto-install a newer driver merely because its version is larger.</p>');
