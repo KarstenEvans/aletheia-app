@@ -364,3 +364,25 @@ Approved flavour:
 
 And:
 > A 4 GB laptop does not need another background service. Windows: “Splendid. I have installed three.”
+---
+
+## 16. 2027 Windows Update trust vs 2026 UEFI Secure Boot certificates — 12 October 2026
+
+**Official Windows Update rotation:** https://techcommunity.microsoft.com/blog/Windows-ITPro-blog/prepare-for-windows-update-certificate-rotation-in-2027/4562463
+
+Microsoft says Windows Update trust-connection certificates expire **17 May 2027** and **19 June 2027**. The affected supported Windows editions require the relevant cumulative security update; Windows 10 in-support variants normally require July 2026 or later, with earlier deadline for certain LTSC variants. Windows Update Catalog is an offline/manual package retrieval route, not a bypass of Windows 10 ESU entitlement.
+
+**Windows 10 KB5099539 / 19045.7548 (July 2026):** https://support.microsoft.com/en-us/servicing/os/windows-10/2026/07/july-14-2026-kb5099539-os-builds-19045-7548-and-19044-7548
+
+**Manual Catalog search:** https://www.catalog.update.microsoft.com/Search.aspx?q=KB5099539
+
+**Consumer ESU (UK):** https://www.microsoft.com/en-gb/windows/extended-security-updates
+Consumer ESU eligibility/activation is separate from the certificate rotation and currently ends on 12 October 2027. Official routes are preferable and must remain opt-in.
+
+**Distinct Secure Boot CA rollout:** https://support.microsoft.com/en-us/servicing/os/secure-boot/2025/06/windows-secure-boot-certificate-expiration-and-ca-updates
+An enabled Secure Boot flag does not identify the firmware's DB/KEK certificate inventory or guarantee updates have completed.
+
+**Community discovery, NOT a trusted installer:** https://github.com/abbodi1406/ConsumerESU
+The maintainer claims local-account enrolment restored Nov 2025, but records failures and server-side policy changes; no Windows Rescue direct download/run/registry spoofing. Treat as experimental research only. A registry flag which fakes OS build/enrolment cannot mint or validate Microsoft certificate trust.
+
+**Audit confidence:** Build and hotfix history are *indicators*, never cryptographic proof. Always show UNKNOWN if absent, and leave installation decisions to the owner. No network/install actions in read-only mode.
