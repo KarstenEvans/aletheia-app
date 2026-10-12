@@ -23,6 +23,7 @@ Read current repository `AGENTS.md`, `README.md`, `aletheia-GUI.md`, `aletheia-d
 ## Actual browser page order
 
 1. Identity, purpose and audit-first promise.
+   - Certificate & Update Health source-linked section must appear close to Update control, not as a second app.
 2. Safety panel and links to PowerShell, Driver Sanctuary, storage guide, Secret Windows and resources.
 3. Questionnaire: RAM, storage, Windows 11/ESU intent, budget, search use, problems and workload.
 4. Build My Rescue Plan.
@@ -37,6 +38,16 @@ Read current repository `AGENTS.md`, `README.md`, `aletheia-GUI.md`, `aletheia-d
 ## Inputs and stored state
 
 Only the chosen AI provider is stored in `localStorage`. Questionnaire answers remain in page state and are not uploaded automatically. Clipboard access is user-triggered. The static page cannot inspect Windows hardware or system files.
+
+## Certificate & Update Health contract (12 October 2026)
+
+Add an explicitly read-only `U → 8 Certificate and Update Health` route to the PowerShell Windows Update submenu, and include its summary in the normal safe audit. The HTML page must give an accessible, source-linked explanation and direct users to the companion for local checks. This section is not a browser-based hardware scan. Keep existing app sections/controls intact.
+
+Report OS caption/version/build, latest visible hotfix (may be incomplete), update-gate indicators, and Secure Boot Enabled/Disabled/Unknown (not firmware 2023 certificate proof). For Windows 10 22H2, compare against the **July 2026 KB5099539 build 19045.7548** as a *likely* update prerequisite only, not actual certificate attestation. Use Microsoft's OS-specific matrix for other Windows releases. Explicitly keep 2027 Windows Update service trust separate from 2026 UEFI Secure Boot certificates. Distinguish Catalog downloads from ESU servicing entitlement, and manual update choice from automatic Windows Update.
+
+No fetching or installing certificates, registry spoofing, firmware writes, enrollment or changes to the existing Update Gate. Never run third-party ESU scripts. When a check is unavailable, print UNKNOWN rather than success.
+
+Verification pending: Windows PowerShell 5.1 parse/execute non-admin/admin on genuine Win10 and Win11; verify no state changes, no unexpected exceptions, correct OS messages and current Microsoft links. Source review does not mean deployed/browser/device verification.
 
 ## Free-space contract
 
