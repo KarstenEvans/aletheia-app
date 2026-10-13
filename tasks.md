@@ -1114,3 +1114,26 @@ Owner explicitly requested `aletheia-app/aletheia-humour/sketches/` after review
 
 The owner explicitly retained the ChatGPT-hosted copy as a test site. It remains untouched; the canonical repository files live at the requested path.
 
+
+## Future backlog: distributed Markdown research tools — 13 October 2026
+
+**Owner decision / scope:** KISS and distributed by design. The GitHub knowledge base may keep reusable attributed/licensed money-saving guidance; original publishers retain their wider content. **User-specific records are saved and retained by the user, not Aletheia.** Aletheia Protocol Markdown (`.md`) is the canonical portable storage/import/export format; CSV/JSON are optional interchange or display formats. The user explicitly requested these notes to be preserved **for later**, not implemented now. See matching sections in [ideas.md](ideas.md).
+
+### SCRAPE-RESEARCH-001 | DEFERRED / RESEARCH ONLY | Scrapling and user-run data collection
+
+- [ ] When resumed, compare links/manual import and official RSS/API/downloads against Scrapling and Browser Use on real, *permitted* sources; verify current licensing, robots/terms, anti-bot boundaries, free operation and maintenance.
+- [ ] Test a Money Saving Reader Markdown knowledge card: actionable advice, categories, original link, attribution/usage rights, publication or review date for variable advice, independent verification of any social-media claim and stale-advice warning.
+- [ ] Test a Rice Intelligence read-only import from selected registered Thailand/Cambodia sources: candidate rows must preserve source/date, grade/crop year, currency, unit, price basis and evidence; existing human-review gate stays before graphing.
+- [ ] Test **user-selected dated Aletheia Protocol Markdown files** for local historical analysis: price trends, geographic maps, timelines/process views and exported dated Markdown analyses. No automatic collection of user files and no central private-data storage.
+- [ ] Compare measured benefit and total cost against current manual/free-first workflows; decide whether a purely optional user-run collector merits a specification. **Do not deploy or commit a new scraper yet.**
+
+### LLM-WORKSPACE-RESEARCH-001 | DEFERRED / RESEARCH ONLY | Odysseus, LibreChat and AnythingLLM
+
+- [ ] Recheck official repository licences (Odysseus AGPL; LibreChat and AnythingLLM MIT), Windows/local hardware requirements, installation effort, provider-independent model selection, MCP/tools, API availability, privacy and actual costs.
+- [ ] Use the *same source-backed, dated* Money Saving and Rice Intelligence Markdown files to compare retrieval quality, conflicting evidence, citation fidelity, stale data and Aletheia Protocol Markdown export/round-trip.
+- [ ] Evaluate AnythingLLM as **optional user desktop software**, LibreChat as a possible model-neutral integration reference, and Odysseus as a research/agent-workflow reference. Record whether any adds clear value over the existing Ctrl-V AI handoff.
+- [ ] Reuse [aletheia-tool-contract.md](aletheia-tool-contract.md) and the existing Rice Intelligence source register; keep read-only tools default, secret keys out of public GitHub, human approval for consequential actions and no compulsory Docker/backend/API/paid AI.
+- [ ] Record a clear **adopt optional idea / document only / reject** decision after a real test. **No installation, public hosting, app rewrite or new standalone app authorised by this backlog item.**
+
+**Resume point:** Open these two deferred ideas, inspect the then-current shared GUI/dev/protocol files and the relevant app's actual source; select the *smallest* proof-of-concept and obtain any needed permission before writes or deployment.
+
