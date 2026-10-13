@@ -473,3 +473,37 @@ Shared GUI/dev adoption remains pending explicit item-by-item approval.
 
 ## Aletheia Story Queue / Go Walkabout productions — 3 October 2026
 Canonical numbered backlog: [Aletheia Story List.md](Aletheia%20Story%20List.md). Includes Copilot's archived Pip story, Sif's distinct MMC-based parallel story, Forgetful AI case, earlier ToomorrowMan/Cabinet stories, and 2010s/2026 story-bank seeds. One source-of-truth queue, no duplicate app; use existing Storyteller + Knowledge + optional Swindon discovery. Command **“Let's do a story”** selects the first incomplete story and runs current Aletheia Improve rules. Each production aims for reviewed text, Storyteller cues, accessible HTM where warranted, knowledge research, YouTube production prompt, authentic assets, resources/books/gifts and links. Archive and rights preserved; publication/verification never assumed.
+
+
+## Deferred research: user-run web collection and Scrapling — 13 October 2026
+
+**Status: FUTURE IDEA ONLY / NOT APPROVED FOR BUILD.** Project candidate **SCRAPE-RESEARCH**. Related source: [Scrapling](https://github.com/D4Vinci/Scrapling); other possibilities include native feeds/APIs, downloadable datasets and [Browser Use](https://github.com/browser-use/browser-use). This is an *optional capability* for existing Aletheia apps, not a new public scraper service or mandatory app.
+
+**Architectural boundary agreed with the project owner (KISS, distributed and reference-first):**
+
+- Aletheia's **shared, reusable knowledge** can live in GitHub Markdown: curated source links, independently written guidance, attributed/licensed excerpts, source metadata and verification notes. Money Saving Reader may store practical advice locally within that *shared knowledge base* so readers need not continually follow an external link; retain source attribution, original URL and the date/review date for advice that can change. Do not copy entire third-party sites or ignore licence restrictions.
+- **User-specific results, research histories, settings and private observations belong to users**, saved where they choose. They can download, explicitly re-import and analyse files. Aletheia must not silently upload or centrally retain their files.
+- **Canonical persisted record/exchange format: Aletheia Protocol Markdown (`.md`)**. Include the [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) and [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) references in generated Markdown, with Thalia optional in substance. JSON/CSV may be transient inputs or optional derived exports, never a replacement for the authoritative Markdown report.
+- Information stays with the original publisher by default. Fetch or transform only when access terms, attribution, licensing and appropriate privacy controls permit. No compulsory proxy, AI API, hosted Python service, database or recurring hosting expense; optional user-run or third-party-hosted collection where justified.
+- Existing **Aletheia Tool Contract** remains the seam: a permitted read/observe collector writes reviewable source receipts and candidate Markdown, not automatically published facts.
+
+**Future comparison / proof-of-concept:** compare (a) source link/manual import, (b) official RSS/API/CSV/PDF, and only where they cannot serve the need (c) local/opt-in Scrapling or browser automation. Test accuracy, maintenance, rate limits, robots/terms, copyright/attribution, accessibility and zero-cost path; validate with genuine permitted sources, not just reconstructed/offline fixtures. Existing offline HTML extraction exercises do **not** prove live Scrapling compatibility.
+
+**Consumer pilot:** Aletheia Money Saving Reader. Store useful source-backed advice as concise independent Markdown knowledge entries with category, practical action, original citation, applicability, source publication/last-check dates where relevant and warnings about expiring rates/rules. Check claims independently, including social-media tips; don't republish restricted copyrighted material.
+
+**Commodity pilot:** Existing [Rice Intelligence](aletheia-rice-intelligence/README.md). Reuse its source register, Thai/Cambodian/Vietnamese scope and review gate. Preserve observation/publication dates, country, location, rice grade/crop year, currency, price/unit, quotation basis (FOB vs farm-gate vs wholesale), original URL, freshness and confidence. A machine-extracted price remains a **candidate pending human source review**, not an executable trade offer. Users save dated protocol Markdown reports themselves; on explicit import of their historical Markdown collection, generate trend charts, maps, timelines, process views and new dated Markdown analyses without a hosted personal database. Do not assume Khmer PDF/OCR/translation is included in Scrapling.
+
+**Next step when revived:** compare simple alternatives first; then decide whether any optional extractor actually adds enough value. No repository scraper, deployment, permission escalation or paid account is authorised now.
+
+## Deferred research: optional local LLM workspaces — 13 October 2026
+
+**Status: FUTURE IDEA ONLY / NOT APPROVED FOR BUILD.** Project candidate **LLM-WORKSPACE-RESEARCH**. Compare [Odysseus](https://github.com/odysseus-dev/odysseus) (AGPL-3.0-or-later), [LibreChat](https://github.com/LibreChat-AI/LibreChat) (MIT) and [AnythingLLM](https://github.com/Mintplex-Labs/anything-llm) (MIT); verify current licences and documentation again before adopting any code.
+
+- Examine *ideas*, portable research techniques, model-independent routing, MCP/tool connections, document retrieval, research comparisons and local Windows practicality. Do not adopt all three platforms or create an Aletheia-specific clone for each AI.
+- Preferred Aletheia path stays **static GitHub Pages + portable Aletheia Protocol Markdown + user-selected AI/handoff**, supported by the current Tool Contract and human permission gates. No compulsory self-hosted app, Docker deployment, ongoing inference server, vendor-specific agent, subscription or public API bridge.
+- AnythingLLM might suit a **user-installed desktop experiment**; LibreChat may offer reusable model-neutral design concepts; Odysseus may be valuable for research workflows. All are *optional user-chosen external tools*, not required Aletheia infrastructure.
+- Assess cost, maintenance, memory/hardware on Windows, provider choice, offline/local options, AGPL/MIT duties, privacy, key storage, licence/rights, tool authority and portable output. Distinguish consumer subscriptions from separately charged APIs and free source code from free inference.
+- Evaluate on the **same dated Rice Intelligence and Money Saving Reader reports**: citation accuracy, contradictions, stale-data flags, local Markdown round-trip, user-controlled retention and meaningful improvement over existing copy/open workflows.
+
+**Decision gate:** promote only a small optional capability with demonstrated benefit and zero mandatory hosting; otherwise keep source links and leave it in the research backlog.
+
