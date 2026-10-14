@@ -4,6 +4,11 @@ Portable Markdown and HTML applications using the [Aletheia Protocol](https://gi
 
 Each app lives in its own lowercase folder. The portable Markdown file is the application; an HTML interface is added only when it provides a genuine benefit.
 
+## Aletheia What's On
+
+- [Open worldwide What's On](https://karstenevans.github.io/aletheia-app/aletheia-whats-on/aletheia-whats-on.htm) — location-first, worldwide, provider-neutral discovery of films, shows, fairs, attractions, history, art, walks, food and local tourism directories. Static AI handoff, not an embedded live events API.
+- [Canonical Markdown](aletheia-whats-on/aletheia-whats-on.md) · [Page spec](aletheia-whats-on/aletheia-whats-on-page.md). Export or manually import private `settings.md`.
+
 ## Start here for app work
 
 - `AGENTS.md` — short router for coding/agent tools.
