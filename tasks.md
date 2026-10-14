@@ -2,6 +2,9 @@
 
 ## Worldwide What's On (14 October 2026)
 
+**Canonical publishing path:** `aletheia-whatson/`; earlier `aletheia-whats-on/` is a previous draft, not the directory-linked entry. Resource page `aletheia-whatson-rsc.htm` with untracked book links and candidate affiliate applications. No publisher application submitted.
+
+
 - [x] Create worldwide HTML, canonical portable Markdown and page specification.
 - [x] Register in main Apps index and README.
 - [x] Location-first AI handoff, optional interests/period/provider and private settings.md export/import.
