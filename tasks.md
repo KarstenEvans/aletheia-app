@@ -1,5 +1,14 @@
 # Aletheia Apps - Tasks
 
+## Worldwide What's On (14 October 2026)
+
+- [x] Create worldwide HTML, canonical portable Markdown and page specification.
+- [x] Register in main Apps index and README.
+- [x] Location-first AI handoff, optional interests/period/provider and private settings.md export/import.
+- [ ] Complete live browser QA including mobile/Safari, popup and clipboard fallbacks and Niš, Serbia search.
+- [ ] Review gateway hero art display and final visual QA.
+
+
 ## Windows Rescue / 2027 certificate-health extension (12 October 2026)
 
 **Status: SOURCE UPDATED / WINDOWS DEVICE TEST PENDING.** Canonical app folder: `aletheia-windows-debloat/`.
