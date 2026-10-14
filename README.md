@@ -6,8 +6,8 @@ Each app lives in its own lowercase folder. The portable Markdown file is the ap
 
 ## Aletheia What's On
 
-- [Open worldwide What's On](https://karstenevans.github.io/aletheia-app/aletheia-whats-on/aletheia-whats-on.htm) — location-first, worldwide, provider-neutral discovery of films, shows, fairs, attractions, history, art, walks, food and local tourism directories. Static AI handoff, not an embedded live events API.
-- [Canonical Markdown](aletheia-whats-on/aletheia-whats-on.md) · [Page spec](aletheia-whats-on/aletheia-whats-on-page.md). Export or manually import private `settings.md`.
+- [Open worldwide What's On](https://karstenevans.github.io/aletheia-app/aletheia-whatson/aletheia-whatson.htm) — location-first, worldwide, provider-neutral discovery of films, shows, fairs, attractions, history, art, walks, food and local tourism directories. Static AI handoff, not an embedded live events API.
+- [Canonical Markdown](aletheia-whatson/aletheia-whatson.md) · [Travel books and resources](aletheia-whatson/aletheia-whatson-rsc.htm) · [Page spec](aletheia-whatson/aletheia-whatson-page.md). Export or manually import private `settings.md`.
 
 ## Start here for app work
 
