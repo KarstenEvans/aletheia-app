@@ -7,7 +7,7 @@ Reference pattern: Aletheia Rice Intelligence
 - Keep a clean, simple page. Do not display the full catalogue of topics or long lists of courses.
 - Primary control: **What would you like to learn?** free-text question and **Start Learning**.
 - Top-right **Settings** icon/button.
-- Bottom of main page: prominent **Surprise Me!** button.
+- Put **Start Learning** and **Surprise Me!** side by side on the same row, beneath the question field. Both must be normal compact button sizes (auto-width), not full-width. On narrow screens they may wrap without stretching.
 - The Surprise Me button starts a random, short, beginner-friendly lesson from enabled topic interests; if none are enabled, use general-interest topics and say so.
 - Avoid clutter, extra panels and compulsory sign-up.
 
@@ -28,7 +28,7 @@ Reference pattern: Aletheia Rice Intelligence
 - Keep learner settings and progress user-controlled and portable, with offline-readable fallbacks.
 
 ## KISS acceptance test
-The entire initial screen should make sense to a newcomer in under ten seconds: ask, start, settings, or surprise me. No long catalogue on the main page.
+The entire initial screen should make sense to a newcomer in under ten seconds: ask, start, settings, or surprise me. Start Learning and Surprise Me sit on the same line at normal button widths. No long catalogue on the main page.
 
 ## Implementation note
 This is a design decision record, not an assertion that the live Learn UI has been changed. Integrate into the existing Learn code when the actual application entrypoint is located and tested.
