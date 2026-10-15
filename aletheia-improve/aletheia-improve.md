@@ -8,6 +8,8 @@ resource_page: "aletheia-improve-rsc.htm"
 
 # Aletheia Improve
 
+> **Generated-Markdown contract:** Every Markdown pack, evidence receipt, checkpoint or report produced by Aletheia Improve must visibly include [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) (evidence, provenance and uncertainty) and [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) (optional appropriate humour and positivity) near the beginning, after any front matter and title. This applies even when humour is not used or a result is partial. A generated Markdown file missing either canonical reference fails validation. This is an existing shared GUI/dev requirement, not a Stanford-derived feature.
+
 Aletheia Improve finds the current source of an Aletheia project, discovers what already exists, loads the relevant rules and evidence, researches what has changed, then proposes or implements the smallest useful improvement.
 
 It is not a licence to rewrite everything.
