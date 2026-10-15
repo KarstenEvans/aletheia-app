@@ -1,11 +1,25 @@
 ---
 title: Aletheia Improve — generated Markdown protocol-link regression receipt
 date: 2026-10-15
-status: SOURCE-COMMIT-AND-STATIC-PACK-TEST-PASSED__LIVE-DEVICE-NOT-TESTED
+status: EXPERIMENT-ROLLED-BACK__PROPOSAL-PENDING-APPROVAL
 task: IMPROVE-EVAL-001
 ---
 
 # Aletheia Improve — one-pass follow-up and targeted contract correction
+
+## Audit correction — 15 October 2026 (latest disposition)
+
+**The changes described below were a temporary source-level experiment, not approved app implementation. They have now been REVERTED from the three canonical Improve files.** The user's request to continue testing was not an explicit approval to change the live launcher. The existing `aletheia-improve.md` self-improvement guard requires the normal app-specific approval/review boundary before HTML/JS/runtime implementation.
+
+Restored canonical file blob SHAs (same as prior baseline):
+- `aletheia-improve.md`: `8a9c5b5b724b29c3f3535ac64af79ef6bd05228b`
+- `aletheia-improve-page.md`: `70d8f11edfb3b940bd92ce658ed4a27774e9058c`
+- `aletheia-improve.htm`: `32655c8a0cfd93a8550312670a0a674664dc9648`
+
+Historical V8 static tests below did pass on the **temporary patch**, but they are **not acceptance for deployment or evidence of current implementation**. The proposed protocol-link correction is a genuine issue against the root GUI/dev output contract; retain it as a **proposal awaiting explicit authorisation**, not as installed functionality. No live/device test was performed, no cross-provider receiving-AI A/B test was performed, and no Stanford-derived evaluation feature was approved.
+
+**Current decision:** preserve the prior approved Improve runtime intact; continue read-only research only when requested. Do not modify shared contracts or re-run recursive Improve.
+
 
 > [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) controls evidence, provenance, authority and uncertainty. [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) provides optional appropriate humour and a constructive tone.
 >
