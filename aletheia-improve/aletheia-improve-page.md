@@ -14,6 +14,8 @@ Give a person one simple place to name an Aletheia app/project, optionally descr
 
 The page itself is not the AI and does not pretend to edit GitHub by magic.
 
+**Output contract:** Every generated Markdown improvement pack must include the canonical [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) and [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) links near the title, with their separate roles. The HTML must emit the links directly instead of depending on optional source excerpts. This enforces existing root GUI/dev instructions; no new interface or AI evaluator is requested.
+
 ## Source of truth and reading order
 
 1. root \`AGENTS.md\`, \`README.md\`, \`aletheia-GUI.md\`, \`aletheia-dev.md\`, \`aletheia-code.md\`, \`tasks.md\`;
@@ -213,6 +215,7 @@ STATIC:
 - no duplicate element IDs;
 - provider URLs are explicit;
 - memory parser has embedded fallback.
+- generated Markdown pack includes both canonical protocol URLs even when no fetched source excerpts are available; their roles remain distinct.
 
 LOCAL BROWSER:
 - target search builds matches;
