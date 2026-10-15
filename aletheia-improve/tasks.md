@@ -1,5 +1,18 @@
 # Aletheia Improve tasks
 
+## IMPROVE-EVAL-001 | Stanford CME295 evaluation fixture | 15 October 2026
+
+**Status: OFFLINE SOURCE-FIXTURE PILOT DONE / RECEIVING-AI AND LIVE BROWSER TESTS PENDING.** Full self-contained research and result receipt: [evaluation pilot Markdown](aletheia-improve-evaluation-pilot-2026-10-15.md). Related research: [Stanford CME 295, Aletheia Knowledge](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/knowledge/aletheia-stanford-cme295.md).
+
+- [x] Read current app/root contracts and actual Improve Markdown, page spec, HTML, memory, local tasks/ideas before analysing evaluation gaps.
+- [x] Inspect current GitHub HTML/spec/tasks for PDF manual attachment, no automatic GitHub writes, handoff pack generation and unverified device tests.
+- [x] Run a **structured source-assertion fixture** with three synthetic answers to one fixed question: correct = PASS; false = FAIL (three contradicted claims); incomplete = PARTIAL (three material omissions).
+- [x] Correct first harness false alarm caused by relying on a sentence found in root tasks but not local tasks; rerun four ground-truth source anchors successfully.
+- [ ] Run **actual** existing Improve prompt on those three cases in a receiving AI, then compare with a concise added evaluation rubric; record provider, exact prompts, output, order sensitivity, false positives and source receipts. Fixture evaluation does NOT establish real AI detection rates.
+- [ ] Live browser/device QA remains a separate pending task; no app, shared GUI/dev/code, protocol or HTML changes authorised by this pilot.
+
+**Decision:** Candidate is one short optional completeness/evidence check in existing Improve instruction/handoff layer. Adopt only after demonstrated benefit and review. No new app or AI judge.
+
 ## v0.1
 
 - [x] Create canonical Improve workflow specification.
