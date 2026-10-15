@@ -532,6 +532,13 @@ This is now part of `aletheia-GUI.md` / `aletheia-dev.md` and should inform futu
 
 ## Aletheia Improve — 24 September 2026
 
+### IMPROVE-EVAL-001 | SOURCE-FIXTURE PILOT COMPLETE / AI A-B PENDING | 15 October 2026
+
+- [x] Read canonical Improve app/workflow, HTML, page spec, memory, root rules and local task/idea contracts; no changes to existing behaviour.
+- [x] Record [Stanford CME295 evaluation source-fixture pilot](aletheia-improve/aletheia-improve-evaluation-pilot-2026-10-15.md). Source assertions distinguish correct PASS, false FAIL and true-but-incomplete PARTIAL; initial brittle wording match was corrected.
+- [ ] Test real receiving-AI baseline and compact-rubric versions with exact fixed inputs and source verification. No production model benchmarks, browser/device QA or proof of quality improvement yet.
+- [ ] If validated, propose the smallest improvement to the existing Improve prompt/receipt for explicit review; no new app or self-recursive Improve run.
+
 ### IMPROVE-001 | SOURCE BUILD COMPLETE / VERIFY LIVE
 
 Created \`aletheia-improve/\` with:
