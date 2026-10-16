@@ -58,6 +58,19 @@ If a fragment grows into a multi-stage workflow, move it into a dedicated app an
 6. Exclude downloads, anchors, `mailto:` and `tel:`.
 7. Open synchronously from the user's click when browser activation is required.
 
+## TRUST-CHECK (composable Aletheia routine)
+
+**Signature:** `TRUST-CHECK(target, mode="DEEP", jurisdiction="", context="", parent_task="")`.
+
+1. If supplied as an add-on to an existing A2Z, Swindon, Discover or other task, complete that task first; append only the material trust findings, not a second independent search experience.
+2. Resolve the exact business/product/app/website/claim identity, real operating jurisdiction and any explicitly supplied user region. Never infer precise physical location or default every visitor to the UK.
+3. Apply the **single canonical** workflow at [`aletheia-trust-check/aletheia-trust-check.md`](aletheia-trust-check/aletheia-trust-check.md), including relevant regulator, reviews, accessible social/Reddit/Discord, fake-AI/fake-news and technical-source checks. The `mode` chooses QUICK/DEEP/SCAM/TECH/NEWS/HEALTH scope.
+4. Use live sources only if tools actually provide access; record opened URLs/date and report `NOT CHECKED` without speculation when sources are unavailable. A `name + scam` match is a clue, never an automatic fraud conclusion.
+5. Return the original useful answer first, then trust indication `reassuring / mixed / caution / insufficient evidence`, confidence, strongest evidence, conflict/gaps and risk-proportionate next steps. For credible scam risk include verified relevant **country-specific** official reporting routes. Never fabricate numerical scores or file a report without approval.
+6. A static website invoking this routine may reuse **CTRL-V-AI-HANDOFF** below/above with a self-contained abbreviated contract and a canonical source link. The `.htm` page is merely a user-facing launcher, not a live verifier.
+
+**Canonical app:** `aletheia-trust-check/aletheia-trust-check.md`. **Resources:** `aletheia-trust-check/aletheia-trust-check-rsc.htm`. Reuse it across apps rather than copying and drifting the rules.
+
 ## CTRL-V-AI-HANDOFF
 1. Build the complete compact AI payload synchronously from already available page state.
 2. Put it into an off-screen textarea, select it and attempt synchronous copy while the page still owns the user click.
