@@ -3,12 +3,18 @@
 - [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence, provenance and uncertainty.
 - [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional presentation only.
 
-**Status:** worldwide application v0.4 under draft PR review (11 October 2026). No confirmed live deployment.
+**Status:** worldwide application v0.5 publication candidate (16 October 2026). Source and simulated handoff checks pass; browser/device/live verification pending.
 **Owner:** [`KarstenEvans/aletheia-app`](https://github.com/KarstenEvans/aletheia-app), not SwindonOrgUK.
+
+## Use it now
+
+Open `aletheia-trust-check.htm`, paste a post/claim/name/link, choose your AI and click Trust Check. Paste and send in the opened AI. Use Download .md to keep the full portable app, or Save this check in the prepared-text panel to retain a specific request. The HTML embeds the complete current method and does not require a raw-file fetch. FACTS mode adds claim-by-claim evidence without replacing business/offer checks.
+
+Full comparison and actual tests: [Aletheia-04 receipt](Aletheia-04-Trust-Check-Publication-Improve.md).
 
 ## What it does
 
-Enter the exact subject and click **Trust Check**. The `.htm` page synchronously copies an evidence-review prompt and opens a user-selected AI for paste and Send. The **receiving AI**, not the static web page, researches official sources, public social media, scam leads, company claims, technical notes and fake-AI/fake-news evidence using its real available tools. It must report inaccessible sources and offer relevant official reporting channels for plausible scams.
+Paste the text or enter the exact subject and click **Trust Check**. The `.htm` page synchronously copies an evidence-review prompt and opens a user-selected AI for paste and Send. The **receiving AI**, not the static web page, researches official sources, public social media, scam leads, company claims, technical notes and fake-AI/fake-news evidence using its real available tools. It must report inaccessible sources and offer relevant official reporting channels for plausible scams.
 
 For A2Z/Swindon.org.uk or another app, use **`TRUST-CHECK(target, mode, jurisdiction, context, parent_task)`** in the shared `../aletheia-code.md` as an optional composable routine. The full behavioural contract remains here as Markdown, not duplicated in the Swindon site.
 

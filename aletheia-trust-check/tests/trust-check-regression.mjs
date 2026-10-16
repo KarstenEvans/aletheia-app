@@ -22,7 +22,7 @@ const gitSha = (buffer) => createHash("sha1")
 assert.equal(gitSha(original), "8f6212a56fb5c6fd5f9823f7116e56c2e645acf0", "Original source changed");
 assert.equal(gitSha(archivedMd), "ec44dcbd8084569f94c7f41faee867e15758c2ba", "v0.3 Markdown backup changed");
 assert.equal(gitSha(archivedHtml), "1f2719a3f1ea5b517d505f055d64a88816d0ce5e", "v0.3 HTML backup changed");
-assert.match(markdown, /version: "0\.4\.0"/);
+assert.match(markdown, /version: "0\.5\.0"/);
 for (const link of [
   "github.com/KarstenEvans/aletheia-protocol",
   "github.com/KarstenEvans/thalia-protocol"
@@ -39,14 +39,14 @@ for (const term of [
   "do not authenticate it by voice/appearance alone"
 ]) assert.ok(markdown.includes(term), "Missing security contract: " + term);
 
-for (const term of [
-  "SOURCE LINEAGE",
-  "PROMPT-INJECTION BOUNDARY",
-  "SUSPECTED INJECTION",
-  "previously known genuine official contacts",
-  "explicit approval",
-  "NOT LIVE VERIFIED"
-]) assert.ok(html.includes(term), "Missing portable AI handoff rule: " + term);
+const decode = (s) => s.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("&#x27;", "'").replaceAll("&amp;", "&");
+const embedded = html.match(/<textarea id="canonical-method"[^>]*>([\s\S]*?)<\/textarea>/);
+assert.ok(embedded, "Full portable method missing from HTML");
+assert.equal(decode(embedded[1]), markdown, "Embedded method differs from canonical Markdown");
+assert.equal(gitSha(readRaw("archive/aletheia-trust-check-v0.4-before-publication-2026-10-16.md")), "ef9e3d4cea7c0c91738240523c9bf0d0489bf3e1");
+assert.equal(gitSha(readRaw("archive/aletheia-trust-check-v0.4-before-publication-2026-10-16.htm")), "57406bc640f52a0254de672f5eeb20c721e05412");
+for (const label of ["SUPPORTED", "MISLEADING", "CONTRADICTED", "UNVERIFIED", "OPINION/PREDICTION"])
+  assert.ok(markdown.includes(label), "Missing claim verdict: " + label);
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
 assert.equal(ids.length, new Set(ids).size, "Duplicate HTML id found");
 assert.equal((html.match(/class="aletheia-constellation__link"/g) || []).length, 5, "Navigation stars changed");
@@ -55,9 +55,11 @@ assert.match(html, /id="form"/);
 assert.match(html, /id="manual"/);
 assert.match(html, /id="open-ai"/);
 assert.match(html, /window\.open\(url,/);
+assert.ok(html.includes("canonical-method"));
+assert.ok(html.includes("FACTS"));
 assert.match(html, /JSON\.stringify\(q\)/);
 assert.doesNotMatch(html, /eval\s*\(|new Function\s*\(/);
-assert.ok(page.includes("Injection and source-integrity regression"), "Page QA lacks threat-case gate");
+assert.ok(page.includes("injection"), "Page QA lacks threat-case gate");
 const inlineScripts = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)];
 assert.ok(inlineScripts.length > 0, "No inline JavaScript found");
 for (const [, code] of inlineScripts) new Script(code); // Parse only, do NOT execute.

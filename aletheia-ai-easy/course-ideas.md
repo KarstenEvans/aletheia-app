@@ -30,6 +30,7 @@ Build a course only when a topic benefits from practice, examples, exercises or 
 
 7. **Storytelling and Content with AI**  
    Find a message, turn real experience into useful stories, plan formats, create/edit video and measure what actually works. Link to good external public material, including selected Creator College/Jun Yuh videos where genuinely relevant. Do not copy their paid course material.
+   **Progress (12 October 2026):** An introductory five-stage short-video lesson is now present in `aletheia-learn/aletheia-learn-video-making.md` and linked from the Learn launcher. It is a practical production-pack lesson, **not** the full future storytelling/content course and **not** a finished video renderer.
 
 8. **AI for a Local Business**  
    Website copy, FAQs, bookings, local search, reviews, content, customer messages and simple automation, with Royal Orchid Thai Massage as a possible worked example after owner approval.

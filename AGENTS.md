@@ -2,6 +2,10 @@
 
 This is a small entry-point for coding agents. It points to the real project files rather than duplicating them.
 
+## Mandatory Aletheia Safe Bootstrap
+
+Before any material Aletheia project task, **read [ALETHEIA-SAFE-BOOTSTRAP.md](ALETHEIA-SAFE-BOOTSTRAP.md)** from the current repository together with the current README, GUI, Dev, Code, Ideas, Tasks and applicable app-local files. The bootstrap requires source-read receipts, scoped authorisation for writes, **free-first/session-safe Markdown checkpoints**, and a stop rule. It supplements, and never replaces, the more specific contracts below. It does **not** grant permission to change shared standards, app code, GitHub settings or other repositories.
+
 ## Read first
 
 1. `README.md`

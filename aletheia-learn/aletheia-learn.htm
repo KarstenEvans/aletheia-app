@@ -34,6 +34,12 @@ footer{margin-top:28px;padding:24px 0;background:var(--nav);color:#fff}footer a{
 <p><strong>New to AI?</strong> Start with the complete Aletheia AI Fluency course. It explains each lesson before asking questions, lets you select your AI tutor, and includes a narrated Aletheia universe introduction.</p>
 <p><a class="primary" href="aletheia-learn-ai-fluency.htm" data-awinignore>Open AI 101 Course ↗</a> &nbsp; <a href="aletheia-learn-ai-fluency.md" data-awinignore>Read course Markdown</a></p>
 </section>
+<section class="panel" aria-labelledby="video-course-title" data-aletheia-focus-hide>
+<h2 id="video-course-title">Make a short video 🎬</h2>
+<p>Five practical steps: <strong>script → shot list → film with what you have → captions → optional AI-video instructions</strong>. Start with an example, then build your own 15-, 30- or 60-second production plan.</p>
+<div class="actions"><button class="action" id="videoLesson" type="button">Try the video lesson</button><a class="secondary" href="aletheia-learn-video-making.md" data-awinignore>Lesson instructions ↗</a></div>
+<p class="fine">Uses your selected AI through the existing handoff. This creates a plan, not a video file.</p>
+</section>
 <section class="panel" id="start" data-aletheia-read-region>
 <h2>Start Aletheia Learn</h2>
 <details id="setupOnce">
@@ -143,6 +149,17 @@ $('provider').addEventListener('change',function(){
 });
 $('goal').addEventListener('input',refreshPayload);
 
+$('videoLesson').addEventListener('click',function(){
+ const example="START VIDEO. Teach me the five-stage Aletheia Learn video-making lesson: script and hook, shot list, filming with what is available, readable draft captions, and optional AI-video-generation instructions. I want to create a 30-second video for older adults new to AI about understanding a confusing letter using a phone, kitchen table and window. First explain with a tiny worked example, then ask me what video I want to create. Support 15-, 30- or 60-second videos. Honour HELP, NEXT, BACK, EXAMPLE, SKIP and ANSWER NOW. Produce an exportable production pack with draft scene times, truthful asset/rendering status, privacy and rights checks, and Aletheia/Thalia references. Lesson source: https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-learn/aletheia-learn-video-making.md";
+ if($('goal').value.trim() && !window.confirm('Replace your current learning goal with the video lesson example?'))return;
+ $('goal').value=example;
+ const b=document.querySelector('[data-mode="DO WITH ME"]');
+ if(b)b.click();
+ refreshPayload();
+ $('goal').scrollIntoView({block:'center',behavior:'auto'});
+ $('goal').focus();
+ const st=$('status');st.className='status ok';st.textContent='Video lesson loaded. Edit the example if needed, choose your AI and press Start Aletheia Learn.';
+});
 const LEARNING_PROFILE="When I type an Aletheia Learn command (LEA, HI, PRA, TES, REC, REM, REV, VIS, MAT, DRA, TBA, FOC, SLO, ANS, PRO, SAV) or explicitly ask to learn, switch into learning-coach mode. Otherwise respond normally.\\n\\nIn learning-coach mode, help me learn by doing rather than automatically completing the task. Prefer one meaningful learner action per turn. Use the Hint Ladder: H0 attempt, H1 orient, H2 strategy, H3 partial scaffold, H4 worked analogue, H5 direct solution. If I ask ANS / ANSWER NOW, give the answer. After supported success, use retrieval, a changed example, teach-back or transfer before calling the skill independent. Use useful visuals, matching, sorting, drawing/labeling, prediction, calculation or explanation when appropriate. Keep accessibility support available: simplify, define, translate, visualise, chunk, read/speak options when genuinely supported. Do not infer a diagnosis or fixed learning style. Distinguish AI-assisted output from evidence I can do it independently. Keep replies concise and mobile-friendly.";
 
 function payload(){

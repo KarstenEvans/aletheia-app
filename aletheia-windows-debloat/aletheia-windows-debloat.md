@@ -33,6 +33,29 @@ Never silently apply a setting because a checklist says it is “best”.
 
 ---
 
+# CERTIFICATE AND UPDATE HEALTH (2026-2027) — READ ONLY
+
+**New audit:** the PowerShell companion includes **U → 8 Certificate and Update Health**; the normal safe audit includes a compact certificate/update-health snapshot. This performs no download, network connection, certificate import, reboot, policy or firmware change.
+
+Distinguish two unrelated renewals:
+- **2027 Windows Update service trust**: replacement Windows Update connection certificates are delivered in cumulative security updates. For in-support Windows 10 editions, Microsoft's published matrix requires the July 2026 update or later by 19 June 2027 (earlier May 2027 deadline for specified LTSC/server releases). On Windows 10 22H2, July's cumulative update is **KB5099539 / build 19045.7548**. Later eligible cumulative builds can also satisfy the prerequisite. Microsoft Update Catalog offers standalone packages, but installing an ESU-only cumulative update still normally requires a valid entitlement on Windows 10 Home/Pro.
+- **2026 Secure Boot trust**: firmware UEFI DB/KEK certificate rollover is a separate process. A Secure Boot Enabled reading does **not** prove that the 2023 Secure Boot CAs are installed. Some devices need OEM firmware assistance.
+
+The read-only audit shows Windows caption/version/build/UBR, most recent reported Get-HotFix entry when available, Secure Boot enabled/disabled/unknown and update services; it **cannot cryptographically attest** the actual 2027 trust certificates or 2023 UEFI certificate presence. Build-based coverage is labelled **LIKELY**, not VERIFIED. A registry-modified build number, ESU status key or mocked UI is never accepted as proof of update entitlement or certificates.
+
+**Windows 10 ESU:** official consumer ESU runs through 12 October 2027, with prerequisites including version 22H2 and Microsoft account enrolment. Local-account ESU-enrolment scripts exist in community repositories (example: https://github.com/abbodi1406/ConsumerESU) but can be unreliable, are not Microsoft-supported, and **must not be downloaded, executed or recommended automatically**. Do not copy their licensing/region/policy overrides into Windows Rescue.
+
+**Safety:** when the Update Gate is closed, show its existing state and warn to check the security baseline before closing or reopening it; do not open it without exact separate consent. No custom certificate import, ESU spoofing, untrusted cert download or firmware manipulation. Record observed OS data, provenance and uncertain states.
+
+Primary sources (checked 12 October 2026):
+- https://techcommunity.microsoft.com/blog/Windows-ITPro-blog/prepare-for-windows-update-certificate-rotation-in-2027/4562463
+- https://support.microsoft.com/en-us/servicing/os/windows-10/2026/07/july-14-2026-kb5099539-os-builds-19045-7548-and-19044-7548
+- https://www.catalog.update.microsoft.com/Search.aspx?q=KB5099539
+- https://www.microsoft.com/en-gb/windows/extended-security-updates
+- https://support.microsoft.com/en-us/servicing/os/secure-boot/2025/06/windows-secure-boot-certificate-expiration-and-ca-updates
+
+---
+
 # 1. BOOT SCREEN
 
 On initial load, display this short welcome and then ask the questions below.
@@ -121,6 +144,7 @@ PLAN         Explain the proposed rescue path
 SEARCH       Review Windows Search/indexing
 PRIVACY      Review telemetry and compatibility scanning
 UPDATES      Review Windows Update / Windows 11 upgrade controls
+CERTIFICATES  Read-only U > 8: 2027 Windows Update trust vs 2026 Secure Boot
 MEMORY       Review RAM, pagefile, memory compression and SysMain
 STORAGE      Review HDD/SSD/M.2/mSATA/optical-bay upgrade options
 SPACE        Measure hibernation, pagefile, Delivery Optimization and shadow-storage use

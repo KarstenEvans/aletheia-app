@@ -1,14 +1,58 @@
 # Aletheia Apps - Tasks
 
-## Aletheia Trust Check — worldwide app, 10 October 2026
+## Aletheia Trust Check — worldwide v0.5 candidate, 16 October 2026
 
 **Owner:** `KarstenEvans/aletheia-app/aletheia-trust-check/`, review branch `feature/aletheia-trust-check-worldwide-20261010`. Aletheia Protocol and Thalia references appear in the canonical Markdown and generated prompt.
 
 - [x] Redirect ownership away from earlier SwindonOrgUK draft #4 (superseded, not published); one portable engine for Swindon A2Z and worldwide Aletheia.
 - [x] Preserve original Trust Check, extend worldwide jurisdiction + public Reddit/Discord/social + Microsoft technical sources + scam, fake AI, fake news and provenance investigation.
 - [x] New provider-neutral Ctrl-V HTML handoff, source-first `-rsc.htm` reporting and books/gifts page, exact page spec, short `TRUST-CHECK` code-library routine.
-- [ ] Browser/AI/device QA and manual fallback verification; test reporting route relevance and missing-source receipts.
+- [x] v0.5 claim/pasted-post UI, full embedded Markdown and downloads; static regression and 13 simulated handoff cases passed.
+- [ ] Browser/AI/device QA and real clipboard/popup verification; simulated tests do not establish device behaviour.
 - [ ] Approve PR, merge, check public GitHub Pages URL and downstream A2Z integration only after inspecting current production source. **No live publication claim.**
+
+## Worldwide What's On (14 October 2026)
+
+**Canonical publishing path:** `aletheia-whatson/`; earlier `aletheia-whats-on/` is a previous draft, not the directory-linked entry. Resource page `aletheia-whatson-rsc.htm` with untracked book links and candidate affiliate applications. No publisher application submitted.
+
+
+- [x] Create worldwide HTML, canonical portable Markdown and page specification.
+- [x] Register in main Apps index and README.
+- [x] Location-first AI handoff, optional interests/period/provider and private settings.md export/import.
+- [ ] Complete live browser QA including mobile/Safari, popup and clipboard fallbacks and Niš, Serbia search.
+- [ ] Review gateway hero art display and final visual QA.
+
+
+## Windows Rescue / 2027 certificate-health extension (12 October 2026)
+
+**Status: SOURCE UPDATED / WINDOWS DEVICE TEST PENDING.** Canonical app folder: `aletheia-windows-debloat/`.
+
+- [x] Research Microsoft 2027 Windows Update certificate rotation, distinct Secure Boot 2026 update, July 2026 Win10 KB5099539, Catalog/manual installs and ESU eligibility.
+- [x] Add read-only Windows Update submenu route `U > 8`, include likely/update-unknown status in safe audit; no certificate import or update-service change.
+- [x] Explain in HTML, canonical Markdown, page specification and source register; third-party community ESU scripts are research-only.
+- [ ] Validate PowerShell syntax + run on actual Windows 10 and Windows 11 as admin and non-admin; test unknown Secure Boot and OS states.
+- [ ] Check GitHub Pages live, mobile display, links, and confirm no broken prior buttons/plan/rollback routes.
+- [ ] Swindon.org.uk placement: link from Resources → Windows & PC Help when reconciled with **production**; do not overwrite live site from incomplete mirror.
+- [ ] Future worldwide Aletheia website: Apps → Computing & Security links to the **same** maintained Aletheia app; no duplicate tool clone.
+
+
+
+## AI content and UsefulPrompts integration (12 October 2026)
+
+**Scope:** Integrate into existing apps/Skills, not a new tool collection yet. Original credit https://usefulprompts.ai/ and user-provided @usefulpromptsai Threads screenshots. Cross-repository research: `KarstenEvans/aletheia-knowledge/resources/usefulprompts-ai-rsc.htm`.
+
+- [x] Review current app and Skills paths; confirm Content Repurposer and GEO/AEO Optimizer live under `KarstenEvans/11-aletheia-enabled-workflow-skills/skills/`, not inside Site Audit, Aletheia Code or the provider's built-in plugins.
+- [x] Create teacher-first, five-stage `aletheia-learn/aletheia-learn-video-making.md` with protocol links, sample, commands and honest production pack.
+- [x] Add a compact **Try the video lesson** entry to existing Learn HTML with goal prefill and normal handoff; update main Learn Markdown and page spec without replacing other modes.
+- [x] Add an **unchecked** GEO/AEO final-content-pass option to Site Audit handoff, canonical Markdown and page specification, linking existing portable Skill without claiming it has run.
+- [ ] Run real mobile/desktop keyboard, video button, provider copy/paste and popup tests; sample at least ChatGPT plus one non-OpenAI AI; check exported Markdown Aletheia+Thalia links, captions versus scene plan and fact/privacy checks.
+- [ ] Run real Site Audit dry runs with Stage 6 off/on, confirm input parsing, clipboard fallback, Skill-access receipt, source support and unchanged production files. Avoid unsupported claim of ranking changes.
+- [ ] Review Knowledge resource link, creator credit and 15 original tool destinations; independent published Pages inspection; correct any broken links.
+- [ ] Prototype AI Easy **Talk to AI** four-question beginner mode only after checking existing AI Easy Learn onboarding; teach normal speech rather than technical 'prompts'.
+- [ ] Evaluate targeted Job Search CV/interview presets, Storyteller image preset, Publisher LinkedIn/marketing hook and Improve/Dev PRD/Skill/agent outline as existing-feature extensions.
+- [ ] Optional future: create a minimal **Aletheia AI Tools** index linking verified working apps/Skills, only after real user value is demonstrated. No duplicated implementations or rushed publication.
+- [ ] Log real rendering/media export/actual upload as separate capabilities if ever implemented; never mark plan output as rendered media.
+
 
 > **Purpose:** One working list for getting the Aletheia applications running, tested, linked and published.
 >
@@ -498,6 +542,13 @@ This is now part of `aletheia-GUI.md` / `aletheia-dev.md` and should inform futu
 
 
 ## Aletheia Improve — 24 September 2026
+
+### IMPROVE-EVAL-001 | SOURCE-FIXTURE PILOT COMPLETE / AI A-B PENDING | 15 October 2026
+
+- [x] Read canonical Improve app/workflow, HTML, page spec, memory, root rules and local task/idea contracts; no changes to existing behaviour.
+- [x] Record [Stanford CME295 evaluation source-fixture pilot](aletheia-improve/aletheia-improve-evaluation-pilot-2026-10-15.md). Source assertions distinguish correct PASS, false FAIL and true-but-incomplete PARTIAL; initial brittle wording match was corrected.
+- [ ] Test real receiving-AI baseline and compact-rubric versions with exact fixed inputs and source verification. No production model benchmarks, browser/device QA or proof of quality improvement yet.
+- [ ] If validated, propose the smallest improvement to the existing Improve prompt/receipt for explicit review; no new app or self-recursive Improve run.
 
 ### IMPROVE-001 | SOURCE BUILD COMPLETE / VERIFY LIVE
 
@@ -1078,4 +1129,41 @@ Original course Markdown, `workout.json`, HTML, JavaScript, poster and PWA files
 - [ ] On-device browser SpeechSynthesis, UK voice, selector-change unlock, scroll synchrony, pause/replay and reduced-motion behaviour.
 - [ ] Clipboard/popup blocked, large-prompt limits and pasted first course response for all seven providers.
 - [ ] Seasonal star date-window and external plan/link availability continued checks.
+
+
+
+## HUMOUR-SKETCHES-001 — canonical placement correction (12 October 2026)
+
+Owner explicitly requested `aletheia-app/aletheia-humour/sketches/` after reviewing an incorrectly hosted ChatGPT preview.
+
+- [x] Prepare both sketch folders, portable contracts, page specifications, resources and Humour Keys at the requested path.
+- [x] Keep default selected-AI handoff, optional real single-turn QI-style browser AI and honest Voice/timing boundaries.
+- [x] Reuse repository shared seasonal navigation, align canonical routes and public exactly-once Publisher MasterTag.
+- [x] Static syntax and relative-link checks; no private data or credentials included.
+- [ ] Verify new GitHub Pages routes after deployment and actual native voice/microphone/model behaviour on devices.
+
+The owner explicitly retained the ChatGPT-hosted copy as a test site. It remains untouched; the canonical repository files live at the requested path.
+
+
+## Future backlog: distributed Markdown research tools — 13 October 2026
+
+**Owner decision / scope:** KISS and distributed by design. The GitHub knowledge base may keep reusable attributed/licensed money-saving guidance; original publishers retain their wider content. **User-specific records are saved and retained by the user, not Aletheia.** Aletheia Protocol Markdown (`.md`) is the canonical portable storage/import/export format; CSV/JSON are optional interchange or display formats. The user explicitly requested these notes to be preserved **for later**, not implemented now. See matching sections in [ideas.md](ideas.md).
+
+### SCRAPE-RESEARCH-001 | DEFERRED / RESEARCH ONLY | Scrapling and user-run data collection
+
+- [ ] When resumed, compare links/manual import and official RSS/API/downloads against Scrapling and Browser Use on real, *permitted* sources; verify current licensing, robots/terms, anti-bot boundaries, free operation and maintenance.
+- [ ] Test a Money Saving Reader Markdown knowledge card: actionable advice, categories, original link, attribution/usage rights, publication or review date for variable advice, independent verification of any social-media claim and stale-advice warning.
+- [ ] Test a Rice Intelligence read-only import from selected registered Thailand/Cambodia sources: candidate rows must preserve source/date, grade/crop year, currency, unit, price basis and evidence; existing human-review gate stays before graphing.
+- [ ] Test **user-selected dated Aletheia Protocol Markdown files** for local historical analysis: price trends, geographic maps, timelines/process views and exported dated Markdown analyses. No automatic collection of user files and no central private-data storage.
+- [ ] Compare measured benefit and total cost against current manual/free-first workflows; decide whether a purely optional user-run collector merits a specification. **Do not deploy or commit a new scraper yet.**
+
+### LLM-WORKSPACE-RESEARCH-001 | DEFERRED / RESEARCH ONLY | Odysseus, LibreChat and AnythingLLM
+
+- [ ] Recheck official repository licences (Odysseus AGPL; LibreChat and AnythingLLM MIT), Windows/local hardware requirements, installation effort, provider-independent model selection, MCP/tools, API availability, privacy and actual costs.
+- [ ] Use the *same source-backed, dated* Money Saving and Rice Intelligence Markdown files to compare retrieval quality, conflicting evidence, citation fidelity, stale data and Aletheia Protocol Markdown export/round-trip.
+- [ ] Evaluate AnythingLLM as **optional user desktop software**, LibreChat as a possible model-neutral integration reference, and Odysseus as a research/agent-workflow reference. Record whether any adds clear value over the existing Ctrl-V AI handoff.
+- [ ] Reuse [aletheia-tool-contract.md](aletheia-tool-contract.md) and the existing Rice Intelligence source register; keep read-only tools default, secret keys out of public GitHub, human approval for consequential actions and no compulsory Docker/backend/API/paid AI.
+- [ ] Record a clear **adopt optional idea / document only / reject** decision after a real test. **No installation, public hosting, app rewrite or new standalone app authorised by this backlog item.**
+
+**Resume point:** Open these two deferred ideas, inspect the then-current shared GUI/dev/protocol files and the relevant app's actual source; select the *smallest* proof-of-concept and obtain any needed permission before writes or deployment.
 

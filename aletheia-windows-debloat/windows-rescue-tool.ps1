@@ -410,6 +410,73 @@ function Write-AuditHeading([string]$Text, [ConsoleColor]$Color=[ConsoleColor]::
     Write-Host ('=' * $Text.Length) -ForegroundColor $Color
 }
 
+
+# READ ONLY: A cumulative-update baseline is a proxy, not cryptographic attestation.
+# The 2027 Windows Update connection certificates are NOT the 2026 UEFI Secure Boot certificates.
+function Get-CertificateUpdateSnapshot {
+    $os = Get-CimInstance Win32_OperatingSystem
+    $cv = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion'
+    $ubr = -1
+    try { $ubr = [int](Get-RegValueSafe $cv 'UBR') } catch {}
+    $build = 0
+    try { $build = [int]$os.BuildNumber } catch {}
+    $display = [string](Get-RegValueSafe $cv 'DisplayVersion')
+    $fullBuild = if ($ubr -ge 0) { "$build.$ubr" } else { [string]$build }
+    $baseline = 'UNKNOWN - consult the Microsoft certificate-rotation matrix for this edition.'
+    if ([string]$os.Caption -match 'Windows 10') {
+        if (($build -eq 19045 -or $build -eq 19044) -and $ubr -ge 7548) {
+            $baseline = 'LIKELY MET: build matches/exceeds July 2026 LCU baseline (KB5099539). NOT certificate proof.'
+        } else {
+            $baseline = 'NOT DEMONSTRATED: verify the July 2026 or later cumulative update; ESU/LTSC entitlement may be required.'
+        }
+    } elseif ([string]$os.Caption -match 'Windows 11') {
+        $baseline = 'WINDOWS 11: consult the Microsoft edition/version-specific requirements; 25H2+ needs no action.'
+    }
+    $hotfix = 'Unknown'
+    try {
+        $latest = Get-HotFix -ErrorAction Stop | Where-Object { $_.InstalledOn } |
+            Sort-Object InstalledOn -Descending | Select-Object -First 1
+        if ($latest) { $hotfix = "$($latest.HotFixID) ($($latest.InstalledOn.ToString('yyyy-MM-dd')))" }
+    } catch {}
+    $secureBoot = 'UNKNOWN (requires supported UEFI firmware, possibly administrator access)'
+    try {
+        if (Confirm-SecureBootUEFI -ErrorAction Stop) { $secureBoot = 'Enabled - 2023 certificate rollout NOT verified' }
+        else { $secureBoot = 'Disabled - firmware certificate inventory NOT verified' }
+    } catch {}
+    return [pscustomobject]@{
+        OS = [string]$os.Caption
+        DisplayVersion = $display
+        Build = $fullBuild
+        UpdateEvidence = $baseline
+        LastVisibleHotFix = $hotfix
+        SecureBoot = $secureBoot
+    }
+}
+
+function Show-CertificateUpdateHealth {
+    Write-AuditHeading 'CERTIFICATE AND UPDATE HEALTH - READ ONLY'
+    $health = Get-CertificateUpdateSnapshot
+    Write-Host ("OS: {0}, version {1}, build {2}" -f $health.OS,$health.DisplayVersion,$health.Build)
+    Write-Host ("Last visible hotfix: {0}" -f $health.LastVisibleHotFix)
+    Write-Host ("2027 Windows Update trust: {0}" -f $health.UpdateEvidence) -ForegroundColor Yellow
+    Write-Host ("2026 Secure Boot: {0}" -f $health.SecureBoot)
+    $wu = Get-ServiceState 'wuauserv'
+    $uso = Get-ServiceState 'UsoSvc'
+    Write-Host ("Update gate indicators: wuauserv={0} ({1}); UsoSvc={2} ({3})" -f $wu.Status,(StartText $wu.Start),$uso.Status,(StartText $uso.Start))
+    if (Test-Path $script:UpdateStateFile) {
+        Write-Host 'Windows Rescue saved update-gate state found. Inspect/reopen deliberately before maintenance.' -ForegroundColor Yellow
+    }
+    Write-Host 'ESU enrollment: NOT verified here. Inspect Settings > Update & Security > Windows Update.'
+    Write-Host 'Do not spoof build/ESU registry entries: they cannot provision trusted certificates or entitlement.'
+    Write-Host 'No certificates, firmware settings, registry values or update services were changed.' -ForegroundColor Green
+    Write-Host ''
+    Write-Host '2027 Windows Update rotation (official):'
+    Write-Host 'https://techcommunity.microsoft.com/blog/Windows-ITPro-blog/prepare-for-windows-update-certificate-rotation-in-2027/4562463'
+    Write-Host 'Official Windows 10 July 2026 KB: https://www.catalog.update.microsoft.com/Search.aspx?q=KB5099539'
+    Write-Host 'Windows 10 ESU: https://www.microsoft.com/en-gb/windows/extended-security-updates'
+    Write-Host 'Secure Boot (separate): https://support.microsoft.com/en-us/servicing/os/secure-boot/2025/06/windows-secure-boot-certificate-expiration-and-ca-updates'
+}
+
 function Get-WindowsRescueAudit {
     Write-AuditHeading 'WINDOWS RESCUE - SAFE FIRST LOOK'
     Write-Host 'No settings are being changed.' -ForegroundColor Green
@@ -444,6 +511,13 @@ function Get-WindowsRescueAudit {
     Add-Line $report "C: disk: $($drive.FriendlyName) | bus=$($drive.BusType) | media=$($drive.MediaType) | size=$($drive.SizeGB) GB | style=$($drive.PartitionStyle)"
     Add-Line $report "BitLocker/device encryption C: $(Get-BitLockerText)"
     Add-Line $report "Administrator shell: $script:IsAdmin"
+    $certHealth = Get-CertificateUpdateSnapshot
+    Add-Line $report ''
+    Add-Line $report 'Certificate / update-health indicators (read-only, not attestation):'
+    Add-Line $report "2027 Windows Update: $($certHealth.UpdateEvidence)"
+    Add-Line $report "Last visible hotfix: $($certHealth.LastVisibleHotFix)"
+    Add-Line $report "Secure Boot: $($certHealth.SecureBoot)"
+    Add-Line $report 'ESU enrollment: verify in Windows Update Settings, not by spoofing registry state.'
 
     try {
         $mods = Get-CimInstance Win32_PhysicalMemory
@@ -611,6 +685,11 @@ function Get-WindowsRescueAudit {
         Write-Host ''
         Write-Host 'Windows Rescue will not remove these automatically.' -ForegroundColor Green
     }
+
+    Write-AuditHeading 'CERTIFICATE / UPDATE HEALTH'
+    Write-Host $certHealth.UpdateEvidence -ForegroundColor Yellow
+    Write-Host ("Secure Boot: {0}" -f $certHealth.SecureBoot)
+    Write-Host 'Neither a build number nor Secure Boot enabled is a certificate-store attestation.'
 
     Write-AuditHeading 'BACKGROUND / UPDATE SNAPSHOT'
     Write-Host ("Search:    {0}, startup {1}" -f $serviceStates['WSearch'].Status,(StartText $serviceStates['WSearch'].Start))
@@ -1149,6 +1228,7 @@ function Show-UpdateMenu {
         Write-Host '5  Restore soft update preferences'
         Write-Host '6  CLOSE manual update gate'
         Write-Host '7  OPEN manual update gate from saved state'
+        Write-Host '8  Certificate and Update Health (read-only)'
         Write-Host 'B  Back'
         $c=(Read-Host 'Choose').Trim().ToUpperInvariant()
         switch ($c) {
@@ -1159,6 +1239,7 @@ function Show-UpdateMenu {
             '5' { Restore-SoftUpdatePreference; Read-Host 'Enter to continue' | Out-Null }
             '6' { Close-UpdateGate; Read-Host 'Enter to continue' | Out-Null }
             '7' { Open-UpdateGate; Read-Host 'Enter to continue' | Out-Null }
+            '8' { Show-CertificateUpdateHealth; Read-Host 'Enter to continue' | Out-Null }
             'B' { return }
         }
     }
@@ -1223,6 +1304,7 @@ WINDOWS RESCUE POWERSHELL — HELP
 READ ONLY
   A  Start here: safe guided audit
   F  Free-space snapshot: hibernation, pagefile, Delivery Optimization, shadow storage
+  U > 8  Certificate and Update Health (read-only; no installation)
   S  Hardware research prompt -> copy/save -> NEW AI chat
 
 CONTROLLED CHANGES

@@ -4,6 +4,11 @@ Portable Markdown and HTML applications using the [Aletheia Protocol](https://gi
 
 Each app lives in its own lowercase folder. The portable Markdown file is the application; an HTML interface is added only when it provides a genuine benefit.
 
+## Aletheia What's On
+
+- [Open worldwide What's On](https://karstenevans.github.io/aletheia-app/aletheia-whatson/aletheia-whatson.htm) — location-first, worldwide, provider-neutral discovery of films, shows, fairs, attractions, history, art, walks, food and local tourism directories. Static AI handoff, not an embedded live events API.
+- [Canonical Markdown](aletheia-whatson/aletheia-whatson.md) · [Travel books and resources](aletheia-whatson/aletheia-whatson-rsc.htm) · [Page spec](aletheia-whatson/aletheia-whatson-page.md). Export or manually import private `settings.md`.
+
 ## Start here for app work
 
 - `AGENTS.md` — short router for coding/agent tools.
@@ -18,7 +23,7 @@ For substantial HTML work, read the target app's current files and create/reconc
 
 ## Aletheia Trust Check
 
-**Worldwide, source-led checking of businesses, scams, claims, fake AI and fake news.** A small browser launcher builds one evidence-checking prompt and opens the visitor's chosen AI; it does not itself search the live web. Swindon A2Z and other apps use the same portable routine as an optional add-on, never as a duplicate local engine.
+**Worldwide, source-led checking of pasted posts, facts, businesses, scams, fake AI and fake news.** A small browser launcher builds one evidence-checking prompt and opens the visitor's chosen AI; it does not itself search the live web. Swindon A2Z and other apps use the same portable routine as an optional add-on, never as a duplicate local engine.
 
 - [Open Trust Check](https://karstenevans.github.io/aletheia-app/aletheia-trust-check/aletheia-trust-check.htm) (proposed GitHub Pages route; live deployment not verified)
 - [Canonical Markdown routine](aletheia-trust-check/aletheia-trust-check.md) · [Free scam-reporting and fake-AI resources, books & gifts](aletheia-trust-check/aletheia-trust-check-rsc.htm) · [Page build spec](aletheia-trust-check/aletheia-trust-check-page.md)
@@ -179,3 +184,16 @@ No licence has been selected yet. Public visibility alone does not grant permiss
 
 - [Open Writing Vibe](https://karstenevans.github.io/aletheia-app/aletheia-writing-vibe/aletheia-writing-vibe.htm) — paste/upload text and clean Facebook UI noise locally; prepare an explicit external-AI research pack. This static page does not scrape, browse or itself create a verified AI-written profile.
 - [Canonical workflow](aletheia-writing-vibe/aletheia-writing-vibe.md) · [Page specification](aletheia-writing-vibe/aletheia-writing-vibe-page.md) · [Resources](aletheia-writing-vibe/aletheia-writing-vibe-rsc.htm).
+
+
+## Aletheia Humour — Sketches
+
+Original interactive AI sketches, using the user's selected AI and optional real browser AI, with portable Markdown and Humour Keys.
+
+- [Open Sketches](https://karstenevans.github.io/aletheia-app/aletheia-humour/sketches/index.htm)
+- [Argument Room](https://karstenevans.github.io/aletheia-app/aletheia-humour/sketches/argument-room/aletheia-argument-room.htm)
+- [Bridge Guardian](https://karstenevans.github.io/aletheia-app/aletheia-humour/sketches/bridge-guardian/aletheia-bridge-guardian.htm)
+- [Instructions and source](aletheia-humour/sketches/README.md)
+
+Source installed at the owner's requested location; real-device/model/voice checks remain pending.
+

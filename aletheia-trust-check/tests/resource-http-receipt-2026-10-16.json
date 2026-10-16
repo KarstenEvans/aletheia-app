@@ -1,0 +1,179 @@
+{
+  "checked": "2026-10-16",
+  "results": [
+    {
+      "url": "https://centreantifraude.ca/index-eng.htm",
+      "status": 200,
+      "final_url": "https://centreantifraude.ca/index-eng.htm",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://commission.europa.eu/topics/consumers/consumer-rights-and-complaints/resolve-your-consumer-complaint/european-consumer-centres-network-ecc-net_en",
+      "status": 200,
+      "final_url": "https://commission.europa.eu/topics/consumers/consumer-rights-and-complaints/resolve-your-consumer-complaint/european-consumer-centres-network-ecc-net_en",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://consumer.ftc.gov/",
+      "status": 200,
+      "final_url": "https://consumer.ftc.gov/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://fidoalliance.org/passkeys/",
+      "status": 200,
+      "final_url": "https://fidoalliance.org/passkeys/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://find-and-update.company-information.service.gov.uk/",
+      "status": 200,
+      "final_url": "https://find-and-update.company-information.service.gov.uk/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://github.com/KarstenEvans/aletheia-protocol",
+      "status": 200,
+      "final_url": "https://github.com/KarstenEvans/aletheia-protocol",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md",
+      "status": 200,
+      "final_url": "https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://karstenevans.github.io/aletheia-app/",
+      "status": 200,
+      "final_url": "https://karstenevans.github.io/aletheia-app/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://karstenevans.github.io/aletheia-app/Writers/",
+      "status": 200,
+      "final_url": "https://karstenevans.github.io/aletheia-app/Writers/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://karstenevans.github.io/aletheia-app/stories/",
+      "status": 200,
+      "final_url": "https://karstenevans.github.io/aletheia-app/stories/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://karstenevans.github.io/aletheia-knowledge/",
+      "status": 200,
+      "final_url": "https://karstenevans.github.io/aletheia-knowledge/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://learn.microsoft.com/",
+      "status": 200,
+      "final_url": "https://learn.microsoft.com/en-us/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://msrc.microsoft.com/update-guide/en-us/",
+      "status": 200,
+      "final_url": "https://msrc.microsoft.com/update-guide/en-us/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://press.uchicago.edu/ucp/books/book/chicago/V/bo207015182.html",
+      "status": 200,
+      "final_url": "https://press.uchicago.edu/ucp/books/book/chicago/V/bo207015182.html",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://reportfraud.ftc.gov/",
+      "status": 200,
+      "final_url": "https://reportfraud.ftc.gov/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://search.worldcat.org/title/1251927044",
+      "status": 200,
+      "final_url": "https://search.worldcat.org/title/1251927044",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://swindon.org.uk/",
+      "status": 200,
+      "final_url": "https://swindon.org.uk/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://swindon.org.uk/ai4u/",
+      "status": 200,
+      "final_url": "https://swindon.org.uk/ai4u/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://toolbox.google.com/factcheck/explorer/",
+      "status": 200,
+      "final_url": "https://toolbox.google.com/factcheck/explorer/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://verify.contentauthenticity.org/",
+      "status": 200,
+      "final_url": "https://verify.contentauthenticity.org/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.fca.org.uk/consumers/fca-firm-checker",
+      "status": 200,
+      "final_url": "https://www.fca.org.uk/consumers/fca-firm-checker",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.fca.org.uk/consumers/warning-list-unauthorised-firms",
+      "status": 200,
+      "final_url": "https://www.fca.org.uk/consumers/warning-list-unauthorised-firms",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.gov.uk/report-suspicious-emails-websites-phishing/report-internet-scams-and-phishing",
+      "status": 200,
+      "final_url": "https://www.gov.uk/report-suspicious-emails-websites-phishing/report-internet-scams-and-phishing",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.ic3.gov/",
+      "status": 200,
+      "final_url": "https://www.ic3.gov/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.ncsc.gov.uk/collection/phishing-scams",
+      "status": 200,
+      "final_url": "https://www.ncsc.gov.uk/collection/phishing-scams",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.reportfraud.police.uk/reporting-a-fraud/",
+      "status": 200,
+      "final_url": "https://www.reportfraud.police.uk/reporting-a-fraud/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.scamwatch.gov.au/",
+      "status": 200,
+      "final_url": "https://www.scamwatch.gov.au/",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.scamwatch.gov.au/report-a-scam",
+      "status": 200,
+      "final_url": "https://www.scamwatch.gov.au/report-a-scam",
+      "scope": "HTTP response only, not content verification"
+    },
+    {
+      "url": "https://www.scotland.police.uk/",
+      "status": 200,
+      "final_url": "https://www.scotland.police.uk/",
+      "scope": "HTTP response only, not content verification"
+    }
+  ]
+}
