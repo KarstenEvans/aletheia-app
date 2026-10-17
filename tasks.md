@@ -12,8 +12,7 @@
 - **AIxistence** — existence, but AI-flavoured; coined by project owner (14 October).
 - **AIxcellente / AIxcellent** — enthusiastic sign-off; “From AletheIdea into AIxistence! Cool very AIxcellente” (project owner, 14 October).
 - **AIxactly, AIxcuse me, AIxasperating, AIxtraordinary, AIxhausted** — assistant-suggested variants, not independently verified as unique coinages.
-- **GoWalkabout / Go Walkabout** — Aletheia exploration method, with “Let the AI do the walking” (project-owner expression).
-- **Walkerbot** — affectionate name for the exploring AI (project-owner expression, 17 October).
+- **Go Walkabout** — the project owner's exploration and discovery method; preserve exactly this wording (not “Walkerbot”, which was a dictation error).
 - **Truth Friction** — name previously used for checking whether interesting ideas survive reality and evidence tests; “Truth has a travel cost.”
 
 **Collected sayings / working headings (preserve as candidates, not final endorsed slogans):**
