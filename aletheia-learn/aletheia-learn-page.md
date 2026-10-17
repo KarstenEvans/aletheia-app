@@ -1,5 +1,8 @@
 # Aletheia Learn browser page specification
 
+[Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence and provenance.
+[Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional considered humour.
+
 > **Canonical app:** `aletheia-learn.md`  
 > **Browser interface:** `aletheia-learn.htm`  
 > **Shared GUI:** `../aletheia-GUI.md`  
@@ -157,3 +160,8 @@ Current date rules remain:
 15. Exactly one Awin MasterTag.
 16. No API keys/tokens/private user data in source.
 17. The page describes itself as HANDOFF, not CONNECTED.
+
+
+## AI Fluency v0.2.0 (2026-10-17)
+
+The existing AI 101 page and generic Learn handoff remain unchanged. After the existing AI 101 card, the landing page links to the separate follow-on **AI Fluency: From Questions to Trusted Workflows**. Its source is `Aletheia-AI-course.md`, its static handoff launcher is `aletheia-ai-course.htm`, and its browser build specification is `aletheia-ai-course-page.md`. This is a free-first complete Markdown course, not a connected service. Site/link/clipboard/AI-host checks remain pending until actually observed.
