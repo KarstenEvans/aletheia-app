@@ -1,5 +1,45 @@
 # Aletheia Apps - Tasks
 
+
+## PARKED TASK — Aletheia AI Expressions and Walkabout sayings (17 October 2026)
+
+**Status:** IDEA CAPTURED / NOT IN PRODUCTION. **Priority:** P3, after existing launch, QA and maintenance work. **Purpose:** Preserve memorable Aletheia/Thalia wordplay for a later short awareness post and optional YouTube video, without creating another app or interrupting current projects.
+
+**Protocols:** [Aletheia](https://github.com/KarstenEvans/aletheia-protocol) (evidence, provenance and uncertainty) · [Thalia](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) (optional original humour and positivity).
+
+**Collected words (traceable to conversations; spellings kept as coined):**
+- **AletheIdea** — idea/brainwave; coined by project owner (14 October).
+- **AIxistence** — existence, but AI-flavoured; coined by project owner (14 October).
+- **AIxcellente / AIxcellent** — enthusiastic sign-off; “From AletheIdea into AIxistence! Cool very AIxcellente” (project owner, 14 October).
+- **AIxactly, AIxcuse me, AIxasperating, AIxtraordinary, AIxhausted** — assistant-suggested variants, not independently verified as unique coinages.
+- **GoWalkabout / Go Walkabout** — Aletheia exploration method, with “Let the AI do the walking” (project-owner expression).
+- **Walkerbot** — affectionate name for the exploring AI (project-owner expression, 17 October).
+- **Truth Friction** — name previously used for checking whether interesting ideas survive reality and evidence tests; “Truth has a travel cost.”
+
+**Collected sayings / working headings (preserve as candidates, not final endorsed slogans):**
+- “From AletheIdea into AIxistence!” — primary signature.
+- “Joining dots that would never have been on the same page.” — project-owner metaphor (17 October).
+- “Let the AI do the walking.” — project-owner phrase.
+- “Have I Got Puns for You!” — assistant-suggested working headline; review show-title similarity before publication.
+- “Artificial Intelligence Develops Sense of Humour. Human Intelligence Demands Recount.” — assistant-suggested humorous headline.
+- “Humour is a memory test disguised as play.”
+- “Walkabout is a creativity engine disguised as wandering.”
+- “Aletheia is a structure disguised as freedom.”
+- “Follow the evidence, question the assumptions, go walkabout, join unexpected dots, and see where they lead.”
+- “Aletheia asks: Is it true? GoWalkabout asks: What haven't we thought of? Thalia asks: Will an actual human being want to live in the world we've just designed? And can we make them laugh while they're there?” — earlier assistant wording, editorial candidate.
+
+**Optional editorial angle:** Human curiosity plus AI literature breadth can generate **new, testable hypotheses** by connecting distant fields. Distinguish a **novel hypothesis** from a **verified scientific discovery**; require original-source checking and independent validation. Current biological walkabout (senescence, marrow, immune resolution and thermogenic adipocytes) can be an example, but do not imply discovery has already occurred.
+
+**Later, when active:**
+- [x] Capture the initial expressions and sayings in the existing task list.
+- [ ] Recheck earlier conversation/source wording, contributors, dates and originality; add missing phrases as discovered.
+- [ ] Prepare one short post introducing Aletheia + Thalia and the wordplay; include link to actual Aletheia front door.
+- [ ] Reuse the existing **Aletheia Learn video-making** and **Storyteller/YouTube** specifications for a short, accessible video (voice script, six-ish simple scenes, captions, credits and rights). No new app or uploader.
+- [ ] Human review of humour, sources, rights, visuals and accessibility; then separately approve any publication or YouTube upload.
+- [ ] Mark as POSTED / VIDEO RENDERED / UPLOADED only after actual proof. No deadlines or reminders implied.
+
+**Resume:** Owning repository `KarstenEvans/aletheia-app`, file `tasks.md`; no website, video, social platform, code, shared GUI/dev standards or other repository modified for this parked idea.
+
 ## Aletheia Trust Check — worldwide v0.5 candidate, 16 October 2026
 
 **Owner:** `KarstenEvans/aletheia-app/aletheia-trust-check/`, review branch `feature/aletheia-trust-check-worldwide-20261010`. Aletheia Protocol and Thalia references appear in the canonical Markdown and generated prompt.
