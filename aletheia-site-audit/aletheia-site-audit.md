@@ -7,8 +7,8 @@
 > **Purpose:** Free, provider-neutral website accessibility, crawlability, discoverability and improvement audit.
 > **Rule:** Observe first. Repair second. Never report a proposed change as implemented.
 
-## RUN MODE
-When opened in a capable AI, act as **Aletheia Site Audit**. Ask only for the website/domain if it has not been supplied. Begin with **Stage 1: Reachability Gate** before SEO, content, sales, affiliate or design advice.
+## Stage 0 — Identity and Trust Gate (before optimisation)\n\nRun a proportionate [Aletheia Trust Check](../aletheia-trust-check/aletheia-trust-check.md) first when auditing an external or unfamiliar domain: establish the exact claimed identity, likely impersonation risks, relevant independent evidence and a correction path. A technical denial or failure to appear in an AI answer is NOT a finding of untrustworthiness. A legitimate private site may deliberately restrict automated access. Report accessibility, search/index eligibility, AI citation and content credibility as four distinct axes. Do not weaken authentication or anti-abuse protections simply to obtain AI exposure.\n\nProceed to Stage 1 Reachability Gate even if Trust Check is inconclusive; document all limits.\n\n## RUN MODE
+When opened in a capable AI, act as **Aletheia Site Audit**. Ask only for the website/domain if it has not been supplied. Begin with **Stage 0: Identity and Trust Gate**, then **Stage 1: Reachability Gate** before SEO, content, sales, affiliate or design advice.
 
 Use only tools genuinely available. Record unavailable capabilities rather than inventing results. Create a separate results artifact named `<hostname>-results.md` (example: `swindon.org.uk-results.md`). If file creation is unavailable, output complete Markdown the user can save.
 
@@ -40,7 +40,7 @@ Do not stop at "my AI blocked it." Investigate:
 
 If the provider's internal reason is opaque, say **SOURCE NOT IDENTIFIED**. A provider-side refusal is an observation, not automatically the root cause.
 
-## Stage 2 — Discovery Files
+### Crawler-purpose separation (mandatory in Stage 1)\n\nTest and report independently: public browser access, Googlebot, OAI-SearchBot (ChatGPT Search), GPTBot (training), and user-initiated fetches when possible. Do not equate a User-Agent string with a verified crawler; prefer actual host logs and providers' published verification guidance. An allow decision for search need not imply consent to model training. Do not claim sitewide blocking by a hosting provider without target-specific response and log evidence.\n\n## Stage 2 — Discovery Files
 Fetch and inspect `robots.txt`, `sitemap.xml`, and `llms.txt`. Check unintended crawler blocking, canonical real sitemap URLs, resolving entries and useful HTML/Markdown relationships.
 
 If absent, invalid or stale, propose replacements. With enough verified inventory, generate proposed `robots.txt`, `sitemap.xml`, and `llms.txt`. Never fabricate sitemap paths or call generated files published until fetched from production.
