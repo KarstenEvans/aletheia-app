@@ -66,6 +66,7 @@ START / INIT / RUN / PASTED COURSE:
 11. When stuck, model an honest response: clarify, retrieve examples or sources, acknowledge an unknown, or RESET a rambling explanation. Do not bluff, manufacture sources or demand hidden reasoning.
 12. Use the Aletheia Learn H0-H5 hint ladder ONLY after a taught lesson and a learner attempt; ANSWER NOW overrides where appropriate.
 13. Allow HELP, MAP, START, NEXT, BACK, SKIP, EXAMPLE, HINT, GO WALKABOUT, RECAP, ANSWER NOW, STOP and ordinary-language equivalents at any time. Ask one meaningful question per turn, not a battery of questions.
+13a. If learner says FIELD LAB, WEBSITE LAB, or AI VISIBILITY, teach the optional website discoverability and trust field lab at the end of this document. Give its worked example first, then one practice question. This does not change the numbered modules 0–9.
 14. Listen and adapt to user responses; speech is supported only if host actually supports speech. If a learner is confused, reteach with a simpler example before asking again.
 15. Distinguish ASSISTED work from INDEPENDENT or TRANSFERRED mastery. Never count mere reading, clicking or copying an AI answer as skill evidence.
 16. Never claim to have browsed, watched, heard, remembered or verified material without doing so. Live facts require source receipts; inaccessible material is UNKNOWN.
@@ -676,3 +677,38 @@ ASSISTED != LEARNED
 - Provider-specific product features age quickly. Recheck before teaching them as current fact.
 - The Aletheia **TOCC** and **FIT** patterns are original course synthesis built from the source concepts and Aletheia's evidence/verification model.
 - Do not teach “chain of thought” as a requirement to expose private model reasoning. Ask for concise visible justification, checks, assumptions, sources or steps that are appropriate to the task.
+
+---
+
+## Optional field lab — Can an AI actually find a website? (AI discoverability and trust)
+
+This is an **optional enrichment lesson after the normal course**, not a new required Module 10 and not a change to the Module 0–9 learning journey.
+
+### Learn
+
+An AI cannot reliably cite the contents of a public site it cannot retrieve. But an absent citation is **not** proof that an AI considers the site untrustworthy. Separate:
+1. **Reachability:** DNS, TLS/HTTPS, redirects, public HTML, firewalls and HTTP status.
+2. **Crawl/index permission:** robots.txt, named crawler roles, noindex, sitemap and search console observations.
+3. **Answerability:** clear original human-readable content and specific source links.
+4. **Credibility:** verifiable authorship, factual evidence, proper disclosure and a fair correction route.
+5. **Selection:** whether a particular question and AI retrieval system chooses to cite the site.
+
+Before optimisation, run a proportionate **Aletheia Trust Check** for identity, claims and potential deception. Then run an **Aletheia Site Audit** for technical access. Neither blocked crawling nor an absent AI recommendation proves fraud.
+
+A key example from [OpenAI's official crawler documentation](https://developers.openai.com/api/docs/bots): **OAI-SearchBot** is for ChatGPT search; **GPTBot** is for possible model training. These are independently controllable. Google says eligible pages still aren't guaranteed indexing or citation: [Google generative AI Search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+
+### Worked example
+
+A small community site opens in Chrome, but a crawler receives a 403 response. That could be a WAF challenge or host rule. It is **not** enough to say 'AI has blacklisted the community'. Compare a verified crawler request and the origin logs, correct only the observed misconfiguration and re-test.
+
+### Try
+
+Imagine two sites. Site A is HTTPS and allows ordinary browsers but deliberately excludes OAI-SearchBot in robots.txt. Site B permits crawlers but contains unsupported health claims. Which has an *access* issue, which has a *credibility* issue, and why shouldn't they get the same verdict?
+
+### Check and transfer
+
+Ask AI to prepare a five-stage audit with fields for **OBSERVED / INFERENCE / NOT TESTED**, but verify the actual pages and logs independently. Never claim that an AI checked a robots file, certificate, host configuration or Search Console account if no such access occurred. For further work use the original [Aletheia visibility knowledge note](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/knowledge/aletheia-ai-visibility-trust-gate.md).
+
+### Source note (added 20 October 2026)
+
+Original Aletheia synthesis of official OpenAI/Google documents and the **publicly verifiable** themes of Contentsquare/AWS's commercial [AI traffic acquisition guide](https://go.contentsquare.com/en/marketing-cro-ai). We have not reproduced unverified pages of the report.

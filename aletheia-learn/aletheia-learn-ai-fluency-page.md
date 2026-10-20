@@ -88,3 +88,7 @@ The separate `aletheia-learn-ai-fluency-rsc.htm` uses actual editorial publisher
 The screenshot complaint is addressed by removing the visible two-card design, not just hiding text within the cards. The new layout does not show "three-line narrator", "rate 1.0" or technical verification copy on the main hero. Choosing an AI begins narration; Start stays distinct and opens the provider.
 
 If a user observes problems, inspect the actual rendered/browser behavior and improve this same page. Do not fork another launcher.
+
+## Optional AI visibility field lab (21 October 2026)
+
+The portable AI Fluency Markdown appends a non-mandatory website accessibility/crawler visibility lab after Modules 0–9. The public AI 101 launcher must still fetch the **complete** sibling Markdown without truncation, retain its original narrated front page and all seven providers, and mention that the user can type **FIELD LAB** after sending the course into their selected AI. Do not turn the lab into a new mandatory Module 10, or change the existing course startup/HELP contract.
