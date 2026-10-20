@@ -676,3 +676,38 @@ ASSISTED != LEARNED
 - Provider-specific product features age quickly. Recheck before teaching them as current fact.
 - The Aletheia **TOCC** and **FIT** patterns are original course synthesis built from the source concepts and Aletheia's evidence/verification model.
 - Do not teach “chain of thought” as a requirement to expose private model reasoning. Ask for concise visible justification, checks, assumptions, sources or steps that are appropriate to the task.
+
+---
+
+## Optional field lab — Can an AI actually find a website? (AI discoverability and trust)
+
+This is an **optional enrichment lesson after the normal course**, not a new required Module 10 and not a change to the Module 0–9 learning journey.
+
+### Learn
+
+An AI cannot reliably cite the contents of a public site it cannot retrieve. But an absent citation is **not** proof that an AI considers the site untrustworthy. Separate:
+1. **Reachability:** DNS, TLS/HTTPS, redirects, public HTML, firewalls and HTTP status.
+2. **Crawl/index permission:** robots.txt, named crawler roles, noindex, sitemap and search console observations.
+3. **Answerability:** clear original human-readable content and specific source links.
+4. **Credibility:** verifiable authorship, factual evidence, proper disclosure and a fair correction route.
+5. **Selection:** whether a particular question and AI retrieval system chooses to cite the site.
+
+Before optimisation, run a proportionate **Aletheia Trust Check** for identity, claims and potential deception. Then run an **Aletheia Site Audit** for technical access. Neither blocked crawling nor an absent AI recommendation proves fraud.
+
+A key example from [OpenAI's official crawler documentation](https://developers.openai.com/api/docs/bots): **OAI-SearchBot** is for ChatGPT search; **GPTBot** is for possible model training. These are independently controllable. Google says eligible pages still aren't guaranteed indexing or citation: [Google generative AI Search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+
+### Worked example
+
+A small community site opens in Chrome, but a crawler receives a 403 response. That could be a WAF challenge or host rule. It is **not** enough to say 'AI has blacklisted the community'. Compare a verified crawler request and the origin logs, correct only the observed misconfiguration and re-test.
+
+### Try
+
+Imagine two sites. Site A is HTTPS and allows ordinary browsers but deliberately excludes OAI-SearchBot in robots.txt. Site B permits crawlers but contains unsupported health claims. Which has an *access* issue, which has a *credibility* issue, and why shouldn't they get the same verdict?
+
+### Check and transfer
+
+Ask AI to prepare a five-stage audit with fields for **OBSERVED / INFERENCE / NOT TESTED**, but verify the actual pages and logs independently. Never claim that an AI checked a robots file, certificate, host configuration or Search Console account if no such access occurred. For further work use the original [Aletheia visibility knowledge note](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/knowledge/aletheia-ai-visibility-trust-gate.md).
+
+### Source note (added 20 October 2026)
+
+Original Aletheia synthesis of official OpenAI/Google documents and the **publicly verifiable** themes of Contentsquare/AWS's commercial [AI traffic acquisition guide](https://go.contentsquare.com/en/marketing-cro-ai). We have not reproduced unverified pages of the report.
