@@ -1,7 +1,8 @@
 ---
 title: "Aletheia Learn – AI Fluency"
 system_id: "aletheia-learn-ai-fluency"
-version: "0.2.0"
+version: "0.2.1"
+updated: "2026-10-21"
 artifact_type: "guided-learning-course"
 parent_app: "Aletheia Learn"
 status: "teacher-first course; model/device testing pending"
@@ -48,7 +49,7 @@ Harvard HKS describes its Spring 2024 material as an archived course and states 
 
 ```text
 [ALETHEIA_AI_FLUENCY_INIT]
-VERSION: 0.2.0
+VERSION: 0.2.1
 PARENT: ALETHEIA LEARN
 MODE: COURSE / TEACH-FIRST / PROVIDER-NEUTRAL
 
@@ -255,7 +256,7 @@ For larger or confusing tasks, use TOCC below as an optional checklist. If your 
 ### Better AI responses: ASK → GO WALKABOUT → CHECK → ANSWER
 
 - **ASK:** Clarify the one missing detail only when it changes the task.
-- **GO WALKABOUT:** Explore alternative explanations or sources when discovery is genuinely useful.
+- **GO WALKABOUT:** Explore alternative explanations or sources when discovery is genuinely useful; an initial search miss is not a refutation. See the optional PEC lab in Module 6.
 - **CHECK:** Distinguish evidence from inference, check claims and acknowledge missing evidence.
 - **ANSWER:** Respond usefully and clearly; don't lose the human during a long investigation.
 
@@ -454,6 +455,18 @@ Do not use a fake numerical confidence score.
 ## Transfer
 
 Take one answer you previously accepted because it “sounded right.” Describe the cheapest reliable test you could have applied.
+
+### Optional Go Walkabout lab — Never take an unexplored NO for an answer
+
+**Learn first:** A search miss means *not found in the searches performed*, not *disproved*. Aletheia calls the mistake of stopping after an initial search miss and wrongly announcing a negative verdict **Premature Evidence Closure (PEC)**. This is Aletheia terminology, not a recognised scientific diagnosis. See the [canonical research rule](https://github.com/KarstenEvans/aletheia-protocol/blob/main/guides/NEVER_TAKE_NO_FOR_AN_ANSWER.md).
+
+**Worked example:** An AI searches for evidence that Vikings sold steel ingots to Japan and finds nothing. A learner suggests Silk Road trade networks as a further lead. That is a reason to research intermediary trade, period, terminology and material provenance, **not** proof of the specific transaction. The correct interim verdict is **UNVERIFIED**, not **FALSE** or **TRUE**.
+
+**Try:** Ask: “What did you search, which terms or archives might be missing, and what independent evidence could disprove the claim?” Suggest two alternative search strategies and one contradictory-evidence check.
+
+**Check:** A strong answer distinguishes **NOT CHECKED**, **UNVERIFIED**, **SUPPORTED** and **REFUTED**; records source/tool limits; genuinely broadens only when useful; and stops once evidence, safety or practical limits warrant stopping. More searching is not automatically better.
+
+**Transfer:** Apply this to a blocked website, lost historical citation or outdated technical manual. Explain why the missing result cannot on its own establish falsehood, and what evidence would settle the matter.
 
 ---
 
@@ -676,6 +689,7 @@ ASSISTED != LEARNED
 - CS50x 2026 is the current CS50x Artificial Intelligence lecture page checked 7 October 2026.
 - Provider-specific product features age quickly. Recheck before teaching them as current fact.
 - The Aletheia **TOCC** and **FIT** patterns are original course synthesis built from the source concepts and Aletheia's evidence/verification model.
+- The **Never Take No for an Answer / PEC** lab is original Aletheia research-method guidance dated 21 October 2026, not a technique attributed to Harvard HKS or CS50.
 - Do not teach “chain of thought” as a requirement to expose private model reasoning. Ask for concise visible justification, checks, assumptions, sources or steps that are appropriate to the task.
 
 ---
