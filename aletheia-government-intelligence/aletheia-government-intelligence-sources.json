@@ -375,6 +375,54 @@
       "url": "https://www.gov.uk/government/collections/guidance-for-exporting-and-importing-businesses",
       "note": "UK import and exporter guidance; verify country/product-specific measures",
       "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "nhs-ambient-2025",
+      "group": "food",
+      "name": "NHS Supply Chain Ambient Food awarded 2025-2027 (includes Tilda)",
+      "url": "https://www.supplychain.nhs.uk/product-information/contract-launch-brief/ambient-food/",
+      "note": "Official framework: 27 awarded suppliers incl. Tilda, Bidfood, Brakes. NOT open tender; expiry 26 Oct 2027, possible extension",
+      "status": "HISTORIC_AWARD_FRAMEWORK"
+    },
+    {
+      "id": "nhs-airway-2024",
+      "group": "medical",
+      "name": "NHS Supply Chain Airways Management Products framework",
+      "url": "https://www.supplychain.nhs.uk/product-information/contract-launch-brief/airways-management/",
+      "note": "54 existing suppliers; four lots; 21 July 2028 expiry; regulatory and clinical gate, not open tender",
+      "status": "HISTORIC_AWARD_FRAMEWORK"
+    },
+    {
+      "id": "nhs-airway-calendar",
+      "group": "medical",
+      "name": "NHS Supply Chain procurement calendar",
+      "url": "https://www.supplychain.nhs.uk/?page_id=19801",
+      "note": "Official planned publications for next 18 months; recheck; not live tender by itself",
+      "status": "PLANNED_SOURCE"
+    },
+    {
+      "id": "kh-ph-ship-oct",
+      "group": "food",
+      "name": "Cambodian public agency 3 Oct 2026 Signature Rice Philippines shipments",
+      "url": "https://www.vps.akp.gov.kh/post/detail/382895",
+      "note": "Company export plan targeting 60,000 tonnes Q4 2026. Evidence of Philippines demand, NOT national rice refusal",
+      "status": "DATED_PUBLIC_REPORT"
+    },
+    {
+      "id": "kh-ph-agreement",
+      "group": "food",
+      "name": "Cambodian government report 14 Sep 2026 City Rice and DILAI 10,000t deal",
+      "url": "https://akp.gov.kh/index.php/post/detail/381209",
+      "note": "Specific export commitment, not evidence that all Cambodian rice unavailable",
+      "status": "DATED_PUBLIC_REPORT"
+    },
+    {
+      "id": "ph-da",
+      "group": "trade",
+      "name": "Philippines Department of Agriculture rice source diversification",
+      "url": "https://www.da.gov.ph/da-moves-to-better-manage-rice-importation-to-protect-farmers-incomes/",
+      "note": "Gov statement on import policies and alternatives including Cambodia; check current policies",
+      "status": "ORIGINAL_POLICY_CONTEXT"
     }
   ]
 }
