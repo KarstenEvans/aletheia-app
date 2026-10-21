@@ -16,13 +16,13 @@
 
 ## GUI / behaviour
 
-Site Audit page: dark sticky header; accessible hamburger menu Site Audit / Affiliate Tools / Portable Markdown / Knowledge / All Apps. Brief answer-first overview of stages 1–4 and optional 3A. URL and optional target-market input. Copy button prepares a plain text handoff prompt pointing a capable AI to the **latest actual Markdown**. Copy status is visibly reported; invalid URLs are rejected; clipboard failure gives a usable fallback. No claim that this browser-only page has scanned a website, run an AI model, authenticated to Google/Bing or exported private metrics.
+Site Audit page: dark sticky header; accessible hamburger menu Site Audit / Affiliate Tools / Portable Markdown / Knowledge / All Apps. Brief answer-first overview of the preliminary identity/trust check (Stage 0), the first technical reachability check (Stage 1), stages 2–4 and optional 3A. Explain that a gate is an evidence checkpoint, not an automatic rejection. URL and optional target-market input. Copy button prepares a plain text handoff prompt pointing a capable AI to the **latest actual Markdown**. Copy status is visibly reported; invalid URLs are rejected; clipboard failure gives a usable fallback. No claim that this browser-only page has scanned a website, run an AI model, authenticated to Google/Bing or exported private metrics.
 
 Affiliate Tools page: standalone crawlable static page with SEO title, description, canonical/OG, an accessible hamburger menu and visible jump links. Keyword/trends are the main section; then technical site management, analytics, affiliate networks and original useful affiliate-marketing method. Each tool has a real official destination, purpose, data caveat and free/account/billing/privacy status. Search filter only filters the local tool cards; it never claims to query Google/Bing. Descriptive source and evidence links are excluded from affiliate conversion according to the current site convention.
 
 ## Audit report: optional Stage 3A Search Intelligence
 
-- Run Stage 1 first. Stage 3A does not substitute for reachability, nor does a public dashboard reveal private site analytics.
+- Complete Stage 0 first, then Stage 1 before Search Intelligence. Stage 3A does not substitute for reachability, nor does a public dashboard reveal private site analytics.
 - Use Google Trends (sampled normalised 0–100; trends not exact counts); Bing Webmaster Keyword Research (volume/questions where accessible); verified-property Search Console/Bing impressions/clicks only when user-authorised or voluntarily supplied as CSV; Bing AI Performance citations/grounding groups only if authorised and available.
 - For each figure: source, engine, metric type/unit, geo/language/date range, captured-at, public vs account-derived, evidence, coverage limitation, and status.
 - Mark \`NOT AVAILABLE\` rather than invent access or volume. Never sum unlike metrics or represent grounding phrases as exact user prompts.
@@ -66,3 +66,12 @@ Film/affiliate evidence: official Disney Hocus Pocus and UK Disney+ page; specif
 Floating star decorations are bounded, `pointer-events:none`, behind content and disabled by `prefers-reduced-motion`. The actual clickable sprite destinations are the labelled, keyboard-usable, JSON-driven shared Constellation links with normal static fallback. Halloween witch appears only 1 September–10 November inclusive and points to the committed evergreen Halloween page. No full-screen snow or overlays covering buttons.
 
 Test final Books / Gifts nav position, hero action, all section IDs/anchor targets, accessibility free-book exact link, film direct sources, no invented commission link, five ordinary fallback stars, dates, no duplicate IDs, script syntax, live external URLs and narrow mobile layout. Deployment, account merchant acceptance, visitor tracking and a live Google/Bing query must be verified separately.
+
+
+## Consistency repair (21 October 2026)
+
+The canonical Markdown and actual copied handoff must both begin with Stage 0 Identity and Trust Gate, then Stage 1 Reachability Gate. Reuse known identity evidence for an owned/familiar site and apply a proportionate Trust Check to external/unfamiliar sites; an inconclusive trust result does not block technical diagnosis. Keep the existing stage IDs rather than renumbering unrelated references.
+
+Always inventory robots.txt, sitemap.xml and llms.txt. Verified absence of llms.txt is MISSING — optional discovery aid, not an automatic trust/site-quality failure or explanation for missing citations; failed retrieval remains NOT TESTED/UNKNOWN.
+
+Use real paragraph breaks in Markdown prose; never serialize literal backslash+n pairs into headings or paragraphs. Preserve valid escapes inside JavaScript string literals. After changing the workflow, execute the real copy handler and compare its stage order/scope with the canonical Markdown, not only the visible page labels. Run `node aletheia-site-audit/tests/handoff-consistency.mjs` from the repository root. Browser/device tests remain separate.
