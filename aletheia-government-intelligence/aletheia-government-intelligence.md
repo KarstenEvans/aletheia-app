@@ -74,3 +74,17 @@ Highest authorised action: PUBLIC RESEARCH / DRAFT / PRIVATE EXPORT. **£0 defau
 Run status values: RESEARCHED; SOURCE-PENDING; INACCESSIBLE; NOT-RUN. Do not invent source access. No silence-as-rejection: broaden terms/languages and record the genuine uncertainty.
 
 **Next-run prompt:** “Run Aletheia Government Intelligence on-demand, sectors food and facilities, buyers NHS and schools, geography UK demand and worldwide sourcing. Start with current UK4 tenders and UK2 market engagement, then look up the incumbent food-distributor routes and Go Walkabout on rice/ambient foods. Cite the original notice and current deadline. No bids or contact.”
+
+## 10. Initial commercial use case and market shift (owner decision, 21 October 2026)
+
+**v0.1 business model selected: introduction-only, not direct food buying, brokerage as principal or government bidding.** The possible customer is an **established UK importer/distributor** or the existing rice employer's authorised sales team, not an NHS purchaser contacted privately through family connections. The researcher may use public procurement records to find commercial demand and identify whether the rice company is authorised to pursue UK buyers. The researcher does not negotiate government terms, take title, store goods, sign buying contracts or commit credit. **No commission is presumed**; the rice company's authorised representative must approve any lead arrangement and record the fee, disclosure, payment trigger, attribution and no-circumvention terms before any introduction.
+
+A known trader reportedly already handles 5 kg and 10 kg Cambodian rice retail formats in the UK. Treat retailer channels, pack format and quoted retail prices as **USER-REPORTED, NOT INDEPENDENTLY VERIFIED** until the brand, importer, product EAN, grade/origin, observed retailer SKU and wholesale quote are confirmed. Do not publish the individual's name, contacts, or company information from confidential employment sources. Retail 5/10 kg packs may be irrelevant to NHS institutional specs; request the actual lot/category requirements before assessing suitability.
+
+**Philippines allocation watch, as at 21 October 2026:**
+- Cambodian government news reported City Rice signed a 10,000-tonne Philippine agreement on 14 September 2026: https://akp.gov.kh/index.php/post/detail/381209 .
+- Cambodian government news on 3 October reported Signature Rice's target of 60,000 tonnes to the Philippines in Q4 2026 via direct Kampot vessel shipments: https://www.vps.akp.gov.kh/post/detail/382895 . This is a company's target, not delivered evidence for the entire period.
+- Research reports suggest strong demand and shifting export allocations but **DO NOT** infer a national Cambodian ban/refusal to sell. Ask each specific authorised exporter/mill for existing buyer commitments, product grade, offer validity, shipment allocation, quote basis and alternate origin possibilities, without contacting them automatically.
+- Where a supplier cannot make a verified offer, mark **NO FIRM SUPPLY / PRICE ON REQUEST**, not “available” or “sold out” universally. Supply shortages can be real without legal restrictions.
+
+**Expert family input:** publicly discussable operating-theatre and GP supply needs can improve product taxonomy; no patient data, NHS procurement influence, employer documents or tender-insider information. Medical device introductions remain research only until sector compliance, importer-of-record responsibility and buyer rules are reviewed by appropriate professionals.
