@@ -53,6 +53,12 @@ For substantial HTML work, read the target app's current files and create/reconc
 - [Open the rice-market research app](https://karstenevans.github.io/aletheia-app/aletheia-rice-intelligence/aletheia-rice-intelligence.htm) — on-demand source selection, evidence-first briefing handoff or optional authenticated Cloudflare Worker, and portable private Markdown settings/data with reviewed-only price history.
 - [Specification, sources and deployment instructions](aletheia-rice-intelligence/README.md). The GitHub Data.md is an empty public starter, not anyone's private broker history.
 
+### Aletheia Government Intelligence (introduction-only)
+
+- [Open Government Intelligence](https://karstenevans.github.io/aletheia-app/aletheia-government-intelligence/aletheia-government-intelligence.htm) — separate low-capital, **on-demand UK public procurement and world sourcing research** derived from Rice Intelligence's methods. Start with NHS/school catering and named UK food distributors; identify potential legitimate lead referrals, **never automatically bid, trade, contact, import or purchase goods**.
+- [Research instructions](aletheia-government-intelligence/aletheia-government-intelligence.md) · [Official source catalogue](aletheia-government-intelligence/aletheia-government-intelligence-sources.json) · [Settings](aletheia-government-intelligence/aletheia-government-intelligence-settings.md) · [Resources](aletheia-government-intelligence/aletheia-government-intelligence-rsc.htm).
+- **Status:** source committed and inline-JS/static checks passed 21 Oct 2026; LIVE GitHub Pages/mobile/device checking pending. Broker/employer authorisation and disclosed commission agreements are required before any commercial introductions. Original Rice Intelligence unchanged.
+
 ### Aletheia Site Audit and Affiliate Tools
 
 - [Site Audit browser launcher](https://karstenevans.github.io/aletheia-app/aletheia-site-audit/aletheia-site-audit.htm) — a static handoff page; actual evidence-based audit runs through the [portable Markdown workflow](aletheia-site-audit/aletheia-site-audit.md) in a capable AI.
