@@ -1,5 +1,13 @@
 # Aletheia Apps - Tasks
 
+## Site Audit consistency repair — 21 October 2026
+
+- [x] Trace stage history; repair Markdown paragraphs; align preliminary Stage 0 and technical Stage 1 in workflow, launcher and page specification.
+- [x] Keep llms.txt in the inventory and distinguish verified optional absence from untested access.
+- [x] Run the real handoff regression checks and record results in `aletheia-site-audit/reports/2026-10-21/consistency-repair.md`.
+- [ ] Review, merge and independently verify the deployed revision; real browser/mobile/Safari QA remains separate.
+
+
 
 ## PARKED TASK — Aletheia AI Expressions and Walkabout sayings (17 October 2026)
 
