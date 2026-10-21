@@ -22,7 +22,7 @@ Historical tributes: Robin Williams and Albert Einstein. Fictional-series studie
 - `Mini-AI-Me-Leonard-Hofstadter.md` — fictional series character study.
 - `Mini-AI-Me-Penny-Hofstadter.md` — fictional series character study.
 - `wiki-style-introduction.md` — neutral independent-project intro, not a Wikipedia submission.
-- `README.md` — operational checkpoint.
+- `memorial-template.md` — consent-first worksheet for memorials and series celebrations; no submissions are collected.\n- `index.html` — default Pages path redirect to preferred `index.htm`.\n- `README.md` — operational checkpoint.
 
 ## Intended public paths
 
