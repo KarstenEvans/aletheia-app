@@ -1,0 +1,380 @@
+{
+  "schema": "aletheia-government-intelligence-sources/v1",
+  "checked_on": "2026-10-21",
+  "status": "seed catalogue; no live availability claimed",
+  "sectors": [
+    {
+      "id": "food",
+      "label": "Food, rice, groceries and catering",
+      "examples": [
+        "rice",
+        "ambient groceries",
+        "frozen meals",
+        "tea",
+        "drinks",
+        "food packaging"
+      ],
+      "buyers": [
+        "NHS",
+        "schools",
+        "local-government",
+        "central-government"
+      ],
+      "cpv": [
+        "15000000"
+      ],
+      "risk": "food compliance; allergens; specifications; traceability; food agent vs broker"
+    },
+    {
+      "id": "facilities",
+      "label": "Cleaning, catering and facilities consumables",
+      "examples": [
+        "cleaning products",
+        "catering disposables",
+        "bins",
+        "waste bags",
+        "kitchen equipment"
+      ],
+      "buyers": [
+        "NHS",
+        "schools",
+        "local-government"
+      ],
+      "cpv": [
+        "39000000",
+        "39800000"
+      ],
+      "risk": "chemical, safety and environmental requirements vary"
+    },
+    {
+      "id": "textiles",
+      "label": "Workwear, uniforms and linen",
+      "examples": [
+        "staff uniforms",
+        "scrubs",
+        "bedding",
+        "towels",
+        "workwear"
+      ],
+      "buyers": [
+        "NHS",
+        "schools",
+        "local-government",
+        "central-government"
+      ],
+      "cpv": [
+        "18000000",
+        "39500000"
+      ],
+      "risk": "specification, textiles/flammability, labour provenance"
+    },
+    {
+      "id": "office",
+      "label": "Office and general supplies",
+      "examples": [
+        "stationery",
+        "furniture",
+        "storage",
+        "paper",
+        "printing supplies"
+      ],
+      "buyers": [
+        "central-government",
+        "NHS",
+        "schools",
+        "local-government"
+      ],
+      "cpv": [
+        "30000000",
+        "39000000"
+      ],
+      "risk": "quality, logistics, warranties and sustainability"
+    },
+    {
+      "id": "medical",
+      "label": "Medical and surgical consumables",
+      "examples": [
+        "wound dressings",
+        "gloves",
+        "surgical disposables",
+        "PPE",
+        "therapy devices"
+      ],
+      "buyers": [
+        "NHS"
+      ],
+      "cpv": [
+        "33000000",
+        "33140000"
+      ],
+      "risk": "HIGH: MHRA medical device rules; regulated import, traceability; no unverified goods"
+    },
+    {
+      "id": "equipment",
+      "label": "Hospital, kitchen and laboratory equipment",
+      "examples": [
+        "patient furniture",
+        "diagnostic equipment",
+        "kitchen appliances",
+        "laboratory equipment"
+      ],
+      "buyers": [
+        "NHS",
+        "schools",
+        "central-government"
+      ],
+      "cpv": [
+        "33100000",
+        "38000000",
+        "39000000"
+      ],
+      "risk": "technical standards, servicing, warranties, product approvals"
+    },
+    {
+      "id": "infrastructure",
+      "label": "Construction and transport materials",
+      "examples": [
+        "fasteners",
+        "cables",
+        "fittings",
+        "building materials",
+        "road equipment"
+      ],
+      "buyers": [
+        "local-government",
+        "central-government",
+        "defence"
+      ],
+      "cpv": [
+        "44000000",
+        "34000000"
+      ],
+      "risk": "engineering assurance, CE/UKCA where applicable, test certificates and warranties"
+    },
+    {
+      "id": "digital",
+      "label": "Digital, research and advisory services",
+      "examples": [
+        "procurement intelligence",
+        "price benchmarking",
+        "sourcing research",
+        "analytics",
+        "software"
+      ],
+      "buyers": [
+        "NHS",
+        "schools",
+        "central-government",
+        "local-government"
+      ],
+      "cpv": [
+        "72000000",
+        "73000000",
+        "79000000"
+      ],
+      "risk": "data protection; procurement impartiality; cyber and contractual controls"
+    }
+  ],
+  "sources": [
+    {
+      "id": "fts",
+      "group": "cross",
+      "name": "UK Find a Tender search",
+      "url": "https://www.find-tender.service.gov.uk/Search",
+      "note": "Current notices: open/closed/award/planning; validate notice and submission details",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "fts-ocds",
+      "group": "cross",
+      "name": "Find a Tender OCDS API documentation",
+      "url": "https://www.find-tender.service.gov.uk/Developer/Documentation",
+      "note": "Official machine-readable releases; use lawful API and check parameters",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "cf",
+      "group": "cross",
+      "name": "Contracts Finder",
+      "url": "https://www.contractsfinder.service.gov.uk/",
+      "note": "Older and certain smaller procurement notices; not comprehensive",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "gca",
+      "group": "cross",
+      "name": "Government Commercial Agency / central procurement",
+      "url": "https://www.gov.uk/government/organisations/government-commercial-agency",
+      "note": "Commercial agreements, supplier guidance and frameworks; verify current agency paths",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "nhs-categories",
+      "group": "healthcare",
+      "name": "NHS Supply Chain categories",
+      "url": "https://www.supplychain.nhs.uk/categories/",
+      "note": "Official category structure; categories are not live demand",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "nhs-food",
+      "group": "food",
+      "name": "NHS Supply Chain Food",
+      "url": "https://www.supplychain.nhs.uk/categories/food/",
+      "note": "Ambient groceries, beverages, fresh/frozen, ready meals",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "nhs-fresh",
+      "group": "food",
+      "name": "NHS Supply Chain Fresh Food framework",
+      "url": "https://www.supplychain.nhs.uk/product-information/contract-launch-brief/fresh-food/",
+      "note": "Historic/current framework information and UK distributors; verify lot and active status",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "nhs-catering",
+      "group": "facilities",
+      "name": "NHS Supply Chain Catering Consumables & Equipment",
+      "url": "https://www.supplychain.nhs.uk/product-information/contract-launch-brief/catering-equipment-and-consumables/",
+      "note": "Framework launched 2025; incumbent examples, not open opportunity proof",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "nhs-consumables",
+      "group": "medical",
+      "name": "NHS Supply Chain Medical/Surgical Consumables",
+      "url": "https://www.supplychain.nhs.uk/categories/",
+      "note": "High regulation and clinical specification; discovery only",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "education",
+      "group": "education",
+      "name": "Department for Education Get Help Buying for Schools",
+      "url": "https://www.get-help-buying-for-schools.education.gov.uk/",
+      "note": "School procurement guidance and routes",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "eshopping",
+      "group": "education",
+      "name": "Education buying guidance",
+      "url": "https://www.gov.uk/guidance/buying-for-schools",
+      "note": "Procurement rules, frameworks and category advice",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "ypo",
+      "group": "education",
+      "name": "YPO public buying organisation",
+      "url": "https://www.ypo.co.uk/",
+      "note": "Framework opportunities and supplier routes; check open windows",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "espo",
+      "group": "education",
+      "name": "ESPO public buying organisation",
+      "url": "https://www.espo.org/",
+      "note": "Framework and catalogues; check buyer eligibility",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "mod",
+      "group": "defence",
+      "name": "MOD Defence Sourcing Portal",
+      "url": "https://contracts.mod.uk/",
+      "note": "MOD procurement/supply chain; buyer-specific obligations",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "nhs-supplier",
+      "group": "healthcare",
+      "name": "NHS Supply Chain supplier information",
+      "url": "https://www.supplychain.nhs.uk/",
+      "note": "Framework and supplier procedures; not licence to sell NHS devices",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "trade-tariff",
+      "group": "trade",
+      "name": "HMRC Trade Tariff",
+      "url": "https://www.gov.uk/trade-tariff",
+      "note": "Commodity classification, duty/VAT, controls by origin and product",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "fsa-agents",
+      "group": "trade",
+      "name": "Food brokers & agents guidance",
+      "url": "https://www.gov.uk/government/publications/guidance-for-food-brokers-and-agents/food-brokers-agents",
+      "note": "Agent versus legal-title broker; determine FBO responsibilities",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "mhra-devices",
+      "group": "trade",
+      "name": "MHRA device registration guidance",
+      "url": "https://www.gov.uk/guidance/register-medical-devices-to-place-on-the-market",
+      "note": "Device importing, responsibilities and registration",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "mhra-medicines",
+      "group": "trade",
+      "name": "MHRA register medicines brokers",
+      "url": "https://www.gov.uk/guidance/medicines-register-as-a-broker",
+      "note": "Do not broker medicines without applicable legal registration",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "conflicts",
+      "group": "trade",
+      "name": "Cabinet Office conflict of interest guidance",
+      "url": "https://www.gov.uk/government/publications/procurement-act-2023-guidance-documents-define-phase/guidance-conflicts-of-interest-html",
+      "note": "No undisclosed relationships, confidential specifications or improper advantage",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "comtrade",
+      "group": "trade",
+      "name": "UN Comtrade",
+      "url": "https://comtradeplus.un.org/",
+      "note": "Trade flows; historic trade is not a firm quotation",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "itc",
+      "group": "trade",
+      "name": "ITC Trade Map",
+      "url": "https://www.trademap.org/",
+      "note": "Market supply patterns; access/licensing varies",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "fao",
+      "group": "food",
+      "name": "FAO Rice Price Update",
+      "url": "https://www.fao.org/markets-and-trade/commodities/rice/fao-rice-price-update",
+      "note": "Reuses Rice Intelligence method for weekly/monthly context, not today firm offers",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "gca-framework",
+      "group": "cross",
+      "name": "Public-sector supplier guidance",
+      "url": "https://www.gov.uk/government/collections/information-and-guidance-for-suppliers",
+      "note": "UK supplier guide and registration",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    },
+    {
+      "id": "trade-policy",
+      "group": "trade",
+      "name": "GOV.UK importing and exporting guidance",
+      "url": "https://www.gov.uk/government/collections/guidance-for-exporting-and-importing-businesses",
+      "note": "UK import and exporter guidance; verify country/product-specific measures",
+      "status": "STARTING_POINT_VERIFY_AT_RUN"
+    }
+  ]
+}
