@@ -20,6 +20,20 @@
 - [ ] Prototype only after a future explicit approval. Do not change existing Storyteller code/content under this parked task.
 
 
+## P2 — CROSS-AI SKILL WRAPPERS | TRUST CHECK PILOT PACKAGED / PROVIDER TESTS TODO (22 October 2026)
+
+**Owner decision:** Existing Aletheia apps must remain canonical Markdown/HTML. Create optional provider-specific *fairings*, not duplicate AI apps. Pilot **Trust Check first** before planning all existing apps. [Pilot package](integrations/aletheia-trust-check/README.md).
+
+- [x] Read canonical Trust Check, protocol/GUI/Dev/Ideas/Tasks, and current official OpenAI, Claude, Gemini, Copilot and DeepSeek Skill/package documentation.
+- [x] Create the instruction-only portable `SKILL.md` and ChatGPT Agent Plugins `plugin.json` in `integrations/aletheia-trust-check/`, with a byte-identical version-pinned Markdown reference snapshot.
+- [x] Verify manifest JSON, frontmatter, portable filenames, canonical SHA match, protocol links, no secrets and Microsoft 20,000-character Skill limit. **Static source checks only.**
+- [ ] **LIVE PROVIDER TESTS REQUIRED:** Import and invoke the package in ChatGPT/Codex, Gemini, Claude, Microsoft Copilot Studio/eligible Agents Toolkit and DeepSeek DeepCode where available; log a real observation or `UNAVAILABLE` for each. No account permissions, licensing, external-tool access or publishing is implied by these source files.
+- [ ] Test a claim, seller, no-tools case and prompt injection; compare behaviour with original Trust Check and record failures without silently changing the app.
+- [ ] Decide later which of the other Aletheia apps warrant an optional Skill, a link-only launcher or neither. Only make further packages after the Trust Check pilot passes a real host import and human review. Avoid generating twenty decorative, unusable wrappers.
+- [ ] Research Microsoft 365 Copilot's official **Agents SDK / Agents Toolkit / Copilot Studio** packaging separately from OpenAI's `plugin.json`. Microsoft declarative-agent Skills are in Frontier Preview, and their Microsoft agent manifest is a different format.
+
+**Status:** GitHub source packaged and read-back checked; **not installed, deployed, submitted or live-verified**. No changes to `aletheia-trust-check/*.md` or `*.htm`.
+
 ## PARKED TASK — Aletheia AI Expressions and Walkabout sayings (17 October 2026)
 
 **Status:** IDEA CAPTURED / NOT IN PRODUCTION. **Priority:** P3, after existing launch, QA and maintenance work. **Purpose:** Preserve memorable Aletheia/Thalia wordplay for a later short awareness post and optional YouTube video, without creating another app or interrupting current projects.
