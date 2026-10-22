@@ -25,6 +25,14 @@
 - [x] Updated page build specification and an Aletheia-03 dated Improve receipt.
 - [x] Execute Node tests from checked-out files (16 October: static PASS; simulated handoff cases PASS). Real browser and model checks remain separate.
 
+## Optional cross-AI fairing (22 October 2026)
+
+- [x] Publish additional Aletheia-hosted [Skill/plugin fairing page](../integrations/aletheia-trust-check/index.htm) without altering the canonical Trust Check workflow or full HTML launcher functionality.
+- [x] Publish separate Skill ZIP (`SKILL.md` + exact pinned reference) and ChatGPT/Codex portable plugin ZIP (`plugin.json` + same Skill).
+- [ ] Verify two live GitHub Pages ZIP downloads, working page and device/browser interactions.
+- [ ] Import and run in actual eligible Claude, Gemini, ChatGPT/Codex, Copilot Studio and DeepSeek DeepCode installations, recording capability and any blocked availability separately.
+- [ ] Repackage when the canonical method changes. Optional fairings are adapters, not separate engines.
+
 ## Still to validate
 - [ ] Run real browser interactions: 5 providers, popups, clipboard, fallback, keyboard, Android, Safari, Firefox, 200% zoom, reduced-motion.
 - [ ] Run Trust Check on real world subjects with the receiving AI; confirm no fabricated Reddit/Discord checks and official jurisdiction accuracy.
