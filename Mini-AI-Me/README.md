@@ -13,6 +13,7 @@ Historical tributes: Robin Williams and Albert Einstein. Fictional-series studie
 
 ## Files
 
+- `Mini-AI-Me-START.md` — the original 28-question, optional, one-question-at-a-time interview for creating your own private Mini-AI-Me. Question 4 includes strengths, enjoyment and preferred working methods; it is not an additional question.
 - `index.htm` — visible, searchable directory of five profiles, mobile-first.
 - `mini-ai-me-rsc.htm` — books, sources, gift ideas, and cautious disclosure.
 - `aletheia-humour.md` — Robin Williams-inspired original comedy style study.
