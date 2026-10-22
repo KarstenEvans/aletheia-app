@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "aletheia-trust-check",
+  "version": "0.1.0",
+  "description": "Free-first, source-aware checks of public claims, businesses, offers and websites using the existing Aletheia Trust Check methodology.",
+  "homepage": "https://karstenevans.github.io/aletheia-app/aletheia-trust-check/aletheia-trust-check.htm",
+  "repository": "https://github.com/KarstenEvans/aletheia-app",
+  "keywords": [
+    "aletheia",
+    "trust",
+    "verification",
+    "fact-checking",
+    "consumer-protection"
+  ]
+}
