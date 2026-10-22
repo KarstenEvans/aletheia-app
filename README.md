@@ -27,6 +27,7 @@ For substantial HTML work, read the target app's current files and create/reconc
 
 - [Open Trust Check](https://karstenevans.github.io/aletheia-app/aletheia-trust-check/aletheia-trust-check.htm) (proposed GitHub Pages route; live deployment not verified)
 - [Canonical Markdown routine](aletheia-trust-check/aletheia-trust-check.md) · [Free scam-reporting and fake-AI resources, books & gifts](aletheia-trust-check/aletheia-trust-check-rsc.htm) · [Page build spec](aletheia-trust-check/aletheia-trust-check-page.md)
+- **Optional extra system/app fairing:** [Installable Skill or plugin packages](https://karstenevans.github.io/aletheia-app/integrations/aletheia-trust-check/index.htm) for supported ChatGPT/Codex, Claude, Gemini and Copilot-style hosts. This companion leaves the original Trust Check canonical method and browser launcher intact. Package files are GitHub-published; separate provider installation/testing is still pending.
 - [Original unchanged source snapshot](aletheia-trust-check/aletheia-trust-check-original-2026-10-10.md) · [Reusable `TRUST-CHECK` primitive](aletheia-code.md#trust-check-composable-aletheia-routine) · [App tasks](aletheia-trust-check/tasks.md).
 
 ## Aletheia Job Search
