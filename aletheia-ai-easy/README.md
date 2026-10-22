@@ -1,6 +1,8 @@
 # Aletheia AI Easy
 
-A free-first, portable onboarding layer for the Aletheia ecosystem.
+Step 1: **Aletheia AI Easy helps you set up your chosen AI.** Choose optional preferences, build a private portable memory file and learn how to use ChatGPT, Gemini, Claude, DeepSeek or another supported AI. This is not a course or an assistant.
+
+Step 2 (optional): **[Aletheia Assistant (Sif)](../aletheia-assistant/aletheia-assistant.htm) helps you use your AI.** It is a friendly task/voice interface for asking questions and opening Aletheia apps, not another setup system.
 
 ## Files
 
