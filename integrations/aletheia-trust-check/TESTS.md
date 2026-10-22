@@ -5,6 +5,19 @@
 **Date:** 22 October 2026
 **Status:** Source package prepared; *actual provider installation and live invocations not performed*. This file is a reproducible checklist, not evidence of a functioning external integration.
 
+## Offline package validation (22 October 2026)
+
+**Result: 11/11 static/source assertions PASS, confirmed by reading committed GitHub files back.**
+
+- Root portable Agent Plugins JSON manifest parses and uses expected name/schema.
+- YAML frontmatter contains the same lowercase Skill name and a trigger-ready description.
+- Skill instructions are below Microsoft's published 20,000-character limit.
+- Reference snapshot is byte-for-byte identical to canonical `aletheia-trust-check.md`; both Git blob SHA `01ba265ef173d7da2ac383e2bf154d8f5044c812`.
+- Both protocol links, no credential literals, provider-specific import documentation and four sample scenarios present.
+- All files were created outside `aletheia-trust-check/`; existing browser and canonical app untouched.
+
+**Not run:** No provider imports, actual Skill invocation, MCP registration, live web retrieval or device/browser tests. Four evaluation cases are *defined*, not claimed to have passed in Claude, Gemini, ChatGPT, DeepSeek or Copilot.
+
 ## Four no-risk evaluation cases
 
 | Case | User example | Must happen |
