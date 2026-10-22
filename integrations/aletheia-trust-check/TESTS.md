@@ -18,6 +18,23 @@
 
 **Not run:** No provider imports, actual Skill invocation, MCP registration, live web retrieval or device/browser tests. Four evaluation cases are *defined*, not claimed to have passed in Claude, Gemini, ChatGPT, DeepSeek or Copilot.
 
+## Public fairing publication receipt (22 October 2026)
+
+**Committed GitHub source (confirmed by a fresh directory listing):**
+- Public fairing: `integrations/aletheia-trust-check/index.htm`
+- Skill ZIP: `aletheia-trust-check-skill.zip` (35,257 bytes; Git blob `3dcca6613b9cf4a0792c2121792e9346ac717813`)
+- ChatGPT/Codex Plugin ZIP: `aletheia-trust-check-plugin.zip` (36,044 bytes; Git blob `920a8ea842938c2e615a53979c3ae25575fd5f94`)
+- Page reconstruction contract: `index-page.md`; source package/README and original Trust Check links updated.
+- Explicit P1 high-priority task created for the remaining existing Aletheia apps.
+
+**Public link intended:** https://karstenevans.github.io/aletheia-app/integrations/aletheia-trust-check/index.htm
+
+**Static source checks passed (10/10):** published page text; both ZIP anchors; optional link from main app; canonical snapshot byte-equivalence; both protocol links; unique HTML IDs; matching HTML section/main tags; exactly one standard site Awin script; P1 backlog and page reconstruction spec present.
+
+**Download ZIP construction checks:** generator wrote standard uncompressed ZIP local headers, central directory and end-of-central-directory record; pre-upload signatures/entry counts checked, and both binary Git blobs with expected byte lengths were committed. Independent ZIP extraction, GitHub Pages HTTP download, and browser/device tests **not completed in this environment**. Direct retrieval through available web/browser tools was unsuccessful; do not treat this as proof the GitHub Pages URL is inaccessible to users. Test from a normal browser.
+
+**Provider tests:** no ChatGPT/Codex Plugin Directory submission or Claude/Gemini/Copilot/DeepSeek account import has been performed. Provider capability is documentation-based until observed in a real account.
+
 ## Four no-risk evaluation cases
 
 | Case | User example | Must happen |
