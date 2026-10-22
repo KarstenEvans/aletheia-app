@@ -30,6 +30,9 @@ Without JS, use the sibling downloaded Markdown file or static hosted .md link. 
 FACTS: short finding followed by claim/verdict/source/limitation table, checked date, event date if relevant, original-source lineage and evidence gaps. Distinguish SUPPORTED, MISLEADING, CONTRADICTED, UNVERIFIED and OPINION/PREDICTION. Business/offer checks retain separate qualitative trust indication. No automatic falsehood from missing evidence, detector score, padlock, registry or repeated copies. No automatic public post, fraud report or other external action.
 Retain all source-integrity, injection, impersonation and recovery safeguards from v0.4. Do not imply a prompt is a technical security sandbox.
 
+## Optional fairing link (22 October 2026)
+Include one ordinary, visible non-blocking link from the existing main Trust Check resources and menu to `../integrations/aletheia-trust-check/index.htm`. This is navigation only. The original form, full embedded canonical Markdown, provider routing, access controls and downloads must remain unchanged. The optional Skill/plugin page, packages, version pin and separate provider tests are specified in `../integrations/aletheia-trust-check/index-page.md`.
+
 ## Verification
 Run both repository Node tests: static regression (including archived-byte checks and inline syntax) and handoff logic tests (form events, copied full method, long posts, fixed providers, no automatic launch, fallbacks and invalidation). These are source and simulated-DOM checks, not browser/device/model behaviour.
 Browser/device QA remains separate: Chromium/Firefox/Safari, Android/iOS, clipboard permissions, downloads, popup handling, keyboard, zoom, narrow screens, screen reader and reduced motion. Run the 14 manual security cases in a retrieval-capable AI and record actual observations. Check external destination freshness separately.
