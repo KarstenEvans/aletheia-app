@@ -20,19 +20,24 @@
 - [ ] Prototype only after a future explicit approval. Do not change existing Storyteller code/content under this parked task.
 
 
-## P2 — CROSS-AI SKILL WRAPPERS | TRUST CHECK PILOT PACKAGED / PROVIDER TESTS TODO (22 October 2026)
+## P1 — FAIRINGS FOR ALL EXISTING ALETHEIA APPS | HIGH PRIORITY / TO DO (22 October 2026)
 
-**Owner decision:** Existing Aletheia apps must remain canonical Markdown/HTML. Create optional provider-specific *fairings*, not duplicate AI apps. Pilot **Trust Check first** before planning all existing apps. [Pilot package](integrations/aletheia-trust-check/README.md).
+**Owner priority:** Make optional `SKILL.md`, ChatGPT/Codex `plugin.json` and other provider-specific *fairings* available for the existing Aletheia app collection, wherever technically useful. **Do not clone, replace or disrupt the original Aletheia Markdown/HTML apps.** Keep the original app as canonical, provider-neutral and free-first. Reuse one shared template and a small per-app identity/workflow layer. This is a **priority production backlog**, not a new app to invent or a reason to block the current browser apps.
 
-- [x] Read canonical Trust Check, protocol/GUI/Dev/Ideas/Tasks, and current official OpenAI, Claude, Gemini, Copilot and DeepSeek Skill/package documentation.
-- [x] Create the instruction-only portable `SKILL.md` and ChatGPT Agent Plugins `plugin.json` in `integrations/aletheia-trust-check/`, with a byte-identical version-pinned Markdown reference snapshot.
-- [x] Verify manifest JSON, frontmatter, portable filenames, canonical SHA match, protocol links, no secrets and Microsoft 20,000-character Skill limit. **Static source checks only.**
-- [ ] **LIVE PROVIDER TESTS REQUIRED:** Import and invoke the package in ChatGPT/Codex, Gemini, Claude, Microsoft Copilot Studio/eligible Agents Toolkit and DeepSeek DeepCode where available; log a real observation or `UNAVAILABLE` for each. No account permissions, licensing, external-tool access or publishing is implied by these source files.
-- [ ] Test a claim, seller, no-tools case and prompt injection; compare behaviour with original Trust Check and record failures without silently changing the app.
-- [ ] Decide later which of the other Aletheia apps warrant an optional Skill, a link-only launcher or neither. Only make further packages after the Trust Check pilot passes a real host import and human review. Avoid generating twenty decorative, unusable wrappers.
-- [ ] Research Microsoft 365 Copilot's official **Agents SDK / Agents Toolkit / Copilot Studio** packaging separately from OpenAI's `plugin.json`. Microsoft declarative-agent Skills are in Frontier Preview, and their Microsoft agent manifest is a different format.
+**First published pilot:** [Trust Check fairing page](https://karstenevans.github.io/aletheia-app/integrations/aletheia-trust-check/index.htm) · [package/source](integrations/aletheia-trust-check/README.md) · [test receipt](integrations/aletheia-trust-check/TESTS.md). Its original source and user-facing app remain authoritative.
 
-**Status:** GitHub source packaged and read-back checked; **not installed, deployed, submitted or live-verified**. No changes to `aletheia-trust-check/*.md` or `*.htm`.
+- [x] Research OpenAI portable Agent Plugins, common `SKILL.md` format, Claude, Gemini, Microsoft Copilot Studio and relevant other hosts; distinguish ordinary chat from agent/developer interfaces.
+- [x] Publish the Trust Check adapter's `SKILL.md`, `plugin.json`, original-source-pinned offline reference, **real Skill and Plugin ZIP files**, public download page and documentation to GitHub `main`.
+- [x] Link fairing from the existing Trust Check app and the Aletheia Apps index; the normal Trust Check remains the primary task surface.
+- [ ] **P1 / FIRST:** Verify the new GitHub Pages page and downloads on desktop and mobile, then test importing/invoking the actual packages in every available supported AI provider. Record failures, unavailable account features and exact limitations; a GitHub commit is not evidence of external platform installation.
+- [ ] **P1 / NEXT:** Inventory the current Aletheia Apps folders plus the existing 11 workflow Skills and Knowledge collections. Deduplicate before any mass production. Mark each: **SKILL FAIRING**, **LINK/LAUNCH ONLY**, **REUSE EXISTING SKILL**, or **NOT APPLICABLE**. Browser-dependent apps (e.g. games, interactive Storyteller controls) must not pretend a markdown file recreates their interface.
+- [ ] **P1 / NEXT:** Generalise a single small, version-pinned template, common `SKILL.md` instructions, optional ChatGPT `plugin.json`, ZIP packaging, link/discovery metadata and regression tests. Preserve per-app `AGENTS.md` / Safe Bootstrap / GUI / Dev / Code rules; no hand-maintained cloned methods.
+- [ ] **P1 / BATCH:** Publish optional fairings for the suitable existing apps in small reviewed batches, linking each from its original app and Aletheia Apps. Test both file ZIP structure and representative AI invocation. Record the canonical blob/version and rebuild wrappers when apps change.
+- [ ] Include Claude, Gemini, ChatGPT/Codex, Copilot Studio, DeepSeek DeepCode, Kimi and Odysseus where the *specific* host accepts Agent Skills. Prefer the identical `SKILL.md` format; create separate provider manifests only when technically required and actually supported.
+- [ ] Research Microsoft 365 Copilot Agents SDK / Agents Toolkit and Copilot Studio packaging separately from OpenAI `plugin.json`; ensure any manifest, permissions, terms or previews are correctly described.
+- [ ] Keep **publication and installation** distinct: a GitHub Pages download is not a ChatGPT Plugin Directory or Microsoft Copilot directory listing. Require an explicit separate review/approval for marketplace submission, MCP tools, connected accounts, spend or external actions.
+
+**Current status:** Trust Check fairing **packaged on GitHub**. Static source/manifest assertions passed earlier; ZIP structure and GitHub Pages live delivery require distinct checks. **External provider imports and natural-language activation are untested.** Original app's canonical Markdown and working form are unchanged; only optional links were added to the existing HTML navigation/resources. **Priority:** P1, high, across the existing app collection.
 
 ## PARKED TASK — Aletheia AI Expressions and Walkabout sayings (17 October 2026)
 
