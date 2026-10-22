@@ -1,5 +1,24 @@
 # Aletheia Apps - Tasks
 
+## P1 — ALETHEIA PUBLISHER | HIGH PRIORITY / TO DO (22 October 2026)
+
+**Existing approved design, NOT an implemented app.** Main task: [Aletheia Knowledge AK-097](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/aletheia-knowledge-tasks.md) and [Publisher specification](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/ideas/aletheia-publisher.md). This is a cross-repository priority pointer, not a second Publisher or permission to auto-post.
+
+- [ ] Inspect the current LinkedIn Check/Publisher sources and decide the smallest reusable implementation.
+- [ ] Pilot one Markdown-first LinkedIn draft through source → research → original post → checking → human approval → manual copy; no automatic posting.
+- [ ] Include two optional writing suggestions: **begin with a real problem the reader recognises** and **offer two or three alternative opening sentences**. They must be authentic, not misleading clickbait.
+- [ ] Keep Content Repurposer and existing Knowledge/LinkedIn collection libraries as reusable sources; do not clone them.
+- [ ] Record test results and decide whether a dedicated interface truly improves the job.
+
+**Status:** TODO / HIGH PRIORITY; existing design approved only. Subsequent implementation needs a separate scoped approval.
+
+## P3 — STORYTELLER KNOWLEDGE-TO-STORY | FUTURE IDEA / PARKED (22 October 2026)
+
+- [ ] Explore: **“Take a piece of Aletheia Knowledge and turn it into a short, entertaining, fact-checked story.”**
+- [ ] Reuse the existing Storyteller, Knowledge sources and current story Markdown/voice/image/camera grammar; no competing builder.
+- [ ] Keep the verified facts distinguishable from fictional dialogue; credit source links and require approval before publishing any new story.
+- [ ] Prototype only after a future explicit approval. Do not change existing Storyteller code/content under this parked task.
+
 
 ## PARKED TASK — Aletheia AI Expressions and Walkabout sayings (17 October 2026)
 
