@@ -4,6 +4,8 @@
 
 **Status:** v0.2, 29 September 2026. [Open the optional Sif interface](https://karstenevans.github.io/aletheia-app/aletheia-assistant/aletheia-assistant.htm).
 
+**The simple order:** start with [Aletheia AI Easy](../aletheia-ai-easy/aletheia-setup.htm) to set up your AI and optional preferences. **Then, if you want, use Sif** to ask questions, choose tasks and open Aletheia apps. AI Easy is setup; Sif is an optional helper, not a duplicate setup tool.
+
 This is an **extra, playful voice/HUD interface**. It does NOT replace the normal Aletheia website, the worldwide Discover/Atlas experience, shared \`aletheia-GUI.md\`, the root \`index.html\`, or Swindon.org.uk. Its own folder owns its styling and behaviours. Returning to the standard website is always one click away.
 
 ## What works without a subscription or server
