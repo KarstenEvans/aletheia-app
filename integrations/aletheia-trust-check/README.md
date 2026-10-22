@@ -2,7 +2,11 @@
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) governs evidence, uncertainty, provenance and user approval. [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) is the optional appropriate humour layer.
 
-**Status: PACKAGED / SOURCE TESTING PENDING / NO LIVE PROVIDER IMPORT CLAIM.** Prepared 22 October 2026.
+**Status: PUBLIC PAGE AND TWO DOWNLOADABLE ZIPS COMMITTED TO GITHUB / PROVIDER IMPORTS UNTESTED.** Prepared 22 October 2026.
+
+**Public Aletheia fairing page:** https://karstenevans.github.io/aletheia-app/integrations/aletheia-trust-check/index.htm (GitHub Pages browser deployment must be independently verified). This companion links back to the existing original app.
+
+**User download packages:** [portable Skill ZIP](aletheia-trust-check-skill.zip) (root `SKILL.md` and pinned reference), [ChatGPT/Codex Plugin ZIP](aletheia-trust-check-plugin.zip) (root `plugin.json` plus the same Skill). Both were built from the reviewed version-pinned source, but have not yet been imported into separate provider accounts. The published page is not a claim of App Store/Plugin Directory listing.
 
 **Original app, unchanged:** [Aletheia Trust Check Markdown](../../aletheia-trust-check/aletheia-trust-check.md) and [existing browser launcher](../../aletheia-trust-check/aletheia-trust-check.htm). This `integrations/` folder is only a portable Skill wrapper and does not change the application or its source of truth.
 
