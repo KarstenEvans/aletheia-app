@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101b30">
+<title>Use Aletheia Trust Check with your AI | Optional Skill and Plugin</title>
+<meta name="description" content="Free Aletheia Trust Check Skill and plugin packages for compatible AIs. The original worldwide Trust Check app remains unchanged.">
+<link rel="canonical" href="https://karstenevans.github.io/aletheia-app/integrations/aletheia-trust-check/index.htm">
+<link rel="stylesheet" href="../../shared/link-sprites.css">
+<style>
+:root{color-scheme:dark;--bg:#101b30;--panel:#1b304a;--ink:#f1f9ff;--muted:#c5d6e1;--accent:#91f1d9;--line:#48677d;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top right,#214766,var(--bg) 68%);color:var(--ink)}a{color:var(--accent)}a:focus-visible,summary:focus-visible{outline:3px solid #f4d18c;outline-offset:4px}
+header{background:#0c1a2bcc;border-bottom:1px solid var(--line)}.wrap{max-width:920px;margin:auto;padding:0 20px}.bar{display:flex;align-items:center;gap:16px;min-height:64px;flex-wrap:wrap}.brand{font-weight:800;text-decoration:none;letter-spacing:.04em}.grow{flex:1}header a{padding:8px 0}
+main{padding-top:30px;padding-bottom:40px}.eyebrow{font-size:.85rem;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.13;margin:8px 0 15px}h2{font-size:1.36rem;margin:0 0 10px}h3{font-size:1.05rem;margin:0 0 9px}p{margin:10px 0 15px}.lead{font-size:1.12rem;color:var(--muted);max-width:70ch}
+.panel{margin:20px 0;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:clamp(18px,3vw,25px)}.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.choice{border:1px solid #648da0;border-radius:12px;padding:18px}.choice p{color:var(--muted);font-size:.94rem}.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border-radius:9px;background:var(--accent);color:#062a35;font-weight:800;text-decoration:none;margin:8px 9px 6px 0}.button.secondary{background:transparent;border:1px solid #a4c6d6;color:var(--ink)}.note{font-size:.9rem;color:var(--muted)}.steps{padding-left:1.3rem}.steps li{margin:9px 0}details{border-top:1px solid var(--line);padding-top:13px;margin:14px 0}summary{cursor:pointer;font-weight:750;min-height:30px}footer{border-top:1px solid var(--line);padding:18px 0 34px;color:var(--muted)}
+@media(max-width:660px){.choices{grid-template-columns:1fr}.bar{gap:12px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><nav class="wrap bar" aria-label="Aletheia navigation"><a class="brand" href="../../">✦ ALETHEIA</a><span class="grow"></span><a href="../../aletheia-trust-check/aletheia-trust-check.htm">Trust Check app</a><a href="../../aletheia-trust-check/aletheia-trust-check-rsc.htm">Resources</a></nav></header>
+<main class="wrap">
+<p class="eyebrow">Optional AI fairing · Original app preserved</p>
+<h1>Take Trust Check into your own AI</h1>
+<p class="lead">Aletheia Trust Check already works as a free browser app. This optional <strong>Skill</strong> lets compatible AI tools follow its source-checking method inside their own chat or agent interface.</p>
+<p><a class="button secondary" href="../../aletheia-trust-check/aletheia-trust-check.htm">Use the original Trust Check →</a></p>
+<section class="panel" aria-label="Download a Trust Check adapter">
+<h2>Choose your package</h2>
+<div class="choices">
+<article class="choice">
+<h3>For Claude, Gemini, Copilot Studio and compatible Skills</h3>
+<p>A single portable <code>SKILL.md</code> plus an offline reference copy of the Trust Check method.</p>
+<a class="button" href="aletheia-trust-check-skill.zip" download="aletheia-trust-check-skill.zip">Download Skill ZIP</a>
+<p class="note">Some AI accounts may not offer custom Skill imports. You can still use the original Markdown.</p>
+</article>
+<article class="choice">
+<h3>For ChatGPT / Codex plugins</h3>
+<p>The same Skill wrapped in a portable <code>plugin.json</code> package. No paid API or MCP server is bundled.</p>
+<a class="button" href="aletheia-trust-check-plugin.zip" download="aletheia-trust-check-plugin.zip">Download Plugin ZIP</a>
+<p class="note">This is a package to import in a supported plugin environment, not an installed or publicly listed ChatGPT plugin.</p>
+</article>
+</div>
+</section>
+<section class="panel" aria-label="How to get started">
+<h2>Three easy steps</h2>
+<ol class="steps">
+<li><strong>Download</strong> the ZIP that matches your AI.</li>
+<li><strong>Import</strong> it using your AI's Skill or plugin controls, where supported. If your AI cannot import Skills, <a href="../../aletheia-trust-check/aletheia-trust-check.md">use the ordinary Trust Check Markdown</a> instead.</li>
+<li><strong>Ask normally:</strong> “Can I trust this company?” or “Check the claims in this post.”</li>
+</ol>
+<p class="note">The Skill does not give an AI web access or permission to act. It must say when information could not be checked. A missing search result is not proof that something is false.</p>
+</section>
+<section class="panel" aria-label="Choose an AI">
+<h2>Need platform-specific instructions?</h2>
+<details><summary>Claude and Gemini</summary><p>Use your AI's custom Skill import feature if your account supports it. Upload the <strong>Skill ZIP</strong>, which contains the instruction file and reference material. Availability and menu labels depend on your account.</p></details>
+<details><summary>Microsoft Copilot</summary><p>In an eligible <strong>Copilot Studio agent</strong>, add an existing Skill and upload the Skill ZIP. Microsoft 365 Copilot Agent Builder preview also accepts a ZIP. This is not automatically available in ordinary free Copilot chat.</p></details>
+<details><summary>ChatGPT and Codex</summary><p>Use the <strong>Plugin ZIP</strong> with a supported local/personal plugin marketplace or plugin-creation workflow. A public listing requires separate submission and approval.</p></details>
+<details><summary>DeepSeek, Odysseus and other AI tools</summary><p>If your particular AI environment supports <code>SKILL.md</code> imports, use the Skill ZIP or extract its files. Otherwise open the original Trust Check Markdown in the AI. Ordinary chat and developer agent environments are not necessarily the same product.</p></details>
+<p><a href="https://github.com/KarstenEvans/aletheia-app/blob/main/integrations/aletheia-trust-check/README.md" target="_blank" rel="noopener noreferrer" data-awinignore>Full installation notes, limitations and test checklist ↗</a></p>
+</section>
+<section class="panel" aria-label="Source and status">
+<h2>One Aletheia app, many doors</h2>
+<p>These packages contain the existing <strong>Trust Check v0.5.1</strong> as a version-pinned reference. The original browser app and its canonical Markdown remain the source of truth. Updates to the original method must be reviewed before rebuilding the packages.</p>
+<p class="note"><strong>Publication status:</strong> Aletheia-hosted download packages and documentation. Static file-format checks passed. Importing and running this Skill inside external AI provider accounts has <strong>not</strong> yet been independently verified.</p>
+<p><a href="https://github.com/KarstenEvans/aletheia-app/blob/main/integrations/aletheia-trust-check/TESTS.md" target="_blank" rel="noopener noreferrer" data-awinignore>Read test status ↗</a></p>
+</section>
+</main>
+<footer><div class="wrap"><a href="../../">Aletheia Apps</a> · <a href="https://github.com/KarstenEvans/aletheia-protocol" data-awinignore>Aletheia Protocol</a> · <a href="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md" data-awinignore>Thalia Protocol</a> · Free-first, independent of AI providers</div></footer>
+<script src="https://www.dwin2.com/pub.3182162.min.js"></script>
+</body>
+</html>
