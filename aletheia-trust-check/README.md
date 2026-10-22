@@ -12,6 +12,10 @@ Open `aletheia-trust-check.htm`, paste a post/claim/name/link, choose your AI an
 
 Full comparison and actual tests: [Aletheia-04 receipt](Aletheia-04-Trust-Check-Publication-Improve.md).
 
+## Optional AI Skill / plugin fairing
+
+[Open the Aletheia Trust Check fairing page](../integrations/aletheia-trust-check/index.htm) to download packaged `SKILL.md` and `plugin.json` ZIPs for compatible AI systems. It is **an additional way to use this same app**; it does not replace or change the canonical `.md` instructions, the main HTML launcher, or its evidence rules. The page and packages are committed to GitHub; importing and invoking them in external providers still needs separate real-account tests.
+
 ## What it does
 
 Paste the text or enter the exact subject and click **Trust Check**. The `.htm` page synchronously copies an evidence-review prompt and opens a user-selected AI for paste and Send. The **receiving AI**, not the static web page, researches official sources, public social media, scam leads, company claims, technical notes and fake-AI/fake-news evidence using its real available tools. It must report inaccessible sources and offer relevant official reporting channels for plausible scams.
