@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mini-ai-me",
+  "version": "0.1.0",
+  "description": "Build a private portable AI profile by a 28-question optional one-question-at-a-time interview; use when asked to start Mini-AI-Me or make a personal AI profile.",
+  "homepage": "https://karstenevans.github.io/aletheia-app/Mini-AI-Me/index.htm",
+  "repository": "https://github.com/KarstenEvans/aletheia-app",
+  "keywords": [
+    "aletheia",
+    "portable-skill",
+    "mini-ai-me"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "aletheia-site-audit",
+  "version": "0.1.0",
+  "description": "Evaluate website accessibility, reachability, search and AI visibility, technical discoverability and improvements with evidence and clear unknowns.",
+  "homepage": "https://karstenevans.github.io/aletheia-app/aletheia-site-audit/aletheia-site-audit.htm",
+  "repository": "https://github.com/KarstenEvans/aletheia-app",
+  "keywords": [
+    "aletheia",
+    "portable-skill",
+    "aletheia-site-audit"
+  ]
+}

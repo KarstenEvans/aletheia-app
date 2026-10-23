@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "aletheia-ai-easy",
+  "version": "0.1.0",
+  "description": "Set up a provider-neutral free-first AI workflow with optional memory and handover Markdown; use for AI onboarding, SETUP, APPS, CHECKPOINT, HANDOVER or SAVE MEMORY.",
+  "homepage": "https://karstenevans.github.io/aletheia-app/aletheia-ai-easy/aletheia-setup.htm",
+  "repository": "https://github.com/KarstenEvans/aletheia-app",
+  "keywords": [
+    "aletheia",
+    "portable-skill",
+    "aletheia-ai-easy"
+  ]
+}

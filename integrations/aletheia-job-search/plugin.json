@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "aletheia-job-search",
+  "version": "0.1.0",
+  "description": "Find genuine, currently verifiable jobs, check employers and roles, review a CV and practise interviews; use for job searches, applications or career help.",
+  "homepage": "https://karstenevans.github.io/aletheia-app/aletheia-job-search/aletheia-job-search.htm",
+  "repository": "https://github.com/KarstenEvans/aletheia-app",
+  "keywords": [
+    "aletheia",
+    "portable-skill",
+    "aletheia-job-search"
+  ]
+}
