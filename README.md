@@ -204,3 +204,8 @@ Original interactive AI sketches, using the user's selected AI and optional real
 
 Source installed at the owner's requested location; real-device/model/voice checks remain pending.
 
+
+## Aletheia Voice Studio (2026-10-23)
+
+- [Open Voice Studio](aletheia-voice-studio/index.htm): original voice descriptions, consent-based local recording, WAV export, and links to Qwen3-TTS.
+- [VoiceVibe library](aletheia-voice-studio/voice-vibes/index.htm): explicit JSON manifest, descriptive Markdown and provisional spoken transcripts. **Public WAV examples not yet uploaded**; available in the separate complete downloadable prototype ZIP. Reuse existing Mini-AI-Me, Writing Vibe, Humour, Avatar and Storyteller apps rather than duplicating them.

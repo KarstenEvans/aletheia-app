@@ -1,0 +1,70 @@
+{
+  "schema": "aletheia-voice-vibes/0.2.1",
+  "generated": "2026-10-23",
+  "description": "Public source-only manifest. WAV/PDF samples are available in separately supplied local complete ZIP but not yet uploaded to the public site.",
+  "voices": [
+    {
+      "id": "john-wayne",
+      "label": "John Wayne VoiceVibe",
+      "title": "Weathered Frontier Marshal",
+      "status": "awaiting_public_audio",
+      "original_synthetic_character": true,
+      "transcript_verified": false,
+      "files": {
+        "description": "John Wayne VoiceVibe/John Wayne VoiceVibe.md",
+        "transcript": "John Wayne VoiceVibe/John Wayne VoiceVibe.txt",
+        "audio": null
+      },
+      "companions": {
+        "mini": "https://karstenevans.github.io/aletheia-app/Mini-AI-Me/index.htm",
+        "humour": "https://karstenevans.github.io/aletheia-app/aletheia-humour/sketches/index.htm",
+        "writer": "https://karstenevans.github.io/aletheia-app/aletheia-writing-vibe/aletheia-writing-vibe.htm",
+        "image": "https://karstenevans.github.io/aletheia-app/aletheia-avatar/aletheia-avatar.htm"
+      },
+      "history_pdf": null,
+      "notes": "The local reference WAV exists for John Wayne and Mork but is not hosted yet. Draft transcript must be checked against actual audio, including spoken stage instructions."
+    },
+    {
+      "id": "mork",
+      "label": "Mork VoiceVibe",
+      "title": "Bewildered Cosmic Correspondent",
+      "status": "awaiting_public_audio",
+      "original_synthetic_character": true,
+      "transcript_verified": false,
+      "files": {
+        "description": "Mork VoiceVibe/Mork VoiceVibe.md",
+        "transcript": "Mork VoiceVibe/Mork VoiceVibe.txt",
+        "audio": null
+      },
+      "companions": {
+        "mini": "https://karstenevans.github.io/aletheia-app/Mini-AI-Me/index.htm",
+        "humour": "https://karstenevans.github.io/aletheia-app/aletheia-humour/sketches/index.htm",
+        "writer": "https://karstenevans.github.io/aletheia-app/aletheia-writing-vibe/aletheia-writing-vibe.htm",
+        "image": "https://karstenevans.github.io/aletheia-app/aletheia-avatar/aletheia-avatar.htm"
+      },
+      "history_pdf": null,
+      "notes": "The local reference WAV exists for John Wayne and Mork but is not hosted yet. Draft transcript must be checked against actual audio, including spoken stage instructions."
+    },
+    {
+      "id": "robin-williams",
+      "label": "Robin Williams VoiceVibe",
+      "title": "Quick-Silver Humanist",
+      "status": "awaiting_public_audio",
+      "original_synthetic_character": true,
+      "transcript_verified": false,
+      "files": {
+        "description": "Robin Williams VoiceVibe/Robin Williams VoiceVibe.md",
+        "transcript": "Robin Williams VoiceVibe/Robin Williams VoiceVibe.txt",
+        "audio": null
+      },
+      "companions": {
+        "mini": "https://karstenevans.github.io/aletheia-app/Mini-AI-Me/Mini-AI-Me-Robin-Williams.md",
+        "humour": "https://github.com/KarstenEvans/aletheia-app/blob/main/Mini-AI-Me/aletheia-humour.md",
+        "writer": "https://karstenevans.github.io/aletheia-app/aletheia-writing-vibe/aletheia-writing-vibe.htm",
+        "image": "https://karstenevans.github.io/aletheia-app/aletheia-avatar/aletheia-avatar.htm"
+      },
+      "history_pdf": null,
+      "notes": "The local reference WAV exists for John Wayne and Mork but is not hosted yet. Draft transcript must be checked against actual audio, including spoken stage instructions."
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Aletheia Voice Studio · local prototype</title>
+<style>
+:root{--bg:#101a23;--panel:#192735;--panel2:#203344;--line:#3e5261;--ink:#f4f7f9;--muted:#bfcdd5;--gold:#f0c37e;--good:#87d5b2;--danger:#ffaea0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(140deg,#162434,var(--bg) 75%);color:var(--ink)}a{color:#9fddfd;text-underline-offset:3px}a:hover{text-decoration-thickness:2px}.shell{max-width:1000px;margin:auto;padding:24px clamp(16px,4vw,40px) 60px}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.13em;font-weight:700;font-size:.79rem}h1{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.05;letter-spacing:-.04em;margin:9px 0 16px}h2{font-size:1.4rem;margin:0 0 8px;line-height:1.2}h3{font-size:1.1rem;margin:12px 0 4px}p{margin:7px 0 13px}.lead{font-size:1.08rem;color:#e1eaf0;max-width:780px}.notice{border-left:3px solid var(--gold);padding:13px 16px;background:#213447;border-radius:0 10px 10px 0}.tabs{display:flex;flex-wrap:wrap;gap:9px;margin:23px 0 17px}button,.linkbtn{background:#284458;border:1px solid #62849a;color:#fff;border-radius:9px;min-height:44px;min-width:115px;padding:10px 16px;font:inherit;font-weight:650;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}button:hover,.linkbtn:hover{background:#35566e}button:focus-visible,a:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}button:disabled{opacity:.5;cursor:not-allowed}button.primary{background:#e0ae67;color:#131c26;border-color:#e0ae67}button.primary:hover{background:#f1c881}button[aria-selected=true]{background:var(--gold);color:#192735;border-color:var(--gold)}.panel{background:var(--panel);border:1px solid var(--line);padding:clamp(17px,3vw,29px);border-radius:15px}.split{display:grid;grid-template-columns:1fr 1fr;gap:15px}.full{grid-column:1/-1}label{display:block;font-weight:700;margin-bottom:6px}input,textarea{width:100%;background:#0e1b27;color:var(--ink);border:1px solid #597182;border-radius:8px;padding:11px 12px;font:inherit;line-height:1.5}textarea{resize:vertical;min-height:180px}textarea.short{min-height:118px}.small{font-size:.89rem;color:var(--muted)}.limit{font-variant-numeric:tabular-nums}.limit.bad{color:var(--danger)}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:12px 0}.section{border-top:1px solid var(--line);padding-top:18px;margin-top:22px}.read{background:#10212e;border:1px solid var(--line);padding:15px;border-radius:10px;line-height:1.75}.hidden{display:none}.status{min-height:25px;font-weight:600;color:var(--good)}.status.error{color:var(--danger)}audio{width:100%;max-width:550px;display:block;margin:12px 0}.footer{font-size:.86rem;color:var(--muted);margin-top:26px}.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}.pill{color:var(--good);font-weight:700;font-size:.82rem}code{font-family:ui-monospace,Consolas,monospace;color:#d9e7ef}.panel,.read{min-width:0;overflow-wrap:anywhere}.diagnostic{border:1px solid #7894a5;background:#203347;border-radius:11px;padding:14px 16px;margin:16px 0}.diagnostic strong{display:block;margin-bottom:5px}.diagnostic.blocked{border-color:#e8ac6d;background:#392c2c}.diagnostic.ready{border-color:#87d5b2}.diagnostic p{margin:5px 0}.diagnostic ol{padding-left:22px;margin:8px 0}.diagnostic a{color:#c2eaff}ul{padding-left:21px}li{margin:5px 0}@media(max-width:650px){.split,.two{grid-template-columns:1fr}.full{grid-column:auto}.shell{padding-top:19px}.tabs button{flex:1 1 40%}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body><main class="shell">
+<div class="eyebrow">Aletheia • Research-to-prototype • v0.2.1</div>
+<h1>Voice Studio <span aria-hidden="true">🎙️</span></h1>
+<p class="lead">Shape an original synthetic voice from words, or prepare two recordings of your own voice. Free-first, private-by-default, portable Markdown. No API key, account, or upload required for this prototype. Download 24 kHz mono WAV files for Qwen3-TTS.</p>
+<div class="notice"><strong>Local draft, not a synthetic voice generator.</strong> This page can prepare descriptions and microphone recordings. Actual OpenAI voice creation happens separately through an approved account/API. Do not impersonate celebrities, actors, or other people, and do not upload their archival recordings.</div>
+<div class="tabs" role="tablist" aria-label="Voice Studio tools">
+<button id="tab-describe" role="tab" aria-selected="true" aria-controls="panel-describe">Describe a voice</button>
+<button id="tab-record" role="tab" aria-selected="false" aria-controls="panel-record">Record my own voice</button>
+<button id="tab-guide" role="tab" aria-selected="false" aria-controls="panel-guide">Guide &amp; sources</button>
+</div>
+<section class="panel" id="panel-describe" role="tabpanel" aria-labelledby="tab-describe">
+<h2>1. Design an original voice</h2><p class="small">Initial preset: The Curious Storyteller, inspired by general qualities of expressive, warm conversational storytelling. No identity or character likeness is requested.</p>
+<div class="split">
+<div><label for="voice-name">Voice name</label><input id="voice-name" value="The Curious Storyteller" maxlength="256"></div>
+<div><label for="profile">Voice preset</label><select id="profile" style="width:100%;background:#0e1b27;color:#fff;border:1px solid #597182;border-radius:8px;padding:12px;font:inherit"><option value="story">Curious Storyteller</option><option value="quiet">Gentle Reflective Guide</option><option value="neutral">Clear Learning Coach</option></select></div>
+<div class="full"><label for="voice-prompt">Voice description (OpenAI: maximum 2,000 characters)</label><textarea id="voice-prompt" spellcheck="true" rows="12"></textarea><div class="row" style="justify-content:space-between"><span id="charcount" class="small limit">0 / 2000 characters</span><span class="small">Copy into the OpenAI prompt-to-voice workflow</span></div></div>
+</div>
+<div class="row"><button id="copy-prompt" class="primary">1. Copy description</button><a class="linkbtn" target="_blank" rel="noopener noreferrer" href="https://platform.openai.com/audio/voices/edit" aria-label="2. Test voice at the official OpenAI Voice Playground, opens a new tab">2. Test at OpenAI Voice Playground ↗</a><button id="save-note">Save Markdown profile</button><a class="linkbtn" href="voice-vibes/index.htm" target="_blank" rel="noopener noreferrer">Open VoiceVibe library ↗</a></div>
+<p class="small">Copy the description, open the official Voice Playground, and paste it into the voice-description field. This app does not transfer text to OpenAI automatically. Voice creation is free for API customers; hearing it through GPT-Live is billed separately from ChatGPT Plus. <a href="https://developers.openai.com/api/docs/guides/custom-voices#create-a-voice-from-a-description" target="_blank" rel="noopener noreferrer">Official instructions ↗</a></p>
+<div class="row"><a class="linkbtn" id="qwen-new-window" href="https://huggingface.co/spaces/Qwen/Qwen3-TTS" target="_blank" rel="noopener noreferrer">Test / Clone voice in Qwen3-TTS ↗</a><span class="small">Opens separately. Paste the description and script yourself; no data is sent automatically.</span></div><p id="prompt-status" class="status" role="status" aria-live="polite"></p>
+<div class="section"><h3>What this can and cannot do</h3><p class="small">Creating a prompt-generated voice currently works for GPT-Live. OpenAI creates a saved voice ID without returning preview audio. Listen in a billed GPT-Live session or the official voice Playground. A browser's built-in speech reader is <em>not</em> a preview of the described synthetic voice.</p></div>
+</section>
+<section class="panel hidden" id="panel-record" role="tabpanel" aria-labelledby="tab-record">
+<h2>2. Record your own voice</h2>
+<p>Read the on-screen text, use your microphone, listen locally, then download a <strong>24 kHz, mono, 16-bit PCM WAV</strong> file ready to upload as a reference sample in Qwen3-TTS. Nothing leaves this browser page automatically. Conversion happens on your device after you stop recording.</p>
+<div id="mic-diagnostic" class="diagnostic" role="status" aria-live="polite">
+  <strong id="mic-heading">Checking microphone availability…</strong>
+  <div id="mic-explanation">You can record in a normal browser tab that allows microphone use. Some embedded file viewers prohibit it.</div>
+  <p id="mic-environment" class="small"></p>
+  <p class="small" id="standalone-tip"><strong>To record outside this viewer:</strong> Download and unzip the complete Voice Studio package. Open <code>aletheia-voice-studio.htm</code> directly in Chrome or Edge (not a preview pane), then select <b>Allow</b> when prompted. If local-file access is blocked by your browser, host it on HTTPS (such as GitHub Pages) or localhost. Audio remains in your browser until you choose Download.</p>
+  <div class="row"><button type="button" id="check-mic" aria-label="Recheck recording browser compatibility">Recheck browser support</button> <a target="_blank" rel="noopener noreferrer" href="https://support.google.com/chrome/answer/2693767?hl=en">Chrome microphone settings ↗</a></div>
+</div>
+<div class="section"><h3>A. Exact consent recording</h3><p class="small">This must be a separate recording in your own voice. Check OpenAI's current approved wording before submitting it.</p><div class="read" id="consent-script">I am the owner of this voice and I consent to OpenAI using this voice to create a synthetic voice model.</div><div class="row"><button class="primary start" data-kind="consent">● Record consent</button><button class="stop" data-kind="consent" disabled>■ Stop</button><span id="consent-clock" class="small">00:00</span></div><audio id="consent-play" controls class="hidden"></audio><div class="row"><button id="consent-download" disabled>Download consent WAV</button><button id="consent-source" class="hidden" type="button">Save original for recovery</button></div></div>
+<div class="section" id="raven-section"><h3>B. The Raven · Edgar Allan Poe (1845)</h3><p class="small">First stanza, public domain. Read in your own natural voice with pauses and expression. About 40–60 seconds depending on pace. This is <em>not</em> a command to impersonate any actor or poet. <a href="https://www.poetryfoundation.org/poems/48860/the-raven" target="_blank" rel="noopener noreferrer">Read the full poem ↗</a></p>
+<div class="read poem" id="raven-script" style="white-space:pre-line">Once upon a midnight dreary, while I pondered, weak and weary,
+Over many a quaint and curious volume of forgotten lore—
+While I nodded, nearly napping, suddenly there came a tapping,
+As of some one gently rapping, rapping at my chamber door.
+“’Tis some visitor,” I muttered, “tapping at my chamber door—
+Only this and nothing more.”</div>
+<div class="row"><button class="primary start" data-kind="raven">● Record The Raven</button><button class="stop" data-kind="raven" disabled>■ Stop</button><span id="raven-clock" class="small">00:00</span></div><audio id="raven-play" controls class="hidden"></audio><div class="row"><button id="raven-download" disabled>Download Raven WAV</button><button id="raven-source" class="hidden" type="button">Save original for recovery</button><a class="linkbtn" href="#rainbow-section">Next: Rainbow reading ↓</a></div></div>
+<div class="section" id="rainbow-section"><h3>C. The Rainbow Passage · clarity and pronunciation</h3><p class="small">The standard Rainbow Passage is attributed to G. Fairbanks (1960). This is a short authentic excerpt:</p>
+<div class="read" id="rainbow-source">When the sunlight strikes raindrops in the air, they act as a prism and form a rainbow.</div>
+<p class="small"><a href="https://www.mq.edu.au/faculty-of-medicine-health-and-human-sciences/departments-and-schools/department-of-linguistics/our-research/phonetics-and-phonology/speech/australian-english-pronunciation-and-transcription/the-rainbow-passage" target="_blank" rel="noopener noreferrer">Read the full standard Rainbow Passage at Macquarie University ↗</a>. If you want the exact standard test, copy the reading into the editable box below. The longer default reading here is an <strong>original Aletheia passage</strong>, not Fairbanks’s original.</p>
+<label for="rainbow-script">Your rainbow reading (editable)</label>
+<textarea id="rainbow-script" rows="7" spellcheck="true">The rain had passed, but the morning air was still cool and fresh. Beyond the garden wall, seven colours curved across the sky: red, orange, yellow, green, blue, indigo, and violet. What a strange and wonderful sight! A small child pointed and shouted, “Look, a rainbow!” Her grandmother smiled, then quietly explained how sunlight bends as it travels through tiny drops of water. Across the road, a blackbird called from the roof. By the time the bells began to ring, the colours had faded. Was it only a trick of the light, or a little reminder to notice the world around us?</textarea>
+<p class="small">Read at a comfortable pace for 10–60 seconds; the recorder stops at 60 seconds. For a faithful standard speech assessment, use the linked original rather than this alternative.</p>
+<div class="row"><button class="primary start" data-kind="rainbow">● Record Rainbow reading</button><button class="stop" data-kind="rainbow" disabled>■ Stop</button><span id="rainbow-clock" class="small">00:00</span></div><audio id="rainbow-play" controls class="hidden"></audio><div class="row"><button id="rainbow-download" disabled>Download Rainbow WAV</button><button id="rainbow-source" class="hidden" type="button">Save original for recovery</button></div></div>
+<div id="record-status" class="status" role="status" aria-live="polite"></div>
+<div class="notice" style="margin-top:20px">Personal voice recordings are sensitive biometric material. Keep both files private. Do not commit them to a public repository. Recording them is <strong>not</strong> equivalent to OpenAI accepting or creating your voice. Recording-based voice creation currently requires approved API access.</div>
+</section>
+<section class="panel hidden" id="panel-guide" role="tabpanel" aria-labelledby="tab-guide">
+<h2>3. Workflow, limits &amp; evidence</h2>
+<div class="two">
+<div><h3>From description</h3><ul><li>Edit an original adult voice description of at most 2,000 characters.</li><li>Copy the description into an authorised prompt-to-voice API client or Playground.</li><li>Use the saved voice ID with GPT-Live. Creation free; listening sessions billed.</li><li>Keep the description in portable Markdown.</li></ul></div>
+<div><h3>From your own recording</h3><ul><li>Record exact consent and choose either <em>The Raven</em> or the rainbow reading as a 10–60-second sample. The two passages can also be recorded and downloaded separately.</li><li>Download and listen locally to both recordings as 24 kHz, mono, PCM WAV, which is compatible with Qwen3-TTS reference-audio upload.</li><li>For Qwen3-TTS, upload the WAV in <a href="https://huggingface.co/spaces/Qwen/Qwen3-TTS" target="_blank" rel="noopener noreferrer">Voice Clone (Base) ↗</a>, with the corresponding spoken text in the Reference Text field (unless x-vector-only mode is selected). OpenAI requires separately approved access for recording-based voice creation.</li><li>Submit only through the permitted API workflow on a trusted server.</li></ul></div>
+</div>
+<p><span class="pill">No upload · No tracking · No third-party script</span></p>
+<h3>Official voice-testing destination</h3><p><a href="https://platform.openai.com/audio/voices/edit" target="_blank" rel="noopener noreferrer">OpenAI Voice Playground: create from a description ↗</a>. Sign into the separate API Platform, paste the description, and check credits/billing before starting a paid listening session.</p><h3>Official documentation</h3><p><a href="https://developers.openai.com/api/docs/guides/custom-voices" target="_blank" rel="noopener noreferrer">OpenAI: Custom voices ↗</a> · <a href="https://developers.openai.com/api/reference/resources/audio/subresources/voices/methods/create" target="_blank" rel="noopener noreferrer">Voice creation API ↗</a></p>
+<h3>Related Aletheia</h3><p><a href="https://karstenevans.github.io/aletheia-app/aletheia-storyteller.htm" target="_blank" rel="noopener noreferrer">Aletheia Storyteller ↗</a> already handles reading stories aloud. This proposed Voice Studio does not replace it.</p>
+<p class="small">This local build has not been published or tested across actual microphones/browsers. Chrome, Firefox and Safari can differ in recording permissions and supported file formats. No playback or synthesis API has been called.</p>
+</section>
+<footer class="footer">Aletheia Protocol: evidence, provenance, permission. © The respective original audio owners. Design source: <a href="aletheia-voice-studio.md">local Markdown specification</a>. Prototype drafted 23 October 2026.</footer>
+</main>
+<script>
+'use strict';
+const presets={
+  story:"An original adult masculine speaking voice, warm and conversational, with a broadly neutral American English accent. Use a natural middle-to-low speaking register, rounded chest resonance and a gently textured timbre with a subtle airy, slightly husky edge in softer passages. Speech should be clear and intimate, never artificially polished or announcer-like. Maintain a thoughtful, engaging baseline with highly expressive but controlled melodic variation. In reflective passages, slow slightly, lower the vocal effort and allow meaningful pauses and soft sentence endings. In moments of discovery or humour, brighten the tone, lift the pitch naturally and accelerate into short, articulate bursts before returning to a relaxed cadence. The rhythm should feel spontaneous and responsive, with gentle emphasis on surprising words, occasional amused warmth, and clear changes of pace. Convey intelligence, curiosity, kindness, imaginative playfulness and genuine attentiveness. Avoid constant high energy, exaggerated character accents, shouting, forced comedy, excessive gravel or theatrical imitation. Keep the voice distinctive and original, suitable for extended interviews, imaginative narration and friendly conversation.",
+  quiet:"An original adult voice, gently warm, thoughtful, unhurried and comforting, with clear British English pronunciation, a low-middle pitch, soft chest resonance, lightly breathy texture and relaxed conversational cadence. Use meaningful pauses and understated emotional warmth. Avoid theatrical effects, character imitation and over-polished announcement delivery.",
+  neutral:"An original adult voice for educational explanations. Clear modern British English, natural mid-range pitch, neutral and highly intelligible vowels, smooth timbre, friendly calm energy, steady conversational pace and gentle emphasis on important terms. Allow short processing pauses. Avoid exaggeration, robotic meter or imitation of any existing speaker."
+};
+const $=id=>document.getElementById(id);
+function report(id,message,isError=false){const e=$(id);e.textContent=message;e.classList.toggle('error',isError)}
+function chooseTab(name){for(const key of ['describe','record','guide']){const yes=key===name;$('tab-'+key).setAttribute('aria-selected',String(yes));$('panel-'+key).classList.toggle('hidden',!yes);}}
+for(const key of ['describe','record','guide']) $('tab-'+key).addEventListener('click',()=>chooseTab(key));
+const prompt=$('voice-prompt');prompt.value=presets.story;
+function updateCount(){const n=prompt.value.length;$('charcount').textContent=n+' / 2000 characters';$('charcount').classList.toggle('bad',n>2000);$('copy-prompt').disabled=n>2000||!prompt.value.trim();$('save-note').disabled=n>2000||!prompt.value.trim();}
+prompt.addEventListener('input',updateCount);$('profile').addEventListener('change',e=>{prompt.value=presets[e.target.value];updateCount()});updateCount();
+async function copyText(s){if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(s);return}const x=document.createElement('textarea');x.value=s;x.style.position='fixed';x.style.opacity='0';document.body.appendChild(x);x.select();const ok=document.execCommand('copy');x.remove();if(!ok)throw Error('Copy unavailable');}
+$('copy-prompt').addEventListener('click',async()=>{try{await copyText(prompt.value);report('prompt-status','Description copied.')}catch(e){report('prompt-status','Copy blocked by browser; select and copy the text manually.',true)}});
+function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)}
+$('save-note').addEventListener('click',()=>{const title=$('voice-name').value.trim()||'Untitled voice';const text=['---','title: Aletheia Voice Profile','date: '+new Date().toISOString().slice(0,10),'status: PERSONAL_DRAFT_NOT_CREATED','---','','# '+title,'','## Original voice description','',prompt.value,'','## Implementation notes','','- Provider: OpenAI GPT-Live prompt-to-voice (subject to current access and pricing).','- Prompt-generation is not identity impersonation.','- Do not store API keys or personal voice recordings in public GitHub repositories.','- Only publish after explicit permission.',''].join('\n');downloadBlob(new Blob([text],{type:'text/markdown;charset=utf-8'}),'aletheia-voice-profile.md');report('prompt-status','Markdown profile downloaded. No audio or API request was sent.');});
+
+const saved={consent:null,raven:null,rainbow:null};
+let current=null;
+let pending=false;
+function mime() {
+  if (!window.MediaRecorder) return '';
+  for (const t of ['audio/webm;codecs=opus','audio/mp4','audio/webm','audio/ogg;codecs=opus']) {
+    if (MediaRecorder.isTypeSupported(t)) return t;
+  }
+  return '';
+}
+function durationText(ms) {
+  const s=Math.floor(ms/1000);
+  return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+}
+function permissionPolicyAllowsMicrophone() {
+  const p=document.permissionsPolicy || document.featurePolicy;
+  if (p && typeof p.allowsFeature==='function') {
+    try{return p.allowsFeature('microphone')}catch(_){}
+  }
+  return null;
+}
+function environment() {
+  let embedded=false;
+  try { embedded = window.self !== window.top; } catch(_) { embedded=true; }
+  return {
+    embedded,
+    secure:window.isSecureContext === true,
+    supports:!!(navigator.mediaDevices?.getUserMedia && window.MediaRecorder),
+    policy:permissionPolicyAllowsMicrophone()
+  };
+}
+function micAdvice(e) {
+  if (!e.secure) return 'Microphone use requires HTTPS, localhost, or a supported local file. The current page is not a secure context. Open the downloaded HTML directly or use an HTTPS host.';
+  if (e.policy === false) return 'This embedded viewer has blocked microphone access by its permissions policy. Browser Allow settings cannot override the viewer. Open the downloaded HTML in a separate browser tab outside the preview.';
+  if (!e.supports) return 'This browser or viewer does not expose microphone recording. Open the downloaded HTML in an up-to-date Chrome or Edge tab.';
+  if (e.embedded) return 'You are viewing this app inside another page. The host may block microphones even if your browser has a working microphone. If recording fails, download and open the HTML directly.';
+  return 'Microphone recording is available in this browser context. Select Record and allow access when prompted.';
+}
+function refreshButtons() {
+  const e=environment();
+  const unavailable = !e.secure || !e.supports || e.policy === false;
+  document.querySelectorAll('.start').forEach(b=>{
+    b.disabled = pending || !!current || unavailable;
+    b.title = unavailable ? micAdvice(e) : '';
+  });
+  document.querySelectorAll('.stop').forEach(b=>b.disabled=!current || current.kind !== b.dataset.kind);
+}
+function showEnvironment() {
+  const e=environment();
+  const blocked=!e.secure || !e.supports || e.policy === false;
+  $('mic-heading').textContent=blocked ? 'Recording is blocked in this viewer' :
+    e.embedded ? 'Embedded viewer: microphone may be blocked' :
+    'Microphone recording can be requested here';
+  $('mic-explanation').textContent=micAdvice(e);
+  $('standalone-tip').classList.toggle('hidden',!e.embedded && !blocked);
+  $('mic-environment').textContent=[
+    e.embedded?'Embedded viewer':'Standalone page',
+    e.secure?'Secure context':'Insecure context',
+    e.policy===false?'Microphone explicitly blocked by host':
+    e.policy===true?'Microphone allowed by page policy':'Microphone policy undetermined',
+    e.supports?'Recorder API present':'Recorder API unavailable'
+  ].join(' · ');
+  $('mic-diagnostic').classList.toggle('blocked',blocked);
+  $('mic-diagnostic').classList.toggle('ready',!blocked && !e.embedded);
+  refreshButtons();
+}
+function recordingErrorMessage(err) {
+  const name=err?.name||'UnknownError';
+  const e=environment();
+  if (name==='NotAllowedError' || name==='PermissionDeniedError' || name==='SecurityError') {
+    if (e.embedded || e.policy===false) return 'Microphone permission denied ('+name+'). The embedded viewer may block access. Download the HTML and open it directly in Chrome or Edge, then allow microphone permission.';
+    return 'Microphone permission denied ('+name+'). In Chrome, open the site controls beside the address bar, permit the microphone and try again. Also check Windows Settings → Privacy & security → Microphone.';
+  }
+  if (name==='NotFoundError' || name==='DevicesNotFoundError') return 'No microphone found. Connect or select a microphone in your computer sound settings and try again.';
+  if (name==='NotReadableError' || name==='TrackStartError') return 'Your microphone could not be opened. Close other recording apps, check the mute switch and try again.';
+  return 'Could not use microphone ('+name+'). '+(err?.message||'Check the browser and microphone settings.');
+}
+// Convert the fully-finalised browser recording into Qwen-compatible PCM WAV.
+// A filename change alone does not change WebM into WAV; decode + render + encode.
+const QWEN_WAV_RATE=24000;
+function encodeWavPCM16Mono(samples, sampleRate=QWEN_WAV_RATE) {
+  const bytes=samples.length*2;
+  const data=new ArrayBuffer(44+bytes);
+  const v=new DataView(data);
+  function ascii(offset,str){for(let i=0;i<str.length;i++)v.setUint8(offset+i,str.charCodeAt(i));}
+  ascii(0,'RIFF');v.setUint32(4,36+bytes,true);ascii(8,'WAVE');
+  ascii(12,'fmt ');v.setUint32(16,16,true);
+  v.setUint16(20,1,true);       // PCM, not compressed Opus/AAC
+  v.setUint16(22,1,true);       // mono
+  v.setUint32(24,sampleRate,true);
+  v.setUint32(28,sampleRate*2,true);
+  v.setUint16(32,2,true);v.setUint16(34,16,true);
+  ascii(36,'data');v.setUint32(40,bytes,true);
+  for(let i=0;i<samples.length;i++){
+    const x=Math.max(-1,Math.min(1,samples[i]));
+    v.setInt16(44+i*2,Math.round(x<0?x*32768:x*32767),true);
+  }
+  return new Blob([data],{type:'audio/wav'});
+}
+async function convertCapturedAudioToQwenWav(recordedBlob) {
+  const AudioCtx=window.AudioContext||window.webkitAudioContext;
+  const OfflineCtx=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+  if(!AudioCtx||!OfflineCtx)throw new Error('Web Audio conversion is not available in this browser.');
+  const ctx=new AudioCtx();
+  let decoded;
+  try {
+    const audioBytes=await recordedBlob.arrayBuffer();
+    decoded=await ctx.decodeAudioData(audioBytes);
+  } finally {
+    if(ctx.close) await ctx.close().catch(()=>{});
+  }
+  if(!decoded || !decoded.length || !decoded.duration)throw new Error('Decoded audio was empty.');
+  const length=Math.max(1,Math.ceil(decoded.duration*QWEN_WAV_RATE));
+  const offline=new OfflineCtx(1,length,QWEN_WAV_RATE);
+  const src=offline.createBufferSource();
+  src.buffer=decoded;
+  src.connect(offline.destination); // mono destination down-mixes microphone channels
+  src.start(0);
+  const rendered=await offline.startRendering();
+  if(!rendered || !rendered.length)throw new Error('WAV conversion produced no audio samples.');
+  return encodeWavPCM16Mono(rendered.getChannelData(0),rendered.sampleRate);
+}
+function cleanupSession(session) {
+  clearInterval(session.interval);
+  session.stream.getTracks().forEach(track=>track.stop());
+  if (current === session) current=null;
+  pending=false;
+  refreshButtons();
+}
+async function startRecording(kind) {
+  if (pending || current) {
+    report('record-status','Finish the current recording first.',true);
+    return;
+  }
+  const e=environment();
+  if (!e.secure || !e.supports || e.policy === false) {
+    showEnvironment();
+    report('record-status',micAdvice(e),true);
+    return;
+  }
+  pending=true;
+  refreshButtons();
+  report('record-status','Requesting microphone access. Select Allow in the browser prompt…');
+  let stream;
+  try {
+    stream=await navigator.mediaDevices.getUserMedia({audio:true,video:false});
+  } catch (err) {
+    pending=false;
+    showEnvironment();
+    report('record-status',recordingErrorMessage(err),true);
+    return;
+  }
+  try {
+    const mt=mime();
+    const recorder=mt?new MediaRecorder(stream,{mimeType:mt}):new MediaRecorder(stream);
+    const session={kind,recorder,stream,started:Date.now(),interval:null,chunks:[],finalising:false};
+    current=session;
+    pending=false;
+    recorder.addEventListener('dataavailable',ev=>{if(ev.data && ev.data.size>0) session.chunks.push(ev.data);});
+    recorder.addEventListener('error',ev=>{
+      report('record-status', 'Recorder error: '+(ev.error?.name||'unknown')+'. Try recording again.',true);
+      if(recorder.state!=='inactive') {try{recorder.stop()}catch(_){}}
+    });
+    recorder.addEventListener('stop',async()=>{
+      $(kind+'-clock').textContent=durationText(Date.now()-session.started);
+      const source=new Blob(session.chunks,{type:recorder.mimeType||session.chunks[0]?.type||'audio/webm'});
+      cleanupSession(session);
+      if (!source.size) {
+        report('record-status','No audio data was captured. Check microphone permissions and retry.',true);
+        return;
+      }
+      pending=true;refreshButtons();
+      report('record-status','Converting to Qwen-compatible 24 kHz mono WAV in your browser…');
+      try {
+        const wav=await convertCapturedAudioToQwenWav(source);
+        if (!wav.size || wav.type!=='audio/wav')throw new Error('Invalid WAV export.');
+        if (saved[kind]?.url) URL.revokeObjectURL(saved[kind].url);
+        const url=URL.createObjectURL(wav);
+        saved[kind]={blob:wav,url,source:null};
+        const player=$(kind+'-play');
+        player.src=url;
+        player.classList.remove('hidden');
+        $(kind+'-download').disabled=false;
+        $(kind+'-source').classList.add('hidden');
+        report('record-status',(kind==='consent'?'Consent recording':kind==='raven'?'The Raven recording':'Rainbow recording')+
+          ' converted to 24 kHz mono PCM WAV. Play it back, then select Download WAV. Nothing was uploaded.');
+      } catch(err) {
+        // Preserve the original data if conversion fails; never mislabel WebM as WAV.
+        saved[kind]={blob:null,url:null,source};
+        $(kind+'-download').disabled=true;
+        $(kind+'-source').classList.remove('hidden');
+        report('record-status','WAV conversion failed: '+(err?.message||String(err))+
+          '. You can save the original recording for recovery, but it is NOT a WAV. Please try Chrome or Edge.',true);
+      } finally {
+        pending=false;refreshButtons();
+      }
+    });
+    recorder.start(200);
+    session.interval=setInterval(()=>{
+      $(kind+'-clock').textContent=durationText(Date.now()-session.started);
+      if (Date.now()-session.started>=60000 && recorder.state==='recording') stopRecording(kind);
+    },250);
+    refreshButtons();
+    report('record-status','Recording '+(kind==='consent'?'consent':kind==='raven'?'The Raven':'Rainbow reading')+'. Speak now; press Stop when finished.');
+  } catch(err) {
+    stream.getTracks().forEach(track=>track.stop());
+    current=null;
+    pending=false;
+    refreshButtons();
+    report('record-status','Unable to start recording: '+(err?.message||String(err)),true);
+  }
+}
+function stopRecording(kind) {
+  const s=current;
+  if (!s || s.kind!==kind || s.finalising) return;
+  s.finalising=true;
+  if(s.recorder.state==='recording') {
+    s.recorder.stop();
+    report('record-status','Finishing recording…');
+  }
+}
+for (const b of document.querySelectorAll('.start'))
+  b.addEventListener('click',()=>startRecording(b.dataset.kind));
+for (const b of document.querySelectorAll('.stop'))
+  b.addEventListener('click',()=>stopRecording(b.dataset.kind));
+for (const kind of ['consent','raven','rainbow']) {
+  $(kind+'-download').addEventListener('click',()=>{
+    const v=saved[kind];
+    if (!v?.blob || v.blob.type!=='audio/wav'){
+      report('record-status','A WAV recording is not ready. Record, stop and allow WAV conversion to finish.',true);return;
+    }
+    downloadBlob(v.blob,'aletheia-own-voice-'+kind+'-24000hz-mono.wav');
+    report('record-status','Downloading real 24 kHz, mono PCM WAV for Qwen3-TTS. Keep your recording private.');
+  });
+  $(kind+'-source').addEventListener('click',()=>{
+    const source=saved[kind]?.source;
+    if(!source)return;
+    const ext=source.type.includes('mp4')?'m4a':source.type.includes('ogg')?'ogg':'webm';
+    downloadBlob(source,'aletheia-own-voice-'+kind+'-original.'+ext);
+    report('record-status','Original recording downloaded as recovery backup only; it is not a WAV.');
+  });
+}
+$('check-mic').addEventListener('click',()=>{
+  showEnvironment();
+  report('record-status',micAdvice(environment()),environment().policy===false||!environment().secure||!environment().supports);
+});
+window.addEventListener('pageshow',showEnvironment);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)showEnvironment()});
+showEnvironment();
+
+document.getElementById('qwen-new-window').addEventListener('click',function(e){
+  const w=window.open(this.href,'aletheia_qwen_tts','width=1150,height=850,resizable=yes,scrollbars=yes');
+  if(w){e.preventDefault();w.focus();}
+});
+</script>
+</body></html>
