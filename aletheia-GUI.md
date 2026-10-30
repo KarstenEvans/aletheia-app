@@ -440,7 +440,7 @@ Rules:
 - place it immediately before the closing `</body>`;
 - do not put it in Markdown, local test files, archived backups or downloadable source examples;
 - before adding it, count existing occurrences to avoid duplicate tracking;
-- factual/source links that must not be monetised should use the project's Awin-ignore convention where supported;
+- ordinary commercial and free source links must **not** receive `data-awinignore` automatically. Use it only for a specifically documented opt-out, such as protecting a competing affiliate link or an explicit editorial choice not to convert;
 - visible affiliate disclosure is still required where commercial/affiliate links are presented. The MasterTag itself is not a disclosure;
 - commercial relationships must not alter factual claims, evidence labels or safety guidance.
 
