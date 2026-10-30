@@ -313,6 +313,20 @@ Before adding a feature:
 
 If the answer is mostly “no”, leave it out.
 
+## Optional evidence-evaluation pass (30 October 2026)
+
+When the requested goal is to **evaluate whether a proposed change helps**, reuse the existing [Improve Stanford CME295 evaluation fixture](aletheia-improve-evaluation-pilot-2026-10-15.md); do not create a second evaluator app or force a new scoring screen onto every task.
+
+1. Define the exact user question, source-of-truth requirements and at least one deliberately false and one incomplete control answer.
+2. Run the current Improve handoff instructions on the unchanged cases (**baseline**); save actual receiving-AI model/provider, original output, date, citations, version and whether primary sources were really available.
+3. Test a compact candidate rubric (**comparison**) on the same cases, randomising/reversing order where practical; check for false positives and missing requested facts.
+4. For each claim record **PASS / PARTIAL / FAIL / NOT TESTED** plus the actual source or test receipt. A correct yet incomplete response is PARTIAL; do not infer zero hallucinations from one fixture.
+5. Accept an update to the default Improve workflow only after a measured benefit or clear prevention of a reproduced defect; preserve the current KISS interface and user permission boundaries.
+
+The 15 October three-case fixture distinguished synthetic PASS, FAIL and PARTIAL, but **real receiving-model A/B tests remain pending**. Linking Stanford sources or adding a rubric alone is not proof of improved answer accuracy. Public free course links, slides and cheatsheets belong in the existing [Aletheia Learn Resources](../aletheia-learn/aletheia-learn-rsc.htm#free-ai-courses); Improve resources link there rather than maintain a duplicate catalogue.
+
+**Resource UI principle:** Link the course/book/tool title itself; no second button to the identical URL. Free resources first, books and gifts last. Validate duplicate links, accessible focus, narrow-screen wrap and the real browser flow separately from static source checks.
+
 ## Output
 
 An Improve run should return:
