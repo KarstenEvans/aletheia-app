@@ -1,5 +1,21 @@
 # Aletheia Apps - Tasks
 
+## LEARN-STANFORD-20261030 | FREE-FIRST COURSES, BOOKS, DIGITAL GIFTS AND KISS UI
+
+**Status: SOURCE COMMITTED / STATIC CHECKS PASS / LIVE MOBILE QA AND REAL EVALUATION A/B PENDING.** Continue Stanford research task AK-103 in the Knowledge repository; don't create a new Stanford course app.
+
+- [x] Update [Learn resources](aletheia-learn/aletheia-learn-rsc.htm): 2026 CME295 syllabus, 2025 archive, public lecture playlists, CME295 and CME296 free cheatsheets, CME296 syllabus, CS329Z public materials; add 4 optional books (Super Study Guide Leanpub, 3 Bookshop.org UK alternatives), 3 digital gifting references and selected science/robot gifts.
+- [x] KISS UI source audit: course/book/item title owns its link; old redundant book/equipment CTA links removed; source URL duplicates checked; one Awin script retained, free-first placement preserved.
+- [x] Update [AI Fluency 0.2.2](aletheia-learn/aletheia-learn-ai-fluency.md) with optional original Stanford-inspired context, completeness evaluation and agent permissions exercises. Preserve existing modules 0–9 and teacher-first design.
+- [x] Update [Improve resources](aletheia-improve/aletheia-improve-rsc.htm) and [Improve instructions](aletheia-improve/aletheia-improve.md) to link existing evidence-evaluation fixture and one canonical public Stanford resources directory. No separate evaluator app.
+- [x] Record [AI-PI gift fulfilment research](ideas.md#ai-pi-mascot-gifts-and-sensible-print-on-demand-pilot-30-october-2026) with low-minimum keyring routes, plush preorders and UK toy-safety gate; no actual product for sale.
+- [ ] Verify live GitHub Pages publication; mobile 320px/360px/390px and desktop grid, keyboard focus, link navigation, external target behaviour, accessibility layer, Awin load, all resource destinations and no duplicate CTA affordances.
+- [ ] Run real receiving-AI baseline-vs-evaluation comparison for the Improve fixture and record evidence before declaring accuracy improvements.
+- [ ] Check book retailer prices and supplier availability at purchase time. Gift eligibility is regional; never promote US OpenAI wallet gift cards to UK visitors.
+
+**Note:** An offline/source check is not a browser/device test. No Stanford media copied or official course endorsement claimed.
+
+
 ## P1 — ALETHEIA PUBLISHER | HIGH PRIORITY / TO DO (22 October 2026)
 
 **Existing approved design, NOT an implemented app.** Main task: [Aletheia Knowledge AK-097](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/aletheia-knowledge-tasks.md) and [Publisher specification](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/ideas/aletheia-publisher.md). This is a cross-repository priority pointer, not a second Publisher or permission to auto-post.
