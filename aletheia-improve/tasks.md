@@ -1,5 +1,14 @@
 # Aletheia Improve tasks
 
+## IMPROVE-EVAL-001 | 30 October 2026 continuation
+
+- [x] Existing [Improve instructions](aletheia-improve.md) now document an **optional** source-grounded baseline vs compact-rubric evaluation pass; no automatic new production evaluator or default gating.
+- [x] [Improve resources](aletheia-improve-rsc.htm) link the current synthetic evaluation pilot, the updated AI Fluency and one canonical free Stanford resource directory.
+- [x] UI source check for resource links: descriptive title owns the URL; no duplicate link buttons or repeated hrefs within the updated resource page.
+- [ ] Run independent receiving-AI A/B on exact three original fixtures; capture both prompts, outputs, source checks, order sensitivity and corrections.
+- [ ] Live browser/device QA and production effect remain **NOT TESTED**.
+
+
 ## IMPROVE-EVAL-001 | Stanford CME295 evaluation fixture | 15 October 2026
 
 **Status: OFFLINE SOURCE-FIXTURE PILOT DONE / RECEIVING-AI AND LIVE BROWSER TESTS PENDING.** Full self-contained research and result receipt: [evaluation pilot Markdown](aletheia-improve-evaluation-pilot-2026-10-15.md). Related research: [Stanford CME 295, Aletheia Knowledge](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/knowledge/aletheia-stanford-cme295.md).
