@@ -165,3 +165,9 @@ Current date rules remain:
 ## AI Fluency v0.2.0 (2026-10-17)
 
 The existing AI 101 page and generic Learn handoff remain unchanged. After the existing AI 101 card, the landing page links to the separate follow-on **AI Fluency: From Questions to Trusted Workflows**. Its source is `Aletheia-AI-course.md`, its static handoff launcher is `aletheia-ai-course.htm`, and its browser build specification is `aletheia-ai-course-page.md`. This is a free-first complete Markdown course, not a connected service. Site/link/clipboard/AI-host checks remain pending until actually observed.
+
+## Resource-page KISS contract (30 October 2026)
+
+The linked `aletheia-learn-rsc.htm` is the **single Learn resources front door**. Maintain this order: useful free course materials and original practice → optional paid books → optional digital gifts → equipment/AI-themed gifts. On cards, make the **course, book or product title itself a visible, keyboard-focusable link**. No repeated link to the same destination underneath and no duplicate Buy/Open button. Different destinations such as the 2025 and 2026 lecture playlists may have their own descriptive inline links. Retain relevant metadata and regional restrictions, including US-only OpenAI gift cards and the global Claude gift subscription route.
+
+For resources source acceptance, count all duplicate URLs, check title links, card and section closure, meaningful headings, semantic focus and one existing Awin MasterTag. Keep free links independent of affiliate tracking. Static source checks are not proof of live browser accessibility: verify narrow mobile widths, keyboard focus and external URL navigation separately. No unbuilt AI-PI mascot store or sample may be advertised as available.
