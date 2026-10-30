@@ -1,5 +1,17 @@
 # Aletheia Apps - Tasks
 
+## AWIN-IGNORE-AUDIT | 30 October 2026 | CORRECTED / STATIC RECHECK DONE
+
+Root cause: older shared GUI/dev guidance said to add `data-awinignore` to source/editorial links; the 30 October Learn resources expansion copied that pattern. This incorrectly excluded ordinary product links from Awin Convert-a-Link. Owner's rule: do not add exclusions by default; reserve them for documented cases such as an existing non-Awin affiliate/referral link.
+
+- [x] Removed 41 exclusions from `aletheia-learn/aletheia-learn-rsc.htm` in prior correction; confirmed zero remain.
+- [x] Further removed 157 ordinary-link exclusions from six other resource files: Trust Check (34), Calisthenics (26), Language Learn (11), News (3), Storyteller (1), Site Audit Affiliate Tools (82).
+- [x] Preserved **one** deliberate exception: `aletheia-storyteller-rsc.htm` Bookshop.org `shop/aletheia` storefront link using the separate Bookshop.org affiliate relationship; it has `rel="sponsored"`.
+- [x] Verified all original `href` values remained unchanged in the six modified files; read back 13 known Aletheia Apps resource pages, finding no unexplained Awin-ignore attributes. All modified files preserve their existing Awin script counts.
+- [x] Updated `aletheia-GUI.md`, `aletheia-dev.md`, and `aletheia-learn/aletheia-learn-page.md` to remove blanket-exclusion guidance.
+- [ ] Live browser Awin Convert-a-Link test, advertiser eligibility and actual conversion/commissions remain unverified. Static files do not prove active Awin plugin or payout.
+
+
 ## LEARN-STANFORD-20261030 | FREE-FIRST COURSES, BOOKS, DIGITAL GIFTS AND KISS UI
 
 **Status: SOURCE COMMITTED / STATIC CHECKS PASS / LIVE MOBILE QA AND REAL EVALUATION A/B PENDING.** Continue Stanford research task AK-103 in the Knowledge repository; don't create a new Stanford course app.
