@@ -1,5 +1,24 @@
 # Aletheia Apps — Ideas
 
+## AI-PI mascot gifts and sensible print-on-demand pilot (30 October 2026)
+
+**Status: SOURCE-REVIEWED IDEA ONLY. Nothing for sale, no vendor appointed, sample ordered, product artwork approved, trademark cleared or safety certification established.** No new Aletheia app or storefront authorised; reuse the existing Aletheia resource / affiliate infrastructure.
+
+**Why:** AI-PI is Aletheia's original robot sidekick concept. A small memorable gift can help new learners engage with AI, but we should first test demand using **free original printable AI question dice** and a **flat AI-PI sticker / keyring** rather than start with electronics or a mass-produced plush. Use only artwork confirmed to be ours and suitable for manufacturing; check rights, character appearance and use of any third-party trademarks.
+
+**Research-supported fulfilment paths:**
+
+1. [Blankline UK print-on-demand acrylic keyrings](https://blankline.app/products/keyrings): advertises UK printing, no minimum quantity, white-label fulfilment and pricing from £2.30 per unit (vendor claim, not a checkout quote). Suitable for an original flat AI-PI silhouette and small demand test; check actual shipping/tax/integration and print quality.
+2. [Fourthwall keychains](https://fourthwall.com/design-and-sell/custom-keychains): some catalogue keychain options say print-on-demand without inventory. **Do not assume that bespoke custom-shaped keychains have no minimum:** [the specific custom-shape listing](https://products.fourthwall.com/custom-shape-acrylic-keychain) lists a 50-order minimum. Product-specific confirmation required.
+3. [Makeship creator plush campaign](https://www.makeship.com/creators): may handle prototype, production, fulfilment and customer service without up-front inventory if creator is accepted and pre-order funding threshold met. Current marketing mentions ~200 supporter orders; this is **not** one-at-a-time plush dropshipping or an approved contract.
+4. [Fourthwall bespoke plush](https://fourthwall.com/bespoke): offers custom plush sourcing with variable minimum quantities and pre-order options, not guaranteed zero-minimum print-on-demand. Ask about sample cost, safe materials, manufacturing marks and UK/EU eligibility.
+
+**Safety gate:** An AI-PI plush or robot sold as a toy in Great Britain can fall under the [UK Toys (Safety) Regulations](https://www.gov.uk/government/publications/toys-safety-regulations-2011/toys-safety-regulations-2011-great-britain). Confirm classification, conformity assessment, traceability, correct manufacturer/importer responsibilities and labels before listing. Do not market a prototype as safe for children without evidence. Electronics add batteries/privacy/support complexity and are a poor first test.
+
+**KISS decision:** (a) free printable question-dice activity; (b) original AI-PI graphic suitable for sticker/keyring, sample and true cost quote; (c) demand test after confirming design ownership and vendor; (d) pursue plush only if enough real demand. **Do not show a Buy AI-PI button until a real seller/listing exists.** Keep commercial products below free resources. The product title should be the only primary link; do not add a second purchase button.
+
+**Public resource relationship:** [Aletheia Learn Resources](https://karstenevans.github.io/aletheia-app/aletheia-learn/aletheia-learn-rsc.htm) now lists free Stanford resources, optional books, official digital AI-gift options and independently linked science/robot toys. This research note does not invent an AI-PI order page.
+
 ## Go Walkabout: reusable AI wrappers, AI Easy and publishing (21 October 2026)
 
 **Status:** RESEARCH AND DECISIONS SAVED; no new app, plugin, Gem, Skill, runtime integration or automatic publication authorised. **Source:** user review of Ruben Hassid's AI articles; provider claims checked separately against official documentation. **Principles:** free-first, KISS, user ownership, plain English, provider independence and no duplication. [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) governs evidence/uncertainty; [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) permits optional appropriate humour.
