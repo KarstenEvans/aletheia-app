@@ -460,7 +460,7 @@ Build/reconstruction checks:
 2. count the MasterTag before inserting it;
 3. production HTML should contain exactly one occurrence;
 4. do not add the tag to Markdown or data files;
-5. preserve `data-awinignore` or the current project exclusion mechanism on factual/source links that should not be converted;
+5. do **not** add `data-awinignore` to normal product, course, book or source links by default. Only use it for a deliberately excluded destination, especially an existing non-Awin affiliate/referral tracking link or an explicit site-owner opt-out; preserve those documented exceptions;
 6. add a visible affiliate disclosure near commercial content when required;
 7. verify Convert-a-Link/Awin behaviour separately from static HTML presence. A script tag being present does not prove the Awin account, advertiser approval or plugin is active.
 
