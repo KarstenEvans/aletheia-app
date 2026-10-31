@@ -1,7 +1,7 @@
 {
   "schema": "aletheia-voice-vibes/0.2.1",
-  "generated": "2026-10-23",
-  "description": "Public source-only manifest. WAV/PDF samples are available in separately supplied local complete ZIP but not yet uploaded to the public site.",
+  "generated": "2026-10-31",
+  "description": "Public source-only VoiceVibe manifest. No artist voice cloning. Earlier profiles have no published audio; the new Experienced Soul profile is descriptive only.",
   "voices": [
     {
       "id": "john-wayne",
@@ -65,6 +65,25 @@
       },
       "history_pdf": null,
       "notes": "The local reference WAV exists for John Wayne and Mork but is not hosted yet. Draft transcript must be checked against actual audio, including spoken stage instructions."
+    },
+    {
+      "id": "maxi-jazz-research",
+      "label": "Maxi Jazz VoiceVibe (research): Experienced Soul",
+      "title": "Experienced Soul",
+      "status": "ORIGINAL_VOICE_DESCRIPTION_NO_AUDIO",
+      "original_synthetic_character": true,
+      "transcript_verified": false,
+      "files": {
+        "description": "Maxi Jazz VoiceVibe/Maxi Jazz VoiceVibe.md",
+        "transcript": "Maxi Jazz VoiceVibe/Maxi Jazz VoiceVibe.txt",
+        "audio": null
+      },
+      "companions": {
+        "hits_vibe": "https://github.com/KarstenEvans/aletheia-app/blob/main/aletheia-hits/hits/faithless-hits-vibe.md",
+        "song_prompt": "https://github.com/KarstenEvans/aletheia-app/blob/main/aletheia-hits/projects/im-leaving/Im-Leaving-Universal-Prompt.md"
+      },
+      "history_pdf": null,
+      "notes": "Original independently designed mature spoken-word performance inspired by broadly described qualities; NOT Maxi Jazz's identifiable voice. No sample WAV, no rights to clone."
     }
   ]
 }
