@@ -1,0 +1,39 @@
+{
+  "schema": "aletheia-hits/hits-vibes/0.1.0",
+  "updated": "2026-10-31",
+  "free_first": true,
+  "description": "Explicit source-led HitsVibe manifest. Descriptive research; does not reproduce artists or supply an audio generator.",
+  "hits": [
+    {
+      "id": "faithless",
+      "name": "Faithless HitsVibe",
+      "path": "hits/faithless-hits-vibe.md",
+      "linked_voice": "../aletheia-voice-studio/voice-vibes/Maxi Jazz VoiceVibe/Maxi Jazz VoiceVibe.md"
+    },
+    {
+      "id": "kraftwerk",
+      "name": "Kraftwerk HitsVibe",
+      "path": "hits/kraftwerk-hits-vibe.md"
+    },
+    {
+      "id": "daft-punk",
+      "name": "Daft Punk HitsVibe",
+      "path": "hits/daft-punk-hits-vibe.md"
+    },
+    {
+      "id": "soft-cell",
+      "name": "Soft Cell HitsVibe",
+      "path": "hits/soft-cell-hits-vibe.md"
+    }
+  ],
+  "projects": [
+    {
+      "id": "im-leaving",
+      "title": "I'm Leaving",
+      "prompt": "projects/im-leaving/Im-Leaving-Universal-Prompt.md",
+      "lyrics": "projects/im-leaving/Im-Leaving-Lyrics.md",
+      "reference_audio": "Aletheia_Im_Leaving_V7.mp3 (provided separately by user in conversation, NOT hosted on GitHub)",
+      "free_reference_audio": "Aletheia_Im_Leaving_V7_Suno_59s_Reference.mp3 (separate attachment)"
+    }
+  ]
+}
