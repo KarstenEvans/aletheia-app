@@ -338,6 +338,18 @@ When the interface needs discovery, maintain an explicit JSON/Markdown manifest 
 
 The manifest is a small index, not a replacement for canonical Markdown content.
 
+### Aletheia Vibe library layout (2026-10-31)
+
+**KISS:** The app describes the workflow; its **vibes** are small, portable `.md` reference profiles. Reuse existing paths and link across apps, instead of reorganising working libraries merely for matching folder names.
+
+- **Aletheia Hits:** `aletheia-hits/` owns the app and has `aletheia-hits/hits/` for `*-hits-vibe.md` profiles. Music/arrangement belongs in HitsVibe; performer character belongs in VoiceVibe.
+- **Aletheia Voice Studio:** `aletheia-voice-studio/voice-vibes/<profile>/` stores voice description and exact reference transcript (and an authorised audio reference only when actually available); `voices.json` explicitly indexes available profiles.
+- **Aletheia Writing Vibe (current name):** `aletheia-writing-vibe/` holds the existing app; `Writers/` is the **already published** parallel library for writer-style profiles and their resources. A possible future rename to “Aletheia Writing” must first be planned and link-tested; do **not** move or rename it implicitly.
+- **Aletheia Humour:** `aletheia-humour/sketches/` contains working sketches and their humour-method notes, **not** a canonical catalogue of every comedian/TV-show Humour Vibe. The separate Thalia Humour App describes a **Humour Base** of Markdown humour methods, but do not claim a QI, Dave Allen, Monty Python or Robin Williams method file is currently in this repository unless its actual path is verified. Existing QI prototypes or Mini-AI-Me character files are not automatically canonical Humour Vibes.
+- **Manifest and scope:** Static GitHub Pages cannot enumerate directories. Keep an explicit manifest when browsing profiles is required; distinguish **research draft**, **committed Markdown**, **published page**, and **working audio**. Preserve older folder names, HTML links, and browser routes until separately approved and migration-tested.
+
+This is a directory/documentation convention, **not** permission to rename, move, delete or publish older material. All generated Markdown keeps both protocol references as required above.
+
 ## 14. Accessibility basics
 
 For ordinary public apps:
