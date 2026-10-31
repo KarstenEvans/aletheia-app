@@ -16,7 +16,7 @@ Repository: `KarstenEvans/aletheia-app`; verified default branch `main`; reposit
 |---|---|---|---|
 | Voice Studio | `aletheia-voice-studio/` | `voice-vibes/<profile>/` with MD/TXT and explicit `voices.json` | Reuse. Add one new research-labelled VoiceVibe. |
 | Writing Vibe | `aletheia-writing-vibe/` | Canonical writer profiles and catalogue in root `Writers/`, which has `writers.json` | Keep existing paths; do not invent a second writer directory. |
-| Humour | `aletheia-humour/sketches/` | Each sketch in its own subfolder | Keep; existing library is sketch-led, not separate HumourVibe models. |
+| Humour / Thalia | `aletheia-humour/sketches/` for Aletheia sketches; `thalia-protocol/thalia-humour-app.md` specifies a separate Humour Base | Sketches are not the same as source-specific Humour Method / Vibe Markdown. QI and Dave Allen appear as example keys in the older app; no matching dedicated method files were verified in the inspected GitHub repository trees | Keep paths; verify any missing Humour Vibes before catalogue or migration. |
 | Hits | New `aletheia-hits/` | New `hits/<artist>-hits-vibe.md`; `hits.json` is the manifest | Create original research files only. |
 
 ## KISS decision
@@ -30,3 +30,7 @@ Repository: `KarstenEvans/aletheia-app`; verified default branch `main`; reposit
 
 ## Resume
 If work continues, build a small optional static `aletheia-hits/index.htm` from existing Markdown without duplicating Voice/Writing/Humour functionality. Seek explicit permission before changing the root Aletheia menu or moving existing content. This audit is already a useful independent checkpoint.
+
+## Additional 2026-10-31 verification
+
+Checked the complete non-truncated GitHub trees of `KarstenEvans/aletheia-app`, `KarstenEvans/thalia-protocol`, and `KarstenEvans/aletheia`. `aletheia-app` contains the two sketch folders and `Mini-AI-Me/aletheia-humour.md`; `thalia-protocol` contains `thalia-humour-app.md`, which describes an intended Humour Base for source-specific Markdown methods. Standalone Dave Allen, QI, Monty Python and Robin Williams Humour Method/Vibe files were **not located in these inspected repository trees**. Earlier QI browser prototypes exist in the user's file Library, but those prototypes do not prove the individual research-method Markdown files are published. Avoid reconstructing or moving them without finding the originals. The separate GUI convention is now recorded in `aletheia-GUI.md` §13. No Writing or Humour contents were moved.
