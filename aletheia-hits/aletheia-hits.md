@@ -18,7 +18,7 @@ artifact_type: canonical-application-spec
 ## One-song workflow (KISS)
 
 1. **Story:** Describe the listener's emotional situation and what they should feel (recognition, relief, humour, resolve). Distinguish words actually spoken from fictional artistic interpretation.
-2. **Reference research:** Select one or more SongVibes. Record accessible sources and make an *observed / inferred / subjective* distinction. Do not use the band's name as an instruction to replicate a recording.
+2. **Reference research:** Select one or more HitsVibes. Record accessible sources and make an *observed / inferred / subjective* distinction. Do not use the band's name as an instruction to replicate a recording.
 3. **Narrator:** Choose or design an original VoiceVibe. Narrator and backing refrain may have completely different vocal behaviours.
 4. **Lyric workshop:** User retains line-level control. Map full phrases, interrupted words, echoes, micro-repeats, breath pauses, stressed words and dramatic silences. Label repeated hooks as refrains even without a pop chorus.
 5. **Arrangement map:** Plan 8/16-bar scenes, instruments entering/leaving, bass variations, acoustic/digital contrasts, delayed melodic payoff, microdetail and breaks. An interesting build is *not* maximum loudness all the time.
