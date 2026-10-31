@@ -1,13 +1,13 @@
-# Aletheia Hits | SongVibe library
+# Aletheia Hits | HitsVibe library
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) (sources, provenance and uncertainty) | [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) (optional considerate humour)
 
-A **SongVibe** is a source-led study of *musical and lyrical mechanisms*, not a mimicry preset.
+A **HitsVibe** is a source-led study of *musical and lyrical mechanisms*, not a mimicry preset.
 
-- [Faithless SongVibe](faithless-songvibe.md): long builds, no obligatory chorus, conversational philosophy, human speech against layered electronic music.
-- [Kraftwerk SongVibe](kraftwerk-songvibe.md): machine/human interplay, sparse patterns, sequencer variation, treated voice.
-- [Daft Punk SongVibe](daft-punk-songvibe.md): interlocking groove, selective loops, processed voices as instruments, additive/subtractive arrangement.
-- [Soft Cell SongVibe](soft-cell-songvibe.md): intimate/minimal electronics, theatrical urgency, dark satire, vocal imperfections.
+- [Faithless HitsVibe](faithless-hits-vibe.md): long builds, no obligatory chorus, conversational philosophy, human speech against layered electronic music.
+- [Kraftwerk HitsVibe](kraftwerk-hits-vibe.md): machine/human interplay, sparse patterns, sequencer variation, treated voice.
+- [Daft Punk HitsVibe](daft-punk-hits-vibe.md): interlocking groove, selective loops, processed voices as instruments, additive/subtractive arrangement.
+- [Soft Cell HitsVibe](soft-cell-hits-vibe.md): intimate/minimal electronics, theatrical urgency, dark satire, vocal imperfections.
 
 ## Recommended schema for future files
 
