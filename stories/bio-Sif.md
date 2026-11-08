@@ -463,3 +463,12 @@ And whenever someone announces that something is completely new, Sif smiles.
 Not because they are wrong.
 
 Because somewhere, buried beneath three redesigns, two dead websites and a forgotten PDF, she suspects she is about to find something interesting.
+
+
+## The Asgard Files: Sif's 2026 excavation
+
+While checking the AI archives, Sif discovered [The Asgard Files: The Gods Who Never Left](https://karstenevans.github.io/aletheia/aletheia-go/02-the-asgard-files.html), a fictional expedition inspired by the ancient Asgard archaea and the origins of mitochondria.
+
+It leads directly to the three-page scientific thought experiment, [The Internal War: The Gut-Brain Fuel Switch (PDF)](https://karstenevans.github.io/aletheia/aletheia-go/02-the-gut-brain-fuel-switch.pdf).
+
+Her current hypothesis: the gods became very good at typing their own history. Her current appointment: an Eldruna concert. Thor has been asked to behave around the bar.
