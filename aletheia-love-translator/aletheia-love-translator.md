@@ -74,7 +74,9 @@ Use: **notice → ask → translate → try → check how it landed → adapt**.
 Never: **label → assume → demand → scorekeep**.
 
 ---
-\n\n# 2. MEANING FIRST
+
+
+# 2. MEANING FIRST
 
 Core rule:
 
@@ -137,7 +139,9 @@ Example output:
 Older v0.6 forced-choice results must **not** be automatically converted into 0–4 ratings. Nicknames, timing and other non-quiz settings may carry forward.
 
 ---
-\n\n# 4. COMMUNICATION TIMING IS NOT A LOVE LANGUAGE
+
+
+# 4. COMMUNICATION TIMING IS NOT A LOVE LANGUAGE
 
 Track separately:
 
@@ -471,7 +475,9 @@ Additional anchors: perceived partner responsiveness; high-quality listening; no
 **Inference policy:** A study association does not establish causation, and the current Aletheia tool is not itself clinically validated. Explain to people what was measured, what remains uncertain, and why the categories are used as prompts rather than diagnoses.
 
 ---
-\n\n# 12. SAFETY / EPISTEMIC RULES
+
+
+# 12. SAFETY / EPISTEMIC RULES
 
 Distinguish:
 
