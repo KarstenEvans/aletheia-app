@@ -5,7 +5,7 @@
 <div class="card"><h2>Terminal response</h2><div data-clippipe-assistant><pre id="out">Waiting for an incoming message.</pre></div></div>
 <script>
 document.querySelector('#send').addEventListener('click',()=>{
- const x=document.querySelector('#input').value, id=(x.match(/^ID ([^\r\n]+)$/m)||[])[1],sender=(x.match(/^FROM ([^\r\n]+)$/m)||[])[1],receiver=(x.match(/^TO ([^\r\n]+)$/m)||[])[1],task=(x.match(/^TASK ([^\r\n]+)$/m)||[])[1]||'general';
+ const full=document.querySelector('#input').value;const marker='INCOMING PACKET:\n';const x=full.includes(marker)?full.slice(full.indexOf(marker)+marker.length):full;const id=(x.match(/^ID ([^\r\n]+)$/m)||[])[1],sender=(x.match(/^FROM ([^\r\n]+)$/m)||[])[1],receiver=(x.match(/^TO ([^\r\n]+)$/m)||[])[1],task=(x.match(/^TASK ([^\r\n]+)$/m)||[])[1]||'general';
  if(!id||!sender||!receiver){document.querySelector('#out').textContent='Invalid packet: no ID / FROM / TO found';return;}
  document.querySelector('#input').value='';
  setTimeout(()=>{document.querySelector('#out').textContent=[
