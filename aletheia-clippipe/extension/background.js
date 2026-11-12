@@ -26,6 +26,17 @@ async function notifyController(tabId,message){
 async function route(msg,sender){
   if(!authorizedController(sender))throw Error('Only the registered ClipPipe v0.3 page can control this bridge.');
   if(msg.op==='PING')return {ok:true,version:'0.3.0'};
+  if(msg.op==='PULL'){
+    const data=(await chrome.storage.local.get('inbox')).inbox||[];
+    return {ok:true,replies:data.slice(-100)};
+  }
+  if(msg.op==='ACK_REPLY'){
+    const id=String(msg.params?.id||'');
+    if(!id.startsWith('reply-'))throw Error('Invalid stored reply ID.');
+    const data=(await chrome.storage.local.get('inbox')).inbox||[];
+    await chrome.storage.local.set({inbox:data.filter(x=>x.id!==id)});
+    return {ok:true};
+  }
   if(msg.op==='LIST'){
     const tabs=await chrome.tabs.query({});
     return {ok:true,tabs:tabs.filter(t=>provider(t.url||'')&&t.id!==sender.tab.id).map(t=>({
@@ -90,7 +101,14 @@ chrome.runtime.onMessage.addListener((msg,sender,sendResponse)=>{
       if(!pending||pending.packetId!==msg.replyTo)return;
       const reply=String(msg.text||'');
       if(reply.length>85000||!reply.includes('\nREPLY '+pending.packetId+'\n')||!reply.endsWith('\nEOM'))return;
-      await notifyController(pending.controllerTab,{tabId,replyTo:pending.packetId,text:reply});
+
+      const id='reply-'+tabId+'-'+pending.packetId;
+      const data=(await chrome.storage.local.get('inbox')).inbox||[];
+      if(!data.some(x=>x.id===id)){
+        data.push({id,tabId,replyTo:pending.packetId,text:reply,createdAt:new Date().toISOString()});
+        await chrome.storage.local.set({inbox:data.slice(-100)});
+      }
+      await notifyController(pending.controllerTab,{id,tabId,replyTo:pending.packetId,text:reply});
     })().then(()=>sendResponse({ok:true})).catch(e=>sendResponse({ok:false,error:e.message}));
     return true;
   }
