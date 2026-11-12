@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ClipPipe v0.3 - Deterministic Test Terminal</title>
+<style>body{font:16px system-ui;background:#101b29;color:#edf6ff;max-width:850px;margin:40px auto;padding:20px}h1{font-size:1.7rem}.card{background:#19293b;border:1px solid #35516c;border-radius:14px;padding:18px;margin:18px 0}textarea{box-sizing:border-box;display:block;width:100%;min-height:130px;background:#0b1420;color:#eef6ff;padding:14px;border-radius:8px;border:1px solid #45637c}button{padding:10px 20px;background:#8fdacf;color:#0d2123;border:0;border-radius:8px;cursor:pointer;font-weight:bold}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#08121c;padding:15px;border-radius:8px}.warning{color:#f8c98c}</style></head>
+<body><h1>ClipPipe Test Terminal</h1><p class="warning">This is a deterministic communications test fixture, NOT a real AI. It helps verify extension delivery and ACK/RESULT capture before connecting a provider.</p>
+<div class="card"><label for="input">Incoming chat composer</label><textarea data-clippipe-input id="input" placeholder="The browser bridge writes here..."></textarea><p><button data-clippipe-submit id="send">Submit test packet</button></p></div>
+<div class="card"><h2>Terminal response</h2><div data-clippipe-assistant><pre id="out">Waiting for an incoming message.</pre></div></div>
+<script>
+document.querySelector('#send').addEventListener('click',()=>{
+ const x=document.querySelector('#input').value, id=(x.match(/^ID ([^\r\n]+)$/m)||[])[1],sender=(x.match(/^FROM ([^\r\n]+)$/m)||[])[1],receiver=(x.match(/^TO ([^\r\n]+)$/m)||[])[1],task=(x.match(/^TASK ([^\r\n]+)$/m)||[])[1]||'general';
+ if(!id||!sender||!receiver){document.querySelector('#out').textContent='Invalid packet: no ID / FROM / TO found';return;}
+ document.querySelector('#input').value='';
+ setTimeout(()=>{document.querySelector('#out').textContent=[
+  'HELO ALETHEIA/1','ID fixture-response-'+Date.now(),
+  'FROM '+receiver,'TO '+sender,'TASK '+task,'TYPE RESULT','SEQ 1','VISIBILITY PRIVATE','REPLY '+id,
+  '','Deterministic test terminal received the packet. This does not demonstrate a real AI doing the task.','EOM'
+ ].join('\n');},450);
+});
+</script></body></html>
