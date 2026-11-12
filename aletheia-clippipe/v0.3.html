@@ -36,9 +36,9 @@ button{cursor:pointer;transition:background .15s,transform .1s}button:hover{filt
 <div class="card">
 <div class="eyebrow">Live browser-to-browser experiment</div><h3>ClipPipe Chrome Bridge v0.3</h3>
 <p class="hint">The optional, locally installed extension can transmit one selected packet into a ChatGPT, Claude, Gemini or DeepSeek browser tab, then capture a correctly formatted reply. Provider interfaces change; unsupported layouts fall back to manual clipboard mode. Every outgoing transmission requires a click and confirmation.</p>
-<div class="actionrow"><button class="btn primary" id="bridgeCheck">Check extension</button><button class="btn" id="bridgeRefresh">Find AI tabs</button><button class="btn ghost" id="bridgeDownload">Generate ZIP locally ↓</button><a class="btn ghost" href="./extension/Aletheia-ClipPipe-Bridge-v0.3.zip" download>Direct ZIP download ↓</a></div>
+<div class="actionrow"><button class="btn primary" id="bridgeCheck">Check extension</button><button class="btn" id="bridgeRefresh">Find AI tabs</button><button class="btn ghost" id="bridgeDownload">Generate ZIP locally ↓</button><a class="btn ghost" href="./extension-v0.3.1/Aletheia-ClipPipe-Bridge-v0.3.1.zip" download>Direct ZIP download ↓</a></div>
 <p class="tiny" id="bridgeStatus" style="margin:12px 0">Extension not yet checked.</p>
-<div class="msg" style="margin:15px 0">Chrome setup: download ZIP, extract it, open <b>chrome://extensions</b>, turn on <b>Developer mode</b>, choose <b>Load unpacked</b>, and select the folder containing manifest.json. Refresh this page and the target AI tabs. The extension does NOT need API keys and does NOT grant GitHub write access.</div>
+<div class="msg" style="margin:15px 0">Chrome setup: download the <b>v0.3.1</b> ZIP, extract it, open <b>chrome://extensions</b>, turn on <b>Developer mode</b>, choose <b>Load unpacked</b>, and select the folder containing manifest.json. Refresh this page and the target AI tabs. <b>Before EACH send, make ClipPipe the active Chrome tab and click its extension toolbar icon to arm exactly one transmission (expires after 2 minutes).</b> Then press Submit selected packet and confirm. The extension does NOT need API keys and does NOT grant GitHub write access.</div>
 <div class="actionrow"><button class="btn ghost" id="openFixture">Open deterministic test terminal</button></div>
 <div class="formrow">
 <label class="field">Aletheia agent<select id="bridgeAgent"><option value="agent-a">Agent A</option><option value="agent-b">Agent B</option><option value="aletheia-manager-001">Manager Chat</option></select></label>
@@ -230,7 +230,7 @@ async function bAccept(envelope){
 function bRenderPairs(){
  $('bridgePairs').textContent=bPairs.size?Array.from(bPairs.entries()).map(([a,t])=>a+' → tab '+t).join(' | '):'No paired tabs. Pair an agent explicitly to a browser tab.';
 }
-$('bridgeCheck').onclick=async()=>{try{const r=await bCall('PING');$('bridgeStatus').textContent='● Extension connected, version '+r.version;bLog('Extension ready.');}catch(e){$('bridgeStatus').textContent='● No extension: '+e.message;bLog(e.message)}};
+$('bridgeCheck').onclick=async()=>{try{const r=await bCall('PING');$('bridgeStatus').textContent='● Extension connected, version '+r.version+(r.armed?' · ARMED for one send':' · not armed');bLog('Extension ready.');}catch(e){$('bridgeStatus').textContent='● No extension: '+e.message;bLog(e.message)}};
 $('bridgeRefresh').onclick=async()=>{
  try{const r=await bCall('LIST');bTabs=r.tabs||[];
  $('bridgeTab').replaceChildren();
@@ -254,7 +254,7 @@ $('bridgeSend').onclick=async()=>{
   const r=await bCall('SEND',{tabId,id:m.id,packet:packetText(m)});
   if(!['acknowledged','responded','completed'].includes(m.status))m.status='submitted';log('Submitted '+m.id+' to browser tab '+tabId+' ('+r.provider+'). Receipt not yet confirmed.');
   await save();bLog('SUBMITTED '+m.id+' to '+r.provider+'. Waiting for explicit REPLY.');
- }catch(e){if(!['acknowledged','responded','completed'].includes(m.status))m.status='delivery_uncertain';log('Delivery uncertain for '+m.id+': '+e.message);await save();bLog('Could not confirm send: '+e.message+'. Inspect the destination tab before retrying.');}
+ }catch(e){if(!/Not armed|not armed|expires|authorize ONE/.test(e.message)&&!['acknowledged','responded','completed'].includes(m.status))m.status='delivery_uncertain';log('Delivery uncertain for '+m.id+': '+e.message);await save();bLog('Could not confirm send: '+e.message+'. Inspect the destination tab before retrying.');}
 };
 $('bridgeCapture').onclick=async()=>{
  const m=state.messages.find(x=>x.id===selected);
@@ -276,12 +276,12 @@ $('bridgeDownload').onclick=async()=>{
   const paths=['manifest.json','background.js','page-bridge.js','agent-bridge.js'];
   const entries=[];
   for(const name of paths){
-    const response=await fetch('./extension/'+name,{cache:'no-store'});
+    const response=await fetch('./extension-v0.3.1/'+name,{cache:'no-store'});
     if(!response.ok)throw Error('Missing extension file: '+name);
     entries.push({name,bytes:new Uint8Array(await response.arrayBuffer())});
   }
   const blob=bZip(entries);const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download='Aletheia-ClipPipe-Bridge-v0.3.zip';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
+  const a=document.createElement('a');a.href=url;a.download='Aletheia-ClipPipe-Bridge-v0.3.1.zip';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
   bLog('Downloaded unpack-and-load Chrome extension ('+entries.length+' files).');
  }catch(e){bLog('Extension download failed: '+e.message)}
 };
