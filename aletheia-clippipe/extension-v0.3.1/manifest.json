@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Aletheia ClipPipe Browser Bridge",
+  "version": "0.3.1",
+  "description": "User-authorized, local-first AI chat relay for Aletheia ClipPipe.",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://chat.deepseek.com/*",
+    "https://karstenevans.github.io/aletheia-app/aletheia-clippipe/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://karstenevans.github.io/aletheia-app/aletheia-clippipe/*"
+      ],
+      "js": [
+        "page-bridge.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://chat.deepseek.com/*",
+        "https://karstenevans.github.io/aletheia-app/aletheia-clippipe/testing/*"
+      ],
+      "js": [
+        "agent-bridge.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "ClipPipe: click while viewing v0.3 to authorize ONE outgoing packet"
+  }
+}
