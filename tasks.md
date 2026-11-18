@@ -1,3 +1,18 @@
+## MAKE-A-WILL-0.1 | 18 November 2026
+
+**Status:** SOURCE COMMITTED / JS STATIC SYNTAX PASS / LIVE PAGES AND MOBILE QA NOT VERIFIED. User approved Aletheia Improve release of a dedicated v0.1 app and overwriting only this project's files.
+
+- [x] Canonical Markdown version 0.1; four sections: Make a Will, Family Handover, DIY Probate, Build the Family Legacy.
+- [x] One-question-at-a-time answer buttons; plain secondary reading links; 900×760 resizable desktop child-window preference and mobile new-tab fallback.
+- [x] Free-first resources MD/HTML, books, Lawpack/Ryman kits, independent pension/ISA and probate references, editorial music/podcast links.
+- [x] Corrected cover image committed; illustrated PDF and Markdown article linked in the Worldwide AI Articles folder; separate Make a Will Knowledge collection in Knowledge repository.
+- [x] Scripts parsed and remote Git trees verified; PDF local bytes match remote Git blob SHA.
+- [ ] Manual live GitHub Pages, popup blocker, Android Safari/WebKit, narrow phone, keyboard and downloadable Markdown testing.
+- [ ] Independent legal review of will clauses, tax, pension and trust statements before representing any output as sign-ready.
+- [ ] Awin Bookshop merchant account approval and tracking, and any Lawpack/Ryman/music affiliate eligibility, remain unverified. Do not invent affiliate tags.
+
+**No unrelated apps or shared standards changed.** Release remains 0.1 for future in-place improvements.
+
 # Aletheia Apps - Tasks
 
 ## AWIN-IGNORE-AUDIT | 30 October 2026 | CORRECTED / STATIC RECHECK DONE
