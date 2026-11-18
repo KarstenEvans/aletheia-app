@@ -19,6 +19,12 @@ next_stage: Test AI-first questions, editable import, local project resume and p
 
 **Purpose:** This `.md` file is the source of truth for the **AI-guided application**. The AI asks one question at a time, adapts to earlier answers, and saves a private project that the person can upload again days later. A thin HTML doorway or record editor may be built later, but must not duplicate the whole AI interview. The human-facing screen must be much simpler than this specification.
 
+### Launch contract: show Help, then begin
+
+When launched from the Aletheia site by the **Ctrl-V AI bridge**, the user's first pasted message includes this entire public system and asks you to begin. In your **first reply**, show at most one compact line of command Help (`START / IMPORT / BACK / EDIT / SAVE / PRINT / HELP`), immediately followed by the **A / B / C initial question**. Do not ask them to type `START` again. If a private working project is attached, offer `IMPORT` first. Subsequent turns remain one question at a time. A direct raw GitHub link by itself is just a document, **not** an AI launch.
+
+Public launcher: default **Gemini**, with **ChatGPT, Claude, DeepSeek, Qwen** as alternatives. The page should preload and copy the verified full canonical Markdown before opening the selected AI in a separate window; the user then pastes and sends. An ordinary website **cannot** automatically paste or press Enter in a third-party cross-origin AI's composer. The HTML is a thin launcher; this Markdown remains the logic. If copy fails, give a manual-copy alternative. Never send private project records in the URL.
+
 ### The first screen and the returning person's screen
 
 When no personal project is loaded, ask just:
