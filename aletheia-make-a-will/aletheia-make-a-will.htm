@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aletheia Make a Will v0.1 | Simple free estate planning</title>
+<title>Aletheia Make a Will v0.1 | Free family wills and generational planning</title>
 <meta name="description" content="Free England and Wales will preparation, family handover, DIY probate and family trust comparison. Local-only, no passwords.">
 <link rel="canonical" href="https://karstenevans.github.io/aletheia-app/aletheia-make-a-will/aletheia-make-a-will.htm">
 <style>
@@ -28,18 +28,19 @@ button.action{background:var(--accent);color:#102e23;padding:12px 16px;border:0;
 <header><a href="../index.html">← Aletheia Apps</a><span><a href="aletheia-make-a-will.md" target="_blank" rel="noopener">Research &amp; sources</a> · <a href="aletheia-make-a-will-page.md" target="_blank" rel="noopener">Page specification</a></span></header>
 <div class="eyebrow">ALETHEIA • FREE FIRST • ENGLAND &amp; WALES • V0.1</div>
 <h1>Make a Will</h1>
-<p class="lead">A free family toolkit. Prepare a will for review, leave the information your family will need, follow probate steps, and find out whether a trust would actually help.</p>
+<p class="lead">KISS: a mortgage-free family home, savings and a pension. What happens when one parent dies? How do two grown-up children inherit? Could relatives pool some wealth for grandchildren over decades?</p>
 <div class="note"><strong>Important:</strong> This is an educational prototype, not a legal will-writing certification or personal tax advice. Forms work entirely within your browser and are not saved or sent anywhere. Refresh loses entries. Downloads are <strong>unencrypted text</strong>. Never type passwords, PINs, recovery codes or full account numbers.</div>
+<div class="card"><strong>Start with everyday situations:</strong> mum and dad with two adult children; a surviving or single parent with adult children; or leave a gift to relatives, friends or an animal charity. Each adult makes their own will. Mortgage problems stay as optional help, not the default.</div>
 <nav class="tabs" role="tablist" aria-label="Aletheia planning sections">
 <button type="button" class="tab" role="tab" data-panel="will" aria-selected="true" aria-controls="will">1. Make a Will</button>
 <button type="button" class="tab" role="tab" data-panel="handover" aria-selected="false" aria-controls="handover">2. Family Handover</button>
 <button type="button" class="tab" role="tab" data-panel="probate" aria-selected="false" aria-controls="probate">3. DIY Probate</button>
-<button type="button" class="tab" role="tab" data-panel="trust" aria-selected="false" aria-controls="trust">4. Consider a Family Trust</button>
+<button type="button" class="tab" role="tab" data-panel="trust" aria-selected="false" aria-controls="trust">4. Family Legacy</button>
 </nav>
 
 <section id="will" class="panel printing" role="tabpanel">
 <h2>1. Make a Will</h2>
-<p>Start with the simple case: one adult who receives the entire estate, a replacement beneficiary, an executor and a backup executor. Complex family circumstances are directed to a professional-review briefing instead.</p>
+<p>Start with a typical family: one will for each parent, or one will for a single or surviving parent. Name the person or people who should inherit and an executor. Two adult children can be recorded as equal proposed heirs. The text is a review draft or briefing, never a signed will.</p>
 <div class="cards">
 <div class="field"><label for="jur">Where do you live?</label><select id="jur"><option value="ew">England or Wales</option><option value="elsewhere">Scotland, Northern Ireland, overseas or unsure</option></select></div>
 <div class="field"><label for="status">Relationship status</label><select id="status"><option>Single or widowed</option><option>Married or civil partnered</option><option>Living together, not married</option><option>Separated or divorced</option></select></div>
@@ -47,8 +48,9 @@ button.action{background:var(--accent);color:#102e23;padding:12px 16px;border:0;
 <div class="field"><label for="address">Address (optional)</label><input id="address" autocomplete="off"></div>
 <div class="field"><label for="executor">Executor's full name</label><input id="executor" autocomplete="off"></div>
 <div class="field"><label for="exback">Replacement executor's full name</label><input id="exback" autocomplete="off"></div>
-<div class="field"><label for="beneficiary">Main adult beneficiary's full name</label><input id="beneficiary" autocomplete="off"></div>
-<div class="field"><label for="benback">Replacement adult beneficiary's full name</label><input id="benback" autocomplete="off"></div>
+<div class="field"><label for="beneficiary">First adult beneficiary (or charity)</label><input id="beneficiary" autocomplete="off"></div>
+<div class="field"><label for="beneficiary2">Second adult beneficiary (optional)</label><input id="beneficiary2" autocomplete="off"><small>For two adult children, the review briefing proposes equal shares.</small></div>
+<div class="field"><label for="benback">Fallback adult beneficiary if the first choice cannot inherit</label><input id="benback" autocomplete="off"></div>
 </div>
 <fieldset><legend>Which of these apply? Tick every relevant one.</legend>
 <label class="check"><input type="checkbox" id="minor"> I am under 18, or there are questions about free choice or capacity</label>
@@ -57,6 +59,7 @@ button.action{background:var(--accent);color:#102e23;padding:12px 16px;border:0;
 <label class="check"><input type="checkbox" id="propertyComplex"> I have overseas assets, disputed property rights, farm or business assets</label>
 <label class="check"><input type="checkbox" id="trustComplex"> I want a trust, right to occupy the home, or inheritance paid out in stages</label>
 </fieldset>
+<details><summary>Can I leave something to nieces, nephews or a favourite cattery?</summary><p>Yes, you can name relatives, friends and a correctly identified charity. An animal cannot itself legally inherit. For a cattery or rescue charity, confirm the legal recipient using the <a href="https://www.gov.uk/find-charity-information" target="_blank" rel="noopener">Charity Commission register</a>. Gifts to nieces or nephews generally do not qualify for the extra residence nil-rate band applicable to direct descendants.</p></details>
 <details><summary>What makes a will legally valid?</summary><p>In England and Wales, it normally must be written and made voluntarily by someone 18+ with capacity, then properly signed before two adult witnesses present together, with both witnesses signing in the will-maker's presence. Do not use a beneficiary or their spouse/civil partner as witness. The original signed will must be findable. See <a href="https://www.gov.uk/make-will/make-sure-your-will-is-legal" target="_blank" rel="noopener">GOV.UK legal requirements</a>.</p></details>
 <div class="actions"><button type="button" class="action" id="makeWill">Generate review draft or briefing</button><button type="button" class="action secondary" data-export="will">Download Markdown</button></div>
 <p id="willStatus" class="status" role="status" aria-live="polite"></p><div class="result" id="willText" aria-label="Will review result">Fill in what you know, then generate your draft or briefing.</div>
@@ -81,11 +84,11 @@ button.action{background:var(--accent);color:#102e23;padding:12px 16px;border:0;
 </section>
 
 <section id="probate" class="panel" role="tabpanel" hidden>
-<h2>3. DIY Probate Guide</h2><p>A spouse's death does not automatically mean a house needs to be sold or that probate is required for every asset. Different rules apply to the house title, mortgage, savings and pension benefits.</p>
+<h2>3. DIY Probate Guide</h2><p>Normally the family home is paid off. First find the will, identify who owns the house, contact the bank, locate pensions and help the executor. Probate may not be required for every asset.</p>
 <div class="cards">
 <div class="field"><label for="survivor">Who has died?</label><select id="survivor"><option value="spouse">Spouse or civil partner</option><option value="single">Single parent</option><option value="unmarried">Unmarried partner</option><option value="other">Another relative</option></select></div>
 <div class="field"><label for="ownership">How is the home owned?</label><select id="ownership"><option value="joint">Joint tenants / joint registered owners</option><option value="common">Tenants in common</option><option value="sole">Deceased owned it alone</option><option value="unknown">Unknown</option></select></div>
-<div class="field"><label for="mortgageType">Mortgage arrangement</label><select id="mortgageType"><option value="joint">Joint borrowers</option><option value="sole">Deceased was the only borrower</option><option value="none">Mortgage-free</option><option value="unknown">Unsure</option></select></div>
+<details><summary>Only if there is still a mortgage</summary><div class="field"><label for="mortgageType">Mortgage arrangement</label><select id="mortgageType"><option value="none">Mortgage-free</option><option value="joint">Joint borrowers</option><option value="sole">Deceased was the only borrower</option><option value="unknown">Unsure</option></select></div></details>
 <div class="field"><label for="billType">How are the household bills paid?</label><select id="billType"><option value="dead">Deceased person's sole account</option><option value="joint">Joint bank account</option><option value="survivor">Survivor's sole account</option><option value="unknown">Mix / don't know</option></select></div>
 </div>
 <div class="card">
@@ -105,21 +108,23 @@ button.action{background:var(--accent);color:#102e23;padding:12px 16px;border:0;
 </section>
 
 <section id="trust" class="panel" role="tabpanel" hidden>
-<h2>4. Consider a Family Trust</h2><p>Can a normal family protect a home and invest for children and grandchildren? Yes, sometimes. Compare the real financial outcome rather than assuming a trust or deed transfer eliminates tax.</p>
+<h2>4. Build a Family Legacy</h2><p>Think decades ahead. Could brothers, sisters or cousins contribute part of their own money to a shared fund for future children and grandchildren? Explore three choices: give assets individually, set up a family discretionary trust, or establish a family investment company. This is separate from normal probate.</p>
 <div class="cards">
 <div class="field"><label for="houseVal">Approximate home value (£)</label><input id="houseVal" type="number" min="0" step="1000" value="400000"></div>
-<div class="field"><label for="houseDebt">Outstanding mortgage (£)</label><input id="houseDebt" type="number" min="0" step="1000" value="150000"></div>
-<div class="field"><label for="cash">Cash, savings and investments (£)</label><input id="cash" type="number" min="0" step="1000" value="150000"></div>
+<details><summary>Optional: mortgage still outstanding?</summary><div class="field"><label for="houseDebt">Mortgage (£), normally 0 in this example</label><input id="houseDebt" type="number" min="0" step="1000" value="0"></div></details>
+<div class="field"><label for="cash">Parent’s savings/investments (£), example</label><input id="cash" type="number" min="0" step="1000" value="150000"></div>
+<div class="field"><label for="pool">Potential joint family fund (£), if members agree</label><input id="pool" type="number" min="0" step="1000" value="0"><small>Separate from the parent’s estate. Do not assume money has been contributed.</small></div>
 <div class="field"><label for="sipp">Unused DC pension or SIPP (£), if known</label><input id="sipp" type="number" min="0" step="1000" placeholder="Optional"></div>
 <div class="field"><label for="familyType">Family situation</label><select id="familyType"><option value="married">Married / civil-partner parents</option><option value="single">Single parent</option><option value="cohabit">Unmarried / cohabiting parents</option><option value="blended">Blended / second family</option></select></div>
 <div class="field"><label for="objective">Main objective</label><select id="objective"><option value="home">Keep surviving partner in home</option><option value="children">Leave assets to adult children</option><option value="minor">Protect younger children</option><option value="future">Benefit later generations</option><option value="iht">Understand lawful inheritance-tax planning</option><option value="care">Concern about future care costs</option></select></div>
 </div>
-<div class="card"><h3>Different tools, different outcomes</h3>
+<div class="card"><h3>The simple family choices</h3><p><strong>1. Give individually:</strong> each heir gets their share outright and controls it.</p><p><strong>2. Family trust:</strong> trustees hold and invest pooled contributions for a defined group of family members; choices and costs are legally controlled.</p><p><strong>3. Family investment company:</strong> family members own shares in a private company holding investments. Corporate accounting and shareholder tax replace some trust issues, not all costs.</p><p>Start with a family meeting: agree purpose, contributions, investment rules, who decides, who gets help, and what happens when trustees or directors die.</p></div>
+<div class="card"><h3>Other options to understand</h3>
 <p><strong>Will and co-ownership:</strong> usually the lowest-cost first review. Joint tenants, tenants in common and a right-to-occupy will trust have different effects on ownership and survivor protection.</p>
 <p><strong>Lifetime gifts:</strong> qualifying outright gifts generally use a seven-year rule. Giving children a house while staying there rent-free is normally a gift with reservation of benefit, even after ten years.</p>
 <p><strong>Discretionary family trust:</strong> may support several generations but can incur tax on entry, every ten years, on exits and on trust income, plus trustees' administration.</p>
 <p><strong>Life insurance / SIPP:</strong> review the actual benefits and pension beneficiary nominations. Most unused pension funds enter IHT scope from 6 April 2027, subject to exceptions.</p></div>
-<details><summary>Why not add my children as owners?</summary><p>A child becoming joint owner or borrower can involve lender consent, stamp tax where mortgage debt is assumed, eventual capital-gains tax, the child's own creditors/divorce and care-cost deprivation concerns. Joint ownership does not automatically secure an existing mortgage rate or remove IHT. <a href="https://www.gov.uk/inheritance-tax/passing-on-home" target="_blank" rel="noopener">HMRC rules on giving a home away</a>.</p></details>
+<details><summary>Is giving a mortgage-free house to adult children easier?</summary><p>If the house has no mortgage, there is no lender to consent. But a parent who gives it away and carries on living rent-free normally triggers gift-with-reservation rules; a ten-year wait does not make it free of IHT. Children also face their own divorce/debt exposure, and capital-gains tax or care-fee issues may arise. If the parent still lives there, the home is not a simple asset to put into a trust. <a href="https://www.gov.uk/inheritance-tax/passing-on-home" target="_blank" rel="noopener">HMRC rules on giving a home away</a>.</p></details>
 <details><summary>How can we get trustworthy help without buying an expensive trust package?</summary><p>Ask whether ordinary wills, correct ownership, life cover and nominations already meet your objective. For a real complex trust, obtain two independent, written, fixed-scope quotations from regulated and insured specialists. Ask for initial charges, trustee control, annual accounts and tax returns, ten-year/exit charges, mortgages, taxes, ability to end the trust and who inherits. Avoid generic DIY deeds and promises to make the house invisible to inheritance tax or care assessments. Use the <a href="https://solicitors.lawsociety.org.uk/" target="_blank" rel="noopener">Law Society solicitor directory</a>, independently check the firm on the <a href="https://www.sra.org.uk/consumers/register/" target="_blank" rel="noopener">SRA register</a>, and compare specialists on <a href="https://advisingfamilies.org/uk/find-a-tep/" target="_blank" rel="noopener">STEP Find a TEP</a>. These are verification and discovery resources, not endorsements. Also check the <a href="https://www.gov.uk/government/publications/unregulated-legal-services-consumer-protection-law-guidance" target="_blank" rel="noopener">CMA consumer warning</a>.</p></details>
 <div class="actions"><button type="button" class="action" id="makeTrust">Compare my family's options</button><button type="button" class="action secondary" data-export="trust">Download Markdown</button></div>
 <p id="trustStatus" class="status" role="status" aria-live="polite"></p><div class="result" id="trustText">Enter rough figures to compare options, not to calculate your actual tax.</div>
@@ -164,12 +169,14 @@ q("makeWill").addEventListener("click",function(){
 var flags=["minor","kids","familyComplex","propertyComplex","trustComplex"].some(function(id){return q(id).checked;});
 var complex=flags||v("jur")!=="ew"||v("status")==="Living together, not married"||v("status")==="Separated or divorced";
 var complete=["executor","exback","beneficiary","benback"].every(function(id){return v(id).length>0;});
-var txt=h(complex||!complete?"Will preparation: solicitor / self-review briefing":"Simple will text: UNVERIFIED REVIEW DRAFT — DO NOT SIGN");
-txt+="## Your stated situation\nName: "+value("person")+"\nAddress: "+value("address")+"\nRelationship: "+value("status")+"\nExecutor: "+value("executor")+"\nBackup executor: "+value("exback")+"\nMain adult beneficiary: "+value("beneficiary")+"\nBackup adult beneficiary: "+value("benback")+"\n\n";
-if(complex||!complete){
+var twoHeirs=v("beneficiary2").length>0;
+var txt=h(complex||!complete||twoHeirs?"Will preparation: solicitor / self-review briefing":"Simple will text: UNVERIFIED REVIEW DRAFT — DO NOT SIGN");
+txt+="## Your stated situation\nName: "+value("person")+"\nAddress: "+value("address")+"\nRelationship: "+value("status")+"\nExecutor: "+value("executor")+"\nBackup executor: "+value("exback")+"\nMain beneficiary: "+value("beneficiary")+"\nSecond beneficiary: "+value("beneficiary2")+"\nFallback: "+value("benback")+"\n\n";
+if(complex||!complete||twoHeirs){
 txt+="## STOP: tailored legal review\n";
 if(complex)txt+="- This situation has a complexity/eligibility flag. A generic will clause may not protect your household.\n";
 if(!complete)txt+="- Supply both executors, one adult main beneficiary and an adult fallback.\n";
+if(twoHeirs)txt+="- Two beneficiaries listed. Proposed default: equal halves if both survive. Confirm whether a predeceased child\u0027s share goes to their own children, to the survivor, or to someone else. This requires reviewed wording.\n";
 txt+="- Bring property title, mortgages, children, dependants, pension nominations, earlier wills and proposed gifts/trusts to a qualified solicitor.\n- No will was created, signed, registered or validated by this app.\n";
 }else{
 txt+="## Draft wording for independent checking ONLY\n";
@@ -180,7 +187,7 @@ txt+="\nTHIS IS AN UNVERIFIED REVIEW DRAFT. DO NOT SIGN UNTIL SUITABILITY AND FO
 }
 txt+="\n## Executing and storing a will\nTwo independent adult witnesses present together for your signature, and each signing in your presence, are normally required in England and Wales. Beneficiaries or their spouses/civil partners must not receive gifts through witnessing. Keep the original signed document safe and accessible to an executor.\n";
 txt+="Official: https://www.gov.uk/make-will/make-sure-your-will-is-legal\n";
-show("will",txt,complex||!complete?"Review briefing prepared: do not use as a final will.":"Unverified legal-review draft prepared: NOT READY TO SIGN.");
+show("will",txt,complex||!complete||twoHeirs?"Review briefing prepared: do not use as a final will.":"Unverified legal-review draft prepared: NOT READY TO SIGN.");
 });
 q("makeHandover").addEventListener("click",function(){
 var labels=[["Signed original will location","willPlace"],["Trusted contact","contact"],["Banks/savings/investments providers","bank"],["Home title and mortgage","home"],["Pensions and nominees","pension"],["Insurance/employer/policies","insurance"],["Bills and pay-from accounts","bills"],["Digital provider inventory and access procedure locations","digital"],["Emergency plans","emergency"]];
@@ -206,13 +213,13 @@ var equity=n("houseVal")-n("houseDebt"),base=equity+n("cash"),total=base+n("sipp
 var txt=h("Family trusts: questions and options for discussion");
 txt+="## Rough assets, NOT a tax calculation\nHome "+gbp(n("houseVal"))+"; mortgage "+gbp(n("houseDebt"))+"; savings "+gbp(n("cash"))+"; optional pension "+gbp(n("sipp"))+".\n";
 txt+="Home equity "+gbp(equity)+"; home equity plus savings "+gbp(base)+"; plus entered pension "+gbp(total)+". Figures omit other assets/debts, gifts, reliefs and tax law. Most unused pension funds are brought into IHT scope for deaths on/after 6 April 2027, subject to exemptions.\n";
-txt+="Family: "+value("familyType")+"\nGoal: "+value("objective")+"\n\n";
-txt+="## Compare\n1. Will and title review: often simpler than a trust.\n2. Proper joint bill-paying account and life insurance: liquidity after death, not automatic IHT relief.\n3. Gifts: generally seven years for qualifying outright gifts; giving away house and remaining rent-free is usually a gift with reservation even after ten years.\n4. Will life-interest/right-to-occupy trust: might safeguard partner and future inheritance; requires mortgage, property, IHT and drafting review.\n5. Discretionary family trust: flexible beneficiaries across generations, but entry/10-year/exit IHT, income-tax and trust administration costs.\n6. Pensions/SIPP: death-benefit nominations and rules differ; 2027 IHT changes require checking.\n";
+txt+="Family: "+value("familyType")+"\nGoal: "+value("objective")+"\nPotential pooled family fund: "+gbp(n("pool"))+" (only if members agree; not automatically contributed).\n\n";
+txt+="## Three ways of handling a family legacy\n1. Separate inheritances or outright gifts: simple ownership for each adult heir.\n2. Family discretionary trust: trustees invest for defined descendants; entry/10-year/exit IHT, trust income tax and administration apply.\n3. Family investment company: relatives own shares and agree governance; company and shareholder taxes, accounting and inheritance planning still apply.\n\nAsk which family members voluntarily contribute, whether funds are needed during life, what help is allowed for children/grandchildren, who makes decisions, and how conflict or trustee succession is handled.\n\n## Basic house guidance\nA paid-off home may be left through a will; giving it away while living there rent-free is usually a gift with reservation even after ten years. A home given to nephews/nieces usually does not attract the residence nil-rate band reserved for direct descendants.\n\n";
 if(v("familyType")==="cohabit"||v("familyType")==="blended")txt+="\n**Priority:** tailored legal review of an unmarried/blended family and who may live in the house.\n";
 if(v("objective")==="care")txt+="\n**Care assessment:** deliberate deprivation of assets can be challenged; no special seven-year care-fee exemption.\n";
 if(v("objective")==="future")txt+="\n**Later generations:** trustees may manage a defined beneficiary class, but it is not perpetual or automatically tax-free; trust duration and charges apply.\n";
 txt+="\n## Ask before paying a trust firm\nAre they regulated and insured? Initial fee and annual trust/tax costs? Mandatory professional trustee/executor? Mortgage/lender consent? SDLT/LTT, CGT and reservation implications? Who has rights to live in the house? How are beneficiaries protected? How can the trust be ended or trustees replaced? Would a straightforward will, life cover or nomination achieve the aim more cheaply?\n";
-txt+="\nSources: https://www.gov.uk/trusts-taxes/trusts-and-inheritance-tax\nhttps://www.gov.uk/inheritance-tax/passing-on-home\nhttps://www.gov.uk/government/publications/unregulated-legal-services-consumer-protection-law-guidance\n";
+txt+="\nHMRC says contributions from different people to a trust may constitute separate settlements for IHT: https://www.gov.uk/hmrc-internal-manuals/inheritance-tax-manual/ihtm42253\nUK trust lifespan can be limited to 125 years: https://www.legislation.gov.uk/ukpga/2009/18/section/5\nSources: https://www.gov.uk/trusts-taxes/trusts-and-inheritance-tax\nhttps://www.gov.uk/inheritance-tax/passing-on-home\nhttps://www.gov.uk/government/publications/unregulated-legal-services-consumer-protection-law-guidance\n";
 show("trust",txt,"Illustrative comparison only. No trust deed or inheritance-tax computation created.");
 });
 })();
