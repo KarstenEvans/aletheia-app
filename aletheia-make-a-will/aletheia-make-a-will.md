@@ -4,7 +4,7 @@
 
 [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional appropriate humour and positivity, never a substitute for evidence.
 
-**Version:** 0.1.0 (18 November 2026)  
+**Version:** 0.1.1 scope simplification (18 November 2026)  
 **Scope:** England and Wales only  
 **Status:** educational prototype, not a legally verified will, a regulated advice service, trust deed, or authoritative inheritance-tax calculation.
 
@@ -15,11 +15,53 @@
 3. **DIY Probate:** check registration, original will, bank/mortgage notifications, Tell Us Once, IHT, letters of administration/probate, debt and distribution.
 4. **Consider a Family Trust:** compare sole/joint title, lifetime gifting, will trusts, discretionary family trusts, life policies and pensions. Never automatically create a trust deed or promise tax avoidance or care-fee exemption.
 
+## Everyday family first: the three paths
+
+This app deliberately starts with an **ordinary mortgage-free household** rather than every exceptional estate scenario:
+
+1. **Mum and dad, two grown-up children.** Both parents make their own wills; if one dies, check whether the surviving spouse/civil partner inherits that parent's estate and what happens to jointly held home, investments and pension. The survivor should have independent access to cash and paperwork. On the second death, children inherit according to the survivor's will.
+2. **Single, widowed or separately living parent, adult children.** A paid-off home, savings (example: £150,000), and pensions. Decide how much each adult child gets, what happens if one child dies first, where the original will is kept, and who applies for probate.
+3. **Leave money to someone else.** Grandchildren, siblings, nieces/nephews, friends or an identifiable animal-welfare charity. You cannot make a pet a legal inheritor in its own name; a trusted carer can receive a conditional care arrangement drafted properly, or a verified animal charity may receive a bequest. Use [the official charity register](https://www.gov.uk/find-charity-information) to identify the intended legal organisation. When a home goes to nieces/nephews rather than direct descendants, the special residence nil-rate band is generally **not** available.
+
+**Separate fourth theme:** a voluntarily pooled **multigenerational family fund** involving siblings/cousins and their descendants. This is a future-facing asset-management and governance question, not simply a way to transfer a parent's house in advance. Keep that distinct from making a normal will.
+
+## Rockefeller-style family capital, under UK rules
+
+The [Rockefeller Brothers Fund](https://www.rockpa.org/guide/rockefellers-legacy-giving/) is an example of siblings pooling philanthropic resources and involving later generations in decisions. It **is not** a private inheritance trust template. The useful principle is a long-lived, governed common pot, with a transparent purpose and defined decision rights.
+
+**A simple family meeting question:** what could £150,000 of pooled savings do over 20–50 years for descendants while protecting the original capital and allowing documented hardship or education payments? A model is not a guaranteed return or a promise of tax-free growth.
+
+Compare the **three practical family choices**:
+
+| Choice | Purpose | Reality check |
+|---|---|---|
+| Individual inheritance or lifetime gifts | Pass control to each adult family member now | Usually simplest, but no enforceable ongoing family pool |
+| Family discretionary trust | Trustees invest and decide distributions for a defined class of descendants | 10-year/exit and potential entry IHT charges, trust income tax, fees and formal governance; 125-year perpetuity period commonly applies to new English private trusts |
+| Family investment company (FIC) | Relatives own shares in a private investment-holding company; share rights/governance can differ | Company tax and shareholder taxes, formation/accounts, director duties and succession; no automatic inheritance-tax escape |
+
+A **family council** can agree goals, investment policy, emergency support, annual reporting, trustee/director selection, conflict resolution, and limits on distributions, regardless of which legal structure is chosen. This is a useful nonlegal first step, and it can be done free.
+
+**Crucial family pooling rule:** HMRC treats money added to one trust by **different family members as separately settled property** in many IHT situations. Aunts, siblings or cousins simply paying into the same trust does not merge away their individual settlor tax histories. [HMRC manual IHTM42253](https://www.gov.uk/hmrc-internal-manuals/inheritance-tax-manual/ihtm42253).
+
+Before signing a deed, have a specialist cost **both** a discretionary trust and FIC against simply leaving investments to adult children, for actual UK asset levels. Otherwise legal costs and taxes may devour the advantages.
+
+### Twenty-five-year illustration (not investment advice)
+
+A hypothetical invested £150,000, **no further contributions, no distributions, and an assumed 4% nominal annual return**, becomes approximately **£400,000 after 25 years before taxes, inflation, costs and investment losses**. This is maths only; it is not a forecast. If money is needed for care, emergencies or children's housing, the assets cannot be treated as permanently locked away without considering those needs.
+
+Primary sources:
+- [GOV.UK trusts overview](https://www.gov.uk/trusts-taxes/overview)
+- [GOV.UK discretionary trust income tax](https://www.gov.uk/trusts-taxes/trusts-and-income-tax)
+- [HMRC trust IHT, entry/10-year/exit charges](https://www.gov.uk/trusts-taxes/trusts-and-inheritance-tax)
+- [2009 Perpetuities and Accumulations Act: 125-year period](https://www.legislation.gov.uk/ukpga/2009/18/section/5)
+- [HMRC discussion of Family Investment Companies](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/995769/HMRC_Wealthy_External_Stakeholders_minutes_13_May_2021.pdf)
+- [HMRC residence nil-rate band: nieces/nephews excluded](https://www.gov.uk/guidance/inheritance-tax-residence-nil-rate-band)
+
 ## Typical family case
 
-A home worth £400,000 with £150,000 outstanding mortgage and £150,000 savings leaves £400,000 in approximate house equity plus cash, before pensions, other assets, prior gifts and liabilities. This is **not** an estate-tax computation. A parent leaving an eligible home to direct descendants may qualify for basic IHT threshold £325,000 plus residence nil-rate band up to £175,000, subject to conditions. Transferable unused thresholds can matter to spouses/civil partners, not automatically unmarried cohabitants. Most unused pensions and death benefits enter inheritance-tax calculations for deaths on or after **6 April 2027**; review scheme rules, beneficiary nominations, exemptions and any later Budget changes.
+A **mortgage-free home worth £400,000** and **£150,000 savings** is a simple illustration of £550,000 of property and cash, before pensions, other assets, prior gifts, taxes or liabilities. This is **not** an estate-tax computation. A parent leaving an eligible home to direct descendants may qualify for basic IHT threshold £325,000 plus residence nil-rate band up to £175,000, subject to conditions. Transferable unused thresholds can matter to spouses/civil partners, not automatically unmarried cohabitants. Most unused pensions and death benefits enter inheritance-tax calculations for deaths on or after **6 April 2027**; review scheme rules, beneficiary nominations, exemptions and any later Budget changes.
 
-## Property and mortgage after death
+## Property after death (mortgage-free first; mortgage guidance only when relevant)
 
 - **Joint tenants:** title generally passes automatically to surviving owner; HM Land Registry form DJP can remove deceased registered owner. This does **not** extinguish the mortgage charge.
 - **Tenants in common:** deceased's beneficial share passes by will/intestacy, potentially via a properly drafted will trust. The surviving registered joint proprietor continues to hold the legal title.
@@ -37,7 +79,7 @@ A home worth £400,000 with £150,000 outstanding mortgage and £150,000 savings
 - There is **no universal seven-year care-fees exemption**. Deliberate deprivation of assets may be challenged under Care Act guidance.
 - Adult-child joint ownership is not the same as a family trust and does not guarantee simpler mortgages or lower tax.
 
-## Family trusts for ordinary households
+## Ordinary will trusts versus a multigenerational family fund
 
 - **Bare trust:** named adult beneficiaries can generally demand their property; not permanent multigenerational control.
 - **Will trust / right of occupation:** may allow a survivor to live in the house while eventually benefiting children; requires individually drafted, tax-aware legal terms and consideration of mortgage/title.
@@ -101,6 +143,9 @@ An England-and-Wales will generally needs correct signed written execution in th
 - [CMA guidance on unregulated will writing](https://www.gov.uk/government/publications/unregulated-legal-services-consumer-protection-law-guidance)
 
 ## v0.1 build and testing agreement
+
+**Scope correction:** prefer mortgage-free mum-and-dad/two grown children, single parent/adult heirs, other named inheritors and a separate sibling-funded family legacy pool. Older mortgage scenarios remain small optional help, not the default questionnaire. Do not make v0.1 an estate edge-case encyclopaedia.
+
 
 Static browser HTML; no server, tracking, passwords, external posting or personal-data storage. Export separate Markdown worksheets. Always include BOTH canonical protocol links in generated Markdown. Keep will and handover separate. No binding trust deed or estate tax calculation. Audit live browser, 320px mobile, screen reader, keyboard and real-lawyer review separately; commit to GitHub is not proof those tests passed.
 
