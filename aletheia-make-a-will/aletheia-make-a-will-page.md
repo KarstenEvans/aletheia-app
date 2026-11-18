@@ -1,52 +1,26 @@
-# Aletheia Make a Will — Page specification
+# Aletheia Make a Will v0.1 — App build specification
 
-[Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence, provenance and human authority.  
-[Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional appropriate humour and positivity.
+[Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) defines provenance and uncertainty. [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) is optional respectful tone.
 
-**Version:** 0.1.1 scope simplification, still v0.1 prototype; 18 November 2026.  
-**Canonical browser route:** https://karstenevans.github.io/aletheia-app/aletheia-make-a-will/aletheia-make-a-will.htm  
-**Canonical research:** aletheia-make-a-will.md  
-**HTML:** aletheia-make-a-will.htm  
-**Jurisdiction:** England and Wales.  
-**Status:** New educational public prototype; independent legal and multi-browser review outstanding.
+**Status:** HTML v0.1 published from standalone Markdown system, 18 November 2026. **Owner repository:** `KarstenEvans/aletheia-app`; branch `main`. **Files:** `aletheia-make-a-will.md` canonical, `aletheia-make-a-will.htm` interactive rendition, `aletheia-make-a-will-rsc.md/.htm` optional resources, `aletheia-make-a-will-cover.jpg` illustration. **Research PDF:** `KarstenEvans/aletheia/articles/make-a-will-family-handover-legacy.pdf`. **Knowledge:** `KarstenEvans/aletheia-knowledge/knowledge/aletheia-make-a-will-knowledge.md`.
 
-## Four sections, in order
+## Goal and interface
 
-1. **Make a Will:** everyday couple and single-parent households with a mortgage-free home and adult heirs; one adult beneficiary may produce an explicitly unverified REVIEW DRAFT, while two adult children, alternative named heirs, charities and complex family issues produce a clear review briefing with proposed equal shares and contingency questions. Never purportedly executed will.
-2. **Family Handover:** record provider and document *locations* for mortgages, property, banks, pensions, protection policies, bills, digital-account inventory, trusted contact and emergency-payment plan. Never passwords or full account numbers. Export local Markdown separate from will.
-3. **DIY Probate:** mortgage-free default, sole/joint house title, bank/account continuity and straightforward estate timeline; mortgage bereavement and interest-rate complaint options collapsed as optional help. Grant of probate is not invariably necessary. Official sources linked.
-4. **Build a Family Legacy:** compare outright inheritances, a discretionary family trust pooling sibling/cousin contributions, or a family investment company holding shared investments. Use mortgage-free house and £150,000 savings as typical illustrative assets. Show an optional separately agreed pooled-fund input and explain who controls contributions/benefits, long-run governance, tax/fees and 125-year private-trust period. Do not generate trust deeds or calculate IHT.
+One question at a time, thumb-tappable A/B/C/D answer buttons, optional handwritten text answer only when needed; no secondary Explore button row. A plain *Read more* link goes beneath a question, to independent official help. Each click selects or opens exactly once, preserving interview state. Desktop external links open one approximately 900×760 resizable, scrollable child window when the browser permits; mobile uses normal tabs and never forces desktop popups. Primary app navigation stays in its page.
 
-## Inputs, state and data safety
+Four named sections: **1. Make a Will** (9 steps, outputs NOT READY TO SIGN review); **2. Family Handover** (5 steps, provider/location/continuity prompts only); **3. DIY Probate** (6 steps); **4. Build the Family Legacy** (5 steps, educational comparison of gifts/trust/FIC, no deeds).
 
-No accounts, cookies, tracking, localStorage, sessionStorage, remote POST, server access, hidden AI or compulsory paid dependency. Browser-only memory cleared on page refresh. All personal inputs optional for demonstration. No automatic data transmission to external pages; external source links never carry user inputs. Downloaded Markdown is plaintext, not encrypted. Show warning near input and download. Never ask passwords, complete account numbers, banking authorisation or recovery codes.
+Simple mortgage-free families first. No backend, external dependencies, cookies, localStorage, analytics, serialised query data, password fields, actual bank credentials or network upload. Session state in JavaScript memory only, lost on refresh. Markdown export is local, plaintext and explicitly marked private. No certified or sign-ready will. No automatic tax estimates, trust documents, payment gateways or investing recommendations. App must be useful without ever opening a commercial resource link.
 
-## Practical UI
+## QA and Aletheia Improve receipt
 
-Mobile-first high contrast, semantic inputs/labels, actual four-tab controls, clear visible focus, 44px+ buttons, keyboard, print support and reduced motion. Useful task before secondary background material; trusted GOV.UK/FOS/MoneyHelper sources after main tools. No external JS/CSS dependencies. If script cannot load, the page still exposes basic content and links.
+- Refresh: read current AGENTS, bootstrap, README, GUI, Dev, Code, ideas, tasks, Improve, original app MD/HTML and resource source.
+- Reuse existing resource links and official guidance; do not create a second knowledge engine. Cross-repository published material links back to this app.
+- Syntax/static checks: JavaScript parses, four tabs, 25 question definitions, answer buttons, text fallback, source links, no storage/network, output contains both protocol links at end.
+- Browser smoke checks still required: desktop Chrome/Edge, Safari/WebKit, Android Chrome, narrow 320px, zoom, keyboard and popup blockers. Do not confuse static syntax with real browser verification.
+- Release number remains **0.1**; subsequent repairs overwrite the same paths on `main`, not create v0.1.1 or new app folders.
+- No personal details are published. Public articles are educational. Affiliate links only where valid and disclosed. No copyrighted music is embedded or played.
 
-## Output contract
+## Acceptance and resume
 
-Every generated Markdown starts with title then BOTH protocol links with distinct roles. Use safe text nodes/textContent, never inject untrusted user entries as HTML. Generate/download only after user click; never sync. The will section only offers an unverified illustrative review draft with prominent NOT READY TO SIGN when all criteria met; all others produce briefing. Handover and trust sections are not a formal will or tax calculation. Distinguish Rockefeller Brothers Fund philanthropy from a private UK family inheritance structure. Export filenames must be distinct by module.
-
-## Escalation gates
-
-Underage; not England/Wales; coercion/capacity doubt; minor children or complex care needs; cohabitation/blended family; foreign assets; contentious family/property; right of occupation, life interests and trusts; existing contradictory wills; incomplete executor/beneficiary/fallback. For these the output is a review briefing, not a simplified legal draft.
-
-## Test matrix
-
-- Exactly four tabs, with correct panel activation via touch/mouse/keyboard.
-- Blank, simple and complex family inputs produce labelled results and no unintended signing statement.
-- Ensure user text with angle brackets is inert in textContent.
-- Every downloadable Markdown contains both protocol links, own section, no passwords.
-- Confirm no network uploads, browser persistence, automatic forms or analytics.
-- Confirm source links, official age/witness rules and lender distinction.
-- Check desktop Chrome/Edge, Android Chrome, Safari/WebKit, 320px narrow width, 200% zoom, keyboard, reduced motion, printing and live GitHub Pages separately. Source-only checks must not be mislabelled browser/live verification.
-
-## Real-world legal check required before v1
-
-Professional review of exact clauses, witness directions, default contingency, survivorship, guardians, spouse/child provision, fiduciary appointments, property trusts, pension rules, mortgage contracts and tax calculations. No calculated individual IHT liability in v0.1.
-
-## Current source/permission receipt
-
-Read current KarstenEvans/aletheia-app main: AGENTS.md, ALETHEIA-SAFE-BOOTSTRAP.md, README.md, aletheia-GUI.md, aletheia-dev.md, aletheia-code.md, tasks.md, ideas.md, existing app examples and 2026 official sources. User expressly instructed building/publishing Aletheia Make a Will v0.1 to the Apps repo. App-local new files and a new index listing are within scope; shared standards and other apps are not.
+A new visitor can select each of four sections, tap choices through a series, review and locally download Markdown. A visitor can open GOV.UK explanatory reading in another window/tab without losing progress. If a phone or browser disallows popups, a plain new tab link remains. Review text is not a legal will; explicit legal validity warning remains visible. If live Pages cannot be tested, mark **COMMITTED, LIVE NOT VERIFIED** and revisit rather than claiming success.
