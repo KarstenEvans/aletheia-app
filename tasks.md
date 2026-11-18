@@ -1,3 +1,18 @@
+## MAKE-A-WILL-0.1 | AI-FIRST CLIPBOARD LAUNCH + HELP-FIRST | 18 November 2026
+
+**Status: COMMITTED. SYNTAX AND MOCK-INTERACTION CHECKS PASSED; LIVE GITHUB PAGES, DEVICE TESTS AND RECEIVING-AI PASTE TEST NOT YET VERIFIED.**
+
+- [x] Investigated QI: Option 2 local Chrome AI, Option 3 Cloudflare, and distinct provider-neutral Ctrl-V clipboard handoff.
+- [x] Updated Aletheia GUI/Dev/Code contracts: interactive Markdown systems show short HELP and first question in the same reply; direct generators like QI can explicitly RUN-FIRST.
+- [x] Updated original Make a Will v0.1 Markdown to show Help and first question without a second START and retain IMPORT private projects.
+- [x] HTML app preloads complete public canonical Markdown and opens Gemini by default, or ChatGPT, Claude, DeepSeek and Qwen. Same-click clipboard attempt + one AI popup; offline questionnaire retained.
+- [x] Apps index supports direct Gemini launch when source preload and synchronous copy succeed, with fallback to the main Aletheia launcher.
+- [x] Static syntax and mocked DOM interaction checks cover full source, launch URL, clipboard failure, popup blocking and exactly one window attempt.
+- [ ] Real GitHub Pages and Windows Chrome/Edge, Android Chrome, Safari/WebKit, popup blockers, paste-input size and keyboard tests.
+- [ ] Verify receiving AI actually shows HELP then Question 1 and can export a full private Markdown checkpoint, or a copyable fallback.
+- [ ] Independent legal review before presenting any will draft as suitable for execution.
+
+**Boundary:** An ordinary website can copy to clipboard and open an AI, but cannot programmatically paste into or submit a cross-origin chat. ClipPipe extension remains optional, not a dependency. No private user estate data was committed.
 ## MAKE-A-WILL-0.1 | 18 November 2026
 
 **Status:** SOURCE COMMITTED / JS STATIC SYNTAX PASS / LIVE PAGES AND MOBILE QA NOT VERIFIED. User approved Aletheia Improve release of a dedicated v0.1 app and overwriting only this project's files.
