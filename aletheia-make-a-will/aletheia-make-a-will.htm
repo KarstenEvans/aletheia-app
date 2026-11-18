@@ -11,12 +11,48 @@ label{display:block;font-weight:600;margin:10px 0 6px}textarea{font:inherit;widt
 pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f4f0;border:1px solid var(--line);border-radius:8px;padding:12px;font:13px/1.5 Consolas,monospace}
 footer{margin-top:23px;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:.83rem}footer a{margin-right:10px}
 @media(max-width:650px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.hero img{max-height:165px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}@media print{.tabs,.bar,.choices,.explore,.hero img,header{display:none!important}body{background:white}.panel,.hero{border:0}}
+
+/* AI-first, clipboard-and-open handoff; existing offline questions retained */
+.ai-launch{background:#fff;border:1px solid var(--line);border-radius:13px;padding:clamp(15px,3vw,23px);margin:16px 0}
+.ai-launch h2{margin-top:0}
+.ai-launch p{margin:8px 0;color:var(--muted)}
+.ai-launch .launch-row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:12px 0}
+.ai-launch .launch-row>div{flex:1;min-width:180px}
+.ai-launch select{width:100%;min-height:48px;padding:10px;font:inherit;border:2px solid #799d8d;border-radius:8px;color:var(--ink);background:white}
+.ai-launch .launch-row .btn{min-height:48px}
+.ai-launch .status{font-size:.94rem;margin:12px 0}
+.ai-launch textarea{font:12px/1.45 Consolas,monospace;min-height:105px}
+.ai-launch .manual{border-top:1px solid var(--line);padding-top:11px;margin-top:14px}
+.offline{margin-top:15px}
+.offline>summary{cursor:pointer;font-weight:700;padding:13px;border:1px solid var(--line);border-radius:10px;background:#fff;min-height:48px}
+.offline .tabs{margin-top:10px}
+@media print{.ai-launch,.offline>summary{display:none!important}}
 </style></head><body><main><header><a href="../index.html">← Aletheia Apps</a><a href="aletheia-make-a-will-rsc.htm" target="_blank" rel="noopener">Free resources, books and listening</a></header>
 <section class="hero"><h1>Make a Will</h1><p>One question at a time. Your family, your choices, your legacy.</p><img src="aletheia-make-a-will-cover.jpg" alt="A blue will-writing book and a family tree above a brick home"><p>Version 0.1 · England and Wales</p></section>
 <div class="note"><b>Review tool, not a legally valid will.</b> No information is sent or saved. Downloaded worksheets are unencrypted. Never enter passwords, PINs or full account numbers. Complex arrangements need independent advice.</div>
+
+<section id="ai-launcher" class="ai-launch" aria-label="Launch Aletheia Make a Will in an AI">
+<h2>Make a Will with AI</h2>
+<p>Choose your AI. One click copies the <b>full Aletheia Make a Will v0.1 system</b> and opens the AI in a separate window. <b>Paste and press Enter.</b> The AI shows brief Help and begins asking questions.</p>
+<div class="launch-row"><div>
+<label for="aiProvider">Which AI?</label>
+<select id="aiProvider">
+<option value="gemini">Gemini (default)</option>
+<option value="chatgpt">ChatGPT</option>
+<option value="claude">Claude</option>
+<option value="deepseek">DeepSeek</option>
+<option value="qwen">Qwen</option>
+</select></div>
+<button id="aiLaunch" class="btn primary" type="button" disabled>Loading system…</button></div>
+<p class="status" id="aiStatus" role="status" aria-live="polite">Checking the current Markdown instructions…</p>
+<p class="muted">The clipboard contains the <em>public system</em>, not your private estate records. Once you paste personal information into a chosen AI, that provider's own data settings apply. Use <b>IMPORT</b> in the AI to continue a privately saved project.</p>
+<div id="aiManual" class="manual" hidden><p><b>Manual fallback.</b> Select and copy this text, then paste it into the AI:</p><label for="aiManualText">Complete Aletheia launch instructions</label><textarea id="aiManualText" readonly></textarea><p><a id="aiManualOpen" href="https://gemini.google.com/app" target="_blank" rel="noopener">Open chosen AI if the first window was blocked</a></p></div>
+<p><a href="aletheia-make-a-will.md" target="_blank" rel="noopener">Read or download the complete Markdown</a> · <a href="aletheia-make-a-will-rsc.htm" target="_blank" rel="noopener">Free guides and resources</a></p>
+</section>
+<details id="offlineQuestions" class="offline"><summary>Use the basic question form without an AI</summary>
 <nav role="tablist" class="tabs" aria-label="Four planning sections"><button class="tab" data-section="will" role="tab" aria-selected="true">1. Make a Will</button><button class="tab" data-section="handover" role="tab" aria-selected="false">2. Family Handover</button><button class="tab" data-section="probate" role="tab" aria-selected="false">3. DIY Probate</button><button class="tab" data-section="legacy" role="tab" aria-selected="false">4. Build the Family Legacy</button></nav>
 <section class="panel" role="tabpanel" aria-label="Aletheia family planning questions"><div class="progress" id="progress"></div><h2 id="question">Which household applies?</h2><div id="choices" class="choices"></div><div id="custom" hidden><label for="customText">Your own answer</label><textarea id="customText" autocomplete="off" placeholder="You can use fictional names. Do not enter sensitive account information."></textarea><button id="saveCustom" class="btn primary" type="button">Use this answer</button></div><p id="info" class="explore"></p><div class="bar"><button type="button" class="btn" id="back">Back</button><button type="button" class="btn" id="skip">Skip</button><button type="button" class="btn" id="restart">Start again</button></div><p id="status" role="status" aria-live="polite"></p></section>
-<footer><p><a href="https://www.gov.uk/make-will" target="_blank" rel="noopener">GOV.UK will rules</a><a href="https://www.gov.uk/applying-for-probate" target="_blank" rel="noopener">GOV.UK probate</a><a href="aletheia-make-a-will-rsc.htm" target="_blank" rel="noopener">Free resources</a></p><p><a href="https://karstenevans.github.io/aletheia/" target="_blank" rel="noopener">Aletheia Worldwide AI</a><a href="https://github.com/KarstenEvans/aletheia-protocol" target="_blank" rel="noopener">Aletheia Protocol</a><a href="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md" target="_blank" rel="noopener">Thalia Protocol</a></p></footer></main>
+</details><footer><p><a href="https://www.gov.uk/make-will" target="_blank" rel="noopener">GOV.UK will rules</a><a href="https://www.gov.uk/applying-for-probate" target="_blank" rel="noopener">GOV.UK probate</a><a href="aletheia-make-a-will-rsc.htm" target="_blank" rel="noopener">Free resources</a></p><p><a href="https://karstenevans.github.io/aletheia/" target="_blank" rel="noopener">Aletheia Worldwide AI</a><a href="https://github.com/KarstenEvans/aletheia-protocol" target="_blank" rel="noopener">Aletheia Protocol</a><a href="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md" target="_blank" rel="noopener">Thalia Protocol</a></p></footer></main>
 <script>
 (function(){
 "use strict";
@@ -69,4 +105,75 @@ document.querySelectorAll(".tab").forEach(function(t){t.addEventListener("click"
 document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a||!a.href||e.defaultPrevented||e.button!==0||e.ctrlKey||e.shiftKey||e.altKey||e.metaKey||a.hasAttribute("download")||a.href.charAt(0)==="#")return;if(matchMedia("(max-width:767px),(pointer:coarse)").matches)return;var w=Math.min(900,screen.availWidth-40),h=Math.min(760,screen.availHeight-60);var x=Math.max(0,Math.round((screen.availWidth-w)/2)),y=Math.max(0,Math.round((screen.availHeight-h)/2));var pop=window.open(a.href,"_blank","width="+w+",height="+h+",left="+x+",top="+y+",resizable=yes,scrollbars=yes");if(pop){e.preventDefault();try{pop.opener=null}catch(_){}}});
 show();
 })();
-</script></body></html>
+</script>
+<script>
+(function(){
+"use strict";
+var urls={gemini:"https://gemini.google.com/app",chatgpt:"https://chatgpt.com/",claude:"https://claude.ai/",deepseek:"https://chat.deepseek.com/",qwen:"https://chat.qwen.ai/"};
+var sel=document.getElementById("aiProvider"),btn=document.getElementById("aiLaunch");
+var status=document.getElementById("aiStatus"),fallback=document.getElementById("aiManual"),fallbackText=document.getElementById("aiManualText"),fallbackOpen=document.getElementById("aiManualOpen");
+var mdSource=null,launchPayload=null;
+try{var saved=localStorage.getItem("aletheia-will-ai-provider");if(saved&&urls[saved])sel.value=saved;}catch(_){}
+sel.addEventListener("change",function(){try{localStorage.setItem("aletheia-will-ai-provider",sel.value);}catch(_){}});
+function makePayload(md){
+return "START ALETHEIA MAKE A WILL v0.1\n\n"+
+"I choose to run the following complete, public Aletheia Markdown system for this chat, subject to your own safety and tool rules. "+
+"Read the entire source below as the working interview specification. On your FIRST reply, show only a brief HELP line "+
+"(START, IMPORT, BACK, EDIT, SAVE, PRINT, HELP), then immediately show the initial question with A/B/C choices. "+
+"Do not require me to type START again. One question at a time. Accept typed answers if interactive buttons are not supported. "+
+"When I return with a private saved project, use IMPORT to resume. Never ask for passwords, PINs or complete bank identifiers. "+
+"Offer to export the complete private Markdown project at checkpoints, and only claim that a local file was saved if a working "+
+"file creation/download capability really produced one. Never claim a draft is a signed or registered will.\n\n"+
+"CANONICAL PUBLIC SOURCE: https://raw.githubusercontent.com/KarstenEvans/aletheia-app/main/aletheia-make-a-will/aletheia-make-a-will.md\n"+
+"--- BEGIN COMPLETE ALETHEIA MAKE A WILL v0.1 MARKDOWN ---\n"+md+
+"\n--- END COMPLETE MARKDOWN ---\n\n"+
+"Now display short HELP and ask the first A/B/C question. Do not simply summarise the document.";
+}
+function manualPrompt(txt,link){fallbackText.value=txt;fallback.hidden=false;fallbackOpen.href=link;}
+function syncCopy(txt){
+var ta=document.createElement("textarea");ta.value=txt;ta.setAttribute("readonly","");
+ta.style.cssText="position:fixed;top:0;left:0;width:1px;height:1px;opacity:.01";
+document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);
+var ok=false;try{ok=!!document.execCommand("copy");}catch(_){}
+ta.remove();return ok;
+}
+fetch("aletheia-make-a-will.md",{cache:"no-store"}).then(function(r){
+if(!r.ok)throw new Error("HTTP "+r.status);return r.text();
+}).then(function(md){
+if(!md.startsWith("---\ntitle: Aletheia Make a Will\nversion: 0.1")||!md.includes("## 4. Build the Family Legacy")||md.length<20000)throw new Error("Incomplete or unexpected Markdown");
+mdSource=md;launchPayload=makePayload(md);btn.disabled=false;btn.textContent="Open AI + copy Make a Will";
+status.textContent="Ready: the complete current v0.1 system is loaded ("+md.length.toLocaleString("en-GB")+" characters).";
+}).catch(function(err){
+status.textContent="The full Markdown could not be loaded ("+err.message+"). Download the .md above and upload it directly into your AI; this button is unavailable until the source loads.";
+btn.disabled=true;btn.textContent="System unavailable";
+});
+btn.addEventListener("click",function(){
+if(!launchPayload){status.textContent="The complete Markdown has not loaded. No AI was opened.";return;}
+var url=urls[sel.value]||urls.gemini;
+var copied=syncCopy(launchPayload),pending=null;
+if(!copied&&navigator.clipboard&&navigator.clipboard.writeText){
+try{pending=navigator.clipboard.writeText(launchPayload);}catch(_){}
+}
+var mobile=window.matchMedia("(max-width:767px),(pointer:coarse)").matches;
+var options="";
+if(!mobile){
+var w=Math.max(360,Math.min(900,screen.availWidth-36)),h=Math.max(450,Math.min(760,screen.availHeight-50));
+var left=Math.max(0,Math.round((screen.availWidth-w)/2)),top=Math.max(0,Math.round((screen.availHeight-h)/2));
+options="width="+w+",height="+h+",left="+left+",top="+top+",resizable=yes,scrollbars=yes";
+}
+var opened=null;
+try{opened=window.open(url,"_blank",options);}catch(_){}
+if(opened){try{opened.opener=null;}catch(_){}}
+if(!opened){
+manualPrompt(launchPayload,url);
+status.textContent="The new AI window may have been blocked. The full prompt is available below. Open your AI with the text link, paste, then send.";
+}else{
+status.textContent=copied?"The full system was copied. In the AI window, paste (Ctrl+V or long-press Paste) and press Enter.":"AI window opened. Checking clipboard; if copying fails, return here for manual text.";
+}
+if(pending){
+pending.then(function(){if(opened){status.textContent="The complete system was copied. Paste into the AI window and press Enter.";}else{status.textContent="System copied. Use the fallback text link to open your chosen AI, paste and send.";}}).catch(function(){manualPrompt(launchPayload,url);status.textContent="Clipboard permission was denied. The full system is shown below for manual copying."});
+}else if(!copied){manualPrompt(launchPayload,url);status.textContent="Could not confirm clipboard copying. The full text is available below for manual copying and pasting.";}
+});
+})();
+</script>
+</body></html>
