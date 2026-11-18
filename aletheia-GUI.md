@@ -239,7 +239,9 @@ Implementation rules:
 - remember the user's last provider locally when appropriate;
 - standard public choices may include ChatGPT, Gemini, Microsoft Copilot, DeepSeek and Claude, but provider URLs/interfaces must remain replaceable adapters;
 - the durable app logic remains in canonical Markdown/specification, not inside provider-specific prompt folklore;
-- the receiving AI should start the requested task immediately rather than displaying HELP first.
+- **interactive AI Markdown systems** must display a **very short HELP/command reminder first**, followed **in the same AI response** by their initial question. Do not wait for a second `START`; the pasted launch prompt is itself the start instruction. Show only the highest-value commands, such as `START`, `IMPORT`, `BACK`, `EDIT`, `SAVE`, `PRINT`, `HELP`;
+- **direct generators** (e.g. Aletheia QI producing an item on demand) may explicitly bypass HELP and deliver the requested result immediately. This is an exception, not a replacement for the interactive-system default;
+- a full Markdown source should be supplied as clipboard text whenever preloaded and within provider limits; URL-only instructions are a fallback, not proof that the receiving AI read the source.
 
 This pattern comes from the established Swindon A2Z/QI handoff design and should be reused instead of rediscovered per app.
 
