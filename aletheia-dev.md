@@ -292,6 +292,14 @@ Acceptance requirements:
 
 Only promote to browser-local AI, Worker/API, connector or agentic execution when that materially improves the task and the lower-dependency handoff remains available where useful.
 
+### Interactive Markdown startup rule
+
+For AI-first systems such as **Aletheia Make a Will**, a completed Ctrl-V launch should cause the recipient AI to show a **compact HELP deck** (only useful commands, no protocol banners), then immediately ask the initial question. Do not require the user to enter `START` a second time after pasting and sending. `START` remains a recoverable command in later conversations. Direct generators such as QI may explicitly use RUN-FIRST to avoid slowing down each generated item.
+
+Provider-neutral launcher defaults: **Gemini**, then **ChatGPT**, **Claude**, **DeepSeek**, **Qwen**. One provider selector; no five competing action buttons. Source Markdown is canonical and should be preloaded **before** user clicks Start. The same click copies a **complete, verified** payload and opens one new AI window. If full source fetching fails, tell the user and offer an honest manual download/copy path; do not claim the AI has loaded the instructions. Cross-origin browser rules prevent arbitrary websites from silently pasting text into the provider's chat composer or submitting it. A person must paste and send, unless an expressly authorised browser extension or provider-native documented interface handles those actions.
+
+The browser page does not keep private user estate answers. Saving a private project remains an explicit AI-output/download workflow; verify artifact creation rather than promising the AI has stored a local file.
+
 ### AI doorway reconstruction rule
 
 When rebuilding a handoff-first app:
