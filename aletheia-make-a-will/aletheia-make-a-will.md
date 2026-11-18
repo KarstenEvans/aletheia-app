@@ -46,6 +46,18 @@ A home worth £400,000 with £150,000 outstanding mortgage and £150,000 savings
 - **Pensions/SIPP:** update expression-of-wishes and understand survivor benefits and the 2027 IHT change.
 - **Low-cost route:** inspect title and existing life cover, get wills and nominations correct, and set up legitimate bill continuity first. If a complex trust is justified, obtain two written fixed-scope quotes from appropriately regulated and insured specialists, including ongoing fees. Do not use a generic unreviewed deed or a provider promising to shield the house from all IHT and care fees.
 
+
+## Finding legitimate, lower-cost help with a family trust
+
+Don't select a trust provider based on an advertisement or fixed-price sales pitch alone. For a family home with a mortgage, compare a **single fixed-fee independent will/title/pension review** with a separately priced trust structure; include taxes, trust registration, yearly trust accounts/returns, trustee replacement and winding-up fees.
+
+- [Law Society Find a Solicitor](https://solicitors.lawsociety.org.uk/): search wills, probate and trusts; use it as a directory, **not** a guarantee of quality.
+- [Solicitors Regulation Authority register](https://www.sra.org.uk/consumers/register/): independently verify the firm and solicitor are authorised, and check alerts where available.
+- [STEP Find a TEP](https://advisingfamilies.org/uk/find-a-tep/): identify estate and trust practitioners with the relevant qualification; check professional status and actual services separately.
+- [CMA consumer guidance](https://www.gov.uk/government/publications/unregulated-legal-services-consumer-protection-law-guidance): compare executor appointments, conflicts of interest, cancellation and added charges.
+
+An advertised low-cost will does **not** require appointing the writing firm as professional executor. Ask for the option to appoint your own trusted adult executors and to hire professionals only for tasks that need them. Having a regulated professional draw a complex trust is safer than pretending a generic family-trust deed is reliable.
+
 ## Lawful gifts
 
 £3,000 annual exemption (unused portion can carry forward one tax year); individual small gifts up to £250 if not mixed with another exemption for that recipient; qualifying normal gifts out of regular surplus income may be immediately exempt if the giver maintains their normal standard of living. Keep written dates, amounts, recipient and financial evidence. Taper relief is often misunderstood: it does not discount the estate's whole inheritance tax charge.
