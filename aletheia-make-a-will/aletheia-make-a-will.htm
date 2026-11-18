@@ -1,226 +1,72 @@
-<!doctype html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aletheia Make a Will v0.1 | Free family wills and generational planning</title>
-<meta name="description" content="Free England and Wales will preparation, family handover, DIY probate and family trust comparison. Local-only, no passwords.">
-<link rel="canonical" href="https://karstenevans.github.io/aletheia-app/aletheia-make-a-will/aletheia-make-a-will.htm">
-<style>
-:root{color-scheme:dark;--bg:#071a21;--panel:#142e38;--card:#1d3a43;--line:#55727a;--ink:#f3f8f7;--muted:#c9d8d8;--accent:#9ef0c4;--warn:#fbe2ae}
-*{box-sizing:border-box}body{margin:0;color:var(--ink);background:radial-gradient(ellipse at top,#18453f,var(--bg) 65%);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-main{max-width:1110px;margin:0 auto;padding:22px clamp(14px,4vw,38px) 80px}a{color:var(--accent)}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #ffe08c;outline-offset:3px}
-header{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}header a{font-size:.94rem}.eyebrow{color:var(--accent);font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;font-weight:750;margin-top:28px}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:5px 0 10px}h2{font-size:1.45rem;margin:6px 0 12px}h3{font-size:1.1rem;margin:4px 0 8px}.lead{max-width:70ch;color:var(--muted)}
-.note{margin:18px 0;border:1px solid #a18959;background:#332c21;border-radius:12px;padding:15px 17px}.note strong{color:var(--warn)}
-.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:22px 0 16px}.tab{min-height:52px;font:inherit;font-weight:750;color:var(--ink);background:var(--panel);border:1px solid #8ba5a7;border-radius:11px;padding:10px;cursor:pointer}.tab[aria-selected="true"]{background:var(--accent);color:#112b25;border-color:var(--accent)}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(15px,3vw,28px)}[hidden]{display:none!important}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:14px}.field{min-width:0;margin:10px 0}.field label{display:block;font-weight:700;margin:0 0 6px}.field input,.field select,.field textarea{width:100%;min-height:45px;background:#fcfdfd;color:#192d32;border:2px solid #9fbac0;border-radius:8px;font:inherit;padding:9px 10px}.field textarea{min-height:92px;resize:vertical}.field small{color:var(--muted)}
-fieldset{margin:16px 0;border:1px solid #90aaa8;border-radius:12px}legend{font-weight:750}.check{display:block;margin:9px 5px;cursor:pointer}.check input{accent-color:#a8e8bc;transform:scale(1.2);margin-right:8px}
-.card{background:var(--card);border:1px solid var(--line);padding:15px;border-radius:11px;margin:16px 0}details{margin:11px 0;border:1px solid var(--line);padding:11px 14px;border-radius:11px}summary{cursor:pointer;font-weight:750}
-button.action{background:var(--accent);color:#102e23;padding:12px 16px;border:0;border-radius:10px;font:inherit;font-weight:800;min-height:48px;margin:8px 8px 8px 0;cursor:pointer}button.action.secondary{color:var(--ink);border:1px solid #acbfbe;background:transparent}
-.result{white-space:pre-wrap;overflow-wrap:anywhere;background:#09212a;border:1px solid #7ea096;border-radius:11px;padding:15px;max-height:390px;min-height:68px;overflow:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace}
-.status{min-height:20px;color:#c9f8dc;font-weight:650}.sources{margin-top:22px}.sources li{margin:6px 0}.muted,footer{color:var(--muted)}footer{border-top:1px solid var(--line);margin-top:25px;padding-top:15px;font-size:.9rem}
-@media(max-width:650px){.tabs{grid-template-columns:1fr 1fr}.tab{font-size:.91rem;min-height:55px}.cards{display:block}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
-@media print{body{color:#111;background:white}header,.tabs,.actions,.sources,footer{display:none}.panel{border:0;background:white}.panel:not(.printing){display:none!important}.result{color:#111;background:white;max-height:none;border:0}}
-</style>
-</head>
-<body><main>
-<header><a href="../index.html">← Aletheia Apps</a><span><a href="aletheia-make-a-will.md" target="_blank" rel="noopener">Research &amp; sources</a> · <a href="aletheia-make-a-will-page.md" target="_blank" rel="noopener">Page specification</a></span></header>
-<div class="eyebrow">ALETHEIA • FREE FIRST • ENGLAND &amp; WALES • V0.1</div>
-<h1>Make a Will</h1>
-<p class="lead">KISS: a mortgage-free family home, savings and a pension. What happens when one parent dies? How do two grown-up children inherit? Could relatives pool some wealth for grandchildren over decades?</p>
-<div class="note"><strong>Important:</strong> This is an educational prototype, not a legal will-writing certification or personal tax advice. Forms work entirely within your browser and are not saved or sent anywhere. Refresh loses entries. Downloads are <strong>unencrypted text</strong>. Never type passwords, PINs, recovery codes or full account numbers.</div>
-<div class="card"><strong>Start with everyday situations:</strong> mum and dad with two adult children; a surviving or single parent with adult children; or leave a gift to relatives, friends or an animal charity. Each adult makes their own will. Mortgage problems stay as optional help, not the default.</div>
-<nav class="tabs" role="tablist" aria-label="Aletheia planning sections">
-<button type="button" class="tab" role="tab" data-panel="will" aria-selected="true" aria-controls="will">1. Make a Will</button>
-<button type="button" class="tab" role="tab" data-panel="handover" aria-selected="false" aria-controls="handover">2. Family Handover</button>
-<button type="button" class="tab" role="tab" data-panel="probate" aria-selected="false" aria-controls="probate">3. DIY Probate</button>
-<button type="button" class="tab" role="tab" data-panel="trust" aria-selected="false" aria-controls="trust">4. Family Legacy</button>
-</nav>
-
-<section id="will" class="panel printing" role="tabpanel">
-<h2>1. Make a Will</h2>
-<p>Start with a typical family: one will for each parent, or one will for a single or surviving parent. Name the person or people who should inherit and an executor. Two adult children can be recorded as equal proposed heirs. The text is a review draft or briefing, never a signed will.</p>
-<div class="cards">
-<div class="field"><label for="jur">Where do you live?</label><select id="jur"><option value="ew">England or Wales</option><option value="elsewhere">Scotland, Northern Ireland, overseas or unsure</option></select></div>
-<div class="field"><label for="status">Relationship status</label><select id="status"><option>Single or widowed</option><option>Married or civil partnered</option><option>Living together, not married</option><option>Separated or divorced</option></select></div>
-<div class="field"><label for="person">Full legal name (test names are fine)</label><input id="person" autocomplete="off" placeholder="Optional for demonstration"></div>
-<div class="field"><label for="address">Address (optional)</label><input id="address" autocomplete="off"></div>
-<div class="field"><label for="executor">Executor's full name</label><input id="executor" autocomplete="off"></div>
-<div class="field"><label for="exback">Replacement executor's full name</label><input id="exback" autocomplete="off"></div>
-<div class="field"><label for="beneficiary">First adult beneficiary (or charity)</label><input id="beneficiary" autocomplete="off"></div>
-<div class="field"><label for="beneficiary2">Second adult beneficiary (optional)</label><input id="beneficiary2" autocomplete="off"><small>For two adult children, the review briefing proposes equal shares.</small></div>
-<div class="field"><label for="benback">Fallback adult beneficiary if the first choice cannot inherit</label><input id="benback" autocomplete="off"></div>
-</div>
-<fieldset><legend>Which of these apply? Tick every relevant one.</legend>
-<label class="check"><input type="checkbox" id="minor"> I am under 18, or there are questions about free choice or capacity</label>
-<label class="check"><input type="checkbox" id="kids"> I have under-18 children, guardianship, or dependants with special needs</label>
-<label class="check"><input type="checkbox" id="familyComplex"> I have a cohabiting partner, blended family, family dispute or possible challenge</label>
-<label class="check"><input type="checkbox" id="propertyComplex"> I have overseas assets, disputed property rights, farm or business assets</label>
-<label class="check"><input type="checkbox" id="trustComplex"> I want a trust, right to occupy the home, or inheritance paid out in stages</label>
-</fieldset>
-<details><summary>Can I leave something to nieces, nephews or a favourite cattery?</summary><p>Yes, you can name relatives, friends and a correctly identified charity. An animal cannot itself legally inherit. For a cattery or rescue charity, confirm the legal recipient using the <a href="https://www.gov.uk/find-charity-information" target="_blank" rel="noopener">Charity Commission register</a>. Gifts to nieces or nephews generally do not qualify for the extra residence nil-rate band applicable to direct descendants.</p></details>
-<details><summary>What makes a will legally valid?</summary><p>In England and Wales, it normally must be written and made voluntarily by someone 18+ with capacity, then properly signed before two adult witnesses present together, with both witnesses signing in the will-maker's presence. Do not use a beneficiary or their spouse/civil partner as witness. The original signed will must be findable. See <a href="https://www.gov.uk/make-will/make-sure-your-will-is-legal" target="_blank" rel="noopener">GOV.UK legal requirements</a>.</p></details>
-<div class="actions"><button type="button" class="action" id="makeWill">Generate review draft or briefing</button><button type="button" class="action secondary" data-export="will">Download Markdown</button></div>
-<p id="willStatus" class="status" role="status" aria-live="polite"></p><div class="result" id="willText" aria-label="Will review result">Fill in what you know, then generate your draft or briefing.</div>
-</section>
-
-<section id="handover" class="panel" role="tabpanel" hidden>
-<h2>2. Family Handover</h2><p>Do not mix the public will with the private household inventory. Family members often need to locate banks, pensions, policies, bills and the original will quickly, but should never be given a public document full of passwords.</p>
-<div class="cards">
-<div class="field"><label for="willPlace">Location of the signed original will</label><input id="willPlace" placeholder="Safe / firm / HMCTS storage"></div>
-<div class="field"><label for="contact">Trusted person who knows where it is</label><input id="contact"></div>
-<div class="field"><label for="bank">Bank, ISA, savings and investment providers (names only)</label><textarea id="bank" placeholder="Bank A current account; Bank B ISA; NS&I Premium Bonds"></textarea></div>
-<div class="field"><label for="home">Home ownership, mortgage lender and documents</label><textarea id="home" placeholder="Joint tenants / tenants in common / sole; lender; fixed rate ends; where offer is kept"></textarea></div>
-<div class="field"><label for="pension">Pension providers, SIPP and beneficiary nominations</label><textarea id="pension" placeholder="Provider names and nomination document locations"></textarea></div>
-<div class="field"><label for="insurance">Life cover, death in service, policies, employers</label><textarea id="insurance"></textarea></div>
-<div class="field"><label for="bills">Regular bills and which lawful account pays them</label><textarea id="bills" placeholder="Mortgage, power, water, council tax, phone, broadband, subscriptions"></textarea></div>
-<div class="field"><label for="digital">Digital providers, documents and emergency-access location</label><textarea id="digital" placeholder="Email/cloud providers. Password manager emergency access instructions stored separately, NOT codes."></textarea></div>
-<div class="field"><label for="emergency">Emergency funds, pets, key contacts, other instructions</label><textarea id="emergency"></textarea></div>
-</div>
-<div class="card"><strong>A useful precaution:</strong> a deceased person's sole-name bank account may be frozen and its direct debits may stop. A qualifying joint account can normally continue for the surviving holder. Keep a lawful emergency-payment arrangement and a list of bills. Ask the lender what happens to the mortgage; do not assume the debt disappears.</div>
-<div class="actions"><button type="button" class="action" id="makeHandover">Prepare private handover</button><button type="button" class="action secondary" data-export="handover">Download Markdown</button></div>
-<p id="handoverStatus" class="status" role="status" aria-live="polite"></p><div class="result" id="handoverText">The private handover sheet will appear here.</div>
-</section>
-
-<section id="probate" class="panel" role="tabpanel" hidden>
-<h2>3. DIY Probate Guide</h2><p>Normally the family home is paid off. First find the will, identify who owns the house, contact the bank, locate pensions and help the executor. Probate may not be required for every asset.</p>
-<div class="cards">
-<div class="field"><label for="survivor">Who has died?</label><select id="survivor"><option value="spouse">Spouse or civil partner</option><option value="single">Single parent</option><option value="unmarried">Unmarried partner</option><option value="other">Another relative</option></select></div>
-<div class="field"><label for="ownership">How is the home owned?</label><select id="ownership"><option value="joint">Joint tenants / joint registered owners</option><option value="common">Tenants in common</option><option value="sole">Deceased owned it alone</option><option value="unknown">Unknown</option></select></div>
-<details><summary>Only if there is still a mortgage</summary><div class="field"><label for="mortgageType">Mortgage arrangement</label><select id="mortgageType"><option value="none">Mortgage-free</option><option value="joint">Joint borrowers</option><option value="sole">Deceased was the only borrower</option><option value="unknown">Unsure</option></select></div></details>
-<div class="field"><label for="billType">How are the household bills paid?</label><select id="billType"><option value="dead">Deceased person's sole account</option><option value="joint">Joint bank account</option><option value="survivor">Survivor's sole account</option><option value="unknown">Mix / don't know</option></select></div>
-</div>
-<div class="card">
-<h3>Immediate checklist</h3>
-<label class="check"><input type="checkbox"> Confirm death and register it with the registrar when permitted</label>
-<label class="check"><input type="checkbox"> Locate original will, executor and property/mortgage details</label>
-<label class="check"><input type="checkbox"> Tell mortgage lender and request payment/rate details</label>
-<label class="check"><input type="checkbox"> Protect ongoing mortgage, utilities and home insurance payments</label>
-<label class="check"><input type="checkbox"> Use Tell Us Once and separately notify private firms</label>
-<label class="check"><input type="checkbox"> Value property, savings, debts, gifts and pensions</label>
-<label class="check"><input type="checkbox"> Check IHT reporting and whether grant of probate is required</label>
-<label class="check"><input type="checkbox"> Settle proper debts, keep records, distribute when safe</label>
-</div>
-<details><summary>My mortgage went from 3.5% to 6% after death. What can I do?</summary><p>Retrieve the original rate offer, fixed-rate expiry date, rate-change notices and all product-switch correspondence. An expired fixed rate may revert contractually. But FCA MCOB 11.8 warns lenders not to exploit borrowers unable to switch; unreasonable barriers and delay may justify complaint. Ask the lender for a written explanation; if unresolved after the final response or the relevant complaint period, refer the case to the <a href="https://www.financial-ombudsman.org.uk/consumers/complaints-can-help/mortgages/interest-rates-applied-mortgages" target="_blank" rel="noopener">Financial Ombudsman</a>.</p></details>
-<div class="actions"><button type="button" class="action" id="makeProbate">Build my probate checklist</button><button type="button" class="action secondary" data-export="probate">Download Markdown</button></div>
-<p id="probateStatus" class="status" role="status" aria-live="polite"></p><div class="result" id="probateText">Choose the family/property situation and generate a checklist.</div>
-</section>
-
-<section id="trust" class="panel" role="tabpanel" hidden>
-<h2>4. Build a Family Legacy</h2><p>Think decades ahead. Could brothers, sisters or cousins contribute part of their own money to a shared fund for future children and grandchildren? Explore three choices: give assets individually, set up a family discretionary trust, or establish a family investment company. This is separate from normal probate.</p>
-<div class="cards">
-<div class="field"><label for="houseVal">Approximate home value (£)</label><input id="houseVal" type="number" min="0" step="1000" value="400000"></div>
-<details><summary>Optional: mortgage still outstanding?</summary><div class="field"><label for="houseDebt">Mortgage (£), normally 0 in this example</label><input id="houseDebt" type="number" min="0" step="1000" value="0"></div></details>
-<div class="field"><label for="cash">Parent’s savings/investments (£), example</label><input id="cash" type="number" min="0" step="1000" value="150000"></div>
-<div class="field"><label for="pool">Potential joint family fund (£), if members agree</label><input id="pool" type="number" min="0" step="1000" value="0"><small>Separate from the parent’s estate. Do not assume money has been contributed.</small></div>
-<div class="field"><label for="sipp">Unused DC pension or SIPP (£), if known</label><input id="sipp" type="number" min="0" step="1000" placeholder="Optional"></div>
-<div class="field"><label for="familyType">Family situation</label><select id="familyType"><option value="married">Married / civil-partner parents</option><option value="single">Single parent</option><option value="cohabit">Unmarried / cohabiting parents</option><option value="blended">Blended / second family</option></select></div>
-<div class="field"><label for="objective">Main objective</label><select id="objective"><option value="home">Keep surviving partner in home</option><option value="children">Leave assets to adult children</option><option value="minor">Protect younger children</option><option value="future">Benefit later generations</option><option value="iht">Understand lawful inheritance-tax planning</option><option value="care">Concern about future care costs</option></select></div>
-</div>
-<div class="card"><h3>The simple family choices</h3><p><strong>1. Give individually:</strong> each heir gets their share outright and controls it.</p><p><strong>2. Family trust:</strong> trustees hold and invest pooled contributions for a defined group of family members; choices and costs are legally controlled.</p><p><strong>3. Family investment company:</strong> family members own shares in a private company holding investments. Corporate accounting and shareholder tax replace some trust issues, not all costs.</p><p>Start with a family meeting: agree purpose, contributions, investment rules, who decides, who gets help, and what happens when trustees or directors die.</p></div>
-<div class="card"><h3>Other options to understand</h3>
-<p><strong>Will and co-ownership:</strong> usually the lowest-cost first review. Joint tenants, tenants in common and a right-to-occupy will trust have different effects on ownership and survivor protection.</p>
-<p><strong>Lifetime gifts:</strong> qualifying outright gifts generally use a seven-year rule. Giving children a house while staying there rent-free is normally a gift with reservation of benefit, even after ten years.</p>
-<p><strong>Discretionary family trust:</strong> may support several generations but can incur tax on entry, every ten years, on exits and on trust income, plus trustees' administration.</p>
-<p><strong>Life insurance / SIPP:</strong> review the actual benefits and pension beneficiary nominations. Most unused pension funds enter IHT scope from 6 April 2027, subject to exceptions.</p></div>
-<details><summary>Is giving a mortgage-free house to adult children easier?</summary><p>If the house has no mortgage, there is no lender to consent. But a parent who gives it away and carries on living rent-free normally triggers gift-with-reservation rules; a ten-year wait does not make it free of IHT. Children also face their own divorce/debt exposure, and capital-gains tax or care-fee issues may arise. If the parent still lives there, the home is not a simple asset to put into a trust. <a href="https://www.gov.uk/inheritance-tax/passing-on-home" target="_blank" rel="noopener">HMRC rules on giving a home away</a>.</p></details>
-<details><summary>How can we get trustworthy help without buying an expensive trust package?</summary><p>Ask whether ordinary wills, correct ownership, life cover and nominations already meet your objective. For a real complex trust, obtain two independent, written, fixed-scope quotations from regulated and insured specialists. Ask for initial charges, trustee control, annual accounts and tax returns, ten-year/exit charges, mortgages, taxes, ability to end the trust and who inherits. Avoid generic DIY deeds and promises to make the house invisible to inheritance tax or care assessments. Use the <a href="https://solicitors.lawsociety.org.uk/" target="_blank" rel="noopener">Law Society solicitor directory</a>, independently check the firm on the <a href="https://www.sra.org.uk/consumers/register/" target="_blank" rel="noopener">SRA register</a>, and compare specialists on <a href="https://advisingfamilies.org/uk/find-a-tep/" target="_blank" rel="noopener">STEP Find a TEP</a>. These are verification and discovery resources, not endorsements. Also check the <a href="https://www.gov.uk/government/publications/unregulated-legal-services-consumer-protection-law-guidance" target="_blank" rel="noopener">CMA consumer warning</a>.</p></details>
-<div class="actions"><button type="button" class="action" id="makeTrust">Compare my family's options</button><button type="button" class="action secondary" data-export="trust">Download Markdown</button></div>
-<p id="trustStatus" class="status" role="status" aria-live="polite"></p><div class="result" id="trustText">Enter rough figures to compare options, not to calculate your actual tax.</div>
-</section>
-
-<div class="card sources"><h2>Verified source links</h2><ul>
-<li><a href="https://www.gov.uk/make-will/make-sure-your-will-is-legal" target="_blank" rel="noopener">Will formalities</a> · <a href="https://www.gov.uk/joint-property-ownership" target="_blank" rel="noopener">Joint ownership</a> · <a href="https://www.gov.uk/update-property-records-someone-dies" target="_blank" rel="noopener">Land Registry after death</a></li>
-<li><a href="https://www.gov.uk/when-someone-dies" target="_blank" rel="noopener">Death checklist</a> · <a href="https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once" target="_blank" rel="noopener">Tell Us Once</a> · <a href="https://www.gov.uk/applying-for-probate" target="_blank" rel="noopener">Probate</a></li>
-<li><a href="https://www.gov.uk/inheritance-tax" target="_blank" rel="noopener">Inheritance Tax</a> · <a href="https://www.gov.uk/inheritance-tax/gifts" target="_blank" rel="noopener">Gifts</a> · <a href="https://www.gov.uk/trusts-taxes/trusts-and-inheritance-tax" target="_blank" rel="noopener">Trust taxation</a></li>
-<li><a href="https://www.moneyhelper.org.uk/en/family-and-care/death-and-bereavement/dealing-with-finances-and-insurance-after-your-partner-dies.html" target="_blank" rel="noopener">MoneyHelper: after partner dies</a> · <a href="https://handbook.fca.org.uk/handbook/mcob11" target="_blank" rel="noopener">FCA mortgage rules</a> · <a href="https://www.financial-ombudsman.org.uk/consumers/complaints-can-help/mortgages/interest-rates-applied-mortgages" target="_blank" rel="noopener">Mortgage complaints</a></li>
-<li><a href="https://www.gov.uk/government/publications/inheritance-tax-on-pensions-technical-note/technical-note-inheritance-tax-on-pensions" target="_blank" rel="noopener">HMRC 2027 pensions IHT technical note</a> · <a href="https://www.gov.uk/government/publications/unregulated-legal-services-consumer-protection-law-guidance" target="_blank" rel="noopener">CMA will-writing consumer guidance</a></li>
-</ul><p class="muted">Primary research reviewed 18 November 2026. Recheck before acting. HMRC's May 2026 pension note does not reflect later Budget 2026 changes.</p></div>
-<footer>Aletheia v0.1 · Free first, local first. <a href="https://github.com/KarstenEvans/aletheia-protocol" target="_blank" rel="noopener">Aletheia Protocol</a> (provenance) · <a href="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md" target="_blank" rel="noopener">Thalia Protocol</a> (optional tone). No web analytics, no user-data upload.</footer>
-</main>
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aletheia Make a Will v0.1</title><meta name="description" content="Four simple family estate planning paths: make a will review, family handover, DIY probate and family legacy. England and Wales."><link rel="canonical" href="https://karstenevans.github.io/aletheia-app/aletheia-make-a-will/aletheia-make-a-will.htm"><style>
+:root{color-scheme:light;--ink:#183830;--bg:#f4f7f4;--line:#bed0c5;--primary:#1b6551;--muted:#51665f}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.5 system-ui,Arial,sans-serif}a{color:#17644f}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #c99a39;outline-offset:3px}
+main{max-width:850px;margin:auto;padding:18px 16px 52px}header{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.88rem;margin:0 0 15px}h1{font-size:clamp(1.7rem,5vw,2.6rem);line-height:1.12;margin:0 0 9px}h2{font-size:1.4rem;margin:6px 0 9px}
+.hero,.panel{background:white;border:1px solid var(--line);border-radius:13px;padding:clamp(15px,3vw,23px)}.hero p{margin:5px 0 14px;color:var(--muted)}.hero img{width:100%;max-height:245px;object-fit:cover;border-radius:9px;display:block}.note{margin:12px 0;padding:11px 13px;border-left:4px solid #b58937;background:#fcf5e7;font-size:.88rem}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:16px 0}.tab{font:inherit;font-weight:700;border:1px solid #799d8d;background:white;min-height:50px;padding:9px 8px;border-radius:8px;color:var(--ink);cursor:pointer}.tab[aria-selected=true]{background:var(--primary);color:white}.progress{color:var(--muted);font-size:.89rem}
+.choices{display:grid;gap:10px;margin:18px 0 8px}.choice{font:inherit;text-align:left;padding:12px 13px;background:#f0f8f1;border:2px solid #7fa792;border-radius:9px;color:#153f31;min-height:52px;cursor:pointer;font-weight:600}.choice:hover{background:#dcf0e0}
+label{display:block;font-weight:600;margin:10px 0 6px}textarea{font:inherit;width:100%;border:2px solid #849d91;border-radius:7px;padding:10px;min-height:84px}.bar{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+.btn{font:inherit;border:1px solid var(--primary);border-radius:8px;min-height:43px;padding:9px 14px;background:white;color:var(--primary);font-weight:600;cursor:pointer}.btn.primary{background:var(--primary);color:white}.btn:disabled{opacity:.45;cursor:not-allowed}
+.explore{color:var(--muted);font-size:.9rem;margin:17px 0 4px}.explore a{margin-left:4px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f4f0;border:1px solid var(--line);border-radius:8px;padding:12px;font:13px/1.5 Consolas,monospace}
+footer{margin-top:23px;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:.83rem}footer a{margin-right:10px}
+@media(max-width:650px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.hero img{max-height:165px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}@media print{.tabs,.bar,.choices,.explore,.hero img,header{display:none!important}body{background:white}.panel,.hero{border:0}}
+</style></head><body><main><header><a href="../index.html">← Aletheia Apps</a><a href="aletheia-make-a-will-rsc.htm" target="_blank" rel="noopener">Free resources, books and listening</a></header>
+<section class="hero"><h1>Make a Will</h1><p>One question at a time. Your family, your choices, your legacy.</p><img src="aletheia-make-a-will-cover.jpg" alt="A blue will-writing book and a family tree above a brick home"><p>Version 0.1 · England and Wales</p></section>
+<div class="note"><b>Review tool, not a legally valid will.</b> No information is sent or saved. Downloaded worksheets are unencrypted. Never enter passwords, PINs or full account numbers. Complex arrangements need independent advice.</div>
+<nav role="tablist" class="tabs" aria-label="Four planning sections"><button class="tab" data-section="will" role="tab" aria-selected="true">1. Make a Will</button><button class="tab" data-section="handover" role="tab" aria-selected="false">2. Family Handover</button><button class="tab" data-section="probate" role="tab" aria-selected="false">3. DIY Probate</button><button class="tab" data-section="legacy" role="tab" aria-selected="false">4. Build the Family Legacy</button></nav>
+<section class="panel" role="tabpanel" aria-label="Aletheia family planning questions"><div class="progress" id="progress"></div><h2 id="question">Which household applies?</h2><div id="choices" class="choices"></div><div id="custom" hidden><label for="customText">Your own answer</label><textarea id="customText" autocomplete="off" placeholder="You can use fictional names. Do not enter sensitive account information."></textarea><button id="saveCustom" class="btn primary" type="button">Use this answer</button></div><p id="info" class="explore"></p><div class="bar"><button type="button" class="btn" id="back">Back</button><button type="button" class="btn" id="skip">Skip</button><button type="button" class="btn" id="restart">Start again</button></div><p id="status" role="status" aria-live="polite"></p></section>
+<footer><p><a href="https://www.gov.uk/make-will" target="_blank" rel="noopener">GOV.UK will rules</a><a href="https://www.gov.uk/applying-for-probate" target="_blank" rel="noopener">GOV.UK probate</a><a href="aletheia-make-a-will-rsc.htm" target="_blank" rel="noopener">Free resources</a></p><p><a href="https://karstenevans.github.io/aletheia/" target="_blank" rel="noopener">Aletheia Worldwide AI</a><a href="https://github.com/KarstenEvans/aletheia-protocol" target="_blank" rel="noopener">Aletheia Protocol</a><a href="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md" target="_blank" rel="noopener">Thalia Protocol</a></p></footer></main>
 <script>
 (function(){
 "use strict";
-var P1="https://github.com/KarstenEvans/aletheia-protocol";
-var P2="https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md";
-var q=function(id){return document.getElementById(id);};
-var v=function(id){return q(id).value.trim();};
-var n=function(id){var a=Number(v(id));return isFinite(a)&&a>=0?a:0;};
-var gbp=function(i){return "£"+Math.round(i).toLocaleString("en-GB");};
-var value=function(id){return v(id)||"[not yet provided]";};
-var h=function(title){return "# "+title+"\n\n[Aletheia Protocol]("+P1+") — evidence and provenance.\n[Thalia Protocol]("+P2+") — optional appropriate humour.\n\nAletheia Make a Will v0.1 • Research checked 18 November 2026.\nGENERAL INFORMATION ONLY. This file is NOT a legal will, trust deed or regulated advice.\nPrivate downloads are UNENCRYPTED. Do not enter passwords, PINs or full account numbers.\n\n";};
-var res={will:"",handover:"",probate:"",trust:""};
-document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){
-var id=b.getAttribute("data-panel");document.querySelectorAll(".tab").forEach(function(t){t.setAttribute("aria-selected",String(t===b));});
-document.querySelectorAll(".panel").forEach(function(p){p.hidden=p.id!==id;p.classList.toggle("printing",p.id===id);});
-q(id).scrollIntoView({block:"start"});
-});});
-function show(id,text,msg){res[id]=text;q(id+"Text").textContent=text;q(id+"Status").textContent=msg;}
-document.querySelectorAll("[data-export]").forEach(function(button){button.addEventListener("click",function(){
-var id=button.getAttribute("data-export");
-if(!res[id]){q(id+"Status").textContent="Generate your worksheet first.";return;}
-var u=URL.createObjectURL(new Blob([res[id]],{type:"text/markdown;charset=utf-8"}));
-var a=document.createElement("a");a.href=u;a.download="aletheia-make-a-will-"+id+"-PRIVATE.md";document.body.appendChild(a);a.click();a.remove();
-setTimeout(function(){URL.revokeObjectURL(u);},1000);
-q(id+"Status").textContent="Downloaded as UNENCRYPTED Markdown. Save privately, never to a public repository.";
-});});
-q("makeWill").addEventListener("click",function(){
-var flags=["minor","kids","familyComplex","propertyComplex","trustComplex"].some(function(id){return q(id).checked;});
-var complex=flags||v("jur")!=="ew"||v("status")==="Living together, not married"||v("status")==="Separated or divorced";
-var complete=["executor","exback","beneficiary","benback"].every(function(id){return v(id).length>0;});
-var twoHeirs=v("beneficiary2").length>0;
-var txt=h(complex||!complete||twoHeirs?"Will preparation: solicitor / self-review briefing":"Simple will text: UNVERIFIED REVIEW DRAFT — DO NOT SIGN");
-txt+="## Your stated situation\nName: "+value("person")+"\nAddress: "+value("address")+"\nRelationship: "+value("status")+"\nExecutor: "+value("executor")+"\nBackup executor: "+value("exback")+"\nMain beneficiary: "+value("beneficiary")+"\nSecond beneficiary: "+value("beneficiary2")+"\nFallback: "+value("benback")+"\n\n";
-if(complex||!complete||twoHeirs){
-txt+="## STOP: tailored legal review\n";
-if(complex)txt+="- This situation has a complexity/eligibility flag. A generic will clause may not protect your household.\n";
-if(!complete)txt+="- Supply both executors, one adult main beneficiary and an adult fallback.\n";
-if(twoHeirs)txt+="- Two beneficiaries listed. Proposed default: equal halves if both survive. Confirm whether a predeceased child\u0027s share goes to their own children, to the survivor, or to someone else. This requires reviewed wording.\n";
-txt+="- Bring property title, mortgages, children, dependants, pension nominations, earlier wills and proposed gifts/trusts to a qualified solicitor.\n- No will was created, signed, registered or validated by this app.\n";
-}else{
-txt+="## Draft wording for independent checking ONLY\n";
-txt+="LAST WILL AND TESTAMENT OF "+value("person")+"\nI, "+value("person")+", of "+value("address")+", declare this to be my last Will and revoke all previous wills and codicils.\n";
-txt+="I appoint "+value("executor")+" as my Executor and Trustee; if unable or unwilling to act I appoint "+value("exback")+" instead.\n";
-txt+="After payment of my enforceable debts, funeral and testamentary expenses and estate taxes, I give the residue of my estate to "+value("beneficiary")+" absolutely. If that person has died before me, I give the residue to "+value("benback")+" absolutely.\n";
-txt+="\nTHIS IS AN UNVERIFIED REVIEW DRAFT. DO NOT SIGN UNTIL SUITABILITY AND FORMALITIES ARE INDEPENDENTLY CHECKED.\n";
-}
-txt+="\n## Executing and storing a will\nTwo independent adult witnesses present together for your signature, and each signing in your presence, are normally required in England and Wales. Beneficiaries or their spouses/civil partners must not receive gifts through witnessing. Keep the original signed document safe and accessible to an executor.\n";
-txt+="Official: https://www.gov.uk/make-will/make-sure-your-will-is-legal\n";
-show("will",txt,complex||!complete||twoHeirs?"Review briefing prepared: do not use as a final will.":"Unverified legal-review draft prepared: NOT READY TO SIGN.");
-});
-q("makeHandover").addEventListener("click",function(){
-var labels=[["Signed original will location","willPlace"],["Trusted contact","contact"],["Banks/savings/investments providers","bank"],["Home title and mortgage","home"],["Pensions and nominees","pension"],["Insurance/employer/policies","insurance"],["Bills and pay-from accounts","bills"],["Digital provider inventory and access procedure locations","digital"],["Emergency plans","emergency"]];
-var txt=h("PRIVATE family handover worksheet");
-labels.forEach(function(a){txt+="## "+a[0]+"\n"+value(a[1])+"\n\n";});
-txt+="## Essential continuity\nSole-name bank accounts may be frozen on death and direct debits may stop. A qualifying joint account normally continues. Agree lawful emergency cash and promptly update bill providers. Tell Us Once covers government, not private banks/lenders/insurers/most pensions. Do NOT use the deceased's bank login.\n";
-show("handover",txt,"Private handover prepared locally. Store your download securely.");
-});
-q("makeProbate").addEventListener("click",function(){
-var txt=h("DIY Probate and household continuity checklist");
-txt+="Situation: "+value("survivor")+"\nTitle: "+value("ownership")+"\nMortgage: "+value("mortgageType")+"\nBills: "+value("billType")+"\n\n";
-txt+="## Actions\n- [ ] Register death when medical examiner confirms (normally within five days of confirmation in England/Wales).\n- [ ] Find original will and executor; secure home and insurance.\n- [ ] Tell lender's bereavement team; request written mortgage balance, rate expiry, rate-switch and payment support options.\n- [ ] Make lawful alternative arrangements for mortgage and utility direct debits.\n- [ ] Use Tell Us Once; notify private banks, insurers, pensions, utility companies and employer separately.\n- [ ] Value assets, liabilities, pension benefits and past seven years' gifts; check IHT.\n- [ ] Check whether probate/administration grant is required and apply if necessary.\n- [ ] Pay debts/taxes, retain estate accounts; distribute only when safe.\n\n";
-if(v("billType")==="dead"||v("billType")==="unknown")txt+="**Urgent:** deceased's sole account may freeze and stop household direct debits. Review deadlines and avoid missed mortgage and insurance payments.\n\n";
-if(v("mortgageType")==="sole")txt+="**Sole mortgage:** inheriting the house does not automatically transfer loan terms. Ask lender about estate settlement, new borrower, affordability and alternatives.\n\n";
-if(v("ownership")==="joint")txt+="**Joint title:** survivorship may apply; HMLR DJP can update a surviving joint owner's registered title. Mortgage obligations remain.\n\n";
-if(v("ownership")==="common")txt+="**Tenants in common:** the deceased's beneficial share follows will/intestacy; consider occupation rights and any will trust before assuming full survivor ownership.\n\n";
-if(v("survivor")==="unmarried")txt+="**Unmarried survivor:** cohabitation alone does not create spouse IHT exemption or automatic inheritance. Obtain specialist advice if occupation/beneficial interest disputed.\n\n";
-txt+="## If interest rose after death\nAsk when the original fixed rate ended, what the contractual reversion rate was, which product switches were available, why any switch was refused and how bereavement was handled. Collect letters and dates; complain to lender, then FOS if unresolved and eligible.\n\nSources: https://www.gov.uk/when-someone-dies\nhttps://www.gov.uk/applying-for-probate\nhttps://www.financial-ombudsman.org.uk/consumers/complaints-can-help/mortgages/interest-rates-applied-mortgages\n";
-show("probate",txt,"Survivor-specific practical checklist prepared; no probate application submitted.");
-});
-q("makeTrust").addEventListener("click",function(){
-var equity=n("houseVal")-n("houseDebt"),base=equity+n("cash"),total=base+n("sipp");
-var txt=h("Family trusts: questions and options for discussion");
-txt+="## Rough assets, NOT a tax calculation\nHome "+gbp(n("houseVal"))+"; mortgage "+gbp(n("houseDebt"))+"; savings "+gbp(n("cash"))+"; optional pension "+gbp(n("sipp"))+".\n";
-txt+="Home equity "+gbp(equity)+"; home equity plus savings "+gbp(base)+"; plus entered pension "+gbp(total)+". Figures omit other assets/debts, gifts, reliefs and tax law. Most unused pension funds are brought into IHT scope for deaths on/after 6 April 2027, subject to exemptions.\n";
-txt+="Family: "+value("familyType")+"\nGoal: "+value("objective")+"\nPotential pooled family fund: "+gbp(n("pool"))+" (only if members agree; not automatically contributed).\n\n";
-txt+="## Three ways of handling a family legacy\n1. Separate inheritances or outright gifts: simple ownership for each adult heir.\n2. Family discretionary trust: trustees invest for defined descendants; entry/10-year/exit IHT, trust income tax and administration apply.\n3. Family investment company: relatives own shares and agree governance; company and shareholder taxes, accounting and inheritance planning still apply.\n\nAsk which family members voluntarily contribute, whether funds are needed during life, what help is allowed for children/grandchildren, who makes decisions, and how conflict or trustee succession is handled.\n\n## Basic house guidance\nA paid-off home may be left through a will; giving it away while living there rent-free is usually a gift with reservation even after ten years. A home given to nephews/nieces usually does not attract the residence nil-rate band reserved for direct descendants.\n\n";
-if(v("familyType")==="cohabit"||v("familyType")==="blended")txt+="\n**Priority:** tailored legal review of an unmarried/blended family and who may live in the house.\n";
-if(v("objective")==="care")txt+="\n**Care assessment:** deliberate deprivation of assets can be challenged; no special seven-year care-fee exemption.\n";
-if(v("objective")==="future")txt+="\n**Later generations:** trustees may manage a defined beneficiary class, but it is not perpetual or automatically tax-free; trust duration and charges apply.\n";
-txt+="\n## Ask before paying a trust firm\nAre they regulated and insured? Initial fee and annual trust/tax costs? Mandatory professional trustee/executor? Mortgage/lender consent? SDLT/LTT, CGT and reservation implications? Who has rights to live in the house? How are beneficiaries protected? How can the trust be ended or trustees replaced? Would a straightforward will, life cover or nomination achieve the aim more cheaply?\n";
-txt+="\nHMRC says contributions from different people to a trust may constitute separate settlements for IHT: https://www.gov.uk/hmrc-internal-manuals/inheritance-tax-manual/ihtm42253\nUK trust lifespan can be limited to 125 years: https://www.legislation.gov.uk/ukpga/2009/18/section/5\nSources: https://www.gov.uk/trusts-taxes/trusts-and-inheritance-tax\nhttps://www.gov.uk/inheritance-tax/passing-on-home\nhttps://www.gov.uk/government/publications/unregulated-legal-services-consumer-protection-law-guidance\n";
-show("trust",txt,"Illustrative comparison only. No trust deed or inheritance-tax computation created.");
-});
+var qs={
+will:[
+["Which household best describes you?",["Mum and dad, adult children","Single or widowed parent, adult children","Another family arrangement","Type my own"],"Making a will","https://www.gov.uk/make-will"],
+["Are you 18 or older, in England or Wales, and making this decision freely with capacity?",["Yes to all","No","Not sure"],"Legal requirements","https://www.gov.uk/make-will/make-sure-your-will-is-legal"],
+["What do you own? Broad categories only.",["Mortgage-free home, savings and pension","Savings and pension","Different assets / type my own"],"Joint ownership","https://www.gov.uk/joint-property-ownership"],
+["Who should inherit after expenses and debts?",["My adult children equally","Surviving spouse / civil partner","Another adult or charity","Type my own"],"Writing your will","https://www.gov.uk/make-will/writing-your-will"],
+["Who should be the executor and replacement?",["Trusted adult child or relative","Trusted adult friend","I want to name them"],"Executors","https://www.gov.uk/make-will/executors"],
+["If a beneficiary dies first, who receives their share?",["Their children","Other named beneficiaries","A named replacement","Not decided yet"],"Fallback gifts","https://www.gov.uk/make-will/writing-your-will"],
+["Any specific gifts, charities or pet-care arrangements?",["No","Personal gifts or charity","Pet-care plan","Other / type my own"],"Find a registered charity","https://www.gov.uk/find-charity-information"],
+["Any complication that may need independent drafting?",["No, straightforward","Minor or vulnerable dependants","Unmarried partner / blended family","Trust, overseas assets or disputes"],"When to get advice","https://www.gov.uk/make-will/writing-your-will"],
+["Where will the original signed will be kept?",["Securely at home with executor informed","With solicitor or official storage","Not decided yet"],"Storage and original will","https://www.gov.uk/make-will/storing-your-will"]
+],
+handover:[
+["Where can someone find the signed original will?",["Safe place at home","Solicitor or storage provider","Not decided","Type my own"],"How to store it","https://www.gov.uk/make-will/storing-your-will"],
+["Which providers will need to be located?",["Banks, ISAs, NS&I","Pensions and insurance","Home, utilities and subscriptions","All of these"],"Find a pension provider","https://www.gov.uk/find-pension-contact-details"],
+["What pays the household bills?",["Joint account","Survivor's own account","Deceased's individual account","Not sure"],"After a death","https://www.gov.uk/when-someone-dies"],
+["Where will the private account-provider list be kept?",["Sealed family folder","Private encrypted store","Not decided"],"Tell Us Once and private providers","https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once"],
+["Who knows where to find it?",["Executor","Adult child or other relative","Trusted friend","Type my own"],"Bereavement finances","https://www.moneyhelper.org.uk/en/family-and-care/death-and-bereavement/dealing-with-finances-and-insurance-after-your-partner-dies.html"]
+],
+probate:[
+["Which event are you planning for?",["One parent has died","Single/widowed parent has died","Another death","Planning ahead"],"What to do first","https://www.gov.uk/when-someone-dies"],
+["How was the home owned?",["Joint tenants","Sole owner","Tenants in common","Not known / no home"],"Joint ownership","https://www.gov.uk/joint-property-ownership"],
+["Was there an outstanding mortgage?",["No, paid off","Yes","Unknown"],"Changing title after a death","https://www.gov.uk/update-property-records-someone-dies"],
+["Are the signed will and provider list available?",["Both","Will only","Provider list only","Neither"],"Original will","https://www.gov.uk/applying-for-probate"],
+["Which organisations were notified?",["Not yet","Government through Tell Us Once","Private providers","Both"],"Tell Us Once","https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once"],
+["What should the executor do next?",["Check if probate is needed","Value assets and debts","Apply for probate personally","Prepare an action list"],"Apply without a solicitor","https://www.gov.uk/applying-for-probate"]
+],
+legacy:[
+["What should the family capital help with?",["First homes","Education and hardship","Long-term investment","All three"],"Lifetime ISA for first homes","https://www.gov.uk/lifetime-isa"],
+["Who might contribute?",["Parent or grandparent","Brothers and sisters","Several generations","Not decided"],"Inheritance Tax and gifts","https://www.gov.uk/inheritance-tax/gifts"],
+["How might descendants receive help?",["Outright gifts","Repayable family loans","Education/hardship grants","A mix with clear rules"],"Independent home-buying guidance","https://www.moneyhelper.org.uk/en/homes/buying-a-home"],
+["How should the family manage the pool?",["Individual investments","Family discretionary trust","Family investment company","Compare all choices"],"Trust tax and duties","https://www.gov.uk/trusts-taxes/trusts-and-inheritance-tax"],
+["What happens before creating anything?",["Write a family charter","Check cost and tax","Get independent quotes","All three"],"Trust taxation","https://www.gov.uk/guidance/trusts-and-inheritance-tax"]
+]
+};
+var names={will:"Make a Will",handover:"Family Handover",probate:"DIY Probate",legacy:"Build the Family Legacy"},section="will",index=0,answers={will:[],handover:[],probate:[],legacy:[]};
+var get=function(id){return document.getElementById(id);};
+function make(tag,txt,cl){var e=document.createElement(tag);e.textContent=txt;if(cl)e.className=cl;return e}
+function choose(s){section=s;index=0;document.querySelectorAll(".tab").forEach(function(t){t.setAttribute("aria-selected",String(t.dataset.section===s))});show()}
+function record(value){answers[section][index]=value;index++;show()}
+function renderExport(){var text="# "+names[section]+" — PRIVATE REVIEW WORKSHEET\n\n";qs[section].forEach(function(q,i){text+="## "+(i+1)+". "+q[0]+"\n"+(answers[section][i]||"[not provided]")+"\n\n"});text+="NOT READY TO SIGN. Educational planning only. Not an executed will, probate application or trust deed. No legal certification.\n\n";text+="Aletheia Protocol: https://github.com/KarstenEvans/aletheia-protocol (provenance and evidence)\nThalia Protocol: https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md (optional appropriate tone)\n";return text}
+function download(){var txt=renderExport(),u=URL.createObjectURL(new Blob([txt],{type:"text/markdown;charset=utf-8"})),a=make("a","");a.href=u;a.download="aletheia-"+section+"-PRIVATE.md";document.body.append(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000)}
+function show(){var curr=qs[section],c=get("choices"),q=get("question"),info=get("info");c.replaceChildren();info.replaceChildren();get("custom").hidden=true;get("customText").value="";get("status").textContent="";get("back").disabled=index===0;get("skip").hidden=index>=curr.length;
+if(index>=curr.length){get("progress").textContent="Review ready";q.textContent=names[section]+" — your answers";c.append(make("pre",renderExport()));var b=make("button","Download private Markdown","btn primary");b.type="button";b.onclick=download;c.append(b);info.textContent="This is a review worksheet only, not a legal instrument.";return}
+var item=curr[index];get("progress").textContent="Question "+(index+1)+" of "+curr.length;q.textContent=item[0];item[1].forEach(function(option,i){var b=make("button",String.fromCharCode(65+i)+". "+option,"choice");b.type="button";b.onclick=function(){if(/type my own|name them|Other \/ type/i.test(option)){get("custom").hidden=false;get("customText").focus()}else record(option)};c.append(b)});if(item[2]&&item[3]){info.append("Want to know more? ");var a=make("a",item[2]);a.href=item[3];a.target="_blank";a.rel="noopener";info.append(a)}}
+document.querySelectorAll(".tab").forEach(function(t){t.addEventListener("click",function(){choose(t.dataset.section)})});get("back").onclick=function(){index=Math.max(0,index-1);show()};get("skip").onclick=function(){record("[skipped]")};get("restart").onclick=function(){answers[section]=[];index=0;show()};get("saveCustom").onclick=function(){record(get("customText").value.trim()||"[not supplied]")};
+document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a||!a.href||e.defaultPrevented||e.button!==0||e.ctrlKey||e.shiftKey||e.altKey||e.metaKey||a.hasAttribute("download")||a.href.charAt(0)==="#")return;if(matchMedia("(max-width:767px),(pointer:coarse)").matches)return;var w=Math.min(900,screen.availWidth-40),h=Math.min(760,screen.availHeight-60);var x=Math.max(0,Math.round((screen.availWidth-w)/2)),y=Math.max(0,Math.round((screen.availHeight-h)/2));var pop=window.open(a.href,"_blank","width="+w+",height="+h+",left="+x+",top="+y+",resizable=yes,scrollbars=yes");if(pop){e.preventDefault();try{pop.opener=null}catch(_){}}});
+show();
 })();
 </script></body></html>
