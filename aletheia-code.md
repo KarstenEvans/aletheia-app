@@ -82,6 +82,8 @@ If a fragment grows into a multi-stage workflow, move it into a dedicated app an
 8. Keep provider URLs in one replaceable map/select control. Remember the last provider locally when useful.
 9. Label this architecture **HANDOFF**. It is not CONNECTED AI.
 10. Test Chrome/Edge desktop, Android Chrome, and Safari/WebKit paste/popup behaviour independently.
+11. For AI-first conversational `.md` systems: after the pasted full source, instruct the receiving AI to display **compact HELP followed by the first question in the same response**. For generators such as QI, use explicit RUN-FIRST exception. Never require two Start clicks/messages.
+12. Check preloading status before enabling the one-click launch. Keep raw source links and provider URLs ordinary text links, not replacements for the full clipboard payload. No cross-origin auto-paste claim.
 
 ## OPTIONAL-GRAPHICS-GATE
 1. Check that the graphics library loaded.
