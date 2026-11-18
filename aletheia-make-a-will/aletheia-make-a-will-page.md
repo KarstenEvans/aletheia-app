@@ -3,7 +3,7 @@
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence, provenance and human authority.  
 [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional appropriate humour and positivity.
 
-**Version:** 0.1.0; 18 November 2026.  
+**Version:** 0.1.1 scope simplification, still v0.1 prototype; 18 November 2026.  
 **Canonical browser route:** https://karstenevans.github.io/aletheia-app/aletheia-make-a-will/aletheia-make-a-will.htm  
 **Canonical research:** aletheia-make-a-will.md  
 **HTML:** aletheia-make-a-will.htm  
@@ -12,10 +12,10 @@
 
 ## Four sections, in order
 
-1. **Make a Will:** eligibility and complexity screening; one simple adult residuary beneficiary, fallback, executor and substitute; generate explicitly unverified REVIEW DRAFT or professional briefing, never purportedly executed will.
+1. **Make a Will:** everyday couple and single-parent households with a mortgage-free home and adult heirs; one adult beneficiary may produce an explicitly unverified REVIEW DRAFT, while two adult children, alternative named heirs, charities and complex family issues produce a clear review briefing with proposed equal shares and contingency questions. Never purportedly executed will.
 2. **Family Handover:** record provider and document *locations* for mortgages, property, banks, pensions, protection policies, bills, digital-account inventory, trusted contact and emergency-payment plan. Never passwords or full account numbers. Export local Markdown separate from will.
-3. **DIY Probate:** survivor and mortgage/title questions and timeline; customise notification and interest-rate complaint reminders; grant of probate is not invariably necessary. Official sources linked.
-4. **Consider a Family Trust:** arithmetic example only for home equity + savings + optional pension (NOT taxable estate); compare will, survivor title, sole mortgage, lifetime gift, right-to-occupy will trust, discretionary trust, pension nominations and life insurance. No auto-written trust deed.
+3. **DIY Probate:** mortgage-free default, sole/joint house title, bank/account continuity and straightforward estate timeline; mortgage bereavement and interest-rate complaint options collapsed as optional help. Grant of probate is not invariably necessary. Official sources linked.
+4. **Build a Family Legacy:** compare outright inheritances, a discretionary family trust pooling sibling/cousin contributions, or a family investment company holding shared investments. Use mortgage-free house and £150,000 savings as typical illustrative assets. Show an optional separately agreed pooled-fund input and explain who controls contributions/benefits, long-run governance, tax/fees and 125-year private-trust period. Do not generate trust deeds or calculate IHT.
 
 ## Inputs, state and data safety
 
@@ -27,7 +27,7 @@ Mobile-first high contrast, semantic inputs/labels, actual four-tab controls, cl
 
 ## Output contract
 
-Every generated Markdown starts with title then BOTH protocol links with distinct roles. Use safe text nodes/textContent, never inject untrusted user entries as HTML. Generate/download only after user click; never sync. The will section only offers an unverified illustrative review draft with prominent NOT READY TO SIGN when all criteria met; all others produce briefing. A household and trust sections are not a formal will or tax calculation. Export filenames must be distinct by module.
+Every generated Markdown starts with title then BOTH protocol links with distinct roles. Use safe text nodes/textContent, never inject untrusted user entries as HTML. Generate/download only after user click; never sync. The will section only offers an unverified illustrative review draft with prominent NOT READY TO SIGN when all criteria met; all others produce briefing. Handover and trust sections are not a formal will or tax calculation. Distinguish Rockefeller Brothers Fund philanthropy from a private UK family inheritance structure. Export filenames must be distinct by module.
 
 ## Escalation gates
 
