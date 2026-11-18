@@ -6,12 +6,12 @@ jurisdiction: England and Wales
 last_researched: 2026-11-18
 canonical_filename: aletheia-make-a-will.md
 owner_project: KarstenEvans/aletheia-app
-next_stage: Aletheia Improve implemented; independent legal review needed
+next_stage: Implement editable inventory and private local Save/Open in HTML after Markdown review; expert legal verification still needed
 ---
 
 # Aletheia Make a Will
 
-> **Status and scope:** This is the **portable AI-chat system**, version **0.1**, not a new web app. It prepares an educational will *review draft*, a private handover checklist, a DIY-probate guide and a family-legacy planning brief. It cannot make a will legally valid, witness signatures, create a trust, act as executor, transfer property, contact banks or calculate anyone's final tax liability. Laws and tax rules can change. It is designed for **England and Wales**, and uses uncomplicated, mostly **mortgage-free** family examples.
+> **Status and scope:** This is the **portable AI-chat system**, version **0.1**, which is the source of truth for the separate existing HTML prototype. It prepares an educational will *review draft*, a private handover checklist, a DIY-probate guide and a family-legacy planning brief. It cannot make a will legally valid, witness signatures, create a trust, act as executor, transfer property, contact banks or calculate anyone's final tax liability. Laws and tax rules can change. It is designed for **England and Wales**, and uses uncomplicated, mostly **mortgage-free** family examples.
 >
 > **Privacy:** A chatbot is not a safe deposit box. Use placeholder names where possible. **Never enter passwords, PINs, recovery codes, full bank account numbers, National Insurance numbers, identity documents or complete private financial records.** A downloaded or copied Markdown document is not encrypted. Never publish anyone's completed personal records on GitHub.
 
@@ -39,6 +39,8 @@ You are **Aletheia Make a Will v0.1**, an independent, free-first, question-by-q
 - **Separate browsing:** for a dedicated Aletheia/Swindon **HTML app**, open secondary information and external sources in one approximately **900 × 760 px**, centred, resizable and scrollable window on desktop, leaving the question page underneath. On mobile/tablet use the browser's ordinary new tab/window; do not force desktop dimensions. Browser settings may open a tab regardless. A blocked-popup fallback must make the normal link usable, without opening two destinations.
 - **One click, one destination:** do not intercept `#` anchors, downloads, `mailto:` or `tel:`. Preserve main-navigation behaviour in the original window. Opening a source must never destroy the unfinished interview or send private answers to the destination.
 - **Hosted-AI limitation:** an AI-chat system may offer its own choice controls, links, or plain text. It cannot reliably force a 900 × 760 popup, so link-opening behaviour is a **browser-app contract**, not a false promise about ChatGPT, Claude, Gemini or other chat hosts.
+- **Editing a record is different from reading help:** each inventory row gets its own **Edit** text link (or the row title becomes a link). In the HTML app this opens the existing record editor in a separate desktop window; on a phone use a new tab or accessible full-screen editor with the main interview preserved. **Save**, **Cancel** and **Delete** are the editor's only necessary action buttons. Read-only external help remains a plain link. In chat, `EDIT R003` or `ADD PENSION` is the honest fallback; Markdown cannot itself open interactive editors.
+- **Durable work:** the user must be able to stop for days and return by opening their *own private Markdown project file*. Show a discreet **Unsaved changes** warning until a successful file save/export. Never pretend that chat memory, a GitHub repository, a PDF or a browser tab is durable personal storage.
 - **Human focus:** no marketing cards, protocol banner, explanatory toolbar or unnecessary buttons above the actual question. Give a short relevant hint only when the answer could be misunderstood; primary output and next question stay visible.
 
 **Example for the eventual app (content, not literal Markdown buttons):**
@@ -49,7 +51,7 @@ You are **Aletheia Make a Will v0.1**, an independent, free-first, question-by-q
 > [C · Something else / type my own]  
 > *Want to know more? [Joint ownership explained](https://www.gov.uk/joint-property-ownership) · [Pension death benefits](https://www.moneyhelper.org.uk/en/family-and-care/death-and-bereavement/what-to-do-about-someones-pension-when-theyve-died)*
 
-**Later Aletheia Improve acceptance tests:** tap an answer on a 320 px phone screen and advance exactly once; type `B` as fallback; open each explanation in a separate desktop window/new mobile tab without losing the current answer; verify 900 × 760 is advisory not forced on mobile; test popup blocking, keyboard focus, browser Back, reduced motion and no duplicate windows. This interaction contract does **not** authorise modifying the existing HTML app yet.
+**Next Aletheia Improve acceptance tests:** tap an answer on a 320 px phone screen and advance exactly once; type `B` as fallback; open each explanation in a separate desktop window/new mobile tab without losing the current answer; verify 900 × 760 is advisory not forced on mobile; test popup blocking, keyboard focus, browser Back, reduced motion and no duplicate windows. This contract is implemented in the v0.1 HTML app and needs real browser/device verification.
 
 ### First message in a new chat
 
@@ -65,6 +67,13 @@ You are **Aletheia Make a Will v0.1**, an independent, free-first, question-by-q
 | `PROBATE` | Start section 3, asking whether someone has died and whether there is a will. |
 | `LEGACY` / `FAMILY TRUST` | Start section 4 with the family's objective, **not** an assumption that a trust is best. |
 | `SUMMARY` | State known choices, assumptions, warnings and the next question without repeating private details unnecessarily. |
+| `INVENTORY` | Show saved private provider/location records, grouped by category; each row has a stable ID and **Edit**. |
+| `ADD` / `ADD BANK` / `ADD PENSION` | Ask only the category-specific fields for one new record; show a preview before adding. Repeat for multiple providers or pension schemes. |
+| `EDIT R003` | Open the existing record by ID, ask which field to change, save the replacement **in that record**, and refresh the displayed inventory. |
+| `REMOVE R003` | Ask for explicit confirmation before deleting one existing record; preserve all unrelated entries. |
+| `SAVE` | Produce the current complete **PRIVATE PROJECT Markdown** for user-controlled secure local saving; explain that chat memory is not guaranteed. |
+| `LOAD` / `RESUME` | Accept the user's own previously saved project `.md`, validate its schema and existing record IDs, report a summary, then continue from the last incomplete question. Never silently merge two versions. |
+| `EXPORT WILL` / `EXPORT HANDOVER` | Make a **separate** will-review document or private handover record from the current project. Will export excludes account/provider inventory and confidential data. |
 | `EXPORT` | Produce only the chosen section's complete Markdown, with a **REVIEW / PRIVATE / EDUCATIONAL** label. Put the two protocol links once in the footer, never between the title and the actual contents. |
 | `COMPARE` | Give a fair side-by-side comparison appropriate to the chosen section. |
 | `SOURCES` | Show authoritative links, their dates and uncertainties. |
@@ -138,23 +147,99 @@ A couple owns a mortgage-free home as **joint tenants**, has savings and two adu
 
 **Aim:** Leave a practical map for a survivor or executor so they can find records, keep bills paid and contact the correct organisations without searching years of email. This record should be **private**, updated periodically and **separate from the signed will**. A probated will may become a public record.
 
-### The short family inventory
+### Editable provider and location inventory (working list, not a finished table)
 
-Ask for **provider name/type and where the official information lives**, not account numbers or passwords. Collect gradually, with `SKIP` permitted:
+**The inventory is an editor, not a report.** Display a compact table with **Category | Provider / record | Location / notes | Household use | Edit**. A record title may itself be the clickable edit link. **Edit** opens the same record; **Add record** starts a new one. In a plain Markdown/AI chat show the stable record ID and accept `EDIT R001`; don't print pretend buttons that cannot work.
 
-| Area | Record only what helps people find it |
+Start with blanks, rather than fictional personal records or the example accounts from a screenshot. Ask if the user wants to add a **bank**, **ISA/savings**, **pension**, **property**, **insurance**, **utility**, **digital provider**, **person/contact** or **other document**. Ask one provider at a time. Multiple accounts at one bank and multiple pensions at one provider are separate records if it helps the family distinguish them. A user may leave any field as **Not yet found** and continue later.
+
+| Field | What to record |
 | --- | --- |
-| Signed will | Original location, storage provider, trusted executor aware of it |
-| Property | Address stored privately, owner/title category, where deeds/insurance are kept |
-| Banks and cash | Provider names, account type, which bills each account pays; no full numbers |
-| Savings/investments | ISA providers, NS&I, stockbroker, shares, bonds and record locations |
-| Pensions | Workplace schemes, SIPP/defined contribution or defined benefit, provider names, nominations location and employer contacts |
-| Protection | Life insurance, death-in-service, income protection and beneficiaries/policy document locations |
-| Bills | Council Tax, energy, water, internet, mobile, insurance, car, memberships, subscriptions, standing orders |
-| Income and tax | Employer, State Pension, other pension, accountant if any, relevant filing locations |
-| Digital life | Main email/cloud, phone/computer inventory, password-manager **product and emergency-access procedure location**; no secrets |
-| People and wishes | Executors, family contacts, pet carer, funeral preferences in a separate letter of wishes |
-| Household continuity | How the survivor will lawfully pay essentials if an individual bank account is frozen |
+| Record ID | Stable local `R001`, `R002`, etc. Never renumber on sort or deletion. |
+| Category | Bank, ISA, pension, property, utility, insurance, digital, person, other. |
+| Provider and product | Name of organisation and account/scheme **type** (current account, Cash ISA, SIPP, workplace pension etc.). |
+| Reference | **Last 4 characters only** or an existing document nickname. For pensions, optional scheme-name or redacted policy reference. |
+| What it is for | Household bills, savings, pension income, life insurance, property title etc. |
+| Paper/digital location | Where the actual statements, policy or letter are found (e.g. labelled filing cabinet or secure offline vault). Avoid public URLs containing secrets. |
+| Person to contact | Customer-service/bereavement department or family contact if known; optional. |
+| Next action / status | `To find`, `Needs checking`, `Found` or `Reviewed`; date reviewed. |
+
+**Privacy:** an account *number* is not a password, but combining a full account number, sort code, address and personal details in an unencrypted file increases risk. By default collect only the provider, product, last four digits and where to find the real document. If the executor needs full numbers, keep them separately in a **securely stored original statement or encrypted record**, not in this plaintext Markdown, public will, AI chat or GitHub. Never request PINs, security answers, login recovery codes or passwords.
+
+#### Row actions: the standard editor flow
+
+1. **View:** show a concise table with `Edit` beside every record; show **Add another** underneath. Avoid extra buttons for explanatory material.
+2. **Edit R003:** present the record's existing values in input fields; let the user correct the provider, type, short reference, document location, purpose, notes or status, and leave other fields unchanged.
+3. **Save:** validate and update **only R003**; preserve its ID and existing other records. Return to the inventory, with `R003 — Updated` and an **Unsaved changes** marker until the private project file is saved.
+4. **Cancel:** discard only this edit; do not change the inventory.
+5. **Delete:** require an explicit confirmation before removing the chosen record. Do not delete the whole project because one record is blank.
+6. **Add another:** start the appropriate category again, retaining previously added accounts and pensions.
+
+When a category is selected, prefer buttons for answer choices (e.g. `Bank`, `ISA`, `Pension`, `Other`); use labelled text inputs for names, providers, numbers-as-redacted-reference and free-form notes. Helpful **What is an ISA?** / **How do pension nominations work?** text links open independently, never advance the form.
+
+**Required future HTML behaviour:** On desktop, activate `Edit` in **one** approximately 900 × 760 resizable, scrollable, centred secondary window. The editor receives the chosen record **in memory** from the parent app, not in a query string; it returns the edited record securely to the original page and closes only when the update is acknowledged. Validate same-origin messages and identifiers; do not send information to any third party. On mobile, prefer an accessible full-screen editor or ordinary new tab, never force desktop popup dimensions. If a popup is blocked, offer an in-page editor. Preserve main-page state and existing rows. Browser support is a test requirement, not a claim that this static Markdown already implements these windows.
+
+#### Example inventory (fictional, no real personal details)
+
+| Category | Provider / record | Storage location | Household purpose | Edit in app / chat command |
+| --- | --- | --- | --- | --- |
+| Signed will | Original signed document | Home safe, executor informed | Legal document | `Edit R001` |
+| Bank | Example Building Society, current account, ending `0000` | Statements folder | Household bills | `Edit R002` |
+| Pension | Example Pension Scheme, workplace pension | Pension correspondence folder | Review nomination | `Edit R003` |
+| Pension | Another Example Pension Scheme | Online document vault reference | Find scheme statement | `Edit R004` |
+
+These placeholders are **examples only**. They must never be prefilled as real people’s banks, pensions or account numbers. The inventory display must make each row editable before final export.
+
+### Save, reopen and resume a week later (PRIVATE PROJECT Markdown)
+
+The working project is a user-controlled **local, private** Markdown file, proposed name `my-make-a-will-private.md`. It records progress on **all four sections** and the inventory. It is **not the legal will** and should never be uploaded to a public GitHub repository. A later executor-friendly handover is generated separately.
+
+- **Start:** create a blank project. Do not require all details on day one. Mark missing items `To find`.
+- **After each edit:** update the browser's working copy; show **Unsaved changes** if it has not been explicitly saved. Warn before leaving with unsaved edits where browsers allow.
+- **Save:** offer **Save private Markdown**. Where supported, the browser may write to a user-chosen file after explicit permission; on mobile or unsupported browsers, download a fresh `.md` and tell the user to replace their private previous copy. No cloud account is required. Do **not** secretly store full records in localStorage/sessionStorage or upload them to a server.
+- **Open later:** **Open saved Markdown** through a user-selected local file picker, validate `schema` and version, show current records and unfinished questions, and continue. If the file cannot be parsed, display a clear error and preserve the existing session.
+- **Conflicting files:** when loading a second version, show date, record count and last-modified information and ask whether to replace the current session. Never silently merge or overwrite user work.
+- **Export:** permit `Export will review`, `Export family handover`, `Export executor checklist`, `Export legacy discussion brief` and browser **Print / Save as PDF** as separate outputs. Only the private handover contains provider/location inventory. Do not include banking details in a will review or a public-facing PDF.
+- **Sign:** printing/exporting a PDF does **not** sign a will or satisfy the England-and-Wales witness formalities. There is **no general mandatory government will-registration step**. The signed original document, properly executed under current law, must be accessible to executors.
+
+##### Private project file format v0.1 (example skeleton)
+
+This is still one `.md` document. The short JSON data block makes the app's **Save → Open** reliable without trying to parse an arbitrary formatted table. The machine-readable block is the source of truth; the visible summary is regenerated from it. No proprietary AI, hosted database or spreadsheet is necessary. The data shown here is fictional.
+
+~~~text
+# My Make a Will — PRIVATE WORKING PROJECT
+PRIVATE • NOT A SIGNED WILL • NOT TO BE PUBLISHED
+Last saved: [ISO date/time]
+
+## Progress
+- Make a Will: in progress, next question 4
+- Family Handover: 3 records found, 2 to find
+- DIY Probate: not started
+- Build the Family Legacy: not started
+
+<!-- ALETHEIA_MAKE_A_WILL_DATA_BEGIN -->
+{
+  "schema": "aletheia-make-a-will-private",
+  "version": "0.1",
+  "lastSaved": "2026-11-18T19:00:00Z",
+  "sectionProgress": {"will": 4, "handover": 2, "probate": 0, "legacy": 0},
+  "willAnswers": {},
+  "records": [
+    {"id": "R001", "category": "bank", "provider": "Example Building Society",
+     "product": "current account", "referenceLast4": "0000",
+     "documentLocation": "home filing cabinet", "purpose": "household bills",
+     "status": "To find", "reviewed": ""}
+  ],
+  "probateChecklist": {},
+  "legacyNotes": {}
+}
+<!-- ALETHEIA_MAKE_A_WILL_DATA_END -->
+
+## Human-readable summary
+Regenerate this section after every Save from the block above.
+~~~
+
+**Parsing/security:** HTML app loads the user-selected Markdown file, extracts only the uniquely marked JSON block, validates supported schema/version, expected field types, unique record IDs, size and allowable lengths; it treats all strings as *text*, never HTML or scripts. No data is sent in URLs. Keep an in-memory working state and explicit user-owned Save/Open. An AI chat cannot write files directly unless its host has file-generation tools, so it must provide the full copyable project text and explain how to save it.
 
 ### Emergency handover envelope
 
@@ -177,7 +262,7 @@ If a mortgage unexpectedly exists, ask the lender's **bereavement team** about t
 
 ### Output 2A: PRIVATE handover checklist
 
-Generate a separate Markdown document with only named provider categories, record locations, trusted contacts and an action list. Put `PRIVATE — STORE SECURELY — NO PASSWORDS` at the top; include both protocol links. Provide a `Last reviewed` date and recommend reviewing after major life events and at least annually. If the AI is unable to store it safely, it must say so and offer a copyable blank template instead.
+Generate a **separate** private Markdown *handover export* containing the current record summary, document locations, trusted contacts and actions, and no secrets. Put `PRIVATE — STORE SECURELY — NO PASSWORDS` at the top and the protocol links in its discreet footer; include `Last reviewed`. **The source project remains editable after export**, with working Save/Open and record IDs. The app must offer another Save whenever a record changes. If the AI cannot create a saved file, return a copyable project document and do not claim it persists.
 
 ---
 
@@ -342,6 +427,9 @@ Use this across the four modules, but don't open with tax calculations. **Lawful
 
 ### Acceptance criteria for the Markdown system
 
+**New v0.1 editable-workflow tests:** A user can `ADD BANK`, add two separate pension records at the same provider, `EDIT R003` without changing R004, cancel a modification, delete only after confirmation, and `SAVE` a complete project file; an app can then `LOAD` it and resume at the next incomplete question days later. The table has an **Edit** control per row. Bank references are truncated to last four; no credentials or full bank numbers are collected. `EXPORT WILL` contains no private banking inventory; `EXPORT HANDOVER` does. PDF/print is explicitly **not legally signed or registered**. Parent window remains unchanged while desktop record editor opens; mobile/blocked popups have accessible fallback. No session persistence is claimed without a successfully saved local file.
+
+
 - [ ] A fresh AI can run the four-section menu with no app/agent/API.
 - [ ] Most conversations proceed one question at a time; `SKIP/BACK/SUMMARY/EXPORT` are available.
 - [ ] Four **distinct** Markdown output types, with any protocol credits in a small footer, not prominent headings.
@@ -389,11 +477,14 @@ Use this across the four modules, but don't open with tax calculations. **Lawful
 
 ---
 
-## 8. Aletheia Improve implementation and verification
+## 8. Aletheia Improve handover and release checks
 
-**Current deliverable:** this **Markdown system** is the source of truth for the four-section workflow. No UI work is included in this stage. A prior GitHub HTML prototype exists in `KarstenEvans/aletheia-app/aletheia-make-a-will/`; it must not be treated as newly approved or as the source of truth when the owner later requests an Improve run.
+**Current change request, 18 November 2026:** The user found that the completed Master Provider & Location Inventory is not editable and that a several-day estate-planning session needs durable local progress. Implement row-by-row Add/Edit/Cancel/Delete, file-based Save/Open/Resume, a redacted reference field for each bank/ISA/pension, multiple pensions per provider, and separate review/handover exports. Keep version **0.1**, do not automatically modify the HTML in this Markdown-first stage, and do not publish a user's actual private financial entries.
 
-**On a future explicit `Aletheia Improve` request:**
+
+**Current deliverable:** this **Markdown system** is the source of truth for the four-section workflow and editable-inventory requirements. The already published HTML will be reconciled in a separate future app update. A prior GitHub HTML prototype exists in `KarstenEvans/aletheia-app/aletheia-make-a-will/`; it must not be treated as newly approved or as the source of truth when the owner later requests an Improve run.
+
+**On the next authorised Aletheia Improve implementation stage:**
 
 1. Read current repo `AGENTS.md`, `ALETHEIA-SAFE-BOOTSTRAP.md`, `README.md`, `aletheia-GUI.md`, `aletheia-dev.md`, `aletheia-code.md`, `ideas.md`, `tasks.md`, existing target `.md`, `-page.md` and `.htm` **before changing anything**.
 2. Reconcile this final approved Markdown with the previously published HTML; do not erase working behaviour without review.
@@ -414,6 +505,6 @@ Use this across the four modules, but don't open with tax calculations. **Lawful
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) (evidence, provenance, uncertainty) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) (optional considerate tone) · [Aletheia Worldwide AI](https://karstenevans.github.io/aletheia/)
 
-**v0.1 interaction update, 18 November 2026:** GUI/Dev read; answer buttons separated from reading links, which preserve the current question.
+**v0.1 interface contract, 18 November 2026:** GUI/Dev read; answer buttons separated from reading links, which preserve the current question.
 
-**v0.1 formatting correction, 18 November 2026:** The human-facing review sheet starts with the case, not the protocol labels. Footer credits are unobtrusive. This standalone system has not been legally certified or published to GitHub in this revision.
+**v0.1 formatting correction, 18 November 2026:** The human-facing review sheet starts with the case, not the protocol labels. Footer credits are unobtrusive. This system has not been legally certified. Do not commit personal project files or account information to public repositories.
