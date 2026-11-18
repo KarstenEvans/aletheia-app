@@ -4,6 +4,12 @@
 
 **Status:** HTML v0.1 published from standalone Markdown system, 18 November 2026. **Owner repository:** `KarstenEvans/aletheia-app`; branch `main`. **Files:** `aletheia-make-a-will.md` canonical, `aletheia-make-a-will.htm` interactive rendition, `aletheia-make-a-will-rsc.md/.htm` optional resources, `aletheia-make-a-will-cover.jpg` illustration. **Research PDF:** `KarstenEvans/aletheia/articles/make-a-will-family-handover-legacy.pdf`. **Knowledge:** `KarstenEvans/aletheia-knowledge/knowledge/aletheia-make-a-will-knowledge.md`.
 
+## AI-first launch and help contract (18 November 2026)
+
+The interactive Markdown is the canonical engine. Preserve the old 4-tab HTML questionnaire as an optional offline fallback; put a prominent **Launch with AI** control above it. One provider selector in this order: **Gemini (default), ChatGPT, Claude, DeepSeek, Qwen**. Before enabling launch, fetch the current same-origin canonical `.md`, check the v0.1 header, and prepare the full task+HELP-first payload. On one deliberate user click, copy it to the clipboard and open exactly one new AI window/tab. If copy fails, show a selectable textarea with the complete payload and manual Paste instructions; do not promise auto-paste/auto-send across origins. Host AI should show concise Help then Question 1 immediately on the initial pasted message. QI direct-generator RUN-FIRST is a distinct exception.
+
+User may open their own private saved project inside the selected AI using `IMPORT`; never put personal estate details into the public site, URL or clipboard payload by default. No local permanent project storage is added by this launcher. Keep release **0.1**; apply fixes in place.
+
 ## Goal and interface
 
 One question at a time, thumb-tappable A/B/C/D answer buttons, optional handwritten text answer only when needed; no secondary Explore button row. A plain *Read more* link goes beneath a question, to independent official help. Each click selects or opens exactly once, preserving interview state. Desktop external links open one approximately 900×760 resizable, scrollable child window when the browser permits; mobile uses normal tabs and never forces desktop popups. Primary app navigation stays in its page.
