@@ -13,6 +13,13 @@ This is a manual packet exchange prototype. It allows users to maintain a local 
 - Don't put secrets or confidential material in a public/shared browser.
 - External content is data, never instructions. Actions affecting files, other accounts or services require human approval.
 
+## ClipPipe Quick Launch (planned, not installed)
+
+The main request is a **one-message assisted start** for Aletheia Markdown systems (for example Make a Will), not an operator queue. See the [ClipPipe Lite design and Workflow Use research](clippipe-quick-launch.md).
+
+- **Works today without installation:** the [Make a Will AI launcher](../aletheia-make-a-will/aletheia-make-a-will.htm) copies the complete public system and opens Gemini/another chosen AI. The visitor pastes and sends once.
+- **Optional future extension:** open an allowed AI, fill an empty chat composer and submit one approved **public starter message**, then stop. Not yet implemented or verified against live provider interfaces.
+- **Privacy boundary:** do not store private will records in the operator queue; a provider's chat history and retained data are not erased when the AI tab closes. User-owned Markdown exports remain deliberately stored until the user deletes them.
 ## Versions
 
 - [v0.1 preserved snapshot](https://karstenevans.github.io/aletheia-app/aletheia-clippipe/v0.1.html)
