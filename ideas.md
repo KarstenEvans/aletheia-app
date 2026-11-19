@@ -1,5 +1,18 @@
 # Aletheia Apps — Ideas
 
+## Google open-source ideas for Aletheia | 19 November 2026 | PARKED UNTIL LAUNCH
+
+**Owner decision:** Capture the four opportunities below for later review, but **concentrate first on making Swindon.org.uk, the main Aletheia site and Aletheia Apps reliably live, navigable, indexed and visible**. These are **ideas only**, not approval to install software, fork repositories, alter production sites, run extra agents or spend money. Reuse existing apps and existing task owners; free-first, provider-neutral, static/browser-first, KISS. Companion backlog: [root tasks](tasks.md#backlog-google-repositories-four-candidates-19-november-2026).
+
+1. **Elephant–Goldfish: independent AI review chats — P2 after launch.** [Google repository](https://github.com/google/elephant-goldfish-model). Explore one design chat ("Elephant") plus separate context-isolated review chats ("Goldfish") for security, technical feasibility, cost/simplicity and accessibility. Possible owners: existing Aletheia Improve, Beowulf and Thalia workflows. **First test:** a single existing app specification with a small, human-reviewed comparison of independent comments; no new orchestrator, automatic merges or silent external actions. Independent review is a method to test, not proof of accuracy.
+2. **Modern Web Guidance — P2, potentially useful during existing launch QA.** [GoogleChrome repository](https://github.com/GoogleChrome/modern-web-guidance). Read as guidance for faster, accessible, maintainable, browser-native static pages; check proposed changes against actual browser support, existing canonical HTML/Markdown and tested user benefit. Reuse inside existing Site Audit/AI Easy and website audits, not a new app. Consider WebMCP only as experimental future research for ClipPipe; not a dependency or an assumed standard available on users' browsers.
+3. **Google Skills + Stitch Skills — P3.** [Google Skills](https://github.com/google/skills) and [Stitch Skills](https://github.com/google-labs-code/stitch-skills). Borrow *patterns* for versioned, validated reusable agent instructions and a small shared design specification, possibly `DESIGN.md`, after auditing current Aletheia GUI/dev/code and existing Skills. Do not duplicate Skills, clone protected assets or require paid Stitch/service access. Candidate owners: Aletheia Improve, Aletheia Learn and the existing Skills repository.
+4. **MuJoCo — P4 / someday.** [DeepMind MuJoCo](https://github.com/google-deepmind/mujoco). Physics/robotics/3D simulation library. Consider only if a concrete educational, movement or simulation use case exists; not relevant to immediate launch and discoverability. Avoid introducing a heavy engine just for a demonstration.
+
+**Do not confuse these with** Google's [A2UI](https://github.com/a2ui-project/a2ui) (agent-generated interface representation), the existing **Swindon AI4U** and **Aletheia Apps** catalogue pages, or the separately scoped ClipPipe Lite quick-launch work. The four bullets above follow the four-project shortlist agreed in chat. Nothing has been implemented or live-tested by saving this idea.
+
+---
+
 ## AI-PI mascot gifts and sensible print-on-demand pilot (30 October 2026)
 
 **Status: SOURCE-REVIEWED IDEA ONLY. Nothing for sale, no vendor appointed, sample ordered, product artwork approved, trademark cleared or safety certification established.** No new Aletheia app or storefront authorised; reuse the existing Aletheia resource / affiliate infrastructure.
