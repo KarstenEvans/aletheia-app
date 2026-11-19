@@ -1,3 +1,26 @@
+## P0 | LAUNCH AND VISIBILITY FIRST | 19 November 2026
+
+**Current owner focus:** Get **Swindon.org.uk**, **Aletheia (main site)** and **Aletheia Apps** working, discoverable and visible before undertaking the four research experiments below. This is an operational focus/routing note, **not a replacement for existing Priority Task #001 (Worldwide Discover)** or permission to overwrite production. Consult [Swindon tasks](https://github.com/KarstenEvans/SwindonOrgUK/blob/main/tasks.md), this file's existing [publication checklist](#now---publish-the-apps-correctly), and the actual site/repository build guides.
+
+- [ ] Reconcile Swindon.org.uk production/Fasthosts and local working files with its GitHub mirror **before changing homepage or shared navigation**; preserve working features and avoid publishing an incomplete clone.
+- [ ] Inventory and manually verify public entry points: Swindon Home/AI4U/Jobs/News/Resources; Aletheia Home; Aletheia Apps catalogue; high-value app pages. Record canonical visitor URLs, broken links, mobile/desktop/keyboard behaviour and actual deployment status rather than assuming a GitHub commit is live.
+- [ ] Check HTTPS redirects, robots/sitemap/canonical/OG metadata, meaningful headings, crawlable internal links and reciprocal **Swindon AI4U ↔ Aletheia Apps** routes without duplicate thin pages. Submit/inspect Google Search Console and Bing Webmaster evidence only through authorised accounts; measure indexing/queries rather than claiming ranking gains.
+- [ ] Fix verified P0 failures one page at a time, with source-of-truth preservation and owner approval before publication; record before/after results and public URL verification. Keep existing free-first content and working apps ahead of new experimental features.
+- [ ] Review the deferred ideas below **only after** primary front doors and the priority public pages have a documented live/visibility baseline.
+
+## BACKLOG | Google repositories: four candidates | 19 November 2026
+
+**Status:** IDEA CAPTURED; NOT STARTED. Details and source URLs: [Aletheia Apps ideas](ideas.md#google-open-source-ideas-for-aletheia--19-november-2026--parked-until-launch). These research tasks are intentionally **P2–P4**, subordinate to the launch/visibility work above.
+
+- [ ] **P2 — Elephant–Goldfish review chats:** assess a no-install pilot using one existing Aletheia Improve app specification plus independent, fresh-context reviewers (security, code, cost/KISS, accessibility). Record disagreements, source checks, limits and human approval; no automatic code writes or new review app.
+- [ ] **P2 — Modern Web Guidance:** compare Google's browser guidance with one *existing* public page during an already planned accessibility/performance audit. Propose only evidence-backed HTML/CSS/JS changes; verify affected browsers. Record WebMCP as research-only for ClipPipe, not an implementation requirement.
+- [ ] **P3 — Google Skills and Stitch Skills:** review transferable quality checks and design-system documentation against existing Aletheia Skills, GUI/dev/code and Learn. Produce a small recommendation/diff before requesting permission to modify common guidance; no paid vendor lock-in.
+- [ ] **P4 — MuJoCo:** retain reference only. Reassess if a specific 3D physics/robotics/education need is approved, and compare browser/maintenance costs first. No integration task for the current launch.
+
+**Completion rule:** A proposal is not built, a source check is not a live browser test, and a GitHub write is not a deployed website. Do not promote backlog boxes to DONE without actual receipts.
+
+---
+
 ## CLIPPIPE-LITE-QUICK-LAUNCH | 19 November 2026
 
 **Status: SOURCE-RESEARCHED, SPECIFICATION COMMITTED, ASSISTED AUTO-SEND NOT IMPLEMENTED.** Keep existing ClipPipe v0.3.1 and Make a Will v0.1 clipboard launcher working. Canonical scoped design: [ClipPipe Quick Launch](aletheia-clippipe/clippipe-quick-launch.md).
