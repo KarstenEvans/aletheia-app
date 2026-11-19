@@ -1,3 +1,21 @@
+## CLIPPIPE-LITE-QUICK-LAUNCH | 19 November 2026
+
+**Status: SOURCE-RESEARCHED, SPECIFICATION COMMITTED, ASSISTED AUTO-SEND NOT IMPLEMENTED.** Keep existing ClipPipe v0.3.1 and Make a Will v0.1 clipboard launcher working. Canonical scoped design: [ClipPipe Quick Launch](aletheia-clippipe/clippipe-quick-launch.md).
+
+- [x] Review Workflow Use: semantic selector fallback, deterministic one-shot steps, empty composer assertions and repeat-prevention. Source AGPL-3.0: study design, do not copy implementation without licence review.
+- [x] Review Browser Harness: MIT, uses existing logged-in Chrome but needs runtime/Chrome setup. Keep as test/reference tool, not public requirement.
+- [x] Confirm ClipPipe agent-bridge.js already has composer insertion and Send-button logic; ClipPipe operator is a different, persistence-oriented workflow.
+- [x] Keep zero-install clipboard + open-AI route as the default and only currently implemented Make a Will launch.
+- [ ] Prototype OPTIONAL ClipPipe Lite assisted launch in a separate experimental extension build: a user click opens one allowed AI, inserts public starter Markdown and submits exactly once, then relinquishes control. No operator queue, reply capture, n8n, Worker or API.
+- [ ] Use user-specific/provider-specific deterministic input adapters, explicit consent, strict origin/length checks, empty composer precondition, one-time nonce, short timeouts, no duplicated sends.
+- [ ] Mock-test and then real-browser test ChatGPT, Gemini, Claude, DeepSeek and Qwen individually. Preserve manual handoff on mobile/unsupported/blocked cases.
+- [ ] Private records stay in the user's downloaded Markdown, not ClipPipe Lite's localStorage or extension storage.local. Clear only Aletheia-owned pending data. Never claim tab close deletes provider chat history or already downloaded files.
+- [ ] Have a human verify private project export + resumption, and the difference between a draft PDF and a legally executed will.
+
+### DEFERRED | n8n and multi-agent workflow orchestration
+
+- [ ] Investigate n8n Browser MCP, licences, setup burden and multi-AI scheduling ONLY when ClipPipe/Beowulf requires sustained multi-step orchestration. Do not install or integrate it into Make a Will's one-message launcher.
+
 ## MAKE-A-WILL-0.1 | AI-FIRST CLIPBOARD LAUNCH + HELP-FIRST | 18 November 2026
 
 **Status: COMMITTED. SYNTAX AND MOCK-INTERACTION CHECKS PASSED; LIVE GITHUB PAGES, DEVICE TESTS AND RECEIVING-AI PASTE TEST NOT YET VERIFIED.**
