@@ -12,6 +12,14 @@ When a Markdown file is **intended as instructions for an AI**, always place ref
 
 This requirement does **not** apply to human-readable articles, social posts, PDF content or other publications, even when their drafts are saved as Markdown. Protocols may be cited in References, Resources or the footer when relevant.
 
+## App links and visitor-facing entry points
+
+For a **published** Aletheia browser app, provide the visitor's real, directly opening `.htm` or `.html` URL on **GitHub Pages** (normally `https://karstenevans.github.io/aletheia-app/<app-folder>/<app-file>.htm`), or its verified official public domain. Use the actual deployed route and exact filename, not a guessed path.
+
+A `github.com/.../blob/...` link is for **source code**, not an **Open app** link. Label it **View source** when useful. Confirm the public page actually loads before claiming it is live. If only a local prototype or repository draft exists, say **not deployed** and provide a local preview/file instead of inventing a public link.
+
+The app's first screen stays human-facing: title, concise description, primary action/results. Keep source instructions, protocol banners and unrelated slogans out of the opening interface; put optional protocol links in Resources, a menu or the footer.
+
 ## 0. Read the real app before changing it
 
 Before a substantial rebuild:
