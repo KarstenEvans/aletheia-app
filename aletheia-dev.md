@@ -4,17 +4,11 @@
 >
 > **Relationship:** `aletheia-GUI.md` governs common interaction/UX. `aletheia-code.md` remains the small library of reusable named procedures. This file explains how a whole app should be specified, built, tested and handed over.
 
-## Reader-first protocol placement for generated Markdown
+## Protocol references in Markdown intended for AI
 
-**Do not prepend protocol boilerplate to audience-facing output.** Articles, social posts, newsletters, guides and public-facing Markdown start with the title and the actual topic, answer or story. Do not insert either Aletheia or Thalia Protocol links directly after front matter or a heading, and do not add a "mandatory output contract" paragraph to editorial copy.
+When a Markdown file is **intended as instructions for an AI**, always place references to the [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) and [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) at the beginning, after any front matter/title, so the AI can consult them before carrying out the task.
 
-- Protocol links are **not required in ordinary articles or derivative posts**. If materially relevant, put them discreetly in References, Resources or the footer; where not relevant, omit them.
-- Developer specifications, internal checkpoints and app documentation may reference the applicable protocols in technical references/footer sections. Do not impose a blanket requirement to display both URLs in all Markdown.
-- Do not propagate old near-title rules into downloaded/copied Markdown, rendered HTML, AI handoff text, templates or generated articles. Validate reader-facing outputs for intrusive protocol declarations and remove them before release.
-- Continue to preserve source attribution, evidence status, uncertainty, correction history, permission boundaries and human approval in substance, without requiring protocol branding in the reader's opening paragraphs.
-- Keep links untracked when citing a protocol. Existing app-local templates and the older near-title instruction in `ALETHEIA-SAFE-BOOTSTRAP.md` must be reconciled through separately authorised, scoped changes, not silently overwritten.
-
-**Acceptance:** An ordinary article passes without protocol references. If it cites a protocol because the protocol is germane to the subject, a References, Resources or footer location is preferable. A compulsory top-of-article declaration is a failure.
+This requirement does **not** apply to human-readable articles, social posts, PDF content or other publications, even when their drafts are saved as Markdown. Protocols may be cited in References, Resources or the footer when relevant.
 
 ## 0. Start every material app task here
 
@@ -186,7 +180,7 @@ Rules:
 
 1. Establish a small ordered stage register with stable stage IDs and descriptive names. Keep the user's explicit scope, priorities and publication limits.
 2. Write one UTF-8 `.md` per stage using `Aletheia-<sequence>-<stage-description>.md` unless a current project naming convention governs it. Use **Aletheia**, not a speech-to-text spelling variant.
-3. Start with stage/document identity and the substantive result. Include version/status, purpose/scope, typed evidence/observation versus inference/proposal, sources and dates, conflicts/evidence gaps, decisions/actions, actual validation, remaining work and a deterministic resume point. Add protocol URLs only where they materially help, in a technical References/Resources/footer section rather than near the beginning. Do not claim full protocol conformance without the required implementation/review.
+3. Start with stage/document identity and the substantive result. Include version/status, purpose/scope, typed evidence/observation versus inference/proposal, sources and dates, conflicts/evidence gaps, decisions/actions, actual validation, remaining work and a deterministic resume point. For Markdown instructing an AI, include both protocol links at the beginning as required above. Do not claim full protocol conformance without the required implementation/review.
 4. Save the stage through the host's supported persistent artifact/file route where available. Preserve existing identity/version history when revising. Check the actual per-file save outcome; a local path or successful analysis does not prove durable delivery.
 5. Return its real downloadable artifact link and a concise result immediately, then continue authorised work. When a platform offers a file-reference route distinct from workspace downloads, use it as an access fallback if needed. If access is still unavailable, provide the complete Markdown in a copyable block on request and state the unresolved problem without inventing an environment setup requirement.
 6. Before expensive operations or an interruption, persist a **PARTIAL** checkpoint containing the verified work and unresolved queue. On resumption, load the newest completed/partial stage and continue from the first unchecked item; avoid recreating already delivered stages without a reason.
