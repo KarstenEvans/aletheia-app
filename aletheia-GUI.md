@@ -6,18 +6,11 @@
 >
 > **Scope:** this document guides interfaces in `KarstenEvans/aletheia-app`. An individual app's `*-page.md` or app specification may declare justified exceptions.
 
-## Reader-first protocol placement in Aletheia output
+## Protocol references in Markdown intended for AI
 
-**Public-facing content must lead with its subject and useful answer, not a protocol notice.** Articles, social posts, newsletters, educational pages, public guides, captions, infographics and reader-facing Markdown must **not** automatically start with Aletheia/Thalia links, protocol declarations or a "mandatory Markdown output contract".
+When a Markdown file is **intended as instructions for an AI**, always place references to the [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) and [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) at the beginning, after any front matter/title, so the AI can consult them before carrying out the task.
 
-- Do **not** insert either protocol link into an ordinary article merely because Aletheia helped produce it. Protocols are methods and references, not compulsory editorial content.
-- If the article is specifically about either protocol, a relevant citation is appropriate. Otherwise, links may appear discreetly in an app's **Resources**, **References** or **footer** where they genuinely help the reader, **not immediately beneath the title or ahead of the main content**.
-- Human-facing exports and AI prompts must **not** instruct downstream authors to place protocol links at the beginning or reproduce a mandatory declaration. Avoid showing implementation contracts to the audience.
-- Internal canonical specifications, developer records and research checkpoints may cite applicable protocol documentation in a technical references/footer section as needed; neither protocol link is an automatic requirement in every generated Markdown file.
-- Preserve evidence, provenance, uncertainty, approvals, original source links and optional Thalia tone in the actual work, whether or not any protocol URL is displayed. Source citations that support article claims must remain visible and useful.
-- For existing apps and templates that contain the former near-title rule, **flag for scoped migration and update only when authorised**. In particular, the older requirement in `ALETHEIA-SAFE-BOOTSTRAP.md` remains a documented conflict awaiting separate governance review; do not silently edit that file.
-
-**Acceptance:** A public article should pass if it starts with its substantive content and has accurate source citations. Missing Aletheia/Thalia protocol URLs in an ordinary article are **not** a failure. A forced introductory protocol banner or mandatory-output notice **is** a presentation failure.
+This requirement does **not** apply to human-readable articles, social posts, PDF content or other publications, even when their drafts are saved as Markdown. Protocols may be cited in References, Resources or the footer when relevant.
 
 ## 0. Read the real app before changing it
 
@@ -303,7 +296,7 @@ This rule applies to Work, Codex, Claude, Kimi, Manus, Grok, Odysseus and future
 For substantial research, walkabouts, Improve runs and other multi-stage work, expose useful results as they are completed. Do not make the user wait for the whole task before receiving its first usable artifact.
 
 - Use one descriptively named file per stage, for example `Aletheia-01-OpenAI-Partnership.md` or `Aletheia-02-Link-and-Video-Inventory.md`. Use the canonical spelling **Aletheia**.
-- Each file is a complete Aletheia Markdown research/work record, not a placeholder or a chat-only status note. Put the substantive result first, followed by evidence/source links and check dates, material uncertainty/conflicts, proposals or decisions, completed/remaining work and a resumption instruction. Protocol links, if actually relevant, belong in References, Resources or the footer, not near the beginning.
+- Each file is a complete Aletheia Markdown research/work record, not a placeholder or a chat-only status note. Put the substantive result first, followed by evidence/source links and check dates, material uncertainty/conflicts, proposals or decisions, completed/remaining work and a resumption instruction. For an AI-instruction checkpoint, follow the protocol-reference requirement above.
 - Save through the host's supported persistent artifact mechanism where available, verify the save receipt, then present the stage's actual downloadable file link immediately before continuing. A typed path or a promise to create a file is not delivery.
 - Show one short human-readable result alongside the file. Offer the next stage separately; do not bury completed downloads behind a final omnibus report.
 - If file access fails, distinguish creation, saving and user-access verification. Supply a supported native file reference or full copyable Markdown fallback and describe the actual access problem. Do not tell the user that a running task lacks an execution environment without evidence.
@@ -354,7 +347,7 @@ The manifest is a small index, not a replacement for canonical Markdown content.
 - **Aletheia Humour + Thalia:** the Aletheia app stays at `aletheia-humour/`, with interactive sketches in `aletheia-humour/sketches/`. **Thalia owns the reusable humour research**, with `KarstenEvans/thalia-protocol/humour-base/` as the intended home for separate Markdown Humour Methods/Vibes (QI, Dave Allen, Monty Python, Robin Williams, etc.). **Status: planned location, not yet present in the verified Thalia `main` tree.** Sketches are not Humour Vibes, and existing QI prototypes or Mini-AI-Me profiles do not prove a Humour Method has been published.
 - **Manifest and scope:** Static GitHub Pages cannot enumerate directories. Keep an explicit manifest when browsing profiles is required; distinguish **research draft**, **committed Markdown**, **published page**, and **working audio**. Preserve older folder names, HTML links, and browser routes until separately approved and migration-tested.
 
-This is a directory/documentation convention, **not** permission to rename, move, delete or publish older material. Generated Markdown follows the reader-first protocol placement guidance above; no automatic protocol references are required.
+This is a directory/documentation convention, **not** permission to rename, move, delete or publish older material. Protocol references are required at the beginning only for Markdown intended as instructions for AI, as described above.
 
 ## 14. Accessibility basics
 
