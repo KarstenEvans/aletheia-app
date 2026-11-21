@@ -1,0 +1,169 @@
+{
+  "id": "aletheia-chair-foundations-v0.1",
+  "title": "Chair Movement: Calm & Steady",
+  "status": "review-draft",
+  "updated": "2026-10-11",
+  "type": "Seated mobility / gentle flow; not a medical rehabilitation plan or formal Tai Chi qualification",
+  "intro": "Move slowly in a comfortable range. If you have a medical condition, recent injury, changing nerve symptoms, dizziness or balance concerns, ask a qualified health professional which movements suit you. Stop for chest pain, faintness, marked breathlessness or new/worsening neurological symptoms.",
+  "chair": "Choose a strong, stable, non-wheeled chair on a secure floor. Sit with feet supported. Choose a chair and assistance appropriate to your needs; never risk losing balance to meet a posture ideal.",
+  "disclaimer": "General information only. No weight-loss, body-shape, disease-treatment or individual outcome promise.",
+  "sources": [
+    {
+      "name": "NHS sitting exercises",
+      "url": "https://www.nhs.uk/live-well/exercise/sitting-exercises/",
+      "reviewed": "2024-01-18"
+    },
+    {
+      "name": "British Heart Foundation chair-based mobility",
+      "url": "https://www.bhf.org.uk/informationsupport/heart-matters-magazine/activity/chair-based-exercises",
+      "checked": "2026-10-11"
+    },
+    {
+      "name": "NHS activity guidelines for older adults",
+      "url": "https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/",
+      "checked": "2026-10-11"
+    }
+  ],
+  "routines": [
+    {
+      "id": "5",
+      "label": "5-minute sampler",
+      "secs": 42,
+      "rest": 14,
+      "ids": [
+        "hands",
+        "shoulders",
+        "wrists",
+        "march",
+        "ankles"
+      ]
+    },
+    {
+      "id": "10",
+      "label": "10-minute foundations",
+      "secs": 55,
+      "rest": 18,
+      "ids": [
+        "hands",
+        "shoulders",
+        "wrists",
+        "chest",
+        "march",
+        "ankles",
+        "neck",
+        "hands2"
+      ]
+    },
+    {
+      "id": "15",
+      "label": "15-minute gentle flow",
+      "secs": 72,
+      "rest": 25,
+      "ids": [
+        "hands",
+        "shoulders",
+        "wrists",
+        "chest",
+        "march",
+        "ankles",
+        "neck",
+        "hands2",
+        "twist"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "hands",
+      "title": "Soft hand glides",
+      "source": "Original Aletheia Tai Chi-inspired movement",
+      "area": "coordination",
+      "intro": "Sit tall but relaxed. Let both hands drift softly forwards and back at a low, comfortable height.",
+      "cue": "Move smoothly with natural breathing, without lifting the shoulders.",
+      "easier": "Move only the fingers and wrists, or one arm at a time.",
+      "caution": "Avoid lifting an arm above a comfortable height. Skip if shoulder pain increases."
+    },
+    {
+      "id": "shoulders",
+      "title": "Easy shoulder rolls",
+      "source": "BHF chair-based exercise",
+      "area": "shoulders",
+      "intro": "Let your arms rest at your sides. Slowly draw small comfortable circles with your shoulders.",
+      "cue": "Keep the circles small and unhurried.",
+      "easier": "Try a tiny shoulder-blade movement without shrugging.",
+      "caution": "Skip with new or increasing shoulder, neck or arm symptoms."
+    },
+    {
+      "id": "wrists",
+      "title": "Wrist circles",
+      "source": "BHF chair-based exercise",
+      "area": "hands",
+      "intro": "Keep elbows close to your body. Gently circle your hands one way, then the other.",
+      "cue": "Small slow circles are enough.",
+      "easier": "Open and close the fingers instead.",
+      "caution": "Avoid painful wrist angles."
+    },
+    {
+      "id": "chest",
+      "title": "Gentle chest opening",
+      "source": "NHS chest stretch; original simplified wording",
+      "area": "posture",
+      "intro": "Sit upright and let your shoulder blades ease slightly back, without forcing the arms behind you.",
+      "cue": "Open gently, breathe normally, release.",
+      "easier": "Keep your hands on your thighs and imagine your breastbone lifting very slightly.",
+      "caution": "Do not arch the lower back or force painful shoulders."
+    },
+    {
+      "id": "march",
+      "title": "Seated hip marching",
+      "source": "NHS hip marching",
+      "area": "legs",
+      "intro": "Sit supported. Gently lift one knee a little, return the foot to the ground, then alternate.",
+      "cue": "Lower each foot in control, only as high as feels easy.",
+      "easier": "Lift the heel a little rather than the whole foot.",
+      "caution": "Stop if leg weakness, pain or radiating symptoms increase."
+    },
+    {
+      "id": "ankles",
+      "title": "Ankle points and flexes",
+      "source": "NHS ankle stretch / BHF ankle points",
+      "area": "ankles",
+      "intro": "With your foot slightly raised if comfortable, move the toes gently away and then towards you.",
+      "cue": "Alternate feet and avoid holding your breath.",
+      "easier": "Keep the heel on the floor and gently lift the toes.",
+      "caution": "Use a comfortable range, especially with swelling or foot pain."
+    },
+    {
+      "id": "neck",
+      "title": "Optional small neck turns",
+      "source": "NHS neck rotation / BHF head turn",
+      "area": "neck",
+      "optional": true,
+      "intro": "Keep the shoulders relaxed and look a little left, centre, then a little right.",
+      "cue": "Small movements. No rolling the head backwards.",
+      "easier": "Keep the head centred and look side to side with your eyes.",
+      "caution": "Skip with dizziness, new headache, nerve symptoms or neck pain."
+    },
+    {
+      "id": "hands2",
+      "title": "Floating hands flow",
+      "source": "Original Aletheia Tai Chi-inspired movement",
+      "area": "coordination",
+      "intro": "Float one hand forwards while the other returns towards your lap. Alternate slowly.",
+      "cue": "Relax your shoulders and keep hands below a comfortable height.",
+      "easier": "Use just one hand or only your wrists.",
+      "caution": "This is a gentle movement cue, not a clinical or traditional Tai Chi lesson."
+    },
+    {
+      "id": "twist",
+      "title": "Optional tiny upper-back turn",
+      "source": "NHS upper-body twist; intentionally reduced range",
+      "area": "spine",
+      "optional": true,
+      "intro": "If a clinician has said turning is suitable, rotate your upper body only a few degrees left and right.",
+      "cue": "Keep the movement slight, controlled and comfortable.",
+      "easier": "Skip this and repeat soft hand glides.",
+      "caution": "Skip with disc-related symptoms, radiating pain, spinal restrictions or uncertain suitability."
+    }
+  ]
+}

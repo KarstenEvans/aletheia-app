@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#385b50">
+<title>Aletheia Chair Movement | Calm &amp; Steady</title>
+<meta name="description" content="Free Aletheia chair-based guided movement preview: short sessions, optional speech, timer, and source-linked NHS and BHF exercises.">
+<link rel="stylesheet" href="../shared/link-sprites.css">
+<style>
+:root{color-scheme:light;--ink:#172b2b;--soft:#f0f7f3;--edge:#c9d6d1;--green:#306753;--sand:#fff6e4}*{box-sizing:border-box}
+body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:#f6f8f5;color:var(--ink)}
+header{background:#fff;border-bottom:1px solid var(--edge);position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:.8rem max(1rem,calc((100vw - 1020px)/2));gap:1rem}
+a{color:#245744}nav a{font-size:.93rem;font-weight:600}main{max-width:1000px;margin:auto;padding:1.25rem 1rem 3rem}
+h1{font-size:clamp(1.85rem,4.6vw,3.1rem);line-height:1.13;margin:.4rem 0}.lead{font-size:1.1rem;max-width:68ch}
+.card{background:#fff;border:1px solid var(--edge);border-radius:18px;padding:1.15rem;margin:1rem 0;box-shadow:0 4px 18px #213f3010}
+.notice{background:var(--sand);border-left:5px solid #c28f3b}.label{font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:#47645a;font-weight:800}
+.controls{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+button,select{font:inherit;min-height:46px;border-radius:11px;padding:.58rem .88rem}
+button{border:1px solid #526d62;background:#fff;color:var(--ink);cursor:pointer;font-weight:700}
+button.primary{color:#fff;background:var(--green);border-color:var(--green)}
+button:hover{filter:brightness(.94)}button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #d5993d;outline-offset:3px}
+button:disabled{opacity:.45;cursor:not-allowed}label{font-weight:700}select{width:100%;max-width:340px;background:white;border:1px solid var(--edge)}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--green)}.check{display:flex;align-items:center;gap:.55rem;font-weight:500}
+#panel{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:1.3rem;align-items:center}
+#art{border-radius:18px;background:#e9f4ef;border:1px solid #d2e2d9;min-height:285px;display:grid;place-items:center}
+#art svg{width:min(95%,280px);height:auto}.timer{font-size:clamp(3rem,8vw,5.6rem);font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}
+#stepTitle{font-size:clamp(1.5rem,4vw,2rem);line-height:1.22;margin:.3rem 0}progress{width:100%;height:14px;accent-color:var(--green)}
+#status{font-weight:800;color:#245744}#caution{font-weight:600;background:#fff3df;border-radius:9px;padding:.7rem}
+#stepList{list-style:decimal;padding-left:1.5rem}#stepList li{padding:.4rem}#stepList li[aria-current=step]{background:#e6f5e9;font-weight:800;border-radius:8px}
+.small{font-size:.92rem;color:#42574f}footer{border-top:1px solid var(--edge);padding:1rem 0 3rem}
+@media(max-width:650px){#panel{grid-template-columns:1fr}#art{min-height:200px}#art svg{width:190px}.controls button{flex:1 1 110px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><strong>✦ Aletheia Calisthenics</strong><nav><a href="Aleteheia-calistenics.htm">← Cats workout</a> · <a href="Aleteheia-calistenics-rsc.htm">Resources</a></nav></header>
+<main>
+<div class="label">Free course preview · No account · No subscription</div>
+<h1>Chair Movement: Calm &amp; Steady</h1>
+<p class="lead">A gentle, accessible seated-movement draft inspired by publicly available NHS and British Heart Foundation guidance. We keep the useful exercise ideas, not commercial promises.</p>
+<div class="card notice" role="note">
+<strong>Before you begin</strong>
+<p id="safety"></p>
+<p class="small">This is general movement information, not diagnosis, treatment, a physiotherapy prescription or a certified Tai Chi lesson. Get professional advice if you are unsure an exercise is suitable for your medical condition, injuries or symptoms.</p>
+</div>
+<div class="card">
+<label for="routine">Choose your session</label>
+<div class="controls" style="margin:.45rem 0 1rem"><select id="routine"></select><span id="estimate" class="small"></span></div>
+<div class="controls">
+<label class="check"><input id="voice" type="checkbox" checked> Narration on</label>
+<label class="check"><input id="auto" type="checkbox"> Auto-advance after rest</label>
+<label class="check"><input id="optional" type="checkbox"> Include optional neck/upper-back turns</label>
+</div>
+<p class="small">Optional turning movements are off by default. You can skip any exercise. No body measurements are requested or stored.</p>
+</div>
+<section class="card" aria-label="Guided exercise" id="panel">
+<div id="art" aria-label="Original schematic drawing of a person seated in a chair">
+<svg viewBox="0 0 320 320" role="img" aria-labelledby="illtitle"><title id="illtitle">Person seated upright in a stable chair</title>
+<rect x="111" y="170" width="126" height="17" rx="7" fill="#718b7d"/>
+<path d="M111 180V278M232 180V278M108 177V96" stroke="#718b7d" stroke-width="12" stroke-linecap="round"/>
+<circle cx="172" cy="85" r="27" fill="#edbd8c" stroke="#27483b" stroke-width="3"/>
+<path d="M169 115Q146 126 150 177L198 179Q211 141 182 113Z" fill="#57866f" stroke="#27483b" stroke-width="3"/>
+<path d="M152 130L122 159M194 129L225 154" stroke="#edbd8c" stroke-width="15" stroke-linecap="round"/>
+<path d="M160 178L198 204L194 265M176 179L138 209L151 264" stroke="#3a5360" stroke-width="16" stroke-linecap="round" fill="none"/>
+<path d="M190 266h30M150 266h31" stroke="#27483b" stroke-width="12" stroke-linecap="round"/>
+<circle cx="122" cy="160" r="8" fill="#edbd8c"/><circle cx="225" cy="154" r="8" fill="#edbd8c"/>
+<path d="M104 286H250" stroke="#5d7468" stroke-width="3"/>
+<text x="160" y="310" text-anchor="middle" fill="#385b50" font-size="13">Original Aletheia schematic · Not an anatomy guide</text>
+</svg>
+</div>
+<div>
+<div class="label" id="stepCounter">Exercise 1</div><h2 id="stepTitle"></h2>
+<p id="intro"></p><p id="cue"></p>
+<p><strong>Easier option:</strong> <span id="easier"></span></p>
+<p id="caution"></p>
+<div class="label" id="phase">Ready</div><div class="timer" id="timer" aria-live="off">0:00</div>
+<p id="status" role="status" aria-live="polite">Select Start when ready.</p>
+<progress id="progress" max="1" value="0" aria-label="Session progress"></progress>
+<div class="controls" style="margin-top:1rem">
+<button id="prev">← Previous</button><button id="start" class="primary">Start</button><button id="next">Skip / Next →</button><button id="stop">Stop</button>
+</div>
+</div>
+</section>
+<div class="card"><h2>Today's movement list</h2><ol id="stepList"></ol></div>
+<div class="card"><h2>Where this comes from</h2>
+<p>Exercise concepts are adapted in original wording with source attribution; the soft hand-flow prompts are original and described only as <em>Tai Chi-inspired</em>.</p>
+<ul>
+<li><a href="https://www.nhs.uk/live-well/exercise/sitting-exercises/" target="_blank" rel="noopener noreferrer">NHS: Sitting exercises</a> (reviewed 18 January 2024)</li>
+<li><a href="https://www.bhf.org.uk/informationsupport/heart-matters-magazine/activity/chair-based-exercises" target="_blank" rel="noopener noreferrer">British Heart Foundation: Chair-based exercises</a></li>
+<li><a href="https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/" target="_blank" rel="noopener noreferrer">NHS: Physical activity guidelines for older adults</a></li>
+</ul><p class="small">Source check: 11 October 2026. No NHS, BHF or Simple commercial imagery is reproduced. Original line illustration is intentionally schematic.</p>
+</div>
+<section data-aletheia-constellation class="aletheia-constellation" data-as-season="default" aria-label="Aletheia Constellation related sites">
+<div class="aletheia-constellation__head"><h2>Follow the stars ✨</h2><p data-as-description>Explore related Aletheia destinations.</p></div>
+<nav class="aletheia-constellation__links" aria-label="Related Aletheia destinations">
+<a class="aletheia-constellation__link" href="https://www.swindon.org.uk/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✦</span><span>Swindon UK</span></a>
+<a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">★</span><span>Aletheia Apps</span></a>
+<a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-knowledge/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✧</span><span>Aletheia Knowledge</span></a>
+<a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/stories/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">✦</span><span>Stories</span></a>
+<a class="aletheia-constellation__link" href="https://karstenevans.github.io/aletheia-app/Writers/" data-awinignore><span class="aletheia-constellation__sprite" aria-hidden="true">★</span><span>Writers</span></a>
+</nav><p class="aletheia-constellation__note">Useful navigation, not paid adverts.</p></section>
+<footer><a href="Aleteheia-calistenics.htm">Back to Calisthenics with Cats</a> · <a href="Aleteheia-calistenics-rsc.htm">Free resources &amp; Books/Gifts</a><p class="small">Preview on an unmerged review branch. Please check exercises with a suitable health professional when needed. No survey answers, health measurements or account details are requested or transmitted by this page.</p></footer>
+</main>
+<script type="application/json" id="courseData">{
+  "id": "aletheia-chair-foundations-v0.1",
+  "title": "Chair Movement: Calm & Steady",
+  "status": "review-draft",
+  "updated": "2026-10-11",
+  "type": "Seated mobility / gentle flow; not a medical rehabilitation plan or formal Tai Chi qualification",
+  "intro": "Move slowly in a comfortable range. If you have a medical condition, recent injury, changing nerve symptoms, dizziness or balance concerns, ask a qualified health professional which movements suit you. Stop for chest pain, faintness, marked breathlessness or new/worsening neurological symptoms.",
+  "chair": "Choose a strong, stable, non-wheeled chair on a secure floor. Sit with feet supported. Choose a chair and assistance appropriate to your needs; never risk losing balance to meet a posture ideal.",
+  "disclaimer": "General information only. No weight-loss, body-shape, disease-treatment or individual outcome promise.",
+  "sources": [
+    {
+      "name": "NHS sitting exercises",
+      "url": "https://www.nhs.uk/live-well/exercise/sitting-exercises/",
+      "reviewed": "2024-01-18"
+    },
+    {
+      "name": "British Heart Foundation chair-based mobility",
+      "url": "https://www.bhf.org.uk/informationsupport/heart-matters-magazine/activity/chair-based-exercises",
+      "checked": "2026-10-11"
+    },
+    {
+      "name": "NHS activity guidelines for older adults",
+      "url": "https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/",
+      "checked": "2026-10-11"
+    }
+  ],
+  "routines": [
+    {
+      "id": "5",
+      "label": "5-minute sampler",
+      "secs": 42,
+      "rest": 14,
+      "ids": [
+        "hands",
+        "shoulders",
+        "wrists",
+        "march",
+        "ankles"
+      ]
+    },
+    {
+      "id": "10",
+      "label": "10-minute foundations",
+      "secs": 55,
+      "rest": 18,
+      "ids": [
+        "hands",
+        "shoulders",
+        "wrists",
+        "chest",
+        "march",
+        "ankles",
+        "neck",
+        "hands2"
+      ]
+    },
+    {
+      "id": "15",
+      "label": "15-minute gentle flow",
+      "secs": 72,
+      "rest": 25,
+      "ids": [
+        "hands",
+        "shoulders",
+        "wrists",
+        "chest",
+        "march",
+        "ankles",
+        "neck",
+        "hands2",
+        "twist"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "hands",
+      "title": "Soft hand glides",
+      "source": "Original Aletheia Tai Chi-inspired movement",
+      "area": "coordination",
+      "intro": "Sit tall but relaxed. Let both hands drift softly forwards and back at a low, comfortable height.",
+      "cue": "Move smoothly with natural breathing, without lifting the shoulders.",
+      "easier": "Move only the fingers and wrists, or one arm at a time.",
+      "caution": "Avoid lifting an arm above a comfortable height. Skip if shoulder pain increases."
+    },
+    {
+      "id": "shoulders",
+      "title": "Easy shoulder rolls",
+      "source": "BHF chair-based exercise",
+      "area": "shoulders",
+      "intro": "Let your arms rest at your sides. Slowly draw small comfortable circles with your shoulders.",
+      "cue": "Keep the circles small and unhurried.",
+      "easier": "Try a tiny shoulder-blade movement without shrugging.",
+      "caution": "Skip with new or increasing shoulder, neck or arm symptoms."
+    },
+    {
+      "id": "wrists",
+      "title": "Wrist circles",
+      "source": "BHF chair-based exercise",
+      "area": "hands",
+      "intro": "Keep elbows close to your body. Gently circle your hands one way, then the other.",
+      "cue": "Small slow circles are enough.",
+      "easier": "Open and close the fingers instead.",
+      "caution": "Avoid painful wrist angles."
+    },
+    {
+      "id": "chest",
+      "title": "Gentle chest opening",
+      "source": "NHS chest stretch; original simplified wording",
+      "area": "posture",
+      "intro": "Sit upright and let your shoulder blades ease slightly back, without forcing the arms behind you.",
+      "cue": "Open gently, breathe normally, release.",
+      "easier": "Keep your hands on your thighs and imagine your breastbone lifting very slightly.",
+      "caution": "Do not arch the lower back or force painful shoulders."
+    },
+    {
+      "id": "march",
+      "title": "Seated hip marching",
+      "source": "NHS hip marching",
+      "area": "legs",
+      "intro": "Sit supported. Gently lift one knee a little, return the foot to the ground, then alternate.",
+      "cue": "Lower each foot in control, only as high as feels easy.",
+      "easier": "Lift the heel a little rather than the whole foot.",
+      "caution": "Stop if leg weakness, pain or radiating symptoms increase."
+    },
+    {
+      "id": "ankles",
+      "title": "Ankle points and flexes",
+      "source": "NHS ankle stretch / BHF ankle points",
+      "area": "ankles",
+      "intro": "With your foot slightly raised if comfortable, move the toes gently away and then towards you.",
+      "cue": "Alternate feet and avoid holding your breath.",
+      "easier": "Keep the heel on the floor and gently lift the toes.",
+      "caution": "Use a comfortable range, especially with swelling or foot pain."
+    },
+    {
+      "id": "neck",
+      "title": "Optional small neck turns",
+      "source": "NHS neck rotation / BHF head turn",
+      "area": "neck",
+      "optional": true,
+      "intro": "Keep the shoulders relaxed and look a little left, centre, then a little right.",
+      "cue": "Small movements. No rolling the head backwards.",
+      "easier": "Keep the head centred and look side to side with your eyes.",
+      "caution": "Skip with dizziness, new headache, nerve symptoms or neck pain."
+    },
+    {
+      "id": "hands2",
+      "title": "Floating hands flow",
+      "source": "Original Aletheia Tai Chi-inspired movement",
+      "area": "coordination",
+      "intro": "Float one hand forwards while the other returns towards your lap. Alternate slowly.",
+      "cue": "Relax your shoulders and keep hands below a comfortable height.",
+      "easier": "Use just one hand or only your wrists.",
+      "caution": "This is a gentle movement cue, not a clinical or traditional Tai Chi lesson."
+    },
+    {
+      "id": "twist",
+      "title": "Optional tiny upper-back turn",
+      "source": "NHS upper-body twist; intentionally reduced range",
+      "area": "spine",
+      "optional": true,
+      "intro": "If a clinician has said turning is suitable, rotate your upper body only a few degrees left and right.",
+      "cue": "Keep the movement slight, controlled and comfortable.",
+      "easier": "Skip this and repeat soft hand glides.",
+      "caution": "Skip with disc-related symptoms, radiating pain, spinal restrictions or uncertain suitability."
+    }
+  ]
+}</script>
+<script>
+"use strict";
+(function(){
+const course=JSON.parse(document.getElementById("courseData").textContent);
+const $=id=>document.getElementById(id);
+const lookup=Object.fromEntries(course.exercises.map(e=>[e.id,e]));
+let list=[],index=0,phase="idle",remaining=0,deadline=0,ticker=null,speechToken=0;
+let session=$("routine").value||"5";
+function routine(){return course.routines.find(r=>r.id===session)||course.routines[0]}
+function setText(id,t){$(id).textContent=t}
+function clock(s){s=Math.max(0,Math.ceil(s));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function releaseSpeech(){speechToken++;if("speechSynthesis" in window){try{window.speechSynthesis.cancel()}catch(_){}}}
+function clearClock(){if(ticker){clearInterval(ticker);ticker=null}}
+function speak(message,done){
+ const t=++speechToken;
+ if(!$("voice").checked||!("speechSynthesis" in window)){done();return}
+ try{
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(message);u.lang="en-GB";u.rate=.92;
+  u.onend=()=>{if(t===speechToken)done()};
+  u.onerror=()=>{if(t===speechToken)done()};
+  window.speechSynthesis.speak(u);
+ }catch(e){done()}
+}
+function setPhase(p,message){phase=p;setText("phase",p==="work"?"Move gently":p==="rest"?"Rest":p==="paused"?"Paused":p==="done"?"Complete":"Ready");setText("status",message)}
+function prepare(){
+ clearClock();releaseSpeech();
+ const r=routine();list=r.ids.map(id=>lookup[id]).filter(e=>e&&(!e.optional||$("optional").checked));index=0;remaining=r.secs;setPhase("idle","Press Start when ready.");paint()
+}
+function paint(){
+ const r=routine(),e=list[index];
+ if(!e){setPhase("done","Session complete. Thank you for moving.");setText("stepTitle","All done");return}
+ setText("stepCounter","Movement "+(index+1)+" of "+list.length);
+ setText("stepTitle",e.title);setText("intro",e.intro);setText("cue",e.cue);
+ setText("easier",e.easier);setText("caution",e.caution);
+ setText("timer",clock(remaining||r.secs));
+ $("progress").max=list.length;$("progress").value=Math.min(index,list.length);
+ $("stepList").innerHTML="";
+ list.forEach((x,i)=>{const li=document.createElement("li");li.textContent=x.title;if(i===index)li.setAttribute("aria-current","step");$("stepList").appendChild(li)});
+ $("prev").disabled=index===0;$("next").disabled=index>=list.length-1&&phase==="done";
+ $("start").textContent=phase==="paused"?"Resume":phase==="work"||phase==="rest"?"Pause":phase==="done"?"Restart":"Start";
+}
+function enter(){
+ if(!list[index]){finish();return}
+ clearClock();releaseSpeech();
+ const e=list[index];remaining=routine().secs;setPhase("intro","Listen to the setup, or use Skip / Next.");paint();
+ speak(e.title+". "+e.intro+" "+e.cue,()=>{if(phase==="intro"){remaining=routine().secs;setPhase("work","Move gently. You can pause or skip.");runClock()}});
+}
+function runClock(){clearClock();deadline=Date.now()+remaining*1000;ticker=setInterval(()=>{
+ remaining=Math.max(0,(deadline-Date.now())/1000);
+ setText("timer",clock(remaining));
+ if(remaining<=0){clearClock();if(phase==="work")rest();else if(phase==="rest")restDone()}
+},250);paint()}
+function rest(){releaseSpeech();remaining=routine().rest;setPhase("rest","Rest and breathe normally.");runClock()}
+function restDone(){
+ if(index===list.length-1){finish();return}
+ index++;remaining=routine().secs;
+ setPhase("idle","Rest finished. Press Start for the next movement.");paint();
+ if($("auto").checked)enter()
+}
+function finish(){
+ clearClock();releaseSpeech();remaining=0;setPhase("done","You have completed the session. Stop if you feel unwell.");$("progress").value=list.length;paint()
+}
+function pause(){
+ if(phase==="intro"){releaseSpeech();setPhase("idle","Narration stopped. Press Start to try again.");paint();return}
+ if(phase==="work"||phase==="rest"){remaining=Math.max(0,(deadline-Date.now())/1000);const from=phase;clearClock();releaseSpeech();setPhase("paused","Paused during "+from+". Press Resume.");$("start").dataset.pausedFrom=from;paint()}
+}
+function resume(){if(phase==="paused"){setPhase($("start").dataset.pausedFrom||"work","Resumed. Move at your own pace.");runClock()}}
+function next(n){if(n>0&&index===list.length-1){finish();return}clearClock();releaseSpeech();index=Math.max(0,Math.min(list.length-1,index+n));remaining=routine().secs;setPhase("idle","Ready for "+list[index].title+". Press Start.");paint()}
+for(const r of course.routines){let o=document.createElement("option");o.value=r.id;o.textContent=r.label;$("routine").appendChild(o)}
+function updateEstimate(){const r=routine(),n=r.ids.filter(id=>!lookup[id]?.optional||$("optional").checked).length;setText("estimate","Approximately "+Math.ceil(n*(r.secs+r.rest)/60)+" minutes with rests")}
+$("safety").textContent=course.chair+" "+course.intro;
+$("routine").onchange=e=>{session=e.target.value;prepare();updateEstimate()};
+$("optional").onchange=()=>{prepare();updateEstimate()};
+$("voice").onchange=()=>{if(!$("voice").checked){releaseSpeech();if(phase==="intro"){setPhase("work","Narration off. Move gently.");runClock()}}};
+$("start").onclick=()=>{if(phase==="work"||phase==="rest"||phase==="intro")pause();else if(phase==="paused")resume();else if(phase==="done"){prepare();enter()}else enter()};
+$("next").onclick=()=>next(1);$("prev").onclick=()=>next(-1);
+$("stop").onclick=()=>{prepare();setText("status","Stopped. You can restart whenever ready.")};
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&(phase==="work"||phase==="rest"||phase==="intro"))pause()});
+session="5";$("routine").value=session;prepare();updateEstimate();
+})();
+</script>
+<script src="../shared/link-sprites.js" defer></script>
+</body>
+</html>
