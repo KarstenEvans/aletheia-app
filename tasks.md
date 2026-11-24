@@ -21,6 +21,18 @@
 
 ---
 
+## SCOUT | 24 November 2026 | approved research and editorial follow-up
+
+Research notes committed; no implementation or deployment inferred. P0 launch remains first. Reuse existing owners and task records rather than create five new apps.
+
+- [x] S1 research update in [ClipPipe Lite design](aletheia-clippipe/clippipe-quick-launch.md); existing Modern Web Guidance P2 backlog remains the implementation gate.
+- [x] S2 optional exercise in [AI Fluency follow-on course](aletheia-learn/Aletheia-AI-course.md); AI-506 updated in canonical Knowledge.
+- [x] S3 informative invariant research in [Secure Development draft](https://github.com/KarstenEvans/aletheia-protocol/blob/main/Aletheia-secure-development.md); no protocol adoption.
+- [x] S4 extend AI-514, existing AK-093 CAD diagnostic idea and advanced Learn exercise; not a new CAD app.
+- [x] S5 optional scientific prediction exercise in [existing Aletheia Go Discussions](https://github.com/KarstenEvans/aletheia/blob/main/DISCUSSIONS.md).
+- [ ] Review five original Tomorrowman PDF editorial drafts (invisible website, jagged frontier, software proof, visual engineering evidence, chemistry vs biology); publish only after owner review and verify live links separately.
+- [ ] Run scoped experiments and course/browser QA; record actual results and limitations. No automatic implementation or paid services.
+
 ## CLIPPIPE-LITE-QUICK-LAUNCH | 19 November 2026
 
 **Status: SOURCE-RESEARCHED, SPECIFICATION COMMITTED, ASSISTED AUTO-SEND NOT IMPLEMENTED.** Keep existing ClipPipe v0.3.1 and Make a Will v0.1 clipboard launcher working. Canonical scoped design: [ClipPipe Quick Launch](aletheia-clippipe/clippipe-quick-launch.md).
