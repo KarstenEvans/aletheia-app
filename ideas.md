@@ -1,5 +1,20 @@
 # Aletheia Apps — Ideas
 
+## Shared speaking-avatar and character animation engine | 24 November 2026 | DEFERRED IDEAS E–H
+
+**Owner decision:** Record these four proposals as ideas only, separate from the approved AI knowledge, courses, research and SCOUT development. No implementation, production changes, purchases, paid API use or publication of personal likenesses authorised. Retain launch priorities and KISS, free-first, provider-neutral, browser-first design.
+
+- **E — Aletheia Avatar Engine:** Explore one optional shared HTML Canvas/SVG/JavaScript renderer using a consistent base portrait and reusable mouth (viseme), eye, eyebrow and expression assets. Compare timed speech analysis (e.g. Rhubarb Lip Sync) with simpler amplitude-driven animation as a baseline. Generate assets once, then animate locally; avoid generating every frame with an AI API. GIF is silent; synchronise audio in the browser or optionally export WebM/MP4. Assess language-dependent phoneme/viseme mapping, coarticulation, timing, accessibility, reduced-motion controls, CPU/memory and asset size.
+- **F — Storyteller:** Reuse the shared engine with existing cue IDs, narration, character voices, illustrations and camera instructions. Optional animated speaking characters and expressions; preserve still-image mode, captions and existing playback.
+- **G — Mini-AI-Me:** Optional personalised speaking avatar using user-approved portraits and voice. Keep personal likeness/audio local/private by default; explicit consent before external processing or publication. Do not modify the existing interview, memory format or questionnaire.
+- **H — Thalia and AI-PI:** Reuse the engine for humorous delivery, pauses, punchlines and listening/thinking/searching/speaking/reaction states. Do not modify the Thalia Protocol or claim animation states represent internal AI cognition.
+
+**Research leads:** [OpenAI Images 2.6](https://openai.com/index/introducing-images-2-6/), [Rhubarb Lip Sync](https://github.com/DanielSWolf/rhubarb-lip-sync), [Microsoft viseme documentation](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-speech-synthesis-viseme), [Piper](https://github.com/OHF-Voice/piper1-gpl), [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API), [FFmpeg](https://ffmpeg.org/). Check current licences, platform support, costs and permissions before adoption. The observed literal marker `<|lbr_audio_######|>` has unknown provenance; do not assume it is a phoneme representation, documented API or usable audio stream.
+
+**Future decision gate:** After separate build approval, prototype one original AI-PI character with a small reusable asset set and a short consented or synthetic audio sample. Compare timed mouth animation with the baseline; test browser compatibility, synchronisation, accessibility, resource usage and privacy. Only consider F/G/H integration if the isolated prototype demonstrably works and adds value without mandatory hosting or subscriptions. No implementation or tests claimed by this entry.
+
+---
+
 ## Google open-source ideas for Aletheia | 19 November 2026 | PARKED UNTIL LAUNCH
 
 **Owner decision:** Capture the four opportunities below for later review, but **concentrate first on making Swindon.org.uk, the main Aletheia site and Aletheia Apps reliably live, navigable, indexed and visible**. These are **ideas only**, not approval to install software, fork repositories, alter production sites, run extra agents or spend money. Reuse existing apps and existing task owners; free-first, provider-neutral, static/browser-first, KISS. Companion backlog: [root tasks](tasks.md#backlog-google-repositories-four-candidates-19-november-2026).
