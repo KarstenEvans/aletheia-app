@@ -1,6 +1,6 @@
 ---
 title: Aletheia Course Vibe
-version: 0.2.0
+version: 0.2.1
 status: draft for practical testing
 updated: 2026-11-24
 ---
@@ -15,13 +15,16 @@ General-purpose provider-neutral instructional writing skill. Design or improve 
 1. Establish audience, existing competence, practical goal, constraints and observable learning outcomes. Do not infer ability from age. Offer accessibility and adjustable pace.
 2. Inventory actual existing course content; reuse before adding. Separate durable principles from dated provider-specific features.
 3. Read source materials, recording provenance, scope, uncertainty and inaccessible sections. Compare transcript, slides and independent notes separately; distinguish observed technique from inference. Do not copy protected slides or access paid labs without permission. Free access is not a reproduction licence.
-4. Run one bounded Go Walkabout per source when requested: anchor, five lenses, up to three distinct leads, verify, challenge, return, stop. Explore before evaluating. Apply Premature Evidence Closure guidance: not found is not false; user testimony is evidence of a report, not automatically proof of its content. Search alternative terminology, test both directions, state limits and stop proportionately. Never retain disproven claims as facts.
+4. Use the existing bounded Go Walkabout when requested; do not expand its remit into investigating every unresolved dot. Keep exploration, parking possibilities, and evidence checking distinct. Apply the Open Possibility Principle below independently of Go Walkabout.
 5. Design coherent modules with prerequisite order and clear outcomes. Start with welcome and HELP; teach before testing. Use familiar tasks and original examples. Compare weak and improved approaches, show why, explain the principle, let learner practise, give feedback, retry, transfer to a different case, check independently.
 6. Use Aletheia Learn's H0–H5 Hint Ladder and mastery states NEW, SUPPORTED, INDEPENDENT, TRANSFERRED, REVIEWED. Separate task output from demonstrated learning; retain accessibility aids unrelated to the tested skill. No forced pre-test.
 7. Apply Writing Vibe and Humanizer (if actually loaded): conversational, precise, natural rhythm, no unnecessary repetition or manufactured anecdotes. Thalia humour optional, appropriate and never at the learner's expense.
 8. Slides: one idea per slide; assertion title, purposeful original diagram or example, progressive disclosure, readable contrast, alt text, notes for narration, accessible text alternative. Attribute inspiration; do not imitate branding or reproduce slide assets without licence.
 9. Check each consequential factual claim against appropriate primary evidence; label current provider/date, source scope, unverified details, and uncertainty. Teach next-token prediction, self-supervised learning, retrieval versus model knowledge, hallucinations, sycophancy, privacy, consent, prompt injection and human verification at relevant points. No unsupported AGI timelines or universal claims about model capabilities.
 10. Evaluate using actual learning evidence: accuracy, context, neutrality, verification, iteration, transfer, safety and usefulness. Pilot with learners and across available AI hosts; record observed outcomes, not assumed success. Revise versioned Markdown after review.
+
+## Aletheia Open Possibility Principle (owner-approved for course teaching, 2026-11-24)
+Do not rule out a possibility solely because supporting evidence has not been found. An unresolved possibility may be acknowledged, labelled UNVERIFIED and parked without immediate investigation. Retain potentially useful dots when proportionate, and return only if a meaningful connection, new evidence or practical need emerges. PARKED is a workflow state, not an evidence verdict. User testimony can be considered without treating its content as established fact. Do not mistake uncertainty for truth or preserve refuted claims as facts. No obligation to investigate every dot; no indefinite search. Where a material claim actually needs resolution, use the existing evidence-checking guidance proportionately. Teach this in AI prompting with a worked contrast and transfer exercise. This is separate from Go Walkabout, which remains unchanged. Proposed for future core protocol review; not a normative protocol amendment.
 
 ## Lesson template
 - Title and observable outcome
