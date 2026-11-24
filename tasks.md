@@ -1355,3 +1355,11 @@ The owner explicitly retained the ChatGPT-hosted copy as a test site. It remains
 
 **Resume point:** Open these two deferred ideas, inspect the then-current shared GUI/dev/protocol files and the relevant app's actual source; select the *smallest* proof-of-concept and obtain any needed permission before writes or deployment.
 
+
+## AI-SENIORS-20261124 | Course Vibe pilot
+- [x] Inspect seven public course/resource landing pages supplied by owner.
+- [x] Publish Course Vibe 0.2.1 with independent Open Possibility Principle; leave Go Walkabout unchanged.
+- [x] Update Learn to 0.1.5 and publish AI for Seniors 0.1.0 Markdown pilot.
+- [ ] Test course in two AI hosts and with learners; verify accessibility, lesson navigation, evidence parking and independent transfer.
+- [ ] Consider Open Possibility Principle at future versioned core protocol review; no normative change authorised.
+- [ ] Confirm Humanizer canonical path, original teaching slides, AI Lab HTML and public navigation separately.
