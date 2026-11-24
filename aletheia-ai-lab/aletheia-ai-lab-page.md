@@ -1,0 +1,3 @@
+# Prompt Comparison Lab page specification
+
+Canonical: aletheia-ai-lab.md. Render aletheia-ai-lab.html. Static HTML/CSS/JS, no dependencies except optional shared constellation. One lesson selector, teaching note, editable prompt pair, copy buttons with manual fallback, separate AI provider links, actual response fields, evidence rubric and transfer exercise. No external transmission by page, no simulated results, no persistent storage. Clear button resets responses after confirmation. Use responsive layout, labels, keyboard focus and status text. Test selection, editing, copy, clear, output retention, narrow screens and external links. Source commit is not live deployment.
