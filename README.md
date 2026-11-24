@@ -209,3 +209,9 @@ Source installed at the owner's requested location; real-device/model/voice chec
 
 - [Open Voice Studio](aletheia-voice-studio/index.htm): original voice descriptions, consent-based local recording, WAV export, and links to Qwen3-TTS.
 - [VoiceVibe library](aletheia-voice-studio/voice-vibes/index.htm): explicit JSON manifest, descriptive Markdown and provisional spoken transcripts. **Public WAV examples not yet uploaded**; available in the separate complete downloadable prototype ZIP. Reuse existing Mini-AI-Me, Writing Vibe, Humour, Avatar and Storyteller apps rather than duplicating them.
+
+### Aletheia AI for Seniors and Course Vibe
+
+- [AI for Seniors](aletheia-learn/aletheia-ai-for-seniors.md) — eight original, teacher-first everyday AI lessons; portable Markdown pilot, free-first, no assumed ability based on age.
+- [Course Vibe](aletheia-writing-vibe/aletheia-course-vibe.md) — general-purpose instructional design skill; includes the Open Possibility Principle independently of Go Walkabout.
+- Pilot and cross-provider testing pending; no dedicated HTML route claimed.
