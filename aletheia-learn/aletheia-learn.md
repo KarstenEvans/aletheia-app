@@ -800,6 +800,10 @@ Watching a video or reading an article is not, by itself, a completed learning p
 
 ---
 
+### Advanced / AIxpert practice: visual evidence (SCOUT S4)
+
+Optional teacher-first technical lab, not a new standalone course or required change to existing learning sequence. **Learn:** text extraction can preserve labels while losing spatial associations, geometry and document structure. The [MKA benchmark](https://artificialanalysis.ai/evaluations/mka) measures professional tasks with visually dense files, not CAD certification. **Worked example:** two lines cross on a schematic without a junction dot; extracting their labels alone cannot establish connectivity. **Try:** use a synthetic drawing with known crossings, dimensions and revisions; compare text-only, image-only and combined metadata with original visual evidence. **Hint:** identify a precise sheet/view location and revision before interpreting a relationship. **Check:** score each known relationship correct, missed or invented; report unavailable image/CAD tools as NOT TESTED. **Transfer:** repeat on a second synthetic engineering or scientific diagram. See [AI-514](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/knowledge/aletheia-ai-knowledge.md) and [existing CAD diagnostic experiment](https://github.com/KarstenEvans/aletheia-knowledge/blob/main/ideas/aletheia-cad-idgn-reference-diagnostic.md). No private engineering files or live model edits; professional validation remains necessary.
+
 ## 16A. Guided course — AI Fluency
 
 Aletheia Learn can also run a source-traced guided course without becoming a separate app.
