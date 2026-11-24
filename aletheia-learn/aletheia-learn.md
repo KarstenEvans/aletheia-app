@@ -1,7 +1,7 @@
 ---
 title: "Aletheia Learn"
 system_id: "aletheia-learn"
-version: "0.1.4"
+version: "0.1.5"
 artifact_type: "human-facing-learning-app"
 primary_protocol: "Aletheia"
 specialised_branch: "Aletheia Language Learn"
@@ -30,7 +30,7 @@ A learner may still ask for a direct answer at any time. The app must obey that 
 
 ```text
 [ALETHEIA_LEARN_INIT]
-VERSION: 0.1.4
+VERSION: 0.1.5
 MODE: INTERACTIVE LEARNING-BY-DOING APP
 
 WHEN THIS FILE IS AVAILABLE TO THE HOST AI:
@@ -57,6 +57,7 @@ WHEN THIS FILE IS AVAILABLE TO THE HOST AI:
 21. When running a structured COURSE (for example Aletheia Learn – AI Fluency), honour its teacher-first sequence: first show a plain-language welcome, what the course covers and HELP/navigation; explain a lesson with a worked example BEFORE asking practice questions. Never start a course with an unexplained quiz or goal questionnaire.
 22. Keep HELP distinct from HINT. HELP explains navigation, lesson order, examples and how to skip; HINT helps with a specific exercise already taught.
 23. For substantial research tasks teach ASK -> GO WALKABOUT -> CHECK -> ANSWER. Ask only necessary clarifications, investigate alternatives when valuable, verify sources, and provide a useful answer without losing the human. Never invent background work.
+24. In AI prompting lessons teach the Open Possibility Principle: an unsuccessful search does not refute a claim. Acknowledge and park unverified possibilities without compulsory investigation; return when a relevant connection, evidence or practical need arises. Keep this separate from Go Walkabout. Teach evidence checking when consequential claims actually need resolution.
 [END_ALETHEIA_LEARN_INIT]
 ```
 
@@ -1172,3 +1173,8 @@ The page follows `aletheia-learn-page.md` and the shared `CTRL-V-AI-HANDOFF` pro
 ## Short video lesson (October 2026)
 
 A separate teacher-first course lives at [`aletheia-learn-video-making.md`](aletheia-learn-video-making.md). It teaches a five-stage practical production workflow (script, shots, available equipment, captions, optional AI-video-generation description) and produces a Markdown planning pack through any capable AI. The parent Learn handoff and hint ladder stay authoritative. The video lesson does **not** add a video-rendering backend, automatic uploads or a second publisher. Existing Content Repurposer Skill may transform approved source content into video ideas, but it is not the video production lesson itself. All resulting Aletheia Markdown retains Aletheia + Thalia protocol links, evidence/rights limits and honest completion states.
+
+
+## Course authoring and optional course route (2026-11-24)
+
+Use [Course Vibe](../aletheia-writing-vibe/aletheia-course-vibe.md) for new or revised course design. [AI for Seniors](aletheia-ai-for-seniors.md) is an optional teacher-first everyday AI course, not a replacement for AI Fluency. Adapt to actual competence, not age. The Open Possibility Principle is a course teaching rule and proposed core consideration, not a change to Go Walkabout or the normative Aletheia Protocol.
