@@ -16,7 +16,7 @@
 
 ## GUI / behaviour
 
-Site Audit page: dark sticky header; accessible hamburger menu Site Audit / Affiliate Tools / Portable Markdown / Knowledge / All Apps. Brief answer-first overview of stages 1–4 and optional 3A. URL and optional target-market input. Copy button prepares a plain text handoff prompt pointing a capable AI to the **latest actual Markdown**. Copy status is visibly reported; invalid URLs are rejected; clipboard failure gives a usable fallback. No claim that this browser-only page has scanned a website, run an AI model, authenticated to Google/Bing or exported private metrics.
+Site Audit page: dark sticky header; accessible hamburger menu Site Audit / Affiliate Tools / Portable Markdown / Knowledge / All Apps. Brief answer-first overview of stages 1–4 and optional 3A. URL and optional target-market input. **Audit** is the primary button; Google Gemini is the default provider, with ChatGPT, Claude, DeepSeek and Copilot selectable. Preload the current canonical Markdown from the same origin; include its full text when available, otherwise include a self-contained five-part audit instruction and canonical URL. The same click copies the payload and opens exactly one selected AI window (desktop 800×760 bounded by screen, mobile ordinary tab); do not await clipboard before opening. Cross-origin paste/submission is not supported by a normal webpage: clearly instruct Ctrl+V and Send; if blocked, reveal selectable text and a normal provider link. A separate copy-only option may be retained in the fallback. Invalid URLs are rejected. Retain the optional final GEO/AEO toggle, resources and report links. The report uses the five-part owner format, including ownership-verification clues and passive security checks; never equate absent verification with lack of indexing. No claim that this browser-only page has scanned a website, run an AI model, authenticated to Google/Bing or exported private metrics.
 
 Affiliate Tools page: standalone crawlable static page with SEO title, description, canonical/OG, an accessible hamburger menu and visible jump links. Keyword/trends are the main section; then technical site management, analytics, affiliate networks and original useful affiliate-marketing method. Each tool has a real official destination, purpose, data caveat and free/account/billing/privacy status. Search filter only filters the local tool cards; it never claims to query Google/Bing. Descriptive source and evidence links are excluded from affiliate conversion according to the current site convention.
 
@@ -41,6 +41,9 @@ Affiliate Tools page: standalone crawlable static page with SEO title, descripti
 - QA: unchecked/checked output texts differ; long site URLs and mobile layout remain usable; original URL validation, clipboard state and menu unaffected; no promises of AI-citation improvements or automated edits.
 
 ## Acceptance checks
+
+- Verify provider default/selection, one synchronous popup, 800px desktop width, mobile fallback, full Markdown or URL fallback, checked/unchecked GEO options, invalid URL, failed clipboard and blocked popup. Never claim automatic cross-origin paste or live AI execution.
+
 
 1. Both HTML pages parse with no missing essential controls, zero duplicate element IDs, JavaScript syntax passes and exactly one site-wide Awin MasterTag immediately before \`</body>\` (other inline script can precede it).
 2. Every card has useful static text and an official working destination; no fake search result.
