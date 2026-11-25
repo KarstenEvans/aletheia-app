@@ -1,5 +1,14 @@
 ## P0 | LAUNCH AND VISIBILITY FIRST | 19 November 2026
 
+## SITE-AUDIT-0.2 | Gemini-first audit launcher | 25 November 2026
+
+- [x] Updated canonical workflow and page specification: five numbered evidence-led report sections, verification markers vs account/index status, passive security, official links, actionable fixes and retest.
+- [x] Primary Audit button, Gemini default with ChatGPT/Claude/DeepSeek/Copilot selector, same-click clipboard and one desktop popup (800×760 maximum, mobile tab), manual fallback, existing optional GEO/AEO and resources retained.
+- [x] Source JS syntax, unique IDs, exactly one Awin tag, six simulated interaction cases passed (mock URL/DOM; default full source, Claude fallback, DeepSeek mobile blocked, invalid input, ChatGPT copy only, Copilot clipboard rejection).
+- [ ] Actual live deployment and Windows Chrome/Edge, Android/Safari interaction tests; provider response/clipboard not claimed verified. No cross-origin auto-paste or auto-submit.
+- [ ] Compare verified HTTP/robots/URL Inspection for Aletheia and Swindon, then consider a controlled custom-subdomain pilot. No DNS/hosting changes authorised by the audit.
+
+
 **Current owner focus:** Get **Swindon.org.uk**, **Aletheia (main site)** and **Aletheia Apps** working, discoverable and visible before undertaking the four research experiments below. This is an operational focus/routing note, **not a replacement for existing Priority Task #001 (Worldwide Discover)** or permission to overwrite production. Consult [Swindon tasks](https://github.com/KarstenEvans/SwindonOrgUK/blob/main/tasks.md), this file's existing [publication checklist](#now---publish-the-apps-correctly), and the actual site/repository build guides.
 
 - [ ] Reconcile Swindon.org.uk production/Fasthosts and local working files with its GitHub mirror **before changing homepage or shared navigation**; preserve working features and avoid publishing an incomplete clone.
