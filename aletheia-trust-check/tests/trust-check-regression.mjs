@@ -22,7 +22,7 @@ const gitSha = (buffer) => createHash("sha1")
 assert.equal(gitSha(original), "8f6212a56fb5c6fd5f9823f7116e56c2e645acf0", "Original source changed");
 assert.equal(gitSha(archivedMd), "ec44dcbd8084569f94c7f41faee867e15758c2ba", "v0.3 Markdown backup changed");
 assert.equal(gitSha(archivedHtml), "1f2719a3f1ea5b517d505f055d64a88816d0ce5e", "v0.3 HTML backup changed");
-assert.match(markdown, /version: "0\.5\.0"/);
+assert.match(markdown, /version: "0\.5\.2"/);
 for (const link of [
   "github.com/KarstenEvans/aletheia-protocol",
   "github.com/KarstenEvans/thalia-protocol"
@@ -56,7 +56,11 @@ assert.match(html, /id="manual"/);
 assert.match(html, /id="open-ai"/);
 assert.match(html, /window\.open\(url,/);
 assert.ok(html.includes("canonical-method"));
-assert.ok(html.includes("FACTS"));
+const visibleModes = html.match(/<select id="depth"[^>]*>([\s\S]*?)<\/select>/)[1];
+assert.deepEqual([...visibleModes.matchAll(/<option value="([^"]+)"/g)].map(m=>m[1]), ["AUTO","QUICK","DEEP","FACTS","TECH","HEALTH","SCAM","NEWS","ALL"]);
+assert.match(visibleModes, /<option value="AUTO" selected>/);
+assert.ok(html.indexOf('id="depth"') < html.indexOf("<details>"), "Mode selector must be visible");
+for(const term of ["Mandatory Research Execution Gate","RESEARCH NOT EXECUTED","Final evaluation","per-mode coverage receipt"]) assert.ok(markdown.includes(term));
 assert.match(html, /JSON\.stringify\(q\)/);
 assert.doesNotMatch(html, /eval\s*\(|new Function\s*\(/);
 assert.ok(page.includes("injection"), "Page QA lacks threat-case gate");

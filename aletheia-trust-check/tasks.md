@@ -58,3 +58,12 @@ Original and pre-security v0.3 backups preserved; draft PR #2 in `aletheia-app` 
 - [ ] Owner publication and live URL verification; no automatic social post or fraud report.
 
 See Aletheia-04-Trust-Check-Publication-Improve.md for scope, receipts and remaining tests.
+
+## 26 November 2026 — v0.5.2 review candidate
+
+- [x] Visible AUTO-default selector; nine modes including ALL, with explicit coverage and no duplicate research.
+- [x] Stage 0 execution gate and concise final evaluation-first output; canonical Markdown and embedded HTML synchronised.
+- [x] Connector-side V8 syntax, embedded parity, mode/ID/navigation checks and all 15 handoff scenarios using minimal mocked host shims.
+- [ ] Run repository Node tests in a real Node environment; test live Windows/mobile browsers, clipboard, all five AI providers and Heatable regression.
+- [ ] Repackage optional fairing ZIPs for v0.5.2 separately; currently pinned packages unchanged.
+- [ ] Owner review/approval to merge/publish; verify Pages afterwards.
