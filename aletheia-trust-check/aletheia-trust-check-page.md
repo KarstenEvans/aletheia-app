@@ -3,7 +3,7 @@
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence, provenance and uncertainty.
 [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional appropriate humour and positive tone.
 
-Version: 0.5.0. Checked: 16 October 2026. Status: publication candidate, not deployed.
+Version: 0.5.2. Checked: 26 November 2026. Status: review candidate, not deployed.
 Canonical method: aletheia-trust-check.md. Interface: aletheia-trust-check.htm. Resources: aletheia-trust-check-rsc.htm.
 Owner: KarstenEvans/aletheia-app/aletheia-trust-check/. One worldwide app; Swindon is an adapter/link, not a competing engine.
 
@@ -13,8 +13,8 @@ Read current root AGENTS, Safe Bootstrap, README, GUI, Dev, Code, Ideas, Tasks, 
 ## Page and behaviour
 1. Brand, Download .md and keyboard-operable menu.
 2. Title, concise purpose and one primary textarea accepting text/name/link up to 40,000 characters.
-3. One AI selector and Trust Check button. Gemini default; restore a valid saved provider only.
-4. Options disclosure: FACTS (default), DEEP, QUICK, SCAM, NEWS, TECH, HEALTH; optional country, source URL and context. No geolocation.
+3. Always-visible Research mode selector beside the AI selector and Trust Check button; responsive single-column layout on narrow screens. Order: AUTO (default), QUICK, DEEP, FACTS, TECH, HEALTH, SCAM, NEWS, ALL. Use human-readable purposes. Gemini default; restore a valid saved provider only. Unknown mode falls back to AUTO. Mode changes invalidate prepared text.
+4. Options disclosure: optional country, source URL and context. No geolocation. ALL applies all relevant substantive modes once and adds a per-mode receipt; DEEP already covers relevant specialist questions without a mandatory full coverage matrix.
 5. Full canonical Markdown embedded in hidden textarea, HTML-escaped, decoded by DOM value. Must exactly equal the sibling Markdown including final newline. The download uses those bytes through a local Blob, without a network fetch. Ordinary .md anchor remains the no-JS fallback.
 6. On submit assemble method plus JSON-quoted user evidence, synchronously copy while focus remains, then open exactly one fixed allowlisted AI URL from that click. One resizable desktop window or ordinary small-screen tab. No automatic cross-origin paste.
 7. Always reveal the prepared check and Copy/Open AI/Save this check controls after submission. Never claim copy or window success unless observed. Null window handles can be ambiguous: do not assert the provider was certainly blocked. No second automatic destination.
@@ -27,6 +27,7 @@ The one-file .htm works for method download, manual preparation and handoff even
 Without JS, use the sibling downloaded Markdown file or static hosted .md link. Without clipboard/download APIs, visible selectable text is the fallback. Blocked/login-only source access is handled by the receiving AI honestly.
 
 ## Evidence output
+Stage 0 actively attempts live research for external facts; no target verdict when research has not executed/been blocked without substantive evidence. Start all standalone outputs with a plain-English final evaluation (normally up to 100 words), then key facts and source links, followed by compact supporting evidence. DEEP and ALL change research coverage, not default answer length.
 FACTS: short finding followed by claim/verdict/source/limitation table, checked date, event date if relevant, original-source lineage and evidence gaps. Distinguish SUPPORTED, MISLEADING, CONTRADICTED, UNVERIFIED and OPINION/PREDICTION. Business/offer checks retain separate qualitative trust indication. No automatic falsehood from missing evidence, detector score, padlock, registry or repeated copies. No automatic public post, fraud report or other external action.
 Retain all source-integrity, injection, impersonation and recovery safeguards from v0.4. Do not imply a prompt is a technical security sandbox.
 

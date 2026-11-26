@@ -3,18 +3,22 @@
 - [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence, provenance and uncertainty.
 - [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional presentation only.
 
-**Status:** worldwide application v0.5 publication candidate (16 October 2026). Source and simulated handoff checks pass; browser/device/live verification pending.
+**Status:** worldwide application v0.5.2 review candidate (26 November 2026). Publication, browser/device and receiving-AI verification pending.
 **Owner:** [`KarstenEvans/aletheia-app`](https://github.com/KarstenEvans/aletheia-app), not SwindonOrgUK.
 
 ## Use it now
 
-Open `aletheia-trust-check.htm`, paste a post/claim/name/link, choose your AI and click Trust Check. Paste and send in the opened AI. Use Download .md to keep the full portable app, or Save this check in the prepared-text panel to retain a specific request. The HTML embeds the complete current method and does not require a raw-file fetch. FACTS mode adds claim-by-claim evidence without replacing business/offer checks.
+Open `aletheia-trust-check.htm`, paste a post/claim/name/link, choose a visible research mode (AUTO by default) and your AI, then click Trust Check. Paste and send in the opened AI. Use Download .md to keep the full portable app, or Save this check in the prepared-text panel to retain a specific request. The HTML embeds the complete current method and does not require a raw-file fetch. FACTS mode adds claim-by-claim evidence without replacing business/offer checks.
 
 Full comparison and actual tests: [Aletheia-04 receipt](Aletheia-04-Trust-Check-Publication-Improve.md).
 
 ## Optional AI Skill / plugin fairing
 
 [Open the Aletheia Trust Check fairing page](../integrations/aletheia-trust-check/index.htm) to download packaged `SKILL.md` and `plugin.json` ZIPs for compatible AI systems. It is **an additional way to use this same app**; it does not replace or change the canonical `.md` instructions, the main HTML launcher, or its evidence rules. The page and packages are committed to GitHub; importing and invoking them in external providers still needs separate real-account tests.
+
+## v0.5.2 research and reporting
+
+Nine modes: AUTO, QUICK, DEEP, FACTS, TECH, HEALTH, SCAM, NEWS, ALL. AUTO selects the best route; DEEP researches all material questions; ALL adds explicit applicable-mode coverage. Stage 0 requires actual available live evidence retrieval before a current-facts verdict, and the answer starts with a concise plain-English final evaluation. Unsupported or blocked research is not negative evidence about the target.
 
 ## What it does
 

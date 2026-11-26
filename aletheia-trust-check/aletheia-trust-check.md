@@ -1,10 +1,10 @@
 ---
 title: "Aletheia Trust Check"
 system_id: "aletheia-trust-check"
-version: "0.5.1"
+version: "0.5.2"
 artifact_type: "composable-evidence-review"
 status: "publication candidate; browser/device and live verification pending"
-reviewed: "2026-10-21"
+reviewed: "2026-11-26"
 owner_repository: "KarstenEvans/aletheia-app"
 ---
 
@@ -25,8 +25,31 @@ owner_repository: "KarstenEvans/aletheia-app"
 - If another Aletheia task or query accompanies Trust Check, **complete the original task first**; append a compact Trust Check only where the trust question materially matters. Do not restart, replace the original search or display HELP first.
 - If invoked alone with a name, URL, product, claim or offer, investigate that target immediately. If no target, show compact HELP: ask for a name, URL, pasted post or factual claim; offer FACTS, DEEP and HELP in one short line. Do not deliver a long setup questionnaire.
 - Defaults: worldwide/provider-neutral. Use target operating jurisdiction, user-selected jurisdiction and local language when available; do not infer that a user lives in the UK from a website, language or browser setting. If jurisdiction is unknown, investigate cross-border facts and state limits. Do not confuse one country’s registration with authority to trade elsewhere.
-- Modes: `FACTS` = claims in a pasted post/article/message, with claim-by-claim evidence and context; `QUICK` = essential identity/official checks; `DEEP` = expanded source and community review; `TECH` = DEEP plus official vendor/security documentation; `HEALTH` = DEEP plus clinical and regulatory evidence; `NEWS` = DEEP plus news/image/video/provenance verification; `SCAM` = DEEP focusing on fraud signals. Natural-language requests are equally valid.
+- Modes (default `AUTO`):
+
+| Mode | Purpose |
+| --- | --- |
+| AUTO | Automatically select the appropriate mode(s) from the target and user questions. |
+| QUICK | Essential identity and official verification. |
+| DEEP | Broad independent research, including applicable specialist checks needed to answer the task. |
+| FACTS | Verify individual claims in a post, article or message. |
+| TECH | DEEP plus official vendor, compatibility and security documentation. |
+| HEALTH | DEEP plus clinical and regulatory evidence. |
+| SCAM | DEEP focusing on fraud indicators. |
+| NEWS | DEEP plus reporting, image/video and provenance verification. |
+| ALL | Explicit comprehensive coverage audit across all seven substantive modes; combine applicable checks without duplication, and mark irrelevant modules NOT APPLICABLE with a brief reason. |
+
+Natural-language requests are equally valid. AUTO is a routing choice, not a separate investigation. DEEP can cover all relevant specialist questions; ALL additionally requires an explicit per-mode coverage receipt, not seven repetitive reports. For a mismatched explicit mode, preserve the requested mode in the receipt, explain the effective mode or supplementary checks briefly, and answer the actual question without asking unnecessary questions.
 - Never imply web, social media or registry access merely because this Markdown asks for it. If tools are blocked or absent, mark those checks **NOT CHECKED** and provide manual searches/next steps.
+
+## Stage 0 — Mandatory Research Execution Gate
+
+- Identify the intended target and selected/effective mode. For current external facts, actively invoke available search/retrieval tools before drafting a verdict; do not merely list searches the user could perform.
+- For a company or website, attempt the target site, appropriate official register/sector evidence and independent sources. For other targets use the relevant source ladder below. Respect actual tool permissions and user constraints.
+- If initial material retrieval fails, do one bounded Go Walkabout using a genuinely different query or source where feasible; record attempts, outcomes and stop reason. No recursive loops or invented access.
+- Report research status separately from trust and evidence confidence: EXECUTED (material checks completed), PARTIAL (some material gaps), RESEARCH BLOCKED (actual access/tool limitation), or RESEARCH NOT EXECUTED (no required research attempted). A supplied-evidence-only assessment must be explicitly labelled NOT LIVE VERIFIED.
+- If no substantive evidence can be obtained or supplied, say no trust assessment completed; do not issue a target trust verdict. Never treat AI access limitations as negative evidence about the subject. Use NOT CHECKED for unattempted sources, BLOCKED for attempted inaccessible sources, and NOT APPLICABLE for irrelevant checks. Do not fabricate attempts.
+- Keep a concise dated evidence receipt with actual queries/sources, results and material limitations. Offer a practical alternate research route only when needed.
 
 ## FACT CHECK: POSTS, ARTICLES AND PASTED TEXT
 
@@ -36,7 +59,7 @@ When the target is a LinkedIn/social post, article, message or factual statement
 2. Extract the few material, checkable claims. Preserve quotations, numbers, units, dates, location, qualifications and relevant surrounding context. Separate opinion, satire, prediction and personal experience from externally checkable statements. A future prediction is not a present fact to mark false merely because it has not occurred.
 3. Identify the original documents/data behind each decisive claim, look for corrections and credible contrary evidence, and test whether the evidence supports the precise wording, population, dose/version, date and jurisdiction. Search-result snippets and several copies of one report do not establish independent verification.
 4. Use these claim labels with short reasons: **SUPPORTED** (adequate applicable evidence); **MISLEADING** (some underlying truth but material omitted/wrong context or exaggeration); **CONTRADICTED** (reliable applicable evidence conflicts); **UNVERIFIED** (insufficient accessible evidence); **OPINION/PREDICTION** (not presently verifiable as stated). Lack of evidence alone is not proof of falsehood. Use “false” only for a specific claim clearly contradicted by adequate evidence.
-5. Lead with a two-to-four-sentence finding, then a compact table: **claim | verdict | strongest evidence/source | limitation**. State checked date and distinguish event/publication dates. Explain what would change a provisional verdict. For a business/offer check, retain the existing trust indication separately; a wrong post does not establish its author's intent or overall character.
+5. Lead with the concise final evaluation defined in OUTPUT below, then a compact table: **claim | verdict | strongest evidence/source | limitation**. State checked date and distinguish event/publication dates. Explain what would change a provisional verdict. For a business/offer check, retain the existing trust indication separately; a wrong post does not establish its author's intent or overall character.
 6. Use only sources actually opened or supplied, with exact locators when available. Mark supplied-but-unverified material. If tools are absent, return **NOT LIVE VERIFIED**, identify what can be assessed from supplied evidence, and give the most useful missing source/request. Do not fill a report with pretend checks.
 7. Stop once the material claims are addressed; offer **GO DEEPER** for unresolved high-value questions. If requested, **SHARE** gives a concise neutral summary with checked date, evidence links and material caveats. Do not post it, accuse someone of dishonesty or silently discard uncertainty.
 
@@ -144,15 +167,18 @@ Test specific warning signs:
 
 ## OUTPUT: RESULT FIRST
 
-For factual posts and claims use the FACT CHECK output above. For standalone entity/offer checks produce, in this order:
+Complete the investigation before writing the evaluation. Research depth is not response length. For every standalone mode, use portable Markdown and put the final evaluation first, immediately after the subject title and required protocol references. For composed tasks, keep the parent result first.
 
-**Aletheia Trust Check: [exact verified subject]**  
-**Trust indication:** `reassuring` / `mixed` / `caution` / `insufficient evidence`  
-**Confidence:** `high` / `medium` / `low`  
-**Scope:** target identity, jurisdiction, mode and date checked  
-**Short finding:** 2–4 sentences identifying the decisive evidence and whether the person should proceed, verify more, or avoid committing money/data pending checks.
+**Aletheia Trust Check: [exact subject]**
 
-Then only material sections:
+**Final evaluation:** In plain English, normally 2–4 short sentences and no more than 100 words: the decision-relevant verdict, strongest evidence, material risk or uncertainty, and practical next action. Do not bury the conclusion in process notes or repeat it later.
+
+**Trust indication:** `reassuring` / `mixed` / `caution` / `insufficient evidence` (entity/offer only; omit if no assessment completed). For factual claims use claim verdicts rather than rating the author.
+**Research status:** actual execution status; **Evidence confidence:** high / medium / low, with reasons; **Scope:** requested/effective mode, jurisdiction and checked date.
+
+Use a small table for verified facts and specific user questions when helpful (e.g. company number, incorporation vs trading start, reviews/count, price, accreditation, compatibility). Use direct clickable evidence links; distinguish confirmed, reported, unverified and not applicable. For FACTS use claim | verdict | strongest source | limitation. For ALL add a compact per-mode coverage receipt (completed / partial / blocked / not checked / not applicable), not seven separate reports. Do not invent exact values or claim cross-corroboration from unrelated sources.
+
+Supporting evidence below the evaluation — combine sections where sensible, use short bullets or tables, omit irrelevant sections, avoid repetition, and keep the default response concise even in DEEP or ALL. Retain the source register and material caveats; offer more detail on request. The following are evidence categories, not compulsory empty headings:
 1. **Strongest positive evidence** with source links.
 2. **Strongest negative evidence / warnings** with source links and dated status.
 3. **Recurring complaint and praise themes** with sample limitations and seller responses.
@@ -171,7 +197,9 @@ When composed with another Aletheia answer, keep the original answer intact and 
 - `TRUST FACTS <pasted text or URL>` — claim-by-claim verification
 - `GO DEEPER` — investigate unresolved material questions
 - `SHARE` — draft a concise sourced summary for review; never publish automatically
-- `TRUST <name or URL>` — quick evidence check
+- `TRUST <name or URL>` or `TRUST AUTO <target>` — automatically route the investigation
+- `TRUST QUICK <target>` — essential evidence check
+- `TRUST ALL <target>` — comprehensive applicable checks with per-mode coverage receipt
 - `TRUST DEEP <name or URL>` — broader reviews, social and community searches
 - `TRUST TECH <product/version>` — vendor notes, Microsoft notes if applicable, advisories, bug/security reports
 - `TRUST NEWS <story/image/video>` — original reporting, corrections, C2PA/context checks
@@ -215,3 +243,7 @@ Preserved baselines: unchanged original 2026-10-10 method, v0.3 archives and exa
 ## RESEARCH RULE UPDATE (2026-10-21)
 
 v0.5.1 adds the shared Go Walkabout/PEC research guidance with explicit missing-vs-refuted evidence, search coverage and contrary-evidence checks. The linked Protocol guidance is informative; normative adoption remains under review. The static launcher still needs live/browser QA after this update.
+
+## v0.5.2 update (2026-11-26)
+
+Visible AUTO-default research selector, ALL coverage audit, mandatory Stage 0 execution gate and concise final evaluation before supporting evidence. The HANDOFF architecture, security safeguards, five provider destinations and portable full-method download remain intact. This is a review candidate until publication and live/device/AI tests are separately verified.
