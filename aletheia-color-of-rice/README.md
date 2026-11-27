@@ -1,4 +1,4 @@
-# The Color of Rice v0.3.4
+# The Color of Rice v0.3.5
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
 
@@ -12,3 +12,6 @@ v0.3.3 routes all book shopping links to the owner-supplied Aletheia Bookshop.or
 
 
 v0.3.4 corrects the owner storefront to [Aletheia Bookshop.org](https://uk.bookshop.org/shop/aletheia) in all book shopping links and the CSV; widget and gift links retained.
+
+
+v0.3.5: compact cover cards, linked gift photos, WaNaHong lead; reusable shared Resource Builder. Bookshop widget and store links retained.

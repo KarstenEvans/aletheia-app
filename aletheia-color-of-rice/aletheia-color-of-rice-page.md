@@ -1,4 +1,4 @@
-# The Color of Rice page specification v0.3.4
+# The Color of Rice page specification v0.3.5
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
 
@@ -9,3 +9,6 @@ Resources in the burger menu must directly open `aletheia-color-of-rice-rsc.htm`
 
 ## Owner bookshop route
 All six public book-card shopping links and the visible fallback shop link must use the owner-supplied `https://uk.bookshop.org/shop/aletheia` (not publishers or another affiliate). Label them as storefront browsing, not verified individual product pages. Keep `rel="sponsored noopener"` and the deliberate `data-awinignore` exception to preserve the independent Bookshop.org referral route. The exact widget and original ISBNs remain. Publisher URLs are bibliographic research references in the register, not shopping links. Do not invent affiliate IDs or individual product URLs; verify live storefront and referral tracking separately.
+
+## v0.3.5 visual resources
+Keep the owner Bookshop list widget exactly once and all six ISBN cards visible in an ordinary responsive grid below it (no additional carousel). Book cover URL uses the Open Library Covers API documented pattern https://covers.openlibrary.org/b/isbn/{ISBN}-M.jpg?default=false; lazy load, meaningful alt, hide failed covers, visible title, author/ISBN and description regardless. All book shopping links still go to https://uk.bookshop.org/shop/aletheia with independent-affiliate protection. Open Library cover availability not individually confirmed; retain widget and cover-source credit. Gifts use linked picture/title/description as a single shopping link, not a second button. Current licensed category photographs are explicitly illustrative, not exact seller items; attribution and licence on every card. Approved merchant/feed images should replace category images when available. WaNaHong merchant category is a retail lead; Awin advertiser 24027 and public programme listing verified, individual publisher approval/tracking unknown. No invented tracked links or images. The shared Resource Builder is at ../shared/resource-builder/SKILL.md and resource-builder.mjs.
