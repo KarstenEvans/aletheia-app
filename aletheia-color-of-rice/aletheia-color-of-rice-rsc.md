@@ -35,5 +35,5 @@ The Colour of Rice — Riceberry Beret, Purple Grain. Embed exactly once in the 
 ```
 Widget rendering, list contents and referral tracking are not independently verified.
 
-## Owner storefront (v0.3.3)
-Use [SwindonOrgUK Bookshop.org](https://uk.bookshop.org/SwindonOrgUK) for all public book-card shopping links and the storefront fallback. Owner supplied this exact URL; independent retrieval was blocked. Preserve the widget and ISBNs. The publisher references above remain research provenance only; do not expose them as purchase links on the public resource page. Protect the separate Bookshop.org affiliate route with `data-awinignore`; do not fabricate product-level attribution or claim commissions verified.
+## Owner storefront (v0.3.4)
+Use [Aletheia Bookshop.org](https://uk.bookshop.org/shop/aletheia) for all public book-card shopping links and the storefront fallback. Owner confirmed this exact URL; live referral tracking remains unverified. Preserve the widget and ISBNs. The publisher references above remain research provenance only; do not expose them as purchase links on the public resource page. Protect the separate Bookshop.org affiliate route with `data-awinignore`; do not fabricate product-level attribution or claim commissions verified.
