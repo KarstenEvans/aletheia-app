@@ -2,7 +2,7 @@
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
 
-Checked 27 November 2026. No affiliate links.
+Checked 27 November 2026. Original catalogue references retained; the owner-supplied Bookshop.org widget is an optional commercial resource.
 
 ## Books
 - [The Rice Book](https://www.bloomsbury.com/uk/rice-book-9781526621634/) — Sri Owen, ISBN 9781526621634. Recipes, history and culture.
@@ -23,3 +23,14 @@ See browser resource page for commercial ideas and regulatory links.
 ## Additional gift leads
 - Electric rice cookers: https://www.lakeland.co.uk/collections/rice-cookers — retail examples, not a wholesale quote.
 - Rice paddle and measuring cup: sampler-box accessories; check food-contact requirements and terms.
+
+## Bookshop.org UK curated list (owner supplied)
+The Colour of Rice — Riceberry Beret, Purple Grain. Embed exactly once in the books section of the resources HTML, with nearby affiliate disclosure and the original static references below.
+
+```html
+<script
+            src="https://uk.bookshop.org/widgets.js"
+            data-type="list" 
+            data-list-slug="the-colour-of-rice-riceberry-beret-purple-grain-p"></script>
+```
+Widget rendering, list contents and referral tracking are not independently verified.

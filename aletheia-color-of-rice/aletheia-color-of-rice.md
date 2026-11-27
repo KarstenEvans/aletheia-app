@@ -1,4 +1,4 @@
-# The Color of Rice — AI workflow v0.3.1
+# The Color of Rice — AI workflow v0.3.2
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
 
@@ -30,3 +30,6 @@ Prioritise UKMRC9/PRIMERA, Riceberry, Yunlu29 Red and Australian Purple, plus id
 
 ## Broker report settings
 All eight categories are selected initially: Cultivars & brands; Market & prices; Suppliers & sourcing; Human nutrition evidence; Starch, pigments & gut; Quality & food safety; Business, pricing & labelling; Books, gifts & Walkabout. Settings affect prompt sections; destination market, pack sizes, depth, topic and provider are configurable. Save locally or export/import versioned Markdown settings. Zero selections disables launch. The user must paste and SEND the instruction in the selected AI, then copy actual findings back into the app for explicit Markdown export. Do not treat the instruction as findings. Private notes/report contents excluded from settings and prompt. Resources opens the dedicated -rsc.htm in a new tab. No automatic contact or publication.
+
+## v0.3.2 resources
+The burger's Resources link opens the dedicated resources HTML directly, with no in-page anchor. Keep the owner-provided UK Bookshop.org list widget only on the resources page; canonical embed code is in the resource register. Preserve the static book cards, ISBN CSV and all gift leads. Do not replace independent source links with commercial offers.

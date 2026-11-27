@@ -1,5 +1,8 @@
-# The Color of Rice page specification v0.3.1
+# The Color of Rice page specification v0.3.2
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
 
 Mobile-first static HTML; source canonical workflow and current HTML. Keep existing six named profiles and buying desk, purchasing, research, suppliers, price calculator, tasting, 26-field Rice Passport, private notes, and broker AI handoff. Burger: links to functional sections, Report settings, and a single Resources destination aletheia-color-of-rice-rsc.htm opening separately. Resource page retains six books and original gift leads, plus rice cooker and paddle. Both pages include canonical URLs, approved shared Constellation and one Awin tag; commercial disclosure. Settings: eight checkboxes, market, pack, depth, topic/provider; local save and portable Markdown import/export; no selection blocks launch. Copy/open and paste/send; actual AI response manually pasted and downloaded. No remote publication of private data. Test all selections, zero, restore, invalid import, clipboard fallback, report export, links, mobile, keyboard and deployment. Source-level checks not device verification.
+
+## Bookshop.org list widget
+Resources in the burger menu must directly open `aletheia-color-of-rice-rsc.htm` in a new tab (never an in-page `#resources` anchor). Under the books heading on that page embed the owner-supplied UK Bookshop.org list exactly once, using `https://uk.bookshop.org/widgets.js`, `data-type="list"` and `data-list-slug="the-colour-of-rice-riceberry-beret-purple-grain-p"`. Keep disclosure beside the widget and all original six static book cards, ISBN download and gifts independently available. The widget is a third-party optional enhancement; do not claim rendering, list contents or commissions verified until independently tested.
