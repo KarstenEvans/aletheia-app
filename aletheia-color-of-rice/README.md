@@ -1,4 +1,4 @@
-# The Color of Rice v0.3.2
+# The Color of Rice v0.3.3
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
 
@@ -6,3 +6,6 @@ Specialist broker and consumer intelligence for named red, purple and black rice
 
 
 v0.3.2 adds the owner-supplied Bookshop.org reading-list widget to the resources page with original book links retained and clarifies the burger's direct Resources link.
+
+
+v0.3.3 routes all book shopping links to the owner-supplied SwindonOrgUK Bookshop.org storefront, preserves the curated widget and keeps publishers only as bibliographic references.

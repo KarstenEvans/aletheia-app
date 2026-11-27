@@ -33,3 +33,6 @@ All eight categories are selected initially: Cultivars & brands; Market & prices
 
 ## v0.3.2 resources
 The burger's Resources link opens the dedicated resources HTML directly, with no in-page anchor. Keep the owner-provided UK Bookshop.org list widget only on the resources page; canonical embed code is in the resource register. Preserve the static book cards, ISBN CSV and all gift leads. Do not replace independent source links with commercial offers.
+
+## v0.3.3 book purchasing
+The owner-supplied Bookshop.org storefront is https://uk.bookshop.org/SwindonOrgUK. All book-card shopping links route there, with a disclosed, deliberate Awin exclusion for this independent affiliate route. Do not redirect users to another bookseller or affiliate. Preserve the curated widget, six ISBNs, gift leads and bibliographic evidence. Product-level affiliate links require owner-verified identifiers; no guessed attribution.

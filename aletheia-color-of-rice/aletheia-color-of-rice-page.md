@@ -1,4 +1,4 @@
-# The Color of Rice page specification v0.3.2
+# The Color of Rice page specification v0.3.3
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
 
@@ -6,3 +6,6 @@ Mobile-first static HTML; source canonical workflow and current HTML. Keep exist
 
 ## Bookshop.org list widget
 Resources in the burger menu must directly open `aletheia-color-of-rice-rsc.htm` in a new tab (never an in-page `#resources` anchor). Under the books heading on that page embed the owner-supplied UK Bookshop.org list exactly once, using `https://uk.bookshop.org/widgets.js`, `data-type="list"` and `data-list-slug="the-colour-of-rice-riceberry-beret-purple-grain-p"`. Keep disclosure beside the widget and all original six static book cards, ISBN download and gifts independently available. The widget is a third-party optional enhancement; do not claim rendering, list contents or commissions verified until independently tested.
+
+## Owner bookshop route
+All six public book-card shopping links and the visible fallback shop link must use the owner-supplied `https://uk.bookshop.org/SwindonOrgUK` (not publishers or another affiliate). Label them as storefront browsing, not verified individual product pages. Keep `rel="sponsored noopener"` and the deliberate `data-awinignore` exception to preserve the independent Bookshop.org referral route. The exact widget and original ISBNs remain. Publisher URLs are bibliographic research references in the register, not shopping links. Do not invent affiliate IDs or individual product URLs; verify live storefront and referral tracking separately.
