@@ -7,6 +7,8 @@
 ## Purpose
 A reusable prompt procedure, not an unattended agent. When a host AI receives `GO WALKABOUT [topic]`, finish the user's primary task first unless the walkabout *is* the primary request. Then deliberately leave the narrow framing, explore unusual **plausible** adjacent ideas and return to verifiable work. Can be used from Aletheia Job Search, Learn, Improve, Discover and other apps. Works with ordinary AI chat; no plugin, scraping or agent required.
 
+For scholarly or scientific leads, load and apply [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) on demand. Assess the relevant core repositories, look for contrary evidence and report unavailable coverage; preserve the original three-lead limit and one-pass STOP. Do not broaden a non-scientific Walkabout merely to search these databases.
+
 ## One bounded pass (WALKABOUT)
 1. **Anchor:** state the actual question, goals and limitations in one line.
 2. **Widen:** investigate five different angles: adjacent field, contrasting user/persona, overlooked route, constraint inversion, novel tool or technique. These are lenses, not unsupported facts.
