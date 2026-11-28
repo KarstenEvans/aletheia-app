@@ -1,3 +1,14 @@
+## RESEARCH-SOURCES-0.1 | 28 November 2026
+
+**Scope authorised:** commit one shared scholarly research register, link the bootloaders and integrate relevant research workflows. No HTML/JS, archived methods, provider settings or paid services changed.
+
+- [x] Canonical [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) in Aletheia Knowledge, indexed in its manifest and README; committed and read back.
+- [x] Safe Bootstrap, AI Easy Bootstrap and Apps README now require the register on demand for materially relevant scholarly/scientific research, including new and revised research apps.
+- [x] Source-level integration: Go Walkabout, Improve, The Color of Rice, Assistant and News. Preserve the bounded Walkabout stop and existing official/domain-specific sources.
+- [x] Trust Check README records dependency and sync requirement; existing standalone canonical method, exact embedded browser copy, pinned Skill reference and packaged ZIPs remain unchanged to avoid source drift.
+- [ ] Next authorised release: synchronise Trust Check's canonical/embedded/pinned variants together; update corresponding browser prompt generators in The Color of Rice, Assistant, News and Improve as needed, preserve fallback and run existing static/handoff tests plus receiving-AI research coverage checks. No claim of live execution, device testing or automatic repository access yet.
+- [ ] Apply the shared source register on demand in future AI-PI and Ageing War/Metabolic Health research; keep story biographies, previous evidence nodes and other non-research app behaviour unchanged.
+
 ## P0 | LAUNCH AND VISIBILITY FIRST | 19 November 2026
 
 ## SITE-AUDIT-0.2 | Gemini-first audit launcher | 25 November 2026
