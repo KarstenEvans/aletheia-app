@@ -9,6 +9,10 @@ Each app lives in its own lowercase folder. The portable Markdown file is the ap
 - [Open worldwide What's On](https://karstenevans.github.io/aletheia-app/aletheia-whatson/aletheia-whatson.htm) — location-first, worldwide, provider-neutral discovery of films, shows, fairs, attractions, history, art, walks, food and local tourism directories. Static AI handoff, not an embedded live events API.
 - [Canonical Markdown](aletheia-whatson/aletheia-whatson.md) · [Travel books and resources](aletheia-whatson/aletheia-whatson-rsc.htm) · [Page spec](aletheia-whatson/aletheia-whatson-page.md). Export or manually import private `settings.md`.
 
+## Scholarly research in Aletheia
+
+For new and existing AI-facing apps where scientific, medical or scholarly evidence materially matters, load the single canonical [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) on demand. Apply relevant source coverage, provenance, preprint/publication distinction and deduplication; do not replace official domain sources, force irrelevant searches or require a paid API. Include this dependency in the portable workflow and any revised research handoff. Follow the Safe Bootstrap for permissions and verification.
+
 ## Start here for app work
 
 - `AGENTS.md` — short router for coding/agent tools.
