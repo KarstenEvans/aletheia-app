@@ -187,6 +187,8 @@ Do not repeatedly ask things already answered by current files or the user.
 
 ## Deep research
 
+When research concerns scientific, technical-research or medical evidence, retrieve [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) on demand. In every new/revised research-capable app, check that its AI-facing workflow and actual handoff link to this shared dependency when relevant. Verify actual source access and coverage, not merely the existence of a link. Keep domain-specific official sources and ordinary non-scholarly workflows intact. A browser handoff with a stale embedded prompt is a separate synchronisation/test task, not evidence of a completed rollout.
+
 Research when freshness or external comparison matters.
 
 Useful research targets include:
