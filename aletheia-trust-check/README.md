@@ -1,5 +1,9 @@
 # Aletheia Trust Check
 
+## Shared scholarly research (28 November 2026)
+
+For scientific claims and HEALTH/DEEP/TECH/FACTS checks where scholarly evidence matters, load [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) on demand. This shared register is available via the Aletheia bootloaders. The standalone Trust Check method, its exact embedded browser copy and pinned Skill/plugin packages must be synchronised together in a separately tested release; this README link does not update those runtime copies or prove receiving-AI access.
+
 - [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) — evidence, provenance and uncertainty.
 - [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md) — optional presentation only.
 
