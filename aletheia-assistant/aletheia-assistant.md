@@ -12,6 +12,8 @@ The Sif/Jarvis-inspired HUD is an **optional skin and task launcher**, not the s
 
 General, Trust Check, Research, Summarise, Compare and Translate are task-specific **prompt templates** for the selected AI. They do not themselves perform live research, trust verification, translation or automatically access accounts. The selected button updates its explanation and the reviewed handoff. GitHub Pages mode uses user-reviewed copy/paste to ChatGPT, never a fake direct ChatGPT login. The optional local Node/OpenAI bridge has server-allowlisted versions of those skills and gives text-only replies with no tools.
 
+For the Research skill and scientific or medical Trust Check/Compare requests, the receiving AI should load [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) on demand and follow its evidence and coverage rules. Carry the link in revised browser research handoffs; report missing source access and do not imply that the local text-only API has retrieval tools. This is a source-level requirement, not an implemented browser update.
+
 ## Existing-work reuse
 
 Six existing app links: Rice Intelligence, Improve, News, Storyteller, Site Audit and AI Easy. Keep each application's canonical source independently maintained. The existing 11-workflow Skills pack is linked from resources, not duplicated, installed or executed without authority.
