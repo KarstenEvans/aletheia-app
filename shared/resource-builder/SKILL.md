@@ -20,3 +20,5 @@ Example approved JSON:
 ```
 
 First implementation: The Color of Rice v0.3.5; exact merchant photos awaiting programme/image rights; licensed category photos in pilot.
+## Product-image uniqueness check
+Before release, compare normalized image URLs and, where feasible, image content across product cards. Do not use the same photograph to represent distinct products or vendors. Match each image to the actual product and variant; category illustrations must be clearly labelled, unique across different cards, and must not imply exact SKU identity. If no suitable authorised photo exists, preserve the resource with a verified direct product/photo link and text rather than duplicate a misleading image. Preserve the existing layout when correcting an image. Conflicting stock indicators must be recorded as unresolved, not silently treated as available.
