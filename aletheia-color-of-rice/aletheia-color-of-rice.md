@@ -8,6 +8,9 @@
 Help consumers discover and compare named red, purple and black rice as foods, and help brokers identify evidence-characterised varieties and commercial sourcing options. Exclude ordinary white and brown from catalogue and sourcing recommendations; retain only as necessary research/price comparators. Do not conflate colour, low GI, low carbohydrate, or therapeutic efficacy. Food education is separate from commercial listings.
 
 ## AI research workflow
+
+For cultivar, nutrition, glycaemic/insulin response, inflammation, food chemistry and microbiome research, load [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) before searching. Prioritise PubMed and Europe PMC, check bioRxiv/medRxiv for emerging work and arXiv only where relevant; preserve original study links, evidence type, access status, duplicate/version relationships and conflicting findings. Apply the register to scientific research, not as a replacement for IRRI, food-safety regulators or actual supplier/market evidence.
+
 1. Ask for geography, preferred rice, and retail or wholesale only when materially necessary. Default UK buying, worldwide sourcing. Do not collect private health information.
 2. Identify exact cultivar, producer, processing, origin, harvest date and preparation. Treat black glutinous rice separately from non-glutinous rice. Red yeast rice is not the same food.
 3. Search primary studies and official sources first. Report study design, participant count, comparator, dose, duration, outcomes, effect size, uncertainty and source link. Label human GI versus in-vitro estimates; report insulin index separately. Never transfer a study value to a different bag, batch or cultivar without verification.
