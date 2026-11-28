@@ -1,4 +1,4 @@
-# The Color of Rice v0.3.7
+# The Color of Rice v0.3.8
 
 [Aletheia Protocol](https://github.com/KarstenEvans/aletheia-protocol) · [Thalia Protocol](https://github.com/KarstenEvans/thalia-protocol/blob/main/THALIA_PROTOCOL.md)
 
@@ -21,3 +21,6 @@ v0.3.6 corrects duplicate vendor imagery and identifies the exact Tochiri set, w
 
 
 v0.3.7: added Japanese Christmas collection and exact lucky-cat gift set, dated product information and direct photograph link.
+
+
+v0.3.8 features the two Japanese Shop seasonal gift links with distinct remote merchant photographs; merchant-first affiliate workflow.
