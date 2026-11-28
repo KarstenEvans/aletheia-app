@@ -265,6 +265,8 @@ If the project outgrows the free allowance, the current Workers Paid plan starts
 
 ## Research prompt
 
+When a news story depends on a scientific, medical or scholarly claim, retrieve [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) on demand and identify the original study, its publication status, evidence design, limitations and independent replication. Treat press releases and preprint/journal versions as related sources, not independent confirmations. Keep ordinary breaking-news reporting and official-source discovery unchanged.
+
 For a story cluster use:
 
 ```text
