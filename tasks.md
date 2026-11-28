@@ -7,7 +7,8 @@
 - [x] Source-level integration: Go Walkabout, Improve, The Color of Rice, Assistant and News. Preserve the bounded Walkabout stop and existing official/domain-specific sources.
 - [x] Trust Check README records dependency and sync requirement; existing standalone canonical method, exact embedded browser copy, pinned Skill reference and packaged ZIPs remain unchanged to avoid source drift.
 - [ ] Next authorised release: synchronise Trust Check's canonical/embedded/pinned variants together; update corresponding browser prompt generators in The Color of Rice, Assistant, News and Improve as needed, preserve fallback and run existing static/handoff tests plus receiving-AI research coverage checks. No claim of live execution, device testing or automatic repository access yet.
-- [ ] Apply the shared source register on demand in future AI-PI and Ageing War/Metabolic Health research; keep story biographies, previous evidence nodes and other non-research app behaviour unchanged.
+- [x] Ageing War and Metabolic Health knowledge records now link to the shared register for future research (no change to evidence findings or last review dates).
+- [ ] Use the shared register in future AI-PI research interfaces; keep story biographies and non-research app behaviour unchanged.
 
 ## P0 | LAUNCH AND VISIBILITY FIRST | 19 November 2026
 
