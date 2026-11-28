@@ -33,6 +33,10 @@ For every material Aletheia task:
 
 Every newly generated Aletheia Markdown output must include **both protocol links** near its beginning, explaining their distinct roles.
 
+### Scientific research dependency (28 November 2026)
+
+For new or existing Aletheia apps and research prompts that investigate scientific, biomedical or scholarly claims, retrieve the current [Aletheia Research Sources](https://raw.githubusercontent.com/KarstenEvans/aletheia-knowledge/main/knowledge/aletheia-research-sources.md) on demand from its canonical repository. Apply its QUICK/DEEP source relevance rules, evidence types, original-source checks, deduplication, uncertainty and STOP procedure. Record whether the register and relevant sources were actually accessible. If unavailable, state that limitation and use appropriate accessible official sources. This is a shared research dependency, not permission for external writes, scheduled searches, paid APIs or unrelated app changes. Include the canonical link in every new or revised research-capable app's AI-facing specification and handoff where scholarly evidence is material; retain existing domain-specific sources and ordinary non-research behaviour.
+
 ## 3. DISCOVER before improving
 
 - Check existing apps, Skills, knowledge libraries, protocol features and shared procedures by **name and function**. Prefer **REUSE / LINK / EXTEND**, then consolidate where genuinely necessary. A new app requires a clear separate user benefit.
